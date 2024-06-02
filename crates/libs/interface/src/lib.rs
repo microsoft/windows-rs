@@ -135,8 +135,8 @@ impl Interface {
 
                 if m.is_result() {
                     quote! {
-                        #[inline(always)]
-                        #vis unsafe fn #name<#(#generics),*>(&self, #(#params),*) #ret {
+                    #[inline(always)]
+                    #vis unsafe fn #name<#(#generics),*>(&self, #(#params),*) #ret {
                             (::windows_core::Interface::vtable(self).#name)(::windows_core::Interface::as_raw(self), #(#args),*).ok()
                         }
                     }
@@ -214,7 +214,7 @@ impl Interface {
         let parent_vtable_generics = if self.parent_is_iunknown() {
             quote!(Identity, OFFSET)
         } else {
-            quote!(Identity, Impl, OFFSET)
+            quote!(Identity, OuterToImpl, OFFSET)
         };
         let parent_vtable = self.parent_vtable();
 
@@ -253,13 +253,35 @@ impl Interface {
 
                 if parent_vtable.is_some() {
                     quote! {
-                        unsafe extern "system" fn #name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
-                            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-                            let this_impl: &Impl = (*this).get_impl();
+                        unsafe extern "system" fn #name<
+                            Identity: ::windows_core::IUnknownImpl,
+                            OuterToImpl: ::windows_core::ComGetImpl<Identity>,
+                            const OFFSET: isize
+                        >(
+                            this: *mut ::core::ffi::c_void, // <-- This is the COM "this" pointer, which is not the same as &T or &T_Impl.
+                            #(#args),*
+                        ) #ret
+                        where
+                            OuterToImpl::Impl : #trait_name
+                        {
+                            // This step is essentially a virtual dispatch adjustor thunk. Its purpose is to adjust
+                            // the "this" pointer from the address used by the COM interface to the root of the
+                            // MyApp_Impl object.  Since a given MyApp_Impl may implement more than one COM interface
+                            // (and more than one COM interface chain), we need to know how to get from COM's "this"
+                            // back to &MyApp_Impl. The OFFSET constant gives us the value (in pointer-sized units).
+                            let this_outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+
+                            // This step selects the part of the MyApp_Impl object which implements a given COM interface,
+                            // i.e. IFoo_Impl trait. There are really only two possibilities: either MyApp_Impl or MyApp
+                            // implements a given IFoo_Impl trait. The ComGetImplInner and ComGetImplOuter types
+                            // allow the code that specialized this function to select which one is used.
+                            let this_impl: &OuterToImpl::Impl = OuterToImpl::get_impl(this_outer);
+
+                            // Last, we invoke the implementation function.
                             // We use explicit <Impl as IFoo_Impl> so that we can select the correct method
                             // for situations where IFoo3 derives from IFoo2 and both declare a method with
                             // the same name.
-                            <Impl as #trait_name>::#name(this_impl, #(#params),*).into()
+                            <OuterToImpl::Impl as #trait_name>::#name(this_impl, #(#params),*).into()
                         }
                     }
                 } else {
@@ -274,24 +296,16 @@ impl Interface {
             })
             .collect::<Vec<_>>();
 
-        let entries = self
-            .methods
-            .iter()
-            .map(|m| {
-                let name = &m.name;
-                if parent_vtable.is_some() {
-                    quote! {
-                            #name: #name::<Identity, Impl, OFFSET>
-                    }
-                } else {
-                    quote! {
-                            #name: #name::<Impl>
-                    }
-                }
-            })
-            .collect::<Vec<_>>();
-
         if let Some(parent_vtable) = parent_vtable {
+            let entries = self
+                .methods
+                .iter()
+                .map(|m| {
+                    let name = &m.name;
+                    quote!(#name: #name::<Identity, OuterToImpl, OFFSET>)
+                })
+                .collect::<Vec<_>>();
+
             quote! {
                 #[repr(C)]
                 #[doc(hidden)]
@@ -300,7 +314,14 @@ impl Interface {
                     #(#vtable_entries)*
                 }
                 impl #vtable_name {
-                    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>() -> Self {
+                    pub const fn new<
+                        Identity: ::windows_core::IUnknownImpl,
+                        OuterToImpl: ::windows_core::ComGetImpl<Identity>,
+                        const OFFSET: isize,
+                    >() -> Self
+                    where
+                        OuterToImpl::Impl : #trait_name
+                    {
                         #(#functions)*
                         Self { base__: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }
                     }
@@ -313,6 +334,15 @@ impl Interface {
                 }
             }
         } else {
+            let entries = self
+                .methods
+                .iter()
+                .map(|m| {
+                    let name = &m.name;
+                    quote!(#name: #name::<Impl>)
+                })
+                .collect::<Vec<_>>();
+
             quote! {
                 #[repr(C)]
                 #[doc(hidden)]

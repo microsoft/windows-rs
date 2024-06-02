@@ -77,8 +77,16 @@ pub fn implement(
         .enumerate()
         .map(|(enumerate, implement)| {
             let vtbl_ident = implement.to_vtbl_ident();
+            let outer_to_impl = match implement.impl_location {
+                ImplLocation::Outer => {
+                    quote!(::windows_core::ComGetImplOuter<#impl_ident #generics>)
+                }
+                ImplLocation::Inner => {
+                    quote!(::windows_core::ComGetImplInner<#impl_ident #generics>)
+                }
+            };
             let offset = proc_macro2::Literal::isize_unsuffixed(-1 - enumerate as isize);
-            quote! { #vtbl_ident::new::<Self, #original_ident::#generics, #offset>() }
+            quote! { #vtbl_ident::new::<Self, #outer_to_impl, #offset>() }
         });
 
     let offset = attributes
@@ -389,6 +397,18 @@ pub fn implement(
 struct ImplementType {
     type_name: String,
     generics: Vec<ImplementType>,
+    impl_location: ImplLocation,
+}
+
+/// Specifies whether a COM object implements COM interfaces on its "inner" or "outer" object.
+///
+/// The default, for backward compatibility, is inner. In the long-term, arguably all COM objects
+/// should switch to defining interfaces on the outer object.
+#[derive(Copy, Clone, Eq, PartialEq, Default)]
+enum ImplLocation {
+    #[default]
+    Inner,
+    Outer,
 }
 
 impl ImplementType {
@@ -450,8 +470,9 @@ impl ImplementAttributes {
                 namespace.push_str(&input.ident.to_string());
                 self.walk_implement(&input.tree, namespace)?;
             }
-            UseTree2::Name(_) => {
-                self.implement.push(tree.to_element_type(namespace)?);
+            UseTree2::Name(name) => {
+                self.implement
+                    .push(tree.to_element_type(name.impl_location, namespace)?);
             }
             UseTree2::Group(input) => {
                 for tree in &input.items {
@@ -473,7 +494,11 @@ enum UseTree2 {
 }
 
 impl UseTree2 {
-    fn to_element_type(&self, namespace: &mut String) -> syn::parse::Result<ImplementType> {
+    fn to_element_type(
+        &self,
+        impl_location: ImplLocation,
+        namespace: &mut String,
+    ) -> syn::parse::Result<ImplementType> {
         match self {
             UseTree2::Path(input) => {
                 if !namespace.is_empty() {
@@ -481,7 +506,7 @@ impl UseTree2 {
                 }
 
                 namespace.push_str(&input.ident.to_string());
-                input.tree.to_element_type(namespace)
+                input.tree.to_element_type(impl_location, namespace)
             }
             UseTree2::Name(input) => {
                 let mut type_name = input.ident.to_string();
@@ -493,12 +518,13 @@ impl UseTree2 {
                 let mut generics = vec![];
 
                 for g in &input.generics {
-                    generics.push(g.to_element_type(&mut String::new())?);
+                    generics.push(g.to_element_type(impl_location, &mut String::new())?);
                 }
 
                 Ok(ImplementType {
                     type_name,
                     generics,
+                    impl_location,
                 })
             }
             UseTree2::Group(input) => Err(syn::parse::Error::new(
@@ -518,6 +544,7 @@ struct UsePath2 {
 struct UseName2 {
     pub ident: syn::Ident,
     pub generics: Vec<UseTree2>,
+    pub impl_location: ImplLocation,
 }
 
 struct UseGroup2 {
@@ -572,7 +599,27 @@ impl syn::parse::Parse for UseTree2 {
                     Vec::new()
                 };
 
-                Ok(UseTree2::Name(UseName2 { ident, generics }))
+                // Check for a suffix of `@Outer`, which specifies that an interface chain is
+                // implemented on the outer (MyApp_Impl) type, not the inner type.
+                let mut impl_location = ImplLocation::Inner;
+                if input.peek(syn::Token![@]) {
+                    input.parse::<syn::Token![@]>()?;
+                    let ident = input.parse::<syn::Ident>()?;
+                    if ident == "Outer" {
+                        impl_location = ImplLocation::Outer;
+                    } else {
+                        return Err(syn::Error::new(
+                            ident.span(),
+                            "the only supported suffix is @ Outer",
+                        ));
+                    }
+                }
+
+                Ok(UseTree2::Name(UseName2 {
+                    ident,
+                    generics,
+                    impl_location,
+                }))
             }
         } else if lookahead.peek(syn::token::Brace) {
             let content;

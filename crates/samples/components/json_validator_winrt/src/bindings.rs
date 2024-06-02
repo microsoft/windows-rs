@@ -114,21 +114,28 @@ impl windows_core::RuntimeName for IJsonValidator {
 }
 impl IJsonValidator_Vtbl {
     pub const fn new<
-        Identity: windows_core::IUnknownImpl<Impl = Impl>,
-        Impl: IJsonValidator_Impl,
+        Identity: windows_core::IUnknownImpl,
+        OuterToImpl: ::windows_core::ComGetImpl<Identity>,
         const OFFSET: isize,
-    >() -> IJsonValidator_Vtbl {
+    >() -> IJsonValidator_Vtbl
+    where
+        OuterToImpl::Impl: IJsonValidator_Impl,
+    {
         unsafe extern "system" fn Validate<
-            Identity: windows_core::IUnknownImpl<Impl = Impl>,
-            Impl: IJsonValidator_Impl,
+            Identity: windows_core::IUnknownImpl,
+            OuterToImpl: ::windows_core::ComGetImpl<Identity>,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             value: core::mem::MaybeUninit<windows_core::HSTRING>,
             result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>,
-        ) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        ) -> windows_core::HRESULT
+        where
+            OuterToImpl::Impl: IJsonValidator_Impl,
+        {
+            let this_outer: &Identity =
+                &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            let this = OuterToImpl::get_impl(this_outer);
             match IJsonValidator_Impl::Validate(this, core::mem::transmute(&value)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
@@ -140,7 +147,7 @@ impl IJsonValidator_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IJsonValidator, OFFSET>(),
-            Validate: Validate::<Identity, Impl, OFFSET>,
+            Validate: Validate::<Identity, OuterToImpl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -156,21 +163,28 @@ impl windows_core::RuntimeName for IJsonValidatorFactory {
 }
 impl IJsonValidatorFactory_Vtbl {
     pub const fn new<
-        Identity: windows_core::IUnknownImpl<Impl = Impl>,
-        Impl: IJsonValidatorFactory_Impl,
+        Identity: windows_core::IUnknownImpl,
+        OuterToImpl: ::windows_core::ComGetImpl<Identity>,
         const OFFSET: isize,
-    >() -> IJsonValidatorFactory_Vtbl {
+    >() -> IJsonValidatorFactory_Vtbl
+    where
+        OuterToImpl::Impl: IJsonValidatorFactory_Impl,
+    {
         unsafe extern "system" fn CreateInstance<
-            Identity: windows_core::IUnknownImpl<Impl = Impl>,
-            Impl: IJsonValidatorFactory_Impl,
+            Identity: windows_core::IUnknownImpl,
+            OuterToImpl: ::windows_core::ComGetImpl<Identity>,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             schema: core::mem::MaybeUninit<windows_core::HSTRING>,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        ) -> windows_core::HRESULT
+        where
+            OuterToImpl::Impl: IJsonValidatorFactory_Impl,
+        {
+            let this_outer: &Identity =
+                &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            let this = OuterToImpl::get_impl(this_outer);
             match IJsonValidatorFactory_Impl::CreateInstance(this, core::mem::transmute(&schema)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
@@ -183,7 +197,7 @@ impl IJsonValidatorFactory_Vtbl {
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IJsonValidatorFactory, OFFSET>(
             ),
-            CreateInstance: CreateInstance::<Identity, Impl, OFFSET>,
+            CreateInstance: CreateInstance::<Identity, OuterToImpl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

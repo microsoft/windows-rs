@@ -330,3 +330,57 @@ impl<T: ComObjectInner> Borrow<T> for ComObject<T> {
         self.get()
     }
 }
+
+/// Allows a COM object implementation to implement COM interfaces either on the "outer" type or
+/// the "inner" type.
+///
+/// This trait is part of the implementation of `windows-rs` and is not meant to be used directly
+/// by user code. This trait is not stable and may change at any time.
+#[doc(hidden)]
+pub trait ComGetImpl<Outer> {
+    /// The type that implements the COM interface.
+    type Impl;
+
+    /// At runtime, casts from the outer object type to the implementation type.
+    fn get_impl(outer: &Outer) -> &Self::Impl;
+}
+
+/// Selects the "inner" type of a COM object implementation. This implementation uses the
+/// `IUnknownImpl` trait both to specify the type that implements the COM interface and to
+/// cast from `&Outer` to `&Inner` (i.e. from `&MyApp_Impl` to `&MyApp`).
+///
+/// This struct is part of the implementation of `windows-rs` and is not meant to be used directly
+/// by user code. This trait is not stable and may change at any time.
+#[doc(hidden)]
+pub struct ComGetImplInner<Outer> {
+    _marker: core::marker::PhantomData<Outer>,
+}
+
+impl<Outer> ComGetImpl<Outer> for ComGetImplInner<Outer>
+where
+    Outer: IUnknownImpl,
+{
+    type Impl = <Outer as IUnknownImpl>::Impl;
+
+    fn get_impl(outer: &Outer) -> &Self::Impl {
+        <Outer as IUnknownImpl>::get_impl(outer)
+    }
+}
+
+/// Selects the "outer" type of a COM object implementation. This is basically an identify function,
+/// over types.
+///
+/// This struct is part of the implementation of `windows-rs` and is not meant to be used directly
+/// by user code. This trait is not stable and may change at any time.
+#[doc(hidden)]
+pub struct ComGetImplOuter<Outer> {
+    _marker: core::marker::PhantomData<Outer>,
+}
+
+impl<Outer> ComGetImpl<Outer> for ComGetImplOuter<Outer> {
+    type Impl = Outer;
+
+    fn get_impl(outer: &Outer) -> &Self::Impl {
+        outer
+    }
+}

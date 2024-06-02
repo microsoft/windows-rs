@@ -5,3 +5,4 @@
 
 mod com_chain;
 mod com_object;
+mod impl_on_outer;
