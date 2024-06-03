@@ -8,7 +8,10 @@ pub struct Strings {
 
 impl Default for Strings {
     fn default() -> Self {
-        Self { map: Default::default(), stream: vec![0] }
+        Self {
+            map: Default::default(),
+            stream: vec![0],
+        }
     }
 }
 

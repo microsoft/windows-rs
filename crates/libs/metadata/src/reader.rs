@@ -30,8 +30,18 @@ impl Reader {
         Self::filter(files, &[], &[], &config)
     }
 
-    pub fn filter(files: Vec<File>, include: &[&str], exclude: &[&str], config: &BTreeMap<&str, &str>) -> &'static Self {
-        let reader: &'static mut Reader = Box::leak(Box::new(Self { items: Default::default(), nested: Default::default(), filter: Filter::new(include, exclude), sys: config.contains_key("sys") }));
+    pub fn filter(
+        files: Vec<File>,
+        include: &[&str],
+        exclude: &[&str],
+        config: &BTreeMap<&str, &str>,
+    ) -> &'static Self {
+        let reader: &'static mut Reader = Box::leak(Box::new(Self {
+            items: Default::default(),
+            nested: Default::default(),
+            filter: Filter::new(include, exclude),
+            sys: config.contains_key("sys"),
+        }));
 
         for mut file in files {
             file.reader = reader as *mut Reader;
@@ -49,19 +59,37 @@ impl Reader {
 
                 if name == "Apis" {
                     for method in def.methods() {
-                        namespace_items.entry(method.name()).or_default().push(Item::Fn(method, namespace));
+                        namespace_items
+                            .entry(method.name())
+                            .or_default()
+                            .push(Item::Fn(method, namespace));
                     }
 
                     for field in def.fields() {
-                        namespace_items.entry(field.name()).or_default().push(Item::Const(field));
+                        namespace_items
+                            .entry(field.name())
+                            .or_default()
+                            .push(Item::Const(field));
                     }
                 } else {
-                    namespace_items.entry(name).or_default().push(Item::Type(def));
+                    namespace_items
+                        .entry(name)
+                        .or_default()
+                        .push(Item::Type(def));
 
                     // TODO: these should all be fields on the Apis class so we don't have to go looking for all of these as well.
-                    if def.extends() == Some(TypeName::Enum) && !def.flags().contains(TypeAttributes::WindowsRuntime) && !def.has_attribute("ScopedEnumAttribute") {
-                        for field in def.fields().filter(|field| field.flags().contains(FieldAttributes::Literal)) {
-                            namespace_items.entry(field.name()).or_default().push(Item::Const(field));
+                    if def.extends() == Some(TypeName::Enum)
+                        && !def.flags().contains(TypeAttributes::WindowsRuntime)
+                        && !def.has_attribute("ScopedEnumAttribute")
+                    {
+                        for field in def
+                            .fields()
+                            .filter(|field| field.flags().contains(FieldAttributes::Literal))
+                        {
+                            namespace_items
+                                .entry(field.name())
+                                .or_default()
+                                .push(Item::Const(field));
                         }
                     }
                 }
@@ -69,7 +97,11 @@ impl Reader {
 
             for key in file.table::<NestedClass>() {
                 let inner = key.inner();
-                reader.nested.entry(key.outer()).or_default().insert(inner.name(), inner);
+                reader
+                    .nested
+                    .entry(key.outer())
+                    .or_default()
+                    .insert(inner.name(), inner);
             }
         }
 
@@ -85,15 +117,39 @@ impl Reader {
     }
 
     pub fn items(&self) -> impl Iterator<Item = Item> + '_ {
-        self.items.iter().filter(move |(namespace, _)| self.filter.includes_namespace(namespace)).flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| self.filter.includes_type_name(namespace, name))).flat_map(move |(_, items)| items).cloned()
+        self.items
+            .iter()
+            .filter(move |(namespace, _)| self.filter.includes_namespace(namespace))
+            .flat_map(move |(namespace, items)| {
+                items
+                    .iter()
+                    .filter(move |(name, _)| self.filter.includes_type_name(namespace, name))
+            })
+            .flat_map(move |(_, items)| items)
+            .cloned()
     }
 
     pub fn namespace_items(&self, namespace: &str) -> impl Iterator<Item = Item> + '_ {
-        self.items.get_key_value(namespace).into_iter().flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| self.filter.includes_type_name(namespace, name))).flat_map(move |(_, items)| items).cloned()
+        self.items
+            .get_key_value(namespace)
+            .into_iter()
+            .flat_map(move |(namespace, items)| {
+                items
+                    .iter()
+                    .filter(move |(name, _)| self.filter.includes_type_name(namespace, name))
+            })
+            .flat_map(move |(_, items)| items)
+            .cloned()
     }
 
     pub fn unused(&self) -> impl Iterator<Item = &str> + '_ {
-        self.filter.0.iter().filter_map(|(name, _)| if self.is_unused(name) { Some(name.as_str()) } else { None })
+        self.filter.0.iter().filter_map(|(name, _)| {
+            if self.is_unused(name) {
+                Some(name.as_str())
+            } else {
+                None
+            }
+        })
     }
 
     fn is_unused(&self, filter: &str) -> bool {
@@ -104,14 +160,21 @@ impl Reader {
 
         // Match type names
         if let Some((namespace, name)) = filter.rsplit_once('.') {
-            if self.items.get(namespace).is_some_and(|items| items.contains_key(name)) {
+            if self
+                .items
+                .get(namespace)
+                .is_some_and(|items| items.contains_key(name))
+            {
                 return false;
             }
         }
 
         // Match empty parent namespaces
         for namespace in self.items.keys() {
-            if namespace.len() > filter.len() && namespace.starts_with(filter) && namespace.as_bytes()[filter.len()] == b'.' {
+            if namespace.len() > filter.len()
+                && namespace.starts_with(filter)
+                && namespace.as_bytes()[filter.len()] == b'.'
+            {
                 return false;
             }
         }
@@ -129,15 +192,35 @@ impl Reader {
     }
 
     pub fn get_type_def(&self, namespace: &str, name: &str) -> impl Iterator<Item = TypeDef> + '_ {
-        self.get_item(namespace, name).filter_map(|item| if let Item::Type(def) = item { Some(def) } else { None })
+        self.get_item(namespace, name).filter_map(|item| {
+            if let Item::Type(def) = item {
+                Some(def)
+            } else {
+                None
+            }
+        })
     }
 
-    pub fn get_method_def(&self, namespace: &str, name: &str) -> impl Iterator<Item = (MethodDef, &'static str)> + '_ {
-        self.get_item(namespace, name).filter_map(|item| if let Item::Fn(def, namespace) = item { Some((def, namespace)) } else { None })
+    pub fn get_method_def(
+        &self,
+        namespace: &str,
+        name: &str,
+    ) -> impl Iterator<Item = (MethodDef, &'static str)> + '_ {
+        self.get_item(namespace, name).filter_map(|item| {
+            if let Item::Fn(def, namespace) = item {
+                Some((def, namespace))
+            } else {
+                None
+            }
+        })
     }
 
     pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
-        self.nested.get(&type_def).map(|map| map.values().copied()).into_iter().flatten()
+        self.nested
+            .get(&type_def)
+            .map(|map| map.values().copied())
+            .into_iter()
+            .flatten()
     }
 
     pub fn remap_type(&self, name: TypeName) -> Option<TypeName> {
@@ -169,7 +252,12 @@ impl Reader {
         }
     }
 
-    pub fn type_from_ref(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
+    pub fn type_from_ref(
+        &self,
+        code: TypeDefOrRef,
+        enclosing: Option<TypeDef>,
+        generics: &[Type],
+    ) -> Type {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = def.blob(0);
             return self.type_from_blob_impl(&mut blob, None, generics);
@@ -190,23 +278,38 @@ impl Reader {
             if full_name.namespace().is_empty() {
                 let nested = &self.nested[&outer];
                 let Some(inner) = nested.get(full_name.name()) else {
-                    panic!("Nested type not found: {}.{}", outer.type_name(), full_name.name());
+                    panic!(
+                        "Nested type not found: {}.{}",
+                        outer.type_name(),
+                        full_name.name()
+                    );
                 };
                 return Type::TypeDef(*inner, Vec::new());
             }
         }
 
         // TODO: this needs to just return a TypeRef and avoid resolving as its too early to bake in the type
-        if let Some(def) = self.get_type_def(full_name.namespace(), full_name.name()).next() {
+        if let Some(def) = self
+            .get_type_def(full_name.namespace(), full_name.name())
+            .next()
+        {
             Type::TypeDef(def, Vec::new())
         } else {
             Type::Name(full_name)
         }
     }
 
-    pub fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
+    pub fn type_from_blob(
+        &self,
+        blob: &mut Blob,
+        enclosing: Option<TypeDef>,
+        generics: &[Type],
+    ) -> Type {
         // Used by WinRT to indicate that a struct input parameter is passed by reference rather than by value on the ABI.
-        let is_const = blob.read_modifiers().iter().any(|def| def.type_name() == TypeName::IsConst);
+        let is_const = blob
+            .read_modifiers()
+            .iter()
+            .any(|def| def.type_name() == TypeName::IsConst);
 
         // Used by WinRT to indicate an output parameter, but there are other ways to determine this direction so here
         // it is only used to distinguish between slices and heap-allocated arrays.
@@ -241,7 +344,12 @@ impl Reader {
         }
     }
 
-    fn type_from_blob_impl(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
+    fn type_from_blob_impl(
+        &self,
+        blob: &mut Blob,
+        enclosing: Option<TypeDef>,
+        generics: &[Type],
+    ) -> Type {
         let code = blob.read_usize();
 
         if let Some(code) = Type::from_code(code) {
@@ -249,8 +357,15 @@ impl Reader {
         }
 
         match code as u8 {
-            ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => self.type_from_ref(TypeDefOrRef::decode(blob.file, blob.read_usize()), enclosing, generics),
-            ELEMENT_TYPE_VAR => generics.get(blob.read_usize()).unwrap_or(&Type::Void).clone(),
+            ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => self.type_from_ref(
+                TypeDefOrRef::decode(blob.file, blob.read_usize()),
+                enclosing,
+                generics,
+            ),
+            ELEMENT_TYPE_VAR => generics
+                .get(blob.read_usize())
+                .unwrap_or(&Type::Void)
+                .clone(),
             ELEMENT_TYPE_ARRAY => {
                 let kind = self.type_from_blob(blob, enclosing, generics);
                 let _rank = blob.read_usize();
@@ -262,7 +377,10 @@ impl Reader {
                 blob.read_usize(); // ELEMENT_TYPE_VALUETYPE or ELEMENT_TYPE_CLASS
 
                 let type_name = TypeDefOrRef::decode(blob.file, blob.read_usize()).type_name();
-                let def = self.get_type_def(type_name.namespace(), type_name.name()).next().unwrap_or_else(|| panic!("Type not found: {}", type_name));
+                let def = self
+                    .get_type_def(type_name.namespace(), type_name.name())
+                    .next()
+                    .unwrap_or_else(|| panic!("Type not found: {}", type_name));
                 let mut args = Vec::with_capacity(blob.read_usize());
 
                 for _ in 0..args.capacity() {

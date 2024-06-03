@@ -50,7 +50,8 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: windows_core::Interface));
+            let where_clause =
+                expand_where_clause(where_clause, quote!(T: windows_core::Interface));
 
             quote! {
                 #features
@@ -66,7 +67,8 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: windows_core::Interface));
+            let where_clause =
+                expand_where_clause(where_clause, quote!(T: windows_core::Interface));
 
             quote! {
                 #features
@@ -204,11 +206,19 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &metadata::Signature) -
     let ident = to_ident(name);
 
     // Windows libs are always produced with lowercase module names.
-    let library = if namespace.starts_with("Windows.") { signature.def.module_name().to_lowercase() } else { signature.def.module_name().to_string() };
+    let library = if namespace.starts_with("Windows.") {
+        signature.def.module_name().to_lowercase()
+    } else {
+        signature.def.module_name().to_string()
+    };
 
     let abi = method_def_extern_abi(signature.def);
 
-    let symbol = if let Some(impl_map) = signature.def.impl_map() { impl_map.import_name() } else { name };
+    let symbol = if let Some(impl_map) = signature.def.impl_map() {
+        impl_map.import_name()
+    } else {
+        name
+    };
 
     let link_name = if symbol != name {
         quote! { #[link_name = #symbol] }
@@ -218,13 +228,21 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &metadata::Signature) -
 
     let params = signature.params.iter().map(|p| {
         let name = writer.param_name(p.def);
-        let tokens = if p.kind == metadata::SignatureParamKind::ValueType { writer.type_default_name(&p.ty) } else { writer.type_abi_name(&p.ty) };
+        let tokens = if p.kind == metadata::SignatureParamKind::ValueType {
+            writer.type_default_name(&p.ty)
+        } else {
+            writer.type_abi_name(&p.ty)
+        };
         quote! { #name: #tokens }
     });
 
     let return_type = writer.return_sig(signature);
 
-    let vararg = if writer.sys && signature.call_flags.contains(metadata::MethodCallAttributes::VARARG) {
+    let vararg = if writer.sys
+        && signature
+            .call_flags
+            .contains(metadata::MethodCallAttributes::VARARG)
+    {
         "...".into()
     } else {
         quote! {}
@@ -241,7 +259,11 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &metadata::Signature) -
             }
         }
     } else {
-        let symbol = if symbol != name { format!(" \"{symbol}\"") } else { String::new() };
+        let symbol = if symbol != name {
+            format!(" \"{symbol}\"")
+        } else {
+            String::new()
+        };
 
         let mut tokens = String::new();
         for param in params {
@@ -263,7 +285,10 @@ fn does_not_return(def: metadata::MethodDef) -> TokenStream {
 
 fn handle_last_error(def: metadata::MethodDef, signature: &metadata::Signature) -> bool {
     if let Some(map) = def.impl_map() {
-        if map.flags().contains(metadata::PInvokeAttributes::SupportsLastError) {
+        if map
+            .flags()
+            .contains(metadata::PInvokeAttributes::SupportsLastError)
+        {
             if let metadata::Type::TypeDef(return_type, _) = &signature.return_type {
                 if metadata::type_def_is_handle(*return_type) {
                     // https://github.com/microsoft/windows-rs/issues/2392#issuecomment-1477765781

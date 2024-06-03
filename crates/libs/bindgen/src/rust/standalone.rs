@@ -87,7 +87,14 @@ pub fn standalone_imp(writer: &Writer) -> String {
     }
 
     for (function, namespace) in functions {
-        sorted.insert(&format!(".{}.{}", function.module_name().to_lowercase(), function.name()), functions::writer(writer, namespace, function));
+        sorted.insert(
+            &format!(
+                ".{}.{}",
+                function.module_name().to_lowercase(),
+                function.name()
+            ),
+            functions::writer(writer, namespace, function),
+        );
     }
 
     for constant in constants {
@@ -108,19 +115,34 @@ impl SortedTokens {
     }
 }
 
-fn item_collect_standalone(writer: &Writer, item: metadata::Item, set: &mut std::collections::BTreeSet<metadata::Type>) {
+fn item_collect_standalone(
+    writer: &Writer,
+    item: metadata::Item,
+    set: &mut std::collections::BTreeSet<metadata::Type>,
+) {
     match item {
-        metadata::Item::Type(def) => type_collect_standalone(writer, &metadata::Type::TypeDef(def, vec![]), set),
-        metadata::Item::Const(def) => type_collect_standalone(writer, &def.ty(None).to_const_type(), set),
+        metadata::Item::Type(def) => {
+            type_collect_standalone(writer, &metadata::Type::TypeDef(def, vec![]), set)
+        }
+        metadata::Item::Const(def) => {
+            type_collect_standalone(writer, &def.ty(None).to_const_type(), set)
+        }
         metadata::Item::Fn(def, namespace) => {
             let signature = metadata::method_def_signature(namespace, def, &[]);
             type_collect_standalone(writer, &signature.return_type, set);
-            signature.params.iter().for_each(|param| type_collect_standalone(writer, &param.ty, set));
+            signature
+                .params
+                .iter()
+                .for_each(|param| type_collect_standalone(writer, &param.ty, set));
         }
     }
 }
 // TODO: remove or move to riddle
-fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::collections::BTreeSet<metadata::Type>) {
+fn type_collect_standalone(
+    writer: &Writer,
+    ty: &metadata::Type,
+    set: &mut std::collections::BTreeSet<metadata::Type>,
+) {
     let ty = ty.to_underlying_type();
     if !set.insert(ty.clone()) {
         return;
@@ -132,7 +154,11 @@ fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::
                 set.insert(metadata::Type::Name(metadata::TypeName::GUID));
                 set.insert(metadata::Type::Name(metadata::TypeName::HResult));
             }
-            metadata::Type::Object => type_collect_standalone(writer, &metadata::Type::Name(metadata::TypeName::IUnknown), set),
+            metadata::Type::Object => type_collect_standalone(
+                writer,
+                &metadata::Type::Name(metadata::TypeName::IUnknown),
+                set,
+            ),
             _ => {}
         }
     }
@@ -150,7 +176,10 @@ fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::
     // by one architecture but not by another
     let type_name = def.type_name();
     if !type_name.namespace().is_empty() {
-        for row in def.reader().get_type_def(type_name.namespace(), type_name.name()) {
+        for row in def
+            .reader()
+            .get_type_def(type_name.namespace(), type_name.name())
+        {
             if def != row {
                 type_collect_standalone(writer, &metadata::Type::TypeDef(row, Vec::new()), set);
             }
@@ -178,7 +207,10 @@ fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::
         }
         let signature = metadata::method_def_signature(def.namespace(), method, &generics);
         type_collect_standalone(writer, &signature.return_type, set);
-        signature.params.iter().for_each(|param| type_collect_standalone(writer, &param.ty, set));
+        signature
+            .params
+            .iter()
+            .for_each(|param| type_collect_standalone(writer, &param.ty, set));
     }
 
     for interface in metadata::type_interfaces(&ty) {
@@ -192,7 +224,10 @@ fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::
             }
         }
         metadata::TypeKind::Interface => {
-            if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+            if def
+                .flags()
+                .contains(metadata::TypeAttributes::WindowsRuntime)
+            {
                 type_collect_standalone(writer, &metadata::Type::Object, set);
             }
         }
@@ -202,7 +237,11 @@ fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::
     type_collect_standalone_nested(writer, def, set);
 }
 
-fn type_collect_standalone_nested(writer: &Writer, td: metadata::TypeDef, set: &mut std::collections::BTreeSet<metadata::Type>) {
+fn type_collect_standalone_nested(
+    writer: &Writer,
+    td: metadata::TypeDef,
+    set: &mut std::collections::BTreeSet<metadata::Type>,
+) {
     for nested in td.reader().nested_types(td) {
         type_collect_standalone_nested(writer, nested, set);
 

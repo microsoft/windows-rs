@@ -70,7 +70,19 @@ pub enum AsyncKind {
 }
 
 #[derive(Clone, PartialEq, Eq, Default)]
-pub struct Guid(pub u32, pub u16, pub u16, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8, pub u8);
+pub struct Guid(
+    pub u32,
+    pub u16,
+    pub u16,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+);
 
 impl Guid {
     pub fn from_args(args: &[(&str, Value)]) -> Self {
@@ -92,29 +104,67 @@ impl Guid {
                 rest => unimplemented!("{rest:?}"),
             }
         }
-        Self(unwrap_u32(&args[0].1), unwrap_u16(&args[1].1), unwrap_u16(&args[2].1), unwrap_u8(&args[3].1), unwrap_u8(&args[4].1), unwrap_u8(&args[5].1), unwrap_u8(&args[6].1), unwrap_u8(&args[7].1), unwrap_u8(&args[8].1), unwrap_u8(&args[9].1), unwrap_u8(&args[10].1))
+        Self(
+            unwrap_u32(&args[0].1),
+            unwrap_u16(&args[1].1),
+            unwrap_u16(&args[2].1),
+            unwrap_u8(&args[3].1),
+            unwrap_u8(&args[4].1),
+            unwrap_u8(&args[5].1),
+            unwrap_u8(&args[6].1),
+            unwrap_u8(&args[7].1),
+            unwrap_u8(&args[8].1),
+            unwrap_u8(&args[9].1),
+            unwrap_u8(&args[10].1),
+        )
     }
 
     pub fn from_string_args(args: &[&str]) -> Self {
-        Self(args[0].parse().unwrap(), args[1].parse().unwrap(), args[2].parse().unwrap(), args[3].parse().unwrap(), args[4].parse().unwrap(), args[5].parse().unwrap(), args[6].parse().unwrap(), args[7].parse().unwrap(), args[8].parse().unwrap(), args[9].parse().unwrap(), args[10].parse().unwrap())
+        Self(
+            args[0].parse().unwrap(),
+            args[1].parse().unwrap(),
+            args[2].parse().unwrap(),
+            args[3].parse().unwrap(),
+            args[4].parse().unwrap(),
+            args[5].parse().unwrap(),
+            args[6].parse().unwrap(),
+            args[7].parse().unwrap(),
+            args[8].parse().unwrap(),
+            args[9].parse().unwrap(),
+            args[10].parse().unwrap(),
+        )
     }
 }
 
 impl std::fmt::Debug for Guid {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{:08x?}-{:04x?}-{:04x?}-{:02x?}{:02x?}-{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}", self.0, self.1, self.2, self.3, self.4, self.5, self.6, self.7, self.8, self.9, self.10)
+        write!(
+            f,
+            "{:08x?}-{:04x?}-{:04x?}-{:02x?}{:02x?}-{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}",
+            self.0, self.1, self.2, self.3, self.4, self.5, self.6, self.7, self.8, self.9, self.10
+        )
     }
 }
 
 impl SignatureParamKind {
     fn is_array(&self) -> bool {
-        matches!(self, Self::ArrayFixed(_) | Self::ArrayRelativeLen(_) | Self::ArrayRelativeByteLen(_) | Self::ArrayRelativePtr(_))
+        matches!(
+            self,
+            Self::ArrayFixed(_)
+                | Self::ArrayRelativeLen(_)
+                | Self::ArrayRelativeByteLen(_)
+                | Self::ArrayRelativePtr(_)
+        )
     }
 }
 
 impl SignatureParam {
     pub fn is_convertible(&self) -> bool {
-        !self.def.flags().contains(ParamAttributes::Out) && !self.ty.is_winrt_array() && !self.ty.is_pointer() && !self.kind.is_array() && (type_is_borrowed(&self.ty) || type_is_trivially_convertible(&self.ty))
+        !self.def.flags().contains(ParamAttributes::Out)
+            && !self.ty.is_winrt_array()
+            && !self.ty.is_pointer()
+            && !self.kind.is_array()
+            && (type_is_borrowed(&self.ty) || type_is_trivially_convertible(&self.ty))
     }
 
     fn is_retval(&self) -> bool {
@@ -130,7 +180,11 @@ impl SignatureParam {
             return false;
         }
         let flags = self.def.flags();
-        if flags.contains(ParamAttributes::In) || !flags.contains(ParamAttributes::Out) || flags.contains(ParamAttributes::Optional) || self.kind.is_array() {
+        if flags.contains(ParamAttributes::In)
+            || !flags.contains(ParamAttributes::Out)
+            || flags.contains(ParamAttributes::Optional)
+            || self.kind.is_array()
+        {
             return false;
         }
         if param_kind(self.def).is_array() {
@@ -151,7 +205,10 @@ impl SignatureParam {
 
 impl Signature {
     pub fn kind(&self) -> SignatureKind {
-        if self.def.has_attribute("CanReturnMultipleSuccessValuesAttribute") {
+        if self
+            .def
+            .has_attribute("CanReturnMultipleSuccessValuesAttribute")
+        {
             return SignatureKind::PreserveSig;
         }
         match &self.return_type {
@@ -160,7 +217,11 @@ impl Signature {
             Type::Name(TypeName::HResult) => {
                 if self.params.len() >= 2 {
                     if let Some((guid, object)) = signature_param_is_query(&self.params) {
-                        if self.params[object].def.flags().contains(ParamAttributes::Optional) {
+                        if self.params[object]
+                            .def
+                            .flags()
+                            .contains(ParamAttributes::Optional)
+                        {
                             return SignatureKind::QueryOptional(QueryPosition { object, guid });
                         } else {
                             return SignatureKind::Query(QueryPosition { object, guid });
@@ -173,7 +234,11 @@ impl Signature {
                     SignatureKind::ResultVoid
                 }
             }
-            Type::TypeDef(def, _) if def.type_name() == TypeName::BOOL && method_def_last_error(self.def) => SignatureKind::ResultVoid,
+            Type::TypeDef(def, _)
+                if def.type_name() == TypeName::BOOL && method_def_last_error(self.def) =>
+            {
+                SignatureKind::ResultVoid
+            }
             _ if type_is_struct(&self.return_type) => SignatureKind::ReturnStruct,
             _ => SignatureKind::PreserveSig,
         }
@@ -197,7 +262,9 @@ impl Signature {
 }
 
 pub fn type_def_invoke_method(row: TypeDef) -> MethodDef {
-    row.methods().find(|method| method.name() == "Invoke").expect("`Invoke` method not found")
+    row.methods()
+        .find(|method| method.name() == "Invoke")
+        .expect("`Invoke` method not found")
 }
 
 pub fn type_def_generics(def: TypeDef) -> Vec<Type> {
@@ -227,8 +294,14 @@ pub fn method_def_signature(namespace: &str, row: MethodDef, generics: &[Type]) 
                 let mut ty = reader.type_from_blob(&mut blob, None, generics);
 
                 if let Some(name) = param_or_enum(param) {
-                    let def = reader.get_type_def(namespace, &name).next().expect("Enum not found");
-                    ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(Type::TypeDef(def, Vec::new())));
+                    let def = reader
+                        .get_type_def(namespace, &name)
+                        .next()
+                        .expect("Enum not found");
+                    ty = Type::PrimitiveOrEnum(
+                        Box::new(ty),
+                        Box::new(Type::TypeDef(def, Vec::new())),
+                    );
                 }
 
                 if param_is_const || !is_output {
@@ -238,7 +311,11 @@ pub fn method_def_signature(namespace: &str, row: MethodDef, generics: &[Type]) 
                     ty = ty.to_const_ptr();
                 }
                 let kind = param_kind(param);
-                Some(SignatureParam { def: param, ty, kind })
+                Some(SignatureParam {
+                    def: param,
+                    ty,
+                    kind,
+                })
             }
         })
         .collect();
@@ -246,9 +323,13 @@ pub fn method_def_signature(namespace: &str, row: MethodDef, generics: &[Type]) 
     for position in 0..params.len() {
         // Point len params back to the corresponding ptr params.
         match params[position].kind {
-            SignatureParamKind::ArrayRelativeLen(relative) | SignatureParamKind::ArrayRelativeByteLen(relative) => {
+            SignatureParamKind::ArrayRelativeLen(relative)
+            | SignatureParamKind::ArrayRelativeByteLen(relative) => {
                 // The len params must be input only.
-                if !params[relative].def.flags().contains(ParamAttributes::Out) && position != relative && !params[relative].ty.is_pointer() {
+                if !params[relative].def.flags().contains(ParamAttributes::Out)
+                    && position != relative
+                    && !params[relative].ty.is_pointer()
+                {
                     params[relative].kind = SignatureParamKind::ArrayRelativePtr(position);
                 } else {
                     params[position].kind = SignatureParamKind::Other;
@@ -268,7 +349,8 @@ pub fn method_def_signature(namespace: &str, row: MethodDef, generics: &[Type]) 
     // Finds sets of ptr params pointing at the same len param.
     for (position, param) in params.iter().enumerate() {
         match param.kind {
-            SignatureParamKind::ArrayRelativeLen(relative) | SignatureParamKind::ArrayRelativeByteLen(relative) => {
+            SignatureParamKind::ArrayRelativeLen(relative)
+            | SignatureParamKind::ArrayRelativeByteLen(relative) => {
                 sets.entry(relative).or_default().push(position);
             }
             _ => {}
@@ -301,9 +383,14 @@ pub fn method_def_signature(namespace: &str, row: MethodDef, generics: &[Type]) 
                 param.kind = SignatureParamKind::IntoParam;
             } else {
                 let flags = param.def.flags();
-                if param.ty.is_pointer() && (flags.contains(ParamAttributes::Optional) || param.def.has_attribute("ReservedAttribute")) {
+                if param.ty.is_pointer()
+                    && (flags.contains(ParamAttributes::Optional)
+                        || param.def.has_attribute("ReservedAttribute"))
+                {
                     param.kind = SignatureParamKind::OptionalPointer;
-                } else if type_is_primitive(&param.ty) && (!param.ty.is_pointer() || type_is_blittable(&param.ty.deref())) {
+                } else if type_is_primitive(&param.ty)
+                    && (!param.ty.is_pointer() || type_is_blittable(&param.ty.deref()))
+                {
                     param.kind = SignatureParamKind::ValueType;
                 } else if type_is_blittable(&param.ty) {
                     param.kind = SignatureParamKind::Blittable;
@@ -312,7 +399,12 @@ pub fn method_def_signature(namespace: &str, row: MethodDef, generics: &[Type]) 
         }
     }
 
-    Signature { def: row, params, return_type, call_flags }
+    Signature {
+        def: row,
+        params,
+        return_type,
+        call_flags,
+    }
 }
 
 fn param_kind(row: Param) -> SignatureParamKind {
@@ -321,7 +413,9 @@ fn param_kind(row: Param) -> SignatureParamKind {
             "NativeArrayInfoAttribute" => {
                 for (_, value) in attribute.args() {
                     match value {
-                        Value::I16(value) => return SignatureParamKind::ArrayRelativeLen(value as usize),
+                        Value::I16(value) => {
+                            return SignatureParamKind::ArrayRelativeLen(value as usize)
+                        }
                         Value::I32(value) => return SignatureParamKind::ArrayFixed(value as usize),
                         _ => {}
                     }
@@ -346,19 +440,26 @@ fn param_or_enum(row: Param) -> Option<String> {
         return None;
     }
 
-    row.find_attribute("AssociatedEnumAttribute").and_then(|attribute| {
-        for (_, arg) in attribute.args() {
-            if let Value::String(name) = arg {
-                return Some(name);
+    row.find_attribute("AssociatedEnumAttribute")
+        .and_then(|attribute| {
+            for (_, arg) in attribute.args() {
+                if let Value::String(name) = arg {
+                    return Some(name);
+                }
             }
-        }
-        None
-    })
+            None
+        })
 }
 
 fn signature_param_is_query(params: &[SignatureParam]) -> Option<(usize, usize)> {
-    if let Some(guid) = params.iter().rposition(|param| param.ty == Type::ConstPtr(Box::new(Type::Name(TypeName::GUID)), 1) && !param.def.flags().contains(ParamAttributes::Out)) {
-        if let Some(object) = params.iter().rposition(|param| param.ty == Type::MutPtr(Box::new(Type::Void), 2) && param.def.has_attribute("ComOutPtrAttribute")) {
+    if let Some(guid) = params.iter().rposition(|param| {
+        param.ty == Type::ConstPtr(Box::new(Type::Name(TypeName::GUID)), 1)
+            && !param.def.flags().contains(ParamAttributes::Out)
+    }) {
+        if let Some(object) = params.iter().rposition(|param| {
+            param.ty == Type::MutPtr(Box::new(Type::Void), 2)
+                && param.def.has_attribute("ComOutPtrAttribute")
+        }) {
             return Some((guid, object));
         }
     }
@@ -377,7 +478,14 @@ fn method_def_last_error(row: MethodDef) -> bool {
 pub fn type_is_borrowed(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => !type_def_is_blittable(*row),
-        Type::Name(TypeName::BSTR) | Type::Name(TypeName::VARIANT) | Type::Name(TypeName::PROPVARIANT) | Type::Const(TypeName::PSTR) | Type::Const(TypeName::PWSTR) | Type::Object | Type::Name(TypeName::IUnknown) | Type::GenericParam(_) => true,
+        Type::Name(TypeName::BSTR)
+        | Type::Name(TypeName::VARIANT)
+        | Type::Name(TypeName::PROPVARIANT)
+        | Type::Const(TypeName::PSTR)
+        | Type::Const(TypeName::PWSTR)
+        | Type::Object
+        | Type::Name(TypeName::IUnknown)
+        | Type::GenericParam(_) => true,
         _ => false,
     }
 }
@@ -412,7 +520,10 @@ pub fn type_def_has_callback(row: TypeDef) -> bool {
         return false;
     }
     fn check(row: TypeDef) -> bool {
-        if row.fields().any(|field| type_has_callback(&field.ty(Some(row)))) {
+        if row
+            .fields()
+            .any(|field| type_has_callback(&field.ty(Some(row))))
+        {
             return true;
         }
         false
@@ -421,7 +532,10 @@ pub fn type_def_has_callback(row: TypeDef) -> bool {
     if type_name.namespace().is_empty() {
         check(row)
     } else {
-        for row in row.reader().get_type_def(type_name.namespace(), type_name.name()) {
+        for row in row
+            .reader()
+            .get_type_def(type_name.namespace(), type_name.name())
+        {
             if check(row) {
                 return true;
             }
@@ -431,7 +545,10 @@ pub fn type_def_has_callback(row: TypeDef) -> bool {
 }
 
 pub fn type_def_has_float(def: TypeDef) -> bool {
-    def.kind() == TypeKind::Struct && def.fields().any(|field| type_has_float(&field.ty(Some(def))))
+    def.kind() == TypeKind::Struct
+        && def
+            .fields()
+            .any(|field| type_has_float(&field.ty(Some(def))))
 }
 
 pub fn type_has_float(ty: &Type) -> bool {
@@ -486,8 +603,15 @@ pub fn type_interfaces(ty: &Type) -> Vec<Interface> {
                     "StaticAttribute" | "ActivatableAttribute" => {
                         for (_, arg) in attribute.args() {
                             if let Value::TypeName(type_name) = arg {
-                                let def = row.reader().get_type_def(type_name.namespace(), type_name.name()).next().expect("Type not found");
-                                result.push(Interface { ty: Type::TypeDef(def, Vec::new()), kind: InterfaceKind::Static });
+                                let def = row
+                                    .reader()
+                                    .get_type_def(type_name.namespace(), type_name.name())
+                                    .next()
+                                    .expect("Type not found");
+                                result.push(Interface {
+                                    ty: Type::TypeDef(def, Vec::new()),
+                                    kind: InterfaceKind::Static,
+                                });
                                 break;
                             }
                         }
@@ -519,7 +643,13 @@ pub fn field_is_copyable(row: Field, enclosing: TypeDef) -> bool {
 pub fn type_is_blittable(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => type_def_is_blittable(*row),
-        Type::String | Type::Name(TypeName::BSTR) | Type::Name(TypeName::VARIANT) | Type::Name(TypeName::PROPVARIANT) | Type::Object | Type::Name(TypeName::IUnknown) | Type::GenericParam(_) => false,
+        Type::String
+        | Type::Name(TypeName::BSTR)
+        | Type::Name(TypeName::VARIANT)
+        | Type::Name(TypeName::PROPVARIANT)
+        | Type::Object
+        | Type::Name(TypeName::IUnknown)
+        | Type::GenericParam(_) => false,
         Type::Win32Array(kind, _) => type_is_blittable(kind),
         Type::WinrtArray(kind) => type_is_blittable(kind),
         _ => true,
@@ -529,7 +659,13 @@ pub fn type_is_blittable(ty: &Type) -> bool {
 fn type_is_copyable(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => type_def_is_copyable(*row),
-        Type::String | Type::Name(TypeName::BSTR) | Type::Name(TypeName::VARIANT) | Type::Name(TypeName::PROPVARIANT) | Type::Object | Type::Name(TypeName::IUnknown) | Type::GenericParam(_) => false,
+        Type::String
+        | Type::Name(TypeName::BSTR)
+        | Type::Name(TypeName::VARIANT)
+        | Type::Name(TypeName::PROPVARIANT)
+        | Type::Object
+        | Type::Name(TypeName::IUnknown)
+        | Type::GenericParam(_) => false,
         Type::Win32Array(kind, _) => type_is_copyable(kind),
         Type::WinrtArray(kind) => type_is_copyable(kind),
         _ => true,
@@ -587,7 +723,23 @@ fn type_def_is_primitive(row: TypeDef) -> bool {
 pub fn type_is_primitive(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => type_def_is_primitive(*row),
-        Type::Bool | Type::Char | Type::I8 | Type::U8 | Type::I16 | Type::U16 | Type::I32 | Type::U32 | Type::I64 | Type::U64 | Type::F32 | Type::F64 | Type::ISize | Type::USize | Type::Name(TypeName::HResult) | Type::ConstPtr(_, _) | Type::MutPtr(_, _) => true,
+        Type::Bool
+        | Type::Char
+        | Type::I8
+        | Type::U8
+        | Type::I16
+        | Type::U16
+        | Type::I32
+        | Type::U32
+        | Type::I64
+        | Type::U64
+        | Type::F32
+        | Type::F64
+        | Type::ISize
+        | Type::USize
+        | Type::Name(TypeName::HResult)
+        | Type::ConstPtr(_, _)
+        | Type::MutPtr(_, _) => true,
         _ => false,
     }
 }
@@ -608,7 +760,10 @@ pub fn type_def_has_explicit_layout(row: TypeDef) -> bool {
         if row.flags().contains(TypeAttributes::ExplicitLayout) {
             return true;
         }
-        if row.fields().any(|field| type_has_explicit_layout(&field.ty(Some(row)))) {
+        if row
+            .fields()
+            .any(|field| type_has_explicit_layout(&field.ty(Some(row))))
+        {
             return true;
         }
         false
@@ -617,7 +772,10 @@ pub fn type_def_has_explicit_layout(row: TypeDef) -> bool {
     if type_name.namespace().is_empty() {
         check(row)
     } else {
-        for row in row.reader().get_type_def(type_name.namespace(), type_name.name()) {
+        for row in row
+            .reader()
+            .get_type_def(type_name.namespace(), type_name.name())
+        {
             if check(row) {
                 return true;
             }
@@ -642,7 +800,10 @@ pub fn type_def_has_packing(row: TypeDef) -> bool {
         if row.class_layout().is_some() {
             return true;
         }
-        if row.fields().any(|field| type_has_packing(&field.ty(Some(row)))) {
+        if row
+            .fields()
+            .any(|field| type_has_packing(&field.ty(Some(row))))
+        {
             return true;
         }
         false
@@ -651,7 +812,10 @@ pub fn type_def_has_packing(row: TypeDef) -> bool {
     if type_name.namespace().is_empty() {
         check(row)
     } else {
-        for row in row.reader().get_type_def(type_name.namespace(), type_name.name()) {
+        for row in row
+            .reader()
+            .get_type_def(type_name.namespace(), type_name.name())
+        {
             if check(row) {
                 return true;
             }
@@ -660,15 +824,31 @@ pub fn type_def_has_packing(row: TypeDef) -> bool {
     }
 }
 
-pub fn type_def_interfaces(def: TypeDef, generics: &[Type]) -> impl Iterator<Item = Interface> + '_ {
+pub fn type_def_interfaces(
+    def: TypeDef,
+    generics: &[Type],
+) -> impl Iterator<Item = Interface> + '_ {
     def.interface_impls().map(|imp| {
-        let kind = if imp.has_attribute("DefaultAttribute") { InterfaceKind::Default } else { InterfaceKind::None };
-        Interface { kind, ty: imp.ty(generics) }
+        let kind = if imp.has_attribute("DefaultAttribute") {
+            InterfaceKind::Default
+        } else {
+            InterfaceKind::None
+        };
+        Interface {
+            kind,
+            ty: imp.ty(generics),
+        }
     })
 }
 
 pub fn type_def_default_interface(row: TypeDef) -> Option<Type> {
-    type_def_interfaces(row, &[]).find_map(move |interface| if interface.kind == InterfaceKind::Default { Some(interface.ty) } else { None })
+    type_def_interfaces(row, &[]).find_map(move |interface| {
+        if interface.kind == InterfaceKind::Default {
+            Some(interface.ty)
+        } else {
+            None
+        }
+    })
 }
 
 fn type_signature(ty: &Type) -> String {
@@ -701,12 +881,20 @@ pub fn type_def_signature(row: TypeDef, generics: &[Type]) -> String {
         TypeKind::Interface => type_def_interface_signature(row, generics),
         TypeKind::Class => {
             if let Some(Type::TypeDef(default, generics)) = type_def_default_interface(row) {
-                format!("rc({};{})", row.type_name(), type_def_interface_signature(default, &generics))
+                format!(
+                    "rc({};{})",
+                    row.type_name(),
+                    type_def_interface_signature(default, &generics)
+                )
             } else {
                 unimplemented!();
             }
         }
-        TypeKind::Enum => format!("enum({};{})", row.type_name(), type_signature(&row.underlying_type())),
+        TypeKind::Enum => format!(
+            "enum({};{})",
+            row.type_name(),
+            type_signature(&row.underlying_type())
+        ),
         TypeKind::Struct => {
             let mut result = format!("struct({}", row.type_name());
             for field in row.fields() {
@@ -746,7 +934,8 @@ pub fn type_def_is_handle(row: TypeDef) -> bool {
 }
 
 pub fn type_def_guid(row: TypeDef) -> Option<Guid> {
-    row.find_attribute("GuidAttribute").map(|attribute| Guid::from_args(&attribute.args()))
+    row.find_attribute("GuidAttribute")
+        .map(|attribute| Guid::from_args(&attribute.args()))
 }
 
 pub fn type_def_bases(mut row: TypeDef) -> Vec<TypeDef> {
@@ -754,7 +943,11 @@ pub fn type_def_bases(mut row: TypeDef) -> Vec<TypeDef> {
     loop {
         match row.extends() {
             Some(base) if base != TypeName::Object => {
-                row = row.reader().get_type_def(base.namespace(), base.name()).next().expect("Type not found");
+                row = row
+                    .reader()
+                    .get_type_def(base.namespace(), base.name())
+                    .next()
+                    .expect("Type not found");
                 bases.push(row);
             }
             _ => break,

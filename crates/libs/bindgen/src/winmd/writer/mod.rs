@@ -36,11 +36,24 @@ impl Writer {
             type_specs: Default::default(),
         };
 
-        writer.tables.TypeDef.push(TypeDef { TypeName: writer.strings.insert("<Module>"), Flags: 0, TypeNamespace: 0, Extends: TypeDefOrRef::none(), FieldList: 0, MethodList: 0 });
+        writer.tables.TypeDef.push(TypeDef {
+            TypeName: writer.strings.insert("<Module>"),
+            Flags: 0,
+            TypeNamespace: 0,
+            Extends: TypeDefOrRef::none(),
+            FieldList: 0,
+            MethodList: 0,
+        });
 
-        let name = name.rsplit_once(&['/', '\\']).map_or(name, |(_, name)| name);
+        let name = name
+            .rsplit_once(&['/', '\\'])
+            .map_or(name, |(_, name)| name);
 
-        writer.tables.Module.push(Module { Name: writer.strings.insert(name), Mvid: 1, ..Default::default() });
+        writer.tables.Module.push(Module {
+            Name: writer.strings.insert(name),
+            Mvid: 1,
+            ..Default::default()
+        });
 
         let name = name.rsplit_once('.').map_or(name, |(_, name)| name);
 
@@ -63,10 +76,19 @@ impl Writer {
     }
 
     pub fn into_stream(self) -> Vec<u8> {
-        file::write(self.tables.into_stream(), self.strings.into_stream(), self.blobs.into_stream())
+        file::write(
+            self.tables.into_stream(),
+            self.strings.into_stream(),
+            self.blobs.into_stream(),
+        )
     }
 
-    pub fn insert_method_sig(&mut self, call_flags: metadata::MethodCallAttributes, return_type: &Type, param_types: &[Type]) -> u32 {
+    pub fn insert_method_sig(
+        &mut self,
+        call_flags: metadata::MethodCallAttributes,
+        return_type: &Type,
+        param_types: &[Type],
+    ) -> u32 {
         let mut blob = vec![call_flags.0];
         usize_blob(param_types.len(), &mut blob);
         self.type_blob(return_type, &mut blob);
@@ -92,12 +114,16 @@ impl Writer {
         if let Some(scope) = self.scopes.get(namespace) {
             *scope
         } else if namespace == "System" {
-            let scope = ResolutionScope::AssemblyRef(self.tables.AssemblyRef.push2(AssemblyRef {
-                Name: self.strings.insert("mscorlib"),
-                MajorVersion: 4,
-                PublicKeyOrToken: self.blobs.insert(&[0xB7, 0x7A, 0x5C, 0x56, 0x19, 0x34, 0xE0, 0x89]), // TODO: comment on this
-                ..Default::default()
-            }));
+            let scope = ResolutionScope::AssemblyRef(
+                self.tables.AssemblyRef.push2(AssemblyRef {
+                    Name: self.strings.insert("mscorlib"),
+                    MajorVersion: 4,
+                    PublicKeyOrToken: self
+                        .blobs
+                        .insert(&[0xB7, 0x7A, 0x5C, 0x56, 0x19, 0x34, 0xE0, 0x89]), // TODO: comment on this
+                    ..Default::default()
+                }),
+            );
             self.scopes.insert(namespace.to_string(), scope);
             scope
         } else {
@@ -125,8 +151,15 @@ impl Writer {
 
         let scope = self.insert_scope(namespace);
 
-        let reference = TypeDefOrRef::TypeRef(self.tables.TypeRef.push2(TypeRef { TypeName: self.strings.insert(name), TypeNamespace: self.strings.insert(namespace), ResolutionScope: scope }));
-        self.type_refs.entry(namespace.to_string()).or_default().insert(name.to_string(), reference);
+        let reference = TypeDefOrRef::TypeRef(self.tables.TypeRef.push2(TypeRef {
+            TypeName: self.strings.insert(name),
+            TypeNamespace: self.strings.insert(namespace),
+            ResolutionScope: scope,
+        }));
+        self.type_refs
+            .entry(namespace.to_string())
+            .or_default()
+            .insert(name.to_string(), reference);
         reference
     }
 
@@ -139,7 +172,9 @@ impl Writer {
         self.type_blob(&ty, &mut blob);
         let signature = self.blobs.insert(&blob);
 
-        let reference = TypeDefOrRef::TypeSpec(self.tables.TypeSpec.push2(TypeSpec { Signature: signature }));
+        let reference = TypeDefOrRef::TypeSpec(self.tables.TypeSpec.push2(TypeSpec {
+            Signature: signature,
+        }));
         self.type_specs.insert(ty, reference);
         reference
     }
@@ -211,7 +246,11 @@ impl Writer {
             }
             Type::ConstRef(ty) => {
                 usize_blob(metadata::ELEMENT_TYPE_CMOD_OPT as usize, blob);
-                usize_blob(self.insert_type_ref("System.Runtime.CompilerServices", "IsConst").encode() as usize, blob);
+                usize_blob(
+                    self.insert_type_ref("System.Runtime.CompilerServices", "IsConst")
+                        .encode() as usize,
+                    blob,
+                );
                 usize_blob(metadata::ELEMENT_TYPE_BYREF as usize, blob);
                 self.type_blob(ty, blob);
             }

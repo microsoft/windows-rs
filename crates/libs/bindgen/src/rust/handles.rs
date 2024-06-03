@@ -135,7 +135,10 @@ pub fn gen_win_handle(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 fn type_def_usable_for(row: metadata::TypeDef) -> Option<metadata::TypeDef> {
     if let Some(attribute) = row.find_attribute("AlsoUsableForAttribute") {
         if let Some((_, metadata::Value::String(name))) = attribute.args().first() {
-            return row.reader().get_type_def(row.namespace(), name.as_str()).next();
+            return row
+                .reader()
+                .get_type_def(row.namespace(), name.as_str())
+                .next();
         }
     }
     None
@@ -149,7 +152,11 @@ fn free_function(def: metadata::TypeDef) -> Option<metadata::MethodDef> {
         }
 
         if let Some((_, metadata::Value::String(name))) = attribute.args().first() {
-            if let Some((method, _)) = def.reader().get_method_def(def.namespace(), name.as_str()).next() {
+            if let Some((method, _)) = def
+                .reader()
+                .get_method_def(def.namespace(), name.as_str())
+                .next()
+            {
                 return Some(method);
             }
         }

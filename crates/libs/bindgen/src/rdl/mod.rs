@@ -152,7 +152,10 @@ fn winrt(input: syn::parse::ParseStream<'_>) -> syn::Result<bool> {
         }
     }
 
-    Err(syn::Error::new(input.span(), "A single `#![win32]` or `#![winrt]` attribute required"))
+    Err(syn::Error::new(
+        input.span(),
+        "A single `#![win32]` or `#![winrt]` attribute required",
+    ))
 }
 
 impl syn::parse::Parse for File {
@@ -171,20 +174,34 @@ impl syn::parse::Parse for File {
                 return Err(lookahead.error());
             }
         }
-        Ok(Self { winrt, references, modules })
+        Ok(Self {
+            winrt,
+            references,
+            modules,
+        })
     }
 }
 
 impl Module {
     fn name(&self) -> &str {
-        self.namespace.rsplit_once('.').map_or(&self.namespace, |(_, name)| name)
+        self.namespace
+            .rsplit_once('.')
+            .map_or(&self.namespace, |(_, name)| name)
     }
 
-    fn parse(namespace: &str, winrt: bool, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
+    fn parse(
+        namespace: &str,
+        winrt: bool,
+        input: syn::parse::ParseStream<'_>,
+    ) -> syn::Result<Self> {
         input.parse::<syn::Token![mod]>()?;
         let name = input.parse::<syn::Ident>()?.to_string();
 
-        let namespace = if namespace.is_empty() { name.to_string() } else { format!("{namespace}.{name}") };
+        let namespace = if namespace.is_empty() {
+            name.to_string()
+        } else {
+            format!("{namespace}.{name}")
+        };
 
         let content;
         syn::braced!(content in input);
@@ -197,26 +214,45 @@ impl Module {
 }
 
 impl ModuleMember {
-    fn parse(namespace: &str, winrt: bool, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
+    fn parse(
+        namespace: &str,
+        winrt: bool,
+        input: syn::parse::ParseStream<'_>,
+    ) -> syn::Result<Self> {
         let attributes: Vec<syn::Attribute> = input.call(syn::Attribute::parse_outer)?;
         let lookahead = input.lookahead1();
         if lookahead.peek(syn::Token![mod]) {
             if let Some(attribute) = attributes.first() {
-                return Err(syn::Error::new(attribute.span(), "`use` attributes not supported"));
+                return Err(syn::Error::new(
+                    attribute.span(),
+                    "`use` attributes not supported",
+                ));
             }
-            Ok(ModuleMember::Module(Module::parse(namespace, winrt, input)?))
+            Ok(ModuleMember::Module(Module::parse(
+                namespace, winrt, input,
+            )?))
         } else if lookahead.peek(interface) {
-            Ok(ModuleMember::Interface(Interface::parse(namespace, winrt, attributes, input)?))
+            Ok(ModuleMember::Interface(Interface::parse(
+                namespace, winrt, attributes, input,
+            )?))
         } else if lookahead.peek(syn::Token![struct]) {
-            Ok(ModuleMember::Struct(Struct::parse(namespace, winrt, attributes, input)?))
+            Ok(ModuleMember::Struct(Struct::parse(
+                namespace, winrt, attributes, input,
+            )?))
         } else if lookahead.peek(syn::Token![enum]) {
-            Ok(ModuleMember::Enum(Enum::parse(namespace, winrt, attributes, input)?))
+            Ok(ModuleMember::Enum(Enum::parse(
+                namespace, winrt, attributes, input,
+            )?))
         } else if lookahead.peek(class) {
             Ok(ModuleMember::Class(Class::parse(attributes, input)?))
         } else if lookahead.peek(syn::Token![fn]) {
-            Ok(ModuleMember::Function(Function::parse(namespace, attributes, input)?))
+            Ok(ModuleMember::Function(Function::parse(
+                namespace, attributes, input,
+            )?))
         } else if lookahead.peek(syn::Token![const]) {
-            Ok(ModuleMember::Constant(Constant::parse(namespace, attributes, input)?))
+            Ok(ModuleMember::Constant(Constant::parse(
+                namespace, attributes, input,
+            )?))
         } else {
             Err(lookahead.error())
         }
@@ -224,7 +260,10 @@ impl ModuleMember {
 }
 
 impl Class {
-    fn parse(attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
+    fn parse(
+        attributes: Vec<syn::Attribute>,
+        input: syn::parse::ParseStream<'_>,
+    ) -> syn::Result<Self> {
         input.parse::<class>()?;
         let name = input.parse::<syn::Ident>()?.to_string();
         let mut extends = Vec::new();
@@ -244,12 +283,22 @@ impl Class {
         }
 
         input.parse::<syn::Token![;]>()?;
-        Ok(Self { attributes, name, base, extends })
+        Ok(Self {
+            attributes,
+            name,
+            base,
+            extends,
+        })
     }
 }
 
 impl Interface {
-    fn parse(_namespace: &str, winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
+    fn parse(
+        _namespace: &str,
+        winrt: bool,
+        attributes: Vec<syn::Attribute>,
+        input: syn::parse::ParseStream<'_>,
+    ) -> syn::Result<Self> {
         input.parse::<interface>()?;
         let name = input.parse::<syn::Ident>()?.to_string();
 
@@ -281,12 +330,24 @@ impl Interface {
         while !content.is_empty() {
             methods.push(content.parse()?);
         }
-        Ok(Self { winrt, attributes, generics, extends, name, methods })
+        Ok(Self {
+            winrt,
+            attributes,
+            generics,
+            extends,
+            name,
+            methods,
+        })
     }
 }
 
 impl Struct {
-    fn parse(_namespace: &str, winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
+    fn parse(
+        _namespace: &str,
+        winrt: bool,
+        attributes: Vec<syn::Attribute>,
+        input: syn::parse::ParseStream<'_>,
+    ) -> syn::Result<Self> {
         // TODO: need to validate that the struct is valid according to the constraints of the winmd type system.
         // Same for the other types. That way we can spit out errors quickly for things like unnamed fields.
         let span = input.span();
@@ -308,12 +369,23 @@ impl Struct {
             });
         }
 
-        Ok(Self { winrt, name, attributes, span, fields })
+        Ok(Self {
+            winrt,
+            name,
+            attributes,
+            span,
+            fields,
+        })
     }
 }
 
 impl Enum {
-    fn parse(_namespace: &str, winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
+    fn parse(
+        _namespace: &str,
+        winrt: bool,
+        attributes: Vec<syn::Attribute>,
+        input: syn::parse::ParseStream<'_>,
+    ) -> syn::Result<Self> {
         let mut item: syn::ItemEnum = input.parse()?;
         item.attrs = attributes;
         let name = item.ident.to_string();
@@ -322,7 +394,11 @@ impl Enum {
 }
 
 impl Constant {
-    fn parse(_namespace: &str, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
+    fn parse(
+        _namespace: &str,
+        attributes: Vec<syn::Attribute>,
+        input: syn::parse::ParseStream<'_>,
+    ) -> syn::Result<Self> {
         let mut item: syn::ItemConst = input.parse()?;
         item.attrs = attributes;
         let name = item.ident.to_string();
@@ -331,7 +407,11 @@ impl Constant {
 }
 
 impl Function {
-    fn parse(_namespace: &str, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
+    fn parse(
+        _namespace: &str,
+        attributes: Vec<syn::Attribute>,
+        input: syn::parse::ParseStream<'_>,
+    ) -> syn::Result<Self> {
         let mut item: syn::TraitItemFn = input.parse()?;
         item.attrs = attributes;
         let name = item.sig.ident.to_string();
