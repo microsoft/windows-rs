@@ -88,7 +88,9 @@ impl Attribute {
                 Type::U64 => Value::U64(values.read_u64()),
                 Type::String => Value::String(values.read_str().to_string()),
                 Type::Name(TypeName::Type) => Value::TypeName(TypeName::parse(values.read_str())),
-                Type::TypeDef(def, _) => Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type()))),
+                Type::TypeDef(def, _) => {
+                    Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type())))
+                }
                 rest => unimplemented!("{rest:?}"),
             };
 
@@ -111,7 +113,10 @@ impl Attribute {
                 0x50 => Value::TypeName(TypeName::parse(values.read_str())),
                 0x55 => {
                     let type_name = TypeName::parse(name);
-                    let def = reader.get_type_def(type_name.namespace(), type_name.name()).next().expect("Type not found");
+                    let def = reader
+                        .get_type_def(type_name.namespace(), type_name.name())
+                        .next()
+                        .expect("Type not found");
                     name = values.read_str();
                     Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type())))
                 }
@@ -168,7 +173,8 @@ impl Field {
     }
 
     pub fn constant(&self) -> Option<Constant> {
-        self.equal_range(1, HasConstant::Field(*self).encode()).next()
+        self.equal_range(1, HasConstant::Field(*self).encode())
+            .next()
     }
 
     // TODO: enclosing craziness is only needed for nested structs - get rid of those in riddle and this goes away.
@@ -232,7 +238,13 @@ impl MemberRef {
         let params = blob.read_usize();
         let return_type = reader.type_from_blob(&mut blob, None, &[]);
 
-        MethodDefSig { call_flags, return_type, params: (0..params).map(|_| reader.type_from_blob(&mut blob, None, &[])).collect() }
+        MethodDefSig {
+            call_flags,
+            return_type,
+            params: (0..params)
+                .map(|_| reader.type_from_blob(&mut blob, None, &[]))
+                .collect(),
+        }
     }
 }
 
@@ -254,7 +266,8 @@ impl MethodDef {
     }
 
     pub fn impl_map(&self) -> Option<ImplMap> {
-        self.equal_range(1, MemberForwarded::MethodDef(*self).encode()).next()
+        self.equal_range(1, MemberForwarded::MethodDef(*self).encode())
+            .next()
     }
 
     pub fn module_name(&self) -> &'static str {
@@ -268,7 +281,13 @@ impl MethodDef {
         let params = blob.read_usize();
         let return_type = reader.type_from_blob(&mut blob, None, generics);
 
-        MethodDefSig { call_flags, return_type, params: (0..params).map(|_| reader.type_from_blob(&mut blob, None, generics)).collect() }
+        MethodDefSig {
+            call_flags,
+            return_type,
+            params: (0..params)
+                .map(|_| reader.type_from_blob(&mut blob, None, generics))
+                .collect(),
+        }
     }
 }
 
@@ -346,7 +365,9 @@ impl TypeDef {
     }
 
     pub fn enclosing_type(&self) -> Option<TypeDef> {
-        self.equal_range::<NestedClass>(0, self.index() + 1).next().map(|row| TypeDef(row.row(1)))
+        self.equal_range::<NestedClass>(0, self.index() + 1)
+            .next()
+            .map(|row| TypeDef(row.row(1)))
     }
 
     pub fn class_layout(&self) -> Option<ClassLayout> {
@@ -376,7 +397,10 @@ impl TypeDef {
         match self.kind() {
             TypeKind::Struct => {
                 if self.flags().contains(TypeAttributes::ExplicitLayout) {
-                    self.fields().map(|field| field.ty(Some(*self)).size()).max().unwrap_or(1)
+                    self.fields()
+                        .map(|field| field.ty(Some(*self)).size())
+                        .max()
+                        .unwrap_or(1)
                 } else {
                     let mut sum = 0;
                     for field in self.fields() {
@@ -396,7 +420,11 @@ impl TypeDef {
 
     pub fn align(&self) -> usize {
         match self.kind() {
-            TypeKind::Struct => self.fields().map(|field| field.ty(Some(*self)).align()).max().unwrap_or(1),
+            TypeKind::Struct => self
+                .fields()
+                .map(|field| field.ty(Some(*self)).align())
+                .max()
+                .unwrap_or(1),
             TypeKind::Enum => self.underlying_type().align(),
             _ => 4,
         }

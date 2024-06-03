@@ -1,11 +1,19 @@
 use super::*;
 use tokens::{quote, to_ident, TokenStream};
 
-pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
+pub fn from_reader(
+    reader: &'static metadata::Reader,
+    mut config: std::collections::BTreeMap<&str, &str>,
+    output: &str,
+) -> Result<()> {
     let dialect = match config.remove("type") {
         Some("winrt") => Dialect::WinRT,
         Some("win32") => Dialect::Win32,
-        _ => return Err(Error::new("configuration value `type` must be `win32` or `winrt`")),
+        _ => {
+            return Err(Error::new(
+                "configuration value `type` must be `win32` or `winrt`",
+            ))
+        }
     };
 
     let mut writer = Writer::new(reader, output, dialect);
@@ -65,11 +73,23 @@ struct Writer {
 
 impl Writer {
     fn new(reader: &'static metadata::Reader, output: &str, dialect: Dialect) -> Self {
-        Self { reader, namespace: "", output: output.to_string(), dialect, split: false }
+        Self {
+            reader,
+            namespace: "",
+            output: output.to_string(),
+            dialect,
+            split: false,
+        }
     }
 
     fn with_namespace(&self, namespace: &'static str) -> Self {
-        Self { reader: self.reader, namespace, dialect: self.dialect, output: self.output.clone(), split: self.split }
+        Self {
+            reader: self.reader,
+            namespace,
+            dialect: self.dialect,
+            output: self.output.clone(),
+            split: self.split,
+        }
     }
 
     fn write_to_file(&self, output: &str, tokens: TokenStream) -> Result<()> {
@@ -106,9 +126,16 @@ impl Writer {
 
             tokens
         } else {
-            let name = to_ident(tree.namespace.rsplit_once('.').map_or(tree.namespace, |(_, name)| name));
+            let name = to_ident(
+                tree.namespace
+                    .rsplit_once('.')
+                    .map_or(tree.namespace, |(_, name)| name),
+            );
 
-            let modules = tree.nested.values().map(|tree| self.with_namespace(tree.namespace).tree(tree));
+            let modules = tree
+                .nested
+                .values()
+                .map(|tree| self.with_namespace(tree.namespace).tree(tree));
 
             if tree.namespace.is_empty() {
                 quote! {
@@ -132,20 +159,30 @@ impl Writer {
         let mut types = vec![];
 
         if !tree.namespace.is_empty() {
-            for item in self.reader.namespace_items(tree.namespace).filter(|item| match item {
-                metadata::Item::Type(def) => {
-                    let winrt = def.flags().contains(metadata::TypeAttributes::WindowsRuntime);
-                    match self.dialect {
-                        Dialect::Win32 => !winrt,
-                        Dialect::WinRT => winrt,
+            for item in self
+                .reader
+                .namespace_items(tree.namespace)
+                .filter(|item| match item {
+                    metadata::Item::Type(def) => {
+                        let winrt = def
+                            .flags()
+                            .contains(metadata::TypeAttributes::WindowsRuntime);
+                        match self.dialect {
+                            Dialect::Win32 => !winrt,
+                            Dialect::WinRT => winrt,
+                        }
                     }
-                }
-                metadata::Item::Fn(_, _) | metadata::Item::Const(_) => self.dialect == Dialect::Win32,
-            }) {
+                    metadata::Item::Fn(_, _) | metadata::Item::Const(_) => {
+                        self.dialect == Dialect::Win32
+                    }
+                })
+            {
                 match item {
                     metadata::Item::Type(def) => types.push(self.type_def(def)),
                     metadata::Item::Const(field) => constants.push(self.constant(field)),
-                    metadata::Item::Fn(method, namespace) => functions.push(self.function(method, namespace)),
+                    metadata::Item::Fn(method, namespace) => {
+                        functions.push(self.function(method, namespace))
+                    }
                 }
             }
         }

@@ -15,7 +15,11 @@ pub struct FactoryCache<C, I> {
 
 impl<C, I> FactoryCache<C, I> {
     pub const fn new() -> Self {
-        Self { shared: AtomicPtr::new(null_mut()), _c: PhantomData, _i: PhantomData }
+        Self {
+            shared: AtomicPtr::new(null_mut()),
+            _c: PhantomData,
+            _i: PhantomData,
+        }
     }
 }
 
@@ -41,7 +45,16 @@ impl<C: crate::RuntimeName, I: Interface> FactoryCache<C, I> {
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
-                if self.shared.compare_exchange_weak(null_mut(), factory.as_raw(), Ordering::Relaxed, Ordering::Relaxed).is_ok() {
+                if self
+                    .shared
+                    .compare_exchange_weak(
+                        null_mut(),
+                        factory.as_raw(),
+                        Ordering::Relaxed,
+                        Ordering::Relaxed,
+                    )
+                    .is_ok()
+                {
                     forget(factory);
                 }
             } else {
@@ -63,7 +76,13 @@ pub fn factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
     let name = crate::HSTRING::from(C::NAME);
 
     let code = unsafe {
-        let mut get_com_factory = || crate::HRESULT(RoGetActivationFactory(transmute_copy(&name), &I::IID as *const _ as _, &mut factory as *mut _ as *mut _));
+        let mut get_com_factory = || {
+            crate::HRESULT(RoGetActivationFactory(
+                transmute_copy(&name),
+                &I::IID as *const _ as _,
+                &mut factory as *mut _ as *mut _,
+            ))
+        };
         let mut code = get_com_factory();
 
         // If RoGetActivationFactory fails because combase hasn't been loaded yet then load combase
@@ -89,7 +108,9 @@ pub fn factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
     let original: crate::Error = code.into();
 
     // Now attempt to find the factory's implementation heuristically.
-    if let Some(i) = search_path(C::NAME, |library| unsafe { get_activation_factory(library, &name) }) {
+    if let Some(i) = search_path(C::NAME, |library| unsafe {
+        get_activation_factory(library, &name)
+    }) {
         i.cast()
     } else {
         Err(original)
@@ -122,13 +143,19 @@ where
     None
 }
 
-unsafe fn get_activation_factory(library: crate::PCSTR, name: &crate::HSTRING) -> crate::Result<IGenericFactory> {
-    let function = delay_load::<DllGetActivationFactory>(library, crate::s!("DllGetActivationFactory")).ok_or_else(crate::Error::from_win32)?;
+unsafe fn get_activation_factory(
+    library: crate::PCSTR,
+    name: &crate::HSTRING,
+) -> crate::Result<IGenericFactory> {
+    let function =
+        delay_load::<DllGetActivationFactory>(library, crate::s!("DllGetActivationFactory"))
+            .ok_or_else(crate::Error::from_win32)?;
     let mut abi = null_mut();
     function(transmute_copy(name), &mut abi).and_then(|| crate::Type::from_abi(abi))
 }
 
-type DllGetActivationFactory = extern "system" fn(name: *mut c_void, factory: *mut *mut c_void) -> crate::HRESULT;
+type DllGetActivationFactory =
+    extern "system" fn(name: *mut c_void, factory: *mut *mut c_void) -> crate::HRESULT;
 
 #[cfg(test)]
 mod tests {

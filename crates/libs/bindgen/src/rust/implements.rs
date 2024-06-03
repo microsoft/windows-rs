@@ -2,7 +2,9 @@ use super::*;
 use metadata::HasAttributes;
 
 pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
-    if def.kind() != metadata::TypeKind::Interface || (!writer.implement && def.has_attribute("ExclusiveToAttribute")) {
+    if def.kind() != metadata::TypeKind::Interface
+        || (!writer.implement && def.has_attribute("ExclusiveToAttribute"))
+    {
         return quote! {};
     }
 
@@ -24,9 +26,16 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let mut requires = quote! {};
     let type_ident = quote! { #type_ident<#generic_names> };
     let vtables = metadata::type_def_vtables(def);
-    let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::Name(metadata::TypeName::IUnknown)));
+    let has_unknown_base = matches!(
+        vtables.first(),
+        Some(metadata::Type::Name(metadata::TypeName::IUnknown))
+    );
 
-    fn gen_required_trait(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Type]) -> TokenStream {
+    fn gen_required_trait(
+        writer: &Writer,
+        def: metadata::TypeDef,
+        generics: &[metadata::Type],
+    ) -> TokenStream {
         let name = writer.type_def_name_imp(def, generics, "_Impl");
         quote! {
             + #name
@@ -49,16 +58,21 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         }
     }
 
-    if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+    if def
+        .flags()
+        .contains(metadata::TypeAttributes::WindowsRuntime)
+    {
         // TODO: this awkward wrapping of TypeDefs needs fixing
-        for interface in metadata::type_interfaces(&metadata::Type::TypeDef(def, generics.to_vec())) {
+        for interface in metadata::type_interfaces(&metadata::Type::TypeDef(def, generics.to_vec()))
+        {
             if let metadata::Type::TypeDef(def, generics) = interface.ty {
                 requires.combine(&gen_required_trait(writer, def, &generics));
             }
         }
     }
 
-    let runtime_name = writer.runtime_name_trait(def, generics, &type_ident, &constraints, &features);
+    let runtime_name =
+        writer.runtime_name_trait(def, generics, &type_ident, &constraints, &features);
 
     let mut method_names = MethodNames::new();
 

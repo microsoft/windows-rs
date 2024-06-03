@@ -3,7 +3,8 @@ use metadata::{AsRow, HasAttributes};
 
 #[derive(Default, Clone)]
 pub struct Cfg {
-    pub types: std::collections::BTreeMap<&'static str, std::collections::BTreeSet<metadata::TypeDef>>,
+    pub types:
+        std::collections::BTreeMap<&'static str, std::collections::BTreeSet<metadata::TypeDef>>,
     pub core_types: std::collections::BTreeSet<metadata::Type>,
     pub arches: std::collections::BTreeSet<&'static str>,
     pub deprecated: bool,
@@ -38,7 +39,12 @@ pub fn field_cfg(writer: &Writer, row: metadata::Field) -> Cfg {
     field_cfg_combine(writer, row, None, &mut cfg);
     cfg
 }
-fn field_cfg_combine(writer: &Writer, row: metadata::Field, enclosing: Option<metadata::TypeDef>, cfg: &mut Cfg) {
+fn field_cfg_combine(
+    writer: &Writer,
+    row: metadata::Field,
+    enclosing: Option<metadata::TypeDef>,
+    cfg: &mut Cfg,
+) {
     type_cfg_combine(writer, &row.ty(enclosing), cfg)
 }
 
@@ -48,10 +54,19 @@ pub fn type_def_cfg(writer: &Writer, row: metadata::TypeDef, generics: &[metadat
     cfg_add_attributes(&mut cfg, row);
     cfg
 }
-pub fn type_def_cfg_impl(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Type]) -> Cfg {
+pub fn type_def_cfg_impl(
+    writer: &Writer,
+    def: metadata::TypeDef,
+    generics: &[metadata::Type],
+) -> Cfg {
     let mut cfg = Cfg::default();
 
-    fn combine(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Type], cfg: &mut Cfg) {
+    fn combine(
+        writer: &Writer,
+        def: metadata::TypeDef,
+        generics: &[metadata::Type],
+        cfg: &mut Cfg,
+    ) {
         type_def_cfg_combine(writer, def, generics, cfg);
 
         for method in def.methods() {
@@ -70,7 +85,12 @@ pub fn type_def_cfg_impl(writer: &Writer, def: metadata::TypeDef, generics: &[me
     cfg_add_attributes(&mut cfg, def);
     cfg
 }
-pub fn type_def_cfg_combine(writer: &Writer, row: metadata::TypeDef, generics: &[metadata::Type], cfg: &mut Cfg) {
+pub fn type_def_cfg_combine(
+    writer: &Writer,
+    row: metadata::TypeDef,
+    generics: &[metadata::Type],
+    cfg: &mut Cfg,
+) {
     let type_kind = row.kind();
 
     if writer.sys && type_kind == metadata::TypeKind::Interface {
@@ -83,7 +103,12 @@ pub fn type_def_cfg_combine(writer: &Writer, row: metadata::TypeDef, generics: &
         type_cfg_combine(writer, generic, cfg);
     }
 
-    if cfg.types.entry(type_name.namespace()).or_default().insert(row) {
+    if cfg
+        .types
+        .entry(type_name.namespace())
+        .or_default()
+        .insert(row)
+    {
         match type_kind {
             metadata::TypeKind::Class => {
                 if let Some(default_interface) = metadata::type_def_default_interface(row) {
@@ -91,7 +116,10 @@ pub fn type_def_cfg_combine(writer: &Writer, row: metadata::TypeDef, generics: &
                 }
             }
             metadata::TypeKind::Interface => {
-                if !row.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+                if !row
+                    .flags()
+                    .contains(metadata::TypeAttributes::WindowsRuntime)
+                {
                     for def in metadata::type_def_vtables(row) {
                         if let metadata::Type::TypeDef(def, _) = def {
                             cfg.add_feature(def.namespace());
@@ -100,16 +128,24 @@ pub fn type_def_cfg_combine(writer: &Writer, row: metadata::TypeDef, generics: &
                 }
             }
             metadata::TypeKind::Struct => {
-                row.fields().for_each(|field| field_cfg_combine(writer, field, Some(row), cfg));
+                row.fields()
+                    .for_each(|field| field_cfg_combine(writer, field, Some(row), cfg));
                 if !type_name.namespace().is_empty() {
-                    for def in row.reader().get_type_def(type_name.namespace(), type_name.name()) {
+                    for def in row
+                        .reader()
+                        .get_type_def(type_name.namespace(), type_name.name())
+                    {
                         if def != row {
                             type_def_cfg_combine(writer, def, &[], cfg);
                         }
                     }
                 }
             }
-            metadata::TypeKind::Delegate => signature_cfg_combine(writer, &metadata::type_def_invoke_method(row).signature(generics), cfg),
+            metadata::TypeKind::Delegate => signature_cfg_combine(
+                writer,
+                &metadata::type_def_invoke_method(row).signature(generics),
+                cfg,
+            ),
             _ => {}
         }
     }
@@ -123,7 +159,10 @@ pub fn signature_cfg(writer: &Writer, method: metadata::MethodDef) -> Cfg {
 }
 fn signature_cfg_combine(writer: &Writer, signature: &metadata::MethodDefSig, cfg: &mut Cfg) {
     type_cfg_combine(writer, &signature.return_type, cfg);
-    signature.params.iter().for_each(|param| type_cfg_combine(writer, param, cfg));
+    signature
+        .params
+        .iter()
+        .for_each(|param| type_cfg_combine(writer, param, cfg));
 }
 
 fn cfg_add_attributes<R: AsRow + Into<metadata::HasAttribute>>(cfg: &mut Cfg, row: R) {

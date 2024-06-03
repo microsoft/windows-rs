@@ -152,7 +152,11 @@ pub unsafe trait Interface: Sized + Clone {
     {
         unsafe {
             let mut any_ref_arg: MaybeUninit<&dyn Any> = MaybeUninit::zeroed();
-            self.query(&DYNAMIC_CAST_IID, any_ref_arg.as_mut_ptr() as *mut *mut c_void).ok()?;
+            self.query(
+                &DYNAMIC_CAST_IID,
+                any_ref_arg.as_mut_ptr() as *mut *mut c_void,
+            )
+            .ok()?;
             Ok(any_ref_arg.assume_init())
         }
     }
@@ -230,7 +234,8 @@ pub unsafe trait Interface: Sized + Clone {
 
     /// Attempts to create a [`Weak`] reference to this object.
     fn downgrade(&self) -> Result<Weak<Self>> {
-        self.cast::<imp::IWeakReferenceSource>().and_then(|source| Weak::downgrade(&source))
+        self.cast::<imp::IWeakReferenceSource>()
+            .and_then(|source| Weak::downgrade(&source))
     }
 
     /// Call `QueryInterface` on this interface

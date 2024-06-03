@@ -41,7 +41,9 @@ where
 }
 
 /// Mirror of `std::char::decode_utf16` for utf-8.
-fn decode_utf8(mut buffer: &[u8]) -> impl Iterator<Item = core::result::Result<char, core::str::Utf8Error>> + '_ {
+fn decode_utf8(
+    mut buffer: &[u8],
+) -> impl Iterator<Item = core::result::Result<char, core::str::Utf8Error>> + '_ {
     let mut current = "".chars();
     let mut previous_error = None;
     core::iter::from_fn(move || {

@@ -18,10 +18,16 @@ struct IndexItem {
 }
 
 pub fn gen_index(writer: &Writer) -> String {
-    let mut feature_index = Index { ..Default::default() };
+    let mut feature_index = Index {
+        ..Default::default()
+    };
 
     for namespace in writer.reader.namespaces() {
-        let namespace_idx = match feature_index.namespace_map.iter().position(|ns| ns == namespace) {
+        let namespace_idx = match feature_index
+            .namespace_map
+            .iter()
+            .position(|ns| ns == namespace)
+        {
             Some(idx) => idx,
             None => {
                 feature_index.namespace_map.push(namespace.to_string());
@@ -30,7 +36,9 @@ pub fn gen_index(writer: &Writer) -> String {
         };
 
         for item in writer.reader.namespace_items(namespace) {
-            let mut index_item = IndexItem { ..Default::default() };
+            let mut index_item = IndexItem {
+                ..Default::default()
+            };
             let mut cfg = Cfg::default();
             cfg.add_feature(namespace);
 
@@ -52,16 +60,22 @@ pub fn gen_index(writer: &Writer) -> String {
             let cfg_features = cfg_features(&cfg);
             index_item.features = cfg_features
                 .iter()
-                .map(|feature| match feature_index.feature_map.iter().position(|f| f == feature) {
-                    Some(idx) => idx,
-                    None => {
-                        feature_index.feature_map.push(feature.to_string());
-                        feature_index.feature_map.len() - 1
-                    }
-                })
+                .map(
+                    |feature| match feature_index.feature_map.iter().position(|f| f == feature) {
+                        Some(idx) => idx,
+                        None => {
+                            feature_index.feature_map.push(feature.to_string());
+                            feature_index.feature_map.len() - 1
+                        }
+                    },
+                )
                 .collect();
 
-            feature_index.namespaces.entry(namespace_idx).or_default().push(index_item);
+            feature_index
+                .namespaces
+                .entry(namespace_idx)
+                .or_default()
+                .push(index_item);
         }
     }
 

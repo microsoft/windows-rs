@@ -1,7 +1,10 @@
 use super::*;
 
 pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> Vec<u8> {
-    if [tables.len(), strings.len(), blobs.len()].iter().any(|len| *len > u32::MAX as usize) {
+    if [tables.len(), strings.len(), blobs.len()]
+        .iter()
+        .any(|len| *len > u32::MAX as usize)
+    {
         panic!("heap too large");
     }
 
@@ -17,8 +20,11 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
         let mut file: metadata::IMAGE_FILE_HEADER = core::mem::zeroed();
         file.Machine = metadata::IMAGE_FILE_MACHINE_I386;
         file.NumberOfSections = 1;
-        file.SizeOfOptionalHeader = core::mem::size_of::<metadata::IMAGE_OPTIONAL_HEADER32>() as u16;
-        file.Characteristics = metadata::IMAGE_FILE_DLL | metadata::IMAGE_FILE_32BIT_MACHINE | metadata::IMAGE_FILE_EXECUTABLE_IMAGE;
+        file.SizeOfOptionalHeader =
+            core::mem::size_of::<metadata::IMAGE_OPTIONAL_HEADER32>() as u16;
+        file.Characteristics = metadata::IMAGE_FILE_DLL
+            | metadata::IMAGE_FILE_32BIT_MACHINE
+            | metadata::IMAGE_FILE_EXECUTABLE_IMAGE;
 
         let mut optional: metadata::IMAGE_OPTIONAL_HEADER32 = core::mem::zeroed();
         optional.Magic = metadata::IMAGE_NT_OPTIONAL_HDR32_MAGIC;
@@ -33,7 +39,9 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
         optional.MinorSubsystemVersion = 2;
         optional.SizeOfHeaders = 512;
         optional.Subsystem = metadata::IMAGE_SUBSYSTEM_WINDOWS_CUI;
-        optional.DllCharacteristics = metadata::IMAGE_DLLCHARACTERISTICS_NX_COMPAT | metadata::IMAGE_DLLCHARACTERISTICS_NO_SEH | metadata::IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE;
+        optional.DllCharacteristics = metadata::IMAGE_DLLCHARACTERISTICS_NX_COMPAT
+            | metadata::IMAGE_DLLCHARACTERISTICS_NO_SEH
+            | metadata::IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE;
         optional.SizeOfStackReserve = 0x100000;
         optional.SizeOfHeapReserve = 4096;
         optional.LoaderFlags = 0x100000;
@@ -65,17 +73,32 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
         type GuidsHeader = StreamHeader<8>;
         type BlobsHeader = StreamHeader<8>;
 
-        let size_of_stream_headers = core::mem::size_of::<TablesHeader>() + core::mem::size_of::<StringsHeader>() + core::mem::size_of::<GuidsHeader>() + core::mem::size_of::<BlobsHeader>();
-        let size_of_image = optional.FileAlignment as usize + core::mem::size_of::<metadata::IMAGE_COR20_HEADER>() + core::mem::size_of::<metadata::METADATA_HEADER>() + size_of_stream_headers + size_of_streams;
+        let size_of_stream_headers = core::mem::size_of::<TablesHeader>()
+            + core::mem::size_of::<StringsHeader>()
+            + core::mem::size_of::<GuidsHeader>()
+            + core::mem::size_of::<BlobsHeader>();
+        let size_of_image = optional.FileAlignment as usize
+            + core::mem::size_of::<metadata::IMAGE_COR20_HEADER>()
+            + core::mem::size_of::<metadata::METADATA_HEADER>()
+            + size_of_stream_headers
+            + size_of_streams;
 
         optional.SizeOfImage = round(size_of_image, optional.SectionAlignment as usize) as u32;
         section.Misc.VirtualSize = size_of_image as u32 - optional.FileAlignment;
-        section.SizeOfRawData = round(section.Misc.VirtualSize as usize, optional.FileAlignment as usize) as u32;
+        section.SizeOfRawData = round(
+            section.Misc.VirtualSize as usize,
+            optional.FileAlignment as usize,
+        ) as u32;
 
-        optional.DataDirectory[14] = metadata::IMAGE_DATA_DIRECTORY { VirtualAddress: SECTION_ALIGNMENT, Size: core::mem::size_of::<metadata::IMAGE_COR20_HEADER>() as u32 };
+        optional.DataDirectory[14] = metadata::IMAGE_DATA_DIRECTORY {
+            VirtualAddress: SECTION_ALIGNMENT,
+            Size: core::mem::size_of::<metadata::IMAGE_COR20_HEADER>() as u32,
+        };
         section.PointerToRawData = optional.FileAlignment;
-        clr.MetaData.VirtualAddress = SECTION_ALIGNMENT + core::mem::size_of::<metadata::IMAGE_COR20_HEADER>() as u32;
-        clr.MetaData.Size = section.Misc.VirtualSize - core::mem::size_of::<metadata::IMAGE_COR20_HEADER>() as u32;
+        clr.MetaData.VirtualAddress =
+            SECTION_ALIGNMENT + core::mem::size_of::<metadata::IMAGE_COR20_HEADER>() as u32;
+        clr.MetaData.Size =
+            section.Misc.VirtualSize - core::mem::size_of::<metadata::IMAGE_COR20_HEADER>() as u32;
 
         let mut buffer = Vec::<u8>::new();
 
@@ -92,9 +115,21 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
 
         let stream_offset = buffer.len() - metadata_offset + size_of_stream_headers;
         let tables_header = TablesHeader::new(stream_offset as u32, tables.len() as u32, b"#~\0\0");
-        let strings_header = StringsHeader::new(tables_header.next_offset(), strings.len() as u32, b"#Strings\0\0\0\0");
-        let guids_header = GuidsHeader::new(strings_header.next_offset(), guids.len() as u32, b"#GUID\0\0\0");
-        let blobs_header = BlobsHeader::new(guids_header.next_offset(), blobs.len() as u32, b"#Blob\0\0\0");
+        let strings_header = StringsHeader::new(
+            tables_header.next_offset(),
+            strings.len() as u32,
+            b"#Strings\0\0\0\0",
+        );
+        let guids_header = GuidsHeader::new(
+            strings_header.next_offset(),
+            guids.len() as u32,
+            b"#GUID\0\0\0",
+        );
+        let blobs_header = BlobsHeader::new(
+            guids_header.next_offset(),
+            blobs.len() as u32,
+            b"#Blob\0\0\0",
+        );
 
         buffer.write_header(&tables_header);
         buffer.write_header(&strings_header);
@@ -124,7 +159,11 @@ struct StreamHeader<const LEN: usize> {
 
 impl<const LEN: usize> StreamHeader<LEN> {
     fn new(offset: u32, size: u32, name: &[u8; LEN]) -> Self {
-        Self { offset, size, name: *name }
+        Self {
+            offset,
+            size,
+            name: *name,
+        }
     }
     fn next_offset(&self) -> u32 {
         self.offset + self.size

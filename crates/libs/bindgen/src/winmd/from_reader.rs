@@ -1,7 +1,11 @@
 use super::*;
 use metadata::{AsRow, HasAttributes};
 
-pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
+pub fn from_reader(
+    reader: &metadata::Reader,
+    config: std::collections::BTreeMap<&str, &str>,
+    output: &str,
+) -> Result<()> {
     let mut writer = Writer::new(output);
 
     // TODO: do we need any configuration values for winmd generation?
@@ -23,7 +27,11 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
 
         let generics = &metadata::type_def_generics(def);
 
-        let extends = if let Some(extends) = def.extends() { writer.insert_type_ref(extends.namespace(), extends.name()) } else { TypeDefOrRef::none() };
+        let extends = if let Some(extends) = def.extends() {
+            writer.insert_type_ref(extends.namespace(), extends.name())
+        } else {
+            TypeDefOrRef::none()
+        };
 
         writer.tables.TypeDef.push(TypeDef {
             Extends: extends,
@@ -49,14 +57,21 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             let ty = winmd_type(&interface.ty);
 
             let reference = match &ty {
-                Type::TypeRef(type_name) if type_name.generics.is_empty() => writer.insert_type_ref(&type_name.namespace, &type_name.name),
+                Type::TypeRef(type_name) if type_name.generics.is_empty() => {
+                    writer.insert_type_ref(&type_name.namespace, &type_name.name)
+                }
                 Type::TypeRef(_) => writer.insert_type_spec(ty),
                 Type::IUnknown => writer.insert_type_ref("Windows.Win32.System.Com", "IUnknown"),
-                Type::IInspectable => writer.insert_type_ref("Windows.Win32.System.WinRT", "IInspectable"),
+                Type::IInspectable => {
+                    writer.insert_type_ref("Windows.Win32.System.WinRT", "IInspectable")
+                }
                 rest => unimplemented!("{rest:?}"),
             };
 
-            writer.tables.InterfaceImpl.push(InterfaceImpl { Class: def_ref, Interface: reference });
+            writer.tables.InterfaceImpl.push(InterfaceImpl {
+                Class: def_ref,
+                Interface: reference,
+            });
         }
 
         // TODO: if the class is "Apis" then should we sort the fields (constants) and methods (functions) for stability
@@ -65,10 +80,18 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             let ty = winmd_type(&field.ty(Some(def)));
             let signature = writer.insert_field_sig(&ty);
 
-            writer.tables.Field.push(Field { Flags: field.flags().0, Name: writer.strings.insert(field.name()), Signature: signature });
+            writer.tables.Field.push(Field {
+                Flags: field.flags().0,
+                Name: writer.strings.insert(field.name()),
+                Signature: signature,
+            });
 
             if let Some(constant) = field.constant() {
-                writer.tables.Constant.push(Constant { Type: constant.usize(0) as u16, Parent: HasConstant::Field(writer.tables.Field.len() as u32 - 1), Value: writer.blobs.insert(&constant.blob(2)) })
+                writer.tables.Constant.push(Constant {
+                    Type: constant.usize(0) as u16,
+                    Parent: HasConstant::Field(writer.tables.Field.len() as u32 - 1),
+                    Value: writer.blobs.insert(&constant.blob(2)),
+                })
             }
         }
 
@@ -77,7 +100,8 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             let return_type = winmd_type(&signature.return_type);
             let param_types: Vec<Type> = signature.params.iter().map(winmd_type).collect();
 
-            let signature = writer.insert_method_sig(signature.call_flags, &return_type, &param_types);
+            let signature =
+                writer.insert_method_sig(signature.call_flags, &return_type, &param_types);
 
             writer.tables.MethodDef.push(MethodDef {
                 RVA: 0,
@@ -89,7 +113,11 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             });
 
             for param in method.params() {
-                writer.tables.Param.push(Param { Flags: param.flags().0, Sequence: param.sequence(), Name: writer.strings.insert(param.name()) });
+                writer.tables.Param.push(Param {
+                    Flags: param.flags().0,
+                    Sequence: param.sequence(),
+                    Name: writer.strings.insert(param.name()),
+                });
             }
         }
 
@@ -98,14 +126,25 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             assert_eq!(attribute_ctor.name(), ".ctor");
             let metadata::MemberRefParent::TypeRef(attribute_type) = attribute_ctor.parent();
 
-            let attribute_type_ref = if let TypeDefOrRef::TypeRef(type_ref) = writer.insert_type_ref(attribute_type.namespace(), attribute_type.name()) { MemberRefParent::TypeRef(type_ref) } else { panic!() };
+            let attribute_type_ref = if let TypeDefOrRef::TypeRef(type_ref) =
+                writer.insert_type_ref(attribute_type.namespace(), attribute_type.name())
+            {
+                MemberRefParent::TypeRef(type_ref)
+            } else {
+                panic!()
+            };
 
             let signature = attribute_ctor.signature();
             let return_type = winmd_type(&signature.return_type);
             let param_types: Vec<Type> = signature.params.iter().map(winmd_type).collect();
-            let signature = writer.insert_method_sig(signature.call_flags, &return_type, &param_types);
+            let signature =
+                writer.insert_method_sig(signature.call_flags, &return_type, &param_types);
 
-            writer.tables.MemberRef.push(MemberRef { Class: attribute_type_ref, Name: writer.strings.insert(".ctor"), Signature: signature });
+            writer.tables.MemberRef.push(MemberRef {
+                Class: attribute_type_ref,
+                Name: writer.strings.insert(".ctor"),
+                Signature: signature,
+            });
 
             let mut values = 1u16.to_le_bytes().to_vec(); // prolog
             let args = attribute.args();
@@ -128,7 +167,11 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
 
             let values = writer.blobs.insert(&values);
 
-            writer.tables.CustomAttribute.push(CustomAttribute { Parent: HasAttribute::TypeDef(def_ref), Type: AttributeType::MemberRef(writer.tables.MemberRef.len() as u32 - 1), Value: values });
+            writer.tables.CustomAttribute.push(CustomAttribute {
+                Parent: HasAttribute::TypeDef(def_ref),
+                Type: AttributeType::MemberRef(writer.tables.MemberRef.len() as u32 - 1),
+                Value: values,
+            });
         }
     }
 
@@ -195,13 +238,19 @@ fn winmd_type(ty: &metadata::Type) -> Type {
         metadata::Type::Const(metadata::TypeName::PWSTR) => Type::PCWSTR,
         metadata::Type::Name(metadata::TypeName::BSTR) => Type::BSTR,
         metadata::Type::Name(metadata::TypeName::Type) => Type::Type,
-        metadata::Type::TypeDef(def, generics) => Type::TypeRef(TypeName { namespace: def.namespace().to_string(), name: def.name().to_string(), generics: generics.iter().map(winmd_type).collect() }),
+        metadata::Type::TypeDef(def, generics) => Type::TypeRef(TypeName {
+            namespace: def.namespace().to_string(),
+            name: def.name().to_string(),
+            generics: generics.iter().map(winmd_type).collect(),
+        }),
         metadata::Type::GenericParam(generic) => Type::GenericParam(generic.number()),
         metadata::Type::ConstRef(ty) => Type::ConstRef(Box::new(winmd_type(ty))),
         metadata::Type::WinrtArrayRef(ty) => Type::WinrtArrayRef(Box::new(winmd_type(ty))),
         metadata::Type::WinrtArray(ty) => Type::WinrtArray(Box::new(winmd_type(ty))),
         metadata::Type::MutPtr(ty, pointers) => Type::MutPtr(Box::new(winmd_type(ty)), *pointers),
-        metadata::Type::ConstPtr(ty, pointers) => Type::ConstPtr(Box::new(winmd_type(ty)), *pointers),
+        metadata::Type::ConstPtr(ty, pointers) => {
+            Type::ConstPtr(Box::new(winmd_type(ty)), *pointers)
+        }
         metadata::Type::Win32Array(ty, len) => Type::Win32Array(Box::new(winmd_type(ty)), *len),
         rest => unimplemented!("{rest:?}"),
     }

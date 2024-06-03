@@ -2,7 +2,10 @@ use super::*;
 use metadata::HasAttributes;
 
 pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
-    if !def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+    if !def
+        .flags()
+        .contains(metadata::TypeAttributes::WindowsRuntime)
+    {
         return quote! {};
     }
 
@@ -38,7 +41,15 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             let mut virtual_names = MethodNames::new();
 
             for method in def.methods() {
-                methods.combine(&winrt_methods::writer(writer, *def, generics, interface.kind, method, &mut method_names, &mut virtual_names));
+                methods.combine(&winrt_methods::writer(
+                    writer,
+                    *def,
+                    generics,
+                    interface.kind,
+                    method,
+                    &mut method_names,
+                    &mut virtual_names,
+                ));
             }
         }
     }
@@ -104,11 +115,40 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             }
         });
 
-        tokens.combine(&writer.interface_winrt_trait(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
-        tokens.combine(&writer.interface_trait(def, &[], &name, &TokenStream::new(), &features, true));
+        tokens.combine(&writer.interface_winrt_trait(
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &TokenStream::new(),
+            &features,
+        ));
+        tokens.combine(&writer.interface_trait(
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &features,
+            true,
+        ));
         tokens.combine(&writer.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
-        tokens.combine(&writer.async_get(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
-        tokens.combine(&iterators::writer(writer, def, &[], &name, &TokenStream::new(), &TokenStream::new(), &cfg));
+        tokens.combine(&writer.async_get(
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &TokenStream::new(),
+            &features,
+        ));
+        tokens.combine(&iterators::writer(
+            writer,
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &TokenStream::new(),
+            &cfg,
+        ));
         tokens.combine(&writer.agile(def, &name, &TokenStream::new(), &features));
         tokens
     } else {
@@ -127,7 +167,13 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     }
 }
 
-fn gen_conversions(writer: &Writer, def: metadata::TypeDef, ident: &TokenStream, interfaces: &[metadata::Interface], cfg: &cfg::Cfg) -> TokenStream {
+fn gen_conversions(
+    writer: &Writer,
+    def: metadata::TypeDef,
+    ident: &TokenStream,
+    interfaces: &[metadata::Interface],
+    cfg: &cfg::Cfg,
+) -> TokenStream {
     let features = writer.cfg_features(cfg);
     let mut tokens = quote! {
         #features
@@ -143,7 +189,10 @@ fn gen_conversions(writer: &Writer, def: metadata::TypeDef, ident: &TokenStream,
             continue;
         }
 
-        if interface.kind != metadata::InterfaceKind::Default && interface.kind != metadata::InterfaceKind::None && interface.kind != metadata::InterfaceKind::Base {
+        if interface.kind != metadata::InterfaceKind::Default
+            && interface.kind != metadata::InterfaceKind::None
+            && interface.kind != metadata::InterfaceKind::Base
+        {
             continue;
         }
 
@@ -172,7 +221,11 @@ fn gen_conversions(writer: &Writer, def: metadata::TypeDef, ident: &TokenStream,
 fn type_def_has_default_constructor(row: metadata::TypeDef) -> bool {
     for attribute in row.attributes() {
         if attribute.name() == "ActivatableAttribute" {
-            if attribute.args().iter().any(|arg| matches!(arg.1, metadata::Value::TypeName(_))) {
+            if attribute
+                .args()
+                .iter()
+                .any(|arg| matches!(arg.1, metadata::Value::TypeName(_)))
+            {
                 continue;
             } else {
                 return true;

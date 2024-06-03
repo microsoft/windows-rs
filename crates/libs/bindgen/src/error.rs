@@ -20,7 +20,11 @@ impl From<Error> for std::io::Error {
 impl From<syn::Error> for Error {
     fn from(error: syn::Error) -> Self {
         let start = error.span().start();
-        Self { message: error.to_string(), span: Some((start.line, start.column)), ..Self::default() }
+        Self {
+            message: error.to_string(),
+            span: Some((start.line, start.column)),
+            ..Self::default()
+        }
     }
 }
 
@@ -40,10 +44,16 @@ impl std::fmt::Display for Error {
 
 impl Error {
     pub(crate) fn new(message: &str) -> Self {
-        Self { message: message.to_string(), ..Self::default() }
+        Self {
+            message: message.to_string(),
+            ..Self::default()
+        }
     }
 
     pub(crate) fn with_path(self, path: &str) -> Self {
-        Self { path: path.to_string(), ..self }
+        Self {
+            path: path.to_string(),
+            ..self
+        }
     }
 }

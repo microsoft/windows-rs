@@ -37,8 +37,13 @@ impl IInspectable {
 #[repr(C)]
 pub struct IInspectable_Vtbl {
     pub base: IUnknown_Vtbl,
-    pub GetIids: unsafe extern "system" fn(this: *mut c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
-    pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut c_void, value: *mut *mut c_void) -> HRESULT,
+    pub GetIids: unsafe extern "system" fn(
+        this: *mut c_void,
+        count: *mut u32,
+        values: *mut *mut GUID,
+    ) -> HRESULT,
+    pub GetRuntimeClassName:
+        unsafe extern "system" fn(this: *mut c_void, value: *mut *mut c_void) -> HRESULT,
     pub GetTrustLevel: unsafe extern "system" fn(this: *mut c_void, value: *mut i32) -> HRESULT,
 }
 
@@ -55,7 +60,11 @@ impl RuntimeName for IInspectable {}
 
 impl IInspectable_Vtbl {
     pub const fn new<Identity: IUnknownImpl, Name: RuntimeName, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIids(_: *mut c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT {
+        unsafe extern "system" fn GetIids(
+            _: *mut c_void,
+            count: *mut u32,
+            values: *mut *mut GUID,
+        ) -> HRESULT {
             // Note: even if we end up implementing this in future, it still doesn't need a this pointer
             // since the data to be returned is type- not instance-specific so can be shared for all
             // interfaces.
@@ -63,12 +72,18 @@ impl IInspectable_Vtbl {
             *values = null_mut();
             HRESULT(0)
         }
-        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(_: *mut c_void, value: *mut *mut c_void) -> HRESULT {
+        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(
+            _: *mut c_void,
+            value: *mut *mut c_void,
+        ) -> HRESULT {
             let h: HSTRING = T::NAME.into(); // TODO: should be try_into
             *value = transmute::<HSTRING, *mut c_void>(h);
             HRESULT(0)
         }
-        unsafe extern "system" fn GetTrustLevel<T: IUnknownImpl, const OFFSET: isize>(this: *mut c_void, value: *mut i32) -> HRESULT {
+        unsafe extern "system" fn GetTrustLevel<T: IUnknownImpl, const OFFSET: isize>(
+            this: *mut c_void,
+            value: *mut i32,
+        ) -> HRESULT {
             let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
             (*this).GetTrustLevel(value)
         }
@@ -86,7 +101,10 @@ impl core::fmt::Debug for IInspectable {
         // Attempts to retrieve the string representation of the object via the
         // IStringable interface. If that fails, it will use the canonical type
         // name to give some idea of what the object represents.
-        let name = <Self as Interface>::cast::<imp::IStringable>(self).and_then(|s| s.ToString()).or_else(|_| self.GetRuntimeClassName()).unwrap_or_default();
+        let name = <Self as Interface>::cast::<imp::IStringable>(self)
+            .and_then(|s| s.ToString())
+            .or_else(|_| self.GetRuntimeClassName())
+            .unwrap_or_default();
         write!(f, "\"{}\"", name)
     }
 }

@@ -17,11 +17,13 @@ pub struct Writer {
     pub sys: bool,                 // writer sys-style bindings
     pub flatten: bool,             // strips out namespaces - implies !package
     pub package: bool,             // default is single file with no cfg - implies !flatten
-    pub minimal: bool,             // strips out enumerators - in future possibly other helpers as well
+    pub minimal: bool, // strips out enumerators - in future possibly other helpers as well
     pub no_inner_attributes: bool, // skips the inner attributes at the start of the file
-    pub no_bindgen_comment: bool,  // skips the bindgen comment at the start of the file
-    pub vtbl: bool,                // include minimal vtbl layout support for interfaces
+    pub no_bindgen_comment: bool, // skips the bindgen comment at the start of the file
+    pub vtbl: bool,    // include minimal vtbl layout support for interfaces
     pub prepend: std::collections::HashMap<metadata::TypeDef, String>,
+    /// If this is not empty, then it is passed to rustfmt in a `--config` argument.
+    pub rustfmt_config: String,
 }
 
 impl Writer {
@@ -40,6 +42,7 @@ impl Writer {
             no_bindgen_comment: false,
             vtbl: false,
             prepend: Default::default(),
+            rustfmt_config: String::new(),
         }
     }
 
@@ -47,13 +50,26 @@ impl Writer {
     // metadata::TypeDef
     //
 
-    pub fn type_def_name(&self, def: metadata::TypeDef, generics: &[metadata::Type]) -> TokenStream {
+    pub fn type_def_name(
+        &self,
+        def: metadata::TypeDef,
+        generics: &[metadata::Type],
+    ) -> TokenStream {
         self.type_def_name_imp(def, generics, "")
     }
-    pub fn type_def_vtbl_name(&self, def: metadata::TypeDef, generics: &[metadata::Type]) -> TokenStream {
+    pub fn type_def_vtbl_name(
+        &self,
+        def: metadata::TypeDef,
+        generics: &[metadata::Type],
+    ) -> TokenStream {
         self.type_def_name_imp(def, generics, "_Vtbl")
     }
-    pub fn type_def_name_imp(&self, def: metadata::TypeDef, generics: &[metadata::Type], suffix: &str) -> TokenStream {
+    pub fn type_def_name_imp(
+        &self,
+        def: metadata::TypeDef,
+        generics: &[metadata::Type],
+        suffix: &str,
+    ) -> TokenStream {
         let type_name = def.type_name();
 
         if type_name.namespace().is_empty() {
@@ -203,7 +219,13 @@ impl Writer {
                 if self.sys {
                     match def.kind() {
                         metadata::TypeKind::Interface => quote! { *mut core::ffi::c_void },
-                        metadata::TypeKind::Delegate if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) => quote! { *mut core::ffi::c_void },
+                        metadata::TypeKind::Delegate
+                            if def
+                                .flags()
+                                .contains(metadata::TypeAttributes::WindowsRuntime) =>
+                        {
+                            quote! { *mut core::ffi::c_void }
+                        }
                         _ => self.type_def_name(*def, generics),
                     }
                 } else {
@@ -277,7 +299,10 @@ impl Writer {
                     }
                 }
                 metadata::TypeKind::Delegate => {
-                    if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+                    if def
+                        .flags()
+                        .contains(metadata::TypeAttributes::WindowsRuntime)
+                    {
                         quote! { *mut core::ffi::c_void }
                     } else {
                         self.type_def_name(*def, &[])
@@ -287,12 +312,20 @@ impl Writer {
             },
             metadata::Type::MutPtr(kind, pointers) => {
                 let pointers_tokens = gen_mut_ptrs(*pointers);
-                let kind = if *pointers > 1 { self.type_name(kind) } else { self.type_abi_name(kind) };
+                let kind = if *pointers > 1 {
+                    self.type_name(kind)
+                } else {
+                    self.type_abi_name(kind)
+                };
                 quote! { #pointers_tokens #kind }
             }
             metadata::Type::ConstPtr(kind, pointers) => {
                 let pointers_tokens = gen_const_ptrs(*pointers);
-                let kind = if *pointers > 1 { self.type_name(kind) } else { self.type_abi_name(kind) };
+                let kind = if *pointers > 1 {
+                    self.type_name(kind)
+                } else {
+                    self.type_abi_name(kind)
+                };
                 quote! { #pointers_tokens #kind }
             }
             metadata::Type::WinrtArray(kind) => self.type_abi_name(kind),
@@ -340,12 +373,21 @@ impl Writer {
         tokens
     }
     /// The signature params which are generic (along with their relative index)
-    pub fn generic_params<'b>(&'b self, params: &'b [metadata::SignatureParam]) -> impl Iterator<Item = (usize, &metadata::SignatureParam)> + 'b {
-        params.iter().filter(move |param| param.is_convertible()).enumerate()
+    pub fn generic_params<'b>(
+        &'b self,
+        params: &'b [metadata::SignatureParam],
+    ) -> impl Iterator<Item = (usize, &metadata::SignatureParam)> + 'b {
+        params
+            .iter()
+            .filter(move |param| param.is_convertible())
+            .enumerate()
     }
     /// The generic param names (i.e., `T` in `fn foo<T>()`)
     pub fn constraint_generics(&self, params: &[metadata::SignatureParam]) -> TokenStream {
-        let mut generics = self.generic_params(params).map(|(position, _)| -> TokenStream { format!("P{position}").into() }).peekable();
+        let mut generics = self
+            .generic_params(params)
+            .map(|(position, _)| -> TokenStream { format!("P{position}").into() })
+            .peekable();
 
         if generics.peek().is_some() {
             quote!(#(#generics),*)
@@ -416,7 +458,10 @@ impl Writer {
         let mut compact = Vec::<&'static str>::new();
         if self.package {
             for feature in cfg.types.keys() {
-                if !feature.is_empty() && !starts_with(namespace, feature) && !is_defaulted_foundation_feature(namespace, feature) {
+                if !feature.is_empty()
+                    && !starts_with(namespace, feature)
+                    && !is_defaulted_foundation_feature(namespace, feature)
+                {
                     for pos in 0..compact.len() {
                         if starts_with(feature, unsafe { compact.get_unchecked(pos) }) {
                             compact.remove(pos);
@@ -461,7 +506,8 @@ impl Writer {
         if self.flatten || namespace == self.namespace {
             quote! {}
         } else {
-            let is_external = namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");
+            let is_external =
+                namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");
             let mut relative = self.namespace.split('.').peekable();
             let mut namespace = namespace.split('.').peekable();
 
@@ -572,7 +618,13 @@ impl Writer {
         }
     }
 
-    pub fn agile(&self, def: metadata::TypeDef, ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn agile(
+        &self,
+        def: metadata::TypeDef,
+        ident: &TokenStream,
+        constraints: &TokenStream,
+        features: &TokenStream,
+    ) -> TokenStream {
         if type_def_is_agile(def) {
             quote! {
                 #features
@@ -584,7 +636,15 @@ impl Writer {
             quote! {}
         }
     }
-    pub fn async_get(&self, def: metadata::TypeDef, generics: &[metadata::Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn async_get(
+        &self,
+        def: metadata::TypeDef,
+        generics: &[metadata::Type],
+        ident: &TokenStream,
+        constraints: &TokenStream,
+        _phantoms: &TokenStream,
+        features: &TokenStream,
+    ) -> TokenStream {
         let mut kind = type_def_async_kind(def);
         let mut async_generics = generics.to_vec();
 
@@ -604,13 +664,17 @@ impl Writer {
             quote! {}
         } else {
             let return_type = match kind {
-                metadata::AsyncKind::Operation | metadata::AsyncKind::OperationWithProgress => self.type_name(&async_generics[0]),
+                metadata::AsyncKind::Operation | metadata::AsyncKind::OperationWithProgress => {
+                    self.type_name(&async_generics[0])
+                }
                 _ => quote! { () },
             };
 
             let handler = match kind {
                 metadata::AsyncKind::Action => quote! { AsyncActionCompletedHandler },
-                metadata::AsyncKind::ActionWithProgress => quote! { AsyncActionWithProgressCompletedHandler },
+                metadata::AsyncKind::ActionWithProgress => {
+                    quote! { AsyncActionWithProgressCompletedHandler }
+                }
                 metadata::AsyncKind::Operation => quote! { AsyncOperationCompletedHandler },
                 metadata::AsyncKind::OperationWithProgress => {
                     quote! { AsyncOperationWithProgressCompletedHandler }
@@ -657,10 +721,22 @@ impl Writer {
             }
         }
     }
-    pub fn interface_winrt_trait(&self, def: metadata::TypeDef, generics: &[metadata::Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
-        if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+    pub fn interface_winrt_trait(
+        &self,
+        def: metadata::TypeDef,
+        generics: &[metadata::Type],
+        ident: &TokenStream,
+        constraints: &TokenStream,
+        _phantoms: &TokenStream,
+        features: &TokenStream,
+    ) -> TokenStream {
+        if def
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime)
+        {
             let type_signature = if def.kind() == metadata::TypeKind::Class {
-                let default = metadata::type_def_default_interface(def).expect("missing default interface");
+                let default =
+                    metadata::type_def_default_interface(def).expect("missing default interface");
                 let default_name = self.type_name(&default);
                 quote! { windows_core::imp::ConstBuffer::for_class::<Self, #default_name>() }
             } else if generics.is_empty() {
@@ -668,7 +744,12 @@ impl Writer {
             } else {
                 let signature = Literal::byte_string(
                     // TODO: workaround for riddle winmd generation (no attribute support)
-                    if let Some(guid) = metadata::type_def_guid(def) { format!("{{{:#?}}}", guid) } else { "TODO".to_string() }.as_bytes(),
+                    if let Some(guid) = metadata::type_def_guid(def) {
+                        format!("{{{:#?}}}", guid)
+                    } else {
+                        "TODO".to_string()
+                    }
+                    .as_bytes(),
                 );
 
                 let generics = generics.iter().enumerate().map(|(index, g)| {
@@ -709,8 +790,18 @@ impl Writer {
             quote! {}
         }
     }
-    pub fn runtime_name_trait(&self, def: metadata::TypeDef, _generics: &[metadata::Type], name: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
-        if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+    pub fn runtime_name_trait(
+        &self,
+        def: metadata::TypeDef,
+        _generics: &[metadata::Type],
+        name: &TokenStream,
+        constraints: &TokenStream,
+        features: &TokenStream,
+    ) -> TokenStream {
+        if def
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime)
+        {
             // TODO: this needs to use a ConstBuffer-like facility to accomodate generics
             let runtime_name = format!("{}", def.type_name());
 
@@ -728,7 +819,15 @@ impl Writer {
         }
     }
 
-    pub fn interface_trait(&self, def: metadata::TypeDef, generics: &[metadata::Type], ident: &TokenStream, constraints: &TokenStream, features: &TokenStream, has_unknown_base: bool) -> TokenStream {
+    pub fn interface_trait(
+        &self,
+        def: metadata::TypeDef,
+        generics: &[metadata::Type],
+        ident: &TokenStream,
+        constraints: &TokenStream,
+        features: &TokenStream,
+        has_unknown_base: bool,
+    ) -> TokenStream {
         if let Some(default) = metadata::type_def_default_interface(def) {
             let default_name = self.type_name(&default);
             let vtbl = self.type_vtbl_name(&default);
@@ -773,7 +872,13 @@ impl Writer {
             }
         }
     }
-    pub fn interface_vtbl(&self, def: metadata::TypeDef, generics: &[metadata::Type], constraints: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn interface_vtbl(
+        &self,
+        def: metadata::TypeDef,
+        generics: &[metadata::Type],
+        constraints: &TokenStream,
+        features: &TokenStream,
+    ) -> TokenStream {
         let vtbl = self.type_def_vtbl_name(def, generics);
         let mut methods = quote! {};
         let mut method_names = MethodNames::new();
@@ -781,8 +886,12 @@ impl Writer {
         let crate_name = self.crate_name();
 
         match metadata::type_def_vtables(def).last() {
-            Some(metadata::Type::Name(metadata::TypeName::IUnknown)) => methods.combine(&quote! { pub base__: #crate_name IUnknown_Vtbl, }),
-            Some(metadata::Type::Object) => methods.combine(&quote! { pub base__: #crate_name IInspectable_Vtbl, }),
+            Some(metadata::Type::Name(metadata::TypeName::IUnknown)) => {
+                methods.combine(&quote! { pub base__: #crate_name IUnknown_Vtbl, })
+            }
+            Some(metadata::Type::Object) => {
+                methods.combine(&quote! { pub base__: #crate_name IInspectable_Vtbl, })
+            }
             Some(metadata::Type::TypeDef(def, _)) => {
                 let vtbl = self.type_def_vtbl_name(*def, &[]);
                 methods.combine(&quote! { pub base__: #vtbl, });
@@ -831,28 +940,53 @@ impl Writer {
             }
         }
     }
-    pub fn vtbl_signature(&self, def: metadata::TypeDef, named_params: bool, signature: &metadata::Signature) -> TokenStream {
-        let is_winrt = def.flags().contains(metadata::TypeAttributes::WindowsRuntime);
+    pub fn vtbl_signature(
+        &self,
+        def: metadata::TypeDef,
+        named_params: bool,
+        signature: &metadata::Signature,
+    ) -> TokenStream {
+        let is_winrt = def
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime);
 
         let crate_name = self.crate_name();
 
         let (trailing_return_type, return_type, udt_return_type) = match &signature.return_type {
-            metadata::Type::Void if is_winrt => (quote! {}, quote! { -> #crate_name HRESULT }, quote! {}),
+            metadata::Type::Void if is_winrt => {
+                (quote! {}, quote! { -> #crate_name HRESULT }, quote! {})
+            }
             metadata::Type::Void => (quote! {}, quote! {}, quote! {}),
             metadata::Type::WinrtArray(kind) => {
                 let tokens = self.type_abi_name(kind);
                 if named_params {
-                    (quote! { result_size__: *mut u32, result__: *mut *mut #tokens }, quote! { -> #crate_name HRESULT }, quote! {})
+                    (
+                        quote! { result_size__: *mut u32, result__: *mut *mut #tokens },
+                        quote! { -> #crate_name HRESULT },
+                        quote! {},
+                    )
                 } else {
-                    (quote! { *mut u32, *mut *mut #tokens }, quote! { -> #crate_name HRESULT }, quote! {})
+                    (
+                        quote! { *mut u32, *mut *mut #tokens },
+                        quote! { -> #crate_name HRESULT },
+                        quote! {},
+                    )
                 }
             }
             _ if is_winrt => {
                 let tokens = self.type_abi_name(&signature.return_type);
                 if named_params {
-                    (quote! { result__: *mut #tokens }, quote! { -> #crate_name HRESULT }, quote! {})
+                    (
+                        quote! { result__: *mut #tokens },
+                        quote! { -> #crate_name HRESULT },
+                        quote! {},
+                    )
                 } else {
-                    (quote! { *mut #tokens }, quote! { -> #crate_name HRESULT }, quote! {})
+                    (
+                        quote! { *mut #tokens },
+                        quote! { -> #crate_name HRESULT },
+                        quote! {},
+                    )
                 }
             }
             _ if metadata::type_is_struct(&signature.return_type) => {
@@ -945,7 +1079,9 @@ impl Writer {
     }
     pub fn return_sig(&self, signature: &metadata::Signature) -> TokenStream {
         match &signature.return_type {
-            metadata::Type::Void if signature.def.has_attribute("DoesNotReturnAttribute") => " -> !".into(),
+            metadata::Type::Void if signature.def.has_attribute("DoesNotReturnAttribute") => {
+                " -> !".into()
+            }
             metadata::Type::Void => TokenStream::new(),
             _ => {
                 let tokens = self.type_default_name(&signature.return_type);
@@ -953,7 +1089,11 @@ impl Writer {
             }
         }
     }
-    pub fn win32_args(&self, params: &[metadata::SignatureParam], kind: metadata::SignatureKind) -> TokenStream {
+    pub fn win32_args(
+        &self,
+        params: &[metadata::SignatureParam],
+        kind: metadata::SignatureKind,
+    ) -> TokenStream {
         let mut tokens = quote! {};
 
         for (position, param) in params.iter().enumerate() {
@@ -961,20 +1101,27 @@ impl Writer {
                 metadata::SignatureKind::Query(query) if query.object == position => {
                     quote! { &mut result__, }
                 }
-                metadata::SignatureKind::ReturnValue | metadata::SignatureKind::ResultValue if params.len() - 1 == position => {
+                metadata::SignatureKind::ReturnValue | metadata::SignatureKind::ResultValue
+                    if params.len() - 1 == position =>
+                {
                     quote! { &mut result__, }
                 }
                 metadata::SignatureKind::QueryOptional(query) if query.object == position => {
                     quote! { result__ as *mut _ as *mut _, }
                 }
-                metadata::SignatureKind::Query(query) | metadata::SignatureKind::QueryOptional(query) if query.guid == position => {
+                metadata::SignatureKind::Query(query)
+                | metadata::SignatureKind::QueryOptional(query)
+                    if query.guid == position =>
+                {
                     quote! { &T::IID, }
                 }
                 _ => {
                     let name = self.param_name(param.def);
                     let flags = param.def.flags();
                     match param.kind {
-                        metadata::SignatureParamKind::ArrayFixed(_) | metadata::SignatureParamKind::ArrayRelativeLen(_) | metadata::SignatureParamKind::ArrayRelativeByteLen(_) => {
+                        metadata::SignatureParamKind::ArrayFixed(_)
+                        | metadata::SignatureParamKind::ArrayRelativeLen(_)
+                        | metadata::SignatureParamKind::ArrayRelativeByteLen(_) => {
                             let map = if flags.contains(metadata::ParamAttributes::Optional) {
                                 quote! { #name.as_deref().map_or(core::ptr::null(), |slice|slice.as_ptr()) }
                             } else {
@@ -1022,18 +1169,25 @@ impl Writer {
 
         tokens
     }
-    pub fn win32_params(&self, params: &[metadata::SignatureParam], kind: metadata::SignatureKind) -> TokenStream {
+    pub fn win32_params(
+        &self,
+        params: &[metadata::SignatureParam],
+        kind: metadata::SignatureKind,
+    ) -> TokenStream {
         let mut tokens = quote! {};
 
         let mut generic_params = self.generic_params(params);
         for (position, param) in params.iter().enumerate() {
             match kind {
-                metadata::SignatureKind::Query(query) | metadata::SignatureKind::QueryOptional(query) => {
+                metadata::SignatureKind::Query(query)
+                | metadata::SignatureKind::QueryOptional(query) => {
                     if query.object == position || query.guid == position {
                         continue;
                     }
                 }
-                metadata::SignatureKind::ReturnValue | metadata::SignatureKind::ResultValue if params.len() - 1 == position => {
+                metadata::SignatureKind::ReturnValue | metadata::SignatureKind::ResultValue
+                    if params.len() - 1 == position =>
+                {
                     continue;
                 }
                 _ => {}
@@ -1051,7 +1205,11 @@ impl Writer {
                     } else {
                         quote! { &[#ty; #len] }
                     };
-                    if param.def.flags().contains(metadata::ParamAttributes::Optional) {
+                    if param
+                        .def
+                        .flags()
+                        .contains(metadata::ParamAttributes::Optional)
+                    {
                         tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
@@ -1065,7 +1223,11 @@ impl Writer {
                     } else {
                         quote! { &[#ty] }
                     };
-                    if param.def.flags().contains(metadata::ParamAttributes::Optional) {
+                    if param
+                        .def
+                        .flags()
+                        .contains(metadata::ParamAttributes::Optional)
+                    {
                         tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
@@ -1077,7 +1239,11 @@ impl Writer {
                     } else {
                         quote! { &[u8] }
                     };
-                    if param.def.flags().contains(metadata::ParamAttributes::Optional) {
+                    if param
+                        .def
+                        .flags()
+                        .contains(metadata::ParamAttributes::Optional)
+                    {
                         tokens.combine(&quote! { #name: Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
@@ -1093,7 +1259,8 @@ impl Writer {
                     let kind = self.type_default_name(&param.ty);
                     tokens.combine(&quote! { #name: Option<#kind>, });
                 }
-                metadata::SignatureParamKind::ValueType | metadata::SignatureParamKind::Blittable => {
+                metadata::SignatureParamKind::ValueType
+                | metadata::SignatureParamKind::Blittable => {
                     let kind = self.type_default_name(&param.ty);
                     tokens.combine(&quote! { #name: #kind, });
                 }
@@ -1107,10 +1274,20 @@ impl Writer {
         tokens
     }
 
-    pub fn impl_signature(&self, def: metadata::TypeDef, signature: &metadata::Signature) -> TokenStream {
-        if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+    pub fn impl_signature(
+        &self,
+        def: metadata::TypeDef,
+        signature: &metadata::Signature,
+    ) -> TokenStream {
+        if def
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime)
+        {
             let is_delegate = def.kind() == metadata::TypeKind::Delegate;
-            let params = signature.params.iter().map(|p| self.winrt_produce_type(p, !is_delegate));
+            let params = signature
+                .params
+                .iter()
+                .map(|p| self.winrt_produce_type(p, !is_delegate));
 
             let return_type = match &signature.return_type {
                 metadata::Type::Void => quote! { () },
@@ -1148,7 +1325,9 @@ impl Writer {
 
             let return_type = match signature_kind {
                 metadata::SignatureKind::ReturnVoid => quote! {},
-                metadata::SignatureKind::Query(_) | metadata::SignatureKind::QueryOptional(_) | metadata::SignatureKind::ResultVoid => quote! { -> windows_core::Result<()> },
+                metadata::SignatureKind::Query(_)
+                | metadata::SignatureKind::QueryOptional(_)
+                | metadata::SignatureKind::ResultVoid => quote! { -> windows_core::Result<()> },
                 metadata::SignatureKind::ResultValue => {
                     let return_type = signature.params[signature.params.len() - 1].ty.deref();
                     let return_type = self.type_name(&return_type);
@@ -1161,7 +1340,11 @@ impl Writer {
             quote! { (&self, #params) #return_type }
         }
     }
-    fn winrt_produce_type(&self, param: &metadata::SignatureParam, include_param_names: bool) -> TokenStream {
+    fn winrt_produce_type(
+        &self,
+        param: &metadata::SignatureParam,
+        include_param_names: bool,
+    ) -> TokenStream {
         let default_type = self.type_default_name(&param.ty);
 
         let sig = if param.def.flags().contains(metadata::ParamAttributes::In) {
@@ -1270,7 +1453,8 @@ fn starts_with(namespace: &str, feature: &str) -> bool {
 }
 
 fn is_defaulted_foundation_feature(namespace: &str, feature: &str) -> bool {
-    let is_winrt = !starts_with(namespace, "Windows.Win32") && !starts_with(namespace, "Windows.Wdk");
+    let is_winrt =
+        !starts_with(namespace, "Windows.Win32") && !starts_with(namespace, "Windows.Wdk");
 
     if !is_winrt && feature == "Windows.Win32.Foundation" {
         true
@@ -1292,7 +1476,9 @@ fn type_def_async_kind(row: metadata::TypeDef) -> metadata::AsyncKind {
         metadata::TypeName::IAsyncAction => metadata::AsyncKind::Action,
         metadata::TypeName::IAsyncActionWithProgress => metadata::AsyncKind::ActionWithProgress,
         metadata::TypeName::IAsyncOperation => metadata::AsyncKind::Operation,
-        metadata::TypeName::IAsyncOperationWithProgress => metadata::AsyncKind::OperationWithProgress,
+        metadata::TypeName::IAsyncOperationWithProgress => {
+            metadata::AsyncKind::OperationWithProgress
+        }
         _ => metadata::AsyncKind::None,
     }
 }
@@ -1311,7 +1497,13 @@ fn type_def_is_agile(row: metadata::TypeDef) -> bool {
             _ => {}
         }
     }
-    matches!(row.type_name(), metadata::TypeName::IAsyncAction | metadata::TypeName::IAsyncActionWithProgress | metadata::TypeName::IAsyncOperation | metadata::TypeName::IAsyncOperationWithProgress)
+    matches!(
+        row.type_name(),
+        metadata::TypeName::IAsyncAction
+            | metadata::TypeName::IAsyncActionWithProgress
+            | metadata::TypeName::IAsyncOperation
+            | metadata::TypeName::IAsyncOperationWithProgress
+    )
 }
 
 #[cfg(test)]
@@ -1320,9 +1512,21 @@ mod tests {
 
     #[test]
     fn test_starts_with() {
-        assert!(starts_with("Windows.Win32.Graphics.Direct3D11on12", "Windows.Win32.Graphics.Direct3D11on12"));
-        assert!(starts_with("Windows.Win32.Graphics.Direct3D11on12", "Windows.Win32.Graphics"));
-        assert!(!starts_with("Windows.Win32.Graphics.Direct3D11on12", "Windows.Win32.Graphics.Direct3D11"));
-        assert!(!starts_with("Windows.Win32.Graphics.Direct3D", "Windows.Win32.Graphics.Direct3D11"));
+        assert!(starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics.Direct3D11on12"
+        ));
+        assert!(starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics"
+        ));
+        assert!(!starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics.Direct3D11"
+        ));
+        assert!(!starts_with(
+            "Windows.Win32.Graphics.Direct3D",
+            "Windows.Win32.Graphics.Direct3D11"
+        ));
     }
 }

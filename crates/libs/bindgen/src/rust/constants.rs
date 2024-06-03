@@ -105,7 +105,11 @@ fn initializer(writer: &Writer, def: metadata::Field) -> Option<TokenStream> {
     Some(result)
 }
 
-fn field_initializer<'a>(writer: &Writer, field: metadata::Field, input: &'a str) -> (TokenStream, &'a str) {
+fn field_initializer<'a>(
+    writer: &Writer,
+    field: metadata::Field,
+    input: &'a str,
+) -> (TokenStream, &'a str) {
     let name = to_ident(field.name());
 
     match field.ty(None) {
@@ -191,7 +195,8 @@ fn read_literal_array(input: &str, len: usize) -> (Vec<&str>, &str) {
 }
 
 fn field_guid(row: metadata::Field) -> Option<metadata::Guid> {
-    row.find_attribute("GuidAttribute").map(|attribute| metadata::Guid::from_args(&attribute.args()))
+    row.find_attribute("GuidAttribute")
+        .map(|attribute| metadata::Guid::from_args(&attribute.args()))
 }
 
 fn field_is_ansi(row: metadata::Field) -> bool {
@@ -200,8 +205,12 @@ fn field_is_ansi(row: metadata::Field) -> bool {
 
 fn type_has_replacement(ty: &metadata::Type) -> bool {
     match ty {
-        metadata::Type::Name(metadata::TypeName::HResult) | metadata::Type::Const(metadata::TypeName::PSTR) | metadata::Type::Const(metadata::TypeName::PWSTR) => true,
-        metadata::Type::TypeDef(row, _) => metadata::type_def_is_handle(*row) || row.kind() == metadata::TypeKind::Enum,
+        metadata::Type::Name(metadata::TypeName::HResult)
+        | metadata::Type::Const(metadata::TypeName::PSTR)
+        | metadata::Type::Const(metadata::TypeName::PWSTR) => true,
+        metadata::Type::TypeDef(row, _) => {
+            metadata::type_def_is_handle(*row) || row.kind() == metadata::TypeKind::Enum
+        }
         _ => false,
     }
 }

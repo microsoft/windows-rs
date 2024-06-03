@@ -22,7 +22,12 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     gen_struct_with_name(writer, def, def.name(), &cfg::Cfg::default())
 }
 
-fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &str, cfg: &cfg::Cfg) -> TokenStream {
+fn gen_struct_with_name(
+    writer: &Writer,
+    def: metadata::TypeDef,
+    struct_name: &str,
+    cfg: &cfg::Cfg,
+) -> TokenStream {
     let name = to_ident(struct_name);
     let flags = def.flags();
     let cfg = cfg.union(cfg::type_def_cfg(writer, def, &[]));
@@ -44,10 +49,16 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
 
         if f.flags().contains(metadata::FieldAttributes::Literal) {
             quote! {}
-        } else if !writer.sys && flags.contains(metadata::TypeAttributes::ExplicitLayout) && !metadata::field_is_copyable(f, def) {
+        } else if !writer.sys
+            && flags.contains(metadata::TypeAttributes::ExplicitLayout)
+            && !metadata::field_is_copyable(f, def)
+        {
             let ty = writer.type_default_name(&ty);
             quote! { pub #name: core::mem::ManuallyDrop<#ty>, }
-        } else if !writer.sys && !flags.contains(metadata::TypeAttributes::WindowsRuntime) && !metadata::field_is_blittable(f, def) {
+        } else if !writer.sys
+            && !flags.contains(metadata::TypeAttributes::WindowsRuntime)
+            && !metadata::field_is_blittable(f, def)
+        {
             if let metadata::Type::Win32Array(ty, len) = ty {
                 let ty = writer.type_default_name(&ty);
                 quote! { pub #name: [core::mem::ManuallyDrop<#ty>; #len], }
@@ -94,13 +105,23 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
 
     for (index, nested_type) in writer.reader.nested_types(def).enumerate() {
         let nested_name = format!("{struct_name}_{index}");
-        tokens.combine(&gen_struct_with_name(writer, nested_type, &nested_name, &cfg));
+        tokens.combine(&gen_struct_with_name(
+            writer,
+            nested_type,
+            &nested_name,
+            &cfg,
+        ));
     }
 
     tokens
 }
 
-fn gen_windows_traits(writer: &Writer, def: metadata::TypeDef, name: &TokenStream, cfg: &cfg::Cfg) -> TokenStream {
+fn gen_windows_traits(
+    writer: &Writer,
+    def: metadata::TypeDef,
+    name: &TokenStream,
+    cfg: &cfg::Cfg,
+) -> TokenStream {
     if writer.sys {
         quote! {}
     } else {
@@ -120,7 +141,10 @@ fn gen_windows_traits(writer: &Writer, def: metadata::TypeDef, name: &TokenStrea
             }
         };
 
-        if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+        if def
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime)
+        {
             let signature = Literal::byte_string(metadata::type_def_signature(def, &[]).as_bytes());
 
             tokens.combine(&quote! {
@@ -138,18 +162,28 @@ fn gen_windows_traits(writer: &Writer, def: metadata::TypeDef, name: &TokenStrea
 fn gen_derive(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let mut derive = std::collections::BTreeSet::new();
 
-    if !writer.sys && !metadata::type_def_has_explicit_layout(def) && !metadata::type_def_has_packing(def) {
+    if !writer.sys
+        && !metadata::type_def_has_explicit_layout(def)
+        && !metadata::type_def_has_packing(def)
+    {
         derive.insert(to_ident("Debug"));
     }
 
     if writer.sys || metadata::type_def_is_copyable(def) {
         derive.insert(to_ident("Copy"));
         derive.insert(to_ident("Clone"));
-    } else if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+    } else if def
+        .flags()
+        .contains(metadata::TypeAttributes::WindowsRuntime)
+    {
         derive.insert(to_ident("Clone"));
     }
 
-    if !writer.sys && !metadata::type_def_has_explicit_layout(def) && !metadata::type_def_has_packing(def) && !metadata::type_def_has_callback(def) {
+    if !writer.sys
+        && !metadata::type_def_has_explicit_layout(def)
+        && !metadata::type_def_has_packing(def)
+        && !metadata::type_def_has_callback(def)
+    {
         derive.insert(to_ident("PartialEq"));
 
         if !metadata::type_def_has_float(def) {
@@ -166,8 +200,19 @@ fn gen_derive(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     }
 }
 
-fn gen_clone(writer: &Writer, def: metadata::TypeDef, name: &TokenStream, cfg: &cfg::Cfg) -> TokenStream {
-    if writer.sys || metadata::type_def_is_copyable(def) || def.flags().contains(metadata::TypeAttributes::WindowsRuntime) || def.class_layout().is_some() {
+fn gen_clone(
+    writer: &Writer,
+    def: metadata::TypeDef,
+    name: &TokenStream,
+    cfg: &cfg::Cfg,
+) -> TokenStream {
+    if writer.sys
+        || metadata::type_def_is_copyable(def)
+        || def
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime)
+        || def.class_layout().is_some()
+    {
         quote! {}
     } else {
         let features = writer.cfg_features(cfg);
@@ -183,7 +228,12 @@ fn gen_clone(writer: &Writer, def: metadata::TypeDef, name: &TokenStream, cfg: &
     }
 }
 
-fn gen_struct_constants(writer: &Writer, def: metadata::TypeDef, struct_name: &TokenStream, cfg: &cfg::Cfg) -> TokenStream {
+fn gen_struct_constants(
+    writer: &Writer,
+    def: metadata::TypeDef,
+    struct_name: &TokenStream,
+    cfg: &cfg::Cfg,
+) -> TokenStream {
     let features = writer.cfg_features(cfg);
 
     let constants = def.fields().filter_map(|f| {

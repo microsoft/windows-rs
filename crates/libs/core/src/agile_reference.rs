@@ -13,7 +13,14 @@ impl<T: Interface> AgileReference<T> {
         // For example, <T: Interface<UNKNOWN = true>>
         // https://github.com/rust-lang/rust/issues/92827
         assert!(T::UNKNOWN);
-        unsafe { imp::RoGetAgileReference(imp::AGILEREFERENCE_DEFAULT, &T::IID, core::mem::transmute::<&T, &IUnknown>(object)).map(|reference| Self(reference, Default::default())) }
+        unsafe {
+            imp::RoGetAgileReference(
+                imp::AGILEREFERENCE_DEFAULT,
+                &T::IID,
+                core::mem::transmute::<&T, &IUnknown>(object),
+            )
+            .map(|reference| Self(reference, Default::default()))
+        }
     }
 
     /// Retrieves a proxy to the target of the `AgileReference` object that may safely be used within any thread context in which get is called.
