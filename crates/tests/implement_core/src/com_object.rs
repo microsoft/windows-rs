@@ -416,6 +416,15 @@ fn common_method_name() {
     assert_eq!(unsafe { ibar2.common() }, std::f32::consts::PI);
 }
 
+#[test]
+fn debug_fmt() {
+    let app = MyApp::new(42);
+    let iunknown: IUnknown = app.to_interface();
+    println!("IUnknown = {iunknown:?}");
+    let ifoo: IFoo = app.to_interface();
+    println!("IFoo = {ifoo:?}");
+}
+
 // This tests that we can place a type that is not Send in a ComObject.
 // Compilation is sufficient to test.
 #[implement(IBar)]

@@ -361,7 +361,7 @@ impl Interface {
             impl ::core::cmp::Eq for #name {}
             impl ::core::fmt::Debug for #name {
                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                    f.debug_tuple(#name_string).field(&self.0).finish()
+                    f.debug_tuple(#name_string).field(&self.as_raw()).finish()
                 }
             }
         }

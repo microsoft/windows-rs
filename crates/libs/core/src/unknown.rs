@@ -55,7 +55,7 @@ impl Eq for IUnknown {}
 
 impl core::fmt::Debug for IUnknown {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IUnknown").field(&self.0).finish()
+        f.debug_tuple("IUnknown").field(&self.as_raw()).finish()
     }
 }
 
