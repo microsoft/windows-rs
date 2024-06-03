@@ -85,7 +85,9 @@ macro_rules! define_interface {
         }
         impl ::core::fmt::Debug for $name {
             fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> core::fmt::Result {
-                f.debug_tuple(stringify!($name)).field(&::windows_core::Interface::as_raw(self)).finish()
+                f.debug_tuple(stringify!($name))
+                    .field(&::windows_core::Interface::as_raw(self))
+                    .finish()
             }
         }
     };
