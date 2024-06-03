@@ -22,6 +22,8 @@ pub struct Writer {
     pub no_bindgen_comment: bool, // skips the bindgen comment at the start of the file
     pub vtbl: bool,    // include minimal vtbl layout support for interfaces
     pub prepend: std::collections::HashMap<metadata::TypeDef, String>,
+    /// If this is not empty, then it is passed to rustfmt in a `--config` argument.
+    pub rustfmt_config: String,
 }
 
 impl Writer {
@@ -40,6 +42,7 @@ impl Writer {
             no_bindgen_comment: false,
             vtbl: false,
             prepend: Default::default(),
+            rustfmt_config: String::new(),
         }
     }
 

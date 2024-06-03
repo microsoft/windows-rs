@@ -38,6 +38,11 @@ pub fn from_reader(
     writer.no_inner_attributes = config.remove("no-inner-attributes").is_some();
     writer.no_bindgen_comment = config.remove("no-bindgen-comment").is_some();
     writer.vtbl = config.remove("vtbl").is_some();
+    writer.rustfmt_config = if let Some(config) = config.remove("rustfmt-config") {
+        config.to_string()
+    } else {
+        String::new()
+    };
 
     if writer.package && writer.flatten {
         return Err(Error::new(

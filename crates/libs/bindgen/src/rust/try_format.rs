@@ -23,12 +23,17 @@ pub fn try_format(writer: &super::Writer, tokens: &str) -> String {
     };
     let tokens = format!("{preamble}{allow}{tokens}");
 
-    let Ok(mut child) = std::process::Command::new("rustfmt")
-        .stdin(std::process::Stdio::piped())
-        .stdout(std::process::Stdio::piped())
-        .stderr(std::process::Stdio::null())
-        .spawn()
-    else {
+    let mut cmd = std::process::Command::new("rustfmt");
+    cmd.stdin(std::process::Stdio::piped());
+    cmd.stdout(std::process::Stdio::piped());
+    cmd.stderr(std::process::Stdio::null());
+
+    if !writer.rustfmt_config.is_empty() {
+        cmd.arg("--config");
+        cmd.arg(writer.rustfmt_config.as_str());
+    }
+
+    let Ok(mut child) = cmd.spawn() else {
         return tokens;
     };
 
