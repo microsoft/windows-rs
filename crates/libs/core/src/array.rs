@@ -8,7 +8,10 @@ pub struct Array<T: Type<T>> {
 
 impl<T: Type<T>> Default for Array<T> {
     fn default() -> Self {
-        Array { data: core::ptr::null_mut(), len: 0 }
+        Array {
+            data: core::ptr::null_mut(),
+            len: 0,
+        }
     }
 }
 
@@ -21,7 +24,9 @@ impl<T: Type<T>> Array<T> {
     /// Creates an array of the given length with default values.
     pub fn with_len(len: usize) -> Self {
         assert!(len < u32::MAX as usize);
-        let bytes_amount = len.checked_mul(core::mem::size_of::<T>()).expect("Attempted to allocate too large an Array");
+        let bytes_amount = len
+            .checked_mul(core::mem::size_of::<T>())
+            .expect("Attempted to allocate too large an Array");
 
         // WinRT arrays must be allocated with CoTaskMemAlloc.
         // SAFETY: the call to CoTaskMemAlloc is safe to perform
@@ -159,7 +164,11 @@ pub struct ArrayProxy<T: Type<T>> {
 
 impl<T: Type<T>> ArrayProxy<T> {
     pub fn from_raw_parts(data: *mut *mut T::Default, len: *mut u32) -> Self {
-        Self { data, len, temp: core::mem::ManuallyDrop::new(Array::new()) }
+        Self {
+            data,
+            len,
+            temp: core::mem::ManuallyDrop::new(Array::new()),
+        }
     }
 
     pub fn as_array(&mut self) -> &mut Array<T> {

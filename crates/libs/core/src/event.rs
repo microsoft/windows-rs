@@ -23,7 +23,11 @@ impl<T: Interface> Default for Event<T> {
 impl<T: Interface> Event<T> {
     /// Creates a new, empty `Event<T>`.
     pub fn new() -> Self {
-        Self { delegates: Array::new(), swap: Mutex::default(), change: Mutex::default() }
+        Self {
+            delegates: Array::new(),
+            swap: Mutex::default(),
+            change: Mutex::default(),
+        }
     }
 
     /// Registers a delegate with the event object.
@@ -102,7 +106,10 @@ impl<T: Interface> Event<T> {
         for delegate in lock_free_calls.as_slice() {
             if let Err(error) = delegate.call(&mut callback) {
                 const RPC_E_SERVER_UNAVAILABLE: HRESULT = HRESULT(-2147023174); // HRESULT_FROM_WIN32(RPC_S_SERVER_UNAVAILABLE)
-                if matches!(error.code(), imp::RPC_E_DISCONNECTED | imp::JSCRIPT_E_CANTEXECUTE | RPC_E_SERVER_UNAVAILABLE) {
+                if matches!(
+                    error.code(),
+                    imp::RPC_E_DISCONNECTED | imp::JSCRIPT_E_CANTEXECUTE | RPC_E_SERVER_UNAVAILABLE
+                ) {
                     self.remove(delegate.to_token())?;
                 }
             }
@@ -127,12 +134,20 @@ impl<T: Interface> Default for Array<T> {
 impl<T: Interface> Array<T> {
     /// Creates a new, empty `Array<T>` with no capacity.
     fn new() -> Self {
-        Self { buffer: null_mut(), len: 0, _phantom: PhantomData }
+        Self {
+            buffer: null_mut(),
+            len: 0,
+            _phantom: PhantomData,
+        }
     }
 
     /// Creates a new, empty `Array<T>` with the specified capacity.
     fn with_capacity(capacity: usize) -> Result<Self> {
-        Ok(Self { buffer: Buffer::new(capacity)?, len: 0, _phantom: PhantomData })
+        Ok(Self {
+            buffer: Buffer::new(capacity)?,
+            len: 0,
+            _phantom: PhantomData,
+        })
     }
 
     /// Swaps the contents of two `Array<T>` objects.
@@ -184,7 +199,11 @@ impl<T: Interface> Clone for Array<T> {
         if !self.is_empty() {
             unsafe { (*self.buffer).0.add_ref() };
         }
-        Self { buffer: self.buffer, len: self.len, _phantom: PhantomData }
+        Self {
+            buffer: self.buffer,
+            len: self.len,
+            _phantom: PhantomData,
+        }
     }
 }
 

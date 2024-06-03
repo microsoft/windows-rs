@@ -30,7 +30,10 @@ use syn::spanned::Spanned;
 /// }
 /// ```
 #[proc_macro_attribute]
-pub fn interface(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
+pub fn interface(
+    attributes: proc_macro::TokenStream,
+    original_type: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
     let guid = syn::parse_macro_input!(attributes as Guid);
     let interface = syn::parse_macro_input!(original_type as Interface);
     let tokens = match interface.gen_tokens(&guid) {
@@ -208,7 +211,11 @@ impl Interface {
             })
             .collect::<Vec<_>>();
 
-        let parent_vtable_generics = if self.parent_is_iunknown() { quote!(Identity, OFFSET) } else { quote!(Identity, Impl, OFFSET) };
+        let parent_vtable_generics = if self.parent_is_iunknown() {
+            quote!(Identity, OFFSET)
+        } else {
+            quote!(Identity, Impl, OFFSET)
+        };
         let parent_vtable = self.parent_vtable();
 
         // or_parent_matches will be `|| parent::matches(iid)` if this interface inherits from another
@@ -394,7 +401,11 @@ impl Interface {
 
     fn parent_path(&self) -> Vec<syn::Ident> {
         if let Some(parent) = &self.parent {
-            parent.segments.iter().map(|segment| segment.ident.clone()).collect()
+            parent
+                .segments
+                .iter()
+                .map(|segment| segment.ident.clone())
+                .collect()
         } else {
             vec![]
         }
@@ -438,7 +449,13 @@ impl syn::parse::Parse for Interface {
         while !content.is_empty() {
             methods.push(content.parse::<InterfaceMethod>()?);
         }
-        Ok(Self { visibility, methods, name, parent, docs })
+        Ok(Self {
+            visibility,
+            methods,
+            name,
+            parent,
+            docs,
+        })
     }
 }
 
@@ -459,14 +476,32 @@ impl Guid {
             syn::LitInt::new(&format!("0x{num}"), proc_macro2::Span::call_site())
         }
 
-        fn ensure_length(part: Option<&str>, index: usize, length: usize, span: proc_macro2::Span) -> syn::Result<String> {
+        fn ensure_length(
+            part: Option<&str>,
+            index: usize,
+            length: usize,
+            span: proc_macro2::Span,
+        ) -> syn::Result<String> {
             let part = match part {
                 Some(p) => p,
-                None => return Err(syn::Error::new(span, format!("The IID missing part at index {index}"))),
+                None => {
+                    return Err(syn::Error::new(
+                        span,
+                        format!("The IID missing part at index {index}"),
+                    ))
+                }
             };
 
             if part.len() != length {
-                return Err(syn::Error::new(span, format!("The IID part at index {} must be {} characters long but was {} characters", index, length, part.len())));
+                return Err(syn::Error::new(
+                    span,
+                    format!(
+                        "The IID part at index {} must be {} characters long but was {} characters",
+                        index,
+                        length,
+                        part.len()
+                    ),
+                ));
             }
 
             Ok(part.to_owned())
@@ -475,7 +510,13 @@ impl Guid {
         if let Some(value) = &self.0 {
             let guid_value = value.value();
             let mut delimited = guid_value.split('-').fuse();
-            let chunks = [ensure_length(delimited.next(), 0, 8, value.span())?, ensure_length(delimited.next(), 1, 4, value.span())?, ensure_length(delimited.next(), 2, 4, value.span())?, ensure_length(delimited.next(), 3, 4, value.span())?, ensure_length(delimited.next(), 4, 12, value.span())?];
+            let chunks = [
+                ensure_length(delimited.next(), 0, 8, value.span())?,
+                ensure_length(delimited.next(), 1, 4, value.span())?,
+                ensure_length(delimited.next(), 2, 4, value.span())?,
+                ensure_length(delimited.next(), 3, 4, value.span())?,
+                ensure_length(delimited.next(), 4, 12, value.span())?,
+            ];
 
             let data1 = hex_lit(&chunks[0]);
             let data2 = hex_lit(&chunks[1]);
@@ -640,7 +681,10 @@ impl syn::parse::Parse for InterfaceMethod {
         unexpected_token!(sig.asyncness, "async declaration");
         unexpected_token!(sig.generics.params.iter().next(), "generics declaration");
         unexpected_token!(sig.constness, "const declaration");
-        expected_token!(sig.receiver(), "the method to have &self as its first argument");
+        expected_token!(
+            sig.receiver(),
+            "the method to have &self as its first argument"
+        );
         unexpected_token!(sig.variadic, "variadic args");
         let args = sig
             .inputs
@@ -649,11 +693,22 @@ impl syn::parse::Parse for InterfaceMethod {
                 syn::FnArg::Receiver(_) => None,
                 syn::FnArg::Typed(p) => Some(p),
             })
-            .map(|p| Ok(InterfaceMethodArg { ty: p.ty, pat: p.pat }))
+            .map(|p| {
+                Ok(InterfaceMethodArg {
+                    ty: p.ty,
+                    pat: p.pat,
+                })
+            })
             .collect::<Result<Vec<InterfaceMethodArg>, syn::Error>>()?;
 
         let ret = sig.output;
-        Ok(InterfaceMethod { name: sig.ident, visibility, args, ret, docs })
+        Ok(InterfaceMethod {
+            name: sig.ident,
+            visibility,
+            args,
+            ret,
+            docs,
+        })
     }
 }
 

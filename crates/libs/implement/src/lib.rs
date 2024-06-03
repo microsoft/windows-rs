@@ -33,7 +33,10 @@ use quote::{quote, ToTokens};
 /// }
 /// ```
 #[proc_macro_attribute]
-pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
+pub fn implement(
+    attributes: proc_macro::TokenStream,
+    original_type: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
     let interfaces_len = proc_macro2::Literal::usize_unsuffixed(attributes.implement.len());
 
@@ -62,26 +65,41 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     };
 
     let impl_ident = quote::format_ident!("{}_Impl", original_ident);
-    let vtbl_idents = attributes.implement.iter().map(|implement| implement.to_vtbl_ident());
+    let vtbl_idents = attributes
+        .implement
+        .iter()
+        .map(|implement| implement.to_vtbl_ident());
     let vtbl_idents2 = vtbl_idents.clone();
 
-    let vtable_news = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
-        let vtbl_ident = implement.to_vtbl_ident();
-        let offset = proc_macro2::Literal::isize_unsuffixed(-1 - enumerate as isize);
-        quote! { #vtbl_ident::new::<Self, #original_ident::#generics, #offset>() }
-    });
+    let vtable_news = attributes
+        .implement
+        .iter()
+        .enumerate()
+        .map(|(enumerate, implement)| {
+            let vtbl_ident = implement.to_vtbl_ident();
+            let offset = proc_macro2::Literal::isize_unsuffixed(-1 - enumerate as isize);
+            quote! { #vtbl_ident::new::<Self, #original_ident::#generics, #offset>() }
+        });
 
-    let offset = attributes.implement.iter().enumerate().map(|(offset, _)| proc_macro2::Literal::usize_unsuffixed(offset));
+    let offset = attributes
+        .implement
+        .iter()
+        .enumerate()
+        .map(|(offset, _)| proc_macro2::Literal::usize_unsuffixed(offset));
 
-    let queries = attributes.implement.iter().enumerate().map(|(count, implement)| {
-        let vtbl_ident = implement.to_vtbl_ident();
-        let offset = proc_macro2::Literal::usize_unsuffixed(count);
-        quote! {
-            else if #vtbl_ident::matches(iid) {
-                &self.vtables.#offset as *const _ as *mut _
+    let queries = attributes
+        .implement
+        .iter()
+        .enumerate()
+        .map(|(count, implement)| {
+            let vtbl_ident = implement.to_vtbl_ident();
+            let offset = proc_macro2::Literal::usize_unsuffixed(count);
+            quote! {
+                else if #vtbl_ident::matches(iid) {
+                    &self.vtables.#offset as *const _ as *mut _
+                }
             }
-        }
-    });
+        });
 
     // Dynamic casting requires that the object not contain non-static lifetimes.
     let enable_dyn_casting = original_type2.generics.lifetimes().count() == 0;
@@ -104,7 +122,8 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
     // The distance from the beginning of the generated type to the 'this' field, in units of pointers (not bytes).
     let offset_of_this_in_pointers = 1 + attributes.implement.len();
-    let offset_of_this_in_pointers_token = proc_macro2::Literal::usize_unsuffixed(offset_of_this_in_pointers);
+    let offset_of_this_in_pointers_token =
+        proc_macro2::Literal::usize_unsuffixed(offset_of_this_in_pointers);
 
     let trust_level = proc_macro2::Literal::usize_unsuffixed(attributes.trust_level);
 
@@ -374,7 +393,8 @@ struct ImplementType {
 
 impl ImplementType {
     fn to_ident(&self) -> proc_macro2::TokenStream {
-        let type_name = syn::parse_str::<proc_macro2::TokenStream>(&self.type_name).expect("Invalid token stream");
+        let type_name = syn::parse_str::<proc_macro2::TokenStream>(&self.type_name)
+            .expect("Invalid token stream");
         let generics = self.generics.iter().map(|g| g.to_ident());
         quote! { #type_name<#(#generics,)*> }
     }
@@ -416,7 +436,11 @@ impl ImplementAttributes {
         Ok(())
     }
 
-    fn walk_implement(&mut self, tree: &UseTree2, namespace: &mut String) -> syn::parse::Result<()> {
+    fn walk_implement(
+        &mut self,
+        tree: &UseTree2,
+        namespace: &mut String,
+    ) -> syn::parse::Result<()> {
         match tree {
             UseTree2::Path(input) => {
                 if !namespace.is_empty() {
@@ -472,9 +496,15 @@ impl UseTree2 {
                     generics.push(g.to_element_type(&mut String::new())?);
                 }
 
-                Ok(ImplementType { type_name, generics })
+                Ok(ImplementType {
+                    type_name,
+                    generics,
+                })
             }
-            UseTree2::Group(input) => Err(syn::parse::Error::new(input.brace_token.span.join(), "Syntax not supported")),
+            UseTree2::Group(input) => Err(syn::parse::Error::new(
+                input.brace_token.span.join(),
+                "Syntax not supported",
+            )),
             _ => unimplemented!(),
         }
     }
@@ -503,10 +533,16 @@ impl syn::parse::Parse for UseTree2 {
             let ident = input.call(syn::Ident::parse_any)?;
             if input.peek(syn::Token![::]) {
                 input.parse::<syn::Token![::]>()?;
-                Ok(UseTree2::Path(UsePath2 { ident, tree: Box::new(input.parse()?) }))
+                Ok(UseTree2::Path(UsePath2 {
+                    ident,
+                    tree: Box::new(input.parse()?),
+                }))
             } else if input.peek(syn::Token![=]) {
                 if ident != "TrustLevel" {
-                    return Err(syn::parse::Error::new(ident.span(), "Unrecognized key-value pair"));
+                    return Err(syn::parse::Error::new(
+                        ident.span(),
+                        "Unrecognized key-value pair",
+                    ));
                 }
                 input.parse::<syn::Token![=]>()?;
                 let span = input.span();
@@ -514,7 +550,10 @@ impl syn::parse::Parse for UseTree2 {
                 match value.to_string().as_str() {
                     "Partial" => Ok(UseTree2::TrustLevel(1)),
                     "Full" => Ok(UseTree2::TrustLevel(2)),
-                    _ => Err(syn::parse::Error::new(span, "`TrustLevel` must be `Partial` or `Full`")),
+                    _ => Err(syn::parse::Error::new(
+                        span,
+                        "`TrustLevel` must be `Partial` or `Full`",
+                    )),
                 }
             } else {
                 let generics = if input.peek(syn::Token![<]) {

@@ -48,7 +48,12 @@ impl BSTR {
             return Ok(Self::new());
         }
 
-        let result = unsafe { Self(imp::SysAllocStringLen(value.as_ptr(), value.len().try_into()?)) };
+        let result = unsafe {
+            Self(imp::SysAllocStringLen(
+                value.as_ptr(),
+                value.len().try_into()?,
+            ))
+        };
 
         if result.is_empty() {
             Err(imp::E_OUTOFMEMORY.into())
@@ -119,7 +124,11 @@ impl Default for BSTR {
 
 impl core::fmt::Display for BSTR {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        core::write!(f, "{}", Decode(|| core::char::decode_utf16(self.as_wide().iter().cloned())))
+        core::write!(
+            f,
+            "{}",
+            Decode(|| core::char::decode_utf16(self.as_wide().iter().cloned()))
+        )
     }
 }
 
@@ -151,7 +160,10 @@ impl PartialEq<BSTR> for String {
 
 impl<T: AsRef<str> + ?Sized> PartialEq<T> for BSTR {
     fn eq(&self, other: &T) -> bool {
-        self.as_wide().iter().copied().eq(other.as_ref().encode_utf16())
+        self.as_wide()
+            .iter()
+            .copied()
+            .eq(other.as_ref().encode_utf16())
     }
 }
 
