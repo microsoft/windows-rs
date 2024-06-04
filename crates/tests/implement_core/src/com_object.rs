@@ -4,7 +4,7 @@ use std::borrow::Borrow;
 use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
 use std::sync::Arc;
 use windows_core::{
-    implement, interface, ComObject, IUnknown, IUnknownImpl, IUnknown_Vtbl, InterfaceRef,
+    implement, interface, ComObject, IUnknown, IUnknownImpl, IUnknown_Vtbl, Interface, InterfaceRef,
 };
 
 #[interface("818f2fd1-d479-4398-b286-a93c4c7904d1")]
@@ -12,15 +12,28 @@ unsafe trait IFoo: IUnknown {
     fn get_x(&self) -> u32;
 
     fn get_self_as_bar(&self) -> IBar;
+
+    fn common(&self) -> u32;
 }
 
 #[interface("687eb4b2-6df6-41a3-86c7-4b04b94ad2d8")]
 unsafe trait IBar: IUnknown {
     fn say_hello(&self);
+
+    fn common(&self) -> u64;
 }
 
-#[implement(IFoo, IBar)]
+#[interface("4351c285-97ad-450a-b445-8795632d2fb9")]
+unsafe trait IBar2: IBar {
+    fn common(&self) -> f32;
+}
+
+const APP_SIGNATURE: [u8; 8] = *b"cafef00d";
+
+#[implement(IFoo, IBar, IBar2)]
 struct MyApp {
+    // We use signature to verify field offsets for dynamic casts
+    signature: [u8; 8],
     x: u32,
     tombstone: Arc<Tombstone>,
 }
@@ -34,11 +47,25 @@ impl IFoo_Impl for MyApp {
         let outer = MyApp_Impl::from_inner_ref(self);
         outer.to_interface()
     }
+
+    unsafe fn common(&self) -> u32 {
+        100
+    }
 }
 
 impl IBar_Impl for MyApp {
     unsafe fn say_hello(&self) {
         println!("Hello!");
+    }
+
+    unsafe fn common(&self) -> u64 {
+        1_000_000_000_000
+    }
+}
+
+impl IBar2_Impl for MyApp {
+    unsafe fn common(&self) -> f32 {
+        std::f32::consts::PI
     }
 }
 
@@ -63,6 +90,7 @@ impl core::fmt::Display for MyApp {
 impl Default for MyApp {
     fn default() -> Self {
         Self {
+            signature: APP_SIGNATURE,
             x: 0,
             tombstone: Arc::new(Tombstone::default()),
         }
@@ -109,6 +137,7 @@ impl MyApp {
     fn new(x: u32) -> ComObject<Self> {
         ComObject::new(Self {
             x,
+            signature: APP_SIGNATURE,
             tombstone: Arc::new(Tombstone::default()),
         })
     }
@@ -333,6 +362,69 @@ fn from_inner_ref() {
     unsafe { ibar.say_hello() };
 }
 
+#[test]
+fn to_object() {
+    let app = MyApp::new(42);
+    let tombstone = app.tombstone.clone();
+    let app_outer: &MyApp_Impl = &app;
+
+    let second_app = app_outer.to_object();
+    assert!(!tombstone.is_dead());
+    assert_eq!(second_app.signature, APP_SIGNATURE);
+
+    println!("x = {}", unsafe { second_app.get_x() });
+
+    drop(second_app);
+    assert!(!tombstone.is_dead());
+
+    drop(app);
+    assert!(tombstone.is_dead());
+}
+
+#[test]
+fn dynamic_cast() {
+    let app = MyApp::new(42);
+    let unknown = app.to_interface::<IUnknown>();
+
+    assert!(!unknown.is_object::<SendableThing>());
+    assert!(unknown.is_object::<MyApp>());
+
+    let dyn_app_ref: &MyApp_Impl = unknown.cast_object_ref::<MyApp>().unwrap();
+    assert_eq!(dyn_app_ref.signature, APP_SIGNATURE);
+
+    let dyn_app_owned: ComObject<MyApp> = unknown.cast_object().unwrap();
+    assert_eq!(dyn_app_owned.signature, APP_SIGNATURE);
+
+    let dyn_app_owned_2: ComObject<MyApp> = ComObject::cast_from(&unknown).unwrap();
+    assert_eq!(dyn_app_owned_2.signature, APP_SIGNATURE);
+}
+
+// Test that we can invoke the correct method in situations where two different
+// interfaces declare a method with the same name, including situations where
+// one of the interfaces inherits from the other.
+#[test]
+fn common_method_name() {
+    let app = MyApp::new(42);
+
+    let ifoo: IFoo = app.to_interface();
+    assert_eq!(unsafe { ifoo.common() }, 100);
+
+    let ibar: IBar = app.to_interface();
+    assert_eq!(unsafe { ibar.common() }, 1_000_000_000_000);
+
+    let ibar2: IBar2 = app.to_interface();
+    assert_eq!(unsafe { ibar2.common() }, std::f32::consts::PI);
+}
+
+#[test]
+fn debug_fmt() {
+    let app = MyApp::new(42);
+    let iunknown: IUnknown = app.to_interface();
+    println!("IUnknown = {iunknown:?}");
+    let ifoo: IFoo = app.to_interface();
+    println!("IFoo = {ifoo:?}");
+}
+
 // This tests that we can place a type that is not Send in a ComObject.
 // Compilation is sufficient to test.
 #[implement(IBar)]
@@ -343,6 +435,10 @@ struct UnsendableThing {
 impl IBar_Impl for UnsendableThing {
     unsafe fn say_hello(&self) {
         println!("{}", self.cell.get());
+    }
+
+    unsafe fn common(&self) -> u64 {
+        0
     }
 }
 
@@ -357,6 +453,10 @@ struct SendableThing {
 impl IBar_Impl for SendableThing {
     unsafe fn say_hello(&self) {
         println!("{}", *self.arc);
+    }
+
+    unsafe fn common(&self) -> u64 {
+        0
     }
 }
 

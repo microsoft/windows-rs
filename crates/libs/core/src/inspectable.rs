@@ -37,8 +37,13 @@ impl IInspectable {
 #[repr(C)]
 pub struct IInspectable_Vtbl {
     pub base: IUnknown_Vtbl,
-    pub GetIids: unsafe extern "system" fn(this: *mut c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
-    pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut c_void, value: *mut *mut c_void) -> HRESULT,
+    pub GetIids: unsafe extern "system" fn(
+        this: *mut c_void,
+        count: *mut u32,
+        values: *mut *mut GUID,
+    ) -> HRESULT,
+    pub GetRuntimeClassName:
+        unsafe extern "system" fn(this: *mut c_void, value: *mut *mut c_void) -> HRESULT,
     pub GetTrustLevel: unsafe extern "system" fn(this: *mut c_void, value: *mut i32) -> HRESULT,
 }
 
@@ -95,7 +100,10 @@ impl core::fmt::Debug for IInspectable {
         // Attempts to retrieve the string representation of the object via the
         // IStringable interface. If that fails, it will use the canonical type
         // name to give some idea of what the object represents.
-        let name = <Self as Interface>::cast::<imp::IStringable>(self).and_then(|s| s.ToString()).or_else(|_| self.GetRuntimeClassName()).unwrap_or_default();
+        let name = <Self as Interface>::cast::<imp::IStringable>(self)
+            .and_then(|s| s.ToString())
+            .or_else(|_| self.GetRuntimeClassName())
+            .unwrap_or_default();
         write!(f, "\"{}\"", name)
     }
 }

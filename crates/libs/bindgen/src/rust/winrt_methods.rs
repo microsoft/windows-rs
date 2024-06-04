@@ -1,7 +1,15 @@
 use super::*;
 
 // TODO take Signature instead of MethodDef (wherever MethodDef is found)
-pub fn writer(writer: &Writer, def: metadata::TypeDef, generic_types: &[metadata::Type], kind: metadata::InterfaceKind, method: metadata::MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames) -> TokenStream {
+pub fn writer(
+    writer: &Writer,
+    def: metadata::TypeDef,
+    generic_types: &[metadata::Type],
+    kind: metadata::InterfaceKind,
+    method: metadata::MethodDef,
+    method_names: &mut MethodNames,
+    virtual_names: &mut MethodNames,
+) -> TokenStream {
     let signature = metadata::method_def_signature(def.namespace(), method, generic_types);
     let params = &signature.params;
     let name = method_names.add(method);
@@ -77,7 +85,9 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, generic_types: &[metadata
                 }
             }
         },
-        metadata::InterfaceKind::None | metadata::InterfaceKind::Base | metadata::InterfaceKind::Overridable => {
+        metadata::InterfaceKind::None
+        | metadata::InterfaceKind::Base
+        | metadata::InterfaceKind::Overridable => {
             quote! {
                 #features
                 pub fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type_tokens> #where_clause {
@@ -173,8 +183,16 @@ fn gen_winrt_abi_args(writer: &Writer, params: &[metadata::SignatureParam]) -> T
     tokens
 }
 
-pub fn gen_upcall(writer: &Writer, sig: &metadata::Signature, inner: TokenStream, this: bool) -> TokenStream {
-    let invoke_args = sig.params.iter().map(|param| gen_winrt_invoke_arg(writer, param));
+pub fn gen_upcall(
+    writer: &Writer,
+    sig: &metadata::Signature,
+    inner: TokenStream,
+    this: bool,
+) -> TokenStream {
+    let invoke_args = sig
+        .params
+        .iter()
+        .map(|param| gen_winrt_invoke_arg(writer, param));
     let this = if this {
         quote! { this, }
     } else {

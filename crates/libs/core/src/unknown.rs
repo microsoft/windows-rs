@@ -13,7 +13,11 @@ pub struct IUnknown(NonNull<c_void>);
 #[repr(C)]
 #[allow(non_camel_case_types)]
 pub struct IUnknown_Vtbl {
-    pub QueryInterface: unsafe extern "system" fn(this: *mut c_void, iid: *const GUID, interface: *mut *mut c_void) -> HRESULT,
+    pub QueryInterface: unsafe extern "system" fn(
+        this: *mut c_void,
+        iid: *const GUID,
+        interface: *mut *mut c_void,
+    ) -> HRESULT,
     pub AddRef: unsafe extern "system" fn(this: *mut c_void) -> u32,
     pub Release: unsafe extern "system" fn(this: *mut c_void) -> u32,
 }
@@ -55,7 +59,7 @@ impl Eq for IUnknown {}
 
 impl core::fmt::Debug for IUnknown {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IUnknown").field(&self.0).finish()
+        f.debug_tuple("IUnknown").field(&self.as_raw()).finish()
     }
 }
 
@@ -135,22 +139,49 @@ pub trait IUnknownImpl {
     {
         <Self as ComObjectInterface<I>>::as_interface_ref(self).to_owned()
     }
+
+    /// Creates a new owned reference to this object.
+    ///
+    /// # Safety
+    ///
+    /// This function can only be safely called by `<Foo>_Impl` objects that are embedded in a
+    /// `ComObject`. Since we only allow safe Rust code to access these objects using a `ComObject`
+    /// or a `&<Foo>_Impl` that points within a `ComObject`, this is safe.
+    fn to_object(&self) -> ComObject<Self::Impl>
+    where
+        Self::Impl: ComObjectInner<Outer = Self>;
+
+    /// The distance from the start of `<Foo>_Impl` to the `this` field within it, measured in
+    /// pointer-sized elements. The `this` field contains the `MyApp` instance.
+    const INNER_OFFSET_IN_POINTERS: usize;
 }
 
 impl IUnknown_Vtbl {
     pub const fn new<T: IUnknownImpl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: *mut c_void, iid: *const GUID, interface: *mut *mut c_void) -> HRESULT {
+        unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(
+            this: *mut c_void,
+            iid: *const GUID,
+            interface: *mut *mut c_void,
+        ) -> HRESULT {
             let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
             (*this).QueryInterface(iid, interface)
         }
-        unsafe extern "system" fn AddRef<T: IUnknownImpl, const OFFSET: isize>(this: *mut c_void) -> u32 {
+        unsafe extern "system" fn AddRef<T: IUnknownImpl, const OFFSET: isize>(
+            this: *mut c_void,
+        ) -> u32 {
             let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
             (*this).AddRef()
         }
-        unsafe extern "system" fn Release<T: IUnknownImpl, const OFFSET: isize>(this: *mut c_void) -> u32 {
+        unsafe extern "system" fn Release<T: IUnknownImpl, const OFFSET: isize>(
+            this: *mut c_void,
+        ) -> u32 {
             let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
             T::Release(this)
         }
-        Self { QueryInterface: QueryInterface::<T, OFFSET>, AddRef: AddRef::<T, OFFSET>, Release: Release::<T, OFFSET> }
+        Self {
+            QueryInterface: QueryInterface::<T, OFFSET>,
+            AddRef: AddRef::<T, OFFSET>,
+            Release: Release::<T, OFFSET>,
+        }
     }
 }

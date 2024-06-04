@@ -80,7 +80,9 @@ where
 
     if format {
         if output.is_some() || !include.is_empty() || !exclude.is_empty() {
-            return Err(Error::new("`--format` cannot be combined with `--out` or `--filter`"));
+            return Err(Error::new(
+                "`--format` cannot be combined with `--out` or `--filter`",
+            ));
         }
 
         let input = filter_input(&input, &["rdl"])?;
@@ -90,7 +92,10 @@ where
         }
 
         for path in &input {
-            read_file_text(path).and_then(|source| rdl::File::parse_str(&source)).and_then(|file| write_to_file(path, file.fmt())).map_err(|err| err.with_path(path))?;
+            read_file_text(path)
+                .and_then(|source| rdl::File::parse_str(&source))
+                .and_then(|file| write_to_file(path, file.fmt()))
+                .map_err(|err| err.with_path(path))?;
         }
 
         return Ok(String::new());
@@ -121,7 +126,11 @@ where
     let elapsed = time.elapsed().as_secs_f32();
 
     if elapsed > 0.1 {
-        Ok(format!("  Finished writing `{}` in {:.2}s", output, time.elapsed().as_secs_f32()))
+        Ok(format!(
+            "  Finished writing `{}` in {:.2}s",
+            output,
+            time.elapsed().as_secs_f32()
+        ))
     } else {
         Ok(format!("  Finished writing `{}`", output,))
     }
@@ -149,7 +158,11 @@ fn filter_input(input: &[&str], extensions: &[&str]) -> Result<Vec<String>> {
         }
 
         if path.is_dir() {
-            for entry in path.read_dir().map_err(|_| Error::new("failed to read directory").with_path(input))?.flatten() {
+            for entry in path
+                .read_dir()
+                .map_err(|_| Error::new("failed to read directory").with_path(input))?
+                .flatten()
+            {
                 let path = entry.path();
 
                 if path.is_file() {
@@ -168,15 +181,27 @@ fn read_input(input: &[&str]) -> Result<Vec<metadata::File>> {
     let mut results = vec![];
 
     if cfg!(feature = "metadata") {
-        results.push(metadata::File::new(std::include_bytes!("../default/Windows.winmd").to_vec()).unwrap());
-        results.push(metadata::File::new(std::include_bytes!("../default/Windows.Win32.winmd").to_vec()).unwrap());
-        results.push(metadata::File::new(std::include_bytes!("../default/Windows.Wdk.winmd").to_vec()).unwrap());
+        results.push(
+            metadata::File::new(std::include_bytes!("../default/Windows.winmd").to_vec()).unwrap(),
+        );
+        results.push(
+            metadata::File::new(std::include_bytes!("../default/Windows.Win32.winmd").to_vec())
+                .unwrap(),
+        );
+        results.push(
+            metadata::File::new(std::include_bytes!("../default/Windows.Wdk.winmd").to_vec())
+                .unwrap(),
+        );
     } else if input.is_empty() {
         return Err(Error::new("no inputs"));
     }
 
     for input in &input {
-        let file = if extension(input) == "winmd" { read_winmd_file(input)? } else { read_rdl_file(input)? };
+        let file = if extension(input) == "winmd" {
+            read_winmd_file(input)?
+        } else {
+            read_rdl_file(input)?
+        };
 
         results.push(file);
     }
@@ -220,12 +245,16 @@ fn read_rdl_file(path: &str) -> Result<metadata::File> {
 }
 
 fn read_winmd_file(path: &str) -> Result<metadata::File> {
-    read_file_bytes(path).and_then(|bytes| metadata::File::new(bytes).ok_or_else(|| Error::new("failed to read .winmd format").with_path(path)))
+    read_file_bytes(path).and_then(|bytes| {
+        metadata::File::new(bytes)
+            .ok_or_else(|| Error::new("failed to read .winmd format").with_path(path))
+    })
 }
 
 fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<()> {
     if let Some(parent) = std::path::Path::new(path).parent() {
-        std::fs::create_dir_all(parent).map_err(|_| Error::new("failed to create directory").with_path(path))?;
+        std::fs::create_dir_all(parent)
+            .map_err(|_| Error::new("failed to create directory").with_path(path))?;
     }
 
     std::fs::write(path, contents).map_err(|_| Error::new("failed to write file").with_path(path))
@@ -239,13 +268,18 @@ fn canonicalize(value: &str) -> Result<String> {
         write_to_file(value, "")?;
     }
 
-    let path = std::fs::canonicalize(value).map_err(|_| Error::new("failed to find path").with_path(value))?;
+    let path = std::fs::canonicalize(value)
+        .map_err(|_| Error::new("failed to find path").with_path(value))?;
 
     if temp {
-        std::fs::remove_file(value).map_err(|_| Error::new("failed to remove temporary file").with_path(value))?;
+        std::fs::remove_file(value)
+            .map_err(|_| Error::new("failed to remove temporary file").with_path(value))?;
     }
 
-    let path = path.to_string_lossy().trim_start_matches(r"\\?\").to_string();
+    let path = path
+        .to_string_lossy()
+        .trim_start_matches(r"\\?\")
+        .to_string();
 
     match path.rsplit_once('.') {
         Some((file, extension)) => Ok(format!("{file}.{}", extension.to_lowercase())),
@@ -258,5 +292,6 @@ fn extension(path: &str) -> &str {
 }
 
 fn directory(path: &str) -> &str {
-    path.rsplit_once(&['/', '\\']).map_or("", |(directory, _)| directory)
+    path.rsplit_once(&['/', '\\'])
+        .map_or("", |(directory, _)| directory)
 }

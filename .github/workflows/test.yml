@@ -13,7 +13,7 @@ env:
 
 jobs:
   check:
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     strategy:
       matrix:
@@ -56,6 +56,8 @@ jobs:
         uses: ./.github/actions/fix-environment
       - name: Clean
         run:  cargo clean
+      - name: Test cppwinrt
+        run:  cargo test -p cppwinrt --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test no_std
         run:  cargo test -p no_std --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test riddle
@@ -74,6 +76,8 @@ jobs:
         run:  cargo test -p sample_component_json_validator_winrt --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_component_json_validator_winrt_client
         run:  cargo test -p sample_component_json_validator_winrt_client --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_component_json_validator_winrt_client_cpp
+        run:  cargo test -p sample_component_json_validator_winrt_client_cpp --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_consent
         run:  cargo test -p sample_consent --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_core_app
@@ -152,12 +156,12 @@ jobs:
         run:  cargo test -p test_alternate_success_code --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_arch
         run:  cargo test -p test_arch --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_arch_feature
         run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_array
         run:  cargo test -p test_array --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_bcrypt
         run:  cargo test -p test_bcrypt --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_bstr
@@ -254,12 +258,12 @@ jobs:
         run:  cargo test -p test_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_string_param
         run:  cargo test -p test_string_param --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_structs
         run:  cargo test -p test_structs --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_sys
         run:  cargo test -p test_sys --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_targets
         run:  cargo test -p test_targets --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_unions

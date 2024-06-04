@@ -14,7 +14,10 @@ fn gen_sys_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     }
 
     let vtables = metadata::type_def_vtables(def);
-    let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::Name(metadata::TypeName::IUnknown)));
+    let has_unknown_base = matches!(
+        vtables.first(),
+        Some(metadata::Type::Name(metadata::TypeName::IUnknown))
+    );
 
     let mut tokens = quote! {};
 
@@ -42,7 +45,10 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let features = writer.cfg_features(&cfg);
     let interfaces = metadata::type_interfaces(&metadata::Type::TypeDef(def, generics.to_vec()));
     let vtables = metadata::type_def_vtables(def);
-    let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::Name(metadata::TypeName::IUnknown)));
+    let has_unknown_base = matches!(
+        vtables.first(),
+        Some(metadata::Type::Name(metadata::TypeName::IUnknown))
+    );
 
     let mut tokens = quote! {};
 
@@ -75,20 +81,46 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         let method_names = &mut MethodNames::new();
         let virtual_names = &mut MethodNames::new();
 
-        if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+        if def
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime)
+        {
             for method in def.methods() {
-                methods.combine(&winrt_methods::writer(writer, def, generics, metadata::InterfaceKind::Default, method, method_names, virtual_names));
+                methods.combine(&winrt_methods::writer(
+                    writer,
+                    def,
+                    generics,
+                    metadata::InterfaceKind::Default,
+                    method,
+                    method_names,
+                    virtual_names,
+                ));
             }
             for interface in &interfaces {
                 if let metadata::Type::TypeDef(def, generics) = &interface.ty {
                     for method in def.methods() {
-                        methods.combine(&winrt_methods::writer(writer, *def, generics, metadata::InterfaceKind::None, method, method_names, virtual_names));
+                        methods.combine(&winrt_methods::writer(
+                            writer,
+                            *def,
+                            generics,
+                            metadata::InterfaceKind::None,
+                            method,
+                            method_names,
+                            virtual_names,
+                        ));
                     }
                 }
             }
         } else {
             for method in def.methods() {
-                methods.combine(&com_methods::writer(writer, def, metadata::InterfaceKind::Default, method, method_names, virtual_names));
+                methods.combine(&com_methods::writer(
+                    writer,
+                    def,
+                    metadata::InterfaceKind::Default,
+                    method,
+                    method_names,
+                    virtual_names,
+                ));
             }
         }
 
@@ -131,7 +163,11 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             }
         }
 
-        if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) && !interfaces.is_empty() {
+        if def
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime)
+            && !interfaces.is_empty()
+        {
             if generics.is_empty() {
                 let mut hierarchy = format!("windows_core::imp::required_hierarchy!({ident}");
                 let mut hierarchy_cfg = cfg.clone();
@@ -165,13 +201,42 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             }
         });
 
-        tokens.combine(&writer.async_get(def, generics, &ident, &constraints, &phantoms, &features));
-        tokens.combine(&iterators::writer(writer, def, generics, &ident, &constraints, &phantoms, &cfg));
+        tokens.combine(&writer.async_get(
+            def,
+            generics,
+            &ident,
+            &constraints,
+            &phantoms,
+            &features,
+        ));
+        tokens.combine(&iterators::writer(
+            writer,
+            def,
+            generics,
+            &ident,
+            &constraints,
+            &phantoms,
+            &cfg,
+        ));
         tokens.combine(&writer.agile(def, &ident, &constraints, &features));
     }
 
-    tokens.combine(&writer.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
-    tokens.combine(&writer.interface_trait(def, generics, &ident, &constraints, &features, has_unknown_base));
+    tokens.combine(&writer.interface_winrt_trait(
+        def,
+        generics,
+        &ident,
+        &constraints,
+        &phantoms,
+        &features,
+    ));
+    tokens.combine(&writer.interface_trait(
+        def,
+        generics,
+        &ident,
+        &constraints,
+        &features,
+        has_unknown_base,
+    ));
     tokens.combine(&writer.interface_vtbl(def, generics, &constraints, &features));
     tokens
 }

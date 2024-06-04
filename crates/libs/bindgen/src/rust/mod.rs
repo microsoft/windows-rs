@@ -23,7 +23,11 @@ use index::*;
 use rayon::prelude::*;
 use writer::*;
 
-pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
+pub fn from_reader(
+    reader: &'static metadata::Reader,
+    mut config: std::collections::BTreeMap<&str, &str>,
+    output: &str,
+) -> Result<()> {
     let mut writer = Writer::new(reader, output);
     writer.package = config.remove("package").is_some();
     writer.flatten = config.remove("flatten").is_some();
@@ -34,13 +38,22 @@ pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collectio
     writer.no_inner_attributes = config.remove("no-inner-attributes").is_some();
     writer.no_bindgen_comment = config.remove("no-bindgen-comment").is_some();
     writer.vtbl = config.remove("vtbl").is_some();
+    writer.rustfmt_config = if let Some(config) = config.remove("rustfmt-config") {
+        config.to_string()
+    } else {
+        String::new()
+    };
 
     if writer.package && writer.flatten {
-        return Err(Error::new("cannot combine `package` and `flatten` configuration values"));
+        return Err(Error::new(
+            "cannot combine `package` and `flatten` configuration values",
+        ));
     }
 
     if writer.implement && writer.sys {
-        return Err(Error::new("cannot combine `implement` and `sys` configuration values"));
+        return Err(Error::new(
+            "cannot combine `implement` and `sys` configuration values",
+        ));
     }
 
     config.retain(|key, value| {
@@ -103,7 +116,11 @@ fn gen_package(writer: &Writer) -> Result<()> {
         let directory = format!("{directory}/{}", tree.namespace.replace('.', "/"));
         let mut tokens = namespace(writer, tree);
 
-        let tokens_impl = if !writer.sys { namespace_impl(writer, tree) } else { String::new() };
+        let tokens_impl = if !writer.sys {
+            namespace_impl(writer, tree)
+        } else {
+            String::new()
+        };
 
         if !writer.sys && !tokens_impl.is_empty() {
             tokens.push_str("#[cfg(feature = \"implement\")]\ncore::include!(\"impl.rs\");\n");
@@ -140,7 +157,9 @@ fn gen_package(writer: &Writer) -> Result<()> {
             let dependency = &feature[..pos];
 
             toml.push_str(&format!("{feature} = [\"{dependency}\"]\n"));
-        } else if tree.namespace.starts_with("Windows.Win32") || tree.namespace.starts_with("Windows.Wdk") {
+        } else if tree.namespace.starts_with("Windows.Win32")
+            || tree.namespace.starts_with("Windows.Wdk")
+        {
             toml.push_str(&format!("{feature} = [\"Win32_Foundation\"]\n"));
         } else if tree.namespace != "Windows.Foundation" {
             toml.push_str(&format!("{feature} = [\"Foundation\"]\n"));
@@ -180,7 +199,10 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
     }
 
     let mut functions = std::collections::BTreeMap::<&str, TokenStream>::new();
-    let mut types = std::collections::BTreeMap::<metadata::TypeKind, std::collections::BTreeMap<&str, TokenStream>>::new();
+    let mut types = std::collections::BTreeMap::<
+        metadata::TypeKind,
+        std::collections::BTreeMap<&str, TokenStream>,
+    >::new();
 
     for item in writer.reader.namespace_items(writer.namespace) {
         match item {
@@ -192,15 +214,28 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
                 if writer.reader.core_type(type_name).is_some() {
                     continue;
                 }
-                types.entry(def.kind()).or_default().entry(type_name.name()).or_default().combine(&writer.type_def(def));
+                types
+                    .entry(def.kind())
+                    .or_default()
+                    .entry(type_name.name())
+                    .or_default()
+                    .combine(&writer.type_def(def));
             }
             metadata::Item::Fn(def, namespace) => {
                 let name = def.name();
-                functions.entry(name).or_default().combine(&functions::writer(writer, namespace, def));
+                functions
+                    .entry(name)
+                    .or_default()
+                    .combine(&functions::writer(writer, namespace, def));
             }
             metadata::Item::Const(def) => {
                 let name = def.name();
-                types.entry(metadata::TypeKind::Class).or_default().entry(name).or_default().combine(&constants::writer(writer, def));
+                types
+                    .entry(metadata::TypeKind::Class)
+                    .or_default()
+                    .entry(name)
+                    .or_default()
+                    .combine(&constants::writer(writer, def));
             }
         }
     }

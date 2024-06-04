@@ -1,7 +1,10 @@
 use super::*;
 
 pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
-    if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+    if def
+        .flags()
+        .contains(metadata::TypeAttributes::WindowsRuntime)
+    {
         gen_delegate(writer, def)
     } else {
         gen_callback(writer, def)
@@ -67,8 +70,17 @@ fn gen_win_delegate(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let features = writer.cfg_features(&cfg);
 
     let vtbl_signature = writer.vtbl_signature(def, true, &signature);
-    let invoke = winrt_methods::writer(writer, def, generics, metadata::InterfaceKind::Default, method, &mut MethodNames::new(), &mut MethodNames::new());
-    let invoke_upcall = winrt_methods::gen_upcall(writer, &signature, quote! { (this.invoke) }, false);
+    let invoke = winrt_methods::writer(
+        writer,
+        def,
+        generics,
+        metadata::InterfaceKind::Default,
+        method,
+        &mut MethodNames::new(),
+        &mut MethodNames::new(),
+    );
+    let invoke_upcall =
+        winrt_methods::gen_upcall(writer, &signature, quote! { (this.invoke) }, false);
 
     let mut tokens = if generics.is_empty() {
         let iid = writer.guid_literal(metadata::type_def_guid(def));
@@ -160,12 +172,23 @@ fn gen_win_delegate(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     });
 
     tokens.combine(&writer.interface_trait(def, generics, &ident, &constraints, &features, true));
-    tokens.combine(&writer.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
+    tokens.combine(&writer.interface_winrt_trait(
+        def,
+        generics,
+        &ident,
+        &constraints,
+        &phantoms,
+        &features,
+    ));
     tokens.combine(&writer.interface_vtbl(def, generics, &constraints, &features));
     tokens
 }
 
-fn gen_fn_constraint(writer: &Writer, def: metadata::TypeDef, signature: &metadata::Signature) -> TokenStream {
+fn gen_fn_constraint(
+    writer: &Writer,
+    def: metadata::TypeDef,
+    signature: &metadata::Signature,
+) -> TokenStream {
     let signature = writer.impl_signature(def, signature);
 
     quote! { F: FnMut #signature + Send + 'static }

@@ -13,7 +13,7 @@ env:
 
 jobs:
   check:
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     strategy:
       matrix:
@@ -30,6 +30,8 @@ jobs:
         run: rustup target add ${{ matrix.target }}
       - name: Fix environment
         uses: ./.github/actions/fix-environment
+      - name: Check cppwinrt
+        run:  cargo check -p cppwinrt --no-default-features
       - name: Check windows
         run:  cargo check -p windows --no-default-features
       - name: Check windows-bindgen

@@ -22,7 +22,7 @@ env:
 
 jobs:
   check:
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     strategy:
       matrix:
@@ -119,7 +119,7 @@ env:
 
 jobs:
   check:
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     strategy:
       matrix:
@@ -171,7 +171,7 @@ env:
 
 jobs:
   check:
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     strategy:
       matrix:

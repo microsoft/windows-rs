@@ -7,7 +7,10 @@ pub struct Blobs {
 
 impl Default for Blobs {
     fn default() -> Self {
-        Self { map: Default::default(), stream: vec![0] }
+        Self {
+            map: Default::default(),
+            stream: vec![0],
+        }
     }
 }
 

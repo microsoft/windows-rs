@@ -21,7 +21,9 @@ pub fn rdl_to_winmd(file: &File) -> Result<Vec<u8>> {
     // or a type from a use declaration...?
     let mut collector = HashMap::<String, HashMap<&str, ModuleMember>>::new();
 
-    file.modules.iter().for_each(|module| collect_module(&mut collector, module));
+    file.modules
+        .iter()
+        .for_each(|module| collect_module(&mut collector, module));
 
     // TODO: collect type names into hashmap (phase 1) and just drop clones of the IDL members into the collector
 
@@ -30,23 +32,45 @@ pub fn rdl_to_winmd(file: &File) -> Result<Vec<u8>> {
 
     let mut writer = winmd::Writer::new("temp.winmd");
 
-    collector.iter().for_each(|(namespace, members)| members.iter().for_each(|(name, member)| write_member(&mut writer, namespace, name, member)));
+    collector.iter().for_each(|(namespace, members)| {
+        members
+            .iter()
+            .for_each(|(name, member)| write_member(&mut writer, namespace, name, member))
+    });
 
     Ok(writer.into_stream())
 }
 
-fn collect_module<'a>(collector: &mut HashMap<String, HashMap<&'a str, ModuleMember>>, module: &'a Module) {
-    module.members.iter().for_each(|member| collect_member(collector, module, member));
+fn collect_module<'a>(
+    collector: &mut HashMap<String, HashMap<&'a str, ModuleMember>>,
+    module: &'a Module,
+) {
+    module
+        .members
+        .iter()
+        .for_each(|member| collect_member(collector, module, member));
 }
 
-fn collect_member<'a>(collector: &mut HashMap<String, HashMap<&'a str, ModuleMember>>, module: &'a Module, member: &'a ModuleMember) {
+fn collect_member<'a>(
+    collector: &mut HashMap<String, HashMap<&'a str, ModuleMember>>,
+    module: &'a Module,
+    member: &'a ModuleMember,
+) {
     match member {
         ModuleMember::Module(module) => collect_module(collector, module),
         ModuleMember::Constant(_) | ModuleMember::Function(_) => {
-            collector.entry(module.namespace.to_string()).or_default().entry("Apis").or_insert(member.clone());
+            collector
+                .entry(module.namespace.to_string())
+                .or_default()
+                .entry("Apis")
+                .or_insert(member.clone());
         }
         _ => {
-            collector.entry(module.namespace.to_string()).or_default().entry(member.name()).or_insert(member.clone());
+            collector
+                .entry(module.namespace.to_string())
+                .or_default()
+                .entry(member.name())
+                .or_insert(member.clone());
         }
     }
 }
@@ -62,7 +86,9 @@ fn write_member(writer: &mut winmd::Writer, namespace: &str, name: &str, member:
 }
 
 fn write_interface(writer: &mut winmd::Writer, namespace: &str, name: &str, member: &Interface) {
-    let mut flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Interface | metadata::TypeAttributes::Abstract;
+    let mut flags = metadata::TypeAttributes::Public
+        | metadata::TypeAttributes::Interface
+        | metadata::TypeAttributes::Abstract;
 
     if member.winrt {
         flags |= metadata::TypeAttributes::WindowsRuntime
@@ -90,22 +116,40 @@ fn write_interface(writer: &mut winmd::Writer, namespace: &str, name: &str, memb
         let ty = syn_type_path(namespace, &member.generics, type_path);
 
         let reference = match &ty {
-            winmd::Type::TypeRef(type_name) if type_name.generics.is_empty() => writer.insert_type_ref(&type_name.namespace, &type_name.name),
+            winmd::Type::TypeRef(type_name) if type_name.generics.is_empty() => {
+                writer.insert_type_ref(&type_name.namespace, &type_name.name)
+            }
             winmd::Type::TypeRef(_) => writer.insert_type_spec(ty),
             rest => unimplemented!("{rest:?}"),
         };
 
-        writer.tables.InterfaceImpl.push(writer::InterfaceImpl { Class: writer.tables.TypeDef.len() as u32 - 1, Interface: reference });
+        writer.tables.InterfaceImpl.push(writer::InterfaceImpl {
+            Class: writer.tables.TypeDef.len() as u32 - 1,
+            Interface: reference,
+        });
     }
 
     for method in &member.methods {
         let signature = syn_signature(namespace, &member.generics, &method.sig);
 
-        let params: Vec<winmd::Type> = signature.params.iter().map(|param| param.ty.clone()).collect();
+        let params: Vec<winmd::Type> = signature
+            .params
+            .iter()
+            .map(|param| param.ty.clone())
+            .collect();
 
-        let signature_blob = writer.insert_method_sig(metadata::MethodCallAttributes(0), &signature.return_type, &params);
+        let signature_blob = writer.insert_method_sig(
+            metadata::MethodCallAttributes(0),
+            &signature.return_type,
+            &params,
+        );
 
-        let flags = metadata::MethodAttributes::Abstract | metadata::MethodAttributes::HideBySig | metadata::MethodAttributes::HideBySig | metadata::MethodAttributes::NewSlot | metadata::MethodAttributes::Public | metadata::MethodAttributes::Virtual;
+        let flags = metadata::MethodAttributes::Abstract
+            | metadata::MethodAttributes::HideBySig
+            | metadata::MethodAttributes::HideBySig
+            | metadata::MethodAttributes::NewSlot
+            | metadata::MethodAttributes::Public
+            | metadata::MethodAttributes::Virtual;
 
         writer.tables.MethodDef.push(winmd::MethodDef {
             RVA: 0,
@@ -117,13 +161,19 @@ fn write_interface(writer: &mut winmd::Writer, namespace: &str, name: &str, memb
         });
 
         for (sequence, param) in signature.params.iter().enumerate() {
-            writer.tables.Param.push(winmd::Param { Flags: 0, Sequence: (sequence + 1) as u16, Name: writer.strings.insert(&param.name) });
+            writer.tables.Param.push(winmd::Param {
+                Flags: 0,
+                Sequence: (sequence + 1) as u16,
+                Name: writer.strings.insert(&param.name),
+            });
         }
     }
 }
 
 fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member: &Struct) {
-    let mut flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed | metadata::TypeAttributes::SequentialLayout;
+    let mut flags = metadata::TypeAttributes::Public
+        | metadata::TypeAttributes::Sealed
+        | metadata::TypeAttributes::SequentialLayout;
 
     if member.winrt {
         flags |= metadata::TypeAttributes::WindowsRuntime
@@ -145,14 +195,20 @@ fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member:
         let ty = syn_type(namespace, &[], &field.ty);
         let signature = writer.insert_field_sig(&ty);
 
-        writer.tables.Field.push(winmd::Field { Flags: flags.0, Name: writer.strings.insert(&field.name), Signature: signature });
+        writer.tables.Field.push(winmd::Field {
+            Flags: flags.0,
+            Name: writer.strings.insert(&field.name),
+            Signature: signature,
+        });
     }
 }
 
 fn write_enum(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _member: &Enum) {}
 
 fn write_class(writer: &mut winmd::Writer, namespace: &str, name: &str, member: &Class) {
-    let flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed | metadata::TypeAttributes::WindowsRuntime;
+    let flags = metadata::TypeAttributes::Public
+        | metadata::TypeAttributes::Sealed
+        | metadata::TypeAttributes::WindowsRuntime;
 
     let extends = if let Some(base) = &member.base {
         match syn_type_path(namespace, &[], base) {
@@ -177,14 +233,21 @@ fn write_class(writer: &mut winmd::Writer, namespace: &str, name: &str, member: 
         let ty = syn_type_path(namespace, &[], extends);
 
         let reference = match &ty {
-            winmd::Type::TypeRef(type_name) if type_name.generics.is_empty() => writer.insert_type_ref(&type_name.namespace, &type_name.name),
+            winmd::Type::TypeRef(type_name) if type_name.generics.is_empty() => {
+                writer.insert_type_ref(&type_name.namespace, &type_name.name)
+            }
             winmd::Type::TypeRef(_) => writer.insert_type_spec(ty),
             winmd::Type::IUnknown => writer.insert_type_ref("Windows.Win32.System.Com", "IUnknown"),
-            winmd::Type::IInspectable => writer.insert_type_ref("Windows.Win32.System.WinRT", "IInspectable"),
+            winmd::Type::IInspectable => {
+                writer.insert_type_ref("Windows.Win32.System.WinRT", "IInspectable")
+            }
             rest => unimplemented!("{rest:?}"),
         };
 
-        writer.tables.InterfaceImpl.push(writer::InterfaceImpl { Class: writer.tables.TypeDef.len() as u32 - 1, Interface: reference });
+        writer.tables.InterfaceImpl.push(writer::InterfaceImpl {
+            Class: writer.tables.TypeDef.len() as u32 - 1,
+            Interface: reference,
+        });
 
         if index == 0 {
             // TODO: add the DefaultAttribute to the first interface
@@ -209,9 +272,17 @@ fn syn_signature(namespace: &str, generics: &[String], sig: &syn::Signature) -> 
         })
         .collect();
 
-    let return_type = if let syn::ReturnType::Type(_, ty) = &sig.output { syn_type(namespace, generics, ty) } else { winmd::Type::Void };
+    let return_type = if let syn::ReturnType::Type(_, ty) = &sig.output {
+        syn_type(namespace, generics, ty)
+    } else {
+        winmd::Type::Void
+    };
 
-    winmd::Signature { params, return_type, call_flags: 0 }
+    winmd::Signature {
+        params,
+        return_type,
+        call_flags: 0,
+    }
 }
 
 fn syn_type(namespace: &str, generics: &[String], ty: &syn::Type) -> winmd::Type {
@@ -316,19 +387,29 @@ fn syn_path(namespace: &str, generics: &[String], path: &syn::Path) -> winmd::Ty
 
     // Unwrapping is fine as there should always be at least one segment.
     let (name, type_namespace) = builder.split_last().unwrap();
-    let type_namespace = if type_namespace.is_empty() { namespace.to_string() } else { type_namespace.join(".") };
+    let type_namespace = if type_namespace.is_empty() {
+        namespace.to_string()
+    } else {
+        type_namespace.join(".")
+    };
     let mut type_generics = vec![];
 
     if let Some(segment) = path.segments.last() {
         if let syn::PathArguments::AngleBracketed(args) = &segment.arguments {
             for arg in &args.args {
                 match arg {
-                    syn::GenericArgument::Type(ty) => type_generics.push(syn_type(namespace, generics, ty)),
+                    syn::GenericArgument::Type(ty) => {
+                        type_generics.push(syn_type(namespace, generics, ty))
+                    }
                     rest => unimplemented!("{rest:?}"),
                 }
             }
         }
     }
 
-    winmd::Type::TypeRef(winmd::TypeName { namespace: type_namespace, name: name.to_string(), generics: type_generics })
+    winmd::Type::TypeRef(winmd::TypeName {
+        namespace: type_namespace,
+        name: name.to_string(),
+        generics: type_generics,
+    })
 }

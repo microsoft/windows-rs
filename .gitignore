@@ -3,3 +3,4 @@
 /target
 *.lock
 *.winmd
+winrt

@@ -69,7 +69,9 @@ impl Type {
     pub fn to_const_type(self) -> Self {
         match self {
             Self::MutPtr(kind, pointers) => Self::MutPtr(Box::new(kind.to_const_type()), pointers),
-            Self::ConstPtr(kind, pointers) => Self::ConstPtr(Box::new(kind.to_const_type()), pointers),
+            Self::ConstPtr(kind, pointers) => {
+                Self::ConstPtr(Box::new(kind.to_const_type()), pointers)
+            }
             Self::Name(TypeName::PSTR) => Self::Const(TypeName::PSTR),
             Self::Name(TypeName::PWSTR) => Self::Const(TypeName::PWSTR),
             _ => self,
@@ -137,7 +139,10 @@ impl Type {
 
     /// Returns `true` if the `Type` is unsigned.
     pub fn is_unsigned(&self) -> bool {
-        matches!(self, Type::U8 | Type::U16 | Type::U32 | Type::U64 | Type::USize)
+        matches!(
+            self,
+            Type::U8 | Type::U16 | Type::U32 | Type::U64 | Type::USize
+        )
     }
 
     /// Returns `true` if the `Type` is incomplete.

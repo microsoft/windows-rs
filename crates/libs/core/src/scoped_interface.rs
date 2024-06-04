@@ -17,7 +17,10 @@ pub struct ScopedInterface<'a, T: Interface> {
 
 impl<'a, T: Interface> ScopedInterface<'a, T> {
     pub fn new(interface: T) -> Self {
-        Self { interface, lifetime: PhantomData }
+        Self {
+            interface,
+            lifetime: PhantomData,
+        }
     }
 }
 

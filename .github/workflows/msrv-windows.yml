@@ -17,7 +17,7 @@ jobs:
       matrix:
         rust: [1.70.0, stable, nightly]
         runs-on:
-          - windows-2019
+          - windows-2022
           - ubuntu-latest
     runs-on: ${{ matrix.runs-on }}
     steps:

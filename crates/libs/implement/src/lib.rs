@@ -33,7 +33,10 @@ use quote::{quote, ToTokens};
 /// }
 /// ```
 #[proc_macro_attribute]
-pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
+pub fn implement(
+    attributes: proc_macro::TokenStream,
+    original_type: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
     let interfaces_len = proc_macro2::Literal::usize_unsuffixed(attributes.implement.len());
 
@@ -46,10 +49,10 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     let original_type2 = original_type.clone();
     let original_type2 = syn::parse_macro_input!(original_type2 as syn::ItemStruct);
     let vis = &original_type2.vis;
-    let original_ident = original_type2.ident;
+    let original_ident = &original_type2.ident;
     let mut constraints = quote! {};
 
-    if let Some(where_clause) = original_type2.generics.where_clause {
+    if let Some(where_clause) = &original_type2.generics.where_clause {
         where_clause.predicates.to_tokens(&mut constraints);
     }
 
@@ -62,30 +65,65 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
     };
 
     let impl_ident = quote::format_ident!("{}_Impl", original_ident);
-    let vtbl_idents = attributes.implement.iter().map(|implement| implement.to_vtbl_ident());
+    let vtbl_idents = attributes
+        .implement
+        .iter()
+        .map(|implement| implement.to_vtbl_ident());
     let vtbl_idents2 = vtbl_idents.clone();
 
-    let vtable_news = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
-        let vtbl_ident = implement.to_vtbl_ident();
-        let offset = proc_macro2::Literal::isize_unsuffixed(-1 - enumerate as isize);
-        quote! { #vtbl_ident::new::<Self, #original_ident::#generics, #offset>() }
-    });
+    let vtable_news = attributes
+        .implement
+        .iter()
+        .enumerate()
+        .map(|(enumerate, implement)| {
+            let vtbl_ident = implement.to_vtbl_ident();
+            let offset = proc_macro2::Literal::isize_unsuffixed(-1 - enumerate as isize);
+            quote! { #vtbl_ident::new::<Self, #original_ident::#generics, #offset>() }
+        });
 
-    let offset = attributes.implement.iter().enumerate().map(|(offset, _)| proc_macro2::Literal::usize_unsuffixed(offset));
+    let offset = attributes
+        .implement
+        .iter()
+        .enumerate()
+        .map(|(offset, _)| proc_macro2::Literal::usize_unsuffixed(offset));
 
-    let queries = attributes.implement.iter().enumerate().map(|(count, implement)| {
-        let vtbl_ident = implement.to_vtbl_ident();
-        let offset = proc_macro2::Literal::usize_unsuffixed(count);
+    let queries = attributes
+        .implement
+        .iter()
+        .enumerate()
+        .map(|(count, implement)| {
+            let vtbl_ident = implement.to_vtbl_ident();
+            let offset = proc_macro2::Literal::usize_unsuffixed(count);
+            quote! {
+                else if #vtbl_ident::matches(iid) {
+                    &self.vtables.#offset as *const _ as *mut _
+                }
+            }
+        });
+
+    // Dynamic casting requires that the object not contain non-static lifetimes.
+    let enable_dyn_casting = original_type2.generics.lifetimes().count() == 0;
+    let dynamic_cast_query = if enable_dyn_casting {
         quote! {
-            else if #vtbl_ident::matches(iid) {
-                &self.vtables.#offset as *const _ as *mut _
+            else if *iid == ::windows_core::DYNAMIC_CAST_IID {
+                // DYNAMIC_CAST_IID is special. We _do not_ increase the reference count for this pseudo-interface.
+                // Also, instead of returning an interface pointer, we simply write the `&dyn Any` directly to the
+                // 'interface' pointer. Since the size of `&dyn Any` is 2 pointers, not one, the caller must be
+                // prepared for this. This is not a normal QueryInterface call.
+                //
+                // See the `Interface::cast_to_any` method, which is the only caller that should use DYNAMIC_CAST_ID.
+                (interface as *mut *const dyn core::any::Any).write(self as &dyn ::core::any::Any as *const dyn ::core::any::Any);
+                return ::windows_core::HRESULT(0);
             }
         }
-    });
+    } else {
+        quote!()
+    };
 
     // The distance from the beginning of the generated type to the 'this' field, in units of pointers (not bytes).
     let offset_of_this_in_pointers = 1 + attributes.implement.len();
-    let offset_of_this_in_pointers_token = proc_macro2::Literal::usize_unsuffixed(offset_of_this_in_pointers);
+    let offset_of_this_in_pointers_token =
+        proc_macro2::Literal::usize_unsuffixed(offset_of_this_in_pointers);
 
     let trust_level = proc_macro2::Literal::usize_unsuffixed(attributes.trust_level);
 
@@ -201,7 +239,10 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     || iid == &<::windows_core::IInspectable as ::windows_core::Interface>::IID
                     || iid == &<::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID {
                         &self.identity as *const _ as *mut _
-                } #(#queries)* else {
+                }
+                #(#queries)*
+                #dynamic_cast_query
+                else {
                     ::core::ptr::null_mut()
                 };
 
@@ -230,7 +271,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             unsafe fn Release(self_: *mut Self) -> u32 {
                 let remaining = (*self_).count.release();
                 if remaining == 0 {
-                    _ = ::windows_core::imp::Box::from_raw(self_ as *const Self as *mut Self);
+                    _ = ::windows_core::imp::Box::from_raw(self_);
                 }
                 remaining
             }
@@ -247,6 +288,17 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 &*((inner as *const Self::Impl as *const *const ::core::ffi::c_void)
                     .sub(#offset_of_this_in_pointers_token) as *const Self)
             }
+
+            fn to_object(&self) -> ::windows_core::ComObject<Self::Impl> {
+                self.count.add_ref();
+                unsafe {
+                    ::windows_core::ComObject::from_raw(
+                        ::core::ptr::NonNull::new_unchecked(self as *const Self as *mut Self)
+                    )
+                }
+            }
+
+            const INNER_OFFSET_IN_POINTERS: usize = #offset_of_this_in_pointers_token;
         }
 
         impl #generics #original_ident::#generics where #constraints {
@@ -341,7 +393,8 @@ struct ImplementType {
 
 impl ImplementType {
     fn to_ident(&self) -> proc_macro2::TokenStream {
-        let type_name = syn::parse_str::<proc_macro2::TokenStream>(&self.type_name).expect("Invalid token stream");
+        let type_name = syn::parse_str::<proc_macro2::TokenStream>(&self.type_name)
+            .expect("Invalid token stream");
         let generics = self.generics.iter().map(|g| g.to_ident());
         quote! { #type_name<#(#generics,)*> }
     }
@@ -383,7 +436,11 @@ impl ImplementAttributes {
         Ok(())
     }
 
-    fn walk_implement(&mut self, tree: &UseTree2, namespace: &mut String) -> syn::parse::Result<()> {
+    fn walk_implement(
+        &mut self,
+        tree: &UseTree2,
+        namespace: &mut String,
+    ) -> syn::parse::Result<()> {
         match tree {
             UseTree2::Path(input) => {
                 if !namespace.is_empty() {
@@ -439,9 +496,15 @@ impl UseTree2 {
                     generics.push(g.to_element_type(&mut String::new())?);
                 }
 
-                Ok(ImplementType { type_name, generics })
+                Ok(ImplementType {
+                    type_name,
+                    generics,
+                })
             }
-            UseTree2::Group(input) => Err(syn::parse::Error::new(input.brace_token.span.join(), "Syntax not supported")),
+            UseTree2::Group(input) => Err(syn::parse::Error::new(
+                input.brace_token.span.join(),
+                "Syntax not supported",
+            )),
             _ => unimplemented!(),
         }
     }
@@ -470,10 +533,16 @@ impl syn::parse::Parse for UseTree2 {
             let ident = input.call(syn::Ident::parse_any)?;
             if input.peek(syn::Token![::]) {
                 input.parse::<syn::Token![::]>()?;
-                Ok(UseTree2::Path(UsePath2 { ident, tree: Box::new(input.parse()?) }))
+                Ok(UseTree2::Path(UsePath2 {
+                    ident,
+                    tree: Box::new(input.parse()?),
+                }))
             } else if input.peek(syn::Token![=]) {
                 if ident != "TrustLevel" {
-                    return Err(syn::parse::Error::new(ident.span(), "Unrecognized key-value pair"));
+                    return Err(syn::parse::Error::new(
+                        ident.span(),
+                        "Unrecognized key-value pair",
+                    ));
                 }
                 input.parse::<syn::Token![=]>()?;
                 let span = input.span();
@@ -481,7 +550,10 @@ impl syn::parse::Parse for UseTree2 {
                 match value.to_string().as_str() {
                     "Partial" => Ok(UseTree2::TrustLevel(1)),
                     "Full" => Ok(UseTree2::TrustLevel(2)),
-                    _ => Err(syn::parse::Error::new(span, "`TrustLevel` must be `Partial` or `Full`")),
+                    _ => Err(syn::parse::Error::new(
+                        span,
+                        "`TrustLevel` must be `Partial` or `Full`",
+                    )),
                 }
             } else {
                 let generics = if input.peek(syn::Token![<]) {
