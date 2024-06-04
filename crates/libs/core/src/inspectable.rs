@@ -65,6 +65,9 @@ impl IInspectable_Vtbl {
             count: *mut u32,
             values: *mut *mut GUID,
         ) -> HRESULT {
+            if count.is_null() || values.is_null() {
+                return imp::E_POINTER;
+            }
             // Note: even if we end up implementing this in future, it still doesn't need a this pointer
             // since the data to be returned is type- not instance-specific so can be shared for all
             // interfaces.
@@ -76,6 +79,9 @@ impl IInspectable_Vtbl {
             _: *mut c_void,
             value: *mut *mut c_void,
         ) -> HRESULT {
+            if value.is_null() {
+                return imp::E_POINTER;
+            }
             let h: HSTRING = T::NAME.into(); // TODO: should be try_into
             *value = transmute::<HSTRING, *mut c_void>(h);
             HRESULT(0)
@@ -84,6 +90,9 @@ impl IInspectable_Vtbl {
             this: *mut c_void,
             value: *mut i32,
         ) -> HRESULT {
+            if value.is_null() {
+                return imp::E_POINTER;
+            }
             let this = (this as *mut *mut c_void).offset(OFFSET) as *mut T;
             (*this).GetTrustLevel(value)
         }
