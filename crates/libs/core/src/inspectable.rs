@@ -60,7 +60,11 @@ impl RuntimeName for IInspectable {}
 
 impl IInspectable_Vtbl {
     pub const fn new<Identity: IUnknownImpl, Name: RuntimeName, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIids(_: *mut c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT {
+        unsafe extern "system" fn GetIids(
+            _: *mut c_void,
+            count: *mut u32,
+            values: *mut *mut GUID,
+        ) -> HRESULT {
             if count.is_null() || values.is_null() {
                 return imp::E_POINTER;
             }
@@ -71,7 +75,10 @@ impl IInspectable_Vtbl {
             *values = null_mut();
             HRESULT(0)
         }
-        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(_: *mut c_void, value: *mut *mut c_void) -> HRESULT {
+        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(
+            _: *mut c_void,
+            value: *mut *mut c_void,
+        ) -> HRESULT {
             if value.is_null() {
                 return imp::E_POINTER;
             }
@@ -79,7 +86,10 @@ impl IInspectable_Vtbl {
             *value = transmute::<HSTRING, *mut c_void>(h);
             HRESULT(0)
         }
-        unsafe extern "system" fn GetTrustLevel<T: IUnknownImpl, const OFFSET: isize>(this: *mut c_void, value: *mut i32) -> HRESULT {
+        unsafe extern "system" fn GetTrustLevel<T: IUnknownImpl, const OFFSET: isize>(
+            this: *mut c_void,
+            value: *mut i32,
+        ) -> HRESULT {
             if value.is_null() {
                 return imp::E_POINTER;
             }
