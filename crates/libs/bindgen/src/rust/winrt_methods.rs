@@ -103,14 +103,14 @@ pub fn writer(
                     core::mem::transmute(result__) }
                 }
             } else if metadata::type_is_blittable(&signature.return_type) {
-                    quote! {
-                    let mut result__ = core::mem::zeroed();
-                    #vcall
-                    .map(||result__) }
-                } else {
-                    quote! { let mut result__ = core::mem::zeroed();
-                    #vcall.and_then(|| windows_core::Type::from_abi(result__)) }
-                }
+                quote! {
+                let mut result__ = core::mem::zeroed();
+                #vcall
+                .map(||result__) }
+            } else {
+                quote! { let mut result__ = core::mem::zeroed();
+                #vcall.and_then(|| windows_core::Type::from_abi(result__)) }
+            }
         }
     };
 
