@@ -208,6 +208,8 @@ jobs:
         run:  cargo clippy -p test_msrv
       - name: Clippy test_no_use
         run:  cargo clippy -p test_no_use
+      - name: Clippy test_noexcept
+        run:  cargo clippy -p test_noexcept
       - name: Clippy test_not_dll
         run:  cargo clippy -p test_not_dll
       - name: Clippy test_query_signature
