@@ -475,6 +475,12 @@ fn method_def_last_error(row: MethodDef) -> bool {
     }
 }
 
+pub fn method_def_is_noexcept(method: MethodDef) -> bool {
+    method.has_attribute("NoExceptionAttribute")
+        || (method.flags().contains(MethodAttributes::SpecialName)
+            && method.name().starts_with("remove"))
+}
+
 pub fn type_is_borrowed(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => !type_def_is_blittable(*row),
