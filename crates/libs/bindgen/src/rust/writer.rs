@@ -1284,12 +1284,14 @@ impl Writer {
             .contains(metadata::TypeAttributes::WindowsRuntime)
         {
             let is_delegate = def.kind() == metadata::TypeKind::Delegate;
+            let noexcept = metadata::method_def_is_noexcept(signature.def);
+
             let params = signature
                 .params
                 .iter()
                 .map(|p| self.winrt_produce_type(p, !is_delegate));
 
-            let return_type = match &signature.return_type {
+            let return_type_tokens = match &signature.return_type {
                 metadata::Type::Void => quote! { () },
                 _ => {
                     let tokens = self.type_name(&signature.return_type);
@@ -1302,13 +1304,25 @@ impl Writer {
                 }
             };
 
+            let return_type_tokens = if noexcept {
+                if metadata::type_is_nullable(&signature.return_type) {
+                    quote! { -> Option<#return_type_tokens> }
+                } else if signature.return_type == metadata::Type::Void {
+                    quote! {}
+                } else {
+                    quote! { -> #return_type_tokens }
+                }
+            } else {
+                quote! { -> windows_core::Result<#return_type_tokens> }
+            };
+
             let this = if is_delegate {
                 quote! {}
             } else {
                 quote! { &self, }
             };
 
-            quote! { (#this #(#params),*) -> windows_core::Result<#return_type> }
+            quote! { (#this #(#params),*) #return_type_tokens }
         } else {
             let signature_kind = signature.kind();
             let mut params = quote! {};

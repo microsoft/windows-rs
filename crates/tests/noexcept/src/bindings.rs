@@ -284,15 +284,15 @@ pub trait ITest_Impl: Sized {
     fn SetInt32(&self, value: i32) -> windows_core::Result<()>;
     fn Test(&self) -> windows_core::Result<ITest>;
     fn SetTest(&self, value: Option<&ITest>) -> windows_core::Result<()>;
-    fn MethodStringN(&self, test: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn MethodInt32N(&self, test: i32) -> windows_core::Result<()>;
-    fn MethodTestN(&self, test: Option<&ITest>) -> windows_core::Result<()>;
-    fn StringN(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetStringN(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn Int32N(&self) -> windows_core::Result<i32>;
-    fn SetInt32N(&self, value: i32) -> windows_core::Result<()>;
-    fn TestN(&self) -> windows_core::Result<ITest>;
-    fn SetTestN(&self, value: Option<&ITest>) -> windows_core::Result<()>;
+    fn MethodStringN(&self, test: &windows_core::HSTRING);
+    fn MethodInt32N(&self, test: i32);
+    fn MethodTestN(&self, test: Option<&ITest>);
+    fn StringN(&self) -> windows_core::HSTRING;
+    fn SetStringN(&self, value: &windows_core::HSTRING);
+    fn Int32N(&self) -> i32;
+    fn SetInt32N(&self, value: i32);
+    fn TestN(&self) -> Option<ITest>;
+    fn SetTestN(&self, value: Option<&ITest>);
 }
 impl windows_core::RuntimeName for ITest {
     const NAME: &'static str = "Test.ITest";
@@ -441,7 +441,8 @@ impl ITest_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            ITest_Impl::MethodStringN(this, core::mem::transmute(&test)).into()
+            ITest_Impl::MethodStringN(this, core::mem::transmute(&test));
+            windows_core::HRESULT(0)
         }
         unsafe extern "system" fn MethodInt32N<
             Identity: windows_core::IUnknownImpl<Impl = Impl>,
@@ -453,7 +454,8 @@ impl ITest_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            ITest_Impl::MethodInt32N(this, test).into()
+            ITest_Impl::MethodInt32N(this, test);
+            windows_core::HRESULT(0)
         }
         unsafe extern "system" fn MethodTestN<
             Identity: windows_core::IUnknownImpl<Impl = Impl>,
@@ -465,7 +467,8 @@ impl ITest_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            ITest_Impl::MethodTestN(this, windows_core::from_raw_borrowed(&test)).into()
+            ITest_Impl::MethodTestN(this, windows_core::from_raw_borrowed(&test));
+            windows_core::HRESULT(0)
         }
         unsafe extern "system" fn StringN<
             Identity: windows_core::IUnknownImpl<Impl = Impl>,
@@ -477,14 +480,10 @@ impl ITest_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match ITest_Impl::StringN(this) {
-                Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
+            let ok__ = ITest_Impl::StringN(this);
+            core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+            core::mem::forget(ok__);
+            windows_core::HRESULT(0)
         }
         unsafe extern "system" fn SetStringN<
             Identity: windows_core::IUnknownImpl<Impl = Impl>,
@@ -496,7 +495,8 @@ impl ITest_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            ITest_Impl::SetStringN(this, core::mem::transmute(&value)).into()
+            ITest_Impl::SetStringN(this, core::mem::transmute(&value));
+            windows_core::HRESULT(0)
         }
         unsafe extern "system" fn Int32N<
             Identity: windows_core::IUnknownImpl<Impl = Impl>,
@@ -508,13 +508,9 @@ impl ITest_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match ITest_Impl::Int32N(this) {
-                Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
+            let ok__ = ITest_Impl::Int32N(this);
+            core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+            windows_core::HRESULT(0)
         }
         unsafe extern "system" fn SetInt32N<
             Identity: windows_core::IUnknownImpl<Impl = Impl>,
@@ -526,7 +522,8 @@ impl ITest_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            ITest_Impl::SetInt32N(this, value).into()
+            ITest_Impl::SetInt32N(this, value);
+            windows_core::HRESULT(0)
         }
         unsafe extern "system" fn TestN<
             Identity: windows_core::IUnknownImpl<Impl = Impl>,
@@ -538,14 +535,10 @@ impl ITest_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match ITest_Impl::TestN(this) {
-                Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
+            let ok__ = ITest_Impl::TestN(this);
+            core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+            core::mem::forget(ok__);
+            windows_core::HRESULT(0)
         }
         unsafe extern "system" fn SetTestN<
             Identity: windows_core::IUnknownImpl<Impl = Impl>,
@@ -557,7 +550,8 @@ impl ITest_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            ITest_Impl::SetTestN(this, windows_core::from_raw_borrowed(&value)).into()
+            ITest_Impl::SetTestN(this, windows_core::from_raw_borrowed(&value));
+            windows_core::HRESULT(0)
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ITest, OFFSET>(),

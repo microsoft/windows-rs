@@ -41,7 +41,7 @@ impl ITest_Impl for Test {
     }
     fn Test(&self) -> Result<ITest> {
         let this = self.0.read().unwrap();
-        this.2.clone().ok_or_else(|| Error::empty())
+        this.2.clone().ok_or_else(Error::empty)
     }
     fn SetTest(&self, value: Option<&ITest>) -> Result<()> {
         let mut this = self.0.write().unwrap();
@@ -49,47 +49,41 @@ impl ITest_Impl for Test {
         Ok(())
     }
 
-    fn MethodStringN(&self, test: &HSTRING) -> Result<()> {
+    fn MethodStringN(&self, test: &HSTRING) {
         let mut this = self.0.write().unwrap();
         this.0 = test.clone();
-        Ok(())
     }
-    fn MethodInt32N(&self, test: i32) -> Result<()> {
+    fn MethodInt32N(&self, test: i32) {
         let mut this = self.0.write().unwrap();
         this.1 = test;
-        Ok(())
     }
-    fn MethodTestN(&self, test: Option<&ITest>) -> Result<()> {
+    fn MethodTestN(&self, test: Option<&ITest>) {
         let mut this = self.0.write().unwrap();
         this.2 = test.cloned();
-        Ok(())
     }
-    fn StringN(&self) -> Result<HSTRING> {
+    fn StringN(&self) -> HSTRING {
         let this = self.0.read().unwrap();
-        Ok(this.0.clone())
+        this.0.clone()
     }
-    fn SetStringN(&self, value: &HSTRING) -> Result<()> {
+    fn SetStringN(&self, value: &HSTRING) {
         let mut this = self.0.write().unwrap();
         this.0 = value.clone();
-        Ok(())
     }
-    fn Int32N(&self) -> Result<i32> {
+    fn Int32N(&self) -> i32 {
         let this = self.0.read().unwrap();
-        Ok(this.1)
+        this.1
     }
-    fn SetInt32N(&self, value: i32) -> Result<()> {
+    fn SetInt32N(&self, value: i32) {
         let mut this = self.0.write().unwrap();
         this.1 = value;
-        Ok(())
     }
-    fn TestN(&self) -> Result<ITest> {
+    fn TestN(&self) -> Option<ITest> {
         let this = self.0.read().unwrap();
-        this.2.clone().ok_or_else(|| Error::empty())
+        this.2.clone()
     }
-    fn SetTestN(&self, value: Option<&ITest>) -> Result<()> {
+    fn SetTestN(&self, value: Option<&ITest>) {
         let mut this = self.0.write().unwrap();
         this.2 = value.cloned();
-        Ok(())
     }
 }
 

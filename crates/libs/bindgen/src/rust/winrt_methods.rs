@@ -102,8 +102,7 @@ pub fn writer(
                     _ = #vcall;
                     core::mem::transmute(result__) }
                 }
-            } else {
-                if metadata::type_is_blittable(&signature.return_type) {
+            } else if metadata::type_is_blittable(&signature.return_type) {
                     quote! {
                     let mut result__ = core::mem::zeroed();
                     #vcall
@@ -112,7 +111,6 @@ pub fn writer(
                     quote! { let mut result__ = core::mem::zeroed();
                     #vcall.and_then(|| windows_core::Type::from_abi(result__)) }
                 }
-            }
         }
     };
 
@@ -230,10 +228,13 @@ pub fn gen_upcall(
     inner: TokenStream,
     this: bool,
 ) -> TokenStream {
+    let noexcept = metadata::method_def_is_noexcept(sig.def);
+
     let invoke_args = sig
         .params
         .iter()
         .map(|param| gen_winrt_invoke_arg(writer, param));
+
     let this = if this {
         quote! { this, }
     } else {
@@ -241,20 +242,39 @@ pub fn gen_upcall(
     };
 
     match &sig.return_type {
-        metadata::Type::Void => quote! {
-            #inner(#this #(#invoke_args,)*).into()
-        },
+        metadata::Type::Void => {
+            if noexcept {
+                quote! {
+                    #inner(#this #(#invoke_args,)*);
+                    windows_core::HRESULT(0)
+                }
+            } else {
+                quote! {
+                    #inner(#this #(#invoke_args,)*).into()
+                }
+            }
+        }
         _ if sig.return_type.is_winrt_array() => {
-            quote! {
-                match #inner(#this #(#invoke_args,)*) {
-                    Ok(ok__) => {
-                        let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        // use `core::ptr::write` since `result` could be uninitialized
-                        core::ptr::write(result__, ok_data__);
-                        core::ptr::write(result_size__, ok_data_len__);
-                        windows_core::HRESULT(0)
+            if noexcept {
+                quote! {
+                    let ok__ = #inner(#this #(#invoke_args,)*);
+                    let (ok_data__, ok_data_len__) = ok__.into_abi();
+                    core::ptr::write(result__, ok_data__);
+                    core::ptr::write(result_size__, ok_data_len__);
+                    windows_core::HRESULT(0)
+                }
+            } else {
+                quote! {
+                    match #inner(#this #(#invoke_args,)*) {
+                        Ok(ok__) => {
+                            let (ok_data__, ok_data_len__) = ok__.into_abi();
+                            // use `core::ptr::write` since `result` could be uninitialized
+                            core::ptr::write(result__, ok_data__);
+                            core::ptr::write(result_size__, ok_data_len__);
+                            windows_core::HRESULT(0)
+                        }
+                        Err(err) => err.into()
                     }
-                    Err(err) => err.into()
                 }
             }
         }
@@ -265,15 +285,25 @@ pub fn gen_upcall(
                 quote! { core::mem::forget(ok__); }
             };
 
-            quote! {
-                match #inner(#this #(#invoke_args,)*) {
-                    Ok(ok__) => {
-                        // use `core::ptr::write` since `result` could be uninitialized
-                        core::ptr::write(result__, core::mem::transmute_copy(&ok__));
-                        #forget
-                        windows_core::HRESULT(0)
+            if noexcept {
+                quote! {
+                    let ok__ = #inner(#this #(#invoke_args,)*);
+                    // use `core::ptr::write` since `result` could be uninitialized
+                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    #forget
+                    windows_core::HRESULT(0)
+                }
+            } else {
+                quote! {
+                    match #inner(#this #(#invoke_args,)*) {
+                        Ok(ok__) => {
+                            // use `core::ptr::write` since `result` could be uninitialized
+                            core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                            #forget
+                            windows_core::HRESULT(0)
+                        }
+                        Err(err) => err.into()
                     }
-                    Err(err) => err.into()
                 }
             }
         }
