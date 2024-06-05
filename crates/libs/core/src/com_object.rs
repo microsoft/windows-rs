@@ -337,12 +337,12 @@ impl<T: ComObjectInner> Borrow<T> for ComObject<T> {
 /// This trait is part of the implementation of `windows-rs` and is not meant to be used directly
 /// by user code. This trait is not stable and may change at any time.
 #[doc(hidden)]
-pub trait ComGetImpl<Outer> {
+pub trait ComGetImpl<T: ComObjectInner> {
     /// The type that implements the COM interface.
     type Impl;
 
     /// At runtime, casts from the outer object type to the implementation type.
-    fn get_impl(outer: &Outer) -> &Self::Impl;
+    fn get_impl(object: &ComObject<T>) -> &Self::Impl;
 }
 
 /// Selects the "inner" type of a COM object implementation. This implementation uses the
@@ -352,18 +352,15 @@ pub trait ComGetImpl<Outer> {
 /// This struct is part of the implementation of `windows-rs` and is not meant to be used directly
 /// by user code. This trait is not stable and may change at any time.
 #[doc(hidden)]
-pub struct ComGetImplInner<Outer> {
-    _marker: core::marker::PhantomData<Outer>,
+pub struct ComGetImplInner<T> {
+    _marker: core::marker::PhantomData<T>,
 }
 
-impl<Outer> ComGetImpl<Outer> for ComGetImplInner<Outer>
-where
-    Outer: IUnknownImpl,
-{
-    type Impl = <Outer as IUnknownImpl>::Impl;
+impl<T: ComObjectInner> ComGetImpl<T> for ComGetImplInner<T> {
+    type Impl = T;
 
-    fn get_impl(outer: &Outer) -> &Self::Impl {
-        <Outer as IUnknownImpl>::get_impl(outer)
+    fn get_impl(object: &ComObject<T>) -> &Self::Impl {
+        object.get_impl()
     }
 }
 
@@ -373,14 +370,14 @@ where
 /// This struct is part of the implementation of `windows-rs` and is not meant to be used directly
 /// by user code. This trait is not stable and may change at any time.
 #[doc(hidden)]
-pub struct ComGetImplOuter<Outer> {
-    _marker: core::marker::PhantomData<Outer>,
+pub struct ComGetImplOuter<T> {
+    _marker: core::marker::PhantomData<T>,
 }
 
-impl<Outer> ComGetImpl<Outer> for ComGetImplOuter<Outer> {
-    type Impl = Outer;
+impl<T: ComObjectInner> ComGetImpl<T> for ComGetImplOuter<T> {
+    type Impl = ComObject<T>;
 
-    fn get_impl(outer: &Outer) -> &Self::Impl {
-        outer
+    fn get_impl(object: &ComObject<T>) -> &Self::Impl {
+        object
     }
 }

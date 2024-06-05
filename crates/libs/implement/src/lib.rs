@@ -79,10 +79,10 @@ pub fn implement(
             let vtbl_ident = implement.to_vtbl_ident();
             let outer_to_impl = match implement.impl_location {
                 ImplLocation::Outer => {
-                    quote!(::windows_core::ComGetImplOuter<#impl_ident #generics>)
+                    quote!(::windows_core::ComGetImplOuter<#original_ident #generics>)
                 }
                 ImplLocation::Inner => {
-                    quote!(::windows_core::ComGetImplInner<#impl_ident #generics>)
+                    quote!(::windows_core::ComGetImplInner<#original_ident #generics>)
                 }
             };
             let offset = proc_macro2::Literal::isize_unsuffixed(-1 - enumerate as isize);

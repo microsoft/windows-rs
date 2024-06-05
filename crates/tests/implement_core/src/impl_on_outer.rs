@@ -3,6 +3,7 @@ use windows_core::*;
 #[interface("cccccccc-0000-0000-0000-000000000001")]
 unsafe trait IFoo: IUnknown {
     fn hello(&self);
+    fn self_as_bar(&self) -> IBar;
 }
 
 #[interface("cccccccc-0000-0000-0000-000000000002")]
@@ -25,17 +26,22 @@ unsafe trait IBar: IUnknown {
 #[implement(IFoo3 @ Outer, IBar)]
 struct MyApp {}
 
-impl IFoo_Impl for MyApp_Impl {
+impl IFoo_Impl for ComObject<MyApp> {
     unsafe fn hello(&self) {
         println!("MyApp as IFoo: hello");
     }
+
+    unsafe fn self_as_bar(&self) -> IBar {
+        println!("MyApp as IFoo::self_as_bar");
+        self.to_interface()
+    }
 }
-impl IFoo2_Impl for MyApp_Impl {
+impl IFoo2_Impl for ComObject<MyApp> {
     unsafe fn hello(&self) {
         println!("MyApp as IFoo2: hello");
     }
 }
-impl IFoo3_Impl for MyApp_Impl {
+impl IFoo3_Impl for ComObject<MyApp> {
     unsafe fn hello(&self) {
         println!("MyApp as IFoo3: hello");
     }
@@ -58,6 +64,11 @@ fn basic() {
         ifoo.hello();
         ifoo2.hello();
         ifoo3.hello();
+        ibar.goodbye();
+    }
+
+    unsafe {
+        let ibar = ifoo3.self_as_bar();
         ibar.goodbye();
     }
 }

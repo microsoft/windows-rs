@@ -70,7 +70,7 @@ impl core::fmt::Debug for IUnknown {
 #[doc(hidden)]
 pub trait IUnknownImpl {
     /// The contained user type, e.g. `MyApp`. Also known as the "inner" type.
-    type Impl;
+    type Impl: ComObjectInner<Outer = Self>;
 
     /// Get a reference to the backing implementation.
     fn get_impl(&self) -> &Self::Impl;

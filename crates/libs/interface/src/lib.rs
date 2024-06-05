@@ -255,7 +255,7 @@ impl Interface {
                     quote! {
                         unsafe extern "system" fn #name<
                             Identity: ::windows_core::IUnknownImpl,
-                            OuterToImpl: ::windows_core::ComGetImpl<Identity>,
+                            OuterToImpl: ::windows_core::ComGetImpl<Identity::Impl>,
                             const OFFSET: isize
                         >(
                             this: *mut ::core::ffi::c_void, // <-- This is the COM "this" pointer, which is not the same as &T or &T_Impl.
@@ -271,11 +271,16 @@ impl Interface {
                             // back to &MyApp_Impl. The OFFSET constant gives us the value (in pointer-sized units).
                             let this_outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
 
+                            let this_com_object: ::core::mem::ManuallyDrop<::windows_core::ComObject<Identity::Impl>>
+                                = core::mem::transmute(this_outer);
+
+                            let this_com_object_ref: &::windows_core::ComObject<Identity::Impl> = &this_com_object;
+
                             // This step selects the part of the MyApp_Impl object which implements a given COM interface,
                             // i.e. IFoo_Impl trait. There are really only two possibilities: either MyApp_Impl or MyApp
                             // implements a given IFoo_Impl trait. The ComGetImplInner and ComGetImplOuter types
                             // allow the code that specialized this function to select which one is used.
-                            let this_impl: &OuterToImpl::Impl = OuterToImpl::get_impl(this_outer);
+                            let this_impl: &OuterToImpl::Impl = OuterToImpl::get_impl(this_com_object_ref);
 
                             // Last, we invoke the implementation function.
                             // We use explicit <Impl as IFoo_Impl> so that we can select the correct method
@@ -316,7 +321,7 @@ impl Interface {
                 impl #vtable_name {
                     pub const fn new<
                         Identity: ::windows_core::IUnknownImpl,
-                        OuterToImpl: ::windows_core::ComGetImpl<Identity>,
+                        OuterToImpl: ::windows_core::ComGetImpl<Identity::Impl>,
                         const OFFSET: isize,
                     >() -> Self
                     where
