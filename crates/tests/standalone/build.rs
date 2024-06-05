@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 fn main() {
     write_sys(
         "src/b_none.rs",
@@ -202,36 +204,72 @@ fn write_vtbl(output: &str, filter: &[&str]) {
 }
 
 fn riddle(output: &str, filter: &[&str], config: &[&str]) {
-    // Rust-analyzer may re-run build scripts whenever a source file is deleted
-    // which causes an endless loop if the file is deleted from a build script.
-    // To workaround this, we truncate the file instead of deleting it.
-    // See https://github.com/microsoft/windows-rs/issues/2777
-    _ = std::fs::File::options()
-        .truncate(true)
-        .write(true)
-        .open(output);
+    println!("----- {output:?} -----");
 
-    let mut command = std::process::Command::new("cargo");
+    let out_dir = PathBuf::from(
+        std::env::var("OUT_DIR")
+            .unwrap_or_else(|_| panic!("Expected OUT_DIR environment variable to be set.")),
+    );
+    let temp_filename = output.replace('/', "_");
+    let temp_output = out_dir.join(temp_filename);
 
-    command.args([
-        "run",
-        "-p",
-        "riddle",
-        "--target-dir",
-        "../../../target/test_standalone", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
-        "--",
-        "--in",
-        "../../libs/bindgen/default",
-        "--out",
-        output,
-        "--filter",
-    ]);
+    let mut args: Vec<String> = vec![
+        "--in".to_owned(),
+        "../../libs/bindgen/default".to_owned(),
+        "--out".to_owned(),
+        temp_output.as_os_str().to_string_lossy().into_owned(),
+    ];
 
-    command.args(filter);
-    command.args(["--config", "no-bindgen-comment"]);
-    command.args(config);
+    args.push("--filter".to_owned());
+    args.extend(filter.iter().map(|&s| s.to_owned()));
 
-    if !command.status().unwrap().success() {
-        panic!("Failed to run riddle");
+    args.push("--config".to_owned());
+    args.push("no-bindgen-comment".to_owned());
+
+    args.extend(config.iter().map(|&s| s.to_owned()));
+
+    // Show args for debugging. You can see output with "cargo build -vv".
+    let args_flat = args.join(" ");
+    println!("riddle.exe {args_flat}");
+
+    windows_bindgen::bindgen(&args).unwrap_or_else(|e| {
+        panic!(
+            "Failed to run riddle.\n\
+            File: {output}\n\
+            Args: {args_flat}\n\
+            Error: {e:?}"
+        );
+    });
+
+    // Read the file that was just generated.
+    let new_contents = std::fs::read_to_string(&temp_output).unwrap_or_else(|e| {
+        panic!("Failed to read file: {}: {e:?}", temp_output.display());
+    });
+
+    let needs_update = match std::fs::read_to_string(output) {
+        Ok(old_contents) => {
+            if old_contents == new_contents {
+                println!("contents are same");
+            } else {
+                println!(
+                    "contents are different.  old len = {}, new len = {}",
+                    old_contents.len(),
+                    new_contents.len()
+                );
+            }
+            old_contents != new_contents
+        }
+        Err(e) => {
+            println!("failed to open old file: {e:?}");
+            true
+        }
+    };
+
+    if needs_update {
+        println!("updating: {}", output);
+        std::fs::write(output, new_contents)
+            .unwrap_or_else(|e| panic!("Failed to update file {output:?} : {e:?}"));
     }
+
+    println!();
 }

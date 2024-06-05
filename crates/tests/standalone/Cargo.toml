@@ -4,8 +4,16 @@ version = "0.0.0"
 edition = "2021"
 publish = false
 
+[lib]
+doc = false
+doctest = false
+
 [dependencies.windows-core]
 path = "../../libs/core"
 
 [dependencies.windows-targets]
 path = "../../libs/targets"
+
+[build-dependencies.windows-bindgen]
+path = "../../libs/bindgen"
+default-features = false
