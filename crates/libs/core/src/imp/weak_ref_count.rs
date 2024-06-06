@@ -63,8 +63,7 @@ impl WeakRefCount {
 
         let tear_off = TearOff::new(object, count_or_pointer as u32);
         let tear_off_ptr: *mut c_void = transmute_copy(&tear_off);
-        let encoding: usize =
-            ((tear_off_ptr as usize) >> 1) | (1 << (core::mem::size_of::<usize>() * 8 - 1));
+        let encoding: usize = ((tear_off_ptr as usize) >> 1) | (1 << (usize::BITS - 1));
 
         loop {
             match self.0.compare_exchange_weak(
