@@ -1,5 +1,4 @@
-use test_noexcept::bindings::*;
-use windows_core::*;
+use test_noexcept::*;
 
 #[implement(ITest)]
 #[derive(Default)]
@@ -87,32 +86,43 @@ impl ITest_Impl for Test {
     }
 }
 
-#[test]
-fn test_except() -> Result<()> {
-    let test: ITest = Test::default().into();
-
+fn test_except(test: &ITest) -> Result<()> {
     test.MethodString(h!("abc"))?;
     assert_eq!(test.String()?, "abc");
 
     test.MethodInt32(123)?;
     assert_eq!(test.Int32()?, 123);
 
-    test.MethodTest(&test)?;
-    assert_eq!(&test.Test()?, &test);
+    test.MethodTest(test)?;
+    assert_eq!(&test.Test()?, test);
 
     Ok(())
 }
 
-#[test]
-fn test_noexcept() {
-    let test: ITest = Test::default().into();
-
+fn test_noexcept(test: &ITest) {
     test.MethodStringN(h!("abc"));
     assert_eq!(test.StringN(), "abc");
 
     test.MethodInt32N(123);
     assert_eq!(test.Int32N(), 123);
 
-    test.MethodTestN(&test);
-    assert_eq!(test.TestN().as_ref(), Some(&test));
+    test.MethodTestN(test);
+    assert_eq!(test.TestN().as_ref(), Some(test));
+}
+
+#[test]
+fn test_rust() -> Result<()> {
+    let test: ITest = Test::default().into();
+    test_noexcept(&test);
+    test_except(&test)
+}
+
+#[test]
+fn test_cpp() -> Result<()> {
+    let test: ITest = Test::default().into();
+    consume(&test)?;
+
+    let test: ITest = produce()?;
+    test_noexcept(&test);
+    test_except(&test)
 }

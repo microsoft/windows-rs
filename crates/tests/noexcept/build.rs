@@ -2,6 +2,8 @@ fn main() {
     println!("cargo:rerun-if-changed=src/test.idl");
     let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
     let mut command = std::process::Command::new("midlrt.exe");
+    println!("cargo:rerun-if-changed=src/interop.cpp");
+    println!("cargo:rustc-link-lib=windows.0.52.0");
 
     command.args([
         "/winrt",
@@ -34,4 +36,20 @@ fn main() {
     ]) {
         panic!("{error}");
     }
+
+    cppwinrt::cppwinrt([
+        "-in",
+        "test.winmd",
+        &format!("{}\\System32\\WinMetadata", env!("windir")),
+        "-out",
+        "src",
+    ])
+    .unwrap();
+
+    cc::Build::new()
+        .cpp(true)
+        .std("c++20")
+        .flag("/EHsc")
+        .file("src/interop.cpp")
+        .compile("interop");
 }
