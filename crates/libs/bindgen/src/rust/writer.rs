@@ -1291,16 +1291,15 @@ impl Writer {
                 .iter()
                 .map(|p| self.winrt_produce_type(p, !is_delegate));
 
-            let return_type_tokens = match &signature.return_type {
-                metadata::Type::Void => quote! { () },
-                _ => {
-                    let tokens = self.type_name(&signature.return_type);
+            let return_type_tokens = if signature.return_type == metadata::Type::Void {
+                quote! { () }
+            } else {
+                let tokens = self.type_name(&signature.return_type);
 
-                    if signature.return_type.is_winrt_array() {
-                        quote! { windows_core::Array<#tokens> }
-                    } else {
-                        tokens
-                    }
+                if signature.return_type.is_winrt_array() {
+                    quote! { windows_core::Array<#tokens> }
+                } else {
+                    tokens
                 }
             };
 
