@@ -118,19 +118,21 @@ impl ITest {
     pub fn MethodStringN(&self, test: &windows_core::HSTRING) {
         let this = self;
         unsafe {
-            _ = (windows_core::Interface::vtable(this).MethodStringN)(
+            let hresult__ = (windows_core::Interface::vtable(this).MethodStringN)(
                 windows_core::Interface::as_raw(this),
                 core::mem::transmute_copy(test),
             );
+            debug_assert!(hresult__.0 == 0);
         }
     }
     pub fn MethodInt32N(&self, test: i32) {
         let this = self;
         unsafe {
-            _ = (windows_core::Interface::vtable(this).MethodInt32N)(
+            let hresult__ = (windows_core::Interface::vtable(this).MethodInt32N)(
                 windows_core::Interface::as_raw(this),
                 test,
             );
+            debug_assert!(hresult__.0 == 0);
         }
     }
     pub fn MethodTestN<P0>(&self, test: P0)
@@ -139,60 +141,66 @@ impl ITest {
     {
         let this = self;
         unsafe {
-            _ = (windows_core::Interface::vtable(this).MethodTestN)(
+            let hresult__ = (windows_core::Interface::vtable(this).MethodTestN)(
                 windows_core::Interface::as_raw(this),
                 test.param().abi(),
             );
+            debug_assert!(hresult__.0 == 0);
         }
     }
     pub fn StringN(&self) -> windows_core::HSTRING {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            _ = (windows_core::Interface::vtable(this).StringN)(
+            let hresult__ = (windows_core::Interface::vtable(this).StringN)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             );
+            debug_assert!(hresult__.0 == 0);
             core::mem::transmute(result__)
         }
     }
     pub fn SetStringN(&self, value: &windows_core::HSTRING) {
         let this = self;
         unsafe {
-            _ = (windows_core::Interface::vtable(this).SetStringN)(
+            let hresult__ = (windows_core::Interface::vtable(this).SetStringN)(
                 windows_core::Interface::as_raw(this),
                 core::mem::transmute_copy(value),
             );
+            debug_assert!(hresult__.0 == 0);
         }
     }
     pub fn Int32N(&self) -> i32 {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            _ = (windows_core::Interface::vtable(this).Int32N)(
+            let hresult__ = (windows_core::Interface::vtable(this).Int32N)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             );
+            debug_assert!(hresult__.0 == 0);
             result__
         }
     }
     pub fn SetInt32N(&self, value: i32) {
         let this = self;
         unsafe {
-            _ = (windows_core::Interface::vtable(this).SetInt32N)(
+            let hresult__ = (windows_core::Interface::vtable(this).SetInt32N)(
                 windows_core::Interface::as_raw(this),
                 value,
             );
+            debug_assert!(hresult__.0 == 0);
         }
     }
     pub fn TestN(&self) -> Option<ITest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            _ = (windows_core::Interface::vtable(this).TestN)(
+            let hresult__ = (windows_core::Interface::vtable(this).TestN)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             );
+            debug_assert!(hresult__.0 == 0);
             core::mem::transmute(result__)
         }
     }
@@ -202,10 +210,11 @@ impl ITest {
     {
         let this = self;
         unsafe {
-            _ = (windows_core::Interface::vtable(this).SetTestN)(
+            let hresult__ = (windows_core::Interface::vtable(this).SetTestN)(
                 windows_core::Interface::as_raw(this),
                 value.param().abi(),
             );
+            debug_assert!(hresult__.0 == 0);
         }
     }
 }

@@ -66,7 +66,8 @@ pub fn writer(
         metadata::Type::Void => {
             if noexcept {
                 quote! {
-                    _ = #vcall;
+                    let hresult__ = #vcall;
+                    debug_assert!(hresult__.0 == 0);
                 }
             } else {
                 quote! {
@@ -78,7 +79,8 @@ pub fn writer(
             if noexcept {
                 quote! {
                     let mut result__ = core::mem::MaybeUninit::zeroed();
-                    _ = #vcall;
+                    let hresult__ = #vcall;
+                    debug_assert!(hresult__.0 == 0);
                     result__.assume_init()
                 }
             } else {
@@ -94,12 +96,14 @@ pub fn writer(
                 if metadata::type_is_blittable(&signature.return_type) {
                     quote! {
                     let mut result__ = core::mem::zeroed();
-                    _ = #vcall;
+                    let hresult__ = #vcall;
+                    debug_assert!(hresult__.0 == 0);
                     result__ }
                 } else {
                     quote! {
                     let mut result__ = core::mem::zeroed();
-                    _ = #vcall;
+                    let hresult__ = #vcall;
+                    debug_assert!(hresult__.0 == 0);
                     core::mem::transmute(result__) }
                 }
             } else if metadata::type_is_blittable(&signature.return_type) {
