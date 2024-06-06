@@ -18,3 +18,6 @@ rust_2018_idioms = { level = "warn", priority = -1 }
 unused_qualifications = "warn"
 missing_docs = "warn"
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_debugger_visualizer)'] }
+
+# See https://github.com/microsoft/windows-rs/issues/3076
+unused-qualifications = { level = "allow" }
