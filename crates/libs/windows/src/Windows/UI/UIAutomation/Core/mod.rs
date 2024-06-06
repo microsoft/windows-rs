@@ -24,7 +24,8 @@ impl ICoreAutomationConnectionBoundObjectProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            _ = (windows_core::Interface::vtable(this).IsComThreadingRequired)(windows_core::Interface::as_raw(this), &mut result__);
+            let hresult__ = (windows_core::Interface::vtable(this).IsComThreadingRequired)(windows_core::Interface::as_raw(this), &mut result__);
+            debug_assert!(hresult__.0 == 0);
             result__
         }
     }

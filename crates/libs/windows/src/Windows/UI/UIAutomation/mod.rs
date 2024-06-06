@@ -48,7 +48,8 @@ impl AutomationConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            _ = (windows_core::Interface::vtable(this).IsRemoteSystem)(windows_core::Interface::as_raw(this), &mut result__);
+            let hresult__ = (windows_core::Interface::vtable(this).IsRemoteSystem)(windows_core::Interface::as_raw(this), &mut result__);
+            debug_assert!(hresult__.0 == 0);
             result__
         }
     }
@@ -113,7 +114,8 @@ impl AutomationElement {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            _ = (windows_core::Interface::vtable(this).IsRemoteSystem)(windows_core::Interface::as_raw(this), &mut result__);
+            let hresult__ = (windows_core::Interface::vtable(this).IsRemoteSystem)(windows_core::Interface::as_raw(this), &mut result__);
+            debug_assert!(hresult__.0 == 0);
             result__
         }
     }
