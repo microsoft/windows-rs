@@ -1,3 +1,5 @@
+#![cfg(target_env = "msvc")]
+
 use test_noexcept::*;
 
 #[implement(ITest)]

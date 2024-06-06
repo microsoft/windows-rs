@@ -1,3 +1,5 @@
+#![cfg(target_env = "msvc")]
+
 mod bindings;
 pub use bindings::*;
 pub use windows_core::*;
