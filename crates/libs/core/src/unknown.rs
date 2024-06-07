@@ -47,11 +47,17 @@ impl Drop for IUnknown {
 
 impl PartialEq for IUnknown {
     fn eq(&self, other: &Self) -> bool {
+        // First we test for ordinary pointer equality. If two COM interface pointers have the
+        // same pointer value, then they are the same object. This can save us a lot of time,
+        // since calling QueryInterface is much more expensive than a single pointer comparison.
+        //
+        // However, interface pointers may have different values and yet point to the same object.
         // Since COM objects may implement multiple interfaces, COM identity can only
         // be determined by querying for `IUnknown` explicitly and then comparing the
         // pointer values. This works since `QueryInterface` is required to return
         // the same pointer value for queries for `IUnknown`.
-        self.cast::<IUnknown>().unwrap().0 == other.cast::<IUnknown>().unwrap().0
+        self.as_raw() == other.as_raw()
+            || self.cast::<IUnknown>().unwrap().0 == other.cast::<IUnknown>().unwrap().0
     }
 }
 
