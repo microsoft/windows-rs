@@ -257,7 +257,14 @@ fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<()> {
             .map_err(|_| Error::new("failed to create directory").with_path(path))?;
     }
 
-    std::fs::write(path, contents).map_err(|_| Error::new("failed to write file").with_path(path))
+    let existing = std::fs::read(path).unwrap_or_default();
+
+    if contents.as_ref() != existing {
+        std::fs::write(path, contents)
+            .map_err(|_| Error::new("failed to write file").with_path(path))?;
+    }
+
+    Ok(())
 }
 
 fn canonicalize(value: &str) -> Result<String> {
