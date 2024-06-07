@@ -22,6 +22,7 @@ pub fn writer(
     let features = writer.cfg_features(&cfg);
     let args = gen_winrt_abi_args(writer, params);
     let params = gen_winrt_params(writer, params);
+    let noexcept = metadata::method_def_is_noexcept(method);
 
     let return_type_tokens = match &signature.return_type {
         metadata::Type::Void => quote! { () },
@@ -33,6 +34,18 @@ pub fn writer(
                 quote! { #tokens }
             }
         }
+    };
+
+    let return_type_tokens = if noexcept {
+        if metadata::type_is_nullable(&signature.return_type) {
+            quote! { -> Option<#return_type_tokens> }
+        } else if signature.return_type == metadata::Type::Void {
+            quote! {}
+        } else {
+            quote! { -> #return_type_tokens }
+        }
+    } else {
+        quote! { -> windows_core::Result<#return_type_tokens> }
     };
 
     let return_arg = match &signature.return_type {
@@ -47,30 +60,60 @@ pub fn writer(
         }
     };
 
+    let vcall = quote! { (windows_core::Interface::vtable(this).#vname)(windows_core::Interface::as_raw(this), #args #return_arg) };
+
     let vcall = match &signature.return_type {
         metadata::Type::Void => {
-            quote! {
-                (windows_core::Interface::vtable(this).#vname)(windows_core::Interface::as_raw(this), #args).ok()
+            if noexcept {
+                quote! {
+                    let hresult__ = #vcall;
+                    debug_assert!(hresult__.0 == 0);
+                }
+            } else {
+                quote! {
+                    #vcall.ok()
+                }
             }
         }
         _ if signature.return_type.is_winrt_array() => {
-            quote! {
-                let mut result__ = core::mem::MaybeUninit::zeroed();
-                (windows_core::Interface::vtable(this).#vname)(windows_core::Interface::as_raw(this), #args #return_arg)
-                    .map(|| result__.assume_init())
+            if noexcept {
+                quote! {
+                    let mut result__ = core::mem::MaybeUninit::zeroed();
+                    let hresult__ = #vcall;
+                    debug_assert!(hresult__.0 == 0);
+                    result__.assume_init()
+                }
+            } else {
+                quote! {
+                    let mut result__ = core::mem::MaybeUninit::zeroed();
+                    #vcall
+                        .map(|| result__.assume_init())
+                }
             }
         }
         _ => {
-            let map = if metadata::type_is_blittable(&signature.return_type) {
-                quote! { map(||result__) }
-            } else {
-                quote! { and_then(|| windows_core::Type::from_abi(result__)) }
-            };
-
-            quote! {
+            if noexcept {
+                if metadata::type_is_blittable(&signature.return_type) {
+                    quote! {
+                    let mut result__ = core::mem::zeroed();
+                    let hresult__ = #vcall;
+                    debug_assert!(hresult__.0 == 0);
+                    result__ }
+                } else {
+                    quote! {
+                    let mut result__ = core::mem::zeroed();
+                    let hresult__ = #vcall;
+                    debug_assert!(hresult__.0 == 0);
+                    core::mem::transmute(result__) }
+                }
+            } else if metadata::type_is_blittable(&signature.return_type) {
+                quote! {
                 let mut result__ = core::mem::zeroed();
-                    (windows_core::Interface::vtable(this).#vname)(windows_core::Interface::as_raw(this), #args #return_arg)
-                        .#map
+                #vcall
+                .map(||result__) }
+            } else {
+                quote! { let mut result__ = core::mem::zeroed();
+                #vcall.and_then(|| windows_core::Type::from_abi(result__)) }
             }
         }
     };
@@ -78,7 +121,7 @@ pub fn writer(
     match kind {
         metadata::InterfaceKind::Default => quote! {
             #features
-            pub fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type_tokens> #where_clause {
+            pub fn #name<#generics>(&self, #params) #return_type_tokens #where_clause {
                 let this = self;
                 unsafe {
                     #vcall
@@ -90,7 +133,7 @@ pub fn writer(
         | metadata::InterfaceKind::Overridable => {
             quote! {
                 #features
-                pub fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type_tokens> #where_clause {
+                pub fn #name<#generics>(&self, #params) #return_type_tokens #where_clause {
                     let this = &windows_core::Interface::cast::<#interface_name>(self)?;
                     unsafe {
                         #vcall
@@ -101,7 +144,7 @@ pub fn writer(
         metadata::InterfaceKind::Static => {
             quote! {
                 #features
-                pub fn #name<#generics>(#params) -> windows_core::Result<#return_type_tokens> #where_clause {
+                pub fn #name<#generics>(#params) #return_type_tokens #where_clause {
                     Self::#interface_name(|this| unsafe { #vcall })
                 }
             }
@@ -189,10 +232,13 @@ pub fn gen_upcall(
     inner: TokenStream,
     this: bool,
 ) -> TokenStream {
+    let noexcept = metadata::method_def_is_noexcept(sig.def);
+
     let invoke_args = sig
         .params
         .iter()
         .map(|param| gen_winrt_invoke_arg(writer, param));
+
     let this = if this {
         quote! { this, }
     } else {
@@ -200,20 +246,39 @@ pub fn gen_upcall(
     };
 
     match &sig.return_type {
-        metadata::Type::Void => quote! {
-            #inner(#this #(#invoke_args,)*).into()
-        },
+        metadata::Type::Void => {
+            if noexcept {
+                quote! {
+                    #inner(#this #(#invoke_args,)*);
+                    windows_core::HRESULT(0)
+                }
+            } else {
+                quote! {
+                    #inner(#this #(#invoke_args,)*).into()
+                }
+            }
+        }
         _ if sig.return_type.is_winrt_array() => {
-            quote! {
-                match #inner(#this #(#invoke_args,)*) {
-                    Ok(ok__) => {
-                        let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        // use `core::ptr::write` since `result` could be uninitialized
-                        core::ptr::write(result__, ok_data__);
-                        core::ptr::write(result_size__, ok_data_len__);
-                        windows_core::HRESULT(0)
+            if noexcept {
+                quote! {
+                    let ok__ = #inner(#this #(#invoke_args,)*);
+                    let (ok_data__, ok_data_len__) = ok__.into_abi();
+                    core::ptr::write(result__, ok_data__);
+                    core::ptr::write(result_size__, ok_data_len__);
+                    windows_core::HRESULT(0)
+                }
+            } else {
+                quote! {
+                    match #inner(#this #(#invoke_args,)*) {
+                        Ok(ok__) => {
+                            let (ok_data__, ok_data_len__) = ok__.into_abi();
+                            // use `core::ptr::write` since `result` could be uninitialized
+                            core::ptr::write(result__, ok_data__);
+                            core::ptr::write(result_size__, ok_data_len__);
+                            windows_core::HRESULT(0)
+                        }
+                        Err(err) => err.into()
                     }
-                    Err(err) => err.into()
                 }
             }
         }
@@ -224,15 +289,25 @@ pub fn gen_upcall(
                 quote! { core::mem::forget(ok__); }
             };
 
-            quote! {
-                match #inner(#this #(#invoke_args,)*) {
-                    Ok(ok__) => {
-                        // use `core::ptr::write` since `result` could be uninitialized
-                        core::ptr::write(result__, core::mem::transmute_copy(&ok__));
-                        #forget
-                        windows_core::HRESULT(0)
+            if noexcept {
+                quote! {
+                    let ok__ = #inner(#this #(#invoke_args,)*);
+                    // use `core::ptr::write` since `result` could be uninitialized
+                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    #forget
+                    windows_core::HRESULT(0)
+                }
+            } else {
+                quote! {
+                    match #inner(#this #(#invoke_args,)*) {
+                        Ok(ok__) => {
+                            // use `core::ptr::write` since `result` could be uninitialized
+                            core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                            #forget
+                            windows_core::HRESULT(0)
+                        }
+                        Err(err) => err.into()
                     }
-                    Err(err) => err.into()
                 }
             }
         }

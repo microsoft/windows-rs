@@ -44,11 +44,13 @@ pub struct IAutomationTextRange_Vtbl {
 pub struct AutomationConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl AutomationConnection {
-    pub fn IsRemoteSystem(&self) -> windows_core::Result<bool> {
+    pub fn IsRemoteSystem(&self) -> bool {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsRemoteSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            let hresult__ = (windows_core::Interface::vtable(this).IsRemoteSystem)(windows_core::Interface::as_raw(this), &mut result__);
+            debug_assert!(hresult__.0 == 0);
+            result__
         }
     }
     pub fn AppUserModelId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -108,11 +110,13 @@ unsafe impl Sync for AutomationConnectionBoundObject {}
 pub struct AutomationElement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationElement, windows_core::IUnknown, windows_core::IInspectable);
 impl AutomationElement {
-    pub fn IsRemoteSystem(&self) -> windows_core::Result<bool> {
+    pub fn IsRemoteSystem(&self) -> bool {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsRemoteSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            let hresult__ = (windows_core::Interface::vtable(this).IsRemoteSystem)(windows_core::Interface::as_raw(this), &mut result__);
+            debug_assert!(hresult__.0 == 0);
+            result__
         }
     }
     pub fn AppUserModelId(&self) -> windows_core::Result<windows_core::HSTRING> {

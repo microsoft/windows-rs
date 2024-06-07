@@ -1,0 +1,19 @@
+namespace Test
+{
+    interface ITest
+    {
+        void MethodString(String test);
+        void MethodInt32(Int32 test);
+        void MethodTest(ITest test);
+        String String;
+        Int32 Int32;
+        ITest Test;
+
+        [noexcept] void MethodStringN(String test);
+        [noexcept] void MethodInt32N(Int32 test);
+        [noexcept] void MethodTestN(ITest test);
+        [noexcept] String StringN;
+        [noexcept] Int32 Int32N;
+        [noexcept] ITest TestN;
+    }
+}

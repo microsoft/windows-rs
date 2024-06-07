@@ -20,11 +20,13 @@ impl core::ops::Deref for ICoreAutomationConnectionBoundObjectProvider {
 }
 windows_core::imp::interface_hierarchy!(ICoreAutomationConnectionBoundObjectProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreAutomationConnectionBoundObjectProvider {
-    pub fn IsComThreadingRequired(&self) -> windows_core::Result<bool> {
+    pub fn IsComThreadingRequired(&self) -> bool {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsComThreadingRequired)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            let hresult__ = (windows_core::Interface::vtable(this).IsComThreadingRequired)(windows_core::Interface::as_raw(this), &mut result__);
+            debug_assert!(hresult__.0 == 0);
+            result__
         }
     }
 }

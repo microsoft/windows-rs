@@ -1,0 +1,17 @@
+[package]
+name = "test_noexcept"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.windows-core]
+path = "../../libs/core"
+
+[build-dependencies.windows-bindgen]
+path = "../../libs/bindgen"
+
+[build-dependencies]
+cc = "1.0"
+
+[build-dependencies.cppwinrt]
+path = "../../libs/cppwinrt"

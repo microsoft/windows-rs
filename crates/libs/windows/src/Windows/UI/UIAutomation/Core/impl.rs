@@ -1,5 +1,5 @@
 pub trait ICoreAutomationConnectionBoundObjectProvider_Impl: Sized {
-    fn IsComThreadingRequired(&self) -> windows_core::Result<bool>;
+    fn IsComThreadingRequired(&self) -> bool;
 }
 impl windows_core::RuntimeName for ICoreAutomationConnectionBoundObjectProvider {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationConnectionBoundObjectProvider";
@@ -9,13 +9,9 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
         unsafe extern "system" fn IsComThreadingRequired<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreAutomationConnectionBoundObjectProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match ICoreAutomationConnectionBoundObjectProvider_Impl::IsComThreadingRequired(this) {
-                Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
+            let ok__ = ICoreAutomationConnectionBoundObjectProvider_Impl::IsComThreadingRequired(this);
+            core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+            windows_core::HRESULT(0)
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ICoreAutomationConnectionBoundObjectProvider, OFFSET>(),
