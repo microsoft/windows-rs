@@ -22,5 +22,5 @@ version = "0.52.5"
 path = "../targets"
 
 [dev-dependencies.windows-bindgen]
-version = "0.56.0"
+version = "0.57.0"
 path = "../bindgen"
