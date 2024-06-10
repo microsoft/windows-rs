@@ -202,36 +202,9 @@ fn write_vtbl(output: &str, filter: &[&str]) {
 }
 
 fn riddle(output: &str, filter: &[&str], config: &[&str]) {
-    // Rust-analyzer may re-run build scripts whenever a source file is deleted
-    // which causes an endless loop if the file is deleted from a build script.
-    // To workaround this, we truncate the file instead of deleting it.
-    // See https://github.com/microsoft/windows-rs/issues/2777
-    _ = std::fs::File::options()
-        .truncate(true)
-        .write(true)
-        .open(output);
-
-    let mut command = std::process::Command::new("cargo");
-
-    command.args([
-        "run",
-        "-p",
-        "riddle",
-        "--target-dir",
-        "../../../target/test_standalone", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
-        "--",
-        "--in",
-        "../../libs/bindgen/default",
-        "--out",
-        output,
-        "--filter",
-    ]);
-
-    command.args(filter);
-    command.args(["--config", "no-bindgen-comment"]);
-    command.args(config);
-
-    if !command.status().unwrap().success() {
-        panic!("Failed to run riddle");
-    }
+    let mut args = vec!["--out", output, "--filter"];
+    args.extend_from_slice(filter);
+    args.extend_from_slice(&["--config", "no-bindgen-comment"]);
+    args.extend_from_slice(config);
+    windows_bindgen::bindgen(args).unwrap();
 }
