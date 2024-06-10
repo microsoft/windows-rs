@@ -9,7 +9,7 @@ The [windows](https://crates.io/crates/windows) and [windows-sys](https://crates
 
 This repo is the home of the following crates (and other supporting crates):
 
-* [riddle](https://crates.io/crates/riddle) - Windows metadata compiler tool.
+* [windows](https://crates.io/crates/windows) - Safer bindings including C-style APIs as well as COM and WinRT APIs.
 * [windows-bindgen](https://crates.io/crates/windows-bindgen) - Windows metadata compiler library.
 * [windows-core](https://crates.io/crates/windows-core) - Type support for the `windows` crate.
 * [windows-implement](https://crates.io/crates/windows-implement) - The `implement` macro for the `windows` crate, for implementing COM interfaces.
@@ -20,4 +20,6 @@ This repo is the home of the following crates (and other supporting crates):
 * [windows-sys](https://crates.io/crates/windows-sys) - Raw bindings for C-style Windows APIs.
 * [windows-targets](https://crates.io/crates/windows-targets) - Import libs for Windows.
 * [windows-version](https://crates.io/crates/windows-version) - Windows version information.
-* [windows](https://crates.io/crates/windows) - Safer bindings including C-style APIs as well as COM and WinRT APIs.
+
+* [cppwinrt](https://crates.io/crates/cppwinrt) - Bundles the C++/WinRT compiler for use in Rust.
+* [riddle](https://crates.io/crates/riddle) - Windows metadata compiler tool.
