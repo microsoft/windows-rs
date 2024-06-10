@@ -6,6 +6,8 @@ publish = false
 
 [lib]
 crate-type = ["cdylib"]
+doc = false
+doctest = false
 
 [dependencies.windows-core]
 path = "../../libs/core"

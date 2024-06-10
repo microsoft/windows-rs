@@ -3,6 +3,10 @@ name = "test_implement_core"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+doc = false
+doctest = false
+
 [dependencies.windows-core]
 path = "../../libs/core"
 
