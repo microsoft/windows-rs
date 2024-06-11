@@ -117,19 +117,19 @@ windows_core::imp::interface_hierarchy!(ID2D1Bitmap, windows_core::IUnknown, ID2
 impl ID2D1Bitmap {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetSize(&self) -> Common::D2D_SIZE_F {
-        let mut result__: Common::D2D_SIZE_F = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetPixelSize(&self) -> Common::D2D_SIZE_U {
-        let mut result__: Common::D2D_SIZE_U = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPixelSize)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetPixelFormat(&self) -> Common::D2D1_PIXEL_FORMAT {
-        let mut result__: Common::D2D1_PIXEL_FORMAT = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3513,7 +3513,7 @@ impl ID2D1Ink {
         (windows_core::Interface::vtable(self).SetStartPoint)(windows_core::Interface::as_raw(self), startpoint)
     }
     pub unsafe fn GetStartPoint(&self) -> D2D1_INK_POINT {
-        let mut result__: D2D1_INK_POINT = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStartPoint)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3625,7 +3625,7 @@ windows_core::imp::interface_hierarchy!(ID2D1Layer, windows_core::IUnknown, ID2D
 impl ID2D1Layer {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetSize(&self) -> Common::D2D_SIZE_F {
-        let mut result__: Common::D2D_SIZE_F = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3659,13 +3659,13 @@ impl ID2D1LinearGradientBrush {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetStartPoint(&self) -> Common::D2D_POINT_2F {
-        let mut result__: Common::D2D_POINT_2F = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStartPoint)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetEndPoint(&self) -> Common::D2D_POINT_2F {
-        let mut result__: Common::D2D_POINT_2F = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEndPoint)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3775,7 +3775,7 @@ impl ID2D1OffsetTransform {
         (windows_core::Interface::vtable(self).SetOffset)(windows_core::Interface::as_raw(self), core::mem::transmute(offset))
     }
     pub unsafe fn GetOffset(&self) -> super::super::Foundation::POINT {
-        let mut result__: super::super::Foundation::POINT = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOffset)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3985,13 +3985,13 @@ impl ID2D1RadialGradientBrush {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetCenter(&self) -> Common::D2D_POINT_2F {
-        let mut result__: Common::D2D_POINT_2F = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCenter)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetGradientOriginOffset(&self) -> Common::D2D_POINT_2F {
-        let mut result__: Common::D2D_POINT_2F = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGradientOriginOffset)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -4366,7 +4366,7 @@ impl ID2D1RenderTarget {
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetPixelFormat(&self) -> Common::D2D1_PIXEL_FORMAT {
-        let mut result__: Common::D2D1_PIXEL_FORMAT = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPixelFormat)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -4378,13 +4378,13 @@ impl ID2D1RenderTarget {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetSize(&self) -> Common::D2D_SIZE_F {
-        let mut result__: Common::D2D_SIZE_F = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetPixelSize(&self) -> Common::D2D_SIZE_U {
-        let mut result__: Common::D2D_SIZE_U = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPixelSize)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -4635,7 +4635,7 @@ impl ID2D1SolidColorBrush {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetColor(&self) -> Common::D2D1_COLOR_F {
-        let mut result__: Common::D2D1_COLOR_F = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetColor)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -4850,7 +4850,7 @@ impl ID2D1SvgDocument {
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn GetViewportSize(&self) -> Common::D2D_SIZE_F {
-        let mut result__: Common::D2D_SIZE_F = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetViewportSize)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }

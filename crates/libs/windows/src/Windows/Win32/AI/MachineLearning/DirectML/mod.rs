@@ -251,7 +251,7 @@ impl core::ops::Deref for IDMLDispatchable {
 windows_core::imp::interface_hierarchy!(IDMLDispatchable, windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable);
 impl IDMLDispatchable {
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
-        let mut result__: DML_BINDING_PROPERTIES = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetBindingProperties)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }

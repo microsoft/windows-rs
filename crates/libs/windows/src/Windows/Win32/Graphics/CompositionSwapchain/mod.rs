@@ -46,7 +46,7 @@ impl core::ops::Deref for IIndependentFlipFramePresentStatistics {
 windows_core::imp::interface_hierarchy!(IIndependentFlipFramePresentStatistics, windows_core::IUnknown, IPresentStatistics);
 impl IIndependentFlipFramePresentStatistics {
     pub unsafe fn GetOutputAdapterLUID(&self) -> super::super::Foundation::LUID {
-        let mut result__: super::super::Foundation::LUID = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOutputAdapterLUID)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -57,12 +57,12 @@ impl IIndependentFlipFramePresentStatistics {
         (windows_core::Interface::vtable(self).GetContentTag)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn GetDisplayedTime(&self) -> SystemInterruptTime {
-        let mut result__: SystemInterruptTime = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDisplayedTime)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
     pub unsafe fn GetPresentDuration(&self) -> SystemInterruptTime {
-        let mut result__: SystemInterruptTime = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPresentDuration)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
