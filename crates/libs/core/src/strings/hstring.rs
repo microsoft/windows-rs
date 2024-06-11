@@ -73,12 +73,12 @@ impl HSTRING {
         for (index, wide) in iter.enumerate() {
             debug_assert!(index < len);
 
-            core::ptr::write((*ptr).data.add(index), wide);
+            (*ptr).data.add(index).write(wide);
             (*ptr).len = index as u32 + 1;
         }
 
         // Write a 0 byte to the end of the buffer.
-        core::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
+        (*ptr).data.offset((*ptr).len as isize).write(0);
         Ok(Self(core::ptr::NonNull::new(ptr)))
     }
 
@@ -430,7 +430,7 @@ impl Header {
 
         let header = imp::heap_alloc(alloc_size)? as *mut Header;
 
-        // SAFETY: uses `core::ptr::write` (since `header` is unintialized). `Header` is safe to be all zeros.
+        // SAFETY: uses `ptr::write` (since `header` is unintialized). `Header` is safe to be all zeros.
         unsafe {
             header.write(core::mem::MaybeUninit::<Header>::zeroed().assume_init());
             (*header).len = len;

@@ -263,8 +263,8 @@ pub fn gen_upcall(
                 quote! {
                     let ok__ = #inner(#this #(#invoke_args,)*);
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
             } else {
@@ -272,9 +272,9 @@ pub fn gen_upcall(
                     match #inner(#this #(#invoke_args,)*) {
                         Ok(ok__) => {
                             let (ok_data__, ok_data_len__) = ok__.into_abi();
-                            // use `core::ptr::write` since `result` could be uninitialized
-                            core::ptr::write(result__, ok_data__);
-                            core::ptr::write(result_size__, ok_data_len__);
+                            // use `ptr::write` since `result` could be uninitialized
+                            result__.write(ok_data__);
+                            result_size__.write(ok_data_len__);
                             windows_core::HRESULT(0)
                         }
                         Err(err) => err.into()
@@ -292,8 +292,8 @@ pub fn gen_upcall(
             if noexcept {
                 quote! {
                     let ok__ = #inner(#this #(#invoke_args,)*);
-                    // use `core::ptr::write` since `result` could be uninitialized
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    // use `ptr::write` since `result` could be uninitialized
+                    result__.write(core::mem::transmute_copy(&ok__));
                     #forget
                     windows_core::HRESULT(0)
                 }
@@ -301,8 +301,8 @@ pub fn gen_upcall(
                 quote! {
                     match #inner(#this #(#invoke_args,)*) {
                         Ok(ok__) => {
-                            // use `core::ptr::write` since `result` could be uninitialized
-                            core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                            // use `ptr::write` since `result` could be uninitialized
+                            result__.write(core::mem::transmute_copy(&ok__));
                             #forget
                             windows_core::HRESULT(0)
                         }

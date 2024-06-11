@@ -178,8 +178,8 @@ pub fn gen_upcall(writer: &Writer, sig: &metadata::Signature, inner: TokenStream
             quote! {
                 match #inner(this, #(#invoke_args,)*) {
                     Ok(ok__) => {
-                        // use `core::ptr::write` since the result could be uninitialized
-                        core::ptr::write(#result, core::mem::transmute(ok__));
+                        // use `ptr::write` since the result could be uninitialized
+                        #result.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into()
