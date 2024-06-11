@@ -268,6 +268,8 @@ jobs:
         run:  cargo clippy -p tool_metadata
       - name: Clippy tool_msvc
         run:  cargo clippy -p tool_msvc
+      - name: Clippy tool_standalone
+        run:  cargo clippy -p tool_standalone
       - name: Clippy tool_sys
         run:  cargo clippy -p tool_sys
       - name: Clippy tool_windows
