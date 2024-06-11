@@ -28,7 +28,7 @@ impl IEnumWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             match IEnumWbemClassObject_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -139,7 +139,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strvalue, core::mem::transmute(ok__));
+                    strvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -155,7 +155,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::Year(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iyear, core::mem::transmute(ok__));
+                    iyear.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -171,7 +171,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::YearSpecified(this) {
                 Ok(ok__) => {
-                    core::ptr::write(byearspecified, core::mem::transmute(ok__));
+                    byearspecified.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -187,7 +187,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::Month(this) {
                 Ok(ok__) => {
-                    core::ptr::write(imonth, core::mem::transmute(ok__));
+                    imonth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -203,7 +203,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::MonthSpecified(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bmonthspecified, core::mem::transmute(ok__));
+                    bmonthspecified.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -219,7 +219,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::Day(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iday, core::mem::transmute(ok__));
+                    iday.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -235,7 +235,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::DaySpecified(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bdayspecified, core::mem::transmute(ok__));
+                    bdayspecified.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -251,7 +251,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::Hours(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ihours, core::mem::transmute(ok__));
+                    ihours.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -267,7 +267,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::HoursSpecified(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bhoursspecified, core::mem::transmute(ok__));
+                    bhoursspecified.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -283,7 +283,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::Minutes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iminutes, core::mem::transmute(ok__));
+                    iminutes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -299,7 +299,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::MinutesSpecified(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bminutesspecified, core::mem::transmute(ok__));
+                    bminutesspecified.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -315,7 +315,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::Seconds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iseconds, core::mem::transmute(ok__));
+                    iseconds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -331,7 +331,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::SecondsSpecified(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bsecondsspecified, core::mem::transmute(ok__));
+                    bsecondsspecified.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -347,7 +347,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::Microseconds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(imicroseconds, core::mem::transmute(ok__));
+                    imicroseconds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -363,7 +363,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::MicrosecondsSpecified(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bmicrosecondsspecified, core::mem::transmute(ok__));
+                    bmicrosecondsspecified.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -379,7 +379,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::UTC(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iutc, core::mem::transmute(ok__));
+                    iutc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -395,7 +395,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::UTCSpecified(this) {
                 Ok(ok__) => {
-                    core::ptr::write(butcspecified, core::mem::transmute(ok__));
+                    butcspecified.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -411,7 +411,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::IsInterval(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bisinterval, core::mem::transmute(ok__));
+                    bisinterval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -427,7 +427,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::GetVarDate(this, core::mem::transmute_copy(&bislocal)) {
                 Ok(ok__) => {
-                    core::ptr::write(dvardate, core::mem::transmute(ok__));
+                    dvardate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -443,7 +443,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             match ISWbemDateTime_Impl::GetFileTime(this, core::mem::transmute_copy(&bislocal)) {
                 Ok(ok__) => {
-                    core::ptr::write(strfiletime, core::mem::transmute(ok__));
+                    strfiletime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -517,7 +517,7 @@ impl ISWbemEventSource_Vtbl {
             let this = (*this).get_impl();
             match ISWbemEventSource_Impl::NextEvent(this, core::mem::transmute_copy(&itimeoutms)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobject, core::mem::transmute(ok__));
+                    objwbemobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -528,7 +528,7 @@ impl ISWbemEventSource_Vtbl {
             let this = (*this).get_impl();
             match ISWbemEventSource_Impl::Security_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemsecurity, core::mem::transmute(ok__));
+                    objwbemsecurity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -572,7 +572,7 @@ impl ISWbemLocator_Vtbl {
             let this = (*this).get_impl();
             match ISWbemLocator_Impl::ConnectServer(this, core::mem::transmute(&strserver), core::mem::transmute(&strnamespace), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute(&strauthority), core::mem::transmute_copy(&isecurityflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemservices, core::mem::transmute(ok__));
+                    objwbemservices.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -583,7 +583,7 @@ impl ISWbemLocator_Vtbl {
             let this = (*this).get_impl();
             match ISWbemLocator_Impl::Security_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemsecurity, core::mem::transmute(ok__));
+                    objwbemsecurity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -617,7 +617,7 @@ impl ISWbemMethod_Vtbl {
             let this = (*this).get_impl();
             match ISWbemMethod_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strname, core::mem::transmute(ok__));
+                    strname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -628,7 +628,7 @@ impl ISWbemMethod_Vtbl {
             let this = (*this).get_impl();
             match ISWbemMethod_Impl::Origin(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strorigin, core::mem::transmute(ok__));
+                    strorigin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -639,7 +639,7 @@ impl ISWbemMethod_Vtbl {
             let this = (*this).get_impl();
             match ISWbemMethod_Impl::InParameters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbeminparameters, core::mem::transmute(ok__));
+                    objwbeminparameters.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -650,7 +650,7 @@ impl ISWbemMethod_Vtbl {
             let this = (*this).get_impl();
             match ISWbemMethod_Impl::OutParameters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemoutparameters, core::mem::transmute(ok__));
+                    objwbemoutparameters.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -661,7 +661,7 @@ impl ISWbemMethod_Vtbl {
             let this = (*this).get_impl();
             match ISWbemMethod_Impl::Qualifiers_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemqualifierset, core::mem::transmute(ok__));
+                    objwbemqualifierset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -696,7 +696,7 @@ impl ISWbemMethodSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemMethodSet_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(punk, core::mem::transmute(ok__));
+                    punk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -707,7 +707,7 @@ impl ISWbemMethodSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemMethodSet_Impl::Item(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemmethod, core::mem::transmute(ok__));
+                    objwbemmethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -718,7 +718,7 @@ impl ISWbemMethodSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemMethodSet_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(icount, core::mem::transmute(ok__));
+                    icount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -751,7 +751,7 @@ impl ISWbemNamedValue_Vtbl {
             let this = (*this).get_impl();
             match ISWbemNamedValue_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(varvalue, core::mem::transmute(ok__));
+                    varvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -767,7 +767,7 @@ impl ISWbemNamedValue_Vtbl {
             let this = (*this).get_impl();
             match ISWbemNamedValue_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strname, core::mem::transmute(ok__));
+                    strname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -804,7 +804,7 @@ impl ISWbemNamedValueSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemNamedValueSet_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(punk, core::mem::transmute(ok__));
+                    punk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -815,7 +815,7 @@ impl ISWbemNamedValueSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemNamedValueSet_Impl::Item(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemnamedvalue, core::mem::transmute(ok__));
+                    objwbemnamedvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -826,7 +826,7 @@ impl ISWbemNamedValueSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemNamedValueSet_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(icount, core::mem::transmute(ok__));
+                    icount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -837,7 +837,7 @@ impl ISWbemNamedValueSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemNamedValueSet_Impl::Add(this, core::mem::transmute(&strname), core::mem::transmute_copy(&varvalue), core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemnamedvalue, core::mem::transmute(ok__));
+                    objwbemnamedvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -853,7 +853,7 @@ impl ISWbemNamedValueSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemNamedValueSet_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemnamedvalueset, core::mem::transmute(ok__));
+                    objwbemnamedvalueset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -917,7 +917,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Put_(this, core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectpath, core::mem::transmute(ok__));
+                    objwbemobjectpath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -943,7 +943,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Instances_(this, core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectset, core::mem::transmute(ok__));
+                    objwbemobjectset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -959,7 +959,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Subclasses_(this, core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectset, core::mem::transmute(ok__));
+                    objwbemobjectset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -975,7 +975,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Associators_(this, core::mem::transmute(&strassocclass), core::mem::transmute(&strresultclass), core::mem::transmute(&strresultrole), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredassocqualifier), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectset, core::mem::transmute(ok__));
+                    objwbemobjectset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1020,7 +1020,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::References_(this, core::mem::transmute(&strresultclass), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectset, core::mem::transmute(ok__));
+                    objwbemobjectset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1036,7 +1036,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::ExecMethod_(this, core::mem::transmute(&strmethodname), windows_core::from_raw_borrowed(&objwbeminparameters), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemoutparameters, core::mem::transmute(ok__));
+                    objwbemoutparameters.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1052,7 +1052,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Clone_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobject, core::mem::transmute(ok__));
+                    objwbemobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1063,7 +1063,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::GetObjectText_(this, core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(strobjecttext, core::mem::transmute(ok__));
+                    strobjecttext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1074,7 +1074,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::SpawnDerivedClass_(this, core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobject, core::mem::transmute(ok__));
+                    objwbemobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1085,7 +1085,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::SpawnInstance_(this, core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobject, core::mem::transmute(ok__));
+                    objwbemobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1096,7 +1096,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::CompareTo_(this, windows_core::from_raw_borrowed(&objwbemobject), core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(bresult, core::mem::transmute(ok__));
+                    bresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1107,7 +1107,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Qualifiers_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemqualifierset, core::mem::transmute(ok__));
+                    objwbemqualifierset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1118,7 +1118,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Properties_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbempropertyset, core::mem::transmute(ok__));
+                    objwbempropertyset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1129,7 +1129,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Methods_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemmethodset, core::mem::transmute(ok__));
+                    objwbemmethodset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1140,7 +1140,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Derivation_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strclassnamearray, core::mem::transmute(ok__));
+                    strclassnamearray.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1151,7 +1151,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Path_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectpath, core::mem::transmute(ok__));
+                    objwbemobjectpath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1162,7 +1162,7 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObject_Impl::Security_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemsecurity, core::mem::transmute(ok__));
+                    objwbemsecurity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1223,7 +1223,7 @@ impl ISWbemObjectEx_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectEx_Impl::SystemProperties_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbempropertyset, core::mem::transmute(ok__));
+                    objwbempropertyset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1234,7 +1234,7 @@ impl ISWbemObjectEx_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectEx_Impl::GetText_(this, core::mem::transmute_copy(&iobjecttextformat), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(bstext, core::mem::transmute(ok__));
+                    bstext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1293,7 +1293,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Path(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strpath, core::mem::transmute(ok__));
+                    strpath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1309,7 +1309,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::RelPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strrelpath, core::mem::transmute(ok__));
+                    strrelpath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1325,7 +1325,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Server(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strserver, core::mem::transmute(ok__));
+                    strserver.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1341,7 +1341,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Namespace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strnamespace, core::mem::transmute(ok__));
+                    strnamespace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1357,7 +1357,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::ParentNamespace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strparentnamespace, core::mem::transmute(ok__));
+                    strparentnamespace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1368,7 +1368,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::DisplayName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strdisplayname, core::mem::transmute(ok__));
+                    strdisplayname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1384,7 +1384,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Class(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strclass, core::mem::transmute(ok__));
+                    strclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1400,7 +1400,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::IsClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bisclass, core::mem::transmute(ok__));
+                    bisclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1416,7 +1416,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::IsSingleton(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bissingleton, core::mem::transmute(ok__));
+                    bissingleton.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1432,7 +1432,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Keys(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemnamedvalueset, core::mem::transmute(ok__));
+                    objwbemnamedvalueset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1443,7 +1443,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Security_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemsecurity, core::mem::transmute(ok__));
+                    objwbemsecurity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1454,7 +1454,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Locale(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strlocale, core::mem::transmute(ok__));
+                    strlocale.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1470,7 +1470,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectPath_Impl::Authority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strauthority, core::mem::transmute(ok__));
+                    strauthority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1530,7 +1530,7 @@ impl ISWbemObjectSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectSet_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(punk, core::mem::transmute(ok__));
+                    punk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1541,7 +1541,7 @@ impl ISWbemObjectSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectSet_Impl::Item(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobject, core::mem::transmute(ok__));
+                    objwbemobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1552,7 +1552,7 @@ impl ISWbemObjectSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectSet_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(icount, core::mem::transmute(ok__));
+                    icount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1563,7 +1563,7 @@ impl ISWbemObjectSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectSet_Impl::Security_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemsecurity, core::mem::transmute(ok__));
+                    objwbemsecurity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1574,7 +1574,7 @@ impl ISWbemObjectSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemObjectSet_Impl::ItemIndex(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobject, core::mem::transmute(ok__));
+                    objwbemobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1611,7 +1611,7 @@ impl ISWbemPrivilege_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPrivilege_Impl::IsEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bisenabled, core::mem::transmute(ok__));
+                    bisenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1627,7 +1627,7 @@ impl ISWbemPrivilege_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPrivilege_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strdisplayname, core::mem::transmute(ok__));
+                    strdisplayname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1638,7 +1638,7 @@ impl ISWbemPrivilege_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPrivilege_Impl::DisplayName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strdisplayname, core::mem::transmute(ok__));
+                    strdisplayname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1649,7 +1649,7 @@ impl ISWbemPrivilege_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPrivilege_Impl::Identifier(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iprivilege, core::mem::transmute(ok__));
+                    iprivilege.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1688,7 +1688,7 @@ impl ISWbemPrivilegeSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPrivilegeSet_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(punk, core::mem::transmute(ok__));
+                    punk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1699,7 +1699,7 @@ impl ISWbemPrivilegeSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPrivilegeSet_Impl::Item(this, core::mem::transmute_copy(&iprivilege)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemprivilege, core::mem::transmute(ok__));
+                    objwbemprivilege.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1710,7 +1710,7 @@ impl ISWbemPrivilegeSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPrivilegeSet_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(icount, core::mem::transmute(ok__));
+                    icount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1721,7 +1721,7 @@ impl ISWbemPrivilegeSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPrivilegeSet_Impl::Add(this, core::mem::transmute_copy(&iprivilege), core::mem::transmute_copy(&bisenabled)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemprivilege, core::mem::transmute(ok__));
+                    objwbemprivilege.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1742,7 +1742,7 @@ impl ISWbemPrivilegeSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPrivilegeSet_Impl::AddAsString(this, core::mem::transmute(&strprivilege), core::mem::transmute_copy(&bisenabled)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemprivilege, core::mem::transmute(ok__));
+                    objwbemprivilege.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1784,7 +1784,7 @@ impl ISWbemProperty_Vtbl {
             let this = (*this).get_impl();
             match ISWbemProperty_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(varvalue, core::mem::transmute(ok__));
+                    varvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1800,7 +1800,7 @@ impl ISWbemProperty_Vtbl {
             let this = (*this).get_impl();
             match ISWbemProperty_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strname, core::mem::transmute(ok__));
+                    strname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1811,7 +1811,7 @@ impl ISWbemProperty_Vtbl {
             let this = (*this).get_impl();
             match ISWbemProperty_Impl::IsLocal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bislocal, core::mem::transmute(ok__));
+                    bislocal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1822,7 +1822,7 @@ impl ISWbemProperty_Vtbl {
             let this = (*this).get_impl();
             match ISWbemProperty_Impl::Origin(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strorigin, core::mem::transmute(ok__));
+                    strorigin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1833,7 +1833,7 @@ impl ISWbemProperty_Vtbl {
             let this = (*this).get_impl();
             match ISWbemProperty_Impl::CIMType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(icimtype, core::mem::transmute(ok__));
+                    icimtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1844,7 +1844,7 @@ impl ISWbemProperty_Vtbl {
             let this = (*this).get_impl();
             match ISWbemProperty_Impl::Qualifiers_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemqualifierset, core::mem::transmute(ok__));
+                    objwbemqualifierset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1855,7 +1855,7 @@ impl ISWbemProperty_Vtbl {
             let this = (*this).get_impl();
             match ISWbemProperty_Impl::IsArray(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bisarray, core::mem::transmute(ok__));
+                    bisarray.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1895,7 +1895,7 @@ impl ISWbemPropertySet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPropertySet_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(punk, core::mem::transmute(ok__));
+                    punk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1906,7 +1906,7 @@ impl ISWbemPropertySet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPropertySet_Impl::Item(this, core::mem::transmute(&strname), core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemproperty, core::mem::transmute(ok__));
+                    objwbemproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1917,7 +1917,7 @@ impl ISWbemPropertySet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPropertySet_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(icount, core::mem::transmute(ok__));
+                    icount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1928,7 +1928,7 @@ impl ISWbemPropertySet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemPropertySet_Impl::Add(this, core::mem::transmute(&strname), core::mem::transmute_copy(&icimtype), core::mem::transmute_copy(&bisarray), core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemproperty, core::mem::transmute(ok__));
+                    objwbemproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1976,7 +1976,7 @@ impl ISWbemQualifier_Vtbl {
             let this = (*this).get_impl();
             match ISWbemQualifier_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(varvalue, core::mem::transmute(ok__));
+                    varvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1992,7 +1992,7 @@ impl ISWbemQualifier_Vtbl {
             let this = (*this).get_impl();
             match ISWbemQualifier_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strname, core::mem::transmute(ok__));
+                    strname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2003,7 +2003,7 @@ impl ISWbemQualifier_Vtbl {
             let this = (*this).get_impl();
             match ISWbemQualifier_Impl::IsLocal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bislocal, core::mem::transmute(ok__));
+                    bislocal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2014,7 +2014,7 @@ impl ISWbemQualifier_Vtbl {
             let this = (*this).get_impl();
             match ISWbemQualifier_Impl::PropagatesToSubclass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bpropagatestosubclass, core::mem::transmute(ok__));
+                    bpropagatestosubclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2030,7 +2030,7 @@ impl ISWbemQualifier_Vtbl {
             let this = (*this).get_impl();
             match ISWbemQualifier_Impl::PropagatesToInstance(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bpropagatestoinstance, core::mem::transmute(ok__));
+                    bpropagatestoinstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2046,7 +2046,7 @@ impl ISWbemQualifier_Vtbl {
             let this = (*this).get_impl();
             match ISWbemQualifier_Impl::IsOverridable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bisoverridable, core::mem::transmute(ok__));
+                    bisoverridable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2062,7 +2062,7 @@ impl ISWbemQualifier_Vtbl {
             let this = (*this).get_impl();
             match ISWbemQualifier_Impl::IsAmended(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bisamended, core::mem::transmute(ok__));
+                    bisamended.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2105,7 +2105,7 @@ impl ISWbemQualifierSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemQualifierSet_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(punk, core::mem::transmute(ok__));
+                    punk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2116,7 +2116,7 @@ impl ISWbemQualifierSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemQualifierSet_Impl::Item(this, core::mem::transmute(&name), core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemqualifier, core::mem::transmute(ok__));
+                    objwbemqualifier.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2127,7 +2127,7 @@ impl ISWbemQualifierSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemQualifierSet_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(icount, core::mem::transmute(ok__));
+                    icount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2138,7 +2138,7 @@ impl ISWbemQualifierSet_Vtbl {
             let this = (*this).get_impl();
             match ISWbemQualifierSet_Impl::Add(this, core::mem::transmute(&strname), core::mem::transmute_copy(&varval), core::mem::transmute_copy(&bpropagatestosubclass), core::mem::transmute_copy(&bpropagatestoinstance), core::mem::transmute_copy(&bisoverridable), core::mem::transmute_copy(&iflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemqualifier, core::mem::transmute(ok__));
+                    objwbemqualifier.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2181,7 +2181,7 @@ impl ISWbemRefreshableItem_Vtbl {
             let this = (*this).get_impl();
             match ISWbemRefreshableItem_Impl::Index(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iindex, core::mem::transmute(ok__));
+                    iindex.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2192,7 +2192,7 @@ impl ISWbemRefreshableItem_Vtbl {
             let this = (*this).get_impl();
             match ISWbemRefreshableItem_Impl::Refresher(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemrefresher, core::mem::transmute(ok__));
+                    objwbemrefresher.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2203,7 +2203,7 @@ impl ISWbemRefreshableItem_Vtbl {
             let this = (*this).get_impl();
             match ISWbemRefreshableItem_Impl::IsSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bisset, core::mem::transmute(ok__));
+                    bisset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2214,7 +2214,7 @@ impl ISWbemRefreshableItem_Vtbl {
             let this = (*this).get_impl();
             match ISWbemRefreshableItem_Impl::Object(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobject, core::mem::transmute(ok__));
+                    objwbemobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2225,7 +2225,7 @@ impl ISWbemRefreshableItem_Vtbl {
             let this = (*this).get_impl();
             match ISWbemRefreshableItem_Impl::ObjectSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectset, core::mem::transmute(ok__));
+                    objwbemobjectset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2273,7 +2273,7 @@ impl ISWbemRefresher_Vtbl {
             let this = (*this).get_impl();
             match ISWbemRefresher_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(punk, core::mem::transmute(ok__));
+                    punk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2284,7 +2284,7 @@ impl ISWbemRefresher_Vtbl {
             let this = (*this).get_impl();
             match ISWbemRefresher_Impl::Item(this, core::mem::transmute_copy(&iindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemrefreshableitem, core::mem::transmute(ok__));
+                    objwbemrefreshableitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2295,7 +2295,7 @@ impl ISWbemRefresher_Vtbl {
             let this = (*this).get_impl();
             match ISWbemRefresher_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(icount, core::mem::transmute(ok__));
+                    icount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2306,7 +2306,7 @@ impl ISWbemRefresher_Vtbl {
             let this = (*this).get_impl();
             match ISWbemRefresher_Impl::Add(this, windows_core::from_raw_borrowed(&objwbemservices), core::mem::transmute(&bsinstancepath), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemrefreshableitem, core::mem::transmute(ok__));
+                    objwbemrefreshableitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2317,7 +2317,7 @@ impl ISWbemRefresher_Vtbl {
             let this = (*this).get_impl();
             match ISWbemRefresher_Impl::AddEnum(this, windows_core::from_raw_borrowed(&objwbemservices), core::mem::transmute(&bsclassname), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemrefreshableitem, core::mem::transmute(ok__));
+                    objwbemrefreshableitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2338,7 +2338,7 @@ impl ISWbemRefresher_Vtbl {
             let this = (*this).get_impl();
             match ISWbemRefresher_Impl::AutoReconnect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bcount, core::mem::transmute(ok__));
+                    bcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2390,7 +2390,7 @@ impl ISWbemSecurity_Vtbl {
             let this = (*this).get_impl();
             match ISWbemSecurity_Impl::ImpersonationLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iimpersonationlevel, core::mem::transmute(ok__));
+                    iimpersonationlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2406,7 +2406,7 @@ impl ISWbemSecurity_Vtbl {
             let this = (*this).get_impl();
             match ISWbemSecurity_Impl::AuthenticationLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iauthenticationlevel, core::mem::transmute(ok__));
+                    iauthenticationlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2422,7 +2422,7 @@ impl ISWbemSecurity_Vtbl {
             let this = (*this).get_impl();
             match ISWbemSecurity_Impl::Privileges(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemprivilegeset, core::mem::transmute(ok__));
+                    objwbemprivilegeset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2473,7 +2473,7 @@ impl ISWbemServices_Vtbl {
             let this = (*this).get_impl();
             match ISWbemServices_Impl::Get(this, core::mem::transmute(&strobjectpath), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobject, core::mem::transmute(ok__));
+                    objwbemobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2499,7 +2499,7 @@ impl ISWbemServices_Vtbl {
             let this = (*this).get_impl();
             match ISWbemServices_Impl::InstancesOf(this, core::mem::transmute(&strclass), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectset, core::mem::transmute(ok__));
+                    objwbemobjectset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2515,7 +2515,7 @@ impl ISWbemServices_Vtbl {
             let this = (*this).get_impl();
             match ISWbemServices_Impl::SubclassesOf(this, core::mem::transmute(&strsuperclass), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectset, core::mem::transmute(ok__));
+                    objwbemobjectset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2531,7 +2531,7 @@ impl ISWbemServices_Vtbl {
             let this = (*this).get_impl();
             match ISWbemServices_Impl::ExecQuery(this, core::mem::transmute(&strquery), core::mem::transmute(&strquerylanguage), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectset, core::mem::transmute(ok__));
+                    objwbemobjectset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2561,7 +2561,7 @@ impl ISWbemServices_Vtbl {
             let this = (*this).get_impl();
             match ISWbemServices_Impl::AssociatorsOf(this, core::mem::transmute(&strobjectpath), core::mem::transmute(&strassocclass), core::mem::transmute(&strresultclass), core::mem::transmute(&strresultrole), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredassocqualifier), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectset, core::mem::transmute(ok__));
+                    objwbemobjectset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2608,7 +2608,7 @@ impl ISWbemServices_Vtbl {
             let this = (*this).get_impl();
             match ISWbemServices_Impl::ReferencesTo(this, core::mem::transmute(&strobjectpath), core::mem::transmute(&strresultclass), core::mem::transmute(&strrole), core::mem::transmute_copy(&bclassesonly), core::mem::transmute_copy(&bschemaonly), core::mem::transmute(&strrequiredqualifier), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectset, core::mem::transmute(ok__));
+                    objwbemobjectset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2624,7 +2624,7 @@ impl ISWbemServices_Vtbl {
             let this = (*this).get_impl();
             match ISWbemServices_Impl::ExecNotificationQuery(this, core::mem::transmute(&strquery), core::mem::transmute(&strquerylanguage), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemeventsource, core::mem::transmute(ok__));
+                    objwbemeventsource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2640,7 +2640,7 @@ impl ISWbemServices_Vtbl {
             let this = (*this).get_impl();
             match ISWbemServices_Impl::ExecMethod(this, core::mem::transmute(&strobjectpath), core::mem::transmute(&strmethodname), windows_core::from_raw_borrowed(&objwbeminparameters), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemoutparameters, core::mem::transmute(ok__));
+                    objwbemoutparameters.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2656,7 +2656,7 @@ impl ISWbemServices_Vtbl {
             let this = (*this).get_impl();
             match ISWbemServices_Impl::Security_(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemsecurity, core::mem::transmute(ok__));
+                    objwbemsecurity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2704,7 +2704,7 @@ impl ISWbemServicesEx_Vtbl {
             let this = (*this).get_impl();
             match ISWbemServicesEx_Impl::Put(this, windows_core::from_raw_borrowed(&objwbemobject), core::mem::transmute_copy(&iflags), windows_core::from_raw_borrowed(&objwbemnamedvalueset)) {
                 Ok(ok__) => {
-                    core::ptr::write(objwbemobjectpath, core::mem::transmute(ok__));
+                    objwbemobjectpath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2765,7 +2765,7 @@ impl IUnsecuredApartment_Vtbl {
             let this = (*this).get_impl();
             match IUnsecuredApartment_Impl::CreateObjectStub(this, windows_core::from_raw_borrowed(&pobject)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstub, core::mem::transmute(ok__));
+                    ppstub.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2793,7 +2793,7 @@ impl IWMIExtension_Vtbl {
             let this = (*this).get_impl();
             match IWMIExtension_Impl::WMIObjectPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strwmiobjectpath, core::mem::transmute(ok__));
+                    strwmiobjectpath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2804,7 +2804,7 @@ impl IWMIExtension_Vtbl {
             let this = (*this).get_impl();
             match IWMIExtension_Impl::GetWMIObject(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwmiobject, core::mem::transmute(ok__));
+                    objwmiobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2815,7 +2815,7 @@ impl IWMIExtension_Vtbl {
             let this = (*this).get_impl();
             match IWMIExtension_Impl::GetWMIServices(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objwmiservices, core::mem::transmute(ok__));
+                    objwmiservices.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2917,7 +2917,7 @@ impl IWbemCallResult_Vtbl {
             let this = (*this).get_impl();
             match IWbemCallResult_Impl::GetResultObject(this, core::mem::transmute_copy(&ltimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresultobject, core::mem::transmute(ok__));
+                    ppresultobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2928,7 +2928,7 @@ impl IWbemCallResult_Vtbl {
             let this = (*this).get_impl();
             match IWbemCallResult_Impl::GetResultString(this, core::mem::transmute_copy(&ltimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(pstrresultstring, core::mem::transmute(ok__));
+                    pstrresultstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2939,7 +2939,7 @@ impl IWbemCallResult_Vtbl {
             let this = (*this).get_impl();
             match IWbemCallResult_Impl::GetResultServices(this, core::mem::transmute_copy(&ltimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservices, core::mem::transmute(ok__));
+                    ppservices.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2950,7 +2950,7 @@ impl IWbemCallResult_Vtbl {
             let this = (*this).get_impl();
             match IWbemCallResult_Impl::GetCallStatus(this, core::mem::transmute_copy(&ltimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatus, core::mem::transmute(ok__));
+                    plstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3005,7 +3005,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::GetQualifierSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqualset, core::mem::transmute(ok__));
+                    ppqualset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3031,7 +3031,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::GetNames(this, core::mem::transmute(&wszqualifiername), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pqualifierval)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnames, core::mem::transmute(ok__));
+                    pnames.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3057,7 +3057,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::GetPropertyQualifierSet(this, core::mem::transmute(&wszproperty)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqualset, core::mem::transmute(ok__));
+                    ppqualset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3068,7 +3068,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcopy, core::mem::transmute(ok__));
+                    ppcopy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3079,7 +3079,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::GetObjectText(this, core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(pstrobjecttext, core::mem::transmute(ok__));
+                    pstrobjecttext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3090,7 +3090,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::SpawnDerivedClass(this, core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnewclass, core::mem::transmute(ok__));
+                    ppnewclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3101,7 +3101,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::SpawnInstance(this, core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnewinstance, core::mem::transmute(ok__));
+                    ppnewinstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3117,7 +3117,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::GetPropertyOrigin(this, core::mem::transmute(&wszname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pstrclassname, core::mem::transmute(ok__));
+                    pstrclassname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3163,7 +3163,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::GetMethodQualifierSet(this, core::mem::transmute(&wszmethod)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqualset, core::mem::transmute(ok__));
+                    ppqualset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3174,7 +3174,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             match IWbemClassObject_Impl::GetMethodOrigin(this, core::mem::transmute(&wszmethodname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pstrclassname, core::mem::transmute(ok__));
+                    pstrclassname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3257,7 +3257,7 @@ impl IWbemClientTransport_Vtbl {
             let this = (*this).get_impl();
             match IWbemClientTransport_Impl::ConnectServer(this, core::mem::transmute(&straddresstype), core::mem::transmute_copy(&dwbinaryaddresslength), core::mem::transmute_copy(&abbinaryaddress), core::mem::transmute(&strnetworkresource), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute_copy(&lsecurityflags), core::mem::transmute(&strauthority), windows_core::from_raw_borrowed(&pctx)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnamespace, core::mem::transmute(ok__));
+                    ppnamespace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3397,7 +3397,7 @@ impl IWbemContext_Vtbl {
             let this = (*this).get_impl();
             match IWbemContext_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnewcopy, core::mem::transmute(ok__));
+                    ppnewcopy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3408,7 +3408,7 @@ impl IWbemContext_Vtbl {
             let this = (*this).get_impl();
             match IWbemContext_Impl::GetNames(this, core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnames, core::mem::transmute(ok__));
+                    pnames.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3439,7 +3439,7 @@ impl IWbemContext_Vtbl {
             let this = (*this).get_impl();
             match IWbemContext_Impl::GetValue(this, core::mem::transmute(&wszname), core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3484,7 +3484,7 @@ impl IWbemDecoupledBasicEventProvider_Vtbl {
             let this = (*this).get_impl();
             match IWbemDecoupledBasicEventProvider_Impl::GetSink(this, core::mem::transmute_copy(&a_flags), windows_core::from_raw_borrowed(&a_context)) {
                 Ok(ok__) => {
-                    core::ptr::write(a_sink, core::mem::transmute(ok__));
+                    a_sink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3495,7 +3495,7 @@ impl IWbemDecoupledBasicEventProvider_Vtbl {
             let this = (*this).get_impl();
             match IWbemDecoupledBasicEventProvider_Impl::GetService(this, core::mem::transmute_copy(&a_flags), windows_core::from_raw_borrowed(&a_context)) {
                 Ok(ok__) => {
-                    core::ptr::write(a_service, core::mem::transmute(ok__));
+                    a_service.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3549,7 +3549,7 @@ impl IWbemEventConsumerProvider_Vtbl {
             let this = (*this).get_impl();
             match IWbemEventConsumerProvider_Impl::FindConsumer(this, windows_core::from_raw_borrowed(&plogicalconsumer)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconsumer, core::mem::transmute(ok__));
+                    ppconsumer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3646,7 +3646,7 @@ impl IWbemEventSink_Vtbl {
             let this = (*this).get_impl();
             match IWbemEventSink_Impl::GetRestrictedSink(this, core::mem::transmute_copy(&lnumqueries), core::mem::transmute_copy(&awszqueries), windows_core::from_raw_borrowed(&pcallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsink, core::mem::transmute(ok__));
+                    ppsink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3731,7 +3731,7 @@ impl IWbemHiPerfProvider_Vtbl {
             let this = (*this).get_impl();
             match IWbemHiPerfProvider_Impl::CreateRefresher(this, windows_core::from_raw_borrowed(&pnamespace), core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(pprefresher, core::mem::transmute(ok__));
+                    pprefresher.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3752,7 +3752,7 @@ impl IWbemHiPerfProvider_Vtbl {
             let this = (*this).get_impl();
             match IWbemHiPerfProvider_Impl::CreateRefreshableEnum(this, windows_core::from_raw_borrowed(&pnamespace), core::mem::transmute(&wszclass), windows_core::from_raw_borrowed(&prefresher), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pcontext), windows_core::from_raw_borrowed(&phiperfenum)) {
                 Ok(ok__) => {
-                    core::ptr::write(plid, core::mem::transmute(ok__));
+                    plid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3791,7 +3791,7 @@ impl IWbemLevel1Login_Vtbl {
             let this = (*this).get_impl();
             match IWbemLevel1Login_Impl::EstablishPosition(this, core::mem::transmute(&wszlocalelist), core::mem::transmute_copy(&dwnumlocales)) {
                 Ok(ok__) => {
-                    core::ptr::write(reserved, core::mem::transmute(ok__));
+                    reserved.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3802,7 +3802,7 @@ impl IWbemLevel1Login_Vtbl {
             let this = (*this).get_impl();
             match IWbemLevel1Login_Impl::RequestChallenge(this, core::mem::transmute(&wsznetworkresource), core::mem::transmute(&wszuser)) {
                 Ok(ok__) => {
-                    core::ptr::write(nonce, core::mem::transmute(ok__));
+                    nonce.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3813,7 +3813,7 @@ impl IWbemLevel1Login_Vtbl {
             let this = (*this).get_impl();
             match IWbemLevel1Login_Impl::WBEMLogin(this, core::mem::transmute(&wszpreferredlocale), core::mem::transmute_copy(&accesstoken), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnamespace, core::mem::transmute(ok__));
+                    ppnamespace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3824,7 +3824,7 @@ impl IWbemLevel1Login_Vtbl {
             let this = (*this).get_impl();
             match IWbemLevel1Login_Impl::NTLMLogin(this, core::mem::transmute(&wsznetworkresource), core::mem::transmute(&wszpreferredlocale), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnamespace, core::mem::transmute(ok__));
+                    ppnamespace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3853,7 +3853,7 @@ impl IWbemLocator_Vtbl {
             let this = (*this).get_impl();
             match IWbemLocator_Impl::ConnectServer(this, core::mem::transmute(&strnetworkresource), core::mem::transmute(&struser), core::mem::transmute(&strpassword), core::mem::transmute(&strlocale), core::mem::transmute_copy(&lsecurityflags), core::mem::transmute(&strauthority), windows_core::from_raw_borrowed(&pctx)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnamespace, core::mem::transmute(ok__));
+                    ppnamespace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3903,7 +3903,7 @@ impl IWbemObjectAccess_Vtbl {
             let this = (*this).get_impl();
             match IWbemObjectAccess_Impl::ReadDWORD(this, core::mem::transmute_copy(&lhandle)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdw, core::mem::transmute(ok__));
+                    pdw.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3919,7 +3919,7 @@ impl IWbemObjectAccess_Vtbl {
             let this = (*this).get_impl();
             match IWbemObjectAccess_Impl::ReadQWORD(this, core::mem::transmute_copy(&lhandle)) {
                 Ok(ok__) => {
-                    core::ptr::write(pqw, core::mem::transmute(ok__));
+                    pqw.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4010,7 +4010,7 @@ impl IWbemObjectSinkEx_Vtbl {
             let this = (*this).get_impl();
             match IWbemObjectSinkEx_Impl::WriteError(this, windows_core::from_raw_borrowed(&pobjerror)) {
                 Ok(ok__) => {
-                    core::ptr::write(pureturned, core::mem::transmute(ok__));
+                    pureturned.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4021,7 +4021,7 @@ impl IWbemObjectSinkEx_Vtbl {
             let this = (*this).get_impl();
             match IWbemObjectSinkEx_Impl::PromptUser(this, core::mem::transmute(&strmessage), core::mem::transmute_copy(&uprompttype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pureturned, core::mem::transmute(ok__));
+                    pureturned.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4062,7 +4062,7 @@ impl IWbemObjectTextSrc_Vtbl {
             let this = (*this).get_impl();
             match IWbemObjectTextSrc_Impl::GetText(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pobj), core::mem::transmute_copy(&uobjtextformat), windows_core::from_raw_borrowed(&pctx)) {
                 Ok(ok__) => {
-                    core::ptr::write(strtext, core::mem::transmute(ok__));
+                    strtext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4073,7 +4073,7 @@ impl IWbemObjectTextSrc_Vtbl {
             let this = (*this).get_impl();
             match IWbemObjectTextSrc_Impl::CreateFromText(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&strtext), core::mem::transmute_copy(&uobjtextformat), windows_core::from_raw_borrowed(&pctx)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnewobj, core::mem::transmute(ok__));
+                    pnewobj.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4135,7 +4135,7 @@ impl IWbemPath_Vtbl {
             let this = (*this).get_impl();
             match IWbemPath_Impl::GetInfo(this, core::mem::transmute_copy(&urequestedinfo)) {
                 Ok(ok__) => {
-                    core::ptr::write(puresponse, core::mem::transmute(ok__));
+                    puresponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4156,7 +4156,7 @@ impl IWbemPath_Vtbl {
             let this = (*this).get_impl();
             match IWbemPath_Impl::GetNamespaceCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pucount, core::mem::transmute(ok__));
+                    pucount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4187,7 +4187,7 @@ impl IWbemPath_Vtbl {
             let this = (*this).get_impl();
             match IWbemPath_Impl::GetScopeCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pucount, core::mem::transmute(ok__));
+                    pucount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4238,7 +4238,7 @@ impl IWbemPath_Vtbl {
             let this = (*this).get_impl();
             match IWbemPath_Impl::GetKeyList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pout, core::mem::transmute(ok__));
+                    pout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4328,7 +4328,7 @@ impl IWbemPathKeyList_Vtbl {
             let this = (*this).get_impl();
             match IWbemPathKeyList_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pukeycount, core::mem::transmute(ok__));
+                    pukeycount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4374,7 +4374,7 @@ impl IWbemPathKeyList_Vtbl {
             let this = (*this).get_impl();
             match IWbemPathKeyList_Impl::GetInfo(this, core::mem::transmute_copy(&urequestedinfo)) {
                 Ok(ok__) => {
-                    core::ptr::write(puresponse, core::mem::transmute(ok__));
+                    puresponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4415,7 +4415,7 @@ impl IWbemPropertyProvider_Vtbl {
             let this = (*this).get_impl();
             match IWbemPropertyProvider_Impl::GetProperty(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&strlocale), core::mem::transmute(&strclassmapping), core::mem::transmute(&strinstmapping), core::mem::transmute(&strpropmapping)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvvalue, core::mem::transmute(ok__));
+                    pvvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4522,7 +4522,7 @@ impl IWbemQualifierSet_Vtbl {
             let this = (*this).get_impl();
             match IWbemQualifierSet_Impl::GetNames(this, core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnames, core::mem::transmute(ok__));
+                    pnames.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4680,7 +4680,7 @@ impl IWbemServices_Vtbl {
             let this = (*this).get_impl();
             match IWbemServices_Impl::QueryObjectSink(this, core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresponsehandler, core::mem::transmute(ok__));
+                    ppresponsehandler.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4721,7 +4721,7 @@ impl IWbemServices_Vtbl {
             let this = (*this).get_impl();
             match IWbemServices_Impl::CreateClassEnum(this, core::mem::transmute(&strsuperclass), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4757,7 +4757,7 @@ impl IWbemServices_Vtbl {
             let this = (*this).get_impl();
             match IWbemServices_Impl::CreateInstanceEnum(this, core::mem::transmute(&strfilter), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4773,7 +4773,7 @@ impl IWbemServices_Vtbl {
             let this = (*this).get_impl();
             match IWbemServices_Impl::ExecQuery(this, core::mem::transmute(&strquerylanguage), core::mem::transmute(&strquery), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4789,7 +4789,7 @@ impl IWbemServices_Vtbl {
             let this = (*this).get_impl();
             match IWbemServices_Impl::ExecNotificationQuery(this, core::mem::transmute(&strquerylanguage), core::mem::transmute(&strquery), core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pctx)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4870,7 +4870,7 @@ impl IWbemStatusCodeText_Vtbl {
             let this = (*this).get_impl();
             match IWbemStatusCodeText_Impl::GetErrorCodeText(this, core::mem::transmute_copy(&hres), core::mem::transmute_copy(&localeid), core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(messagetext, core::mem::transmute(ok__));
+                    messagetext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4881,7 +4881,7 @@ impl IWbemStatusCodeText_Vtbl {
             let this = (*this).get_impl();
             match IWbemStatusCodeText_Impl::GetFacilityCodeText(this, core::mem::transmute_copy(&hres), core::mem::transmute_copy(&localeid), core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(messagetext, core::mem::transmute(ok__));
+                    messagetext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4942,7 +4942,7 @@ impl IWbemUnsecuredApartment_Vtbl {
             let this = (*this).get_impl();
             match IWbemUnsecuredApartment_Impl::CreateSinkStub(this, windows_core::from_raw_borrowed(&psink), core::mem::transmute_copy(&dwflags), core::mem::transmute(&wszreserved)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstub, core::mem::transmute(ok__));
+                    ppstub.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

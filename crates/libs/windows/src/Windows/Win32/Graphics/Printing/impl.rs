@@ -122,7 +122,7 @@ impl IBidiRequest_Vtbl {
             let this = (*this).get_impl();
             match IBidiRequest_Impl::GetResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phr, core::mem::transmute(ok__));
+                    phr.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -138,7 +138,7 @@ impl IBidiRequest_Vtbl {
             let this = (*this).get_impl();
             match IBidiRequest_Impl::GetEnumCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwtotal, core::mem::transmute(ok__));
+                    pdwtotal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -178,7 +178,7 @@ impl IBidiRequestContainer_Vtbl {
             let this = (*this).get_impl();
             match IBidiRequestContainer_Impl::GetEnumObject(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -189,7 +189,7 @@ impl IBidiRequestContainer_Vtbl {
             let this = (*this).get_impl();
             match IBidiRequestContainer_Impl::GetRequestCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pucount, core::mem::transmute(ok__));
+                    pucount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -274,7 +274,7 @@ impl IBidiSpl2_Vtbl {
             let this = (*this).get_impl();
             match IBidiSpl2_Impl::SendRecvXMLString(this, core::mem::transmute(&bstrrequest)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrresponse, core::mem::transmute(ok__));
+                    pbstrresponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -285,7 +285,7 @@ impl IBidiSpl2_Vtbl {
             let this = (*this).get_impl();
             match IBidiSpl2_Impl::SendRecvXMLStream(this, windows_core::from_raw_borrowed(&psrequest)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsresponse, core::mem::transmute(ok__));
+                    ppsresponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -316,7 +316,7 @@ impl IFixedDocument_Vtbl {
             let this = (*this).get_impl();
             match IFixedDocument_Impl::GetUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(uri, core::mem::transmute(ok__));
+                    uri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -327,7 +327,7 @@ impl IFixedDocument_Vtbl {
             let this = (*this).get_impl();
             match IFixedDocument_Impl::GetPrintTicket(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprintticket, core::mem::transmute(ok__));
+                    ppprintticket.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -362,7 +362,7 @@ impl IFixedDocumentSequence_Vtbl {
             let this = (*this).get_impl();
             match IFixedDocumentSequence_Impl::GetUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(uri, core::mem::transmute(ok__));
+                    uri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -373,7 +373,7 @@ impl IFixedDocumentSequence_Vtbl {
             let this = (*this).get_impl();
             match IFixedDocumentSequence_Impl::GetPrintTicket(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprintticket, core::mem::transmute(ok__));
+                    ppprintticket.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -412,7 +412,7 @@ impl IFixedPage_Vtbl {
             let this = (*this).get_impl();
             match IFixedPage_Impl::GetPrintTicket(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprintticket, core::mem::transmute(ok__));
+                    ppprintticket.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -423,7 +423,7 @@ impl IFixedPage_Vtbl {
             let this = (*this).get_impl();
             match IFixedPage_Impl::GetPagePart(this, core::mem::transmute(&uri)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -434,7 +434,7 @@ impl IFixedPage_Vtbl {
             let this = (*this).get_impl();
             match IFixedPage_Impl::GetWriteStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwritestream, core::mem::transmute(ok__));
+                    ppwritestream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -460,7 +460,7 @@ impl IFixedPage_Vtbl {
             let this = (*this).get_impl();
             match IFixedPage_Impl::GetXpsPartIterator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pxpspartit, core::mem::transmute(ok__));
+                    pxpspartit.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -524,7 +524,7 @@ impl IImgErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IImgErrorInfo_Impl::GetDeveloperDescription(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdevdescription, core::mem::transmute(ok__));
+                    pbstrdevdescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -535,7 +535,7 @@ impl IImgErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IImgErrorInfo_Impl::GetUserErrorId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(perrorid, core::mem::transmute(ok__));
+                    perrorid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -546,7 +546,7 @@ impl IImgErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IImgErrorInfo_Impl::GetUserParameterCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcuserparams, core::mem::transmute(ok__));
+                    pcuserparams.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -557,7 +557,7 @@ impl IImgErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IImgErrorInfo_Impl::GetUserParameter(this, core::mem::transmute_copy(&cparam)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrparam, core::mem::transmute(ok__));
+                    pbstrparam.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -568,7 +568,7 @@ impl IImgErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IImgErrorInfo_Impl::GetUserFallback(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrfallback, core::mem::transmute(ok__));
+                    pbstrfallback.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -579,7 +579,7 @@ impl IImgErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IImgErrorInfo_Impl::GetExceptionId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pexceptionid, core::mem::transmute(ok__));
+                    pexceptionid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -646,7 +646,7 @@ impl IPartBase_Vtbl {
             let this = (*this).get_impl();
             match IPartBase_Impl::GetUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(uri, core::mem::transmute(ok__));
+                    uri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -657,7 +657,7 @@ impl IPartBase_Vtbl {
             let this = (*this).get_impl();
             match IPartBase_Impl::GetStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstream, core::mem::transmute(ok__));
+                    ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -668,7 +668,7 @@ impl IPartBase_Vtbl {
             let this = (*this).get_impl();
             match IPartBase_Impl::GetPartCompression(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcompression, core::mem::transmute(ok__));
+                    pcompression.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -763,7 +763,7 @@ impl IPartFont2_Vtbl {
             let this = (*this).get_impl();
             match IPartFont2_Impl::GetFontRestriction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(prestriction, core::mem::transmute(ok__));
+                    prestriction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -787,7 +787,7 @@ impl IPartImage_Vtbl {
             let this = (*this).get_impl();
             match IPartImage_Impl::GetImageProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcontenttype, core::mem::transmute(ok__));
+                    pcontenttype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -840,7 +840,7 @@ impl IPartThumbnail_Vtbl {
             let this = (*this).get_impl();
             match IPartThumbnail_Impl::GetThumbnailProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcontenttype, core::mem::transmute(ok__));
+                    pcontenttype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -917,7 +917,7 @@ impl IPrintAsyncNotify_Vtbl {
             let this = (*this).get_impl();
             match IPrintAsyncNotify_Impl::CreatePrintAsyncNotifyChannel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), windows_core::from_raw_borrowed(&param4)) {
                 Ok(ok__) => {
-                    core::ptr::write(param5, core::mem::transmute(ok__));
+                    param5.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -928,7 +928,7 @@ impl IPrintAsyncNotify_Vtbl {
             let this = (*this).get_impl();
             match IPrintAsyncNotify_Impl::CreatePrintAsyncNotifyRegistration(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), windows_core::from_raw_borrowed(&param3)) {
                 Ok(ok__) => {
-                    core::ptr::write(param4, core::mem::transmute(ok__));
+                    param4.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1065,7 +1065,7 @@ impl IPrintAsyncNotifyServerReferral_Vtbl {
             let this = (*this).get_impl();
             match IPrintAsyncNotifyServerReferral_Impl::GetServerReferral(this) {
                 Ok(ok__) => {
-                    core::ptr::write(param0, core::mem::transmute(ok__));
+                    param0.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1148,7 +1148,7 @@ impl IPrintCoreHelper_Vtbl {
             let this = (*this).get_impl();
             match IPrintCoreHelper_Impl::GetOption(this, core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&cbsize), core::mem::transmute(&pszfeaturerequested)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszoption, core::mem::transmute(ok__));
+                    ppszoption.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1268,7 +1268,7 @@ impl IPrintCoreHelperUni_Vtbl {
             let this = (*this).get_impl();
             match IPrintCoreHelperUni_Impl::CreateDefaultGDLSnapshot(this, core::mem::transmute_copy(&dwflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsnapshotstream, core::mem::transmute(ok__));
+                    ppsnapshotstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1329,7 +1329,7 @@ impl IPrintCoreUI2_Vtbl {
             let this = (*this).get_impl();
             match IPrintCoreUI2_Impl::SetOptions(this, core::mem::transmute_copy(&poemuiobj), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pmszfeatureoptionbuf), core::mem::transmute_copy(&cbin)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwresult, core::mem::transmute(ok__));
+                    pdwresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1410,7 +1410,7 @@ impl IPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IPrintJob_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1421,7 +1421,7 @@ impl IPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IPrintJob_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulid, core::mem::transmute(ok__));
+                    pulid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1432,7 +1432,7 @@ impl IPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IPrintJob_Impl::PrintedPages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulpages, core::mem::transmute(ok__));
+                    pulpages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1443,7 +1443,7 @@ impl IPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IPrintJob_Impl::TotalPages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulpages, core::mem::transmute(ok__));
+                    pulpages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1454,7 +1454,7 @@ impl IPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IPrintJob_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1465,7 +1465,7 @@ impl IPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IPrintJob_Impl::SubmissionTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psubmissiontime, core::mem::transmute(ok__));
+                    psubmissiontime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1507,7 +1507,7 @@ impl IPrintJobCollection_Vtbl {
             let this = (*this).get_impl();
             match IPrintJobCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulcount, core::mem::transmute(ok__));
+                    pulcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1518,7 +1518,7 @@ impl IPrintJobCollection_Vtbl {
             let this = (*this).get_impl();
             match IPrintJobCollection_Impl::GetAt(this, core::mem::transmute_copy(&ulindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppjob, core::mem::transmute(ok__));
+                    ppjob.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1529,7 +1529,7 @@ impl IPrintJobCollection_Vtbl {
             let this = (*this).get_impl();
             match IPrintJobCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1883,7 +1883,7 @@ impl IPrintPipelinePropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrintPipelinePropertyBag_Impl::GetProperty(this, core::mem::transmute(&pszname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvar, core::mem::transmute(ok__));
+                    pvar.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1980,7 +1980,7 @@ impl IPrintReadStreamFactory_Vtbl {
             let this = (*this).get_impl();
             match IPrintReadStreamFactory_Impl::GetStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstream, core::mem::transmute(ok__));
+                    ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2062,7 +2062,7 @@ impl IPrintSchemaCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaCapabilities_Impl::GetFeatureByKeyName(this, core::mem::transmute(&bstrkeyname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfeature, core::mem::transmute(ok__));
+                    ppfeature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2073,7 +2073,7 @@ impl IPrintSchemaCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaCapabilities_Impl::GetFeature(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrnamespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfeature, core::mem::transmute(ok__));
+                    ppfeature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2084,7 +2084,7 @@ impl IPrintSchemaCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaCapabilities_Impl::PageImageableSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppageimageablesize, core::mem::transmute(ok__));
+                    pppageimageablesize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2095,7 +2095,7 @@ impl IPrintSchemaCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaCapabilities_Impl::JobCopiesAllDocumentsMinValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puljobcopiesalldocumentsminvalue, core::mem::transmute(ok__));
+                    puljobcopiesalldocumentsminvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2106,7 +2106,7 @@ impl IPrintSchemaCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaCapabilities_Impl::JobCopiesAllDocumentsMaxValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puljobcopiesalldocumentsmaxvalue, core::mem::transmute(ok__));
+                    puljobcopiesalldocumentsmaxvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2117,7 +2117,7 @@ impl IPrintSchemaCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaCapabilities_Impl::GetSelectedOptionInPrintTicket(this, windows_core::from_raw_borrowed(&pfeature)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoption, core::mem::transmute(ok__));
+                    ppoption.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2128,7 +2128,7 @@ impl IPrintSchemaCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaCapabilities_Impl::GetOptions(this, windows_core::from_raw_borrowed(&pfeature)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoptioncollection, core::mem::transmute(ok__));
+                    ppoptioncollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2163,7 +2163,7 @@ impl IPrintSchemaCapabilities2_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaCapabilities2_Impl::GetParameterDefinition(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrnamespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppparameterdefinition, core::mem::transmute(ok__));
+                    ppparameterdefinition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2189,7 +2189,7 @@ impl IPrintSchemaDisplayableElement_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaDisplayableElement_Impl::DisplayName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdisplayname, core::mem::transmute(ok__));
+                    pbstrdisplayname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2217,7 +2217,7 @@ impl IPrintSchemaElement_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaElement_Impl::XmlNode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppxmlnode, core::mem::transmute(ok__));
+                    ppxmlnode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2228,7 +2228,7 @@ impl IPrintSchemaElement_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaElement_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2239,7 +2239,7 @@ impl IPrintSchemaElement_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaElement_Impl::NamespaceUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrnamespaceuri, core::mem::transmute(ok__));
+                    pbstrnamespaceuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2274,7 +2274,7 @@ impl IPrintSchemaFeature_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaFeature_Impl::SelectedOption(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoption, core::mem::transmute(ok__));
+                    ppoption.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2290,7 +2290,7 @@ impl IPrintSchemaFeature_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaFeature_Impl::SelectionType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pselectiontype, core::mem::transmute(ok__));
+                    pselectiontype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2301,7 +2301,7 @@ impl IPrintSchemaFeature_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaFeature_Impl::GetOption(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrnamespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoption, core::mem::transmute(ok__));
+                    ppoption.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2312,7 +2312,7 @@ impl IPrintSchemaFeature_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaFeature_Impl::DisplayUI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbshow, core::mem::transmute(ok__));
+                    pbshow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2345,7 +2345,7 @@ impl IPrintSchemaNUpOption_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaNUpOption_Impl::PagesPerSheet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulpagespersheet, core::mem::transmute(ok__));
+                    pulpagespersheet.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2373,7 +2373,7 @@ impl IPrintSchemaOption_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaOption_Impl::Selected(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbisselected, core::mem::transmute(ok__));
+                    pbisselected.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2384,7 +2384,7 @@ impl IPrintSchemaOption_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaOption_Impl::Constrained(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psetting, core::mem::transmute(ok__));
+                    psetting.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2395,7 +2395,7 @@ impl IPrintSchemaOption_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaOption_Impl::GetPropertyValue(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrnamespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppxmlvaluenode, core::mem::transmute(ok__));
+                    ppxmlvaluenode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2428,7 +2428,7 @@ impl IPrintSchemaOptionCollection_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaOptionCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulcount, core::mem::transmute(ok__));
+                    pulcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2439,7 +2439,7 @@ impl IPrintSchemaOptionCollection_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaOptionCollection_Impl::GetAt(this, core::mem::transmute_copy(&ulindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoption, core::mem::transmute(ok__));
+                    ppoption.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2450,7 +2450,7 @@ impl IPrintSchemaOptionCollection_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaOptionCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2486,7 +2486,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaPageImageableSize_Impl::ImageableSizeWidthInMicrons(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulimageablesizewidth, core::mem::transmute(ok__));
+                    pulimageablesizewidth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2497,7 +2497,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaPageImageableSize_Impl::ImageableSizeHeightInMicrons(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulimageablesizeheight, core::mem::transmute(ok__));
+                    pulimageablesizeheight.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2508,7 +2508,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaPageImageableSize_Impl::OriginWidthInMicrons(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puloriginwidth, core::mem::transmute(ok__));
+                    puloriginwidth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2519,7 +2519,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaPageImageableSize_Impl::OriginHeightInMicrons(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puloriginheight, core::mem::transmute(ok__));
+                    puloriginheight.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2530,7 +2530,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaPageImageableSize_Impl::ExtentWidthInMicrons(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulextentwidth, core::mem::transmute(ok__));
+                    pulextentwidth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2541,7 +2541,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaPageImageableSize_Impl::ExtentHeightInMicrons(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulextentheight, core::mem::transmute(ok__));
+                    pulextentheight.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2576,7 +2576,7 @@ impl IPrintSchemaPageMediaSizeOption_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaPageMediaSizeOption_Impl::WidthInMicrons(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulwidth, core::mem::transmute(ok__));
+                    pulwidth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2587,7 +2587,7 @@ impl IPrintSchemaPageMediaSizeOption_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaPageMediaSizeOption_Impl::HeightInMicrons(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulheight, core::mem::transmute(ok__));
+                    pulheight.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2621,7 +2621,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaParameterDefinition_Impl::UserInputRequired(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbisrequired, core::mem::transmute(ok__));
+                    pbisrequired.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2632,7 +2632,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaParameterDefinition_Impl::UnitType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrunittype, core::mem::transmute(ok__));
+                    pbstrunittype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2643,7 +2643,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaParameterDefinition_Impl::DataType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatatype, core::mem::transmute(ok__));
+                    pdatatype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2654,7 +2654,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaParameterDefinition_Impl::RangeMin(this) {
                 Ok(ok__) => {
-                    core::ptr::write(prangemin, core::mem::transmute(ok__));
+                    prangemin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2665,7 +2665,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaParameterDefinition_Impl::RangeMax(this) {
                 Ok(ok__) => {
-                    core::ptr::write(prangemax, core::mem::transmute(ok__));
+                    prangemax.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2699,7 +2699,7 @@ impl IPrintSchemaParameterInitializer_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaParameterInitializer_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvar, core::mem::transmute(ok__));
+                    pvar.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2741,7 +2741,7 @@ impl IPrintSchemaTicket_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaTicket_Impl::GetFeatureByKeyName(this, core::mem::transmute(&bstrkeyname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfeature, core::mem::transmute(ok__));
+                    ppfeature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2752,7 +2752,7 @@ impl IPrintSchemaTicket_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaTicket_Impl::GetFeature(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrnamespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfeature, core::mem::transmute(ok__));
+                    ppfeature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2763,7 +2763,7 @@ impl IPrintSchemaTicket_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaTicket_Impl::ValidateAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasyncoperation, core::mem::transmute(ok__));
+                    ppasyncoperation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2774,7 +2774,7 @@ impl IPrintSchemaTicket_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaTicket_Impl::CommitAsync(this, windows_core::from_raw_borrowed(&pprintticketcommit)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasyncoperation, core::mem::transmute(ok__));
+                    ppasyncoperation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2790,7 +2790,7 @@ impl IPrintSchemaTicket_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaTicket_Impl::GetCapabilities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcapabilities, core::mem::transmute(ok__));
+                    ppcapabilities.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2801,7 +2801,7 @@ impl IPrintSchemaTicket_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaTicket_Impl::JobCopiesAllDocuments(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puljobcopiesalldocuments, core::mem::transmute(ok__));
+                    puljobcopiesalldocuments.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2842,7 +2842,7 @@ impl IPrintSchemaTicket2_Vtbl {
             let this = (*this).get_impl();
             match IPrintSchemaTicket2_Impl::GetParameterInitializer(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrnamespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppparameterinitializer, core::mem::transmute(ok__));
+                    ppparameterinitializer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2899,7 +2899,7 @@ impl IPrintTicketProvider_Vtbl {
             let this = (*this).get_impl();
             match IPrintTicketProvider_Impl::GetPrintCapabilities(this, windows_core::from_raw_borrowed(&pprintticket)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcapabilities, core::mem::transmute(ok__));
+                    ppcapabilities.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2940,7 +2940,7 @@ impl IPrintTicketProvider2_Vtbl {
             let this = (*this).get_impl();
             match IPrintTicketProvider2_Impl::GetPrintDeviceCapabilities(this, windows_core::from_raw_borrowed(&pprintticket)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdevicecapabilities, core::mem::transmute(ok__));
+                    ppdevicecapabilities.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2951,7 +2951,7 @@ impl IPrintTicketProvider2_Vtbl {
             let this = (*this).get_impl();
             match IPrintTicketProvider2_Impl::GetPrintDeviceResources(this, core::mem::transmute(&pszlocalename), windows_core::from_raw_borrowed(&pprintticket)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdeviceresources, core::mem::transmute(ok__));
+                    ppdeviceresources.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2999,7 +2999,7 @@ impl IPrintWriteStream_Vtbl {
             let this = (*this).get_impl();
             match IPrintWriteStream_Impl::WriteBytes(this, core::mem::transmute_copy(&pvbuffer), core::mem::transmute_copy(&cbbuffer)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcbwritten, core::mem::transmute(ok__));
+                    pcbwritten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3088,7 +3088,7 @@ impl IPrinterExtensionContext_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionContext_Impl::PrinterQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqueue, core::mem::transmute(ok__));
+                    ppqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3099,7 +3099,7 @@ impl IPrinterExtensionContext_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionContext_Impl::PrintSchemaTicket(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppticket, core::mem::transmute(ok__));
+                    ppticket.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3110,7 +3110,7 @@ impl IPrinterExtensionContext_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionContext_Impl::DriverProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppropertybag, core::mem::transmute(ok__));
+                    pppropertybag.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3121,7 +3121,7 @@ impl IPrinterExtensionContext_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionContext_Impl::UserProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppropertybag, core::mem::transmute(ok__));
+                    pppropertybag.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3155,7 +3155,7 @@ impl IPrinterExtensionContextCollection_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionContextCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulcount, core::mem::transmute(ok__));
+                    pulcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3166,7 +3166,7 @@ impl IPrinterExtensionContextCollection_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionContextCollection_Impl::GetAt(this, core::mem::transmute_copy(&ulindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontext, core::mem::transmute(ok__));
+                    ppcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3177,7 +3177,7 @@ impl IPrinterExtensionContextCollection_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionContextCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3244,7 +3244,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionEventArgs_Impl::BidiNotification(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrbidinotification, core::mem::transmute(ok__));
+                    pbstrbidinotification.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3255,7 +3255,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionEventArgs_Impl::ReasonId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(preasonid, core::mem::transmute(ok__));
+                    preasonid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3266,7 +3266,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionEventArgs_Impl::Request(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pprequest, core::mem::transmute(ok__));
+                    pprequest.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3277,7 +3277,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionEventArgs_Impl::SourceApplication(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrapplication, core::mem::transmute(ok__));
+                    pbstrapplication.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3288,7 +3288,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionEventArgs_Impl::DetailedReasonId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdetailedreasonid, core::mem::transmute(ok__));
+                    pdetailedreasonid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3299,7 +3299,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionEventArgs_Impl::WindowModal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbmodal, core::mem::transmute(ok__));
+                    pbmodal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3310,7 +3310,7 @@ impl IPrinterExtensionEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPrinterExtensionEventArgs_Impl::WindowParent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phwndparent, core::mem::transmute(ok__));
+                    phwndparent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3411,7 +3411,7 @@ impl IPrinterPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrinterPropertyBag_Impl::GetBool(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbvalue, core::mem::transmute(ok__));
+                    pbvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3427,7 +3427,7 @@ impl IPrinterPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrinterPropertyBag_Impl::GetInt32(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnvalue, core::mem::transmute(ok__));
+                    pnvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3443,7 +3443,7 @@ impl IPrinterPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrinterPropertyBag_Impl::GetString(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrvalue, core::mem::transmute(ok__));
+                    pbstrvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3469,7 +3469,7 @@ impl IPrinterPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrinterPropertyBag_Impl::GetReadStream(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3480,7 +3480,7 @@ impl IPrinterPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrinterPropertyBag_Impl::GetWriteStream(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3521,7 +3521,7 @@ impl IPrinterQueue_Vtbl {
             let this = (*this).get_impl();
             match IPrinterQueue_Impl::Handle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phprinter, core::mem::transmute(ok__));
+                    phprinter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3532,7 +3532,7 @@ impl IPrinterQueue_Vtbl {
             let this = (*this).get_impl();
             match IPrinterQueue_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3548,7 +3548,7 @@ impl IPrinterQueue_Vtbl {
             let this = (*this).get_impl();
             match IPrinterQueue_Impl::GetProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppropertybag, core::mem::transmute(ok__));
+                    pppropertybag.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3581,7 +3581,7 @@ impl IPrinterQueue2_Vtbl {
             let this = (*this).get_impl();
             match IPrinterQueue2_Impl::SendBidiSetRequestAsync(this, core::mem::transmute(&bstrbidirequest), windows_core::from_raw_borrowed(&pcallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasyncoperation, core::mem::transmute(ok__));
+                    ppasyncoperation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3592,7 +3592,7 @@ impl IPrinterQueue2_Vtbl {
             let this = (*this).get_impl();
             match IPrinterQueue2_Impl::GetPrinterQueueView(this, core::mem::transmute_copy(&ulviewoffset), core::mem::transmute_copy(&ulviewsize)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppjobview, core::mem::transmute(ok__));
+                    ppjobview.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3687,7 +3687,7 @@ impl IPrinterScriptContext_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptContext_Impl::DriverProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppropertybag, core::mem::transmute(ok__));
+                    pppropertybag.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3698,7 +3698,7 @@ impl IPrinterScriptContext_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptContext_Impl::QueueProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppropertybag, core::mem::transmute(ok__));
+                    pppropertybag.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3709,7 +3709,7 @@ impl IPrinterScriptContext_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptContext_Impl::UserProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppropertybag, core::mem::transmute(ok__));
+                    pppropertybag.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3749,7 +3749,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptablePropertyBag_Impl::GetBool(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbvalue, core::mem::transmute(ok__));
+                    pbvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3765,7 +3765,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptablePropertyBag_Impl::GetInt32(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnvalue, core::mem::transmute(ok__));
+                    pnvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3781,7 +3781,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptablePropertyBag_Impl::GetString(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrvalue, core::mem::transmute(ok__));
+                    pbstrvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3797,7 +3797,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptablePropertyBag_Impl::GetBytes(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pparray, core::mem::transmute(ok__));
+                    pparray.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3813,7 +3813,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptablePropertyBag_Impl::GetReadStream(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstream, core::mem::transmute(ok__));
+                    ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3824,7 +3824,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptablePropertyBag_Impl::GetWriteStream(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstream, core::mem::transmute(ok__));
+                    ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3862,7 +3862,7 @@ impl IPrinterScriptablePropertyBag2_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptablePropertyBag2_Impl::GetReadStreamAsXML(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppxmlnode, core::mem::transmute(ok__));
+                    ppxmlnode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3889,7 +3889,7 @@ impl IPrinterScriptableSequentialStream_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptableSequentialStream_Impl::Read(this, core::mem::transmute_copy(&cbread)) {
                 Ok(ok__) => {
-                    core::ptr::write(pparray, core::mem::transmute(ok__));
+                    pparray.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3900,7 +3900,7 @@ impl IPrinterScriptableSequentialStream_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptableSequentialStream_Impl::Write(this, windows_core::from_raw_borrowed(&parray)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcbwritten, core::mem::transmute(ok__));
+                    pcbwritten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3937,7 +3937,7 @@ impl IPrinterScriptableStream_Vtbl {
             let this = (*this).get_impl();
             match IPrinterScriptableStream_Impl::Seek(this, core::mem::transmute_copy(&loffset), core::mem::transmute_copy(&streamseek)) {
                 Ok(ok__) => {
-                    core::ptr::write(plposition, core::mem::transmute(ok__));
+                    plposition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3971,7 +3971,7 @@ impl IXpsDocument_Vtbl {
             let this = (*this).get_impl();
             match IXpsDocument_Impl::GetThumbnail(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppthumbnail, core::mem::transmute(ok__));
+                    ppthumbnail.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4065,7 +4065,7 @@ impl IXpsDocumentProvider_Vtbl {
             let this = (*this).get_impl();
             match IXpsDocumentProvider_Impl::GetXpsPart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppixpspart, core::mem::transmute(ok__));
+                    ppixpspart.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4132,7 +4132,7 @@ impl IXpsRasterizationFactory_Vtbl {
             let this = (*this).get_impl();
             match IXpsRasterizationFactory_Impl::CreateRasterizer(this, windows_core::from_raw_borrowed(&xpspage), core::mem::transmute_copy(&dpi), core::mem::transmute_copy(&nontextrenderingmode), core::mem::transmute_copy(&textrenderingmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppixpsrasterizer, core::mem::transmute(ok__));
+                    ppixpsrasterizer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4158,7 +4158,7 @@ impl IXpsRasterizationFactory1_Vtbl {
             let this = (*this).get_impl();
             match IXpsRasterizationFactory1_Impl::CreateRasterizer(this, windows_core::from_raw_borrowed(&xpspage), core::mem::transmute_copy(&dpi), core::mem::transmute_copy(&nontextrenderingmode), core::mem::transmute_copy(&textrenderingmode), core::mem::transmute_copy(&pixelformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppixpsrasterizer, core::mem::transmute(ok__));
+                    ppixpsrasterizer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4184,7 +4184,7 @@ impl IXpsRasterizationFactory2_Vtbl {
             let this = (*this).get_impl();
             match IXpsRasterizationFactory2_Impl::CreateRasterizer(this, windows_core::from_raw_borrowed(&xpspage), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&nontextrenderingmode), core::mem::transmute_copy(&textrenderingmode), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&backgroundcolor)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppixpsrasterizer, core::mem::transmute(ok__));
+                    ppixpsrasterizer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4211,7 +4211,7 @@ impl IXpsRasterizer_Vtbl {
             let this = (*this).get_impl();
             match IXpsRasterizer_Impl::RasterizeRect(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), windows_core::from_raw_borrowed(&notificationcallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmap, core::mem::transmute(ok__));
+                    bitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

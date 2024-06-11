@@ -87,7 +87,7 @@ impl IDiskQuotaControl_Vtbl {
             let this = (*this).get_impl();
             match IDiskQuotaControl_Impl::AddUserSid(this, core::mem::transmute_copy(&pusersid), core::mem::transmute_copy(&fnameresolution)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppuser, core::mem::transmute(ok__));
+                    ppuser.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -98,7 +98,7 @@ impl IDiskQuotaControl_Vtbl {
             let this = (*this).get_impl();
             match IDiskQuotaControl_Impl::AddUserName(this, core::mem::transmute(&pszlogonname), core::mem::transmute_copy(&fnameresolution)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppuser, core::mem::transmute(ok__));
+                    ppuser.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -114,7 +114,7 @@ impl IDiskQuotaControl_Vtbl {
             let this = (*this).get_impl();
             match IDiskQuotaControl_Impl::FindUserSid(this, core::mem::transmute_copy(&pusersid), core::mem::transmute_copy(&fnameresolution)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppuser, core::mem::transmute(ok__));
+                    ppuser.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -125,7 +125,7 @@ impl IDiskQuotaControl_Vtbl {
             let this = (*this).get_impl();
             match IDiskQuotaControl_Impl::FindUserName(this, core::mem::transmute(&pszlogonname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppuser, core::mem::transmute(ok__));
+                    ppuser.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -141,7 +141,7 @@ impl IDiskQuotaControl_Vtbl {
             let this = (*this).get_impl();
             match IDiskQuotaControl_Impl::CreateUserBatch(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbatch, core::mem::transmute(ok__));
+                    ppbatch.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -396,7 +396,7 @@ impl IEnumDiskQuotaUsers_Vtbl {
             let this = (*this).get_impl();
             match IEnumDiskQuotaUsers_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

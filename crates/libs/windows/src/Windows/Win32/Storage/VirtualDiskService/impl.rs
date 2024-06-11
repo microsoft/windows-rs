@@ -27,7 +27,7 @@ impl IEnumVdsObject_Vtbl {
             let this = (*this).get_impl();
             match IEnumVdsObject_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -102,7 +102,7 @@ impl IVdsAdvancedDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsAdvancedDisk_Impl::CreatePartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ullsize), core::mem::transmute_copy(&para)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -138,7 +138,7 @@ impl IVdsAdvancedDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsAdvancedDisk_Impl::FormatPartition(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&r#type), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -149,7 +149,7 @@ impl IVdsAdvancedDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsAdvancedDisk_Impl::Clean(this, core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bforceoem), core::mem::transmute_copy(&bfullclean)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -207,7 +207,7 @@ impl IVdsAdvancedDisk3_Vtbl {
             let this = (*this).get_impl();
             match IVdsAdvancedDisk3_Impl::GetUniqueId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwszid, core::mem::transmute(ok__));
+                    ppwszid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -297,7 +297,7 @@ impl IVdsController_Vtbl {
             let this = (*this).get_impl();
             match IVdsController_Impl::GetSubSystem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsubsystem, core::mem::transmute(ok__));
+                    ppsubsystem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -328,7 +328,7 @@ impl IVdsController_Vtbl {
             let this = (*this).get_impl();
             match IVdsController_Impl::QueryAssociatedLuns(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -366,7 +366,7 @@ impl IVdsControllerControllerPort_Vtbl {
             let this = (*this).get_impl();
             match IVdsControllerControllerPort_Impl::QueryControllerPorts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -398,7 +398,7 @@ impl IVdsControllerPort_Vtbl {
             let this = (*this).get_impl();
             match IVdsControllerPort_Impl::GetController(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontroller, core::mem::transmute(ok__));
+                    ppcontroller.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -409,7 +409,7 @@ impl IVdsControllerPort_Vtbl {
             let this = (*this).get_impl();
             match IVdsControllerPort_Impl::QueryAssociatedLuns(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -449,7 +449,7 @@ impl IVdsCreatePartitionEx_Vtbl {
             let this = (*this).get_impl();
             match IVdsCreatePartitionEx_Impl::CreatePartitionEx(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute_copy(&ullsize), core::mem::transmute_copy(&ulalign), core::mem::transmute_copy(&para)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -483,7 +483,7 @@ impl IVdsDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsDisk_Impl::GetPack(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppack, core::mem::transmute(ok__));
+                    pppack.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -619,7 +619,7 @@ impl IVdsDiskPartitionMF_Vtbl {
             let this = (*this).get_impl();
             match IVdsDiskPartitionMF_Impl::GetPartitionFileSystemTypeName(this, core::mem::transmute_copy(&ulloffset)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwszfilesystemtypename, core::mem::transmute(ok__));
+                    ppwszfilesystemtypename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -635,7 +635,7 @@ impl IVdsDiskPartitionMF_Vtbl {
             let this = (*this).get_impl();
             match IVdsDiskPartitionMF_Impl::FormatPartitionEx(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -664,7 +664,7 @@ impl IVdsDiskPartitionMF2_Vtbl {
             let this = (*this).get_impl();
             match IVdsDiskPartitionMF2_Impl::FormatPartitionEx2(this, core::mem::transmute_copy(&ulloffset), core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -697,7 +697,7 @@ impl IVdsDrive_Vtbl {
             let this = (*this).get_impl();
             match IVdsDrive_Impl::GetSubSystem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsubsystem, core::mem::transmute(ok__));
+                    ppsubsystem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -794,7 +794,7 @@ impl IVdsHwProvider_Vtbl {
             let this = (*this).get_impl();
             match IVdsHwProvider_Impl::QuerySubSystems(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -832,7 +832,7 @@ impl IVdsHwProviderPrivate_Vtbl {
             let this = (*this).get_impl();
             match IVdsHwProviderPrivate_Impl::QueryIfCreatedLun(this, core::mem::transmute(&pwszdevicepath), core::mem::transmute_copy(&pvdsluninformation)) {
                 Ok(ok__) => {
-                    core::ptr::write(plunid, core::mem::transmute(ok__));
+                    plunid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -877,7 +877,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
             let this = (*this).get_impl();
             match IVdsHwProviderStoragePools_Impl::QueryStoragePools(this, core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&ullremainingfreespace), core::mem::transmute_copy(&ppoolattributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -888,7 +888,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
             let this = (*this).get_impl();
             match IVdsHwProviderStoragePools_Impl::CreateLunInStoragePool(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute(&storagepoolid), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints2)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -899,7 +899,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
             let this = (*this).get_impl();
             match IVdsHwProviderStoragePools_Impl::QueryMaxLunCreateSizeInStoragePool(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&storagepoolid), core::mem::transmute_copy(&phints2)) {
                 Ok(ok__) => {
-                    core::ptr::write(pullmaxlunsize, core::mem::transmute(ok__));
+                    pullmaxlunsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -927,7 +927,7 @@ impl IVdsHwProviderType_Vtbl {
             let this = (*this).get_impl();
             match IVdsHwProviderType_Impl::GetProviderType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptype, core::mem::transmute(ok__));
+                    ptype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -950,7 +950,7 @@ impl IVdsHwProviderType2_Vtbl {
             let this = (*this).get_impl();
             match IVdsHwProviderType2_Impl::GetProviderType2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptype, core::mem::transmute(ok__));
+                    ptype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -981,7 +981,7 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiInitiatorAdapter_Impl::QueryInitiatorPortals(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -992,7 +992,7 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiInitiatorAdapter_Impl::LoginToTarget(this, core::mem::transmute_copy(&logintype), core::mem::transmute(&targetid), core::mem::transmute(&targetportalid), core::mem::transmute(&initiatorportalid), core::mem::transmute_copy(&ulloginflags), core::mem::transmute_copy(&bheaderdigest), core::mem::transmute_copy(&bdatadigest), core::mem::transmute_copy(&authtype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1003,7 +1003,7 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiInitiatorAdapter_Impl::LogoutFromTarget(this, core::mem::transmute(&targetid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1041,7 +1041,7 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiInitiatorPortal_Impl::GetInitiatorAdapter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppinitiatoradapter, core::mem::transmute(ok__));
+                    ppinitiatoradapter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1057,7 +1057,7 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiInitiatorPortal_Impl::GetIpsecSecurity(this, core::mem::transmute(&targetportalid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pullsecurityflags, core::mem::transmute(ok__));
+                    pullsecurityflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1103,7 +1103,7 @@ impl IVdsIscsiPortal_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiPortal_Impl::GetSubSystem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsubsystem, core::mem::transmute(ok__));
+                    ppsubsystem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1114,7 +1114,7 @@ impl IVdsIscsiPortal_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiPortal_Impl::QueryAssociatedPortalGroups(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1135,7 +1135,7 @@ impl IVdsIscsiPortal_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiPortal_Impl::GetIpsecSecurity(this, core::mem::transmute_copy(&pinitiatorportaladdress)) {
                 Ok(ok__) => {
-                    core::ptr::write(pullsecurityflags, core::mem::transmute(ok__));
+                    pullsecurityflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1182,7 +1182,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiPortalGroup_Impl::GetTarget(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pptarget, core::mem::transmute(ok__));
+                    pptarget.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1193,7 +1193,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiPortalGroup_Impl::QueryAssociatedPortals(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1204,7 +1204,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiPortalGroup_Impl::AddPortal(this, core::mem::transmute(&portalid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1215,7 +1215,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiPortalGroup_Impl::RemovePortal(this, core::mem::transmute(&portalid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1226,7 +1226,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiPortalGroup_Impl::Delete(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1288,7 +1288,7 @@ impl IVdsIscsiTarget_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiTarget_Impl::GetSubSystem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsubsystem, core::mem::transmute(ok__));
+                    ppsubsystem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1299,7 +1299,7 @@ impl IVdsIscsiTarget_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiTarget_Impl::QueryPortalGroups(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1310,7 +1310,7 @@ impl IVdsIscsiTarget_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiTarget_Impl::QueryAssociatedLuns(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1321,7 +1321,7 @@ impl IVdsIscsiTarget_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiTarget_Impl::CreatePortalGroup(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1332,7 +1332,7 @@ impl IVdsIscsiTarget_Vtbl {
             let this = (*this).get_impl();
             match IVdsIscsiTarget_Impl::Delete(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1408,7 +1408,7 @@ impl IVdsLun_Vtbl {
             let this = (*this).get_impl();
             match IVdsLun_Impl::GetSubSystem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsubsystem, core::mem::transmute(ok__));
+                    ppsubsystem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1424,7 +1424,7 @@ impl IVdsLun_Vtbl {
             let this = (*this).get_impl();
             match IVdsLun_Impl::QueryActiveControllers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1435,7 +1435,7 @@ impl IVdsLun_Vtbl {
             let this = (*this).get_impl();
             match IVdsLun_Impl::Extend(this, core::mem::transmute_copy(&ullnumberofbytestoadd), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1446,7 +1446,7 @@ impl IVdsLun_Vtbl {
             let this = (*this).get_impl();
             match IVdsLun_Impl::Shrink(this, core::mem::transmute_copy(&ullnumberofbytestoremove)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1457,7 +1457,7 @@ impl IVdsLun_Vtbl {
             let this = (*this).get_impl();
             match IVdsLun_Impl::QueryPlexes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1468,7 +1468,7 @@ impl IVdsLun_Vtbl {
             let this = (*this).get_impl();
             match IVdsLun_Impl::AddPlex(this, core::mem::transmute(&lunid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1479,7 +1479,7 @@ impl IVdsLun_Vtbl {
             let this = (*this).get_impl();
             match IVdsLun_Impl::RemovePlex(this, core::mem::transmute(&plexid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1490,7 +1490,7 @@ impl IVdsLun_Vtbl {
             let this = (*this).get_impl();
             match IVdsLun_Impl::Recover(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1531,7 +1531,7 @@ impl IVdsLun_Vtbl {
             let this = (*this).get_impl();
             match IVdsLun_Impl::QueryMaxLunExtendSize(this, core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives)) {
                 Ok(ok__) => {
-                    core::ptr::write(pullmaxbytestobeadded, core::mem::transmute(ok__));
+                    pullmaxbytestobeadded.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1606,7 +1606,7 @@ impl IVdsLunControllerPorts_Vtbl {
             let this = (*this).get_impl();
             match IVdsLunControllerPorts_Impl::QueryActiveControllerPorts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1639,7 +1639,7 @@ impl IVdsLunIscsi_Vtbl {
             let this = (*this).get_impl();
             match IVdsLunIscsi_Impl::QueryAssociatedTargets(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1684,7 +1684,7 @@ impl IVdsLunMpio_Vtbl {
             let this = (*this).get_impl();
             match IVdsLunMpio_Impl::GetSupportedLbPolicies(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pullbflags, core::mem::transmute(ok__));
+                    pullbflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1730,7 +1730,7 @@ impl IVdsLunNumber_Vtbl {
             let this = (*this).get_impl();
             match IVdsLunNumber_Impl::GetLunNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pullunnumber, core::mem::transmute(ok__));
+                    pullunnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1762,7 +1762,7 @@ impl IVdsLunPlex_Vtbl {
             let this = (*this).get_impl();
             match IVdsLunPlex_Impl::GetLun(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pplun, core::mem::transmute(ok__));
+                    pplun.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1849,7 +1849,7 @@ impl IVdsOpenVDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsOpenVDisk_Impl::Attach(this, core::mem::transmute(&pstringsecuritydescriptor), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags), core::mem::transmute_copy(&timeoutinms)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1870,7 +1870,7 @@ impl IVdsOpenVDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsOpenVDisk_Impl::Compact(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&reserved)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1881,7 +1881,7 @@ impl IVdsOpenVDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsOpenVDisk_Impl::Merge(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&mergedepth)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1892,7 +1892,7 @@ impl IVdsOpenVDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsOpenVDisk_Impl::Expand(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&newsize)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1937,7 +1937,7 @@ impl IVdsPack_Vtbl {
             let this = (*this).get_impl();
             match IVdsPack_Impl::GetProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprovider, core::mem::transmute(ok__));
+                    ppprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1948,7 +1948,7 @@ impl IVdsPack_Vtbl {
             let this = (*this).get_impl();
             match IVdsPack_Impl::QueryVolumes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1959,7 +1959,7 @@ impl IVdsPack_Vtbl {
             let this = (*this).get_impl();
             match IVdsPack_Impl::QueryDisks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1970,7 +1970,7 @@ impl IVdsPack_Vtbl {
             let this = (*this).get_impl();
             match IVdsPack_Impl::CreateVolume(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute_copy(&ulstripesize)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1991,7 +1991,7 @@ impl IVdsPack_Vtbl {
             let this = (*this).get_impl();
             match IVdsPack_Impl::ReplaceDisk(this, core::mem::transmute(&olddiskid), core::mem::transmute(&newdiskid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2007,7 +2007,7 @@ impl IVdsPack_Vtbl {
             let this = (*this).get_impl();
             match IVdsPack_Impl::Recover(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2042,7 +2042,7 @@ impl IVdsPack2_Vtbl {
             let this = (*this).get_impl();
             match IVdsPack2_Impl::CreateVolume2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks), core::mem::transmute_copy(&ulstripesize), core::mem::transmute_copy(&ulalign)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2084,7 +2084,7 @@ impl IVdsProviderPrivate_Vtbl {
             let this = (*this).get_impl();
             match IVdsProviderPrivate_Impl::GetObject(this, core::mem::transmute(&objectid), core::mem::transmute_copy(&r#type)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobjectunk, core::mem::transmute(ok__));
+                    ppobjectunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2122,7 +2122,7 @@ impl IVdsProviderSupport_Vtbl {
             let this = (*this).get_impl();
             match IVdsProviderSupport_Impl::GetVersionSupport(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ulversionsupport, core::mem::transmute(ok__));
+                    ulversionsupport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2198,7 +2198,7 @@ impl IVdsService_Vtbl {
             let this = (*this).get_impl();
             match IVdsService_Impl::GetProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pserviceprop, core::mem::transmute(ok__));
+                    pserviceprop.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2209,7 +2209,7 @@ impl IVdsService_Vtbl {
             let this = (*this).get_impl();
             match IVdsService_Impl::QueryProviders(this, core::mem::transmute_copy(&masks)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2220,7 +2220,7 @@ impl IVdsService_Vtbl {
             let this = (*this).get_impl();
             match IVdsService_Impl::QueryMaskedDisks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2231,7 +2231,7 @@ impl IVdsService_Vtbl {
             let this = (*this).get_impl();
             match IVdsService_Impl::QueryUnallocatedDisks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2242,7 +2242,7 @@ impl IVdsService_Vtbl {
             let this = (*this).get_impl();
             match IVdsService_Impl::GetObject(this, core::mem::transmute(&objectid), core::mem::transmute_copy(&r#type)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobjectunk, core::mem::transmute(ok__));
+                    ppobjectunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2278,7 +2278,7 @@ impl IVdsService_Vtbl {
             let this = (*this).get_impl();
             match IVdsService_Impl::Advise(this, windows_core::from_raw_borrowed(&psink)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcookie, core::mem::transmute(ok__));
+                    pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2340,7 +2340,7 @@ impl IVdsServiceHba_Vtbl {
             let this = (*this).get_impl();
             match IVdsServiceHba_Impl::QueryHbaPorts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2386,7 +2386,7 @@ impl IVdsServiceIscsi_Vtbl {
             let this = (*this).get_impl();
             match IVdsServiceIscsi_Impl::GetInitiatorName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwsziscsiname, core::mem::transmute(ok__));
+                    ppwsziscsiname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2397,7 +2397,7 @@ impl IVdsServiceIscsi_Vtbl {
             let this = (*this).get_impl();
             match IVdsServiceIscsi_Impl::QueryInitiatorAdapters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2454,7 +2454,7 @@ impl IVdsServiceLoader_Vtbl {
             let this = (*this).get_impl();
             match IVdsServiceLoader_Impl::LoadService(this, core::mem::transmute(&pwszmachinename)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservice, core::mem::transmute(ok__));
+                    ppservice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2478,7 +2478,7 @@ impl IVdsServiceSAN_Vtbl {
             let this = (*this).get_impl();
             match IVdsServiceSAN_Impl::GetSANPolicy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psanpolicy, core::mem::transmute(ok__));
+                    psanpolicy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2510,7 +2510,7 @@ impl IVdsServiceSw_Vtbl {
             let this = (*this).get_impl();
             match IVdsServiceSw_Impl::GetDiskObject(this, core::mem::transmute(&pwszdeviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdiskunk, core::mem::transmute(ok__));
+                    ppdiskunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2534,7 +2534,7 @@ impl IVdsServiceUninstallDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsServiceUninstallDisk_Impl::GetDiskIdFromLunInfo(this, core::mem::transmute_copy(&pluninfo)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdiskid, core::mem::transmute(ok__));
+                    pdiskid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2571,7 +2571,7 @@ impl IVdsStoragePool_Vtbl {
             let this = (*this).get_impl();
             match IVdsStoragePool_Impl::GetProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprovider, core::mem::transmute(ok__));
+                    ppprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2597,7 +2597,7 @@ impl IVdsStoragePool_Vtbl {
             let this = (*this).get_impl();
             match IVdsStoragePool_Impl::QueryAllocatedLuns(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2608,7 +2608,7 @@ impl IVdsStoragePool_Vtbl {
             let this = (*this).get_impl();
             match IVdsStoragePool_Impl::QueryAllocatedStoragePools(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2655,7 +2655,7 @@ impl IVdsSubSystem_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystem_Impl::GetProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprovider, core::mem::transmute(ok__));
+                    ppprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2666,7 +2666,7 @@ impl IVdsSubSystem_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystem_Impl::QueryControllers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2677,7 +2677,7 @@ impl IVdsSubSystem_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystem_Impl::QueryLuns(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2688,7 +2688,7 @@ impl IVdsSubSystem_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystem_Impl::QueryDrives(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2699,7 +2699,7 @@ impl IVdsSubSystem_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystem_Impl::GetDrive(this, core::mem::transmute_copy(&sbusnumber), core::mem::transmute_copy(&sslotnumber)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdrive, core::mem::transmute(ok__));
+                    ppdrive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2720,7 +2720,7 @@ impl IVdsSubSystem_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystem_Impl::CreateLun(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2741,7 +2741,7 @@ impl IVdsSubSystem_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystem_Impl::QueryMaxLunCreateSize(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute_copy(&phints)) {
                 Ok(ok__) => {
-                    core::ptr::write(pullmaxlunsize, core::mem::transmute(ok__));
+                    pullmaxlunsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2786,7 +2786,7 @@ impl IVdsSubSystem2_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystem2_Impl::GetDrive2(this, core::mem::transmute_copy(&sbusnumber), core::mem::transmute_copy(&sslotnumber), core::mem::transmute_copy(&ulenclosurenumber)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdrive, core::mem::transmute(ok__));
+                    ppdrive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2797,7 +2797,7 @@ impl IVdsSubSystem2_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystem2_Impl::CreateLun2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&ullsizeinbytes), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute(&pwszunmaskinglist), core::mem::transmute_copy(&phints2)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2808,7 +2808,7 @@ impl IVdsSubSystem2_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystem2_Impl::QueryMaxLunCreateSize2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute_copy(&phints2)) {
                 Ok(ok__) => {
-                    core::ptr::write(pullmaxlunsize, core::mem::transmute(ok__));
+                    pullmaxlunsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2838,7 +2838,7 @@ impl IVdsSubSystemImportTarget_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystemImportTarget_Impl::GetImportTarget(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwsziscsiname, core::mem::transmute(ok__));
+                    ppwsziscsiname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2870,7 +2870,7 @@ impl IVdsSubSystemInterconnect_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystemInterconnect_Impl::GetSupportedInterconnects(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulsupportedinterconnectsflag, core::mem::transmute(ok__));
+                    pulsupportedinterconnectsflag.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2896,7 +2896,7 @@ impl IVdsSubSystemIscsi_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystemIscsi_Impl::QueryTargets(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2907,7 +2907,7 @@ impl IVdsSubSystemIscsi_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystemIscsi_Impl::QueryPortals(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2918,7 +2918,7 @@ impl IVdsSubSystemIscsi_Vtbl {
             let this = (*this).get_impl();
             match IVdsSubSystemIscsi_Impl::CreateTarget(this, core::mem::transmute(&pwsziscsiname), core::mem::transmute(&pwszfriendlyname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2970,7 +2970,7 @@ impl IVdsSwProvider_Vtbl {
             let this = (*this).get_impl();
             match IVdsSwProvider_Impl::QueryPacks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2981,7 +2981,7 @@ impl IVdsSwProvider_Vtbl {
             let this = (*this).get_impl();
             match IVdsSwProvider_Impl::CreatePack(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppack, core::mem::transmute(ok__));
+                    pppack.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3014,7 +3014,7 @@ impl IVdsVDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsVDisk_Impl::Open(this, core::mem::transmute_copy(&accessmask), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&readwritedepth)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppopenvdisk, core::mem::transmute(ok__));
+                    ppopenvdisk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3030,7 +3030,7 @@ impl IVdsVDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsVDisk_Impl::GetHostVolume(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvolume, core::mem::transmute(ok__));
+                    ppvolume.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3041,7 +3041,7 @@ impl IVdsVDisk_Vtbl {
             let this = (*this).get_impl();
             match IVdsVDisk_Impl::GetDeviceName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdevicename, core::mem::transmute(ok__));
+                    ppdevicename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3077,7 +3077,7 @@ impl IVdsVdProvider_Vtbl {
             let this = (*this).get_impl();
             match IVdsVdProvider_Impl::QueryVDisks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3098,7 +3098,7 @@ impl IVdsVdProvider_Vtbl {
             let this = (*this).get_impl();
             match IVdsVdProvider_Impl::GetDiskFromVDisk(this, windows_core::from_raw_borrowed(&pvdisk)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdisk, core::mem::transmute(ok__));
+                    ppdisk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3109,7 +3109,7 @@ impl IVdsVdProvider_Vtbl {
             let this = (*this).get_impl();
             match IVdsVdProvider_Impl::GetVDiskFromDisk(this, windows_core::from_raw_borrowed(&pdisk)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvdisk, core::mem::transmute(ok__));
+                    ppvdisk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3154,7 +3154,7 @@ impl IVdsVolume_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolume_Impl::GetPack(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppack, core::mem::transmute(ok__));
+                    pppack.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3165,7 +3165,7 @@ impl IVdsVolume_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolume_Impl::QueryPlexes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3176,7 +3176,7 @@ impl IVdsVolume_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolume_Impl::Extend(this, core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3187,7 +3187,7 @@ impl IVdsVolume_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolume_Impl::Shrink(this, core::mem::transmute_copy(&ullnumberofbytestoremove)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3198,7 +3198,7 @@ impl IVdsVolume_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolume_Impl::AddPlex(this, core::mem::transmute(&volumeid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3209,7 +3209,7 @@ impl IVdsVolume_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolume_Impl::BreakPlex(this, core::mem::transmute(&plexid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3220,7 +3220,7 @@ impl IVdsVolume_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolume_Impl::RemovePlex(this, core::mem::transmute(&plexid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3302,7 +3302,7 @@ impl IVdsVolumeMF_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolumeMF_Impl::Format(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&dwunitallocationsize), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3379,7 +3379,7 @@ impl IVdsVolumeMF2_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolumeMF2_Impl::GetFileSystemTypeName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwszfilesystemtypename, core::mem::transmute(ok__));
+                    ppwszfilesystemtypename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3395,7 +3395,7 @@ impl IVdsVolumeMF2_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolumeMF2_Impl::FormatEx(this, core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&bquickformat), core::mem::transmute_copy(&benablecompression)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3430,7 +3430,7 @@ impl IVdsVolumeMF3_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolumeMF3_Impl::FormatEx2(this, core::mem::transmute(&pwszfilesystemtypename), core::mem::transmute_copy(&usfilesystemrevision), core::mem::transmute_copy(&uldesiredunitallocationsize), core::mem::transmute(&pwszlabel), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3488,7 +3488,7 @@ impl IVdsVolumePlex_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolumePlex_Impl::GetVolume(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvolume, core::mem::transmute(ok__));
+                    ppvolume.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3504,7 +3504,7 @@ impl IVdsVolumePlex_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolumePlex_Impl::Repair(this, core::mem::transmute_copy(&pinputdiskarray), core::mem::transmute_copy(&lnumberofdisks)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3534,7 +3534,7 @@ impl IVdsVolumeShrink_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolumeShrink_Impl::QueryMaxReclaimableBytes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pullmaxnumberofreclaimablebytes, core::mem::transmute(ok__));
+                    pullmaxnumberofreclaimablebytes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3545,7 +3545,7 @@ impl IVdsVolumeShrink_Vtbl {
             let this = (*this).get_impl();
             match IVdsVolumeShrink_Impl::Shrink(this, core::mem::transmute_copy(&ulldesirednumberofreclaimablebytes), core::mem::transmute_copy(&ullminnumberofreclaimablebytes)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

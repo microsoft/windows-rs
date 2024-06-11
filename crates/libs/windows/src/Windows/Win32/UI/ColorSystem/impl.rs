@@ -24,7 +24,7 @@ impl IDeviceModelPlugIn_Vtbl {
             let this = (*this).get_impl();
             match IDeviceModelPlugIn_Impl::GetNumChannels(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnumchannels, core::mem::transmute(ok__));
+                    pnumchannels.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -40,7 +40,7 @@ impl IDeviceModelPlugIn_Vtbl {
             let this = (*this).get_impl();
             match IDeviceModelPlugIn_Impl::ColorimetricToDeviceColors(this, core::mem::transmute_copy(&ccolors), core::mem::transmute_copy(&cchannels), core::mem::transmute_copy(&pxyzcolors)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdevicevalues, core::mem::transmute(ok__));
+                    pdevicevalues.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -51,7 +51,7 @@ impl IDeviceModelPlugIn_Vtbl {
             let this = (*this).get_impl();
             match IDeviceModelPlugIn_Impl::ColorimetricToDeviceColorsWithBlack(this, core::mem::transmute_copy(&ccolors), core::mem::transmute_copy(&cchannels), core::mem::transmute_copy(&pxyzcolors), core::mem::transmute_copy(&pblackinformation)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdevicevalues, core::mem::transmute(ok__));
+                    pdevicevalues.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -82,7 +82,7 @@ impl IDeviceModelPlugIn_Vtbl {
             let this = (*this).get_impl();
             match IDeviceModelPlugIn_Impl::GetNeutralAxisSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pccolors, core::mem::transmute(ok__));
+                    pccolors.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

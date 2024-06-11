@@ -18,7 +18,7 @@ impl IDialBranding_Vtbl {
             let this = (*this).get_impl();
             match IDialBranding_Impl::GetBitmap(this, core::mem::transmute_copy(&dwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(phbitmap, core::mem::transmute(ok__));
+                    phbitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -76,7 +76,7 @@ impl IDialEngine_Vtbl {
             let this = (*this).get_impl();
             match IDialEngine_Impl::GetConnectedState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwstate, core::mem::transmute(ok__));
+                    pdwstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -87,7 +87,7 @@ impl IDialEngine_Vtbl {
             let this = (*this).get_impl();
             match IDialEngine_Impl::GetConnectHandle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwhandle, core::mem::transmute(ok__));
+                    pdwhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

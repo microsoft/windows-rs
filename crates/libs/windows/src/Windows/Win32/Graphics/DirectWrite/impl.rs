@@ -76,7 +76,7 @@ impl IDWriteBitmapRenderTarget_Vtbl {
             let this = (*this).get_impl();
             match IDWriteBitmapRenderTarget_Impl::GetSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(size, core::mem::transmute(ok__));
+                    size.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -147,7 +147,7 @@ impl IDWriteBitmapRenderTarget2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteBitmapRenderTarget2_Impl::GetBitmapData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmapdata, core::mem::transmute(ok__));
+                    bitmapdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -208,7 +208,7 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IDWriteColorGlyphRunEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasrun, core::mem::transmute(ok__));
+                    hasrun.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -219,7 +219,7 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IDWriteColorGlyphRunEnumerator_Impl::GetCurrentRun(this) {
                 Ok(ok__) => {
-                    core::ptr::write(colorglyphrun, core::mem::transmute(ok__));
+                    colorglyphrun.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -246,7 +246,7 @@ impl IDWriteColorGlyphRunEnumerator1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteColorGlyphRunEnumerator1_Impl::GetCurrentRun(this) {
                 Ok(ok__) => {
-                    core::ptr::write(colorglyphrun, core::mem::transmute(ok__));
+                    colorglyphrun.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -297,7 +297,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateCustomFontCollection(this, windows_core::from_raw_borrowed(&collectionloader), core::mem::transmute_copy(&collectionkey), core::mem::transmute_copy(&collectionkeysize)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontcollection, core::mem::transmute(ok__));
+                    fontcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -318,7 +318,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateFontFileReference(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&lastwritetime)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfile, core::mem::transmute(ok__));
+                    fontfile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -329,7 +329,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateCustomFontFileReference(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize), windows_core::from_raw_borrowed(&fontfileloader)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfile, core::mem::transmute(ok__));
+                    fontfile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -340,7 +340,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateFontFace(this, core::mem::transmute_copy(&fontfacetype), core::mem::transmute_copy(&numberoffiles), core::mem::transmute_copy(&fontfiles), core::mem::transmute_copy(&faceindex), core::mem::transmute_copy(&fontfacesimulationflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontface, core::mem::transmute(ok__));
+                    fontface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -351,7 +351,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateRenderingParams(this) {
                 Ok(ok__) => {
-                    core::ptr::write(renderingparams, core::mem::transmute(ok__));
+                    renderingparams.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -362,7 +362,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateMonitorRenderingParams(this, core::mem::transmute_copy(&monitor)) {
                 Ok(ok__) => {
-                    core::ptr::write(renderingparams, core::mem::transmute(ok__));
+                    renderingparams.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -373,7 +373,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateCustomRenderingParams(this, core::mem::transmute_copy(&gamma), core::mem::transmute_copy(&enhancedcontrast), core::mem::transmute_copy(&cleartypelevel), core::mem::transmute_copy(&pixelgeometry), core::mem::transmute_copy(&renderingmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(renderingparams, core::mem::transmute(ok__));
+                    renderingparams.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -394,7 +394,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateTextFormat(this, core::mem::transmute(&fontfamilyname), windows_core::from_raw_borrowed(&fontcollection), core::mem::transmute_copy(&fontweight), core::mem::transmute_copy(&fontstyle), core::mem::transmute_copy(&fontstretch), core::mem::transmute_copy(&fontsize), core::mem::transmute(&localename)) {
                 Ok(ok__) => {
-                    core::ptr::write(textformat, core::mem::transmute(ok__));
+                    textformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -405,7 +405,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateTypography(this) {
                 Ok(ok__) => {
-                    core::ptr::write(typography, core::mem::transmute(ok__));
+                    typography.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -416,7 +416,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::GetGdiInterop(this) {
                 Ok(ok__) => {
-                    core::ptr::write(gdiinterop, core::mem::transmute(ok__));
+                    gdiinterop.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -427,7 +427,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateTextLayout(this, core::mem::transmute(&string), core::mem::transmute_copy(&stringlength), windows_core::from_raw_borrowed(&textformat), core::mem::transmute_copy(&maxwidth), core::mem::transmute_copy(&maxheight)) {
                 Ok(ok__) => {
-                    core::ptr::write(textlayout, core::mem::transmute(ok__));
+                    textlayout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -438,7 +438,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateGdiCompatibleTextLayout(this, core::mem::transmute(&string), core::mem::transmute_copy(&stringlength), windows_core::from_raw_borrowed(&textformat), core::mem::transmute_copy(&layoutwidth), core::mem::transmute_copy(&layoutheight), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&usegdinatural)) {
                 Ok(ok__) => {
-                    core::ptr::write(textlayout, core::mem::transmute(ok__));
+                    textlayout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -449,7 +449,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateEllipsisTrimmingSign(this, windows_core::from_raw_borrowed(&textformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(trimmingsign, core::mem::transmute(ok__));
+                    trimmingsign.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -460,7 +460,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateTextAnalyzer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(textanalyzer, core::mem::transmute(ok__));
+                    textanalyzer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -471,7 +471,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateNumberSubstitution(this, core::mem::transmute_copy(&substitutionmethod), core::mem::transmute(&localename), core::mem::transmute_copy(&ignoreuseroverride)) {
                 Ok(ok__) => {
-                    core::ptr::write(numbersubstitution, core::mem::transmute(ok__));
+                    numbersubstitution.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -482,7 +482,7 @@ impl IDWriteFactory_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory_Impl::CreateGlyphRunAnalysis(this, core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&renderingmode), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy)) {
                 Ok(ok__) => {
-                    core::ptr::write(glyphrunanalysis, core::mem::transmute(ok__));
+                    glyphrunanalysis.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -537,7 +537,7 @@ impl IDWriteFactory1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory1_Impl::CreateCustomRenderingParams(this, core::mem::transmute_copy(&gamma), core::mem::transmute_copy(&enhancedcontrast), core::mem::transmute_copy(&enhancedcontrastgrayscale), core::mem::transmute_copy(&cleartypelevel), core::mem::transmute_copy(&pixelgeometry), core::mem::transmute_copy(&renderingmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(renderingparams, core::mem::transmute(ok__));
+                    renderingparams.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -571,7 +571,7 @@ impl IDWriteFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory2_Impl::GetSystemFontFallback(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfallback, core::mem::transmute(ok__));
+                    fontfallback.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -582,7 +582,7 @@ impl IDWriteFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory2_Impl::CreateFontFallbackBuilder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfallbackbuilder, core::mem::transmute(ok__));
+                    fontfallbackbuilder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -593,7 +593,7 @@ impl IDWriteFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory2_Impl::TranslateColorGlyphRun(this, core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&worldtodevicetransform), core::mem::transmute_copy(&colorpaletteindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorlayers, core::mem::transmute(ok__));
+                    colorlayers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -604,7 +604,7 @@ impl IDWriteFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory2_Impl::CreateCustomRenderingParams(this, core::mem::transmute_copy(&gamma), core::mem::transmute_copy(&enhancedcontrast), core::mem::transmute_copy(&grayscaleenhancedcontrast), core::mem::transmute_copy(&cleartypelevel), core::mem::transmute_copy(&pixelgeometry), core::mem::transmute_copy(&renderingmode), core::mem::transmute_copy(&gridfitmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(renderingparams, core::mem::transmute(ok__));
+                    renderingparams.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -615,7 +615,7 @@ impl IDWriteFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory2_Impl::CreateGlyphRunAnalysis(this, core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&renderingmode), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&gridfitmode), core::mem::transmute_copy(&antialiasmode), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy)) {
                 Ok(ok__) => {
-                    core::ptr::write(glyphrunanalysis, core::mem::transmute(ok__));
+                    glyphrunanalysis.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -656,7 +656,7 @@ impl IDWriteFactory3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory3_Impl::CreateGlyphRunAnalysis(this, core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&renderingmode), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&gridfitmode), core::mem::transmute_copy(&antialiasmode), core::mem::transmute_copy(&baselineoriginx), core::mem::transmute_copy(&baselineoriginy)) {
                 Ok(ok__) => {
-                    core::ptr::write(glyphrunanalysis, core::mem::transmute(ok__));
+                    glyphrunanalysis.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -667,7 +667,7 @@ impl IDWriteFactory3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory3_Impl::CreateCustomRenderingParams(this, core::mem::transmute_copy(&gamma), core::mem::transmute_copy(&enhancedcontrast), core::mem::transmute_copy(&grayscaleenhancedcontrast), core::mem::transmute_copy(&cleartypelevel), core::mem::transmute_copy(&pixelgeometry), core::mem::transmute_copy(&renderingmode), core::mem::transmute_copy(&gridfitmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(renderingparams, core::mem::transmute(ok__));
+                    renderingparams.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -678,7 +678,7 @@ impl IDWriteFactory3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory3_Impl::CreateFontFaceReference(this, windows_core::from_raw_borrowed(&fontfile), core::mem::transmute_copy(&faceindex), core::mem::transmute_copy(&fontsimulations)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfacereference, core::mem::transmute(ok__));
+                    fontfacereference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -689,7 +689,7 @@ impl IDWriteFactory3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory3_Impl::CreateFontFaceReference2(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&lastwritetime), core::mem::transmute_copy(&faceindex), core::mem::transmute_copy(&fontsimulations)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfacereference, core::mem::transmute(ok__));
+                    fontfacereference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -700,7 +700,7 @@ impl IDWriteFactory3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory3_Impl::GetSystemFontSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontset, core::mem::transmute(ok__));
+                    fontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -711,7 +711,7 @@ impl IDWriteFactory3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory3_Impl::CreateFontSetBuilder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontsetbuilder, core::mem::transmute(ok__));
+                    fontsetbuilder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -722,7 +722,7 @@ impl IDWriteFactory3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory3_Impl::CreateFontCollectionFromFontSet(this, windows_core::from_raw_borrowed(&fontset)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontcollection, core::mem::transmute(ok__));
+                    fontcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -738,7 +738,7 @@ impl IDWriteFactory3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory3_Impl::GetFontDownloadQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontdownloadqueue, core::mem::transmute(ok__));
+                    fontdownloadqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -777,7 +777,7 @@ impl IDWriteFactory4_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory4_Impl::TranslateColorGlyphRun(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), core::mem::transmute_copy(&desiredglyphimageformats), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&worldanddpitransform), core::mem::transmute_copy(&colorpaletteindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorlayers, core::mem::transmute(ok__));
+                    colorlayers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -788,7 +788,7 @@ impl IDWriteFactory4_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory4_Impl::ComputeGlyphOrigins(this, core::mem::transmute_copy(&glyphrun), core::mem::transmute(&baselineorigin)) {
                 Ok(ok__) => {
-                    core::ptr::write(glyphorigins, core::mem::transmute(ok__));
+                    glyphorigins.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -799,7 +799,7 @@ impl IDWriteFactory4_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory4_Impl::ComputeGlyphOrigins2(this, core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&measuringmode), core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&worldanddpitransform)) {
                 Ok(ok__) => {
-                    core::ptr::write(glyphorigins, core::mem::transmute(ok__));
+                    glyphorigins.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -834,7 +834,7 @@ impl IDWriteFactory5_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory5_Impl::CreateFontSetBuilder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontsetbuilder, core::mem::transmute(ok__));
+                    fontsetbuilder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -845,7 +845,7 @@ impl IDWriteFactory5_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory5_Impl::CreateInMemoryFontFileLoader(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newloader, core::mem::transmute(ok__));
+                    newloader.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -856,7 +856,7 @@ impl IDWriteFactory5_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory5_Impl::CreateHttpFontFileLoader(this, core::mem::transmute(&referrerurl), core::mem::transmute(&extraheaders)) {
                 Ok(ok__) => {
-                    core::ptr::write(newloader, core::mem::transmute(ok__));
+                    newloader.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -872,7 +872,7 @@ impl IDWriteFactory5_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory5_Impl::UnpackFontFile(this, core::mem::transmute_copy(&containertype), core::mem::transmute_copy(&filedata), core::mem::transmute_copy(&filedatasize)) {
                 Ok(ok__) => {
-                    core::ptr::write(unpackedfontstream, core::mem::transmute(ok__));
+                    unpackedfontstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -911,7 +911,7 @@ impl IDWriteFactory6_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory6_Impl::CreateFontFaceReference(this, windows_core::from_raw_borrowed(&fontfile), core::mem::transmute_copy(&faceindex), core::mem::transmute_copy(&fontsimulations), core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfacereference, core::mem::transmute(ok__));
+                    fontfacereference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -922,7 +922,7 @@ impl IDWriteFactory6_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory6_Impl::CreateFontResource(this, windows_core::from_raw_borrowed(&fontfile), core::mem::transmute_copy(&faceindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontresource, core::mem::transmute(ok__));
+                    fontresource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -933,7 +933,7 @@ impl IDWriteFactory6_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory6_Impl::GetSystemFontSet(this, core::mem::transmute_copy(&includedownloadablefonts)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontset, core::mem::transmute(ok__));
+                    fontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -944,7 +944,7 @@ impl IDWriteFactory6_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory6_Impl::GetSystemFontCollection(this, core::mem::transmute_copy(&includedownloadablefonts), core::mem::transmute_copy(&fontfamilymodel)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontcollection, core::mem::transmute(ok__));
+                    fontcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -955,7 +955,7 @@ impl IDWriteFactory6_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory6_Impl::CreateFontCollectionFromFontSet(this, windows_core::from_raw_borrowed(&fontset), core::mem::transmute_copy(&fontfamilymodel)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontcollection, core::mem::transmute(ok__));
+                    fontcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -966,7 +966,7 @@ impl IDWriteFactory6_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory6_Impl::CreateFontSetBuilder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontsetbuilder, core::mem::transmute(ok__));
+                    fontsetbuilder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -977,7 +977,7 @@ impl IDWriteFactory6_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory6_Impl::CreateTextFormat(this, core::mem::transmute(&fontfamilyname), windows_core::from_raw_borrowed(&fontcollection), core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount), core::mem::transmute_copy(&fontsize), core::mem::transmute(&localename)) {
                 Ok(ok__) => {
-                    core::ptr::write(textformat, core::mem::transmute(ok__));
+                    textformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1013,7 +1013,7 @@ impl IDWriteFactory7_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory7_Impl::GetSystemFontSet(this, core::mem::transmute_copy(&includedownloadablefonts)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontset, core::mem::transmute(ok__));
+                    fontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1024,7 +1024,7 @@ impl IDWriteFactory7_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory7_Impl::GetSystemFontCollection(this, core::mem::transmute_copy(&includedownloadablefonts), core::mem::transmute_copy(&fontfamilymodel)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontcollection, core::mem::transmute(ok__));
+                    fontcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1054,7 +1054,7 @@ impl IDWriteFactory8_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFactory8_Impl::TranslateColorGlyphRun(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), core::mem::transmute_copy(&desiredglyphimageformats), core::mem::transmute_copy(&paintfeaturelevel), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&worldanddpitransform), core::mem::transmute_copy(&colorpaletteindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorenumerator, core::mem::transmute(ok__));
+                    colorenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1087,7 +1087,7 @@ impl IDWriteFont_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFont_Impl::GetFontFamily(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfamily, core::mem::transmute(ok__));
+                    fontfamily.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1118,7 +1118,7 @@ impl IDWriteFont_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFont_Impl::GetFaceNames(this) {
                 Ok(ok__) => {
-                    core::ptr::write(names, core::mem::transmute(ok__));
+                    names.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1144,7 +1144,7 @@ impl IDWriteFont_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFont_Impl::HasCharacter(this, core::mem::transmute_copy(&unicodevalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(exists, core::mem::transmute(ok__));
+                    exists.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1155,7 +1155,7 @@ impl IDWriteFont_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFont_Impl::CreateFontFace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontface, core::mem::transmute(ok__));
+                    fontface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1253,7 +1253,7 @@ impl IDWriteFont3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFont3_Impl::CreateFontFace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontface, core::mem::transmute(ok__));
+                    fontface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1269,7 +1269,7 @@ impl IDWriteFont3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFont3_Impl::GetFontFaceReference(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfacereference, core::mem::transmute(ok__));
+                    fontfacereference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1317,7 +1317,7 @@ impl IDWriteFontCollection_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontCollection_Impl::GetFontFamily(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfamily, core::mem::transmute(ok__));
+                    fontfamily.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1333,7 +1333,7 @@ impl IDWriteFontCollection_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontCollection_Impl::GetFontFromFontFace(this, windows_core::from_raw_borrowed(&fontface)) {
                 Ok(ok__) => {
-                    core::ptr::write(font, core::mem::transmute(ok__));
+                    font.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1363,7 +1363,7 @@ impl IDWriteFontCollection1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontCollection1_Impl::GetFontSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontset, core::mem::transmute(ok__));
+                    fontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1374,7 +1374,7 @@ impl IDWriteFontCollection1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontCollection1_Impl::GetFontFamily(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfamily, core::mem::transmute(ok__));
+                    fontfamily.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1404,7 +1404,7 @@ impl IDWriteFontCollection2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontCollection2_Impl::GetFontFamily(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfamily, core::mem::transmute(ok__));
+                    fontfamily.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1415,7 +1415,7 @@ impl IDWriteFontCollection2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontCollection2_Impl::GetMatchingFonts(this, core::mem::transmute(&familyname), core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontlist, core::mem::transmute(ok__));
+                    fontlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1431,7 +1431,7 @@ impl IDWriteFontCollection2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontCollection2_Impl::GetFontSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontset, core::mem::transmute(ok__));
+                    fontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1477,7 +1477,7 @@ impl IDWriteFontCollectionLoader_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontCollectionLoader_Impl::CreateEnumeratorFromKey(this, windows_core::from_raw_borrowed(&factory), core::mem::transmute_copy(&collectionkey), core::mem::transmute_copy(&collectionkeysize)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfileenumerator, core::mem::transmute(ok__));
+                    fontfileenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1522,7 +1522,7 @@ impl IDWriteFontDownloadQueue_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontDownloadQueue_Impl::AddListener(this, windows_core::from_raw_borrowed(&listener)) {
                 Ok(ok__) => {
-                    core::ptr::write(token, core::mem::transmute(ok__));
+                    token.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1655,7 +1655,7 @@ impl IDWriteFontFace_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&emsize), core::mem::transmute_copy(&pixelsperdip), core::mem::transmute_copy(&measuringmode), windows_core::from_raw_borrowed(&renderingparams)) {
                 Ok(ok__) => {
-                    core::ptr::write(renderingmode, core::mem::transmute(ok__));
+                    renderingmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1764,7 +1764,7 @@ impl IDWriteFontFace1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace1_Impl::GetRecommendedRenderingMode(this, core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&transform), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&outlinethreshold), core::mem::transmute_copy(&measuringmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(renderingmode, core::mem::transmute(ok__));
+                    renderingmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1878,7 +1878,7 @@ impl IDWriteFontFace3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace3_Impl::GetFontFaceReference(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfacereference, core::mem::transmute(ok__));
+                    fontfacereference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1909,7 +1909,7 @@ impl IDWriteFontFace3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace3_Impl::GetFamilyNames(this) {
                 Ok(ok__) => {
-                    core::ptr::write(names, core::mem::transmute(ok__));
+                    names.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1920,7 +1920,7 @@ impl IDWriteFontFace3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace3_Impl::GetFaceNames(this) {
                 Ok(ok__) => {
-                    core::ptr::write(names, core::mem::transmute(ok__));
+                    names.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1956,7 +1956,7 @@ impl IDWriteFontFace3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace3_Impl::AreCharactersLocal(this, core::mem::transmute(&characters), core::mem::transmute_copy(&charactercount), core::mem::transmute_copy(&enqueueifnotlocal)) {
                 Ok(ok__) => {
-                    core::ptr::write(islocal, core::mem::transmute(ok__));
+                    islocal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1967,7 +1967,7 @@ impl IDWriteFontFace3_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace3_Impl::AreGlyphsLocal(this, core::mem::transmute_copy(&glyphindices), core::mem::transmute_copy(&glyphcount), core::mem::transmute_copy(&enqueueifnotlocal)) {
                 Ok(ok__) => {
-                    core::ptr::write(islocal, core::mem::transmute(ok__));
+                    islocal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2012,7 +2012,7 @@ impl IDWriteFontFace4_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace4_Impl::GetGlyphImageFormats(this, core::mem::transmute_copy(&glyphid), core::mem::transmute_copy(&pixelsperemfirst), core::mem::transmute_copy(&pixelsperemlast)) {
                 Ok(ok__) => {
-                    core::ptr::write(glyphimageformats, core::mem::transmute(ok__));
+                    glyphimageformats.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2078,7 +2078,7 @@ impl IDWriteFontFace5_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace5_Impl::GetFontResource(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontresource, core::mem::transmute(ok__));
+                    fontresource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2117,7 +2117,7 @@ impl IDWriteFontFace6_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace6_Impl::GetFamilyNames(this, core::mem::transmute_copy(&fontfamilymodel)) {
                 Ok(ok__) => {
-                    core::ptr::write(names, core::mem::transmute(ok__));
+                    names.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2128,7 +2128,7 @@ impl IDWriteFontFace6_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace6_Impl::GetFaceNames(this, core::mem::transmute_copy(&fontfamilymodel)) {
                 Ok(ok__) => {
-                    core::ptr::write(names, core::mem::transmute(ok__));
+                    names.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2164,7 +2164,7 @@ impl IDWriteFontFace7_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFace7_Impl::CreatePaintReader(this, core::mem::transmute_copy(&glyphimageformat), core::mem::transmute_copy(&paintfeaturelevel)) {
                 Ok(ok__) => {
-                    core::ptr::write(paintreader, core::mem::transmute(ok__));
+                    paintreader.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2204,7 +2204,7 @@ impl IDWriteFontFaceReference_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFaceReference_Impl::CreateFontFace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontface, core::mem::transmute(ok__));
+                    fontface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2215,7 +2215,7 @@ impl IDWriteFontFaceReference_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFaceReference_Impl::CreateFontFaceWithSimulations(this, core::mem::transmute_copy(&fontfacesimulationflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontface, core::mem::transmute(ok__));
+                    fontface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2241,7 +2241,7 @@ impl IDWriteFontFaceReference_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFaceReference_Impl::GetFontFile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfile, core::mem::transmute(ok__));
+                    fontfile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2262,7 +2262,7 @@ impl IDWriteFontFaceReference_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFaceReference_Impl::GetFileTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(lastwritetime, core::mem::transmute(ok__));
+                    lastwritetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2328,7 +2328,7 @@ impl IDWriteFontFaceReference1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFaceReference1_Impl::CreateFontFace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontface, core::mem::transmute(ok__));
+                    fontface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2412,7 +2412,7 @@ impl IDWriteFontFallbackBuilder_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFallbackBuilder_Impl::CreateFontFallback(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfallback, core::mem::transmute(ok__));
+                    fontfallback.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2442,7 +2442,7 @@ impl IDWriteFontFamily_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFamily_Impl::GetFamilyNames(this) {
                 Ok(ok__) => {
-                    core::ptr::write(names, core::mem::transmute(ok__));
+                    names.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2453,7 +2453,7 @@ impl IDWriteFontFamily_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFamily_Impl::GetFirstMatchingFont(this, core::mem::transmute_copy(&weight), core::mem::transmute_copy(&stretch), core::mem::transmute_copy(&style)) {
                 Ok(ok__) => {
-                    core::ptr::write(matchingfont, core::mem::transmute(ok__));
+                    matchingfont.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2464,7 +2464,7 @@ impl IDWriteFontFamily_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFamily_Impl::GetMatchingFonts(this, core::mem::transmute_copy(&weight), core::mem::transmute_copy(&stretch), core::mem::transmute_copy(&style)) {
                 Ok(ok__) => {
-                    core::ptr::write(matchingfonts, core::mem::transmute(ok__));
+                    matchingfonts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2499,7 +2499,7 @@ impl IDWriteFontFamily1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFamily1_Impl::GetFont(this, core::mem::transmute_copy(&listindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(font, core::mem::transmute(ok__));
+                    font.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2510,7 +2510,7 @@ impl IDWriteFontFamily1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFamily1_Impl::GetFontFaceReference(this, core::mem::transmute_copy(&listindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfacereference, core::mem::transmute(ok__));
+                    fontfacereference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2539,7 +2539,7 @@ impl IDWriteFontFamily2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFamily2_Impl::GetMatchingFonts(this, core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount)) {
                 Ok(ok__) => {
-                    core::ptr::write(matchingfonts, core::mem::transmute(ok__));
+                    matchingfonts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2550,7 +2550,7 @@ impl IDWriteFontFamily2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFamily2_Impl::GetFontSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontset, core::mem::transmute(ok__));
+                    fontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2584,7 +2584,7 @@ impl IDWriteFontFile_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFile_Impl::GetLoader(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfileloader, core::mem::transmute(ok__));
+                    fontfileloader.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2618,7 +2618,7 @@ impl IDWriteFontFileEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFileEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hascurrentfile, core::mem::transmute(ok__));
+                    hascurrentfile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2629,7 +2629,7 @@ impl IDWriteFontFileEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFileEnumerator_Impl::GetCurrentFontFile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfile, core::mem::transmute(ok__));
+                    fontfile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2656,7 +2656,7 @@ impl IDWriteFontFileLoader_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFileLoader_Impl::CreateStreamFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfilestream, core::mem::transmute(ok__));
+                    fontfilestream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2692,7 +2692,7 @@ impl IDWriteFontFileStream_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFileStream_Impl::GetFileSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(filesize, core::mem::transmute(ok__));
+                    filesize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2703,7 +2703,7 @@ impl IDWriteFontFileStream_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontFileStream_Impl::GetLastWriteTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(lastwritetime, core::mem::transmute(ok__));
+                    lastwritetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2734,7 +2734,7 @@ impl IDWriteFontList_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontList_Impl::GetFontCollection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontcollection, core::mem::transmute(ok__));
+                    fontcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2750,7 +2750,7 @@ impl IDWriteFontList_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontList_Impl::GetFont(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(font, core::mem::transmute(ok__));
+                    font.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2785,7 +2785,7 @@ impl IDWriteFontList1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontList1_Impl::GetFont(this, core::mem::transmute_copy(&listindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(font, core::mem::transmute(ok__));
+                    font.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2796,7 +2796,7 @@ impl IDWriteFontList1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontList1_Impl::GetFontFaceReference(this, core::mem::transmute_copy(&listindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfacereference, core::mem::transmute(ok__));
+                    fontfacereference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2824,7 +2824,7 @@ impl IDWriteFontList2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontList2_Impl::GetFontSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontset, core::mem::transmute(ok__));
+                    fontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2858,7 +2858,7 @@ impl IDWriteFontResource_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontResource_Impl::GetFontFile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfile, core::mem::transmute(ok__));
+                    fontfile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2894,7 +2894,7 @@ impl IDWriteFontResource_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontResource_Impl::GetAxisNames(this, core::mem::transmute_copy(&axisindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(names, core::mem::transmute(ok__));
+                    names.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2920,7 +2920,7 @@ impl IDWriteFontResource_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontResource_Impl::CreateFontFace(this, core::mem::transmute_copy(&fontsimulations), core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontface, core::mem::transmute(ok__));
+                    fontface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2931,7 +2931,7 @@ impl IDWriteFontResource_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontResource_Impl::CreateFontFaceReference(this, core::mem::transmute_copy(&fontsimulations), core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfacereference, core::mem::transmute(ok__));
+                    fontfacereference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2982,7 +2982,7 @@ impl IDWriteFontSet_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet_Impl::GetFontFaceReference(this, core::mem::transmute_copy(&listindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfacereference, core::mem::transmute(ok__));
+                    fontfacereference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3003,7 +3003,7 @@ impl IDWriteFontSet_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet_Impl::GetPropertyValues(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
-                    core::ptr::write(values, core::mem::transmute(ok__));
+                    values.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3014,7 +3014,7 @@ impl IDWriteFontSet_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet_Impl::GetPropertyValues2(this, core::mem::transmute_copy(&propertyid), core::mem::transmute(&preferredlocalenames)) {
                 Ok(ok__) => {
-                    core::ptr::write(values, core::mem::transmute(ok__));
+                    values.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3030,7 +3030,7 @@ impl IDWriteFontSet_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet_Impl::GetPropertyOccurrenceCount(this, core::mem::transmute_copy(&property)) {
                 Ok(ok__) => {
-                    core::ptr::write(propertyoccurrencecount, core::mem::transmute(ok__));
+                    propertyoccurrencecount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3041,7 +3041,7 @@ impl IDWriteFontSet_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet_Impl::GetMatchingFonts(this, core::mem::transmute(&familyname), core::mem::transmute_copy(&fontweight), core::mem::transmute_copy(&fontstretch), core::mem::transmute_copy(&fontstyle)) {
                 Ok(ok__) => {
-                    core::ptr::write(filteredset, core::mem::transmute(ok__));
+                    filteredset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3052,7 +3052,7 @@ impl IDWriteFontSet_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet_Impl::GetMatchingFonts2(this, core::mem::transmute_copy(&properties), core::mem::transmute_copy(&propertycount)) {
                 Ok(ok__) => {
-                    core::ptr::write(filteredset, core::mem::transmute(ok__));
+                    filteredset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3099,7 +3099,7 @@ impl IDWriteFontSet1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet1_Impl::GetMatchingFonts(this, core::mem::transmute_copy(&fontproperty), core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount)) {
                 Ok(ok__) => {
-                    core::ptr::write(matchingfonts, core::mem::transmute(ok__));
+                    matchingfonts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3110,7 +3110,7 @@ impl IDWriteFontSet1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet1_Impl::GetFirstFontResources(this) {
                 Ok(ok__) => {
-                    core::ptr::write(filteredfontset, core::mem::transmute(ok__));
+                    filteredfontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3121,7 +3121,7 @@ impl IDWriteFontSet1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet1_Impl::GetFilteredFonts(this, core::mem::transmute_copy(&indices), core::mem::transmute_copy(&indexcount)) {
                 Ok(ok__) => {
-                    core::ptr::write(filteredfontset, core::mem::transmute(ok__));
+                    filteredfontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3132,7 +3132,7 @@ impl IDWriteFontSet1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet1_Impl::GetFilteredFonts2(this, core::mem::transmute_copy(&fontaxisranges), core::mem::transmute_copy(&fontaxisrangecount), core::mem::transmute_copy(&selectanyrange)) {
                 Ok(ok__) => {
-                    core::ptr::write(filteredfontset, core::mem::transmute(ok__));
+                    filteredfontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3143,7 +3143,7 @@ impl IDWriteFontSet1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet1_Impl::GetFilteredFonts3(this, core::mem::transmute_copy(&properties), core::mem::transmute_copy(&propertycount), core::mem::transmute_copy(&selectanyproperty)) {
                 Ok(ok__) => {
-                    core::ptr::write(filteredfontset, core::mem::transmute(ok__));
+                    filteredfontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3174,7 +3174,7 @@ impl IDWriteFontSet1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet1_Impl::GetFontFaceReference(this, core::mem::transmute_copy(&listindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfacereference, core::mem::transmute(ok__));
+                    fontfacereference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3185,7 +3185,7 @@ impl IDWriteFontSet1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet1_Impl::CreateFontResource(this, core::mem::transmute_copy(&listindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontresource, core::mem::transmute(ok__));
+                    fontresource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3196,7 +3196,7 @@ impl IDWriteFontSet1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet1_Impl::CreateFontFace(this, core::mem::transmute_copy(&listindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontface, core::mem::transmute(ok__));
+                    fontface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3296,7 +3296,7 @@ impl IDWriteFontSet4_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSet4_Impl::GetMatchingFonts(this, core::mem::transmute(&familyname), core::mem::transmute_copy(&fontaxisvalues), core::mem::transmute_copy(&fontaxisvaluecount), core::mem::transmute_copy(&allowedsimulations)) {
                 Ok(ok__) => {
-                    core::ptr::write(matchingfonts, core::mem::transmute(ok__));
+                    matchingfonts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3341,7 +3341,7 @@ impl IDWriteFontSetBuilder_Vtbl {
             let this = (*this).get_impl();
             match IDWriteFontSetBuilder_Impl::CreateFontSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontset, core::mem::transmute(ok__));
+                    fontset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3421,7 +3421,7 @@ impl IDWriteGdiInterop_Vtbl {
             let this = (*this).get_impl();
             match IDWriteGdiInterop_Impl::CreateFontFromLOGFONT(this, core::mem::transmute_copy(&logfont)) {
                 Ok(ok__) => {
-                    core::ptr::write(font, core::mem::transmute(ok__));
+                    font.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3442,7 +3442,7 @@ impl IDWriteGdiInterop_Vtbl {
             let this = (*this).get_impl();
             match IDWriteGdiInterop_Impl::CreateFontFaceFromHdc(this, core::mem::transmute_copy(&hdc)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontface, core::mem::transmute(ok__));
+                    fontface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3453,7 +3453,7 @@ impl IDWriteGdiInterop_Vtbl {
             let this = (*this).get_impl();
             match IDWriteGdiInterop_Impl::CreateBitmapRenderTarget(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)) {
                 Ok(ok__) => {
-                    core::ptr::write(rendertarget, core::mem::transmute(ok__));
+                    rendertarget.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3489,7 +3489,7 @@ impl IDWriteGdiInterop1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteGdiInterop1_Impl::CreateFontFromLOGFONT(this, core::mem::transmute_copy(&logfont), windows_core::from_raw_borrowed(&fontcollection)) {
                 Ok(ok__) => {
-                    core::ptr::write(font, core::mem::transmute(ok__));
+                    font.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3510,7 +3510,7 @@ impl IDWriteGdiInterop1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteGdiInterop1_Impl::GetMatchingFontsByLOGFONT(this, core::mem::transmute_copy(&logfont), windows_core::from_raw_borrowed(&fontset)) {
                 Ok(ok__) => {
-                    core::ptr::write(filteredset, core::mem::transmute(ok__));
+                    filteredset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3541,7 +3541,7 @@ impl IDWriteGlyphRunAnalysis_Vtbl {
             let this = (*this).get_impl();
             match IDWriteGlyphRunAnalysis_Impl::GetAlphaTextureBounds(this, core::mem::transmute_copy(&texturetype)) {
                 Ok(ok__) => {
-                    core::ptr::write(texturebounds, core::mem::transmute(ok__));
+                    texturebounds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3580,7 +3580,7 @@ impl IDWriteInMemoryFontFileLoader_Vtbl {
             let this = (*this).get_impl();
             match IDWriteInMemoryFontFileLoader_Impl::CreateInMemoryFontFileReference(this, windows_core::from_raw_borrowed(&factory), core::mem::transmute_copy(&fontdata), core::mem::transmute_copy(&fontdatasize), windows_core::from_raw_borrowed(&ownerobject)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfile, core::mem::transmute(ok__));
+                    fontfile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3620,7 +3620,7 @@ impl IDWriteInlineObject_Vtbl {
             let this = (*this).get_impl();
             match IDWriteInlineObject_Impl::GetMetrics(this) {
                 Ok(ok__) => {
-                    core::ptr::write(metrics, core::mem::transmute(ok__));
+                    metrics.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3631,7 +3631,7 @@ impl IDWriteInlineObject_Vtbl {
             let this = (*this).get_impl();
             match IDWriteInlineObject_Impl::GetOverhangMetrics(this) {
                 Ok(ok__) => {
-                    core::ptr::write(overhangs, core::mem::transmute(ok__));
+                    overhangs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3667,7 +3667,7 @@ impl IDWriteLocalFontFileLoader_Vtbl {
             let this = (*this).get_impl();
             match IDWriteLocalFontFileLoader_Impl::GetFilePathLengthFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize)) {
                 Ok(ok__) => {
-                    core::ptr::write(filepathlength, core::mem::transmute(ok__));
+                    filepathlength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3683,7 +3683,7 @@ impl IDWriteLocalFontFileLoader_Vtbl {
             let this = (*this).get_impl();
             match IDWriteLocalFontFileLoader_Impl::GetLastWriteTimeFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize)) {
                 Ok(ok__) => {
-                    core::ptr::write(lastwritetime, core::mem::transmute(ok__));
+                    lastwritetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3726,7 +3726,7 @@ impl IDWriteLocalizedStrings_Vtbl {
             let this = (*this).get_impl();
             match IDWriteLocalizedStrings_Impl::GetLocaleNameLength(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3742,7 +3742,7 @@ impl IDWriteLocalizedStrings_Vtbl {
             let this = (*this).get_impl();
             match IDWriteLocalizedStrings_Impl::GetStringLength(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3869,7 +3869,7 @@ impl IDWritePixelSnapping_Vtbl {
             let this = (*this).get_impl();
             match IDWritePixelSnapping_Impl::IsPixelSnappingDisabled(this, core::mem::transmute_copy(&clientdrawingcontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(isdisabled, core::mem::transmute(ok__));
+                    isdisabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3885,7 +3885,7 @@ impl IDWritePixelSnapping_Vtbl {
             let this = (*this).get_impl();
             match IDWritePixelSnapping_Impl::GetPixelsPerDip(this, core::mem::transmute_copy(&clientdrawingcontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(pixelsperdip, core::mem::transmute(ok__));
+                    pixelsperdip.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3915,7 +3915,7 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
             let this = (*this).get_impl();
             match IDWriteRemoteFontFileLoader_Impl::CreateRemoteStreamFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfilestream, core::mem::transmute(ok__));
+                    fontfilestream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3926,7 +3926,7 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
             let this = (*this).get_impl();
             match IDWriteRemoteFontFileLoader_Impl::GetLocalityFromKey(this, core::mem::transmute_copy(&fontfilereferencekey), core::mem::transmute_copy(&fontfilereferencekeysize)) {
                 Ok(ok__) => {
-                    core::ptr::write(locality, core::mem::transmute(ok__));
+                    locality.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3937,7 +3937,7 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
             let this = (*this).get_impl();
             match IDWriteRemoteFontFileLoader_Impl::CreateFontFileReferenceFromUrl(this, windows_core::from_raw_borrowed(&factory), core::mem::transmute(&baseurl), core::mem::transmute(&fontfileurl)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfile, core::mem::transmute(ok__));
+                    fontfile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3968,7 +3968,7 @@ impl IDWriteRemoteFontFileStream_Vtbl {
             let this = (*this).get_impl();
             match IDWriteRemoteFontFileStream_Impl::GetLocalFileSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(localfilesize, core::mem::transmute(ok__));
+                    localfilesize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3989,7 +3989,7 @@ impl IDWriteRemoteFontFileStream_Vtbl {
             let this = (*this).get_impl();
             match IDWriteRemoteFontFileStream_Impl::BeginDownload(this, core::mem::transmute_copy(&downloadoperationid), core::mem::transmute_copy(&filefragments), core::mem::transmute_copy(&fragmentcount)) {
                 Ok(ok__) => {
-                    core::ptr::write(asyncresult, core::mem::transmute(ok__));
+                    asyncresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4129,7 +4129,7 @@ impl IDWriteStringList_Vtbl {
             let this = (*this).get_impl();
             match IDWriteStringList_Impl::GetLocaleNameLength(this, core::mem::transmute_copy(&listindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4145,7 +4145,7 @@ impl IDWriteStringList_Vtbl {
             let this = (*this).get_impl();
             match IDWriteStringList_Impl::GetStringLength(this, core::mem::transmute_copy(&listindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4743,7 +4743,7 @@ impl IDWriteTextFormat_Vtbl {
             let this = (*this).get_impl();
             match IDWriteTextFormat_Impl::GetFontCollection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontcollection, core::mem::transmute(ok__));
+                    fontcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4875,7 +4875,7 @@ impl IDWriteTextFormat1_Vtbl {
             let this = (*this).get_impl();
             match IDWriteTextFormat1_Impl::GetFontFallback(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfallback, core::mem::transmute(ok__));
+                    fontfallback.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5186,7 +5186,7 @@ impl IDWriteTextLayout_Vtbl {
             let this = (*this).get_impl();
             match IDWriteTextLayout_Impl::GetOverhangMetrics(this) {
                 Ok(ok__) => {
-                    core::ptr::write(overhangs, core::mem::transmute(ok__));
+                    overhangs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5202,7 +5202,7 @@ impl IDWriteTextLayout_Vtbl {
             let this = (*this).get_impl();
             match IDWriteTextLayout_Impl::DetermineMinWidth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(minwidth, core::mem::transmute(ok__));
+                    minwidth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5370,7 +5370,7 @@ impl IDWriteTextLayout2_Vtbl {
             let this = (*this).get_impl();
             match IDWriteTextLayout2_Impl::GetFontFallback(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfallback, core::mem::transmute(ok__));
+                    fontfallback.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5587,7 +5587,7 @@ impl IDWriteTypography_Vtbl {
             let this = (*this).get_impl();
             match IDWriteTypography_Impl::GetFontFeature(this, core::mem::transmute_copy(&fontfeatureindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(fontfeature, core::mem::transmute(ok__));
+                    fontfeature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

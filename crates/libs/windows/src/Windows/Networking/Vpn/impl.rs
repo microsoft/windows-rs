@@ -39,7 +39,7 @@ impl IVpnCredential_Vtbl {
             let this = (*this).get_impl();
             match IVpnCredential_Impl::PasskeyCredential(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -51,7 +51,7 @@ impl IVpnCredential_Vtbl {
             let this = (*this).get_impl();
             match IVpnCredential_Impl::CertificateCredential(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -63,7 +63,7 @@ impl IVpnCredential_Vtbl {
             let this = (*this).get_impl();
             match IVpnCredential_Impl::AdditionalPin(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -75,7 +75,7 @@ impl IVpnCredential_Vtbl {
             let this = (*this).get_impl();
             match IVpnCredential_Impl::OldPasswordCredential(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -117,7 +117,7 @@ impl IVpnCustomPrompt_Vtbl {
             let this = (*this).get_impl();
             match IVpnCustomPrompt_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -134,7 +134,7 @@ impl IVpnCustomPrompt_Vtbl {
             let this = (*this).get_impl();
             match IVpnCustomPrompt_Impl::Compulsory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -150,7 +150,7 @@ impl IVpnCustomPrompt_Vtbl {
             let this = (*this).get_impl();
             match IVpnCustomPrompt_Impl::Bordered(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -193,7 +193,7 @@ impl IVpnCustomPromptElement_Vtbl {
             let this = (*this).get_impl();
             match IVpnCustomPromptElement_Impl::DisplayName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -210,7 +210,7 @@ impl IVpnCustomPromptElement_Vtbl {
             let this = (*this).get_impl();
             match IVpnCustomPromptElement_Impl::Compulsory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -226,7 +226,7 @@ impl IVpnCustomPromptElement_Vtbl {
             let this = (*this).get_impl();
             match IVpnCustomPromptElement_Impl::Emphasized(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -262,7 +262,7 @@ impl IVpnDomainNameInfoFactory_Vtbl {
             let this = (*this).get_impl();
             match IVpnDomainNameInfoFactory_Impl::CreateVpnDomainNameInfo(this, core::mem::transmute(&name), nametype, windows_core::from_raw_borrowed(&dnsserverlist), windows_core::from_raw_borrowed(&proxyserverlist)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -291,7 +291,7 @@ impl IVpnInterfaceIdFactory_Vtbl {
             let this = (*this).get_impl();
             match IVpnInterfaceIdFactory_Impl::CreateVpnInterfaceId(this, core::slice::from_raw_parts(core::mem::transmute_copy(&address), address_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -323,7 +323,7 @@ impl IVpnNamespaceInfoFactory_Vtbl {
             let this = (*this).get_impl();
             match IVpnNamespaceInfoFactory_Impl::CreateVpnNamespaceInfo(this, core::mem::transmute(&name), windows_core::from_raw_borrowed(&dnsserverlist), windows_core::from_raw_borrowed(&proxyserverlist)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -352,7 +352,7 @@ impl IVpnPacketBufferFactory_Vtbl {
             let this = (*this).get_impl();
             match IVpnPacketBufferFactory_Impl::CreateVpnPacketBuffer(this, windows_core::from_raw_borrowed(&parentbuffer), offset, length) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -443,7 +443,7 @@ impl IVpnProfile_Vtbl {
             let this = (*this).get_impl();
             match IVpnProfile_Impl::ProfileName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -460,7 +460,7 @@ impl IVpnProfile_Vtbl {
             let this = (*this).get_impl();
             match IVpnProfile_Impl::AppTriggers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -472,7 +472,7 @@ impl IVpnProfile_Vtbl {
             let this = (*this).get_impl();
             match IVpnProfile_Impl::Routes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -484,7 +484,7 @@ impl IVpnProfile_Vtbl {
             let this = (*this).get_impl();
             match IVpnProfile_Impl::DomainNameInfoList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -496,7 +496,7 @@ impl IVpnProfile_Vtbl {
             let this = (*this).get_impl();
             match IVpnProfile_Impl::TrafficFilters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -508,7 +508,7 @@ impl IVpnProfile_Vtbl {
             let this = (*this).get_impl();
             match IVpnProfile_Impl::RememberCredentials(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -524,7 +524,7 @@ impl IVpnProfile_Vtbl {
             let this = (*this).get_impl();
             match IVpnProfile_Impl::AlwaysOn(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -566,7 +566,7 @@ impl IVpnRouteFactory_Vtbl {
             let this = (*this).get_impl();
             match IVpnRouteFactory_Impl::CreateVpnRoute(this, windows_core::from_raw_borrowed(&address), prefixsize) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

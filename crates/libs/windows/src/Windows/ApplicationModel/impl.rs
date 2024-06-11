@@ -11,7 +11,7 @@ impl IEnteredBackgroundEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IEnteredBackgroundEventArgs_Impl::GetDeferral(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -40,7 +40,7 @@ impl ILeavingBackgroundEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ILeavingBackgroundEventArgs_Impl::GetDeferral(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -69,7 +69,7 @@ impl IPackageCatalogStatics2_Vtbl {
             let this = (*this).get_impl();
             match IPackageCatalogStatics2_Impl::OpenForPackage(this, windows_core::from_raw_borrowed(&package)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -117,7 +117,7 @@ impl ISuspendingEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ISuspendingEventArgs_Impl::SuspendingOperation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -147,7 +147,7 @@ impl ISuspendingOperation_Vtbl {
             let this = (*this).get_impl();
             match ISuspendingOperation_Impl::GetDeferral(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -159,7 +159,7 @@ impl ISuspendingOperation_Vtbl {
             let this = (*this).get_impl();
             match ISuspendingOperation_Impl::Deadline(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

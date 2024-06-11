@@ -17,7 +17,7 @@ impl IRDPSRAPIApplication_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIApplication_Impl::Windows(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pwindowlist, core::mem::transmute(ok__));
+                    pwindowlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -28,7 +28,7 @@ impl IRDPSRAPIApplication_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIApplication_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pretval, core::mem::transmute(ok__));
+                    pretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -39,7 +39,7 @@ impl IRDPSRAPIApplication_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIApplication_Impl::Shared(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pretval, core::mem::transmute(ok__));
+                    pretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -55,7 +55,7 @@ impl IRDPSRAPIApplication_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIApplication_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pretval, core::mem::transmute(ok__));
+                    pretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -66,7 +66,7 @@ impl IRDPSRAPIApplication_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIApplication_Impl::Flags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwflags, core::mem::transmute(ok__));
+                    pdwflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -103,7 +103,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIApplicationFilter_Impl::Applications(this) {
                 Ok(ok__) => {
-                    core::ptr::write(papplications, core::mem::transmute(ok__));
+                    papplications.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -114,7 +114,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIApplicationFilter_Impl::Windows(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pwindows, core::mem::transmute(ok__));
+                    pwindows.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -125,7 +125,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIApplicationFilter_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pretval, core::mem::transmute(ok__));
+                    pretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -163,7 +163,7 @@ impl IRDPSRAPIApplicationList_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIApplicationList_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -174,7 +174,7 @@ impl IRDPSRAPIApplicationList_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIApplicationList_Impl::get_Item(this, core::mem::transmute_copy(&item)) {
                 Ok(ok__) => {
-                    core::ptr::write(papplication, core::mem::transmute(ok__));
+                    papplication.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -211,7 +211,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAttendee_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pid, core::mem::transmute(ok__));
+                    pid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -222,7 +222,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAttendee_Impl::RemoteName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -233,7 +233,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAttendee_Impl::ControlLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -249,7 +249,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAttendee_Impl::Invitation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -265,7 +265,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAttendee_Impl::Flags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plflags, core::mem::transmute(ok__));
+                    plflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -276,7 +276,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAttendee_Impl::ConnectivityInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -314,7 +314,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAttendeeDisconnectInfo_Impl::Attendee(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -325,7 +325,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAttendeeDisconnectInfo_Impl::Reason(this) {
                 Ok(ok__) => {
-                    core::ptr::write(preason, core::mem::transmute(ok__));
+                    preason.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -336,7 +336,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAttendeeDisconnectInfo_Impl::Code(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -368,7 +368,7 @@ impl IRDPSRAPIAttendeeManager_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAttendeeManager_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -379,7 +379,7 @@ impl IRDPSRAPIAttendeeManager_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAttendeeManager_Impl::get_Item(this, core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -410,7 +410,7 @@ impl IRDPSRAPIAudioStream_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIAudioStream_Impl::Initialize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnperiodinhundrednsintervals, core::mem::transmute(ok__));
+                    pnperiodinhundrednsintervals.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -463,7 +463,7 @@ impl IRDPSRAPIClipboardUseEvents_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIClipboardUseEvents_Impl::OnPasteFromClipboard(this, core::mem::transmute_copy(&clipboardformat), windows_core::from_raw_borrowed(&pattendee)) {
                 Ok(ok__) => {
-                    core::ptr::write(pretval, core::mem::transmute(ok__));
+                    pretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -492,7 +492,7 @@ impl IRDPSRAPIDebug_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIDebug_Impl::CLXCmdLine(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pclxcmdline, core::mem::transmute(ok__));
+                    pclxcmdline.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -525,7 +525,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIFrameBuffer_Impl::Width(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plwidth, core::mem::transmute(ok__));
+                    plwidth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -536,7 +536,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIFrameBuffer_Impl::Height(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plheight, core::mem::transmute(ok__));
+                    plheight.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -547,7 +547,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIFrameBuffer_Impl::Bpp(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plbpp, core::mem::transmute(ok__));
+                    plbpp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -558,7 +558,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIFrameBuffer_Impl::GetFrameBufferBits(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&width), core::mem::transmute_copy(&heigth)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbits, core::mem::transmute(ok__));
+                    ppbits.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -596,7 +596,7 @@ impl IRDPSRAPIInvitation_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIInvitation_Impl::ConnectionString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrval, core::mem::transmute(ok__));
+                    pbstrval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -607,7 +607,7 @@ impl IRDPSRAPIInvitation_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIInvitation_Impl::GroupName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrval, core::mem::transmute(ok__));
+                    pbstrval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -618,7 +618,7 @@ impl IRDPSRAPIInvitation_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIInvitation_Impl::Password(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrval, core::mem::transmute(ok__));
+                    pbstrval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -629,7 +629,7 @@ impl IRDPSRAPIInvitation_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIInvitation_Impl::AttendeeLimit(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pretval, core::mem::transmute(ok__));
+                    pretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -645,7 +645,7 @@ impl IRDPSRAPIInvitation_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIInvitation_Impl::Revoked(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pretval, core::mem::transmute(ok__));
+                    pretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -688,7 +688,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIInvitationManager_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -699,7 +699,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIInvitationManager_Impl::get_Item(this, core::mem::transmute(&item)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppinvitation, core::mem::transmute(ok__));
+                    ppinvitation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -710,7 +710,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIInvitationManager_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pretval, core::mem::transmute(ok__));
+                    pretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -721,7 +721,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIInvitationManager_Impl::CreateInvitation(this, core::mem::transmute(&bstrauthstring), core::mem::transmute(&bstrgroupname), core::mem::transmute(&bstrpassword), core::mem::transmute_copy(&attendeelimit)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppinvitation, core::mem::transmute(ok__));
+                    ppinvitation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -767,7 +767,7 @@ impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIPerfCounterLoggingManager_Impl::CreateLogger(this, core::mem::transmute(&bstrcountername)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplogger, core::mem::transmute(ok__));
+                    pplogger.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -794,7 +794,7 @@ impl IRDPSRAPISessionProperties_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPISessionProperties_Impl::get_Property(this, core::mem::transmute(&propertyname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -857,7 +857,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPISharingSession_Impl::ColorDepth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolordepth, core::mem::transmute(ok__));
+                    pcolordepth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -868,7 +868,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPISharingSession_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -879,7 +879,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPISharingSession_Impl::Attendees(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -890,7 +890,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPISharingSession_Impl::Invitations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -901,7 +901,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPISharingSession_Impl::ApplicationFilter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -912,7 +912,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPISharingSession_Impl::VirtualChannelManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -986,7 +986,7 @@ impl IRDPSRAPISharingSession2_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPISharingSession2_Impl::FrameBuffer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1026,7 +1026,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITcpConnectionInfo_Impl::Protocol(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plprotocol, core::mem::transmute(ok__));
+                    plprotocol.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1037,7 +1037,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITcpConnectionInfo_Impl::LocalPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plport, core::mem::transmute(ok__));
+                    plport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1048,7 +1048,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITcpConnectionInfo_Impl::LocalIP(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbsrlocalip, core::mem::transmute(ok__));
+                    pbsrlocalip.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1059,7 +1059,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITcpConnectionInfo_Impl::PeerPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plport, core::mem::transmute(ok__));
+                    plport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1070,7 +1070,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITcpConnectionInfo_Impl::PeerIP(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrip, core::mem::transmute(ok__));
+                    pbstrip.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1105,7 +1105,7 @@ impl IRDPSRAPITransportStream_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITransportStream_Impl::AllocBuffer(this, core::mem::transmute_copy(&maxpayload)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbuffer, core::mem::transmute(ok__));
+                    ppbuffer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1170,7 +1170,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITransportStreamBuffer_Impl::Storage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbstorage, core::mem::transmute(ok__));
+                    ppbstorage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1181,7 +1181,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITransportStreamBuffer_Impl::StorageSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmaxstore, core::mem::transmute(ok__));
+                    plmaxstore.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1192,7 +1192,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITransportStreamBuffer_Impl::PayloadSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plretval, core::mem::transmute(ok__));
+                    plretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1208,7 +1208,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITransportStreamBuffer_Impl::PayloadOffset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plretval, core::mem::transmute(ok__));
+                    plretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1224,7 +1224,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITransportStreamBuffer_Impl::Flags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plflags, core::mem::transmute(ok__));
+                    plflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1240,7 +1240,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPITransportStreamBuffer_Impl::Context(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontext, core::mem::transmute(ok__));
+                    ppcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1340,7 +1340,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIViewer_Impl::Attendees(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1351,7 +1351,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIViewer_Impl::Invitations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1362,7 +1362,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIViewer_Impl::ApplicationFilter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1373,7 +1373,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIViewer_Impl::VirtualChannelManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1389,7 +1389,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIViewer_Impl::SmartSizing(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvbsmartsizing, core::mem::transmute(ok__));
+                    pvbsmartsizing.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1410,7 +1410,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIViewer_Impl::DisconnectedText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdisconnectedtext, core::mem::transmute(ok__));
+                    pbstrdisconnectedtext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1426,7 +1426,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIViewer_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1437,7 +1437,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIViewer_Impl::StartReverseConnectListener(this, core::mem::transmute(&bstrconnectionstring), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrpassword)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrreverseconnectstring, core::mem::transmute(ok__));
+                    pbstrreverseconnectstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1493,7 +1493,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIVirtualChannel_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1504,7 +1504,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIVirtualChannel_Impl::Flags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plflags, core::mem::transmute(ok__));
+                    plflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1515,7 +1515,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIVirtualChannel_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppriority, core::mem::transmute(ok__));
+                    ppriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1550,7 +1550,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIVirtualChannelManager_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1561,7 +1561,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIVirtualChannelManager_Impl::get_Item(this, core::mem::transmute(&item)) {
                 Ok(ok__) => {
-                    core::ptr::write(pchannel, core::mem::transmute(ok__));
+                    pchannel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1572,7 +1572,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIVirtualChannelManager_Impl::CreateVirtualChannel(this, core::mem::transmute(&bstrchannelname), core::mem::transmute_copy(&priority), core::mem::transmute_copy(&channelflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppchannel, core::mem::transmute(ok__));
+                    ppchannel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1609,7 +1609,7 @@ impl IRDPSRAPIWindow_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIWindow_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pretval, core::mem::transmute(ok__));
+                    pretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1620,7 +1620,7 @@ impl IRDPSRAPIWindow_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIWindow_Impl::Application(this) {
                 Ok(ok__) => {
-                    core::ptr::write(papplication, core::mem::transmute(ok__));
+                    papplication.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1631,7 +1631,7 @@ impl IRDPSRAPIWindow_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIWindow_Impl::Shared(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pretval, core::mem::transmute(ok__));
+                    pretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1647,7 +1647,7 @@ impl IRDPSRAPIWindow_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIWindow_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pretval, core::mem::transmute(ok__));
+                    pretval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1663,7 +1663,7 @@ impl IRDPSRAPIWindow_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIWindow_Impl::Flags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwflags, core::mem::transmute(ok__));
+                    pdwflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1699,7 +1699,7 @@ impl IRDPSRAPIWindowList_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIWindowList_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1710,7 +1710,7 @@ impl IRDPSRAPIWindowList_Vtbl {
             let this = (*this).get_impl();
             match IRDPSRAPIWindowList_Impl::get_Item(this, core::mem::transmute_copy(&item)) {
                 Ok(ok__) => {
-                    core::ptr::write(pwindow, core::mem::transmute(ok__));
+                    pwindow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

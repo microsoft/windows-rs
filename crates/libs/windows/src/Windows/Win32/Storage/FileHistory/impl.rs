@@ -42,7 +42,7 @@ impl IFhConfigMgr_Vtbl {
             let this = (*this).get_impl();
             match IFhConfigMgr_Impl::GetIncludeExcludeRules(this, core::mem::transmute_copy(&include), core::mem::transmute_copy(&category)) {
                 Ok(ok__) => {
-                    core::ptr::write(iterator, core::mem::transmute(ok__));
+                    iterator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -53,7 +53,7 @@ impl IFhConfigMgr_Vtbl {
             let this = (*this).get_impl();
             match IFhConfigMgr_Impl::GetLocalPolicy(this, core::mem::transmute_copy(&localpolicytype)) {
                 Ok(ok__) => {
-                    core::ptr::write(policyvalue, core::mem::transmute(ok__));
+                    policyvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -69,7 +69,7 @@ impl IFhConfigMgr_Vtbl {
             let this = (*this).get_impl();
             match IFhConfigMgr_Impl::GetBackupStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(backupstatus, core::mem::transmute(ok__));
+                    backupstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -85,7 +85,7 @@ impl IFhConfigMgr_Vtbl {
             let this = (*this).get_impl();
             match IFhConfigMgr_Impl::GetDefaultTarget(this) {
                 Ok(ok__) => {
-                    core::ptr::write(defaulttarget, core::mem::transmute(ok__));
+                    defaulttarget.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -96,7 +96,7 @@ impl IFhConfigMgr_Vtbl {
             let this = (*this).get_impl();
             match IFhConfigMgr_Impl::ValidateTarget(this, core::mem::transmute(&targeturl)) {
                 Ok(ok__) => {
-                    core::ptr::write(validationresult, core::mem::transmute(ok__));
+                    validationresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -154,7 +154,7 @@ impl IFhReassociation_Vtbl {
             let this = (*this).get_impl();
             match IFhReassociation_Impl::ValidateTarget(this, core::mem::transmute(&targeturl)) {
                 Ok(ok__) => {
-                    core::ptr::write(validationresult, core::mem::transmute(ok__));
+                    validationresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -210,7 +210,7 @@ impl IFhScopeIterator_Vtbl {
             let this = (*this).get_impl();
             match IFhScopeIterator_Impl::GetItem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -238,7 +238,7 @@ impl IFhTarget_Vtbl {
             let this = (*this).get_impl();
             match IFhTarget_Impl::GetStringProperty(this, core::mem::transmute_copy(&propertytype)) {
                 Ok(ok__) => {
-                    core::ptr::write(propertyvalue, core::mem::transmute(ok__));
+                    propertyvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -249,7 +249,7 @@ impl IFhTarget_Vtbl {
             let this = (*this).get_impl();
             match IFhTarget_Impl::GetNumericalProperty(this, core::mem::transmute_copy(&propertytype)) {
                 Ok(ok__) => {
-                    core::ptr::write(propertyvalue, core::mem::transmute(ok__));
+                    propertyvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

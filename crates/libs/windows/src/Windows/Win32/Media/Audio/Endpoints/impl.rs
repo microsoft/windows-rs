@@ -57,7 +57,7 @@ impl IAudioEndpointOffloadStreamMeter_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointOffloadStreamMeter_Impl::GetMeterChannelCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pu32channelcount, core::mem::transmute(ok__));
+                    pu32channelcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -68,7 +68,7 @@ impl IAudioEndpointOffloadStreamMeter_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointOffloadStreamMeter_Impl::GetMeteringData(this, core::mem::transmute_copy(&u32channelcount)) {
                 Ok(ok__) => {
-                    core::ptr::write(pf32peakvalues, core::mem::transmute(ok__));
+                    pf32peakvalues.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -101,7 +101,7 @@ impl IAudioEndpointOffloadStreamMute_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointOffloadStreamMute_Impl::GetMute(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbmuted, core::mem::transmute(ok__));
+                    pbmuted.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl IAudioEndpointOffloadStreamVolume_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointOffloadStreamVolume_Impl::GetVolumeChannelCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pu32channelcount, core::mem::transmute(ok__));
+                    pu32channelcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -149,7 +149,7 @@ impl IAudioEndpointOffloadStreamVolume_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointOffloadStreamVolume_Impl::GetChannelVolumes(this, core::mem::transmute_copy(&u32channelcount)) {
                 Ok(ok__) => {
-                    core::ptr::write(pf32volumes, core::mem::transmute(ok__));
+                    pf32volumes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -204,7 +204,7 @@ impl IAudioEndpointVolume_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointVolume_Impl::GetChannelCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnchannelcount, core::mem::transmute(ok__));
+                    pnchannelcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -225,7 +225,7 @@ impl IAudioEndpointVolume_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointVolume_Impl::GetMasterVolumeLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfleveldb, core::mem::transmute(ok__));
+                    pfleveldb.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -236,7 +236,7 @@ impl IAudioEndpointVolume_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointVolume_Impl::GetMasterVolumeLevelScalar(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pflevel, core::mem::transmute(ok__));
+                    pflevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -257,7 +257,7 @@ impl IAudioEndpointVolume_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointVolume_Impl::GetChannelVolumeLevel(this, core::mem::transmute_copy(&nchannel)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfleveldb, core::mem::transmute(ok__));
+                    pfleveldb.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -268,7 +268,7 @@ impl IAudioEndpointVolume_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointVolume_Impl::GetChannelVolumeLevelScalar(this, core::mem::transmute_copy(&nchannel)) {
                 Ok(ok__) => {
-                    core::ptr::write(pflevel, core::mem::transmute(ok__));
+                    pflevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -284,7 +284,7 @@ impl IAudioEndpointVolume_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointVolume_Impl::GetMute(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbmute, core::mem::transmute(ok__));
+                    pbmute.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -310,7 +310,7 @@ impl IAudioEndpointVolume_Vtbl {
             let this = (*this).get_impl();
             match IAudioEndpointVolume_Impl::QueryHardwareSupport(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwhardwaresupportmask, core::mem::transmute(ok__));
+                    pdwhardwaresupportmask.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -398,7 +398,7 @@ impl IAudioLfxControl_Vtbl {
             let this = (*this).get_impl();
             match IAudioLfxControl_Impl::GetLocalEffectsState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbenabled, core::mem::transmute(ok__));
+                    pbenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -428,7 +428,7 @@ impl IAudioMeterInformation_Vtbl {
             let this = (*this).get_impl();
             match IAudioMeterInformation_Impl::GetPeakValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfpeak, core::mem::transmute(ok__));
+                    pfpeak.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -439,7 +439,7 @@ impl IAudioMeterInformation_Vtbl {
             let this = (*this).get_impl();
             match IAudioMeterInformation_Impl::GetMeteringChannelCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnchannelcount, core::mem::transmute(ok__));
+                    pnchannelcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -455,7 +455,7 @@ impl IAudioMeterInformation_Vtbl {
             let this = (*this).get_impl();
             match IAudioMeterInformation_Impl::QueryHardwareSupport(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwhardwaresupportmask, core::mem::transmute(ok__));
+                    pdwhardwaresupportmask.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -488,7 +488,7 @@ impl IHardwareAudioEngineBase_Vtbl {
             let this = (*this).get_impl();
             match IHardwareAudioEngineBase_Impl::GetAvailableOffloadConnectorCount(this, core::mem::transmute(&_pwstrdeviceid), core::mem::transmute_copy(&_uconnectorid)) {
                 Ok(ok__) => {
-                    core::ptr::write(_pavailableconnectorinstancecount, core::mem::transmute(ok__));
+                    _pavailableconnectorinstancecount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -514,7 +514,7 @@ impl IHardwareAudioEngineBase_Vtbl {
             let this = (*this).get_impl();
             match IHardwareAudioEngineBase_Impl::GetGfxState(this, windows_core::from_raw_borrowed(&pdevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(_pbenable, core::mem::transmute(ok__));
+                    _pbenable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

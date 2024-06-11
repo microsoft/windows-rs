@@ -46,7 +46,7 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
             let this = (*this).get_impl();
             match ICompositionSupportsSystemBackdrop_Impl::SystemBackdrop(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -93,7 +93,7 @@ impl ICompositionSurfaceFacade_Vtbl {
             let this = (*this).get_impl();
             match ICompositionSurfaceFacade_Impl::GetRealSurface(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -134,7 +134,7 @@ impl IVisualElement2_Vtbl {
             let this = (*this).get_impl();
             match IVisualElement2_Impl::GetVisualInternal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

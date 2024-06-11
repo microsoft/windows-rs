@@ -149,7 +149,7 @@ impl IPresentationBuffer_Vtbl {
             let this = (*this).get_impl();
             match IPresentationBuffer_Impl::GetAvailableEvent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(availableeventhandle, core::mem::transmute(ok__));
+                    availableeventhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -160,7 +160,7 @@ impl IPresentationBuffer_Vtbl {
             let this = (*this).get_impl();
             match IPresentationBuffer_Impl::IsAvailable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(isavailable, core::mem::transmute(ok__));
+                    isavailable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -216,7 +216,7 @@ impl IPresentationFactory_Vtbl {
             let this = (*this).get_impl();
             match IPresentationFactory_Impl::CreatePresentationManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppresentationmanager, core::mem::transmute(ok__));
+                    pppresentationmanager.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -256,7 +256,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match IPresentationManager_Impl::AddBufferFromResource(this, windows_core::from_raw_borrowed(&resource)) {
                 Ok(ok__) => {
-                    core::ptr::write(presentationbuffer, core::mem::transmute(ok__));
+                    presentationbuffer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -267,7 +267,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match IPresentationManager_Impl::CreatePresentationSurface(this, core::mem::transmute_copy(&compositionsurfacehandle)) {
                 Ok(ok__) => {
-                    core::ptr::write(presentationsurface, core::mem::transmute(ok__));
+                    presentationsurface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -303,7 +303,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match IPresentationManager_Impl::GetPresentRetiringFence(this, core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(fence, core::mem::transmute(ok__));
+                    fence.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -319,7 +319,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match IPresentationManager_Impl::GetLostEvent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(losteventhandle, core::mem::transmute(ok__));
+                    losteventhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -330,7 +330,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match IPresentationManager_Impl::GetPresentStatisticsAvailableEvent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(presentstatisticsavailableeventhandle, core::mem::transmute(ok__));
+                    presentstatisticsavailableeventhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -346,7 +346,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match IPresentationManager_Impl::GetNextPresentStatistics(this) {
                 Ok(ok__) => {
-                    core::ptr::write(nextpresentstatistics, core::mem::transmute(ok__));
+                    nextpresentstatistics.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

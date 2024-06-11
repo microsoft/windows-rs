@@ -18,7 +18,7 @@ impl IDebugExtendedProperty_Vtbl {
             let this = (*this).get_impl();
             match IDebugExtendedProperty_Impl::EnumExtendedMembers(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppeepi, core::mem::transmute(ok__));
+                    ppeepi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -64,7 +64,7 @@ impl IDebugProperty_Vtbl {
             let this = (*this).get_impl();
             match IDebugProperty_Impl::EnumMembers(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&refiid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppepi, core::mem::transmute(ok__));
+                    ppepi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -75,7 +75,7 @@ impl IDebugProperty_Vtbl {
             let this = (*this).get_impl();
             match IDebugProperty_Impl::GetParent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdebugprop, core::mem::transmute(ok__));
+                    ppdebugprop.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -105,7 +105,7 @@ impl IDebugPropertyEnumType_All_Vtbl {
             let this = (*this).get_impl();
             match IDebugPropertyEnumType_All_Impl::GetName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__idebugpropertyenumtype_all0000, core::mem::transmute(ok__));
+                    __midl__idebugpropertyenumtype_all0000.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -190,7 +190,7 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
             let this = (*this).get_impl();
             match IEnumDebugExtendedPropertyInfo_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pedpe, core::mem::transmute(ok__));
+                    pedpe.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
             let this = (*this).get_impl();
             match IEnumDebugExtendedPropertyInfo_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcelt, core::mem::transmute(ok__));
+                    pcelt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -250,7 +250,7 @@ impl IEnumDebugPropertyInfo_Vtbl {
             let this = (*this).get_impl();
             match IEnumDebugPropertyInfo_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppepi, core::mem::transmute(ok__));
+                    ppepi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -261,7 +261,7 @@ impl IEnumDebugPropertyInfo_Vtbl {
             let this = (*this).get_impl();
             match IEnumDebugPropertyInfo_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcelt, core::mem::transmute(ok__));
+                    pcelt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -324,7 +324,7 @@ impl IPerPropertyBrowsing2_Vtbl {
             let this = (*this).get_impl();
             match IPerPropertyBrowsing2_Impl::GetDisplayString(this, core::mem::transmute_copy(&dispid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstr, core::mem::transmute(ok__));
+                    pbstr.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -335,7 +335,7 @@ impl IPerPropertyBrowsing2_Vtbl {
             let this = (*this).get_impl();
             match IPerPropertyBrowsing2_Impl::MapPropertyToPage(this, core::mem::transmute_copy(&dispid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pclsidproppage, core::mem::transmute(ok__));
+                    pclsidproppage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

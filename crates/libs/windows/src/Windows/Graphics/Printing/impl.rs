@@ -23,7 +23,7 @@ impl IPrintTaskOptionsCore_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCore_Impl::GetPageDescription(this, jobpagenumber) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -79,7 +79,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::MediaSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -95,7 +95,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::MediaType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -111,7 +111,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::Orientation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -127,7 +127,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::PrintQuality(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -143,7 +143,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::ColorMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -159,7 +159,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::Duplex(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -175,7 +175,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::Collation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -191,7 +191,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::Staple(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -207,7 +207,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::HolePunch(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -223,7 +223,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::Binding(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::MinCopies(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -245,7 +245,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::MaxCopies(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -261,7 +261,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreProperties_Impl::NumberOfCopies(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -315,7 +315,7 @@ impl IPrintTaskOptionsCoreUIConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskOptionsCoreUIConfiguration_Impl::DisplayedOptions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

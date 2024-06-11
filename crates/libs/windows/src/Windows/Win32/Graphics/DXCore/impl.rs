@@ -38,7 +38,7 @@ impl IDXCoreAdapter_Vtbl {
             let this = (*this).get_impl();
             match IDXCoreAdapter_Impl::GetPropertySize(this, core::mem::transmute_copy(&property)) {
                 Ok(ok__) => {
-                    core::ptr::write(buffersize, core::mem::transmute(ok__));
+                    buffersize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -117,7 +117,7 @@ impl IDXCoreAdapterFactory_Vtbl {
             let this = (*this).get_impl();
             match IDXCoreAdapterFactory_Impl::RegisterEventNotification(this, windows_core::from_raw_borrowed(&dxcoreobject), core::mem::transmute_copy(&notificationtype), core::mem::transmute_copy(&callbackfunction), core::mem::transmute_copy(&callbackcontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(eventcookie, core::mem::transmute(ok__));
+                    eventcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

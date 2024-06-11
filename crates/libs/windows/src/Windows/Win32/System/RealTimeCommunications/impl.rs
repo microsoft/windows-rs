@@ -67,7 +67,7 @@ impl IRTCBuddy_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddy_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penstatus, core::mem::transmute(ok__));
+                    penstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -78,7 +78,7 @@ impl IRTCBuddy_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddy_Impl::Notes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrnotes, core::mem::transmute(ok__));
+                    pbstrnotes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -115,7 +115,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddy2_Impl::Profile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprofile, core::mem::transmute(ok__));
+                    ppprofile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -131,7 +131,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddy2_Impl::EnumerateGroups(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -142,7 +142,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddy2_Impl::Groups(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcollection, core::mem::transmute(ok__));
+                    ppcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -153,7 +153,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddy2_Impl::get_PresenceProperty(this, core::mem::transmute_copy(&enproperty)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrproperty, core::mem::transmute(ok__));
+                    pbstrproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -164,7 +164,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddy2_Impl::EnumeratePresenceDevices(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenumdevices, core::mem::transmute(ok__));
+                    ppenumdevices.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -175,7 +175,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddy2_Impl::PresenceDevices(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdevicescollection, core::mem::transmute(ok__));
+                    ppdevicescollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -186,7 +186,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddy2_Impl::SubscriptionType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pensubscriptiontype, core::mem::transmute(ok__));
+                    pensubscriptiontype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -222,7 +222,7 @@ impl IRTCBuddyEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyEvent_Impl::Buddy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbuddy, core::mem::transmute(ok__));
+                    ppbuddy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -250,7 +250,7 @@ impl IRTCBuddyEvent2_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyEvent2_Impl::EventType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(peventtype, core::mem::transmute(ok__));
+                    peventtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -261,7 +261,7 @@ impl IRTCBuddyEvent2_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyEvent2_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -272,7 +272,7 @@ impl IRTCBuddyEvent2_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyEvent2_Impl::StatusText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstatustext, core::mem::transmute(ok__));
+                    pbstrstatustext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -311,7 +311,7 @@ impl IRTCBuddyGroup_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyGroup_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrgroupname, core::mem::transmute(ok__));
+                    pbstrgroupname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -337,7 +337,7 @@ impl IRTCBuddyGroup_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyGroup_Impl::EnumerateBuddies(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -348,7 +348,7 @@ impl IRTCBuddyGroup_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyGroup_Impl::Buddies(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcollection, core::mem::transmute(ok__));
+                    ppcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -359,7 +359,7 @@ impl IRTCBuddyGroup_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyGroup_Impl::Data(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdata, core::mem::transmute(ok__));
+                    pbstrdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -375,7 +375,7 @@ impl IRTCBuddyGroup_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyGroup_Impl::Profile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprofile, core::mem::transmute(ok__));
+                    ppprofile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -415,7 +415,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyGroupEvent_Impl::EventType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(peventtype, core::mem::transmute(ok__));
+                    peventtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -426,7 +426,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyGroupEvent_Impl::Group(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgroup, core::mem::transmute(ok__));
+                    ppgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -437,7 +437,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyGroupEvent_Impl::Buddy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbuddy, core::mem::transmute(ok__));
+                    ppbuddy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -448,7 +448,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCBuddyGroupEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -541,7 +541,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::EventFilter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plfilter, core::mem::transmute(ok__));
+                    plfilter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -557,7 +557,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::PreferredMediaTypes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmediatypes, core::mem::transmute(ok__));
+                    plmediatypes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -568,7 +568,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::MediaCapabilities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmediatypes, core::mem::transmute(ok__));
+                    plmediatypes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -579,7 +579,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::CreateSession(this, core::mem::transmute_copy(&entype), core::mem::transmute(&bstrlocalphoneuri), windows_core::from_raw_borrowed(&pprofile), core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession, core::mem::transmute(ok__));
+                    ppsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -595,7 +595,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::ListenForIncomingSessions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penlisten, core::mem::transmute(ok__));
+                    penlisten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -606,7 +606,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::get_NetworkAddresses(this, core::mem::transmute_copy(&ftcp), core::mem::transmute_copy(&fexternal)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvaddresses, core::mem::transmute(ok__));
+                    pvaddresses.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -622,7 +622,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::get_Volume(this, core::mem::transmute_copy(&endevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(plvolume, core::mem::transmute(ok__));
+                    plvolume.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -638,7 +638,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::get_AudioMuted(this, core::mem::transmute_copy(&endevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfmuted, core::mem::transmute(ok__));
+                    pfmuted.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -649,7 +649,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::get_IVideoWindow(this, core::mem::transmute_copy(&endevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppivideowindow, core::mem::transmute(ok__));
+                    ppivideowindow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -665,7 +665,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::get_PreferredAudioDevice(this, core::mem::transmute_copy(&endevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdevicename, core::mem::transmute(ok__));
+                    pbstrdevicename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -681,7 +681,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::get_PreferredVolume(this, core::mem::transmute_copy(&endevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(plvolume, core::mem::transmute(ok__));
+                    plvolume.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -697,7 +697,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::PreferredAEC(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbenabled, core::mem::transmute(ok__));
+                    pbenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -713,7 +713,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::PreferredVideoDevice(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdevicename, core::mem::transmute(ok__));
+                    pbstrdevicename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -724,7 +724,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::ActiveMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmediatype, core::mem::transmute(ok__));
+                    plmediatype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -740,7 +740,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::MaxBitrate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmaxbitrate, core::mem::transmute(ok__));
+                    plmaxbitrate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -756,7 +756,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::TemporalSpatialTradeOff(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plvalue, core::mem::transmute(ok__));
+                    plvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -767,7 +767,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::NetworkQuality(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plnetworkquality, core::mem::transmute(ok__));
+                    plnetworkquality.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -788,7 +788,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::get_IsT120AppletRunning(this, core::mem::transmute_copy(&enapplet)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfrunning, core::mem::transmute(ok__));
+                    pfrunning.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -799,7 +799,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::LocalUserURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstruseruri, core::mem::transmute(ok__));
+                    pbstruseruri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -815,7 +815,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::LocalUserName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrusername, core::mem::transmute(ok__));
+                    pbstrusername.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -846,7 +846,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient_Impl::IsTuned(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pftuned, core::mem::transmute(ok__));
+                    pftuned.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -933,7 +933,7 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient2_Impl::get_AnswerMode(this, core::mem::transmute_copy(&entype)) {
                 Ok(ok__) => {
-                    core::ptr::write(penmode, core::mem::transmute(ok__));
+                    penmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -949,7 +949,7 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient2_Impl::Version(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plversion, core::mem::transmute(ok__));
+                    plversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -975,7 +975,7 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient2_Impl::CreateSessionWithDescription(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription), windows_core::from_raw_borrowed(&pprofile), core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession2, core::mem::transmute(ok__));
+                    ppsession2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -996,7 +996,7 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient2_Impl::get_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pensecuritylevel, core::mem::transmute(ok__));
+                    pensecuritylevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1012,7 +1012,7 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClient2_Impl::get_AllowedPorts(this, core::mem::transmute_copy(&ltransport)) {
                 Ok(ok__) => {
-                    core::ptr::write(penlistenmode, core::mem::transmute(ok__));
+                    penlistenmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1054,7 +1054,7 @@ impl IRTCClientEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientEvent_Impl::EventType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(peneventtype, core::mem::transmute(ok__));
+                    peneventtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1065,7 +1065,7 @@ impl IRTCClientEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientEvent_Impl::Client(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppclient, core::mem::transmute(ok__));
+                    ppclient.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1161,7 +1161,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence_Impl::EnumerateBuddies(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1172,7 +1172,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence_Impl::Buddies(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcollection, core::mem::transmute(ok__));
+                    ppcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1183,7 +1183,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence_Impl::get_Buddy(this, core::mem::transmute(&bstrpresentityuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbuddy, core::mem::transmute(ok__));
+                    ppbuddy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1194,7 +1194,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence_Impl::AddBuddy(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fpersistent), windows_core::from_raw_borrowed(&pprofile), core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbuddy, core::mem::transmute(ok__));
+                    ppbuddy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1210,7 +1210,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence_Impl::EnumerateWatchers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1221,7 +1221,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence_Impl::Watchers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcollection, core::mem::transmute(ok__));
+                    ppcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1232,7 +1232,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence_Impl::get_Watcher(this, core::mem::transmute(&bstrpresentityuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwatcher, core::mem::transmute(ok__));
+                    ppwatcher.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1243,7 +1243,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence_Impl::AddWatcher(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fblocked), core::mem::transmute_copy(&fpersistent)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwatcher, core::mem::transmute(ok__));
+                    ppwatcher.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1264,7 +1264,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence_Impl::OfferWatcherMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penmode, core::mem::transmute(ok__));
+                    penmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1280,7 +1280,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence_Impl::PrivacyMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penmode, core::mem::transmute(ok__));
+                    penmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1355,7 +1355,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence2_Impl::AddGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&bstrdata), windows_core::from_raw_borrowed(&pprofile), core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgroup, core::mem::transmute(ok__));
+                    ppgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1371,7 +1371,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence2_Impl::EnumerateGroups(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1382,7 +1382,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence2_Impl::Groups(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcollection, core::mem::transmute(ok__));
+                    ppcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1393,7 +1393,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence2_Impl::get_Group(this, core::mem::transmute(&bstrgroupname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgroup, core::mem::transmute(ok__));
+                    ppgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1404,7 +1404,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence2_Impl::AddWatcherEx(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&enstate), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&enscope), windows_core::from_raw_borrowed(&pprofile), core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwatcher, core::mem::transmute(ok__));
+                    ppwatcher.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1415,7 +1415,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence2_Impl::get_WatcherEx(this, core::mem::transmute_copy(&enmode), core::mem::transmute(&bstrpresentityuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwatcher, core::mem::transmute(ok__));
+                    ppwatcher.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1431,7 +1431,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence2_Impl::get_PresenceProperty(this, core::mem::transmute_copy(&enproperty)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrproperty, core::mem::transmute(ok__));
+                    pbstrproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1457,7 +1457,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientPresence2_Impl::AddBuddyEx(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&ensubscriptiontype), windows_core::from_raw_borrowed(&pprofile), core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbuddy, core::mem::transmute(ok__));
+                    ppbuddy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1506,7 +1506,7 @@ impl IRTCClientProvisioning_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientProvisioning_Impl::CreateProfile(this, core::mem::transmute(&bstrprofilexml)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprofile, core::mem::transmute(ok__));
+                    ppprofile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1527,7 +1527,7 @@ impl IRTCClientProvisioning_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientProvisioning_Impl::EnumerateProfiles(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1538,7 +1538,7 @@ impl IRTCClientProvisioning_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientProvisioning_Impl::Profiles(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcollection, core::mem::transmute(ok__));
+                    ppcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1554,7 +1554,7 @@ impl IRTCClientProvisioning_Vtbl {
             let this = (*this).get_impl();
             match IRTCClientProvisioning_Impl::SessionCapabilities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsupportedsessions, core::mem::transmute(ok__));
+                    plsupportedsessions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1611,7 +1611,7 @@ impl IRTCCollection_Vtbl {
             let this = (*this).get_impl();
             match IRTCCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(lcount, core::mem::transmute(ok__));
+                    lcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1622,7 +1622,7 @@ impl IRTCCollection_Vtbl {
             let this = (*this).get_impl();
             match IRTCCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvariant, core::mem::transmute(ok__));
+                    pvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1633,7 +1633,7 @@ impl IRTCCollection_Vtbl {
             let this = (*this).get_impl();
             match IRTCCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnewenum, core::mem::transmute(ok__));
+                    ppnewenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1692,7 +1692,7 @@ impl IRTCEnumBuddies_Vtbl {
             let this = (*this).get_impl();
             match IRTCEnumBuddies_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1739,7 +1739,7 @@ impl IRTCEnumGroups_Vtbl {
             let this = (*this).get_impl();
             match IRTCEnumGroups_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1786,7 +1786,7 @@ impl IRTCEnumParticipants_Vtbl {
             let this = (*this).get_impl();
             match IRTCEnumParticipants_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1833,7 +1833,7 @@ impl IRTCEnumPresenceDevices_Vtbl {
             let this = (*this).get_impl();
             match IRTCEnumPresenceDevices_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1880,7 +1880,7 @@ impl IRTCEnumProfiles_Vtbl {
             let this = (*this).get_impl();
             match IRTCEnumProfiles_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1927,7 +1927,7 @@ impl IRTCEnumUserSearchResults_Vtbl {
             let this = (*this).get_impl();
             match IRTCEnumUserSearchResults_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1974,7 +1974,7 @@ impl IRTCEnumWatchers_Vtbl {
             let this = (*this).get_impl();
             match IRTCEnumWatchers_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2029,7 +2029,7 @@ impl IRTCInfoEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCInfoEvent_Impl::Session(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession, core::mem::transmute(ok__));
+                    ppsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2040,7 +2040,7 @@ impl IRTCInfoEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCInfoEvent_Impl::Participant(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppparticipant, core::mem::transmute(ok__));
+                    ppparticipant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2051,7 +2051,7 @@ impl IRTCInfoEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCInfoEvent_Impl::Info(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrinfo, core::mem::transmute(ok__));
+                    pbstrinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2062,7 +2062,7 @@ impl IRTCInfoEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCInfoEvent_Impl::InfoHeader(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrinfoheader, core::mem::transmute(ok__));
+                    pbstrinfoheader.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2097,7 +2097,7 @@ impl IRTCIntensityEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCIntensityEvent_Impl::Level(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pllevel, core::mem::transmute(ok__));
+                    pllevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2108,7 +2108,7 @@ impl IRTCIntensityEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCIntensityEvent_Impl::Min(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmin, core::mem::transmute(ok__));
+                    plmin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2119,7 +2119,7 @@ impl IRTCIntensityEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCIntensityEvent_Impl::Max(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmax, core::mem::transmute(ok__));
+                    plmax.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2130,7 +2130,7 @@ impl IRTCIntensityEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCIntensityEvent_Impl::Direction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pendirection, core::mem::transmute(ok__));
+                    pendirection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2164,7 +2164,7 @@ impl IRTCMediaEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMediaEvent_Impl::MediaType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pmediatype, core::mem::transmute(ok__));
+                    pmediatype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2175,7 +2175,7 @@ impl IRTCMediaEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMediaEvent_Impl::EventType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(peneventtype, core::mem::transmute(ok__));
+                    peneventtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2186,7 +2186,7 @@ impl IRTCMediaEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMediaEvent_Impl::EventReason(this) {
                 Ok(ok__) => {
-                    core::ptr::write(peneventreason, core::mem::transmute(ok__));
+                    peneventreason.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2223,7 +2223,7 @@ impl IRTCMediaRequestEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMediaRequestEvent_Impl::Session(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession, core::mem::transmute(ok__));
+                    ppsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2234,7 +2234,7 @@ impl IRTCMediaRequestEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMediaRequestEvent_Impl::ProposedMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmediatypes, core::mem::transmute(ok__));
+                    plmediatypes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2245,7 +2245,7 @@ impl IRTCMediaRequestEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMediaRequestEvent_Impl::CurrentMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmediatypes, core::mem::transmute(ok__));
+                    plmediatypes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2261,7 +2261,7 @@ impl IRTCMediaRequestEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMediaRequestEvent_Impl::get_RemotePreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pensecuritylevel, core::mem::transmute(ok__));
+                    pensecuritylevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2277,7 +2277,7 @@ impl IRTCMediaRequestEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMediaRequestEvent_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstate, core::mem::transmute(ok__));
+                    pstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2317,7 +2317,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMessagingEvent_Impl::Session(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession, core::mem::transmute(ok__));
+                    ppsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2328,7 +2328,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMessagingEvent_Impl::Participant(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppparticipant, core::mem::transmute(ok__));
+                    ppparticipant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2339,7 +2339,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMessagingEvent_Impl::EventType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(peneventtype, core::mem::transmute(ok__));
+                    peneventtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2350,7 +2350,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMessagingEvent_Impl::Message(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrmessage, core::mem::transmute(ok__));
+                    pbstrmessage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2361,7 +2361,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMessagingEvent_Impl::MessageHeader(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrmessageheader, core::mem::transmute(ok__));
+                    pbstrmessageheader.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2372,7 +2372,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCMessagingEvent_Impl::UserStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penuserstatus, core::mem::transmute(ok__));
+                    penuserstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2407,7 +2407,7 @@ impl IRTCParticipant_Vtbl {
             let this = (*this).get_impl();
             match IRTCParticipant_Impl::UserURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstruseruri, core::mem::transmute(ok__));
+                    pbstruseruri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2418,7 +2418,7 @@ impl IRTCParticipant_Vtbl {
             let this = (*this).get_impl();
             match IRTCParticipant_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2429,7 +2429,7 @@ impl IRTCParticipant_Vtbl {
             let this = (*this).get_impl();
             match IRTCParticipant_Impl::Removable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfremovable, core::mem::transmute(ok__));
+                    pfremovable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2440,7 +2440,7 @@ impl IRTCParticipant_Vtbl {
             let this = (*this).get_impl();
             match IRTCParticipant_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penstate, core::mem::transmute(ok__));
+                    penstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2451,7 +2451,7 @@ impl IRTCParticipant_Vtbl {
             let this = (*this).get_impl();
             match IRTCParticipant_Impl::Session(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession, core::mem::transmute(ok__));
+                    ppsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2486,7 +2486,7 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCParticipantStateChangeEvent_Impl::Participant(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppparticipant, core::mem::transmute(ok__));
+                    ppparticipant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2497,7 +2497,7 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCParticipantStateChangeEvent_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penstate, core::mem::transmute(ok__));
+                    penstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2508,7 +2508,7 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCParticipantStateChangeEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2577,7 +2577,7 @@ impl IRTCPresenceContact_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresenceContact_Impl::PresentityURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrpresentityuri, core::mem::transmute(ok__));
+                    pbstrpresentityuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2593,7 +2593,7 @@ impl IRTCPresenceContact_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresenceContact_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2609,7 +2609,7 @@ impl IRTCPresenceContact_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresenceContact_Impl::Data(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdata, core::mem::transmute(ok__));
+                    pbstrdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2625,7 +2625,7 @@ impl IRTCPresenceContact_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresenceContact_Impl::Persistent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfpersistent, core::mem::transmute(ok__));
+                    pfpersistent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2668,7 +2668,7 @@ impl IRTCPresenceDataEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresenceDataEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2679,7 +2679,7 @@ impl IRTCPresenceDataEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresenceDataEvent_Impl::StatusText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstatustext, core::mem::transmute(ok__));
+                    pbstrstatustext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2715,7 +2715,7 @@ impl IRTCPresenceDevice_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresenceDevice_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penstatus, core::mem::transmute(ok__));
+                    penstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2726,7 +2726,7 @@ impl IRTCPresenceDevice_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresenceDevice_Impl::Notes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrnotes, core::mem::transmute(ok__));
+                    pbstrnotes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2737,7 +2737,7 @@ impl IRTCPresenceDevice_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresenceDevice_Impl::get_PresenceProperty(this, core::mem::transmute_copy(&enproperty)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrproperty, core::mem::transmute(ok__));
+                    pbstrproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2777,7 +2777,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresencePropertyEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2788,7 +2788,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresencePropertyEvent_Impl::StatusText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstatustext, core::mem::transmute(ok__));
+                    pbstrstatustext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2799,7 +2799,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresencePropertyEvent_Impl::PresenceProperty(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penpresprop, core::mem::transmute(ok__));
+                    penpresprop.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2810,7 +2810,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresencePropertyEvent_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrvalue, core::mem::transmute(ok__));
+                    pbstrvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2844,7 +2844,7 @@ impl IRTCPresenceStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresenceStatusEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2855,7 +2855,7 @@ impl IRTCPresenceStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCPresenceStatusEvent_Impl::StatusText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstatustext, core::mem::transmute(ok__));
+                    pbstrstatustext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2905,7 +2905,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::Key(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrkey, core::mem::transmute(ok__));
+                    pbstrkey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2916,7 +2916,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2927,7 +2927,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::XML(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrxml, core::mem::transmute(ok__));
+                    pbstrxml.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2938,7 +2938,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::ProviderName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2949,7 +2949,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::get_ProviderURI(this, core::mem::transmute_copy(&enuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstruri, core::mem::transmute(ok__));
+                    pbstruri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2960,7 +2960,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::ProviderData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdata, core::mem::transmute(ok__));
+                    pbstrdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2971,7 +2971,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::ClientName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2982,7 +2982,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::ClientBanner(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfbanner, core::mem::transmute(ok__));
+                    pfbanner.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2993,7 +2993,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::ClientMinVer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrminver, core::mem::transmute(ok__));
+                    pbstrminver.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3004,7 +3004,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::ClientCurVer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcurver, core::mem::transmute(ok__));
+                    pbstrcurver.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3015,7 +3015,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::ClientUpdateURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrupdateuri, core::mem::transmute(ok__));
+                    pbstrupdateuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3026,7 +3026,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::ClientData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdata, core::mem::transmute(ok__));
+                    pbstrdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3037,7 +3037,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::UserURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstruseruri, core::mem::transmute(ok__));
+                    pbstruseruri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3048,7 +3048,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::UserName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrusername, core::mem::transmute(ok__));
+                    pbstrusername.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3059,7 +3059,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::UserAccount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstruseraccount, core::mem::transmute(ok__));
+                    pbstruseraccount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3075,7 +3075,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::SessionCapabilities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsupportedsessions, core::mem::transmute(ok__));
+                    plsupportedsessions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3086,7 +3086,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penstate, core::mem::transmute(ok__));
+                    penstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3132,7 +3132,7 @@ impl IRTCProfile2_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile2_Impl::Realm(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrrealm, core::mem::transmute(ok__));
+                    pbstrrealm.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3148,7 +3148,7 @@ impl IRTCProfile2_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfile2_Impl::AllowedAuth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plallowedauth, core::mem::transmute(ok__));
+                    plallowedauth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3187,7 +3187,7 @@ impl IRTCProfileEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfileEvent_Impl::Profile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprofile, core::mem::transmute(ok__));
+                    ppprofile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3198,7 +3198,7 @@ impl IRTCProfileEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfileEvent_Impl::Cookie(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcookie, core::mem::transmute(ok__));
+                    plcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3209,7 +3209,7 @@ impl IRTCProfileEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfileEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3240,7 +3240,7 @@ impl IRTCProfileEvent2_Vtbl {
             let this = (*this).get_impl();
             match IRTCProfileEvent2_Impl::EventType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(peventtype, core::mem::transmute(ok__));
+                    peventtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3270,7 +3270,7 @@ impl IRTCReInviteEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCReInviteEvent_Impl::Session(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession2, core::mem::transmute(ok__));
+                    ppsession2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3291,7 +3291,7 @@ impl IRTCReInviteEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCReInviteEvent_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstate, core::mem::transmute(ok__));
+                    pstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3332,7 +3332,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCRegistrationStateChangeEvent_Impl::Profile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprofile, core::mem::transmute(ok__));
+                    ppprofile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3343,7 +3343,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCRegistrationStateChangeEvent_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penstate, core::mem::transmute(ok__));
+                    penstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3354,7 +3354,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCRegistrationStateChangeEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3365,7 +3365,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCRegistrationStateChangeEvent_Impl::StatusText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstatustext, core::mem::transmute(ok__));
+                    pbstrstatustext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3400,7 +3400,7 @@ impl IRTCRoamingEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCRoamingEvent_Impl::EventType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(peventtype, core::mem::transmute(ok__));
+                    peventtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3411,7 +3411,7 @@ impl IRTCRoamingEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCRoamingEvent_Impl::Profile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprofile, core::mem::transmute(ok__));
+                    ppprofile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3422,7 +3422,7 @@ impl IRTCRoamingEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCRoamingEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3433,7 +3433,7 @@ impl IRTCRoamingEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCRoamingEvent_Impl::StatusText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstatustext, core::mem::transmute(ok__));
+                    pbstrstatustext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3484,7 +3484,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession_Impl::Client(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppclient, core::mem::transmute(ok__));
+                    ppclient.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3495,7 +3495,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penstate, core::mem::transmute(ok__));
+                    penstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3506,7 +3506,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pentype, core::mem::transmute(ok__));
+                    pentype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3517,7 +3517,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession_Impl::Profile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprofile, core::mem::transmute(ok__));
+                    ppprofile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3528,7 +3528,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession_Impl::Participants(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcollection, core::mem::transmute(ok__));
+                    ppcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3554,7 +3554,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession_Impl::AddParticipant(this, core::mem::transmute(&bstraddress), core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppparticipant, core::mem::transmute(ok__));
+                    ppparticipant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3570,7 +3570,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession_Impl::EnumerateParticipants(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3581,7 +3581,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession_Impl::CanAddParticipants(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfcanadd, core::mem::transmute(ok__));
+                    pfcanadd.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3592,7 +3592,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession_Impl::RedirectedUserURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstruseruri, core::mem::transmute(ok__));
+                    pbstruseruri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3603,7 +3603,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession_Impl::RedirectedUserName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrusername, core::mem::transmute(ok__));
+                    pbstrusername.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3696,7 +3696,7 @@ impl IRTCSession2_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession2_Impl::get_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pensecuritylevel, core::mem::transmute(ok__));
+                    pensecuritylevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3707,7 +3707,7 @@ impl IRTCSession2_Vtbl {
             let this = (*this).get_impl();
             match IRTCSession2_Impl::IsSecurityEnabled(this, core::mem::transmute_copy(&ensecuritytype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfsecurityenabled, core::mem::transmute(ok__));
+                    pfsecurityenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3781,7 +3781,7 @@ impl IRTCSessionCallControl_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionCallControl_Impl::ReferredByURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrreferredbyuri, core::mem::transmute(ok__));
+                    pbstrreferredbyuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3797,7 +3797,7 @@ impl IRTCSessionCallControl_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionCallControl_Impl::ReferCookie(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrrefercookie, core::mem::transmute(ok__));
+                    pbstrrefercookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3808,7 +3808,7 @@ impl IRTCSessionCallControl_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionCallControl_Impl::IsReferred(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisreferred, core::mem::transmute(ok__));
+                    pfisreferred.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3865,7 +3865,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionOperationCompleteEvent_Impl::Session(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession, core::mem::transmute(ok__));
+                    ppsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3876,7 +3876,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionOperationCompleteEvent_Impl::Cookie(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcookie, core::mem::transmute(ok__));
+                    plcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3887,7 +3887,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionOperationCompleteEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3898,7 +3898,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionOperationCompleteEvent_Impl::StatusText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstatustext, core::mem::transmute(ok__));
+                    pbstrstatustext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3931,7 +3931,7 @@ impl IRTCSessionOperationCompleteEvent2_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionOperationCompleteEvent2_Impl::Participant(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppparticipant, core::mem::transmute(ok__));
+                    ppparticipant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3986,7 +3986,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionReferStatusEvent_Impl::Session(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession, core::mem::transmute(ok__));
+                    ppsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3997,7 +3997,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionReferStatusEvent_Impl::ReferStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penreferstatus, core::mem::transmute(ok__));
+                    penreferstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4008,7 +4008,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionReferStatusEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4019,7 +4019,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionReferStatusEvent_Impl::StatusText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstatustext, core::mem::transmute(ok__));
+                    pbstrstatustext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4057,7 +4057,7 @@ impl IRTCSessionReferredEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionReferredEvent_Impl::Session(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession, core::mem::transmute(ok__));
+                    ppsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4068,7 +4068,7 @@ impl IRTCSessionReferredEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionReferredEvent_Impl::ReferredByURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrreferredbyuri, core::mem::transmute(ok__));
+                    pbstrreferredbyuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4079,7 +4079,7 @@ impl IRTCSessionReferredEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionReferredEvent_Impl::ReferToURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrreferouri, core::mem::transmute(ok__));
+                    pbstrreferouri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4090,7 +4090,7 @@ impl IRTCSessionReferredEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionReferredEvent_Impl::ReferCookie(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrrefercookie, core::mem::transmute(ok__));
+                    pbstrrefercookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4143,7 +4143,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionStateChangeEvent_Impl::Session(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession, core::mem::transmute(ok__));
+                    ppsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4154,7 +4154,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionStateChangeEvent_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penstate, core::mem::transmute(ok__));
+                    penstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4165,7 +4165,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionStateChangeEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4176,7 +4176,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionStateChangeEvent_Impl::StatusText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstatustext, core::mem::transmute(ok__));
+                    pbstrstatustext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4211,7 +4211,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionStateChangeEvent2_Impl::MediaTypes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pmediatypes, core::mem::transmute(ok__));
+                    pmediatypes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4222,7 +4222,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionStateChangeEvent2_Impl::get_RemotePreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pensecuritylevel, core::mem::transmute(ok__));
+                    pensecuritylevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4233,7 +4233,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
             let this = (*this).get_impl();
             match IRTCSessionStateChangeEvent2_Impl::IsForked(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisforked, core::mem::transmute(ok__));
+                    pfisforked.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4268,7 +4268,7 @@ impl IRTCUserSearch_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearch_Impl::CreateQuery(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppquery, core::mem::transmute(ok__));
+                    ppquery.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4311,7 +4311,7 @@ impl IRTCUserSearchQuery_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchQuery_Impl::get_SearchTerm(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrvalue, core::mem::transmute(ok__));
+                    pbstrvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4322,7 +4322,7 @@ impl IRTCUserSearchQuery_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchQuery_Impl::SearchTerms(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrnames, core::mem::transmute(ok__));
+                    pbstrnames.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4338,7 +4338,7 @@ impl IRTCUserSearchQuery_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchQuery_Impl::get_SearchPreference(this, core::mem::transmute_copy(&enpreference)) {
                 Ok(ok__) => {
-                    core::ptr::write(plvalue, core::mem::transmute(ok__));
+                    plvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4354,7 +4354,7 @@ impl IRTCUserSearchQuery_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchQuery_Impl::SearchDomain(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdomain, core::mem::transmute(ok__));
+                    pbstrdomain.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4386,7 +4386,7 @@ impl IRTCUserSearchResult_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchResult_Impl::get_Value(this, core::mem::transmute_copy(&encolumn)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrvalue, core::mem::transmute(ok__));
+                    pbstrvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4418,7 +4418,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchResultsEvent_Impl::EnumerateResults(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4429,7 +4429,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchResultsEvent_Impl::Results(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcollection, core::mem::transmute(ok__));
+                    ppcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4440,7 +4440,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchResultsEvent_Impl::Profile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprofile, core::mem::transmute(ok__));
+                    ppprofile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4451,7 +4451,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchResultsEvent_Impl::Query(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppquery, core::mem::transmute(ok__));
+                    ppquery.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4462,7 +4462,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchResultsEvent_Impl::Cookie(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcookie, core::mem::transmute(ok__));
+                    plcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4473,7 +4473,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchResultsEvent_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4484,7 +4484,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCUserSearchResultsEvent_Impl::MoreAvailable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfmoreavailable, core::mem::transmute(ok__));
+                    pfmoreavailable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4517,7 +4517,7 @@ impl IRTCWatcher_Vtbl {
             let this = (*this).get_impl();
             match IRTCWatcher_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penstate, core::mem::transmute(ok__));
+                    penstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4550,7 +4550,7 @@ impl IRTCWatcher2_Vtbl {
             let this = (*this).get_impl();
             match IRTCWatcher2_Impl::Profile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprofile, core::mem::transmute(ok__));
+                    ppprofile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4561,7 +4561,7 @@ impl IRTCWatcher2_Vtbl {
             let this = (*this).get_impl();
             match IRTCWatcher2_Impl::Scope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(penscope, core::mem::transmute(ok__));
+                    penscope.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4587,7 +4587,7 @@ impl IRTCWatcherEvent_Vtbl {
             let this = (*this).get_impl();
             match IRTCWatcherEvent_Impl::Watcher(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwatcher, core::mem::transmute(ok__));
+                    ppwatcher.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4614,7 +4614,7 @@ impl IRTCWatcherEvent2_Vtbl {
             let this = (*this).get_impl();
             match IRTCWatcherEvent2_Impl::EventType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(peventtype, core::mem::transmute(ok__));
+                    peventtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4625,7 +4625,7 @@ impl IRTCWatcherEvent2_Vtbl {
             let this = (*this).get_impl();
             match IRTCWatcherEvent2_Impl::StatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatuscode, core::mem::transmute(ok__));
+                    plstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

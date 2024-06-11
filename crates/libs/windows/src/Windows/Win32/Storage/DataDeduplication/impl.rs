@@ -44,7 +44,7 @@ impl IDedupChunkLibrary_Vtbl {
             let this = (*this).get_impl();
             match IDedupChunkLibrary_Impl::StartChunking(this, core::mem::transmute(&iiditeratorinterfaceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppchunksenum, core::mem::transmute(ok__));
+                    ppchunksenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -92,7 +92,7 @@ impl IDedupDataPort_Vtbl {
             let this = (*this).get_impl();
             match IDedupDataPort_Impl::LookupChunks(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&phashes)) {
                 Ok(ok__) => {
-                    core::ptr::write(prequestid, core::mem::transmute(ok__));
+                    prequestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -103,7 +103,7 @@ impl IDedupDataPort_Vtbl {
             let this = (*this).get_impl();
             match IDedupDataPort_Impl::InsertChunks(this, core::mem::transmute_copy(&chunkcount), core::mem::transmute_copy(&pchunkmetadata), core::mem::transmute_copy(&databytecount), core::mem::transmute_copy(&pchunkdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(prequestid, core::mem::transmute(ok__));
+                    prequestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -114,7 +114,7 @@ impl IDedupDataPort_Vtbl {
             let this = (*this).get_impl();
             match IDedupDataPort_Impl::InsertChunksWithStream(this, core::mem::transmute_copy(&chunkcount), core::mem::transmute_copy(&pchunkmetadata), core::mem::transmute_copy(&databytecount), windows_core::from_raw_borrowed(&pchunkdatastream)) {
                 Ok(ok__) => {
-                    core::ptr::write(prequestid, core::mem::transmute(ok__));
+                    prequestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -125,7 +125,7 @@ impl IDedupDataPort_Vtbl {
             let this = (*this).get_impl();
             match IDedupDataPort_Impl::CommitStreams(this, core::mem::transmute_copy(&streamcount), core::mem::transmute_copy(&pstreams), core::mem::transmute_copy(&entrycount), core::mem::transmute_copy(&pentries)) {
                 Ok(ok__) => {
-                    core::ptr::write(prequestid, core::mem::transmute(ok__));
+                    prequestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -136,7 +136,7 @@ impl IDedupDataPort_Vtbl {
             let this = (*this).get_impl();
             match IDedupDataPort_Impl::CommitStreamsWithStream(this, core::mem::transmute_copy(&streamcount), core::mem::transmute_copy(&pstreams), core::mem::transmute_copy(&entrycount), windows_core::from_raw_borrowed(&pentriesstream)) {
                 Ok(ok__) => {
-                    core::ptr::write(prequestid, core::mem::transmute(ok__));
+                    prequestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -147,7 +147,7 @@ impl IDedupDataPort_Vtbl {
             let this = (*this).get_impl();
             match IDedupDataPort_Impl::GetStreams(this, core::mem::transmute_copy(&streamcount), core::mem::transmute_copy(&pstreampaths)) {
                 Ok(ok__) => {
-                    core::ptr::write(prequestid, core::mem::transmute(ok__));
+                    prequestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -163,7 +163,7 @@ impl IDedupDataPort_Vtbl {
             let this = (*this).get_impl();
             match IDedupDataPort_Impl::GetChunks(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&phashes)) {
                 Ok(ok__) => {
-                    core::ptr::write(prequestid, core::mem::transmute(ok__));
+                    prequestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -179,7 +179,7 @@ impl IDedupDataPort_Vtbl {
             let this = (*this).get_impl();
             match IDedupDataPort_Impl::GetRequestStatus(this, core::mem::transmute(&requestid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -228,7 +228,7 @@ impl IDedupDataPortManager_Vtbl {
             let this = (*this).get_impl();
             match IDedupDataPortManager_Impl::GetVolumeStatus(this, core::mem::transmute_copy(&options), core::mem::transmute(&path)) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -239,7 +239,7 @@ impl IDedupDataPortManager_Vtbl {
             let this = (*this).get_impl();
             match IDedupDataPortManager_Impl::GetVolumeDataPort(this, core::mem::transmute_copy(&options), core::mem::transmute(&path)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdataport, core::mem::transmute(ok__));
+                    ppdataport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

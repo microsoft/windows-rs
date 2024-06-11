@@ -16,7 +16,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             let this = (*this).get_impl();
             match IAccessoryNotificationTriggerDetails_Impl::TimeCreated(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -27,7 +27,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             let this = (*this).get_impl();
             match IAccessoryNotificationTriggerDetails_Impl::AppDisplayName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -39,7 +39,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             let this = (*this).get_impl();
             match IAccessoryNotificationTriggerDetails_Impl::AppId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -51,7 +51,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             let this = (*this).get_impl();
             match IAccessoryNotificationTriggerDetails_Impl::AccessoryNotificationType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -62,7 +62,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             let this = (*this).get_impl();
             match IAccessoryNotificationTriggerDetails_Impl::StartedProcessing(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

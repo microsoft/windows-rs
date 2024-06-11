@@ -30,7 +30,7 @@ impl IDirect3DSurface_Vtbl {
             let this = (*this).get_impl();
             match IDirect3DSurface_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

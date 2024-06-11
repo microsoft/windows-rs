@@ -360,7 +360,7 @@ impl ITest_Vtbl {
             let this = (*this).get_impl();
             match ITest_Impl::String(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -391,7 +391,7 @@ impl ITest_Vtbl {
             let this = (*this).get_impl();
             match ITest_Impl::Int32(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -421,7 +421,7 @@ impl ITest_Vtbl {
             let this = (*this).get_impl();
             match ITest_Impl::Test(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -490,7 +490,7 @@ impl ITest_Vtbl {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             let ok__ = ITest_Impl::StringN(this);
-            core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+            result__.write(core::mem::transmute_copy(&ok__));
             core::mem::forget(ok__);
             windows_core::HRESULT(0)
         }
@@ -518,7 +518,7 @@ impl ITest_Vtbl {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             let ok__ = ITest_Impl::Int32N(this);
-            core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+            result__.write(core::mem::transmute_copy(&ok__));
             windows_core::HRESULT(0)
         }
         unsafe extern "system" fn SetInt32N<
@@ -545,7 +545,7 @@ impl ITest_Vtbl {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             let ok__ = ITest_Impl::TestN(this);
-            core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+            result__.write(core::mem::transmute_copy(&ok__));
             core::mem::forget(ok__);
             windows_core::HRESULT(0)
         }

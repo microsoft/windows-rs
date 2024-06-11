@@ -92,7 +92,7 @@ impl IAlertDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IAlertDataCollector_Impl::AlertThresholds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(alerts, core::mem::transmute(ok__));
+                    alerts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -108,7 +108,7 @@ impl IAlertDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IAlertDataCollector_Impl::EventLog(this) {
                 Ok(ok__) => {
-                    core::ptr::write(log, core::mem::transmute(ok__));
+                    log.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -124,7 +124,7 @@ impl IAlertDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IAlertDataCollector_Impl::SampleInterval(this) {
                 Ok(ok__) => {
-                    core::ptr::write(interval, core::mem::transmute(ok__));
+                    interval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -140,7 +140,7 @@ impl IAlertDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IAlertDataCollector_Impl::Task(this) {
                 Ok(ok__) => {
-                    core::ptr::write(task, core::mem::transmute(ok__));
+                    task.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -156,7 +156,7 @@ impl IAlertDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IAlertDataCollector_Impl::TaskRunAsSelf(this) {
                 Ok(ok__) => {
-                    core::ptr::write(runasself, core::mem::transmute(ok__));
+                    runasself.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -172,7 +172,7 @@ impl IAlertDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IAlertDataCollector_Impl::TaskArguments(this) {
                 Ok(ok__) => {
-                    core::ptr::write(task, core::mem::transmute(ok__));
+                    task.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -188,7 +188,7 @@ impl IAlertDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IAlertDataCollector_Impl::TaskUserTextArguments(this) {
                 Ok(ok__) => {
-                    core::ptr::write(task, core::mem::transmute(ok__));
+                    task.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -204,7 +204,7 @@ impl IAlertDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IAlertDataCollector_Impl::TriggerDataCollectorSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -266,7 +266,7 @@ impl IApiTracingDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IApiTracingDataCollector_Impl::LogApiNamesOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(logapinames, core::mem::transmute(ok__));
+                    logapinames.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -282,7 +282,7 @@ impl IApiTracingDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IApiTracingDataCollector_Impl::LogApisRecursively(this) {
                 Ok(ok__) => {
-                    core::ptr::write(logrecursively, core::mem::transmute(ok__));
+                    logrecursively.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -298,7 +298,7 @@ impl IApiTracingDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IApiTracingDataCollector_Impl::ExePath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(exepath, core::mem::transmute(ok__));
+                    exepath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -314,7 +314,7 @@ impl IApiTracingDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IApiTracingDataCollector_Impl::LogFilePath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(logfilepath, core::mem::transmute(ok__));
+                    logfilepath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -330,7 +330,7 @@ impl IApiTracingDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IApiTracingDataCollector_Impl::IncludeModules(this) {
                 Ok(ok__) => {
-                    core::ptr::write(includemodules, core::mem::transmute(ok__));
+                    includemodules.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -346,7 +346,7 @@ impl IApiTracingDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IApiTracingDataCollector_Impl::IncludeApis(this) {
                 Ok(ok__) => {
-                    core::ptr::write(includeapis, core::mem::transmute(ok__));
+                    includeapis.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -362,7 +362,7 @@ impl IApiTracingDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IApiTracingDataCollector_Impl::ExcludeApis(this) {
                 Ok(ok__) => {
-                    core::ptr::write(excludeapis, core::mem::transmute(ok__));
+                    excludeapis.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -426,7 +426,7 @@ impl IConfigurationDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IConfigurationDataCollector_Impl::FileMaxCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -442,7 +442,7 @@ impl IConfigurationDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IConfigurationDataCollector_Impl::FileMaxRecursiveDepth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(depth, core::mem::transmute(ok__));
+                    depth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -458,7 +458,7 @@ impl IConfigurationDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IConfigurationDataCollector_Impl::FileMaxTotalSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(size, core::mem::transmute(ok__));
+                    size.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -474,7 +474,7 @@ impl IConfigurationDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IConfigurationDataCollector_Impl::Files(this) {
                 Ok(ok__) => {
-                    core::ptr::write(files, core::mem::transmute(ok__));
+                    files.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -490,7 +490,7 @@ impl IConfigurationDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IConfigurationDataCollector_Impl::ManagementQueries(this) {
                 Ok(ok__) => {
-                    core::ptr::write(queries, core::mem::transmute(ok__));
+                    queries.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -506,7 +506,7 @@ impl IConfigurationDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IConfigurationDataCollector_Impl::QueryNetworkAdapters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(network, core::mem::transmute(ok__));
+                    network.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -522,7 +522,7 @@ impl IConfigurationDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IConfigurationDataCollector_Impl::RegistryKeys(this) {
                 Ok(ok__) => {
-                    core::ptr::write(query, core::mem::transmute(ok__));
+                    query.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -538,7 +538,7 @@ impl IConfigurationDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IConfigurationDataCollector_Impl::RegistryMaxRecursiveDepth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(depth, core::mem::transmute(ok__));
+                    depth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -554,7 +554,7 @@ impl IConfigurationDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IConfigurationDataCollector_Impl::SystemStateFile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(filename, core::mem::transmute(ok__));
+                    filename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -613,7 +613,7 @@ impl ICounterItem_Vtbl {
             let this = (*this).get_impl();
             match ICounterItem_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdblvalue, core::mem::transmute(ok__));
+                    pdblvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -629,7 +629,7 @@ impl ICounterItem_Vtbl {
             let this = (*this).get_impl();
             match ICounterItem_Impl::Color(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -645,7 +645,7 @@ impl ICounterItem_Vtbl {
             let this = (*this).get_impl();
             match ICounterItem_Impl::Width(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -661,7 +661,7 @@ impl ICounterItem_Vtbl {
             let this = (*this).get_impl();
             match ICounterItem_Impl::LineStyle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -677,7 +677,7 @@ impl ICounterItem_Vtbl {
             let this = (*this).get_impl();
             match ICounterItem_Impl::ScaleFactor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -688,7 +688,7 @@ impl ICounterItem_Vtbl {
             let this = (*this).get_impl();
             match ICounterItem_Impl::Path(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstrvalue, core::mem::transmute(ok__));
+                    pstrvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -744,7 +744,7 @@ impl ICounterItem2_Vtbl {
             let this = (*this).get_impl();
             match ICounterItem2_Impl::Selected(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -760,7 +760,7 @@ impl ICounterItem2_Vtbl {
             let this = (*this).get_impl();
             match ICounterItem2_Impl::Visible(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -771,7 +771,7 @@ impl ICounterItem2_Vtbl {
             let this = (*this).get_impl();
             match ICounterItem2_Impl::GetDataAt(this, core::mem::transmute_copy(&iindex), core::mem::transmute_copy(&iwhich)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvariant, core::mem::transmute(ok__));
+                    pvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -808,7 +808,7 @@ impl ICounters_Vtbl {
             let this = (*this).get_impl();
             match ICounters_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plong, core::mem::transmute(ok__));
+                    plong.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -819,7 +819,7 @@ impl ICounters_Vtbl {
             let this = (*this).get_impl();
             match ICounters_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiunk, core::mem::transmute(ok__));
+                    ppiunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -830,7 +830,7 @@ impl ICounters_Vtbl {
             let this = (*this).get_impl();
             match ICounters_Impl::get_Item(this, core::mem::transmute(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppi, core::mem::transmute(ok__));
+                    ppi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -841,7 +841,7 @@ impl ICounters_Vtbl {
             let this = (*this).get_impl();
             match ICounters_Impl::Add(this, core::mem::transmute(&pathname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppi, core::mem::transmute(ok__));
+                    ppi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -903,7 +903,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::DataCollectorSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(group, core::mem::transmute(ok__));
+                    group.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -919,7 +919,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::DataCollectorType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -930,7 +930,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::FileName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -946,7 +946,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::FileNameFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(format, core::mem::transmute(ok__));
+                    format.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -962,7 +962,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::FileNameFormatPattern(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pattern, core::mem::transmute(ok__));
+                    pattern.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -978,7 +978,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::LatestOutputLocation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(path, core::mem::transmute(ok__));
+                    path.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -994,7 +994,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::LogAppend(this) {
                 Ok(ok__) => {
-                    core::ptr::write(append, core::mem::transmute(ok__));
+                    append.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1010,7 +1010,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::LogCircular(this) {
                 Ok(ok__) => {
-                    core::ptr::write(circular, core::mem::transmute(ok__));
+                    circular.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1026,7 +1026,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::LogOverwrite(this) {
                 Ok(ok__) => {
-                    core::ptr::write(overwrite, core::mem::transmute(ok__));
+                    overwrite.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1042,7 +1042,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1058,7 +1058,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::OutputLocation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(path, core::mem::transmute(ok__));
+                    path.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1069,7 +1069,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::Index(this) {
                 Ok(ok__) => {
-                    core::ptr::write(index, core::mem::transmute(ok__));
+                    index.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1085,7 +1085,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::Xml(this) {
                 Ok(ok__) => {
-                    core::ptr::write(xml, core::mem::transmute(ok__));
+                    xml.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1096,7 +1096,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::SetXml(this, core::mem::transmute(&xml)) {
                 Ok(ok__) => {
-                    core::ptr::write(validation, core::mem::transmute(ok__));
+                    validation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1107,7 +1107,7 @@ impl IDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IDataCollector_Impl::CreateOutputLocation(this, core::mem::transmute_copy(&latest)) {
                 Ok(ok__) => {
-                    core::ptr::write(location, core::mem::transmute(ok__));
+                    location.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1168,7 +1168,7 @@ impl IDataCollectorCollection_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1179,7 +1179,7 @@ impl IDataCollectorCollection_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorCollection_Impl::get_Item(this, core::mem::transmute(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(collector, core::mem::transmute(ok__));
+                    collector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1190,7 +1190,7 @@ impl IDataCollectorCollection_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1226,7 +1226,7 @@ impl IDataCollectorCollection_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorCollection_Impl::CreateDataCollector(this, core::mem::transmute_copy(&r#type)) {
                 Ok(ok__) => {
-                    core::ptr::write(collector, core::mem::transmute(ok__));
+                    collector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1322,7 +1322,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::DataCollectors(this) {
                 Ok(ok__) => {
-                    core::ptr::write(collectors, core::mem::transmute(ok__));
+                    collectors.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1333,7 +1333,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Duration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(seconds, core::mem::transmute(ok__));
+                    seconds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1349,7 +1349,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(description, core::mem::transmute(ok__));
+                    description.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1365,7 +1365,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::DescriptionUnresolved(this) {
                 Ok(ok__) => {
-                    core::ptr::write(descr, core::mem::transmute(ok__));
+                    descr.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1376,7 +1376,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::DisplayName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(displayname, core::mem::transmute(ok__));
+                    displayname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1392,7 +1392,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::DisplayNameUnresolved(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1403,7 +1403,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Keywords(this) {
                 Ok(ok__) => {
-                    core::ptr::write(keywords, core::mem::transmute(ok__));
+                    keywords.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1419,7 +1419,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::LatestOutputLocation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(path, core::mem::transmute(ok__));
+                    path.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1435,7 +1435,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1446,7 +1446,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::OutputLocation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(path, core::mem::transmute(ok__));
+                    path.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1457,7 +1457,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::RootPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(folder, core::mem::transmute(ok__));
+                    folder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1473,7 +1473,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Segment(this) {
                 Ok(ok__) => {
-                    core::ptr::write(segment, core::mem::transmute(ok__));
+                    segment.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1489,7 +1489,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::SegmentMaxDuration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(seconds, core::mem::transmute(ok__));
+                    seconds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1505,7 +1505,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::SegmentMaxSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(size, core::mem::transmute(ok__));
+                    size.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1521,7 +1521,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::SerialNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(index, core::mem::transmute(ok__));
+                    index.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1537,7 +1537,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Server(this) {
                 Ok(ok__) => {
-                    core::ptr::write(server, core::mem::transmute(ok__));
+                    server.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1548,7 +1548,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1559,7 +1559,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Subdirectory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(folder, core::mem::transmute(ok__));
+                    folder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1575,7 +1575,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::SubdirectoryFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(format, core::mem::transmute(ok__));
+                    format.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1591,7 +1591,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::SubdirectoryFormatPattern(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pattern, core::mem::transmute(ok__));
+                    pattern.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1607,7 +1607,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Task(this) {
                 Ok(ok__) => {
-                    core::ptr::write(task, core::mem::transmute(ok__));
+                    task.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1623,7 +1623,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::TaskRunAsSelf(this) {
                 Ok(ok__) => {
-                    core::ptr::write(runasself, core::mem::transmute(ok__));
+                    runasself.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1639,7 +1639,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::TaskArguments(this) {
                 Ok(ok__) => {
-                    core::ptr::write(task, core::mem::transmute(ok__));
+                    task.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1655,7 +1655,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::TaskUserTextArguments(this) {
                 Ok(ok__) => {
-                    core::ptr::write(usertext, core::mem::transmute(ok__));
+                    usertext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1671,7 +1671,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Schedules(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppschedules, core::mem::transmute(ok__));
+                    ppschedules.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1682,7 +1682,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::SchedulesEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1698,7 +1698,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::UserAccount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(user, core::mem::transmute(ok__));
+                    user.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1709,7 +1709,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Xml(this) {
                 Ok(ok__) => {
-                    core::ptr::write(xml, core::mem::transmute(ok__));
+                    xml.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1720,7 +1720,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Security(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsecurity, core::mem::transmute(ok__));
+                    pbstrsecurity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1736,7 +1736,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::StopOnCompletion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(stop, core::mem::transmute(ok__));
+                    stop.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1752,7 +1752,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::DataManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(datamanager, core::mem::transmute(ok__));
+                    datamanager.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1773,7 +1773,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::Commit(this, core::mem::transmute(&name), core::mem::transmute(&server), core::mem::transmute_copy(&mode)) {
                 Ok(ok__) => {
-                    core::ptr::write(validation, core::mem::transmute(ok__));
+                    validation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1799,7 +1799,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::SetXml(this, core::mem::transmute(&xml)) {
                 Ok(ok__) => {
-                    core::ptr::write(validation, core::mem::transmute(ok__));
+                    validation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1815,7 +1815,7 @@ impl IDataCollectorSet_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSet_Impl::GetValue(this, core::mem::transmute(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1910,7 +1910,7 @@ impl IDataCollectorSetCollection_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSetCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1921,7 +1921,7 @@ impl IDataCollectorSetCollection_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSetCollection_Impl::get_Item(this, core::mem::transmute(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(set, core::mem::transmute(ok__));
+                    set.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1932,7 +1932,7 @@ impl IDataCollectorSetCollection_Vtbl {
             let this = (*this).get_impl();
             match IDataCollectorSetCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2017,7 +2017,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfenabled, core::mem::transmute(ok__));
+                    pfenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2033,7 +2033,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::CheckBeforeRunning(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfcheck, core::mem::transmute(ok__));
+                    pfcheck.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2049,7 +2049,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::MinFreeDisk(this) {
                 Ok(ok__) => {
-                    core::ptr::write(minfreedisk, core::mem::transmute(ok__));
+                    minfreedisk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2065,7 +2065,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::MaxSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulmaxsize, core::mem::transmute(ok__));
+                    pulmaxsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2081,7 +2081,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::MaxFolderCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulmaxfoldercount, core::mem::transmute(ok__));
+                    pulmaxfoldercount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2097,7 +2097,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::ResourcePolicy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppolicy, core::mem::transmute(ok__));
+                    ppolicy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2113,7 +2113,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::FolderActions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(actions, core::mem::transmute(ok__));
+                    actions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2124,7 +2124,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::ReportSchema(this) {
                 Ok(ok__) => {
-                    core::ptr::write(reportschema, core::mem::transmute(ok__));
+                    reportschema.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2140,7 +2140,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::ReportFileName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrfilename, core::mem::transmute(ok__));
+                    pbstrfilename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2156,7 +2156,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::RuleTargetFileName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(filename, core::mem::transmute(ok__));
+                    filename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2172,7 +2172,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::EventsFileName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrfilename, core::mem::transmute(ok__));
+                    pbstrfilename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2188,7 +2188,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::Rules(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrxml, core::mem::transmute(ok__));
+                    pbstrxml.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2204,7 +2204,7 @@ impl IDataManager_Vtbl {
             let this = (*this).get_impl();
             match IDataManager_Impl::Run(this, core::mem::transmute_copy(&steps), core::mem::transmute(&bstrfolder)) {
                 Ok(ok__) => {
-                    core::ptr::write(errors, core::mem::transmute(ok__));
+                    errors.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2269,7 +2269,7 @@ impl IFolderAction_Vtbl {
             let this = (*this).get_impl();
             match IFolderAction_Impl::Age(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulage, core::mem::transmute(ok__));
+                    pulage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2285,7 +2285,7 @@ impl IFolderAction_Vtbl {
             let this = (*this).get_impl();
             match IFolderAction_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulage, core::mem::transmute(ok__));
+                    pulage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2301,7 +2301,7 @@ impl IFolderAction_Vtbl {
             let this = (*this).get_impl();
             match IFolderAction_Impl::Actions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(steps, core::mem::transmute(ok__));
+                    steps.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2317,7 +2317,7 @@ impl IFolderAction_Vtbl {
             let this = (*this).get_impl();
             match IFolderAction_Impl::SendCabTo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdestination, core::mem::transmute(ok__));
+                    pbstrdestination.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2365,7 +2365,7 @@ impl IFolderActionCollection_Vtbl {
             let this = (*this).get_impl();
             match IFolderActionCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2376,7 +2376,7 @@ impl IFolderActionCollection_Vtbl {
             let this = (*this).get_impl();
             match IFolderActionCollection_Impl::get_Item(this, core::mem::transmute(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(action, core::mem::transmute(ok__));
+                    action.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2387,7 +2387,7 @@ impl IFolderActionCollection_Vtbl {
             let this = (*this).get_impl();
             match IFolderActionCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#enum, core::mem::transmute(ok__));
+                    r#enum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2418,7 +2418,7 @@ impl IFolderActionCollection_Vtbl {
             let this = (*this).get_impl();
             match IFolderActionCollection_Impl::CreateFolderAction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(folderaction, core::mem::transmute(ok__));
+                    folderaction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2451,7 +2451,7 @@ impl ILogFileItem_Vtbl {
             let this = (*this).get_impl();
             match ILogFileItem_Impl::Path(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstrvalue, core::mem::transmute(ok__));
+                    pstrvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2481,7 +2481,7 @@ impl ILogFiles_Vtbl {
             let this = (*this).get_impl();
             match ILogFiles_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plong, core::mem::transmute(ok__));
+                    plong.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2492,7 +2492,7 @@ impl ILogFiles_Vtbl {
             let this = (*this).get_impl();
             match ILogFiles_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiunk, core::mem::transmute(ok__));
+                    ppiunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2503,7 +2503,7 @@ impl ILogFiles_Vtbl {
             let this = (*this).get_impl();
             match ILogFiles_Impl::get_Item(this, core::mem::transmute(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppi, core::mem::transmute(ok__));
+                    ppi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2514,7 +2514,7 @@ impl ILogFiles_Vtbl {
             let this = (*this).get_impl();
             match ILogFiles_Impl::Add(this, core::mem::transmute(&pathname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppi, core::mem::transmute(ok__));
+                    ppi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2561,7 +2561,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IPerformanceCounterDataCollector_Impl::DataSourceName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(dsn, core::mem::transmute(ok__));
+                    dsn.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2577,7 +2577,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IPerformanceCounterDataCollector_Impl::PerformanceCounters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(counters, core::mem::transmute(ok__));
+                    counters.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2593,7 +2593,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IPerformanceCounterDataCollector_Impl::LogFileFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(format, core::mem::transmute(ok__));
+                    format.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2609,7 +2609,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IPerformanceCounterDataCollector_Impl::SampleInterval(this) {
                 Ok(ok__) => {
-                    core::ptr::write(interval, core::mem::transmute(ok__));
+                    interval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2625,7 +2625,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
             let this = (*this).get_impl();
             match IPerformanceCounterDataCollector_Impl::SegmentMaxRecords(this) {
                 Ok(ok__) => {
-                    core::ptr::write(records, core::mem::transmute(ok__));
+                    records.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2675,7 +2675,7 @@ impl ISchedule_Vtbl {
             let this = (*this).get_impl();
             match ISchedule_Impl::StartDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(start, core::mem::transmute(ok__));
+                    start.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2691,7 +2691,7 @@ impl ISchedule_Vtbl {
             let this = (*this).get_impl();
             match ISchedule_Impl::EndDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(end, core::mem::transmute(ok__));
+                    end.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2707,7 +2707,7 @@ impl ISchedule_Vtbl {
             let this = (*this).get_impl();
             match ISchedule_Impl::StartTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(start, core::mem::transmute(ok__));
+                    start.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2723,7 +2723,7 @@ impl ISchedule_Vtbl {
             let this = (*this).get_impl();
             match ISchedule_Impl::Days(this) {
                 Ok(ok__) => {
-                    core::ptr::write(days, core::mem::transmute(ok__));
+                    days.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2771,7 +2771,7 @@ impl IScheduleCollection_Vtbl {
             let this = (*this).get_impl();
             match IScheduleCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2782,7 +2782,7 @@ impl IScheduleCollection_Vtbl {
             let this = (*this).get_impl();
             match IScheduleCollection_Impl::get_Item(this, core::mem::transmute(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppschedule, core::mem::transmute(ok__));
+                    ppschedule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2793,7 +2793,7 @@ impl IScheduleCollection_Vtbl {
             let this = (*this).get_impl();
             match IScheduleCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ienum, core::mem::transmute(ok__));
+                    ienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2824,7 +2824,7 @@ impl IScheduleCollection_Vtbl {
             let this = (*this).get_impl();
             match IScheduleCollection_Impl::CreateSchedule(this) {
                 Ok(ok__) => {
-                    core::ptr::write(schedule, core::mem::transmute(ok__));
+                    schedule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2935,7 +2935,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::Appearance(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iappearance, core::mem::transmute(ok__));
+                    iappearance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2951,7 +2951,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::BackColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2967,7 +2967,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::BorderStyle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iborderstyle, core::mem::transmute(ok__));
+                    iborderstyle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2983,7 +2983,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::ForeColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2999,7 +2999,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::Font(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfont, core::mem::transmute(ok__));
+                    ppfont.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3015,7 +3015,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::Counters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppicounters, core::mem::transmute(ok__));
+                    ppicounters.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3031,7 +3031,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::ShowVerticalGrid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3047,7 +3047,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::ShowHorizontalGrid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3063,7 +3063,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::ShowLegend(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3079,7 +3079,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::ShowScaleLabels(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3095,7 +3095,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::ShowValueBar(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3111,7 +3111,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::MaximumScale(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3127,7 +3127,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::MinimumScale(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3143,7 +3143,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::UpdateInterval(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfvalue, core::mem::transmute(ok__));
+                    pfvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3159,7 +3159,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::DisplayType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pedisplaytype, core::mem::transmute(ok__));
+                    pedisplaytype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3175,7 +3175,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::ManualUpdate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3191,7 +3191,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::GraphTitle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstitle, core::mem::transmute(ok__));
+                    pbstitle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3207,7 +3207,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::YAxisLabel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstitle, core::mem::transmute(ok__));
+                    pbstitle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3238,7 +3238,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::Counter(this, core::mem::transmute_copy(&iindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppicounter, core::mem::transmute(ok__));
+                    ppicounter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3249,7 +3249,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::AddCounter(this, core::mem::transmute(&bspath)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppicounter, core::mem::transmute(ok__));
+                    ppicounter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3265,7 +3265,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::BackColorCtl(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3286,7 +3286,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::LogFileName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bsfilename, core::mem::transmute(ok__));
+                    bsfilename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3302,7 +3302,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::LogViewStart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(starttime, core::mem::transmute(ok__));
+                    starttime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3318,7 +3318,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::LogViewStop(this) {
                 Ok(ok__) => {
-                    core::ptr::write(stoptime, core::mem::transmute(ok__));
+                    stoptime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3329,7 +3329,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::GridColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3345,7 +3345,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::TimeBarColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3361,7 +3361,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::Highlight(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3377,7 +3377,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::ShowToolbar(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3413,7 +3413,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::ReadOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3429,7 +3429,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::ReportValueType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pereportvaluetype, core::mem::transmute(ok__));
+                    pereportvaluetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3445,7 +3445,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::MonitorDuplicateInstances(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3461,7 +3461,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::DisplayFilter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3472,7 +3472,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::LogFiles(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppilogfiles, core::mem::transmute(ok__));
+                    ppilogfiles.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3488,7 +3488,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::DataSourceType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pedatasourcetype, core::mem::transmute(ok__));
+                    pedatasourcetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3504,7 +3504,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::SqlDsnName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bssqldsnname, core::mem::transmute(ok__));
+                    bssqldsnname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3520,7 +3520,7 @@ impl ISystemMonitor_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor_Impl::SqlLogSetName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bssqllogsetname, core::mem::transmute(ok__));
+                    bssqllogsetname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3648,7 +3648,7 @@ impl ISystemMonitor2_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor2_Impl::EnableDigitGrouping(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3664,7 +3664,7 @@ impl ISystemMonitor2_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor2_Impl::EnableToolTips(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3680,7 +3680,7 @@ impl ISystemMonitor2_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor2_Impl::ShowTimeAxisLabels(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3696,7 +3696,7 @@ impl ISystemMonitor2_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor2_Impl::ChartScroll(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbscroll, core::mem::transmute(ok__));
+                    pbscroll.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3712,7 +3712,7 @@ impl ISystemMonitor2_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor2_Impl::DataPointCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pidatapointcount, core::mem::transmute(ok__));
+                    pidatapointcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3743,7 +3743,7 @@ impl ISystemMonitor2_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor2_Impl::LogSourceStartTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdate, core::mem::transmute(ok__));
+                    pdate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3754,7 +3754,7 @@ impl ISystemMonitor2_Vtbl {
             let this = (*this).get_impl();
             match ISystemMonitor2_Impl::LogSourceStopTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdate, core::mem::transmute(ok__));
+                    pdate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3909,7 +3909,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::BufferSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(size, core::mem::transmute(ok__));
+                    size.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3925,7 +3925,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::BuffersLost(this) {
                 Ok(ok__) => {
-                    core::ptr::write(buffers, core::mem::transmute(ok__));
+                    buffers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3941,7 +3941,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::BuffersWritten(this) {
                 Ok(ok__) => {
-                    core::ptr::write(buffers, core::mem::transmute(ok__));
+                    buffers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3957,7 +3957,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::ClockType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(clock, core::mem::transmute(ok__));
+                    clock.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3973,7 +3973,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::EventsLost(this) {
                 Ok(ok__) => {
-                    core::ptr::write(events, core::mem::transmute(ok__));
+                    events.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3989,7 +3989,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::ExtendedModes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(mode, core::mem::transmute(ok__));
+                    mode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4005,7 +4005,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::FlushTimer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(seconds, core::mem::transmute(ok__));
+                    seconds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4021,7 +4021,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::FreeBuffers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(buffers, core::mem::transmute(ok__));
+                    buffers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4037,7 +4037,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::Guid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(guid, core::mem::transmute(ok__));
+                    guid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4053,7 +4053,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::IsKernelTrace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(kernel, core::mem::transmute(ok__));
+                    kernel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4064,7 +4064,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::MaximumBuffers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(buffers, core::mem::transmute(ok__));
+                    buffers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4080,7 +4080,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::MinimumBuffers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(buffers, core::mem::transmute(ok__));
+                    buffers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4096,7 +4096,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::NumberOfBuffers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(buffers, core::mem::transmute(ok__));
+                    buffers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4112,7 +4112,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::PreallocateFile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allocate, core::mem::transmute(ok__));
+                    allocate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4128,7 +4128,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::ProcessMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(process, core::mem::transmute(ok__));
+                    process.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4144,7 +4144,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::RealTimeBuffersLost(this) {
                 Ok(ok__) => {
-                    core::ptr::write(buffers, core::mem::transmute(ok__));
+                    buffers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4160,7 +4160,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::SessionId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(id, core::mem::transmute(ok__));
+                    id.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4176,7 +4176,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::SessionName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4192,7 +4192,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::SessionThreadId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(tid, core::mem::transmute(ok__));
+                    tid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4208,7 +4208,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::StreamMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(mode, core::mem::transmute(ok__));
+                    mode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4224,7 +4224,7 @@ impl ITraceDataCollector_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataCollector_Impl::TraceDataProviders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(providers, core::mem::transmute(ok__));
+                    providers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4310,7 +4310,7 @@ impl ITraceDataProvider_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProvider_Impl::DisplayName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4326,7 +4326,7 @@ impl ITraceDataProvider_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProvider_Impl::Guid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(guid, core::mem::transmute(ok__));
+                    guid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4342,7 +4342,7 @@ impl ITraceDataProvider_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProvider_Impl::Level(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pplevel, core::mem::transmute(ok__));
+                    pplevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4353,7 +4353,7 @@ impl ITraceDataProvider_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProvider_Impl::KeywordsAny(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppkeywords, core::mem::transmute(ok__));
+                    ppkeywords.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4364,7 +4364,7 @@ impl ITraceDataProvider_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProvider_Impl::KeywordsAll(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppkeywords, core::mem::transmute(ok__));
+                    ppkeywords.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4375,7 +4375,7 @@ impl ITraceDataProvider_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProvider_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppproperties, core::mem::transmute(ok__));
+                    ppproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4386,7 +4386,7 @@ impl ITraceDataProvider_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProvider_Impl::FilterEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(filterenabled, core::mem::transmute(ok__));
+                    filterenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4402,7 +4402,7 @@ impl ITraceDataProvider_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProvider_Impl::FilterType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pultype, core::mem::transmute(ok__));
+                    pultype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4418,7 +4418,7 @@ impl ITraceDataProvider_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProvider_Impl::FilterData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdata, core::mem::transmute(ok__));
+                    ppdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4449,7 +4449,7 @@ impl ITraceDataProvider_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProvider_Impl::GetSecurity(this, core::mem::transmute_copy(&securityinfo)) {
                 Ok(ok__) => {
-                    core::ptr::write(sddl, core::mem::transmute(ok__));
+                    sddl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4460,7 +4460,7 @@ impl ITraceDataProvider_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProvider_Impl::GetRegisteredProcesses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(processes, core::mem::transmute(ok__));
+                    processes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4516,7 +4516,7 @@ impl ITraceDataProviderCollection_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProviderCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4527,7 +4527,7 @@ impl ITraceDataProviderCollection_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProviderCollection_Impl::get_Item(this, core::mem::transmute(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprovider, core::mem::transmute(ok__));
+                    ppprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4538,7 +4538,7 @@ impl ITraceDataProviderCollection_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProviderCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4569,7 +4569,7 @@ impl ITraceDataProviderCollection_Vtbl {
             let this = (*this).get_impl();
             match ITraceDataProviderCollection_Impl::CreateTraceDataProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(provider, core::mem::transmute(ok__));
+                    provider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4630,7 +4630,7 @@ impl IValueMap_Vtbl {
             let this = (*this).get_impl();
             match IValueMap_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4641,7 +4641,7 @@ impl IValueMap_Vtbl {
             let this = (*this).get_impl();
             match IValueMap_Impl::get_Item(this, core::mem::transmute(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4652,7 +4652,7 @@ impl IValueMap_Vtbl {
             let this = (*this).get_impl();
             match IValueMap_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4663,7 +4663,7 @@ impl IValueMap_Vtbl {
             let this = (*this).get_impl();
             match IValueMap_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(description, core::mem::transmute(ok__));
+                    description.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4679,7 +4679,7 @@ impl IValueMap_Vtbl {
             let this = (*this).get_impl();
             match IValueMap_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4695,7 +4695,7 @@ impl IValueMap_Vtbl {
             let this = (*this).get_impl();
             match IValueMap_Impl::ValueMapType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4731,7 +4731,7 @@ impl IValueMap_Vtbl {
             let this = (*this).get_impl();
             match IValueMap_Impl::CreateValueMapItem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4782,7 +4782,7 @@ impl IValueMapItem_Vtbl {
             let this = (*this).get_impl();
             match IValueMapItem_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(description, core::mem::transmute(ok__));
+                    description.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4798,7 +4798,7 @@ impl IValueMapItem_Vtbl {
             let this = (*this).get_impl();
             match IValueMapItem_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4814,7 +4814,7 @@ impl IValueMapItem_Vtbl {
             let this = (*this).get_impl();
             match IValueMapItem_Impl::Key(this) {
                 Ok(ok__) => {
-                    core::ptr::write(key, core::mem::transmute(ok__));
+                    key.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4830,7 +4830,7 @@ impl IValueMapItem_Vtbl {
             let this = (*this).get_impl();
             match IValueMapItem_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4846,7 +4846,7 @@ impl IValueMapItem_Vtbl {
             let this = (*this).get_impl();
             match IValueMapItem_Impl::ValueMapType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4902,7 +4902,7 @@ impl _ICounterItemUnion_Vtbl {
             let this = (*this).get_impl();
             match _ICounterItemUnion_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdblvalue, core::mem::transmute(ok__));
+                    pdblvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4918,7 +4918,7 @@ impl _ICounterItemUnion_Vtbl {
             let this = (*this).get_impl();
             match _ICounterItemUnion_Impl::Color(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4934,7 +4934,7 @@ impl _ICounterItemUnion_Vtbl {
             let this = (*this).get_impl();
             match _ICounterItemUnion_Impl::Width(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4950,7 +4950,7 @@ impl _ICounterItemUnion_Vtbl {
             let this = (*this).get_impl();
             match _ICounterItemUnion_Impl::LineStyle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4966,7 +4966,7 @@ impl _ICounterItemUnion_Vtbl {
             let this = (*this).get_impl();
             match _ICounterItemUnion_Impl::ScaleFactor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4977,7 +4977,7 @@ impl _ICounterItemUnion_Vtbl {
             let this = (*this).get_impl();
             match _ICounterItemUnion_Impl::Path(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstrvalue, core::mem::transmute(ok__));
+                    pstrvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5003,7 +5003,7 @@ impl _ICounterItemUnion_Vtbl {
             let this = (*this).get_impl();
             match _ICounterItemUnion_Impl::Selected(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5019,7 +5019,7 @@ impl _ICounterItemUnion_Vtbl {
             let this = (*this).get_impl();
             match _ICounterItemUnion_Impl::Visible(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5030,7 +5030,7 @@ impl _ICounterItemUnion_Vtbl {
             let this = (*this).get_impl();
             match _ICounterItemUnion_Impl::GetDataAt(this, core::mem::transmute_copy(&iindex), core::mem::transmute_copy(&iwhich)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvariant, core::mem::transmute(ok__));
+                    pvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5170,7 +5170,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::Appearance(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iappearance, core::mem::transmute(ok__));
+                    iappearance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5186,7 +5186,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::BackColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5202,7 +5202,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::BorderStyle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(iborderstyle, core::mem::transmute(ok__));
+                    iborderstyle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5218,7 +5218,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ForeColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5234,7 +5234,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::Font(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfont, core::mem::transmute(ok__));
+                    ppfont.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5250,7 +5250,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::Counters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppicounters, core::mem::transmute(ok__));
+                    ppicounters.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5266,7 +5266,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ShowVerticalGrid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5282,7 +5282,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ShowHorizontalGrid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5298,7 +5298,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ShowLegend(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5314,7 +5314,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ShowScaleLabels(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5330,7 +5330,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ShowValueBar(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5346,7 +5346,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::MaximumScale(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5362,7 +5362,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::MinimumScale(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5378,7 +5378,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::UpdateInterval(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfvalue, core::mem::transmute(ok__));
+                    pfvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5394,7 +5394,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::DisplayType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pedisplaytype, core::mem::transmute(ok__));
+                    pedisplaytype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5410,7 +5410,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ManualUpdate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5426,7 +5426,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::GraphTitle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstitle, core::mem::transmute(ok__));
+                    pbstitle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5442,7 +5442,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::YAxisLabel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstitle, core::mem::transmute(ok__));
+                    pbstitle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5473,7 +5473,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::Counter(this, core::mem::transmute_copy(&iindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppicounter, core::mem::transmute(ok__));
+                    ppicounter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5484,7 +5484,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::AddCounter(this, core::mem::transmute(&bspath)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppicounter, core::mem::transmute(ok__));
+                    ppicounter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5500,7 +5500,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::BackColorCtl(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5521,7 +5521,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::LogFileName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bsfilename, core::mem::transmute(ok__));
+                    bsfilename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5537,7 +5537,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::LogViewStart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(starttime, core::mem::transmute(ok__));
+                    starttime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5553,7 +5553,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::LogViewStop(this) {
                 Ok(ok__) => {
-                    core::ptr::write(stoptime, core::mem::transmute(ok__));
+                    stoptime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5564,7 +5564,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::GridColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5580,7 +5580,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::TimeBarColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5596,7 +5596,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::Highlight(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5612,7 +5612,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ShowToolbar(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5648,7 +5648,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ReadOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5664,7 +5664,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ReportValueType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pereportvaluetype, core::mem::transmute(ok__));
+                    pereportvaluetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5680,7 +5680,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::MonitorDuplicateInstances(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5696,7 +5696,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::DisplayFilter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivalue, core::mem::transmute(ok__));
+                    pivalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5707,7 +5707,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::LogFiles(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppilogfiles, core::mem::transmute(ok__));
+                    ppilogfiles.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5723,7 +5723,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::DataSourceType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pedatasourcetype, core::mem::transmute(ok__));
+                    pedatasourcetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5739,7 +5739,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::SqlDsnName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bssqldsnname, core::mem::transmute(ok__));
+                    bssqldsnname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5755,7 +5755,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::SqlLogSetName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bssqllogsetname, core::mem::transmute(ok__));
+                    bssqllogsetname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5771,7 +5771,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::EnableDigitGrouping(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5787,7 +5787,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::EnableToolTips(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5803,7 +5803,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ShowTimeAxisLabels(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstate, core::mem::transmute(ok__));
+                    pbstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5819,7 +5819,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::ChartScroll(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbscroll, core::mem::transmute(ok__));
+                    pbscroll.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5835,7 +5835,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::DataPointCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pidatapointcount, core::mem::transmute(ok__));
+                    pidatapointcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5866,7 +5866,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::LogSourceStartTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdate, core::mem::transmute(ok__));
+                    pdate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5877,7 +5877,7 @@ impl _ISystemMonitorUnion_Vtbl {
             let this = (*this).get_impl();
             match _ISystemMonitorUnion_Impl::LogSourceStopTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdate, core::mem::transmute(ok__));
+                    pdate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

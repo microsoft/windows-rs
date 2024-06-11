@@ -17,7 +17,7 @@ impl IPrintCustomOptionDetails_Vtbl {
             let this = (*this).get_impl();
             match IPrintCustomOptionDetails_Impl::DisplayName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -50,7 +50,7 @@ impl IPrintItemListOptionDetails_Vtbl {
             let this = (*this).get_impl();
             match IPrintItemListOptionDetails_Impl::Items(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -77,7 +77,7 @@ impl IPrintNumberOptionDetails_Vtbl {
             let this = (*this).get_impl();
             match IPrintNumberOptionDetails_Impl::MinValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -88,7 +88,7 @@ impl IPrintNumberOptionDetails_Vtbl {
             let this = (*this).get_impl();
             match IPrintNumberOptionDetails_Impl::MaxValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -124,7 +124,7 @@ impl IPrintOptionDetails_Vtbl {
             let this = (*this).get_impl();
             match IPrintOptionDetails_Impl::OptionId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -136,7 +136,7 @@ impl IPrintOptionDetails_Vtbl {
             let this = (*this).get_impl();
             match IPrintOptionDetails_Impl::OptionType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -152,7 +152,7 @@ impl IPrintOptionDetails_Vtbl {
             let this = (*this).get_impl();
             match IPrintOptionDetails_Impl::ErrorText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -169,7 +169,7 @@ impl IPrintOptionDetails_Vtbl {
             let this = (*this).get_impl();
             match IPrintOptionDetails_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -180,7 +180,7 @@ impl IPrintOptionDetails_Vtbl {
             let this = (*this).get_impl();
             match IPrintOptionDetails_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -192,7 +192,7 @@ impl IPrintOptionDetails_Vtbl {
             let this = (*this).get_impl();
             match IPrintOptionDetails_Impl::TrySetValue(this, windows_core::from_raw_borrowed(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -227,7 +227,7 @@ impl IPrintTextOptionDetails_Vtbl {
             let this = (*this).get_impl();
             match IPrintTextOptionDetails_Impl::MaxCharacters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

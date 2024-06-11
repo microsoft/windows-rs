@@ -12,7 +12,7 @@ impl IMSMQApplication_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication_Impl::MachineIdOfMachineName(this, core::mem::transmute(&machinename)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguid, core::mem::transmute(ok__));
+                    pbstrguid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -49,7 +49,7 @@ impl IMSMQApplication2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication2_Impl::MachineNameOfMachineId(this, core::mem::transmute(&bstrguid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrmachinename, core::mem::transmute(ok__));
+                    pbstrmachinename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -60,7 +60,7 @@ impl IMSMQApplication2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication2_Impl::MSMQVersionMajor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psmsmqversionmajor, core::mem::transmute(ok__));
+                    psmsmqversionmajor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -71,7 +71,7 @@ impl IMSMQApplication2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication2_Impl::MSMQVersionMinor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psmsmqversionminor, core::mem::transmute(ok__));
+                    psmsmqversionminor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -82,7 +82,7 @@ impl IMSMQApplication2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication2_Impl::MSMQVersionBuild(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psmsmqversionbuild, core::mem::transmute(ok__));
+                    psmsmqversionbuild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -93,7 +93,7 @@ impl IMSMQApplication2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication2_Impl::IsDsEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisdsenabled, core::mem::transmute(ok__));
+                    pfisdsenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -104,7 +104,7 @@ impl IMSMQApplication2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication2_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -148,7 +148,7 @@ impl IMSMQApplication3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication3_Impl::ActiveQueues(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvactivequeues, core::mem::transmute(ok__));
+                    pvactivequeues.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -159,7 +159,7 @@ impl IMSMQApplication3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication3_Impl::PrivateQueues(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvprivatequeues, core::mem::transmute(ok__));
+                    pvprivatequeues.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -170,7 +170,7 @@ impl IMSMQApplication3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication3_Impl::DirectoryServiceServer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdirectoryserviceserver, core::mem::transmute(ok__));
+                    pbstrdirectoryserviceserver.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -181,7 +181,7 @@ impl IMSMQApplication3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication3_Impl::IsConnected(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisconnected, core::mem::transmute(ok__));
+                    pfisconnected.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -192,7 +192,7 @@ impl IMSMQApplication3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication3_Impl::BytesInAllQueues(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvbytesinallqueues, core::mem::transmute(ok__));
+                    pvbytesinallqueues.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -208,7 +208,7 @@ impl IMSMQApplication3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQApplication3_Impl::Machine(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrmachine, core::mem::transmute(ok__));
+                    pbstrmachine.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -263,7 +263,7 @@ impl IMSMQCollection_Vtbl {
             let this = (*this).get_impl();
             match IMSMQCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarret, core::mem::transmute(ok__));
+                    pvarret.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -274,7 +274,7 @@ impl IMSMQCollection_Vtbl {
             let this = (*this).get_impl();
             match IMSMQCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcount, core::mem::transmute(ok__));
+                    pcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -285,7 +285,7 @@ impl IMSMQCollection_Vtbl {
             let this = (*this).get_impl();
             match IMSMQCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -316,7 +316,7 @@ impl IMSMQCoordinatedTransactionDispenser_Vtbl {
             let this = (*this).get_impl();
             match IMSMQCoordinatedTransactionDispenser_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptransaction, core::mem::transmute(ok__));
+                    ptransaction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -343,7 +343,7 @@ impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQCoordinatedTransactionDispenser2_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptransaction, core::mem::transmute(ok__));
+                    ptransaction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -354,7 +354,7 @@ impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQCoordinatedTransactionDispenser2_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -385,7 +385,7 @@ impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQCoordinatedTransactionDispenser3_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptransaction, core::mem::transmute(ok__));
+                    ptransaction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -396,7 +396,7 @@ impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQCoordinatedTransactionDispenser3_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -449,7 +449,7 @@ impl IMSMQDestination_Vtbl {
             let this = (*this).get_impl();
             match IMSMQDestination_Impl::IsOpen(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisopen, core::mem::transmute(ok__));
+                    pfisopen.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -460,7 +460,7 @@ impl IMSMQDestination_Vtbl {
             let this = (*this).get_impl();
             match IMSMQDestination_Impl::IADs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiads, core::mem::transmute(ok__));
+                    ppiads.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -476,7 +476,7 @@ impl IMSMQDestination_Vtbl {
             let this = (*this).get_impl();
             match IMSMQDestination_Impl::ADsPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstradspath, core::mem::transmute(ok__));
+                    pbstradspath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -492,7 +492,7 @@ impl IMSMQDestination_Vtbl {
             let this = (*this).get_impl();
             match IMSMQDestination_Impl::PathName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrpathname, core::mem::transmute(ok__));
+                    pbstrpathname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -508,7 +508,7 @@ impl IMSMQDestination_Vtbl {
             let this = (*this).get_impl();
             match IMSMQDestination_Impl::FormatName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
+                    pbstrformatname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -524,7 +524,7 @@ impl IMSMQDestination_Vtbl {
             let this = (*this).get_impl();
             match IMSMQDestination_Impl::Destinations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdestinations, core::mem::transmute(ok__));
+                    ppdestinations.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -540,7 +540,7 @@ impl IMSMQDestination_Vtbl {
             let this = (*this).get_impl();
             match IMSMQDestination_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -595,7 +595,7 @@ impl IMSMQEvent2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQEvent2_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -647,7 +647,7 @@ impl IMSMQManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQManagement_Impl::FormatName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
+                    pbstrformatname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -658,7 +658,7 @@ impl IMSMQManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQManagement_Impl::Machine(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrmachine, core::mem::transmute(ok__));
+                    pbstrmachine.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -669,7 +669,7 @@ impl IMSMQManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQManagement_Impl::MessageCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmessagecount, core::mem::transmute(ok__));
+                    plmessagecount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -680,7 +680,7 @@ impl IMSMQManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQManagement_Impl::ForeignStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plforeignstatus, core::mem::transmute(ok__));
+                    plforeignstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -691,7 +691,7 @@ impl IMSMQManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQManagement_Impl::QueueType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plqueuetype, core::mem::transmute(ok__));
+                    plqueuetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -702,7 +702,7 @@ impl IMSMQManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQManagement_Impl::IsLocal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfislocal, core::mem::transmute(ok__));
+                    pfislocal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -713,7 +713,7 @@ impl IMSMQManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQManagement_Impl::TransactionalStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pltransactionalstatus, core::mem::transmute(ok__));
+                    pltransactionalstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -724,7 +724,7 @@ impl IMSMQManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQManagement_Impl::BytesInQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvbytesinqueue, core::mem::transmute(ok__));
+                    pvbytesinqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -809,7 +809,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Class(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plclass, core::mem::transmute(ok__));
+                    plclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -820,7 +820,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::PrivLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plprivlevel, core::mem::transmute(ok__));
+                    plprivlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -836,7 +836,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::AuthLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plauthlevel, core::mem::transmute(ok__));
+                    plauthlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -852,7 +852,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::IsAuthenticated(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
+                    pisauthenticated.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -863,7 +863,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Delivery(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pldelivery, core::mem::transmute(ok__));
+                    pldelivery.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -879,7 +879,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Trace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pltrace, core::mem::transmute(ok__));
+                    pltrace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -895,7 +895,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plpriority, core::mem::transmute(ok__));
+                    plpriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -911,7 +911,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Journal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournal, core::mem::transmute(ok__));
+                    pljournal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -927,7 +927,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::ResponseQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
+                    ppqinforesponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -943,7 +943,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::AppSpecific(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plappspecific, core::mem::transmute(ok__));
+                    plappspecific.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -959,7 +959,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::SourceMachineGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidsrcmachine, core::mem::transmute(ok__));
+                    pbstrguidsrcmachine.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -970,7 +970,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::BodyLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcbbody, core::mem::transmute(ok__));
+                    pcbbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -981,7 +981,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Body(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarbody, core::mem::transmute(ok__));
+                    pvarbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -997,7 +997,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::AdminQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
+                    ppqinfoadmin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1013,7 +1013,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
+                    pvarmsgid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1024,7 +1024,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::CorrelationId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
+                    pvarmsgid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1040,7 +1040,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Ack(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plack, core::mem::transmute(ok__));
+                    plack.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1056,7 +1056,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
+                    pbstrlabel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1072,7 +1072,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::MaxTimeToReachQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmaxtimetoreachqueue, core::mem::transmute(ok__));
+                    plmaxtimetoreachqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1088,7 +1088,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::MaxTimeToReceive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmaxtimetoreceive, core::mem::transmute(ok__));
+                    plmaxtimetoreceive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1104,7 +1104,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::HashAlgorithm(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plhashalg, core::mem::transmute(ok__));
+                    plhashalg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1120,7 +1120,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::EncryptAlgorithm(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plencryptalg, core::mem::transmute(ok__));
+                    plencryptalg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1136,7 +1136,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::SentTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsenttime, core::mem::transmute(ok__));
+                    pvarsenttime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1147,7 +1147,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plarrivedtime, core::mem::transmute(ok__));
+                    plarrivedtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1158,7 +1158,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::DestinationQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfodest, core::mem::transmute(ok__));
+                    ppqinfodest.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1169,7 +1169,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsendercert, core::mem::transmute(ok__));
+                    pvarsendercert.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1185,7 +1185,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::SenderId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsenderid, core::mem::transmute(ok__));
+                    pvarsenderid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1196,7 +1196,7 @@ impl IMSMQMessage_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage_Impl::SenderIdType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsenderidtype, core::mem::transmute(ok__));
+                    plsenderidtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1362,7 +1362,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Class(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plclass, core::mem::transmute(ok__));
+                    plclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1373,7 +1373,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::PrivLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plprivlevel, core::mem::transmute(ok__));
+                    plprivlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1389,7 +1389,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::AuthLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plauthlevel, core::mem::transmute(ok__));
+                    plauthlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1405,7 +1405,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::IsAuthenticated(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
+                    pisauthenticated.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1416,7 +1416,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Delivery(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pldelivery, core::mem::transmute(ok__));
+                    pldelivery.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1432,7 +1432,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Trace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pltrace, core::mem::transmute(ok__));
+                    pltrace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1448,7 +1448,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plpriority, core::mem::transmute(ok__));
+                    plpriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1464,7 +1464,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Journal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournal, core::mem::transmute(ok__));
+                    pljournal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1480,7 +1480,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::ResponseQueueInfo_v1(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
+                    ppqinforesponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1496,7 +1496,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::AppSpecific(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plappspecific, core::mem::transmute(ok__));
+                    plappspecific.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1512,7 +1512,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::SourceMachineGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidsrcmachine, core::mem::transmute(ok__));
+                    pbstrguidsrcmachine.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1523,7 +1523,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::BodyLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcbbody, core::mem::transmute(ok__));
+                    pcbbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1534,7 +1534,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Body(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarbody, core::mem::transmute(ok__));
+                    pvarbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1550,7 +1550,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::AdminQueueInfo_v1(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
+                    ppqinfoadmin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1566,7 +1566,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
+                    pvarmsgid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1577,7 +1577,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::CorrelationId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
+                    pvarmsgid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1593,7 +1593,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Ack(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plack, core::mem::transmute(ok__));
+                    plack.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1609,7 +1609,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
+                    pbstrlabel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1625,7 +1625,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::MaxTimeToReachQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmaxtimetoreachqueue, core::mem::transmute(ok__));
+                    plmaxtimetoreachqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1641,7 +1641,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::MaxTimeToReceive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmaxtimetoreceive, core::mem::transmute(ok__));
+                    plmaxtimetoreceive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1657,7 +1657,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::HashAlgorithm(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plhashalg, core::mem::transmute(ok__));
+                    plhashalg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1673,7 +1673,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::EncryptAlgorithm(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plencryptalg, core::mem::transmute(ok__));
+                    plencryptalg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1689,7 +1689,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::SentTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsenttime, core::mem::transmute(ok__));
+                    pvarsenttime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1700,7 +1700,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plarrivedtime, core::mem::transmute(ok__));
+                    plarrivedtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1711,7 +1711,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::DestinationQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfodest, core::mem::transmute(ok__));
+                    ppqinfodest.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1722,7 +1722,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsendercert, core::mem::transmute(ok__));
+                    pvarsendercert.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1738,7 +1738,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::SenderId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsenderid, core::mem::transmute(ok__));
+                    pvarsenderid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1749,7 +1749,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::SenderIdType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsenderidtype, core::mem::transmute(ok__));
+                    plsenderidtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1775,7 +1775,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::SenderVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsenderversion, core::mem::transmute(ok__));
+                    plsenderversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1786,7 +1786,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Extension(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarextension, core::mem::transmute(ok__));
+                    pvarextension.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1802,7 +1802,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::ConnectorTypeGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidconnectortype, core::mem::transmute(ok__));
+                    pbstrguidconnectortype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1818,7 +1818,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::TransactionStatusQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoxactstatus, core::mem::transmute(ok__));
+                    ppqinfoxactstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1829,7 +1829,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::DestinationSymmetricKey(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvardestsymmkey, core::mem::transmute(ok__));
+                    pvardestsymmkey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1845,7 +1845,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Signature(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsignature, core::mem::transmute(ok__));
+                    pvarsignature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1861,7 +1861,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::AuthenticationProviderType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plauthprovtype, core::mem::transmute(ok__));
+                    plauthprovtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1877,7 +1877,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::AuthenticationProviderName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrauthprovname, core::mem::transmute(ok__));
+                    pbstrauthprovname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1898,7 +1898,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::MsgClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmsgclass, core::mem::transmute(ok__));
+                    plmsgclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1914,7 +1914,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1925,7 +1925,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::TransactionId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarxactid, core::mem::transmute(ok__));
+                    pvarxactid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1936,7 +1936,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::IsFirstInTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisfirstinxact, core::mem::transmute(ok__));
+                    pisfirstinxact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1947,7 +1947,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::IsLastInTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pislastinxact, core::mem::transmute(ok__));
+                    pislastinxact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1958,7 +1958,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::ResponseQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
+                    ppqinforesponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1974,7 +1974,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::AdminQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
+                    ppqinfoadmin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1990,7 +1990,7 @@ impl IMSMQMessage2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage2_Impl::ReceivedAuthenticationLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psreceivedauthenticationlevel, core::mem::transmute(ok__));
+                    psreceivedauthenticationlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2183,7 +2183,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Class(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plclass, core::mem::transmute(ok__));
+                    plclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2194,7 +2194,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::PrivLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plprivlevel, core::mem::transmute(ok__));
+                    plprivlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2210,7 +2210,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::AuthLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plauthlevel, core::mem::transmute(ok__));
+                    plauthlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2226,7 +2226,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::IsAuthenticated(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
+                    pisauthenticated.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2237,7 +2237,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Delivery(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pldelivery, core::mem::transmute(ok__));
+                    pldelivery.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2253,7 +2253,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Trace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pltrace, core::mem::transmute(ok__));
+                    pltrace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2269,7 +2269,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plpriority, core::mem::transmute(ok__));
+                    plpriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2285,7 +2285,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Journal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournal, core::mem::transmute(ok__));
+                    pljournal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2301,7 +2301,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::ResponseQueueInfo_v1(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
+                    ppqinforesponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2317,7 +2317,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::AppSpecific(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plappspecific, core::mem::transmute(ok__));
+                    plappspecific.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2333,7 +2333,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SourceMachineGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidsrcmachine, core::mem::transmute(ok__));
+                    pbstrguidsrcmachine.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2344,7 +2344,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::BodyLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcbbody, core::mem::transmute(ok__));
+                    pcbbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2355,7 +2355,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Body(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarbody, core::mem::transmute(ok__));
+                    pvarbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2371,7 +2371,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::AdminQueueInfo_v1(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
+                    ppqinfoadmin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2387,7 +2387,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
+                    pvarmsgid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2398,7 +2398,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::CorrelationId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
+                    pvarmsgid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2414,7 +2414,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Ack(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plack, core::mem::transmute(ok__));
+                    plack.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2430,7 +2430,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
+                    pbstrlabel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2446,7 +2446,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::MaxTimeToReachQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmaxtimetoreachqueue, core::mem::transmute(ok__));
+                    plmaxtimetoreachqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2462,7 +2462,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::MaxTimeToReceive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmaxtimetoreceive, core::mem::transmute(ok__));
+                    plmaxtimetoreceive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2478,7 +2478,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::HashAlgorithm(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plhashalg, core::mem::transmute(ok__));
+                    plhashalg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2494,7 +2494,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::EncryptAlgorithm(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plencryptalg, core::mem::transmute(ok__));
+                    plencryptalg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2510,7 +2510,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SentTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsenttime, core::mem::transmute(ok__));
+                    pvarsenttime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2521,7 +2521,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plarrivedtime, core::mem::transmute(ok__));
+                    plarrivedtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2532,7 +2532,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::DestinationQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfodest, core::mem::transmute(ok__));
+                    ppqinfodest.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2543,7 +2543,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsendercert, core::mem::transmute(ok__));
+                    pvarsendercert.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2559,7 +2559,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SenderId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsenderid, core::mem::transmute(ok__));
+                    pvarsenderid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2570,7 +2570,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SenderIdType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsenderidtype, core::mem::transmute(ok__));
+                    plsenderidtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2596,7 +2596,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SenderVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsenderversion, core::mem::transmute(ok__));
+                    plsenderversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2607,7 +2607,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Extension(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarextension, core::mem::transmute(ok__));
+                    pvarextension.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2623,7 +2623,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::ConnectorTypeGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidconnectortype, core::mem::transmute(ok__));
+                    pbstrguidconnectortype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2639,7 +2639,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::TransactionStatusQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoxactstatus, core::mem::transmute(ok__));
+                    ppqinfoxactstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2650,7 +2650,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::DestinationSymmetricKey(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvardestsymmkey, core::mem::transmute(ok__));
+                    pvardestsymmkey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2666,7 +2666,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Signature(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsignature, core::mem::transmute(ok__));
+                    pvarsignature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2682,7 +2682,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::AuthenticationProviderType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plauthprovtype, core::mem::transmute(ok__));
+                    plauthprovtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2698,7 +2698,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::AuthenticationProviderName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrauthprovname, core::mem::transmute(ok__));
+                    pbstrauthprovname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2719,7 +2719,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::MsgClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmsgclass, core::mem::transmute(ok__));
+                    plmsgclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2735,7 +2735,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2746,7 +2746,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::TransactionId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarxactid, core::mem::transmute(ok__));
+                    pvarxactid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2757,7 +2757,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::IsFirstInTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisfirstinxact, core::mem::transmute(ok__));
+                    pisfirstinxact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2768,7 +2768,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::IsLastInTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pislastinxact, core::mem::transmute(ok__));
+                    pislastinxact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2779,7 +2779,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::ResponseQueueInfo_v2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
+                    ppqinforesponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2795,7 +2795,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::AdminQueueInfo_v2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
+                    ppqinfoadmin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2811,7 +2811,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::ReceivedAuthenticationLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psreceivedauthenticationlevel, core::mem::transmute(ok__));
+                    psreceivedauthenticationlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2822,7 +2822,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::ResponseQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
+                    ppqinforesponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2838,7 +2838,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::AdminQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
+                    ppqinfoadmin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2854,7 +2854,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::ResponseDestination(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdestresponse, core::mem::transmute(ok__));
+                    ppdestresponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2870,7 +2870,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::Destination(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdestdestination, core::mem::transmute(ok__));
+                    ppdestdestination.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2881,7 +2881,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::LookupId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarlookupid, core::mem::transmute(ok__));
+                    pvarlookupid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2892,7 +2892,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::IsAuthenticated2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
+                    pisauthenticated.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2903,7 +2903,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::IsFirstInTransaction2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisfirstinxact, core::mem::transmute(ok__));
+                    pisfirstinxact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2914,7 +2914,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::IsLastInTransaction2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pislastinxact, core::mem::transmute(ok__));
+                    pislastinxact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2930,7 +2930,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::SoapEnvelope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsoapenvelope, core::mem::transmute(ok__));
+                    pbstrsoapenvelope.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2941,7 +2941,7 @@ impl IMSMQMessage3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage3_Impl::CompoundMessage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarcompoundmessage, core::mem::transmute(ok__));
+                    pvarcompoundmessage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3160,7 +3160,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Class(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plclass, core::mem::transmute(ok__));
+                    plclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3171,7 +3171,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::PrivLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plprivlevel, core::mem::transmute(ok__));
+                    plprivlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3187,7 +3187,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::AuthLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plauthlevel, core::mem::transmute(ok__));
+                    plauthlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3203,7 +3203,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::IsAuthenticated(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
+                    pisauthenticated.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3214,7 +3214,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Delivery(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pldelivery, core::mem::transmute(ok__));
+                    pldelivery.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3230,7 +3230,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Trace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pltrace, core::mem::transmute(ok__));
+                    pltrace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3246,7 +3246,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plpriority, core::mem::transmute(ok__));
+                    plpriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3262,7 +3262,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Journal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournal, core::mem::transmute(ok__));
+                    pljournal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3278,7 +3278,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::ResponseQueueInfo_v1(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
+                    ppqinforesponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3294,7 +3294,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::AppSpecific(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plappspecific, core::mem::transmute(ok__));
+                    plappspecific.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3310,7 +3310,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SourceMachineGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidsrcmachine, core::mem::transmute(ok__));
+                    pbstrguidsrcmachine.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3321,7 +3321,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::BodyLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcbbody, core::mem::transmute(ok__));
+                    pcbbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3332,7 +3332,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Body(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarbody, core::mem::transmute(ok__));
+                    pvarbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3348,7 +3348,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::AdminQueueInfo_v1(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
+                    ppqinfoadmin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3364,7 +3364,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
+                    pvarmsgid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3375,7 +3375,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::CorrelationId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
+                    pvarmsgid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3391,7 +3391,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Ack(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plack, core::mem::transmute(ok__));
+                    plack.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3407,7 +3407,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
+                    pbstrlabel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3423,7 +3423,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::MaxTimeToReachQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmaxtimetoreachqueue, core::mem::transmute(ok__));
+                    plmaxtimetoreachqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3439,7 +3439,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::MaxTimeToReceive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmaxtimetoreceive, core::mem::transmute(ok__));
+                    plmaxtimetoreceive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3455,7 +3455,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::HashAlgorithm(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plhashalg, core::mem::transmute(ok__));
+                    plhashalg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3471,7 +3471,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::EncryptAlgorithm(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plencryptalg, core::mem::transmute(ok__));
+                    plencryptalg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3487,7 +3487,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SentTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsenttime, core::mem::transmute(ok__));
+                    pvarsenttime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3498,7 +3498,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plarrivedtime, core::mem::transmute(ok__));
+                    plarrivedtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3509,7 +3509,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::DestinationQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfodest, core::mem::transmute(ok__));
+                    ppqinfodest.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3520,7 +3520,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsendercert, core::mem::transmute(ok__));
+                    pvarsendercert.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3536,7 +3536,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SenderId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsenderid, core::mem::transmute(ok__));
+                    pvarsenderid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3547,7 +3547,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SenderIdType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsenderidtype, core::mem::transmute(ok__));
+                    plsenderidtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3573,7 +3573,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SenderVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsenderversion, core::mem::transmute(ok__));
+                    plsenderversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3584,7 +3584,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Extension(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarextension, core::mem::transmute(ok__));
+                    pvarextension.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3600,7 +3600,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::ConnectorTypeGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidconnectortype, core::mem::transmute(ok__));
+                    pbstrguidconnectortype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3616,7 +3616,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::TransactionStatusQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoxactstatus, core::mem::transmute(ok__));
+                    ppqinfoxactstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3627,7 +3627,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::DestinationSymmetricKey(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvardestsymmkey, core::mem::transmute(ok__));
+                    pvardestsymmkey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3643,7 +3643,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Signature(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsignature, core::mem::transmute(ok__));
+                    pvarsignature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3659,7 +3659,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::AuthenticationProviderType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plauthprovtype, core::mem::transmute(ok__));
+                    plauthprovtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3675,7 +3675,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::AuthenticationProviderName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrauthprovname, core::mem::transmute(ok__));
+                    pbstrauthprovname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3696,7 +3696,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::MsgClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmsgclass, core::mem::transmute(ok__));
+                    plmsgclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3712,7 +3712,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3723,7 +3723,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::TransactionId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarxactid, core::mem::transmute(ok__));
+                    pvarxactid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3734,7 +3734,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::IsFirstInTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisfirstinxact, core::mem::transmute(ok__));
+                    pisfirstinxact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3745,7 +3745,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::IsLastInTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pislastinxact, core::mem::transmute(ok__));
+                    pislastinxact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3756,7 +3756,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::ResponseQueueInfo_v2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
+                    ppqinforesponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3772,7 +3772,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::AdminQueueInfo_v2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
+                    ppqinfoadmin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3788,7 +3788,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::ReceivedAuthenticationLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psreceivedauthenticationlevel, core::mem::transmute(ok__));
+                    psreceivedauthenticationlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3799,7 +3799,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::ResponseQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
+                    ppqinforesponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3815,7 +3815,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::AdminQueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
+                    ppqinfoadmin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3831,7 +3831,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::ResponseDestination(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdestresponse, core::mem::transmute(ok__));
+                    ppdestresponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3847,7 +3847,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::Destination(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdestdestination, core::mem::transmute(ok__));
+                    ppdestdestination.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3858,7 +3858,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::LookupId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarlookupid, core::mem::transmute(ok__));
+                    pvarlookupid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3869,7 +3869,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::IsAuthenticated2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
+                    pisauthenticated.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3880,7 +3880,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::IsFirstInTransaction2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisfirstinxact, core::mem::transmute(ok__));
+                    pisfirstinxact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3891,7 +3891,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::IsLastInTransaction2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pislastinxact, core::mem::transmute(ok__));
+                    pislastinxact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3907,7 +3907,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::SoapEnvelope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsoapenvelope, core::mem::transmute(ok__));
+                    pbstrsoapenvelope.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3918,7 +3918,7 @@ impl IMSMQMessage4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQMessage4_Impl::CompoundMessage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarcompoundmessage, core::mem::transmute(ok__));
+                    pvarcompoundmessage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4052,7 +4052,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQOutgoingQueueManagement_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstate, core::mem::transmute(ok__));
+                    plstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4063,7 +4063,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQOutgoingQueueManagement_Impl::NextHops(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvnexthops, core::mem::transmute(ok__));
+                    pvnexthops.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4074,7 +4074,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQOutgoingQueueManagement_Impl::EodGetSendInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcollection, core::mem::transmute(ok__));
+                    ppcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4124,7 +4124,7 @@ impl IMSMQPrivateDestination_Vtbl {
             let this = (*this).get_impl();
             match IMSMQPrivateDestination_Impl::Handle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarhandle, core::mem::transmute(ok__));
+                    pvarhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4161,7 +4161,7 @@ impl IMSMQPrivateEvent_Vtbl {
             let this = (*this).get_impl();
             match IMSMQPrivateEvent_Impl::Hwnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phwnd, core::mem::transmute(ok__));
+                    phwnd.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4214,7 +4214,7 @@ impl IMSMQQuery_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQuery_Impl::LookupQueue(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfos, core::mem::transmute(ok__));
+                    ppqinfos.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4253,7 +4253,7 @@ impl IMSMQQuery2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQuery2_Impl::LookupQueue(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfos, core::mem::transmute(ok__));
+                    ppqinfos.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4264,7 +4264,7 @@ impl IMSMQQuery2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQuery2_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4308,7 +4308,7 @@ impl IMSMQQuery3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQuery3_Impl::LookupQueue_v2(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfos, core::mem::transmute(ok__));
+                    ppqinfos.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4319,7 +4319,7 @@ impl IMSMQQuery3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQuery3_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4344,7 +4344,7 @@ impl IMSMQQuery3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQuery3_Impl::LookupQueue(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime), core::mem::transmute_copy(&multicastaddress), core::mem::transmute_copy(&relmulticastaddress)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfos, core::mem::transmute(ok__));
+                    ppqinfos.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4389,7 +4389,7 @@ impl IMSMQQuery4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQuery4_Impl::LookupQueue_v2(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfos, core::mem::transmute(ok__));
+                    ppqinfos.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4400,7 +4400,7 @@ impl IMSMQQuery4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQuery4_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4425,7 +4425,7 @@ impl IMSMQQuery4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQuery4_Impl::LookupQueue(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime), core::mem::transmute_copy(&multicastaddress), core::mem::transmute_copy(&relmulticastaddress)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfos, core::mem::transmute(ok__));
+                    ppqinfos.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4468,7 +4468,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::Access(this) {
                 Ok(ok__) => {
-                    core::ptr::write(placcess, core::mem::transmute(ok__));
+                    placcess.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4479,7 +4479,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::ShareMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsharemode, core::mem::transmute(ok__));
+                    plsharemode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4490,7 +4490,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::QueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfo, core::mem::transmute(ok__));
+                    ppqinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4501,7 +4501,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::Handle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plhandle, core::mem::transmute(ok__));
+                    plhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4512,7 +4512,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::IsOpen(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisopen, core::mem::transmute(ok__));
+                    pisopen.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4528,7 +4528,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4539,7 +4539,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4560,7 +4560,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4571,7 +4571,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4582,7 +4582,7 @@ impl IMSMQQueue_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4641,7 +4641,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::Access(this) {
                 Ok(ok__) => {
-                    core::ptr::write(placcess, core::mem::transmute(ok__));
+                    placcess.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4652,7 +4652,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::ShareMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsharemode, core::mem::transmute(ok__));
+                    plsharemode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4663,7 +4663,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::QueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfo, core::mem::transmute(ok__));
+                    ppqinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4674,7 +4674,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::Handle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plhandle, core::mem::transmute(ok__));
+                    plhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4685,7 +4685,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::IsOpen(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisopen, core::mem::transmute(ok__));
+                    pisopen.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4701,7 +4701,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4712,7 +4712,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4733,7 +4733,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4744,7 +4744,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4755,7 +4755,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4766,7 +4766,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4777,7 +4777,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4788,7 +4788,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4799,7 +4799,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4810,7 +4810,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4821,7 +4821,7 @@ impl IMSMQQueue2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue2_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4899,7 +4899,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Access(this) {
                 Ok(ok__) => {
-                    core::ptr::write(placcess, core::mem::transmute(ok__));
+                    placcess.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4910,7 +4910,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ShareMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsharemode, core::mem::transmute(ok__));
+                    plsharemode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4921,7 +4921,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::QueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfo, core::mem::transmute(ok__));
+                    ppqinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4932,7 +4932,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Handle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plhandle, core::mem::transmute(ok__));
+                    plhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4943,7 +4943,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::IsOpen(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisopen, core::mem::transmute(ok__));
+                    pisopen.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4959,7 +4959,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4970,7 +4970,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4991,7 +4991,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5002,7 +5002,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5013,7 +5013,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5024,7 +5024,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5035,7 +5035,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5046,7 +5046,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5057,7 +5057,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5068,7 +5068,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5079,7 +5079,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5090,7 +5090,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::Handle2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarhandle, core::mem::transmute(ok__));
+                    pvarhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5101,7 +5101,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5112,7 +5112,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5123,7 +5123,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceivePreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5134,7 +5134,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveFirstByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5145,7 +5145,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::ReceiveLastByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5156,7 +5156,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5167,7 +5167,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5178,7 +5178,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekPreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5189,7 +5189,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekFirstByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5200,7 +5200,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::PeekLastByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5216,7 +5216,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue3_Impl::IsOpen2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisopen, core::mem::transmute(ok__));
+                    pisopen.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5308,7 +5308,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Access(this) {
                 Ok(ok__) => {
-                    core::ptr::write(placcess, core::mem::transmute(ok__));
+                    placcess.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5319,7 +5319,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ShareMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsharemode, core::mem::transmute(ok__));
+                    plsharemode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5330,7 +5330,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::QueueInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfo, core::mem::transmute(ok__));
+                    ppqinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5341,7 +5341,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Handle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plhandle, core::mem::transmute(ok__));
+                    plhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5352,7 +5352,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::IsOpen(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisopen, core::mem::transmute(ok__));
+                    pisopen.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5368,7 +5368,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5379,7 +5379,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5400,7 +5400,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5411,7 +5411,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5422,7 +5422,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5433,7 +5433,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5444,7 +5444,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5455,7 +5455,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5466,7 +5466,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5477,7 +5477,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5488,7 +5488,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5499,7 +5499,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::Handle2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarhandle, core::mem::transmute(ok__));
+                    pvarhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5510,7 +5510,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5521,7 +5521,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5532,7 +5532,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceivePreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5543,7 +5543,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveFirstByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5554,7 +5554,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveLastByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5565,7 +5565,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5576,7 +5576,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5587,7 +5587,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekPreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5598,7 +5598,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekFirstByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5609,7 +5609,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::PeekLastByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5625,7 +5625,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::IsOpen2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisopen, core::mem::transmute(ok__));
+                    pisopen.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5636,7 +5636,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueue4_Impl::ReceiveByLookupIdAllowPeek(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmsg, core::mem::transmute(ok__));
+                    ppmsg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5726,7 +5726,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::QueueGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidqueue, core::mem::transmute(ok__));
+                    pbstrguidqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5737,7 +5737,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::ServiceTypeGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidservicetype, core::mem::transmute(ok__));
+                    pbstrguidservicetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5753,7 +5753,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
+                    pbstrlabel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5769,7 +5769,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::PathName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrpathname, core::mem::transmute(ok__));
+                    pbstrpathname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5785,7 +5785,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::FormatName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
+                    pbstrformatname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5801,7 +5801,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::IsTransactional(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pistransactional, core::mem::transmute(ok__));
+                    pistransactional.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5812,7 +5812,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::PrivLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plprivlevel, core::mem::transmute(ok__));
+                    plprivlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5828,7 +5828,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::Journal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournal, core::mem::transmute(ok__));
+                    pljournal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5844,7 +5844,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::Quota(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plquota, core::mem::transmute(ok__));
+                    plquota.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5860,7 +5860,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::BasePriority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plbasepriority, core::mem::transmute(ok__));
+                    plbasepriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5876,7 +5876,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::CreateTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarcreatetime, core::mem::transmute(ok__));
+                    pvarcreatetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5887,7 +5887,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::ModifyTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmodifytime, core::mem::transmute(ok__));
+                    pvarmodifytime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5898,7 +5898,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::Authenticate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plauthenticate, core::mem::transmute(ok__));
+                    plauthenticate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5914,7 +5914,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::JournalQuota(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournalquota, core::mem::transmute(ok__));
+                    pljournalquota.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5930,7 +5930,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::IsWorldReadable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
+                    pisworldreadable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5951,7 +5951,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo_Impl::Open(this, core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppq, core::mem::transmute(ok__));
+                    ppq.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6052,7 +6052,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::QueueGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidqueue, core::mem::transmute(ok__));
+                    pbstrguidqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6063,7 +6063,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::ServiceTypeGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidservicetype, core::mem::transmute(ok__));
+                    pbstrguidservicetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6079,7 +6079,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
+                    pbstrlabel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6095,7 +6095,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::PathName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrpathname, core::mem::transmute(ok__));
+                    pbstrpathname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6111,7 +6111,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::FormatName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
+                    pbstrformatname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6127,7 +6127,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::IsTransactional(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pistransactional, core::mem::transmute(ok__));
+                    pistransactional.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6138,7 +6138,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::PrivLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plprivlevel, core::mem::transmute(ok__));
+                    plprivlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6154,7 +6154,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::Journal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournal, core::mem::transmute(ok__));
+                    pljournal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6170,7 +6170,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::Quota(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plquota, core::mem::transmute(ok__));
+                    plquota.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6186,7 +6186,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::BasePriority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plbasepriority, core::mem::transmute(ok__));
+                    plbasepriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6202,7 +6202,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::CreateTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarcreatetime, core::mem::transmute(ok__));
+                    pvarcreatetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6213,7 +6213,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::ModifyTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmodifytime, core::mem::transmute(ok__));
+                    pvarmodifytime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6224,7 +6224,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::Authenticate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plauthenticate, core::mem::transmute(ok__));
+                    plauthenticate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6240,7 +6240,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::JournalQuota(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournalquota, core::mem::transmute(ok__));
+                    pljournalquota.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6256,7 +6256,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::IsWorldReadable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
+                    pisworldreadable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6277,7 +6277,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::Open(this, core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppq, core::mem::transmute(ok__));
+                    ppq.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6298,7 +6298,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::PathNameDNS(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrpathnamedns, core::mem::transmute(ok__));
+                    pbstrpathnamedns.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6309,7 +6309,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6320,7 +6320,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo2_Impl::Security(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsecurity, core::mem::transmute(ok__));
+                    pvarsecurity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6425,7 +6425,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::QueueGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidqueue, core::mem::transmute(ok__));
+                    pbstrguidqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6436,7 +6436,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::ServiceTypeGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidservicetype, core::mem::transmute(ok__));
+                    pbstrguidservicetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6452,7 +6452,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
+                    pbstrlabel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6468,7 +6468,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::PathName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrpathname, core::mem::transmute(ok__));
+                    pbstrpathname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6484,7 +6484,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::FormatName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
+                    pbstrformatname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6500,7 +6500,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::IsTransactional(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pistransactional, core::mem::transmute(ok__));
+                    pistransactional.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6511,7 +6511,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::PrivLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plprivlevel, core::mem::transmute(ok__));
+                    plprivlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6527,7 +6527,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::Journal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournal, core::mem::transmute(ok__));
+                    pljournal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6543,7 +6543,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::Quota(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plquota, core::mem::transmute(ok__));
+                    plquota.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6559,7 +6559,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::BasePriority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plbasepriority, core::mem::transmute(ok__));
+                    plbasepriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6575,7 +6575,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::CreateTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarcreatetime, core::mem::transmute(ok__));
+                    pvarcreatetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6586,7 +6586,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::ModifyTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmodifytime, core::mem::transmute(ok__));
+                    pvarmodifytime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6597,7 +6597,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::Authenticate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plauthenticate, core::mem::transmute(ok__));
+                    plauthenticate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6613,7 +6613,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::JournalQuota(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournalquota, core::mem::transmute(ok__));
+                    pljournalquota.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6629,7 +6629,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::IsWorldReadable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
+                    pisworldreadable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6650,7 +6650,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::Open(this, core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppq, core::mem::transmute(ok__));
+                    ppq.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6671,7 +6671,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::PathNameDNS(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrpathnamedns, core::mem::transmute(ok__));
+                    pbstrpathnamedns.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6682,7 +6682,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6693,7 +6693,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::Security(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsecurity, core::mem::transmute(ok__));
+                    pvarsecurity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6709,7 +6709,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::IsTransactional2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pistransactional, core::mem::transmute(ok__));
+                    pistransactional.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6720,7 +6720,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::IsWorldReadable2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
+                    pisworldreadable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6731,7 +6731,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::MulticastAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrmulticastaddress, core::mem::transmute(ok__));
+                    pbstrmulticastaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6747,7 +6747,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo3_Impl::ADsPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstradspath, core::mem::transmute(ok__));
+                    pbstradspath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6852,7 +6852,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::QueueGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidqueue, core::mem::transmute(ok__));
+                    pbstrguidqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6863,7 +6863,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::ServiceTypeGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguidservicetype, core::mem::transmute(ok__));
+                    pbstrguidservicetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6879,7 +6879,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
+                    pbstrlabel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6895,7 +6895,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::PathName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrpathname, core::mem::transmute(ok__));
+                    pbstrpathname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6911,7 +6911,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::FormatName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
+                    pbstrformatname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6927,7 +6927,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::IsTransactional(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pistransactional, core::mem::transmute(ok__));
+                    pistransactional.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6938,7 +6938,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::PrivLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plprivlevel, core::mem::transmute(ok__));
+                    plprivlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6954,7 +6954,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::Journal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournal, core::mem::transmute(ok__));
+                    pljournal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6970,7 +6970,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::Quota(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plquota, core::mem::transmute(ok__));
+                    plquota.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6986,7 +6986,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::BasePriority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plbasepriority, core::mem::transmute(ok__));
+                    plbasepriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7002,7 +7002,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::CreateTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarcreatetime, core::mem::transmute(ok__));
+                    pvarcreatetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7013,7 +7013,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::ModifyTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarmodifytime, core::mem::transmute(ok__));
+                    pvarmodifytime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7024,7 +7024,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::Authenticate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plauthenticate, core::mem::transmute(ok__));
+                    plauthenticate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7040,7 +7040,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::JournalQuota(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournalquota, core::mem::transmute(ok__));
+                    pljournalquota.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7056,7 +7056,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::IsWorldReadable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
+                    pisworldreadable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7077,7 +7077,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::Open(this, core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppq, core::mem::transmute(ok__));
+                    ppq.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7098,7 +7098,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::PathNameDNS(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrpathnamedns, core::mem::transmute(ok__));
+                    pbstrpathnamedns.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7109,7 +7109,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7120,7 +7120,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::Security(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarsecurity, core::mem::transmute(ok__));
+                    pvarsecurity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7136,7 +7136,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::IsTransactional2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pistransactional, core::mem::transmute(ok__));
+                    pistransactional.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7147,7 +7147,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::IsWorldReadable2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
+                    pisworldreadable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7158,7 +7158,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::MulticastAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrmulticastaddress, core::mem::transmute(ok__));
+                    pbstrmulticastaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7174,7 +7174,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfo4_Impl::ADsPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstradspath, core::mem::transmute(ok__));
+                    pbstradspath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7247,7 +7247,7 @@ impl IMSMQQueueInfos_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfos_Impl::Next(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfonext, core::mem::transmute(ok__));
+                    ppqinfonext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7284,7 +7284,7 @@ impl IMSMQQueueInfos2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfos2_Impl::Next(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfonext, core::mem::transmute(ok__));
+                    ppqinfonext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7295,7 +7295,7 @@ impl IMSMQQueueInfos2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfos2_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7333,7 +7333,7 @@ impl IMSMQQueueInfos3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfos3_Impl::Next(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfonext, core::mem::transmute(ok__));
+                    ppqinfonext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7344,7 +7344,7 @@ impl IMSMQQueueInfos3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfos3_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7382,7 +7382,7 @@ impl IMSMQQueueInfos4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfos4_Impl::Next(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqinfonext, core::mem::transmute(ok__));
+                    ppqinfonext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7393,7 +7393,7 @@ impl IMSMQQueueInfos4_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueInfos4_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7426,7 +7426,7 @@ impl IMSMQQueueManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueManagement_Impl::JournalMessageCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pljournalmessagecount, core::mem::transmute(ok__));
+                    pljournalmessagecount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7437,7 +7437,7 @@ impl IMSMQQueueManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueManagement_Impl::BytesInJournal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvbytesinjournal, core::mem::transmute(ok__));
+                    pvbytesinjournal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7448,7 +7448,7 @@ impl IMSMQQueueManagement_Vtbl {
             let this = (*this).get_impl();
             match IMSMQQueueManagement_Impl::EodGetReceiveInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvcollection, core::mem::transmute(ok__));
+                    pvcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7481,7 +7481,7 @@ impl IMSMQTransaction_Vtbl {
             let this = (*this).get_impl();
             match IMSMQTransaction_Impl::Transaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pltransaction, core::mem::transmute(ok__));
+                    pltransaction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7528,7 +7528,7 @@ impl IMSMQTransaction2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQTransaction2_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7558,7 +7558,7 @@ impl IMSMQTransaction3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQTransaction3_Impl::ITransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvaritransaction, core::mem::transmute(ok__));
+                    pvaritransaction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7584,7 +7584,7 @@ impl IMSMQTransactionDispenser_Vtbl {
             let this = (*this).get_impl();
             match IMSMQTransactionDispenser_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptransaction, core::mem::transmute(ok__));
+                    ptransaction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7611,7 +7611,7 @@ impl IMSMQTransactionDispenser2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQTransactionDispenser2_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptransaction, core::mem::transmute(ok__));
+                    ptransaction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7622,7 +7622,7 @@ impl IMSMQTransactionDispenser2_Vtbl {
             let this = (*this).get_impl();
             match IMSMQTransactionDispenser2_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7653,7 +7653,7 @@ impl IMSMQTransactionDispenser3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQTransactionDispenser3_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptransaction, core::mem::transmute(ok__));
+                    ptransaction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7664,7 +7664,7 @@ impl IMSMQTransactionDispenser3_Vtbl {
             let this = (*this).get_impl();
             match IMSMQTransactionDispenser3_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
+                    ppcolproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

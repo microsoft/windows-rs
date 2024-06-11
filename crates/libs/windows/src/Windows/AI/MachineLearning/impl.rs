@@ -14,7 +14,7 @@ impl ILearningModelFeatureDescriptor_Vtbl {
             let this = (*this).get_impl();
             match ILearningModelFeatureDescriptor_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -26,7 +26,7 @@ impl ILearningModelFeatureDescriptor_Vtbl {
             let this = (*this).get_impl();
             match ILearningModelFeatureDescriptor_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -38,7 +38,7 @@ impl ILearningModelFeatureDescriptor_Vtbl {
             let this = (*this).get_impl();
             match ILearningModelFeatureDescriptor_Impl::Kind(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -49,7 +49,7 @@ impl ILearningModelFeatureDescriptor_Vtbl {
             let this = (*this).get_impl();
             match ILearningModelFeatureDescriptor_Impl::IsRequired(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -80,7 +80,7 @@ impl ILearningModelFeatureValue_Vtbl {
             let this = (*this).get_impl();
             match ILearningModelFeatureValue_Impl::Kind(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -121,7 +121,7 @@ impl ITensor_Vtbl {
             let this = (*this).get_impl();
             match ITensor_Impl::TensorKind(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -132,7 +132,7 @@ impl ITensor_Vtbl {
             let this = (*this).get_impl();
             match ITensor_Impl::Shape(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

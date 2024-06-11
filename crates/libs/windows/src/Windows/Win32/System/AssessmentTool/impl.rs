@@ -71,7 +71,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
             let this = (*this).get_impl();
             match IProvideWinSATAssessmentInfo_Impl::Score(this) {
                 Ok(ok__) => {
-                    core::ptr::write(score, core::mem::transmute(ok__));
+                    score.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -82,7 +82,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
             let this = (*this).get_impl();
             match IProvideWinSATAssessmentInfo_Impl::Title(this) {
                 Ok(ok__) => {
-                    core::ptr::write(title, core::mem::transmute(ok__));
+                    title.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -93,7 +93,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
             let this = (*this).get_impl();
             match IProvideWinSATAssessmentInfo_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(description, core::mem::transmute(ok__));
+                    description.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -128,7 +128,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
             let this = (*this).get_impl();
             match IProvideWinSATResultsInfo_Impl::GetAssessmentInfo(this, core::mem::transmute_copy(&assessment)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppinfo, core::mem::transmute(ok__));
+                    ppinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -139,7 +139,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
             let this = (*this).get_impl();
             match IProvideWinSATResultsInfo_Impl::AssessmentState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(state, core::mem::transmute(ok__));
+                    state.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -150,7 +150,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
             let this = (*this).get_impl();
             match IProvideWinSATResultsInfo_Impl::AssessmentDateTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(filetime, core::mem::transmute(ok__));
+                    filetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -161,7 +161,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
             let this = (*this).get_impl();
             match IProvideWinSATResultsInfo_Impl::SystemRating(this) {
                 Ok(ok__) => {
-                    core::ptr::write(level, core::mem::transmute(ok__));
+                    level.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -172,7 +172,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
             let this = (*this).get_impl();
             match IProvideWinSATResultsInfo_Impl::RatingStateDesc(this) {
                 Ok(ok__) => {
-                    core::ptr::write(description, core::mem::transmute(ok__));
+                    description.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -205,7 +205,7 @@ impl IProvideWinSATVisuals_Vtbl {
             let this = (*this).get_impl();
             match IProvideWinSATVisuals_Impl::get_Bitmap(this, core::mem::transmute_copy(&bitmapsize), core::mem::transmute_copy(&state), core::mem::transmute_copy(&rating)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbitmap, core::mem::transmute(ok__));
+                    pbitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -231,7 +231,7 @@ impl IQueryAllWinSATAssessments_Vtbl {
             let this = (*this).get_impl();
             match IQueryAllWinSATAssessments_Impl::get_AllXML(this, core::mem::transmute(&xpath), core::mem::transmute(&namespaces)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdomnodelist, core::mem::transmute(ok__));
+                    ppdomnodelist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -254,7 +254,7 @@ impl IQueryOEMWinSATCustomization_Vtbl {
             let this = (*this).get_impl();
             match IQueryOEMWinSATCustomization_Impl::GetOEMPrePopulationInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(state, core::mem::transmute(ok__));
+                    state.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -281,7 +281,7 @@ impl IQueryRecentWinSATAssessment_Vtbl {
             let this = (*this).get_impl();
             match IQueryRecentWinSATAssessment_Impl::get_XML(this, core::mem::transmute(&xpath), core::mem::transmute(&namespaces)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdomnodelist, core::mem::transmute(ok__));
+                    ppdomnodelist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -292,7 +292,7 @@ impl IQueryRecentWinSATAssessment_Vtbl {
             let this = (*this).get_impl();
             match IQueryRecentWinSATAssessment_Impl::Info(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwinsatassessmentinfo, core::mem::transmute(ok__));
+                    ppwinsatassessmentinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

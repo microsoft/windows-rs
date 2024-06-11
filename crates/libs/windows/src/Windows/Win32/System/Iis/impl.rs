@@ -42,7 +42,7 @@ impl AsyncIFtpAuthorizationProvider_Vtbl {
             let this = (*this).get_impl();
             match AsyncIFtpAuthorizationProvider_Impl::Finish_GetUserAccessPermission(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pftpaccess, core::mem::transmute(ok__));
+                    pftpaccess.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -75,7 +75,7 @@ impl AsyncIFtpHomeDirectoryProvider_Vtbl {
             let this = (*this).get_impl();
             match AsyncIFtpHomeDirectoryProvider_Impl::Finish_GetUserHomeDirectoryData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszhomedirectorydata, core::mem::transmute(ok__));
+                    ppszhomedirectorydata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -135,7 +135,7 @@ impl AsyncIFtpPostprocessProvider_Vtbl {
             let this = (*this).get_impl();
             match AsyncIFtpPostprocessProvider_Impl::Finish_HandlePostprocess(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pftpprocessstatus, core::mem::transmute(ok__));
+                    pftpprocessstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -168,7 +168,7 @@ impl AsyncIFtpPreprocessProvider_Vtbl {
             let this = (*this).get_impl();
             match AsyncIFtpPreprocessProvider_Impl::Finish_HandlePreprocess(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pftpprocessstatus, core::mem::transmute(ok__));
+                    pftpprocessstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl AsyncIFtpRoleProvider_Vtbl {
             let this = (*this).get_impl();
             match AsyncIFtpRoleProvider_Impl::Finish_IsUserInRole(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisinrole, core::mem::transmute(ok__));
+                    pfisinrole.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -320,7 +320,7 @@ impl IFtpAuthorizationProvider_Vtbl {
             let this = (*this).get_impl();
             match IFtpAuthorizationProvider_Impl::GetUserAccessPermission(this, core::mem::transmute(&pszsessionid), core::mem::transmute(&pszsitename), core::mem::transmute(&pszvirtualpath), core::mem::transmute(&pszusername)) {
                 Ok(ok__) => {
-                    core::ptr::write(pftpaccess, core::mem::transmute(ok__));
+                    pftpaccess.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -343,7 +343,7 @@ impl IFtpHomeDirectoryProvider_Vtbl {
             let this = (*this).get_impl();
             match IFtpHomeDirectoryProvider_Impl::GetUserHomeDirectoryData(this, core::mem::transmute(&pszsessionid), core::mem::transmute(&pszsitename), core::mem::transmute(&pszusername)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszhomedirectorydata, core::mem::transmute(ok__));
+                    ppszhomedirectorydata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -383,7 +383,7 @@ impl IFtpPostprocessProvider_Vtbl {
             let this = (*this).get_impl();
             match IFtpPostprocessProvider_Impl::HandlePostprocess(this, core::mem::transmute_copy(&ppostprocessparameters)) {
                 Ok(ok__) => {
-                    core::ptr::write(pftpprocessstatus, core::mem::transmute(ok__));
+                    pftpprocessstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -406,7 +406,7 @@ impl IFtpPreprocessProvider_Vtbl {
             let this = (*this).get_impl();
             match IFtpPreprocessProvider_Impl::HandlePreprocess(this, core::mem::transmute_copy(&ppreprocessparameters)) {
                 Ok(ok__) => {
-                    core::ptr::write(pftpprocessstatus, core::mem::transmute(ok__));
+                    pftpprocessstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -449,7 +449,7 @@ impl IFtpRoleProvider_Vtbl {
             let this = (*this).get_impl();
             match IFtpRoleProvider_Impl::IsUserInRole(this, core::mem::transmute(&pszsessionid), core::mem::transmute(&pszsitename), core::mem::transmute(&pszusername), core::mem::transmute(&pszrole)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisinrole, core::mem::transmute(ok__));
+                    pfisinrole.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -671,7 +671,7 @@ impl IMSAdminBaseW_Vtbl {
             let this = (*this).get_impl();
             match IMSAdminBaseW_Impl::OpenKey(this, core::mem::transmute_copy(&hmdhandle), core::mem::transmute(&pszmdpath), core::mem::transmute_copy(&dwmdaccessrequested), core::mem::transmute_copy(&dwmdtimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(phmdnewhandle, core::mem::transmute(ok__));
+                    phmdnewhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -697,7 +697,7 @@ impl IMSAdminBaseW_Vtbl {
             let this = (*this).get_impl();
             match IMSAdminBaseW_Impl::GetHandleInfo(this, core::mem::transmute_copy(&hmdhandle)) {
                 Ok(ok__) => {
-                    core::ptr::write(pmdhiinfo, core::mem::transmute(ok__));
+                    pmdhiinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -708,7 +708,7 @@ impl IMSAdminBaseW_Vtbl {
             let this = (*this).get_impl();
             match IMSAdminBaseW_Impl::GetSystemChangeNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwsystemchangenumber, core::mem::transmute(ok__));
+                    pdwsystemchangenumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -719,7 +719,7 @@ impl IMSAdminBaseW_Vtbl {
             let this = (*this).get_impl();
             match IMSAdminBaseW_Impl::GetDataSetNumber(this, core::mem::transmute_copy(&hmdhandle), core::mem::transmute(&pszmdpath)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwmddatasetnumber, core::mem::transmute(ok__));
+                    pdwmddatasetnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -770,7 +770,7 @@ impl IMSAdminBaseW_Vtbl {
             let this = (*this).get_impl();
             match IMSAdminBaseW_Impl::UnmarshalInterface(this) {
                 Ok(ok__) => {
-                    core::ptr::write(piadmbwinterface, core::mem::transmute(ok__));
+                    piadmbwinterface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

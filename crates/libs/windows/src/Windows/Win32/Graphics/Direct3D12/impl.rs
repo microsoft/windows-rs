@@ -93,7 +93,7 @@ impl ID3D12CommandQueue_Vtbl {
             let this = (*this).get_impl();
             match ID3D12CommandQueue_Impl::GetTimestampFrequency(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfrequency, core::mem::transmute(ok__));
+                    pfrequency.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -759,7 +759,7 @@ impl ID3D12Device_Vtbl {
             let this = (*this).get_impl();
             match ID3D12Device_Impl::CreateSharedHandle(this, windows_core::from_raw_borrowed(&pobject), core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(phandle, core::mem::transmute(ok__));
+                    phandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -775,7 +775,7 @@ impl ID3D12Device_Vtbl {
             let this = (*this).get_impl();
             match ID3D12Device_Impl::OpenSharedHandleByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&access)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnthandle, core::mem::transmute(ok__));
+                    pnthandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1503,7 +1503,7 @@ impl ID3D12DeviceRemovedExtendedData_Vtbl {
             let this = (*this).get_impl();
             match ID3D12DeviceRemovedExtendedData_Impl::GetAutoBreadcrumbsOutput(this) {
                 Ok(ok__) => {
-                    core::ptr::write(poutput, core::mem::transmute(ok__));
+                    poutput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1514,7 +1514,7 @@ impl ID3D12DeviceRemovedExtendedData_Vtbl {
             let this = (*this).get_impl();
             match ID3D12DeviceRemovedExtendedData_Impl::GetPageFaultAllocationOutput(this) {
                 Ok(ok__) => {
-                    core::ptr::write(poutput, core::mem::transmute(ok__));
+                    poutput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1542,7 +1542,7 @@ impl ID3D12DeviceRemovedExtendedData1_Vtbl {
             let this = (*this).get_impl();
             match ID3D12DeviceRemovedExtendedData1_Impl::GetAutoBreadcrumbsOutput1(this) {
                 Ok(ok__) => {
-                    core::ptr::write(poutput, core::mem::transmute(ok__));
+                    poutput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1553,7 +1553,7 @@ impl ID3D12DeviceRemovedExtendedData1_Vtbl {
             let this = (*this).get_impl();
             match ID3D12DeviceRemovedExtendedData1_Impl::GetPageFaultAllocationOutput1(this) {
                 Ok(ok__) => {
-                    core::ptr::write(poutput, core::mem::transmute(ok__));
+                    poutput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2855,7 +2855,7 @@ impl ID3D12LibraryReflection_Vtbl {
             let this = (*this).get_impl();
             match ID3D12LibraryReflection_Impl::GetDesc(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdesc, core::mem::transmute(ok__));
+                    pdesc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3083,7 +3083,7 @@ impl ID3D12PipelineState_Vtbl {
             let this = (*this).get_impl();
             match ID3D12PipelineState_Impl::GetCachedBlob(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppblob, core::mem::transmute(ok__));
+                    ppblob.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3495,7 +3495,7 @@ impl ID3D12ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match ID3D12ShaderReflection_Impl::GetMinFeatureLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plevel, core::mem::transmute(ok__));
+                    plevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3897,7 +3897,7 @@ impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
             let this = (*this).get_impl();
             match ID3D12VersionedRootSignatureDeserializer_Impl::GetRootSignatureDescAtVersion(this, core::mem::transmute_copy(&converttoversion)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdesc, core::mem::transmute(ok__));
+                    ppdesc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3930,7 +3930,7 @@ impl ID3D12VirtualizationGuestDevice_Vtbl {
             let this = (*this).get_impl();
             match ID3D12VirtualizationGuestDevice_Impl::ShareWithHost(this, windows_core::from_raw_borrowed(&pobject)) {
                 Ok(ok__) => {
-                    core::ptr::write(phandle, core::mem::transmute(ok__));
+                    phandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3941,7 +3941,7 @@ impl ID3D12VirtualizationGuestDevice_Vtbl {
             let this = (*this).get_impl();
             match ID3D12VirtualizationGuestDevice_Impl::CreateFenceFd(this, windows_core::from_raw_borrowed(&pfence), core::mem::transmute_copy(&fencevalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfencefd, core::mem::transmute(ok__));
+                    pfencefd.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

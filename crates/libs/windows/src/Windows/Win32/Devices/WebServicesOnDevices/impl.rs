@@ -74,7 +74,7 @@ impl IWSDAsyncResult_Vtbl {
             let this = (*this).get_impl();
             match IWSDAsyncResult_Impl::GetAsyncState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasyncstate, core::mem::transmute(ok__));
+                    ppasyncstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -95,7 +95,7 @@ impl IWSDAsyncResult_Vtbl {
             let this = (*this).get_impl();
             match IWSDAsyncResult_Impl::GetEndpointProxy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppendpoint, core::mem::transmute(ok__));
+                    ppendpoint.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl IWSDDeviceHostNotify_Vtbl {
             let this = (*this).get_impl();
             match IWSDDeviceHostNotify_Impl::GetService(this, core::mem::transmute(&pszserviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservice, core::mem::transmute(ok__));
+                    ppservice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -271,7 +271,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDDeviceProxy_Impl::BeginGetMetadata(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresult, core::mem::transmute(ok__));
+                    ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -287,7 +287,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDDeviceProxy_Impl::GetHostMetadata(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pphostmetadata, core::mem::transmute(ok__));
+                    pphostmetadata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -298,7 +298,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDDeviceProxy_Impl::GetThisModelMetadata(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmanufacturermetadata, core::mem::transmute(ok__));
+                    ppmanufacturermetadata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -309,7 +309,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDDeviceProxy_Impl::GetThisDeviceMetadata(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppthisdevicemetadata, core::mem::transmute(ok__));
+                    ppthisdevicemetadata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -320,7 +320,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDDeviceProxy_Impl::GetAllMetadata(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmetadata, core::mem::transmute(ok__));
+                    ppmetadata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -331,7 +331,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDDeviceProxy_Impl::GetServiceProxyById(this, core::mem::transmute(&pszserviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppserviceproxy, core::mem::transmute(ok__));
+                    ppserviceproxy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -342,7 +342,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDDeviceProxy_Impl::GetServiceProxyByType(this, core::mem::transmute_copy(&ptype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppserviceproxy, core::mem::transmute(ok__));
+                    ppserviceproxy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -353,7 +353,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDDeviceProxy_Impl::GetEndpointProxy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppproxy, core::mem::transmute(ok__));
+                    ppproxy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -404,7 +404,7 @@ impl IWSDEndpointProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDEndpointProxy_Impl::SendTwoWayRequestAsync(this, core::mem::transmute_copy(&pbody), core::mem::transmute_copy(&poperation), windows_core::from_raw_borrowed(&pasyncstate), windows_core::from_raw_borrowed(&pcallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(presult, core::mem::transmute(ok__));
+                    presult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -425,7 +425,7 @@ impl IWSDEndpointProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDEndpointProxy_Impl::GetErrorInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszerrorinfo, core::mem::transmute(ok__));
+                    ppszerrorinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -436,7 +436,7 @@ impl IWSDEndpointProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDEndpointProxy_Impl::GetFaultInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfault, core::mem::transmute(ok__));
+                    ppfault.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -515,7 +515,7 @@ impl IWSDHttpAddress_Vtbl {
             let this = (*this).get_impl();
             match IWSDHttpAddress_Impl::GetPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszpath, core::mem::transmute(ok__));
+                    ppszpath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -550,7 +550,7 @@ impl IWSDHttpAuthParameters_Vtbl {
             let this = (*this).get_impl();
             match IWSDHttpAuthParameters_Impl::GetClientAccessToken(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phtoken, core::mem::transmute(ok__));
+                    phtoken.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -561,7 +561,7 @@ impl IWSDHttpAuthParameters_Vtbl {
             let this = (*this).get_impl();
             match IWSDHttpAuthParameters_Impl::GetAuthType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pauthtype, core::mem::transmute(ok__));
+                    pauthtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -601,7 +601,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match IWSDHttpMessageParameters_Impl::GetInboundHttpHeaders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszheaders, core::mem::transmute(ok__));
+                    ppszheaders.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -617,7 +617,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match IWSDHttpMessageParameters_Impl::GetOutboundHttpHeaders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszheaders, core::mem::transmute(ok__));
+                    ppszheaders.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -633,7 +633,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match IWSDHttpMessageParameters_Impl::GetID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszid, core::mem::transmute(ok__));
+                    ppszid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -649,7 +649,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match IWSDHttpMessageParameters_Impl::GetContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontext, core::mem::transmute(ok__));
+                    ppcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -715,7 +715,7 @@ impl IWSDMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match IWSDMessageParameters_Impl::GetLocalAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaddress, core::mem::transmute(ok__));
+                    ppaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -731,7 +731,7 @@ impl IWSDMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match IWSDMessageParameters_Impl::GetRemoteAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaddress, core::mem::transmute(ok__));
+                    ppaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -747,7 +747,7 @@ impl IWSDMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match IWSDMessageParameters_Impl::GetLowerParameters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pptxparams, core::mem::transmute(ok__));
+                    pptxparams.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -777,7 +777,7 @@ impl IWSDMetadataExchange_Vtbl {
             let this = (*this).get_impl();
             match IWSDMetadataExchange_Impl::GetMetadata(this) {
                 Ok(ok__) => {
-                    core::ptr::write(metadataout, core::mem::transmute(ok__));
+                    metadataout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -802,7 +802,7 @@ impl IWSDOutboundAttachment_Vtbl {
             let this = (*this).get_impl();
             match IWSDOutboundAttachment_Impl::Write(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwbytestowrite)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwnumberofbyteswritten, core::mem::transmute(ok__));
+                    pdwnumberofbyteswritten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -844,7 +844,7 @@ impl IWSDSSLClientCertificate_Vtbl {
             let this = (*this).get_impl();
             match IWSDSSLClientCertificate_Impl::GetClientCertificate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcertcontext, core::mem::transmute(ok__));
+                    ppcertcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -855,7 +855,7 @@ impl IWSDSSLClientCertificate_Vtbl {
             let this = (*this).get_impl();
             match IWSDSSLClientCertificate_Impl::GetMappedAccessToken(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phtoken, core::mem::transmute(ok__));
+                    phtoken.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -883,7 +883,7 @@ impl IWSDScopeMatchingRule_Vtbl {
             let this = (*this).get_impl();
             match IWSDScopeMatchingRule_Impl::GetScopeRule(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszscopematchingrule, core::mem::transmute(ok__));
+                    ppszscopematchingrule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -894,7 +894,7 @@ impl IWSDScopeMatchingRule_Vtbl {
             let this = (*this).get_impl();
             match IWSDScopeMatchingRule_Impl::MatchScopes(this, core::mem::transmute(&pszscope1), core::mem::transmute(&pszscope2)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfmatch, core::mem::transmute(ok__));
+                    pfmatch.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -954,7 +954,7 @@ impl IWSDServiceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDServiceProxy_Impl::BeginGetMetadata(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresult, core::mem::transmute(ok__));
+                    ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -965,7 +965,7 @@ impl IWSDServiceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDServiceProxy_Impl::EndGetMetadata(this, windows_core::from_raw_borrowed(&presult)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmetadata, core::mem::transmute(ok__));
+                    ppmetadata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -976,7 +976,7 @@ impl IWSDServiceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDServiceProxy_Impl::GetServiceMetadata(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservicemetadata, core::mem::transmute(ok__));
+                    ppservicemetadata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1002,7 +1002,7 @@ impl IWSDServiceProxy_Vtbl {
             let this = (*this).get_impl();
             match IWSDServiceProxy_Impl::GetEndpointProxy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppproxy, core::mem::transmute(ok__));
+                    ppproxy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1050,7 +1050,7 @@ impl IWSDServiceProxyEventing_Vtbl {
             let this = (*this).get_impl();
             match IWSDServiceProxyEventing_Impl::BeginSubscribeToMultipleOperations(this, core::mem::transmute_copy(&poperations), core::mem::transmute_copy(&dwoperationcount), windows_core::from_raw_borrowed(&punknown), core::mem::transmute_copy(&pexpires), core::mem::transmute_copy(&pany), windows_core::from_raw_borrowed(&pasyncstate), windows_core::from_raw_borrowed(&pasynccallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresult, core::mem::transmute(ok__));
+                    ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1071,7 +1071,7 @@ impl IWSDServiceProxyEventing_Vtbl {
             let this = (*this).get_impl();
             match IWSDServiceProxyEventing_Impl::BeginUnsubscribeToMultipleOperations(this, core::mem::transmute_copy(&poperations), core::mem::transmute_copy(&dwoperationcount), core::mem::transmute_copy(&pany), windows_core::from_raw_borrowed(&pasyncstate), windows_core::from_raw_borrowed(&pasynccallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresult, core::mem::transmute(ok__));
+                    ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1092,7 +1092,7 @@ impl IWSDServiceProxyEventing_Vtbl {
             let this = (*this).get_impl();
             match IWSDServiceProxyEventing_Impl::BeginRenewMultipleOperations(this, core::mem::transmute_copy(&poperations), core::mem::transmute_copy(&dwoperationcount), core::mem::transmute_copy(&pexpires), core::mem::transmute_copy(&pany), windows_core::from_raw_borrowed(&pasyncstate), windows_core::from_raw_borrowed(&pasynccallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresult, core::mem::transmute(ok__));
+                    ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1113,7 +1113,7 @@ impl IWSDServiceProxyEventing_Vtbl {
             let this = (*this).get_impl();
             match IWSDServiceProxyEventing_Impl::BeginGetStatusForMultipleOperations(this, core::mem::transmute_copy(&poperations), core::mem::transmute_copy(&dwoperationcount), core::mem::transmute_copy(&pany), windows_core::from_raw_borrowed(&pasyncstate), windows_core::from_raw_borrowed(&pasynccallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresult, core::mem::transmute(ok__));
+                    ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1159,7 +1159,7 @@ impl IWSDSignatureProperty_Vtbl {
             let this = (*this).get_impl();
             match IWSDSignatureProperty_Impl::IsMessageSigned(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbsigned, core::mem::transmute(ok__));
+                    pbsigned.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1170,7 +1170,7 @@ impl IWSDSignatureProperty_Vtbl {
             let this = (*this).get_impl();
             match IWSDSignatureProperty_Impl::IsMessageSignatureTrusted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbsignaturetrusted, core::mem::transmute(ok__));
+                    pbsignaturetrusted.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1219,7 +1219,7 @@ impl IWSDTransportAddress_Vtbl {
             let this = (*this).get_impl();
             match IWSDTransportAddress_Impl::GetPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pwport, core::mem::transmute(ok__));
+                    pwport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1235,7 +1235,7 @@ impl IWSDTransportAddress_Vtbl {
             let this = (*this).get_impl();
             match IWSDTransportAddress_Impl::GetTransportAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszaddress, core::mem::transmute(ok__));
+                    ppszaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1246,7 +1246,7 @@ impl IWSDTransportAddress_Vtbl {
             let this = (*this).get_impl();
             match IWSDTransportAddress_Impl::GetTransportAddressEx(this, core::mem::transmute_copy(&fsafe)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszaddress, core::mem::transmute(ok__));
+                    ppszaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1318,7 +1318,7 @@ impl IWSDUdpAddress_Vtbl {
             let this = (*this).get_impl();
             match IWSDUdpAddress_Impl::GetMessageType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pmessagetype, core::mem::transmute(ok__));
+                    pmessagetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1334,7 +1334,7 @@ impl IWSDUdpAddress_Vtbl {
             let this = (*this).get_impl();
             match IWSDUdpAddress_Impl::GetTTL(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwttl, core::mem::transmute(ok__));
+                    pdwttl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1350,7 +1350,7 @@ impl IWSDUdpAddress_Vtbl {
             let this = (*this).get_impl();
             match IWSDUdpAddress_Impl::GetAlias(this) {
                 Ok(ok__) => {
-                    core::ptr::write(palias, core::mem::transmute(ok__));
+                    palias.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1463,7 +1463,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveredService_Impl::GetEndpointReference(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppendpointreference, core::mem::transmute(ok__));
+                    ppendpointreference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1474,7 +1474,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveredService_Impl::GetTypes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pptypeslist, core::mem::transmute(ok__));
+                    pptypeslist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1485,7 +1485,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveredService_Impl::GetScopes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppscopeslist, core::mem::transmute(ok__));
+                    ppscopeslist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1496,7 +1496,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveredService_Impl::GetXAddrs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppxaddrslist, core::mem::transmute(ok__));
+                    ppxaddrslist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1507,7 +1507,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveredService_Impl::GetMetadataVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pullmetadataversion, core::mem::transmute(ok__));
+                    pullmetadataversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1523,7 +1523,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveredService_Impl::GetProbeResolveTag(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsztag, core::mem::transmute(ok__));
+                    ppsztag.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1534,7 +1534,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveredService_Impl::GetRemoteTransportAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszremotetransportaddress, core::mem::transmute(ok__));
+                    ppszremotetransportaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1545,7 +1545,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveredService_Impl::GetLocalTransportAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszlocaltransportaddress, core::mem::transmute(ok__));
+                    ppszlocaltransportaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1556,7 +1556,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveredService_Impl::GetLocalInterfaceGUID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pguid, core::mem::transmute(ok__));
+                    pguid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1567,7 +1567,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveredService_Impl::GetInstanceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pullinstanceid, core::mem::transmute(ok__));
+                    pullinstanceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1639,7 +1639,7 @@ impl IWSDiscoveryProvider_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveryProvider_Impl::GetXMLContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontext, core::mem::transmute(ok__));
+                    ppcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1836,7 +1836,7 @@ impl IWSDiscoveryPublisher_Vtbl {
             let this = (*this).get_impl();
             match IWSDiscoveryPublisher_Impl::GetXMLContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontext, core::mem::transmute(ok__));
+                    ppcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

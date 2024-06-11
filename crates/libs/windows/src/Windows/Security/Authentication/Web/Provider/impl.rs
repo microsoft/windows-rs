@@ -43,7 +43,7 @@ impl IWebAccountProviderOperation_Vtbl {
             let this = (*this).get_impl();
             match IWebAccountProviderOperation_Impl::Kind(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -100,7 +100,7 @@ impl IWebAccountProviderTokenObjects_Vtbl {
             let this = (*this).get_impl();
             match IWebAccountProviderTokenObjects_Impl::Operation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -132,7 +132,7 @@ impl IWebAccountProviderTokenObjects2_Vtbl {
             let this = (*this).get_impl();
             match IWebAccountProviderTokenObjects2_Impl::User(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -164,7 +164,7 @@ impl IWebAccountProviderTokenOperation_Vtbl {
             let this = (*this).get_impl();
             match IWebAccountProviderTokenOperation_Impl::ProviderRequest(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -176,7 +176,7 @@ impl IWebAccountProviderTokenOperation_Vtbl {
             let this = (*this).get_impl();
             match IWebAccountProviderTokenOperation_Impl::ProviderResponses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -193,7 +193,7 @@ impl IWebAccountProviderTokenOperation_Vtbl {
             let this = (*this).get_impl();
             match IWebAccountProviderTokenOperation_Impl::CacheExpirationTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

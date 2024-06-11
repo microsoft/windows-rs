@@ -12,7 +12,7 @@ impl ICoreAcceleratorKeys_Vtbl {
             let this = (*this).get_impl();
             match ICoreAcceleratorKeys_Impl::AcceleratorKeyActivated(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -50,7 +50,7 @@ impl ICoreInputSourceBase_Vtbl {
             let this = (*this).get_impl();
             match ICoreInputSourceBase_Impl::Dispatcher(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -62,7 +62,7 @@ impl ICoreInputSourceBase_Vtbl {
             let this = (*this).get_impl();
             match ICoreInputSourceBase_Impl::IsInputEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -78,7 +78,7 @@ impl ICoreInputSourceBase_Vtbl {
             let this = (*this).get_impl();
             match ICoreInputSourceBase_Impl::InputEnabled(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -144,7 +144,7 @@ impl ICorePointerInputSource_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerInputSource_Impl::HasCapture(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -155,7 +155,7 @@ impl ICorePointerInputSource_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerInputSource_Impl::PointerPosition(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -166,7 +166,7 @@ impl ICorePointerInputSource_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerInputSource_Impl::PointerCursor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -183,7 +183,7 @@ impl ICorePointerInputSource_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerInputSource_Impl::PointerCaptureLost(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -199,7 +199,7 @@ impl ICorePointerInputSource_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerInputSource_Impl::PointerEntered(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -215,7 +215,7 @@ impl ICorePointerInputSource_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerInputSource_Impl::PointerExited(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -231,7 +231,7 @@ impl ICorePointerInputSource_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerInputSource_Impl::PointerMoved(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -247,7 +247,7 @@ impl ICorePointerInputSource_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerInputSource_Impl::PointerPressed(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -263,7 +263,7 @@ impl ICorePointerInputSource_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerInputSource_Impl::PointerReleased(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -279,7 +279,7 @@ impl ICorePointerInputSource_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerInputSource_Impl::PointerWheelChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -334,7 +334,7 @@ impl ICorePointerInputSource2_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerInputSource2_Impl::DispatcherQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -368,7 +368,7 @@ impl ICorePointerRedirector_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerRedirector_Impl::PointerRoutedAway(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -384,7 +384,7 @@ impl ICorePointerRedirector_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerRedirector_Impl::PointerRoutedTo(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -400,7 +400,7 @@ impl ICorePointerRedirector_Vtbl {
             let this = (*this).get_impl();
             match ICorePointerRedirector_Impl::PointerRoutedReleased(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -492,7 +492,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::AutomationHostProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -504,7 +504,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::Bounds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -515,7 +515,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::CustomProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -527,7 +527,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::Dispatcher(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -539,7 +539,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::FlowDirection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -555,7 +555,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::IsInputEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -571,7 +571,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::PointerCursor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -588,7 +588,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::PointerPosition(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -599,7 +599,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::Visible(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -620,7 +620,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::GetAsyncKeyState(this, virtualkey) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -631,7 +631,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::GetKeyState(this, virtualkey) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -652,7 +652,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::Activated(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -668,7 +668,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::AutomationProviderRequested(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -684,7 +684,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::CharacterReceived(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -700,7 +700,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::Closed(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -716,7 +716,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::InputEnabled(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -732,7 +732,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::KeyDown(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -748,7 +748,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::KeyUp(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -764,7 +764,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::PointerCaptureLost(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -780,7 +780,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::PointerEntered(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -796,7 +796,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::PointerExited(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -812,7 +812,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::PointerMoved(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -828,7 +828,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::PointerPressed(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -844,7 +844,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::PointerReleased(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -860,7 +860,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::TouchHitTesting(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -876,7 +876,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::PointerWheelChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -892,7 +892,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::SizeChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -908,7 +908,7 @@ impl ICoreWindow_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindow_Impl::VisibilityChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -993,7 +993,7 @@ impl ICoreWindowEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ICoreWindowEventArgs_Impl::Handled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

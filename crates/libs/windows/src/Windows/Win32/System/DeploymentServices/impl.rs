@@ -15,7 +15,7 @@ impl IWdsTransportCacheable_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportCacheable_Impl::Dirty(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbdirty, core::mem::transmute(ok__));
+                    pbdirty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -73,7 +73,7 @@ impl IWdsTransportClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportClient_Impl::Session(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportsession, core::mem::transmute(ok__));
+                    ppwdstransportsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -84,7 +84,7 @@ impl IWdsTransportClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportClient_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulid, core::mem::transmute(ok__));
+                    pulid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -95,7 +95,7 @@ impl IWdsTransportClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportClient_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszname, core::mem::transmute(ok__));
+                    pbszname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -106,7 +106,7 @@ impl IWdsTransportClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportClient_Impl::MacAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszmacaddress, core::mem::transmute(ok__));
+                    pbszmacaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -117,7 +117,7 @@ impl IWdsTransportClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportClient_Impl::IpAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszipaddress, core::mem::transmute(ok__));
+                    pbszipaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -128,7 +128,7 @@ impl IWdsTransportClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportClient_Impl::PercentCompletion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulpercentcompletion, core::mem::transmute(ok__));
+                    pulpercentcompletion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -139,7 +139,7 @@ impl IWdsTransportClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportClient_Impl::JoinDuration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puljoinduration, core::mem::transmute(ok__));
+                    puljoinduration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -150,7 +150,7 @@ impl IWdsTransportClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportClient_Impl::CpuUtilization(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulcpuutilization, core::mem::transmute(ok__));
+                    pulcpuutilization.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -161,7 +161,7 @@ impl IWdsTransportClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportClient_Impl::MemoryUtilization(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulmemoryutilization, core::mem::transmute(ok__));
+                    pulmemoryutilization.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -172,7 +172,7 @@ impl IWdsTransportClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportClient_Impl::NetworkUtilization(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulnetworkutilization, core::mem::transmute(ok__));
+                    pulnetworkutilization.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -183,7 +183,7 @@ impl IWdsTransportClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportClient_Impl::UserIdentity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszuseridentity, core::mem::transmute(ok__));
+                    pbszuseridentity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -230,7 +230,7 @@ impl IWdsTransportCollection_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulcount, core::mem::transmute(ok__));
+                    pulcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -241,7 +241,7 @@ impl IWdsTransportCollection_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportCollection_Impl::get_Item(this, core::mem::transmute_copy(&ulindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -252,7 +252,7 @@ impl IWdsTransportCollection_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -291,7 +291,7 @@ impl IWdsTransportConfigurationManager_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportConfigurationManager_Impl::ServicePolicy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportservicepolicy, core::mem::transmute(ok__));
+                    ppwdstransportservicepolicy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -302,7 +302,7 @@ impl IWdsTransportConfigurationManager_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportConfigurationManager_Impl::DiagnosticsPolicy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportdiagnosticspolicy, core::mem::transmute(ok__));
+                    ppwdstransportdiagnosticspolicy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -313,7 +313,7 @@ impl IWdsTransportConfigurationManager_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportConfigurationManager_Impl::get_WdsTransportServicesRunning(this, core::mem::transmute_copy(&brealtimestatus)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbservicesrunning, core::mem::transmute(ok__));
+                    pbservicesrunning.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -380,7 +380,7 @@ impl IWdsTransportConfigurationManager2_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportConfigurationManager2_Impl::MulticastSessionPolicy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportmulticastsessionpolicy, core::mem::transmute(ok__));
+                    ppwdstransportmulticastsessionpolicy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -413,7 +413,7 @@ impl IWdsTransportContent_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportContent_Impl::Namespace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportnamespace, core::mem::transmute(ok__));
+                    ppwdstransportnamespace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -424,7 +424,7 @@ impl IWdsTransportContent_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportContent_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulid, core::mem::transmute(ok__));
+                    pulid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -435,7 +435,7 @@ impl IWdsTransportContent_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportContent_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszname, core::mem::transmute(ok__));
+                    pbszname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -446,7 +446,7 @@ impl IWdsTransportContent_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportContent_Impl::RetrieveSessions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportsessions, core::mem::transmute(ok__));
+                    ppwdstransportsessions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -487,7 +487,7 @@ impl IWdsTransportContentProvider_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportContentProvider_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszname, core::mem::transmute(ok__));
+                    pbszname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -498,7 +498,7 @@ impl IWdsTransportContentProvider_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportContentProvider_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszdescription, core::mem::transmute(ok__));
+                    pbszdescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -509,7 +509,7 @@ impl IWdsTransportContentProvider_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportContentProvider_Impl::FilePath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszfilepath, core::mem::transmute(ok__));
+                    pbszfilepath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -520,7 +520,7 @@ impl IWdsTransportContentProvider_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportContentProvider_Impl::InitializationRoutine(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszinitializationroutine, core::mem::transmute(ok__));
+                    pbszinitializationroutine.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -555,7 +555,7 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportDiagnosticsPolicy_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbenabled, core::mem::transmute(ok__));
+                    pbenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -571,7 +571,7 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportDiagnosticsPolicy_Impl::Components(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulcomponents, core::mem::transmute(ok__));
+                    pulcomponents.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -608,7 +608,7 @@ impl IWdsTransportManager_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportManager_Impl::GetWdsTransportServer(this, core::mem::transmute(&bszservername)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportserver, core::mem::transmute(ok__));
+                    ppwdstransportserver.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -641,7 +641,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportMulticastSessionPolicy_Impl::SlowClientHandling(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pslowclienthandling, core::mem::transmute(ok__));
+                    pslowclienthandling.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -657,7 +657,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportMulticastSessionPolicy_Impl::AutoDisconnectThreshold(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulthreshold, core::mem::transmute(ok__));
+                    pulthreshold.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -673,7 +673,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportMulticastSessionPolicy_Impl::MultistreamStreamCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulstreamcount, core::mem::transmute(ok__));
+                    pulstreamcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -689,7 +689,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportMulticastSessionPolicy_Impl::SlowClientFallback(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbclientfallback, core::mem::transmute(ok__));
+                    pbclientfallback.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -750,7 +750,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptype, core::mem::transmute(ok__));
+                    ptype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -761,7 +761,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulid, core::mem::transmute(ok__));
+                    pulid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -772,7 +772,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszname, core::mem::transmute(ok__));
+                    pbszname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -788,7 +788,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::FriendlyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszfriendlyname, core::mem::transmute(ok__));
+                    pbszfriendlyname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -804,7 +804,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszdescription, core::mem::transmute(ok__));
+                    pbszdescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -820,7 +820,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::ContentProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszcontentprovider, core::mem::transmute(ok__));
+                    pbszcontentprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -836,7 +836,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::Configuration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszconfiguration, core::mem::transmute(ok__));
+                    pbszconfiguration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -852,7 +852,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::Registered(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbregistered, core::mem::transmute(ok__));
+                    pbregistered.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -863,7 +863,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::Tombstoned(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbtombstoned, core::mem::transmute(ok__));
+                    pbtombstoned.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -874,7 +874,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::TombstoneTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptombstonetime, core::mem::transmute(ok__));
+                    ptombstonetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -885,7 +885,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::TransmissionStarted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbtransmissionstarted, core::mem::transmute(ok__));
+                    pbtransmissionstarted.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -906,7 +906,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportnamespaceclone, core::mem::transmute(ok__));
+                    ppwdstransportnamespaceclone.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -922,7 +922,7 @@ impl IWdsTransportNamespace_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespace_Impl::RetrieveContents(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportcontents, core::mem::transmute(ok__));
+                    ppwdstransportcontents.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -986,7 +986,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespaceManager_Impl::CreateNamespace(this, core::mem::transmute_copy(&namespacetype), core::mem::transmute(&bsznamespacename), core::mem::transmute(&bszcontentprovider), core::mem::transmute(&bszconfiguration)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportnamespace, core::mem::transmute(ok__));
+                    ppwdstransportnamespace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -997,7 +997,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespaceManager_Impl::RetrieveNamespace(this, core::mem::transmute(&bsznamespacename)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportnamespace, core::mem::transmute(ok__));
+                    ppwdstransportnamespace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1008,7 +1008,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespaceManager_Impl::RetrieveNamespaces(this, core::mem::transmute(&bszcontentprovider), core::mem::transmute(&bsznamespacename), core::mem::transmute_copy(&bincludetombstones)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportnamespaces, core::mem::transmute(ok__));
+                    ppwdstransportnamespaces.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1062,7 +1062,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespaceScheduledCastAutoStart_Impl::MinimumClients(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulminimumclients, core::mem::transmute(ok__));
+                    pulminimumclients.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1078,7 +1078,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportNamespaceScheduledCastAutoStart_Impl::StartTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstarttime, core::mem::transmute(ok__));
+                    pstarttime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1132,7 +1132,7 @@ impl IWdsTransportServer_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServer_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszname, core::mem::transmute(ok__));
+                    pbszname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1143,7 +1143,7 @@ impl IWdsTransportServer_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServer_Impl::SetupManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportsetupmanager, core::mem::transmute(ok__));
+                    ppwdstransportsetupmanager.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1154,7 +1154,7 @@ impl IWdsTransportServer_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServer_Impl::ConfigurationManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportconfigurationmanager, core::mem::transmute(ok__));
+                    ppwdstransportconfigurationmanager.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1165,7 +1165,7 @@ impl IWdsTransportServer_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServer_Impl::NamespaceManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportnamespacemanager, core::mem::transmute(ok__));
+                    ppwdstransportnamespacemanager.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1203,7 +1203,7 @@ impl IWdsTransportServer2_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServer2_Impl::TftpManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransporttftpmanager, core::mem::transmute(ok__));
+                    ppwdstransporttftpmanager.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1240,7 +1240,7 @@ impl IWdsTransportServicePolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServicePolicy_Impl::get_IpAddressSource(this, core::mem::transmute_copy(&addresstype)) {
                 Ok(ok__) => {
-                    core::ptr::write(psourcetype, core::mem::transmute(ok__));
+                    psourcetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1256,7 +1256,7 @@ impl IWdsTransportServicePolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServicePolicy_Impl::get_StartIpAddress(this, core::mem::transmute_copy(&addresstype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszstartipaddress, core::mem::transmute(ok__));
+                    pbszstartipaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1272,7 +1272,7 @@ impl IWdsTransportServicePolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServicePolicy_Impl::get_EndIpAddress(this, core::mem::transmute_copy(&addresstype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszendipaddress, core::mem::transmute(ok__));
+                    pbszendipaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1288,7 +1288,7 @@ impl IWdsTransportServicePolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServicePolicy_Impl::StartPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulstartport, core::mem::transmute(ok__));
+                    pulstartport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1304,7 +1304,7 @@ impl IWdsTransportServicePolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServicePolicy_Impl::EndPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulendport, core::mem::transmute(ok__));
+                    pulendport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1320,7 +1320,7 @@ impl IWdsTransportServicePolicy_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServicePolicy_Impl::NetworkProfile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pprofiletype, core::mem::transmute(ok__));
+                    pprofiletype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1370,7 +1370,7 @@ impl IWdsTransportServicePolicy2_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServicePolicy2_Impl::UdpPortPolicy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pudpportpolicy, core::mem::transmute(ok__));
+                    pudpportpolicy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1386,7 +1386,7 @@ impl IWdsTransportServicePolicy2_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServicePolicy2_Impl::TftpMaximumBlockSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pultftpmaximumblocksize, core::mem::transmute(ok__));
+                    pultftpmaximumblocksize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1402,7 +1402,7 @@ impl IWdsTransportServicePolicy2_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportServicePolicy2_Impl::EnableTftpVariableWindowExtension(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbenabletftpvariablewindowextension, core::mem::transmute(ok__));
+                    pbenabletftpvariablewindowextension.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1448,7 +1448,7 @@ impl IWdsTransportSession_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSession_Impl::Content(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportcontent, core::mem::transmute(ok__));
+                    ppwdstransportcontent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1459,7 +1459,7 @@ impl IWdsTransportSession_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSession_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulid, core::mem::transmute(ok__));
+                    pulid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1470,7 +1470,7 @@ impl IWdsTransportSession_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSession_Impl::NetworkInterfaceName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbsznetworkinterfacename, core::mem::transmute(ok__));
+                    pbsznetworkinterfacename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1481,7 +1481,7 @@ impl IWdsTransportSession_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSession_Impl::NetworkInterfaceAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbsznetworkinterfaceaddress, core::mem::transmute(ok__));
+                    pbsznetworkinterfaceaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1492,7 +1492,7 @@ impl IWdsTransportSession_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSession_Impl::TransferRate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pultransferrate, core::mem::transmute(ok__));
+                    pultransferrate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1503,7 +1503,7 @@ impl IWdsTransportSession_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSession_Impl::MasterClientId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulmasterclientid, core::mem::transmute(ok__));
+                    pulmasterclientid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1514,7 +1514,7 @@ impl IWdsTransportSession_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSession_Impl::RetrieveClients(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransportclients, core::mem::transmute(ok__));
+                    ppwdstransportclients.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1559,7 +1559,7 @@ impl IWdsTransportSetupManager_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSetupManager_Impl::Version(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pullversion, core::mem::transmute(ok__));
+                    pullversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1570,7 +1570,7 @@ impl IWdsTransportSetupManager_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSetupManager_Impl::InstalledFeatures(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulinstalledfeatures, core::mem::transmute(ok__));
+                    pulinstalledfeatures.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1581,7 +1581,7 @@ impl IWdsTransportSetupManager_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSetupManager_Impl::Protocols(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulprotocols, core::mem::transmute(ok__));
+                    pulprotocols.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1625,7 +1625,7 @@ impl IWdsTransportSetupManager2_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSetupManager2_Impl::TftpCapabilities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pultftpcapabilities, core::mem::transmute(ok__));
+                    pultftpcapabilities.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1636,7 +1636,7 @@ impl IWdsTransportSetupManager2_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportSetupManager2_Impl::ContentProviders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprovidercollection, core::mem::transmute(ok__));
+                    ppprovidercollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1672,7 +1672,7 @@ impl IWdsTransportTftpClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportTftpClient_Impl::FileName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszfilename, core::mem::transmute(ok__));
+                    pbszfilename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1683,7 +1683,7 @@ impl IWdsTransportTftpClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportTftpClient_Impl::IpAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbszipaddress, core::mem::transmute(ok__));
+                    pbszipaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1694,7 +1694,7 @@ impl IWdsTransportTftpClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportTftpClient_Impl::Timeout(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pultimeout, core::mem::transmute(ok__));
+                    pultimeout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1705,7 +1705,7 @@ impl IWdsTransportTftpClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportTftpClient_Impl::CurrentFileOffset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pul64currentoffset, core::mem::transmute(ok__));
+                    pul64currentoffset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1716,7 +1716,7 @@ impl IWdsTransportTftpClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportTftpClient_Impl::FileSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pul64filesize, core::mem::transmute(ok__));
+                    pul64filesize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1727,7 +1727,7 @@ impl IWdsTransportTftpClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportTftpClient_Impl::BlockSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulblocksize, core::mem::transmute(ok__));
+                    pulblocksize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1738,7 +1738,7 @@ impl IWdsTransportTftpClient_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportTftpClient_Impl::WindowSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulwindowsize, core::mem::transmute(ok__));
+                    pulwindowsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1773,7 +1773,7 @@ impl IWdsTransportTftpManager_Vtbl {
             let this = (*this).get_impl();
             match IWdsTransportTftpManager_Impl::RetrieveTftpClients(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwdstransporttftpclients, core::mem::transmute(ok__));
+                    ppwdstransporttftpclients.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

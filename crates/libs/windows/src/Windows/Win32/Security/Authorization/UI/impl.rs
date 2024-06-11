@@ -169,7 +169,7 @@ impl ISecurityInformation2_Vtbl {
             let this = (*this).get_impl();
             match ISecurityInformation2_Impl::LookupSids(this, core::mem::transmute_copy(&csids), core::mem::transmute_copy(&rgpsids)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdo, core::mem::transmute(ok__));
+                    ppdo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -197,7 +197,7 @@ impl ISecurityInformation3_Vtbl {
             let this = (*this).get_impl();
             match ISecurityInformation3_Impl::GetFullResourceName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszresourcename, core::mem::transmute(ok__));
+                    ppszresourcename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

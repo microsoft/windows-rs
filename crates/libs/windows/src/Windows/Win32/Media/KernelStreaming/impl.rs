@@ -127,7 +127,7 @@ impl IKsClockPropertySet_Vtbl {
             let this = (*this).get_impl();
             match IKsClockPropertySet_Impl::KsGetTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(time, core::mem::transmute(ok__));
+                    time.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -143,7 +143,7 @@ impl IKsClockPropertySet_Vtbl {
             let this = (*this).get_impl();
             match IKsClockPropertySet_Impl::KsGetPhysicalTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(time, core::mem::transmute(ok__));
+                    time.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -159,7 +159,7 @@ impl IKsClockPropertySet_Vtbl {
             let this = (*this).get_impl();
             match IKsClockPropertySet_Impl::KsGetCorrelatedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(correlatedtime, core::mem::transmute(ok__));
+                    correlatedtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -175,7 +175,7 @@ impl IKsClockPropertySet_Vtbl {
             let this = (*this).get_impl();
             match IKsClockPropertySet_Impl::KsGetCorrelatedPhysicalTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(correlatedtime, core::mem::transmute(ok__));
+                    correlatedtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -191,7 +191,7 @@ impl IKsClockPropertySet_Vtbl {
             let this = (*this).get_impl();
             match IKsClockPropertySet_Impl::KsGetResolution(this) {
                 Ok(ok__) => {
-                    core::ptr::write(resolution, core::mem::transmute(ok__));
+                    resolution.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -202,7 +202,7 @@ impl IKsClockPropertySet_Vtbl {
             let this = (*this).get_impl();
             match IKsClockPropertySet_Impl::KsGetState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(state, core::mem::transmute(ok__));
+                    state.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -313,7 +313,7 @@ impl IKsDataTypeHandler_Vtbl {
             let this = (*this).get_impl();
             match IKsDataTypeHandler_Impl::KsQueryExtendedSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(extendedsize, core::mem::transmute(ok__));
+                    extendedsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -354,7 +354,7 @@ impl IKsFormatSupport_Vtbl {
             let this = (*this).get_impl();
             match IKsFormatSupport_Impl::GetDevicePreferredFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppksformat, core::mem::transmute(ok__));
+                    ppksformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -418,7 +418,7 @@ impl IKsJackContainerId_Vtbl {
             let this = (*this).get_impl();
             match IKsJackContainerId_Impl::GetJackContainerId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pjackcontainerid, core::mem::transmute(ok__));
+                    pjackcontainerid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -442,7 +442,7 @@ impl IKsJackDescription_Vtbl {
             let this = (*this).get_impl();
             match IKsJackDescription_Impl::GetJackCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcjacks, core::mem::transmute(ok__));
+                    pcjacks.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -475,7 +475,7 @@ impl IKsJackDescription2_Vtbl {
             let this = (*this).get_impl();
             match IKsJackDescription2_Impl::GetJackCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcjacks, core::mem::transmute(ok__));
+                    pcjacks.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -486,7 +486,7 @@ impl IKsJackDescription2_Vtbl {
             let this = (*this).get_impl();
             match IKsJackDescription2_Impl::GetJackDescription2(this, core::mem::transmute_copy(&njack)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdescription2, core::mem::transmute(ok__));
+                    pdescription2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -514,7 +514,7 @@ impl IKsJackDescription3_Vtbl {
             let this = (*this).get_impl();
             match IKsJackDescription3_Impl::GetJackCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcjacks, core::mem::transmute(ok__));
+                    pcjacks.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -525,7 +525,7 @@ impl IKsJackDescription3_Vtbl {
             let this = (*this).get_impl();
             match IKsJackDescription3_Impl::GetJackDescription3(this, core::mem::transmute_copy(&njack)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdescription3, core::mem::transmute(ok__));
+                    pdescription3.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -645,7 +645,7 @@ impl IKsPin_Vtbl {
             let this = (*this).get_impl();
             match IKsPin_Impl::KsQueryMediums(this) {
                 Ok(ok__) => {
-                    core::ptr::write(mediumlist, core::mem::transmute(ok__));
+                    mediumlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -656,7 +656,7 @@ impl IKsPin_Vtbl {
             let this = (*this).get_impl();
             match IKsPin_Impl::KsQueryInterfaces(this) {
                 Ok(ok__) => {
-                    core::ptr::write(interfacelist, core::mem::transmute(ok__));
+                    interfacelist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -769,7 +769,7 @@ impl IKsPinFactory_Vtbl {
             let this = (*this).get_impl();
             match IKsPinFactory_Impl::KsPinFactory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pinfactory, core::mem::transmute(ok__));
+                    pinfactory.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -897,7 +897,7 @@ impl IKsPropertySet_Vtbl {
             let this = (*this).get_impl();
             match IKsPropertySet_Impl::QuerySupported(this, core::mem::transmute_copy(&guidpropset), core::mem::transmute_copy(&dwpropid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ptypesupport, core::mem::transmute(ok__));
+                    ptypesupport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -966,7 +966,7 @@ impl IKsTopologyInfo_Vtbl {
             let this = (*this).get_impl();
             match IKsTopologyInfo_Impl::NumCategories(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwnumcategories, core::mem::transmute(ok__));
+                    pdwnumcategories.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -977,7 +977,7 @@ impl IKsTopologyInfo_Vtbl {
             let this = (*this).get_impl();
             match IKsTopologyInfo_Impl::get_Category(this, core::mem::transmute_copy(&dwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcategory, core::mem::transmute(ok__));
+                    pcategory.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -988,7 +988,7 @@ impl IKsTopologyInfo_Vtbl {
             let this = (*this).get_impl();
             match IKsTopologyInfo_Impl::NumConnections(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwnumconnections, core::mem::transmute(ok__));
+                    pdwnumconnections.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -999,7 +999,7 @@ impl IKsTopologyInfo_Vtbl {
             let this = (*this).get_impl();
             match IKsTopologyInfo_Impl::get_ConnectionInfo(this, core::mem::transmute_copy(&dwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pconnectioninfo, core::mem::transmute(ok__));
+                    pconnectioninfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1015,7 +1015,7 @@ impl IKsTopologyInfo_Vtbl {
             let this = (*this).get_impl();
             match IKsTopologyInfo_Impl::NumNodes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwnumnodes, core::mem::transmute(ok__));
+                    pdwnumnodes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1026,7 +1026,7 @@ impl IKsTopologyInfo_Vtbl {
             let this = (*this).get_impl();
             match IKsTopologyInfo_Impl::get_NodeType(this, core::mem::transmute_copy(&dwnodeid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnodetype, core::mem::transmute(ok__));
+                    pnodetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

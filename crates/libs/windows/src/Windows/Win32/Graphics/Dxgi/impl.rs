@@ -11,7 +11,7 @@ impl IDXGIAdapter_Vtbl {
             let this = (*this).get_impl();
             match IDXGIAdapter_Impl::EnumOutputs(this, core::mem::transmute_copy(&output)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoutput, core::mem::transmute(ok__));
+                    ppoutput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -27,7 +27,7 @@ impl IDXGIAdapter_Vtbl {
             let this = (*this).get_impl();
             match IDXGIAdapter_Impl::CheckInterfaceSupport(this, core::mem::transmute_copy(&interfacename)) {
                 Ok(ok__) => {
-                    core::ptr::write(pumdversion, core::mem::transmute(ok__));
+                    pumdversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -94,7 +94,7 @@ impl IDXGIAdapter3_Vtbl {
             let this = (*this).get_impl();
             match IDXGIAdapter3_Impl::RegisterHardwareContentProtectionTeardownStatusEvent(this, core::mem::transmute_copy(&hevent)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcookie, core::mem::transmute(ok__));
+                    pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -120,7 +120,7 @@ impl IDXGIAdapter3_Vtbl {
             let this = (*this).get_impl();
             match IDXGIAdapter3_Impl::RegisterVideoMemoryBudgetChangeNotificationEvent(this, core::mem::transmute_copy(&hevent)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcookie, core::mem::transmute(ok__));
+                    pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -252,7 +252,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
             let this = (*this).get_impl();
             match IDXGIDecodeSwapChain_Impl::GetSourceRect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(prect, core::mem::transmute(ok__));
+                    prect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -263,7 +263,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
             let this = (*this).get_impl();
             match IDXGIDecodeSwapChain_Impl::GetTargetRect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(prect, core::mem::transmute(ok__));
+                    prect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -319,7 +319,7 @@ impl IDXGIDevice_Vtbl {
             let this = (*this).get_impl();
             match IDXGIDevice_Impl::GetAdapter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(padapter, core::mem::transmute(ok__));
+                    padapter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -345,7 +345,7 @@ impl IDXGIDevice_Vtbl {
             let this = (*this).get_impl();
             match IDXGIDevice_Impl::GetGPUThreadPriority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppriority, core::mem::transmute(ok__));
+                    ppriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -384,7 +384,7 @@ impl IDXGIDevice1_Vtbl {
             let this = (*this).get_impl();
             match IDXGIDevice1_Impl::GetMaximumFrameLatency(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pmaxlatency, core::mem::transmute(ok__));
+                    pmaxlatency.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -549,7 +549,7 @@ impl IDXGIFactory_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory_Impl::EnumAdapters(this, core::mem::transmute_copy(&adapter)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppadapter, core::mem::transmute(ok__));
+                    ppadapter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -565,7 +565,7 @@ impl IDXGIFactory_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory_Impl::GetWindowAssociation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pwindowhandle, core::mem::transmute(ok__));
+                    pwindowhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -581,7 +581,7 @@ impl IDXGIFactory_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory_Impl::CreateSoftwareAdapter(this, core::mem::transmute_copy(&module)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppadapter, core::mem::transmute(ok__));
+                    ppadapter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -615,7 +615,7 @@ impl IDXGIFactory1_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory1_Impl::EnumAdapters1(this, core::mem::transmute_copy(&adapter)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppadapter, core::mem::transmute(ok__));
+                    ppadapter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -665,7 +665,7 @@ impl IDXGIFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory2_Impl::CreateSwapChainForHwnd(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pfullscreendesc), windows_core::from_raw_borrowed(&prestricttooutput)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppswapchain, core::mem::transmute(ok__));
+                    ppswapchain.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -676,7 +676,7 @@ impl IDXGIFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory2_Impl::CreateSwapChainForCoreWindow(this, windows_core::from_raw_borrowed(&pdevice), windows_core::from_raw_borrowed(&pwindow), core::mem::transmute_copy(&pdesc), windows_core::from_raw_borrowed(&prestricttooutput)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppswapchain, core::mem::transmute(ok__));
+                    ppswapchain.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -687,7 +687,7 @@ impl IDXGIFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory2_Impl::GetSharedResourceAdapterLuid(this, core::mem::transmute_copy(&hresource)) {
                 Ok(ok__) => {
-                    core::ptr::write(pluid, core::mem::transmute(ok__));
+                    pluid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -698,7 +698,7 @@ impl IDXGIFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory2_Impl::RegisterStereoStatusWindow(this, core::mem::transmute_copy(&windowhandle), core::mem::transmute_copy(&wmsg)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcookie, core::mem::transmute(ok__));
+                    pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -709,7 +709,7 @@ impl IDXGIFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory2_Impl::RegisterStereoStatusEvent(this, core::mem::transmute_copy(&hevent)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcookie, core::mem::transmute(ok__));
+                    pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -725,7 +725,7 @@ impl IDXGIFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory2_Impl::RegisterOcclusionStatusWindow(this, core::mem::transmute_copy(&windowhandle), core::mem::transmute_copy(&wmsg)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcookie, core::mem::transmute(ok__));
+                    pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -736,7 +736,7 @@ impl IDXGIFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory2_Impl::RegisterOcclusionStatusEvent(this, core::mem::transmute_copy(&hevent)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcookie, core::mem::transmute(ok__));
+                    pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -752,7 +752,7 @@ impl IDXGIFactory2_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory2_Impl::CreateSwapChainForComposition(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&pdesc), windows_core::from_raw_borrowed(&prestricttooutput)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppswapchain, core::mem::transmute(ok__));
+                    ppswapchain.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -882,7 +882,7 @@ impl IDXGIFactory7_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactory7_Impl::RegisterAdaptersChangedEvent(this, core::mem::transmute_copy(&hevent)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcookie, core::mem::transmute(ok__));
+                    pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -918,7 +918,7 @@ impl IDXGIFactoryMedia_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactoryMedia_Impl::CreateSwapChainForCompositionSurfaceHandle(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&hsurface), core::mem::transmute_copy(&pdesc), windows_core::from_raw_borrowed(&prestricttooutput)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppswapchain, core::mem::transmute(ok__));
+                    ppswapchain.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -929,7 +929,7 @@ impl IDXGIFactoryMedia_Vtbl {
             let this = (*this).get_impl();
             match IDXGIFactoryMedia_Impl::CreateDecodeSwapChainForCompositionSurfaceHandle(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&hsurface), core::mem::transmute_copy(&pdesc), windows_core::from_raw_borrowed(&pyuvdecodebuffers), windows_core::from_raw_borrowed(&prestricttooutput)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppswapchain, core::mem::transmute(ok__));
+                    ppswapchain.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1417,7 +1417,7 @@ impl IDXGIOutput1_Vtbl {
             let this = (*this).get_impl();
             match IDXGIOutput1_Impl::DuplicateOutput(this, windows_core::from_raw_borrowed(&pdevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoutputduplication, core::mem::transmute(ok__));
+                    ppoutputduplication.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1469,7 +1469,7 @@ impl IDXGIOutput3_Vtbl {
             let this = (*this).get_impl();
             match IDXGIOutput3_Impl::CheckOverlaySupport(this, core::mem::transmute_copy(&enumformat), windows_core::from_raw_borrowed(&pconcerneddevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(pflags, core::mem::transmute(ok__));
+                    pflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1495,7 +1495,7 @@ impl IDXGIOutput4_Vtbl {
             let this = (*this).get_impl();
             match IDXGIOutput4_Impl::CheckOverlayColorSpaceSupport(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&colorspace), windows_core::from_raw_borrowed(&pconcerneddevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(pflags, core::mem::transmute(ok__));
+                    pflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1524,7 +1524,7 @@ impl IDXGIOutput5_Vtbl {
             let this = (*this).get_impl();
             match IDXGIOutput5_Impl::DuplicateOutput1(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&supportedformatscount), core::mem::transmute_copy(&psupportedformats)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoutputduplication, core::mem::transmute(ok__));
+                    ppoutputduplication.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1556,7 +1556,7 @@ impl IDXGIOutput6_Vtbl {
             let this = (*this).get_impl();
             match IDXGIOutput6_Impl::CheckHardwareCompositionSupport(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pflags, core::mem::transmute(ok__));
+                    pflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1618,7 +1618,7 @@ impl IDXGIOutputDuplication_Vtbl {
             let this = (*this).get_impl();
             match IDXGIOutputDuplication_Impl::MapDesktopSurface(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plockedrect, core::mem::transmute(ok__));
+                    plockedrect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1664,7 +1664,7 @@ impl IDXGIResource_Vtbl {
             let this = (*this).get_impl();
             match IDXGIResource_Impl::GetSharedHandle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psharedhandle, core::mem::transmute(ok__));
+                    psharedhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1675,7 +1675,7 @@ impl IDXGIResource_Vtbl {
             let this = (*this).get_impl();
             match IDXGIResource_Impl::GetUsage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pusage, core::mem::transmute(ok__));
+                    pusage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1691,7 +1691,7 @@ impl IDXGIResource_Vtbl {
             let this = (*this).get_impl();
             match IDXGIResource_Impl::GetEvictionPriority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pevictionpriority, core::mem::transmute(ok__));
+                    pevictionpriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1724,7 +1724,7 @@ impl IDXGIResource1_Vtbl {
             let this = (*this).get_impl();
             match IDXGIResource1_Impl::CreateSubresourceSurface(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsurface, core::mem::transmute(ok__));
+                    ppsurface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1735,7 +1735,7 @@ impl IDXGIResource1_Vtbl {
             let this = (*this).get_impl();
             match IDXGIResource1_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&dwaccess), core::mem::transmute(&lpname)) {
                 Ok(ok__) => {
-                    core::ptr::write(phandle, core::mem::transmute(ok__));
+                    phandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1803,7 +1803,7 @@ impl IDXGISurface1_Vtbl {
             let this = (*this).get_impl();
             match IDXGISurface1_Impl::GetDC(this, core::mem::transmute_copy(&discard)) {
                 Ok(ok__) => {
-                    core::ptr::write(phdc, core::mem::transmute(ok__));
+                    phdc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1902,7 +1902,7 @@ impl IDXGISwapChain_Vtbl {
             let this = (*this).get_impl();
             match IDXGISwapChain_Impl::GetContainingOutput(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoutput, core::mem::transmute(ok__));
+                    ppoutput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1918,7 +1918,7 @@ impl IDXGISwapChain_Vtbl {
             let this = (*this).get_impl();
             match IDXGISwapChain_Impl::GetLastPresentCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plastpresentcount, core::mem::transmute(ok__));
+                    plastpresentcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1976,7 +1976,7 @@ impl IDXGISwapChain1_Vtbl {
             let this = (*this).get_impl();
             match IDXGISwapChain1_Impl::GetHwnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phwnd, core::mem::transmute(ok__));
+                    phwnd.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2002,7 +2002,7 @@ impl IDXGISwapChain1_Vtbl {
             let this = (*this).get_impl();
             match IDXGISwapChain1_Impl::GetRestrictToOutput(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pprestricttooutput, core::mem::transmute(ok__));
+                    pprestricttooutput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2018,7 +2018,7 @@ impl IDXGISwapChain1_Vtbl {
             let this = (*this).get_impl();
             match IDXGISwapChain1_Impl::GetBackgroundColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolor, core::mem::transmute(ok__));
+                    pcolor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2034,7 +2034,7 @@ impl IDXGISwapChain1_Vtbl {
             let this = (*this).get_impl();
             match IDXGISwapChain1_Impl::GetRotation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(protation, core::mem::transmute(ok__));
+                    protation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2094,7 +2094,7 @@ impl IDXGISwapChain2_Vtbl {
             let this = (*this).get_impl();
             match IDXGISwapChain2_Impl::GetMaximumFrameLatency(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pmaxlatency, core::mem::transmute(ok__));
+                    pmaxlatency.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2152,7 +2152,7 @@ impl IDXGISwapChain3_Vtbl {
             let this = (*this).get_impl();
             match IDXGISwapChain3_Impl::CheckColorSpaceSupport(this, core::mem::transmute_copy(&colorspace)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcolorspacesupport, core::mem::transmute(ok__));
+                    pcolorspacesupport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

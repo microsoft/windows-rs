@@ -56,7 +56,7 @@ impl IContactAggregationAggregate_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationAggregate_Impl::GetComponentItems(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcomponentitems, core::mem::transmute(ok__));
+                    pcomponentitems.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -72,7 +72,7 @@ impl IContactAggregationAggregate_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationAggregate_Impl::get_Groups(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgroups, core::mem::transmute(ok__));
+                    ppgroups.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -83,7 +83,7 @@ impl IContactAggregationAggregate_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationAggregate_Impl::AntiLink(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppantilink, core::mem::transmute(ok__));
+                    ppantilink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -99,7 +99,7 @@ impl IContactAggregationAggregate_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationAggregate_Impl::FavoriteOrder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfavoriteorder, core::mem::transmute(ok__));
+                    pfavoriteorder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -115,7 +115,7 @@ impl IContactAggregationAggregate_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationAggregate_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitemid, core::mem::transmute(ok__));
+                    ppitemid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -152,7 +152,7 @@ impl IContactAggregationAggregateCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationAggregateCollection_Impl::FindFirst(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaggregate, core::mem::transmute(ok__));
+                    ppaggregate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -163,7 +163,7 @@ impl IContactAggregationAggregateCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationAggregateCollection_Impl::FindFirstByAntiLinkId(this, core::mem::transmute(&pantilinkid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaggregate, core::mem::transmute(ok__));
+                    ppaggregate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -174,7 +174,7 @@ impl IContactAggregationAggregateCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationAggregateCollection_Impl::FindNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaggregate, core::mem::transmute(ok__));
+                    ppaggregate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -185,7 +185,7 @@ impl IContactAggregationAggregateCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationAggregateCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcount, core::mem::transmute(ok__));
+                    pcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -251,7 +251,7 @@ impl IContactAggregationContact_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContact_Impl::AccountId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaccountid, core::mem::transmute(ok__));
+                    ppaccountid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -267,7 +267,7 @@ impl IContactAggregationContact_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContact_Impl::AggregateId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaggregateid, core::mem::transmute(ok__));
+                    ppaggregateid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -278,7 +278,7 @@ impl IContactAggregationContact_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContact_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitemid, core::mem::transmute(ok__));
+                    ppitemid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -289,7 +289,7 @@ impl IContactAggregationContact_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContact_Impl::IsMe(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisme, core::mem::transmute(ok__));
+                    pisme.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -300,7 +300,7 @@ impl IContactAggregationContact_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContact_Impl::IsExternal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisexternal, core::mem::transmute(ok__));
+                    pisexternal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -311,7 +311,7 @@ impl IContactAggregationContact_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContact_Impl::NetworkSourceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnetworksourceid, core::mem::transmute(ok__));
+                    pnetworksourceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -327,7 +327,7 @@ impl IContactAggregationContact_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContact_Impl::NetworkSourceIdString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnetworksourceid, core::mem::transmute(ok__));
+                    ppnetworksourceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -343,7 +343,7 @@ impl IContactAggregationContact_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContact_Impl::RemoteObjectId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppremoteobjectid, core::mem::transmute(ok__));
+                    ppremoteobjectid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -359,7 +359,7 @@ impl IContactAggregationContact_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContact_Impl::SyncIdentityHash(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsyncidentityhash, core::mem::transmute(ok__));
+                    ppsyncidentityhash.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -411,7 +411,7 @@ impl IContactAggregationContactCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContactCollection_Impl::FindFirst(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -422,7 +422,7 @@ impl IContactAggregationContactCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContactCollection_Impl::FindNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -433,7 +433,7 @@ impl IContactAggregationContactCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContactCollection_Impl::FindFirstByIdentityHash(this, core::mem::transmute(&psourcetype), core::mem::transmute(&paccountid), core::mem::transmute_copy(&pidentityhash)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -444,7 +444,7 @@ impl IContactAggregationContactCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContactCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcount, core::mem::transmute(ok__));
+                    pcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -455,7 +455,7 @@ impl IContactAggregationContactCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationContactCollection_Impl::FindFirstByRemoteId(this, core::mem::transmute(&psourcetype), core::mem::transmute(&paccountid), core::mem::transmute_copy(&premoteobjectid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -514,7 +514,7 @@ impl IContactAggregationGroup_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationGroup_Impl::Members(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaggregatecontactcollection, core::mem::transmute(ok__));
+                    ppaggregatecontactcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -525,7 +525,7 @@ impl IContactAggregationGroup_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationGroup_Impl::GlobalObjectId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pglobalobjectid, core::mem::transmute(ok__));
+                    pglobalobjectid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -541,7 +541,7 @@ impl IContactAggregationGroup_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationGroup_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitemid, core::mem::transmute(ok__));
+                    ppitemid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -552,7 +552,7 @@ impl IContactAggregationGroup_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationGroup_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppname, core::mem::transmute(ok__));
+                    ppname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -595,7 +595,7 @@ impl IContactAggregationGroupCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationGroupCollection_Impl::FindFirst(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgroup, core::mem::transmute(ok__));
+                    ppgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -606,7 +606,7 @@ impl IContactAggregationGroupCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationGroupCollection_Impl::FindFirstByGlobalObjectId(this, core::mem::transmute_copy(&pglobalobjectid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgroup, core::mem::transmute(ok__));
+                    ppgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -617,7 +617,7 @@ impl IContactAggregationGroupCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationGroupCollection_Impl::FindNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgroup, core::mem::transmute(ok__));
+                    ppgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -628,7 +628,7 @@ impl IContactAggregationGroupCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationGroupCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcount, core::mem::transmute(ok__));
+                    pcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -683,7 +683,7 @@ impl IContactAggregationLink_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLink_Impl::AccountId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaccountid, core::mem::transmute(ok__));
+                    ppaccountid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -699,7 +699,7 @@ impl IContactAggregationLink_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLink_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitemid, core::mem::transmute(ok__));
+                    ppitemid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -710,7 +710,7 @@ impl IContactAggregationLink_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLink_Impl::IsLinkResolved(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pislinkresolved, core::mem::transmute(ok__));
+                    pislinkresolved.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -726,7 +726,7 @@ impl IContactAggregationLink_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLink_Impl::NetworkSourceIdString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnetworksourceid, core::mem::transmute(ok__));
+                    ppnetworksourceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -742,7 +742,7 @@ impl IContactAggregationLink_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLink_Impl::RemoteObjectId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppremoteobjectid, core::mem::transmute(ok__));
+                    ppremoteobjectid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -758,7 +758,7 @@ impl IContactAggregationLink_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLink_Impl::ServerPerson(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppserverpersonid, core::mem::transmute(ok__));
+                    ppserverpersonid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -774,7 +774,7 @@ impl IContactAggregationLink_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLink_Impl::ServerPersonBaseline(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppserverpersonid, core::mem::transmute(ok__));
+                    ppserverpersonid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -790,7 +790,7 @@ impl IContactAggregationLink_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLink_Impl::SyncIdentityHash(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsyncidentityhash, core::mem::transmute(ok__));
+                    ppsyncidentityhash.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -840,7 +840,7 @@ impl IContactAggregationLinkCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLinkCollection_Impl::FindFirst(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservercontactlink, core::mem::transmute(ok__));
+                    ppservercontactlink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -851,7 +851,7 @@ impl IContactAggregationLinkCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLinkCollection_Impl::FindFirstByRemoteId(this, core::mem::transmute(&psourcetype), core::mem::transmute(&paccountid), core::mem::transmute_copy(&premoteid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservercontactlink, core::mem::transmute(ok__));
+                    ppservercontactlink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -862,7 +862,7 @@ impl IContactAggregationLinkCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLinkCollection_Impl::FindNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservercontactlink, core::mem::transmute(ok__));
+                    ppservercontactlink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -873,7 +873,7 @@ impl IContactAggregationLinkCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationLinkCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcount, core::mem::transmute(ok__));
+                    pcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -921,7 +921,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::CreateOrOpenGroup(this, core::mem::transmute(&pgroupname), core::mem::transmute_copy(&options), core::mem::transmute_copy(&pcreatedgroup)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgroup, core::mem::transmute(ok__));
+                    ppgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -932,7 +932,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::CreateExternalContact(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -943,7 +943,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::CreateServerPerson(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppserverperson, core::mem::transmute(ok__));
+                    ppserverperson.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -954,7 +954,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::CreateServerContactLink(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservercontactlink, core::mem::transmute(ok__));
+                    ppservercontactlink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -970,7 +970,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::OpenAggregateContact(this, core::mem::transmute(&pitemid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -981,7 +981,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::OpenContact(this, core::mem::transmute(&pitemid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -992,7 +992,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::OpenServerContactLink(this, core::mem::transmute(&pitemid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1003,7 +1003,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::OpenServerPerson(this, core::mem::transmute(&pitemid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1014,7 +1014,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::get_Contacts(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitems, core::mem::transmute(ok__));
+                    ppitems.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1025,7 +1025,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::get_AggregateContacts(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaggregates, core::mem::transmute(ok__));
+                    ppaggregates.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1036,7 +1036,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::get_Groups(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgroups, core::mem::transmute(ok__));
+                    ppgroups.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1047,7 +1047,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::ServerPersons(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppserverpersoncollection, core::mem::transmute(ok__));
+                    ppserverpersoncollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1058,7 +1058,7 @@ impl IContactAggregationManager_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationManager_Impl::get_ServerContactLinks(this, core::mem::transmute(&ppersonitemid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservercontactlinkcollection, core::mem::transmute(ok__));
+                    ppservercontactlinkcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1130,7 +1130,7 @@ impl IContactAggregationServerPerson_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPerson_Impl::AggregateId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaggregateid, core::mem::transmute(ok__));
+                    ppaggregateid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1146,7 +1146,7 @@ impl IContactAggregationServerPerson_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPerson_Impl::AntiLink(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppantilink, core::mem::transmute(ok__));
+                    ppantilink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1162,7 +1162,7 @@ impl IContactAggregationServerPerson_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPerson_Impl::AntiLinkBaseline(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppantilink, core::mem::transmute(ok__));
+                    ppantilink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1178,7 +1178,7 @@ impl IContactAggregationServerPerson_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPerson_Impl::FavoriteOrder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfavoriteorder, core::mem::transmute(ok__));
+                    pfavoriteorder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1194,7 +1194,7 @@ impl IContactAggregationServerPerson_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPerson_Impl::FavoriteOrderBaseline(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfavoriteorder, core::mem::transmute(ok__));
+                    pfavoriteorder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1210,7 +1210,7 @@ impl IContactAggregationServerPerson_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPerson_Impl::Groups(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pgroups, core::mem::transmute(ok__));
+                    pgroups.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1226,7 +1226,7 @@ impl IContactAggregationServerPerson_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPerson_Impl::GroupsBaseline(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgroups, core::mem::transmute(ok__));
+                    ppgroups.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1242,7 +1242,7 @@ impl IContactAggregationServerPerson_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPerson_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppid, core::mem::transmute(ok__));
+                    ppid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1253,7 +1253,7 @@ impl IContactAggregationServerPerson_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPerson_Impl::IsTombstone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pistombstone, core::mem::transmute(ok__));
+                    pistombstone.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1269,7 +1269,7 @@ impl IContactAggregationServerPerson_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPerson_Impl::LinkedAggregateId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pplinkedaggregateid, core::mem::transmute(ok__));
+                    pplinkedaggregateid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1285,7 +1285,7 @@ impl IContactAggregationServerPerson_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPerson_Impl::ObjectId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobjectid, core::mem::transmute(ok__));
+                    ppobjectid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1343,7 +1343,7 @@ impl IContactAggregationServerPersonCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPersonCollection_Impl::FindFirst(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppserverperson, core::mem::transmute(ok__));
+                    ppserverperson.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1354,7 +1354,7 @@ impl IContactAggregationServerPersonCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPersonCollection_Impl::FindFirstByServerId(this, core::mem::transmute(&pserverid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppserverperson, core::mem::transmute(ok__));
+                    ppserverperson.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1365,7 +1365,7 @@ impl IContactAggregationServerPersonCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPersonCollection_Impl::FindFirstByAggregateId(this, core::mem::transmute(&paggregateid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppserverperson, core::mem::transmute(ok__));
+                    ppserverperson.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1376,7 +1376,7 @@ impl IContactAggregationServerPersonCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPersonCollection_Impl::FindFirstByLinkedAggregateId(this, core::mem::transmute(&paggregateid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppserverperson, core::mem::transmute(ok__));
+                    ppserverperson.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1387,7 +1387,7 @@ impl IContactAggregationServerPersonCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPersonCollection_Impl::FindNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppserverperson, core::mem::transmute(ok__));
+                    ppserverperson.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1398,7 +1398,7 @@ impl IContactAggregationServerPersonCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactAggregationServerPersonCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcount, core::mem::transmute(ok__));
+                    pcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1441,7 +1441,7 @@ impl IContactCollection_Vtbl {
             let this = (*this).get_impl();
             match IContactCollection_Impl::GetCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontact, core::mem::transmute(ok__));
+                    ppcontact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1479,7 +1479,7 @@ impl IContactManager_Vtbl {
             let this = (*this).get_impl();
             match IContactManager_Impl::Load(this, core::mem::transmute(&pszcontactid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontact, core::mem::transmute(ok__));
+                    ppcontact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1495,7 +1495,7 @@ impl IContactManager_Vtbl {
             let this = (*this).get_impl();
             match IContactManager_Impl::GetMeContact(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmecontact, core::mem::transmute(ok__));
+                    ppmecontact.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1511,7 +1511,7 @@ impl IContactManager_Vtbl {
             let this = (*this).get_impl();
             match IContactManager_Impl::GetContactCollection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontactcollection, core::mem::transmute(ok__));
+                    ppcontactcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

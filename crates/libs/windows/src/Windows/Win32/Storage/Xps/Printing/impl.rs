@@ -67,7 +67,7 @@ impl IPrintDocumentPackageTarget2_Vtbl {
             let this = (*this).get_impl();
             match IPrintDocumentPackageTarget2_Impl::GetIsTargetIppPrinter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(isippprinter, core::mem::transmute(ok__));
+                    isippprinter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -102,7 +102,7 @@ impl IPrintDocumentPackageTargetFactory_Vtbl {
             let this = (*this).get_impl();
             match IPrintDocumentPackageTargetFactory_Impl::CreateDocumentPackageTargetForPrintJob(this, core::mem::transmute(&printername), core::mem::transmute(&jobname), windows_core::from_raw_borrowed(&joboutputstream), windows_core::from_raw_borrowed(&jobprintticketstream)) {
                 Ok(ok__) => {
-                    core::ptr::write(docpackagetarget, core::mem::transmute(ok__));
+                    docpackagetarget.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

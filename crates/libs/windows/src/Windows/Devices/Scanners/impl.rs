@@ -14,7 +14,7 @@ impl IImageScannerFormatConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerFormatConfiguration_Impl::DefaultFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -25,7 +25,7 @@ impl IImageScannerFormatConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerFormatConfiguration_Impl::Format(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -41,7 +41,7 @@ impl IImageScannerFormatConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerFormatConfiguration_Impl::IsFormatSupported(this, value) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -100,7 +100,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::MinScanArea(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -111,7 +111,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::MaxScanArea(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -122,7 +122,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::SelectedScanRegion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -138,7 +138,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::AutoCroppingMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -154,7 +154,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::IsAutoCroppingModeSupported(this, value) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -165,7 +165,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::MinResolution(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -176,7 +176,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::MaxResolution(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -187,7 +187,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::OpticalResolution(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -198,7 +198,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::DesiredResolution(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -214,7 +214,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::ActualResolution(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -225,7 +225,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::DefaultColorMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -236,7 +236,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::ColorMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -252,7 +252,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::IsColorModeSupported(this, value) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -263,7 +263,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::MinBrightness(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -274,7 +274,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::MaxBrightness(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -285,7 +285,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::BrightnessStep(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -296,7 +296,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::DefaultBrightness(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -307,7 +307,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::Brightness(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -323,7 +323,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::MinContrast(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -334,7 +334,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::MaxContrast(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -345,7 +345,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::ContrastStep(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -356,7 +356,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::DefaultContrast(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -367,7 +367,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IImageScannerSourceConfiguration_Impl::Contrast(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

@@ -70,7 +70,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::Source(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -87,7 +87,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::DocumentTitle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -99,7 +99,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::CanGoBack(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -110,7 +110,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::CanGoForward(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -126,7 +126,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::DefaultBackgroundColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -137,7 +137,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::ContainsFullScreenElement(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -148,7 +148,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::Settings(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -160,7 +160,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::DeferredPermissionRequests(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -212,7 +212,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::InvokeScriptAsync(this, core::mem::transmute(&scriptname), windows_core::from_raw_borrowed(&arguments)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -224,7 +224,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::CapturePreviewToStreamAsync(this, windows_core::from_raw_borrowed(&stream)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -236,7 +236,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::CaptureSelectedContentToDataPackageAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -248,7 +248,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::BuildLocalStreamUri(this, core::mem::transmute(&contentidentifier), core::mem::transmute(&relativepath)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -265,7 +265,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::NavigationStarting(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -281,7 +281,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::ContentLoading(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -297,7 +297,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::DOMContentLoaded(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -313,7 +313,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::NavigationCompleted(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -329,7 +329,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::FrameNavigationStarting(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -345,7 +345,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::FrameContentLoading(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -361,7 +361,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::FrameDOMContentLoaded(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -377,7 +377,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::FrameNavigationCompleted(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -393,7 +393,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::ScriptNotify(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -409,7 +409,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::LongRunningScriptDetected(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -425,7 +425,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::UnsafeContentWarningDisplaying(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -441,7 +441,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::UnviewableContentIdentified(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -457,7 +457,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::PermissionRequested(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -473,7 +473,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::UnsupportedUriSchemeIdentified(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -489,7 +489,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::NewWindowRequested(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -505,7 +505,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::ContainsFullScreenElementChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -521,7 +521,7 @@ impl IWebViewControl_Vtbl {
             let this = (*this).get_impl();
             match IWebViewControl_Impl::WebResourceRequested(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

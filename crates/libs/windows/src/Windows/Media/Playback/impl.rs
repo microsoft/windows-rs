@@ -15,7 +15,7 @@ impl IMediaEnginePlaybackSource_Vtbl {
             let this = (*this).get_impl();
             match IMediaEnginePlaybackSource_Impl::CurrentItem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

@@ -18,7 +18,7 @@ impl IXAPO_Vtbl {
             let this = (*this).get_impl();
             match IXAPO_Impl::GetRegistrationProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppregistrationproperties, core::mem::transmute(ok__));
+                    ppregistrationproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -312,7 +312,7 @@ impl IXAudio2MasteringVoice_Vtbl {
             let this = &*((*this).this as *const Impl);
             match IXAudio2MasteringVoice_Impl::GetChannelMask(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pchannelmask, core::mem::transmute(ok__));
+                    pchannelmask.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

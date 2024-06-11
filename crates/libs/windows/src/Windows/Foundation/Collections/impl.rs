@@ -14,7 +14,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
             let this = (*this).get_impl();
             match IIterable_Impl::First(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -50,7 +50,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             let this = (*this).get_impl();
             match IIterator_Impl::Current(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -62,7 +62,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             let this = (*this).get_impl();
             match IIterator_Impl::HasCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -73,7 +73,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             let this = (*this).get_impl();
             match IIterator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -84,7 +84,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             let this = (*this).get_impl();
             match IIterator_Impl::GetMany(this, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&items), items_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -121,7 +121,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let this = (*this).get_impl();
             match IKeyValuePair_Impl::Key(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -133,7 +133,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let this = (*this).get_impl();
             match IKeyValuePair_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -175,7 +175,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let this = (*this).get_impl();
             match IMap_Impl::Lookup(this, core::mem::transmute(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -187,7 +187,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let this = (*this).get_impl();
             match IMap_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -198,7 +198,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let this = (*this).get_impl();
             match IMap_Impl::HasKey(this, core::mem::transmute(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -209,7 +209,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let this = (*this).get_impl();
             match IMap_Impl::GetView(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -221,7 +221,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let this = (*this).get_impl();
             match IMap_Impl::Insert(this, core::mem::transmute(&key), core::mem::transmute(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -271,7 +271,7 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
             let this = (*this).get_impl();
             match IMapChangedEventArgs_Impl::CollectionChange(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -282,7 +282,7 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
             let this = (*this).get_impl();
             match IMapChangedEventArgs_Impl::Key(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -320,7 +320,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let this = (*this).get_impl();
             match IMapView_Impl::Lookup(this, core::mem::transmute(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -332,7 +332,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let this = (*this).get_impl();
             match IMapView_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -343,7 +343,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let this = (*this).get_impl();
             match IMapView_Impl::HasKey(this, core::mem::transmute(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -386,7 +386,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let this = (*this).get_impl();
             match IObservableMap_Impl::MapChanged(this, windows_core::from_raw_borrowed(&vhnd)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -426,7 +426,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
             let this = (*this).get_impl();
             match IObservableVector_Impl::VectorChanged(this, windows_core::from_raw_borrowed(&vhnd)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -487,7 +487,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             let this = (*this).get_impl();
             match IVector_Impl::GetAt(this, index) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -499,7 +499,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             let this = (*this).get_impl();
             match IVector_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -510,7 +510,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             let this = (*this).get_impl();
             match IVector_Impl::GetView(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -522,7 +522,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             let this = (*this).get_impl();
             match IVector_Impl::IndexOf(this, core::mem::transmute(&value), core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -563,7 +563,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             let this = (*this).get_impl();
             match IVector_Impl::GetMany(this, startindex, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&items), items_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -609,7 +609,7 @@ impl IVectorChangedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IVectorChangedEventArgs_Impl::CollectionChange(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -620,7 +620,7 @@ impl IVectorChangedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IVectorChangedEventArgs_Impl::Index(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -655,7 +655,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             let this = (*this).get_impl();
             match IVectorView_Impl::GetAt(this, index) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -667,7 +667,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             let this = (*this).get_impl();
             match IVectorView_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -678,7 +678,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             let this = (*this).get_impl();
             match IVectorView_Impl::IndexOf(this, core::mem::transmute(&value), core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -689,7 +689,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             let this = (*this).get_impl();
             match IVectorView_Impl::GetMany(this, startindex, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&items), items_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

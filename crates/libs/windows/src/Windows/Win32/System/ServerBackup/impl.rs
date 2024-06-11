@@ -10,7 +10,7 @@ impl IWsbApplicationAsync_Vtbl {
             let this = (*this).get_impl();
             match IWsbApplicationAsync_Impl::QueryStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phrresult, core::mem::transmute(ok__));
+                    phrresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl IWsbApplicationBackupSupport_Vtbl {
             let this = (*this).get_impl();
             match IWsbApplicationBackupSupport_Impl::CheckConsistency(this, core::mem::transmute(&wszwritermetadata), core::mem::transmute(&wszcomponentname), core::mem::transmute(&wszcomponentlogicalpath), core::mem::transmute_copy(&cvolumes), core::mem::transmute_copy(&rgwszsourcevolumepath), core::mem::transmute_copy(&rgwszsnapshotvolumepath)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppasync, core::mem::transmute(ok__));
+                    ppasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -83,7 +83,7 @@ impl IWsbApplicationRestoreSupport_Vtbl {
             let this = (*this).get_impl();
             match IWsbApplicationRestoreSupport_Impl::IsRollForwardSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbrollforwardsupported, core::mem::transmute(ok__));
+                    pbrollforwardsupported.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

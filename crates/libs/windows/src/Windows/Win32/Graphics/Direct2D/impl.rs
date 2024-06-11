@@ -108,7 +108,7 @@ impl ID2D1Bitmap1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Bitmap1_Impl::GetSurface(this) {
                 Ok(ok__) => {
-                    core::ptr::write(dxgisurface, core::mem::transmute(ok__));
+                    dxgisurface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -119,7 +119,7 @@ impl ID2D1Bitmap1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Bitmap1_Impl::Map(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(mappedrect, core::mem::transmute(ok__));
+                    mappedrect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -259,7 +259,7 @@ impl ID2D1BitmapRenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1BitmapRenderTarget_Impl::GetBitmap(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmap, core::mem::transmute(ok__));
+                    bitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -938,7 +938,7 @@ impl ID2D1Device_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Device_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(devicecontext, core::mem::transmute(ok__));
+                    devicecontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -949,7 +949,7 @@ impl ID2D1Device_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Device_Impl::CreatePrintControl(this, windows_core::from_raw_borrowed(&wicfactory), windows_core::from_raw_borrowed(&documenttarget), core::mem::transmute_copy(&printcontrolproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(printcontrol, core::mem::transmute(ok__));
+                    printcontrol.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1009,7 +1009,7 @@ impl ID2D1Device1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Device1_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(devicecontext1, core::mem::transmute(ok__));
+                    devicecontext1.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1042,7 +1042,7 @@ impl ID2D1Device2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Device2_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(devicecontext2, core::mem::transmute(ok__));
+                    devicecontext2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1058,7 +1058,7 @@ impl ID2D1Device2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Device2_Impl::GetDxgiDevice(this) {
                 Ok(ok__) => {
-                    core::ptr::write(dxgidevice, core::mem::transmute(ok__));
+                    dxgidevice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1089,7 +1089,7 @@ impl ID2D1Device3_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Device3_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(devicecontext3, core::mem::transmute(ok__));
+                    devicecontext3.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1117,7 +1117,7 @@ impl ID2D1Device4_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Device4_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(devicecontext4, core::mem::transmute(ok__));
+                    devicecontext4.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1158,7 +1158,7 @@ impl ID2D1Device5_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Device5_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(devicecontext5, core::mem::transmute(ok__));
+                    devicecontext5.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1184,7 +1184,7 @@ impl ID2D1Device6_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Device6_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(devicecontext6, core::mem::transmute(ok__));
+                    devicecontext6.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1210,7 +1210,7 @@ impl ID2D1Device7_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Device7_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(devicecontext, core::mem::transmute(ok__));
+                    devicecontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1270,7 +1270,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::CreateBitmap(this, core::mem::transmute(&size), core::mem::transmute_copy(&sourcedata), core::mem::transmute_copy(&pitch), core::mem::transmute_copy(&bitmapproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmap, core::mem::transmute(ok__));
+                    bitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1281,7 +1281,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::CreateBitmapFromWicBitmap(this, windows_core::from_raw_borrowed(&wicbitmapsource), core::mem::transmute_copy(&bitmapproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmap, core::mem::transmute(ok__));
+                    bitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1292,7 +1292,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::CreateColorContext(this, core::mem::transmute_copy(&space), core::mem::transmute_copy(&profile), core::mem::transmute_copy(&profilesize)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorcontext, core::mem::transmute(ok__));
+                    colorcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1303,7 +1303,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::CreateColorContextFromFilename(this, core::mem::transmute(&filename)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorcontext, core::mem::transmute(ok__));
+                    colorcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1314,7 +1314,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::CreateColorContextFromWicColorContext(this, windows_core::from_raw_borrowed(&wiccolorcontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorcontext, core::mem::transmute(ok__));
+                    colorcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1325,7 +1325,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::CreateBitmapFromDxgiSurface(this, windows_core::from_raw_borrowed(&surface), core::mem::transmute_copy(&bitmapproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmap, core::mem::transmute(ok__));
+                    bitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1336,7 +1336,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::CreateEffect(this, core::mem::transmute_copy(&effectid)) {
                 Ok(ok__) => {
-                    core::ptr::write(effect, core::mem::transmute(ok__));
+                    effect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1347,7 +1347,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::CreateGradientStopCollection(this, core::mem::transmute_copy(&straightalphagradientstops), core::mem::transmute_copy(&straightalphagradientstopscount), core::mem::transmute_copy(&preinterpolationspace), core::mem::transmute_copy(&postinterpolationspace), core::mem::transmute_copy(&bufferprecision), core::mem::transmute_copy(&extendmode), core::mem::transmute_copy(&colorinterpolationmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(gradientstopcollection1, core::mem::transmute(ok__));
+                    gradientstopcollection1.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1358,7 +1358,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::CreateImageBrush(this, windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&imagebrushproperties), core::mem::transmute_copy(&brushproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(imagebrush, core::mem::transmute(ok__));
+                    imagebrush.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1369,7 +1369,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::CreateBitmapBrush(this, windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&bitmapbrushproperties), core::mem::transmute_copy(&brushproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmapbrush, core::mem::transmute(ok__));
+                    bitmapbrush.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1380,7 +1380,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::CreateCommandList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(commandlist, core::mem::transmute(ok__));
+                    commandlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1401,7 +1401,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::GetImageLocalBounds(this, windows_core::from_raw_borrowed(&image)) {
                 Ok(ok__) => {
-                    core::ptr::write(localbounds, core::mem::transmute(ok__));
+                    localbounds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1412,7 +1412,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::GetImageWorldBounds(this, windows_core::from_raw_borrowed(&image)) {
                 Ok(ok__) => {
-                    core::ptr::write(worldbounds, core::mem::transmute(ok__));
+                    worldbounds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1423,7 +1423,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::GetGlyphRunWorldBounds(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&measuringmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(bounds, core::mem::transmute(ok__));
+                    bounds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1509,7 +1509,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext_Impl::GetEffectInvalidRectangleCount(this, windows_core::from_raw_borrowed(&effect)) {
                 Ok(ok__) => {
-                    core::ptr::write(rectanglecount, core::mem::transmute(ok__));
+                    rectanglecount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1589,7 +1589,7 @@ impl ID2D1DeviceContext1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext1_Impl::CreateFilledGeometryRealization(this, windows_core::from_raw_borrowed(&geometry), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
-                    core::ptr::write(geometryrealization, core::mem::transmute(ok__));
+                    geometryrealization.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1600,7 +1600,7 @@ impl ID2D1DeviceContext1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext1_Impl::CreateStrokedGeometryRealization(this, windows_core::from_raw_borrowed(&geometry), core::mem::transmute_copy(&flatteningtolerance), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle)) {
                 Ok(ok__) => {
-                    core::ptr::write(geometryrealization, core::mem::transmute(ok__));
+                    geometryrealization.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1646,7 +1646,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext2_Impl::CreateInk(this, core::mem::transmute_copy(&startpoint)) {
                 Ok(ok__) => {
-                    core::ptr::write(ink, core::mem::transmute(ok__));
+                    ink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1657,7 +1657,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext2_Impl::CreateInkStyle(this, core::mem::transmute_copy(&inkstyleproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(inkstyle, core::mem::transmute(ok__));
+                    inkstyle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1668,7 +1668,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext2_Impl::CreateGradientMesh(this, core::mem::transmute_copy(&patches), core::mem::transmute_copy(&patchescount)) {
                 Ok(ok__) => {
-                    core::ptr::write(gradientmesh, core::mem::transmute(ok__));
+                    gradientmesh.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1679,7 +1679,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext2_Impl::CreateImageSourceFromWic(this, windows_core::from_raw_borrowed(&wicbitmapsource), core::mem::transmute_copy(&loadingoptions), core::mem::transmute_copy(&alphamode)) {
                 Ok(ok__) => {
-                    core::ptr::write(imagesource, core::mem::transmute(ok__));
+                    imagesource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1690,7 +1690,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext2_Impl::CreateLookupTable3D(this, core::mem::transmute_copy(&precision), core::mem::transmute_copy(&extents), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&strides)) {
                 Ok(ok__) => {
-                    core::ptr::write(lookuptable, core::mem::transmute(ok__));
+                    lookuptable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1701,7 +1701,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext2_Impl::CreateImageSourceFromDxgi(this, core::mem::transmute_copy(&surfaces), core::mem::transmute_copy(&surfacecount), core::mem::transmute_copy(&colorspace), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(imagesource, core::mem::transmute(ok__));
+                    imagesource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1712,7 +1712,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext2_Impl::GetGradientMeshWorldBounds(this, windows_core::from_raw_borrowed(&gradientmesh)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbounds, core::mem::transmute(ok__));
+                    pbounds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1738,7 +1738,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext2_Impl::CreateTransformedImageSource(this, windows_core::from_raw_borrowed(&imagesource), core::mem::transmute_copy(&properties)) {
                 Ok(ok__) => {
-                    core::ptr::write(transformedimagesource, core::mem::transmute(ok__));
+                    transformedimagesource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1778,7 +1778,7 @@ impl ID2D1DeviceContext3_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext3_Impl::CreateSpriteBatch(this) {
                 Ok(ok__) => {
-                    core::ptr::write(spritebatch, core::mem::transmute(ok__));
+                    spritebatch.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1819,7 +1819,7 @@ impl ID2D1DeviceContext4_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext4_Impl::CreateSvgGlyphStyle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(svgglyphstyle, core::mem::transmute(ok__));
+                    svgglyphstyle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1887,7 +1887,7 @@ impl ID2D1DeviceContext5_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext5_Impl::CreateSvgDocument(this, windows_core::from_raw_borrowed(&inputxmlstream), core::mem::transmute(&viewportsize)) {
                 Ok(ok__) => {
-                    core::ptr::write(svgdocument, core::mem::transmute(ok__));
+                    svgdocument.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1903,7 +1903,7 @@ impl ID2D1DeviceContext5_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext5_Impl::CreateColorContextFromDxgiColorSpace(this, core::mem::transmute_copy(&colorspace)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorcontext, core::mem::transmute(ok__));
+                    colorcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1914,7 +1914,7 @@ impl ID2D1DeviceContext5_Vtbl {
             let this = (*this).get_impl();
             match ID2D1DeviceContext5_Impl::CreateColorContextFromSimpleColorProfile(this, core::mem::transmute_copy(&simpleprofile)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorcontext, core::mem::transmute(ok__));
+                    colorcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2215,7 +2215,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::CreateEffect(this, core::mem::transmute_copy(&effectid)) {
                 Ok(ok__) => {
-                    core::ptr::write(effect, core::mem::transmute(ok__));
+                    effect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2226,7 +2226,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::GetMaximumSupportedFeatureLevel(this, core::mem::transmute_copy(&featurelevels), core::mem::transmute_copy(&featurelevelscount)) {
                 Ok(ok__) => {
-                    core::ptr::write(maximumsupportedfeaturelevel, core::mem::transmute(ok__));
+                    maximumsupportedfeaturelevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2237,7 +2237,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::CreateTransformNodeFromEffect(this, windows_core::from_raw_borrowed(&effect)) {
                 Ok(ok__) => {
-                    core::ptr::write(transformnode, core::mem::transmute(ok__));
+                    transformnode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2248,7 +2248,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::CreateBlendTransform(this, core::mem::transmute_copy(&numinputs), core::mem::transmute_copy(&blenddescription)) {
                 Ok(ok__) => {
-                    core::ptr::write(transform, core::mem::transmute(ok__));
+                    transform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2259,7 +2259,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::CreateBorderTransform(this, core::mem::transmute_copy(&extendmodex), core::mem::transmute_copy(&extendmodey)) {
                 Ok(ok__) => {
-                    core::ptr::write(transform, core::mem::transmute(ok__));
+                    transform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2270,7 +2270,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::CreateOffsetTransform(this, core::mem::transmute(&offset)) {
                 Ok(ok__) => {
-                    core::ptr::write(transform, core::mem::transmute(ok__));
+                    transform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2281,7 +2281,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::CreateBoundsAdjustmentTransform(this, core::mem::transmute_copy(&outputrectangle)) {
                 Ok(ok__) => {
-                    core::ptr::write(transform, core::mem::transmute(ok__));
+                    transform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2312,7 +2312,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::CreateResourceTexture(this, core::mem::transmute_copy(&resourceid), core::mem::transmute_copy(&resourcetextureproperties), core::mem::transmute_copy(&data), core::mem::transmute_copy(&strides), core::mem::transmute_copy(&datasize)) {
                 Ok(ok__) => {
-                    core::ptr::write(resourcetexture, core::mem::transmute(ok__));
+                    resourcetexture.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2323,7 +2323,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::FindResourceTexture(this, core::mem::transmute_copy(&resourceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(resourcetexture, core::mem::transmute(ok__));
+                    resourcetexture.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2334,7 +2334,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::CreateVertexBuffer(this, core::mem::transmute_copy(&vertexbufferproperties), core::mem::transmute_copy(&resourceid), core::mem::transmute_copy(&customvertexbufferproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(buffer, core::mem::transmute(ok__));
+                    buffer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2345,7 +2345,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::FindVertexBuffer(this, core::mem::transmute_copy(&resourceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(buffer, core::mem::transmute(ok__));
+                    buffer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2356,7 +2356,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::CreateColorContext(this, core::mem::transmute_copy(&space), core::mem::transmute_copy(&profile), core::mem::transmute_copy(&profilesize)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorcontext, core::mem::transmute(ok__));
+                    colorcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2367,7 +2367,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::CreateColorContextFromFilename(this, core::mem::transmute(&filename)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorcontext, core::mem::transmute(ok__));
+                    colorcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2378,7 +2378,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext_Impl::CreateColorContextFromWicColorContext(this, windows_core::from_raw_borrowed(&wiccolorcontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorcontext, core::mem::transmute(ok__));
+                    colorcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2437,7 +2437,7 @@ impl ID2D1EffectContext1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext1_Impl::CreateLookupTable3D(this, core::mem::transmute_copy(&precision), core::mem::transmute_copy(&extents), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&strides)) {
                 Ok(ok__) => {
-                    core::ptr::write(lookuptable, core::mem::transmute(ok__));
+                    lookuptable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2464,7 +2464,7 @@ impl ID2D1EffectContext2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext2_Impl::CreateColorContextFromDxgiColorSpace(this, core::mem::transmute_copy(&colorspace)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorcontext, core::mem::transmute(ok__));
+                    colorcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2475,7 +2475,7 @@ impl ID2D1EffectContext2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1EffectContext2_Impl::CreateColorContextFromSimpleColorProfile(this, core::mem::transmute_copy(&simpleprofile)) {
                 Ok(ok__) => {
-                    core::ptr::write(colorcontext, core::mem::transmute(ok__));
+                    colorcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2582,7 +2582,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreateRectangleGeometry(this, core::mem::transmute_copy(&rectangle)) {
                 Ok(ok__) => {
-                    core::ptr::write(rectanglegeometry, core::mem::transmute(ok__));
+                    rectanglegeometry.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2593,7 +2593,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreateRoundedRectangleGeometry(this, core::mem::transmute_copy(&roundedrectangle)) {
                 Ok(ok__) => {
-                    core::ptr::write(roundedrectanglegeometry, core::mem::transmute(ok__));
+                    roundedrectanglegeometry.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2604,7 +2604,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreateEllipseGeometry(this, core::mem::transmute_copy(&ellipse)) {
                 Ok(ok__) => {
-                    core::ptr::write(ellipsegeometry, core::mem::transmute(ok__));
+                    ellipsegeometry.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2615,7 +2615,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreateGeometryGroup(this, core::mem::transmute_copy(&fillmode), core::mem::transmute_copy(&geometries), core::mem::transmute_copy(&geometriescount)) {
                 Ok(ok__) => {
-                    core::ptr::write(geometrygroup, core::mem::transmute(ok__));
+                    geometrygroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2626,7 +2626,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreateTransformedGeometry(this, windows_core::from_raw_borrowed(&sourcegeometry), core::mem::transmute_copy(&transform)) {
                 Ok(ok__) => {
-                    core::ptr::write(transformedgeometry, core::mem::transmute(ok__));
+                    transformedgeometry.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2637,7 +2637,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreatePathGeometry(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pathgeometry, core::mem::transmute(ok__));
+                    pathgeometry.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2648,7 +2648,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreateStrokeStyle(this, core::mem::transmute_copy(&strokestyleproperties), core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount)) {
                 Ok(ok__) => {
-                    core::ptr::write(strokestyle, core::mem::transmute(ok__));
+                    strokestyle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2659,7 +2659,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreateDrawingStateBlock(this, core::mem::transmute_copy(&drawingstatedescription), windows_core::from_raw_borrowed(&textrenderingparams)) {
                 Ok(ok__) => {
-                    core::ptr::write(drawingstateblock, core::mem::transmute(ok__));
+                    drawingstateblock.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2670,7 +2670,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreateWicBitmapRenderTarget(this, windows_core::from_raw_borrowed(&target), core::mem::transmute_copy(&rendertargetproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(rendertarget, core::mem::transmute(ok__));
+                    rendertarget.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2681,7 +2681,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreateHwndRenderTarget(this, core::mem::transmute_copy(&rendertargetproperties), core::mem::transmute_copy(&hwndrendertargetproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(hwndrendertarget, core::mem::transmute(ok__));
+                    hwndrendertarget.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2692,7 +2692,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreateDxgiSurfaceRenderTarget(this, windows_core::from_raw_borrowed(&dxgisurface), core::mem::transmute_copy(&rendertargetproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(rendertarget, core::mem::transmute(ok__));
+                    rendertarget.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2703,7 +2703,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory_Impl::CreateDCRenderTarget(this, core::mem::transmute_copy(&rendertargetproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(dcrendertarget, core::mem::transmute(ok__));
+                    dcrendertarget.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2754,7 +2754,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory1_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(d2ddevice, core::mem::transmute(ok__));
+                    d2ddevice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2765,7 +2765,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory1_Impl::CreateStrokeStyle(this, core::mem::transmute_copy(&strokestyleproperties), core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount)) {
                 Ok(ok__) => {
-                    core::ptr::write(strokestyle, core::mem::transmute(ok__));
+                    strokestyle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2776,7 +2776,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory1_Impl::CreatePathGeometry(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pathgeometry, core::mem::transmute(ok__));
+                    pathgeometry.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2787,7 +2787,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory1_Impl::CreateDrawingStateBlock(this, core::mem::transmute_copy(&drawingstatedescription), windows_core::from_raw_borrowed(&textrenderingparams)) {
                 Ok(ok__) => {
-                    core::ptr::write(drawingstateblock, core::mem::transmute(ok__));
+                    drawingstateblock.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2798,7 +2798,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory1_Impl::CreateGdiMetafile(this, windows_core::from_raw_borrowed(&metafilestream)) {
                 Ok(ok__) => {
-                    core::ptr::write(metafile, core::mem::transmute(ok__));
+                    metafile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2829,7 +2829,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory1_Impl::GetEffectProperties(this, core::mem::transmute_copy(&effectid)) {
                 Ok(ok__) => {
-                    core::ptr::write(properties, core::mem::transmute(ok__));
+                    properties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2867,7 +2867,7 @@ impl ID2D1Factory2_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory2_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(d2ddevice1, core::mem::transmute(ok__));
+                    d2ddevice1.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2893,7 +2893,7 @@ impl ID2D1Factory3_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory3_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(d2ddevice2, core::mem::transmute(ok__));
+                    d2ddevice2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2919,7 +2919,7 @@ impl ID2D1Factory4_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory4_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(d2ddevice3, core::mem::transmute(ok__));
+                    d2ddevice3.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2945,7 +2945,7 @@ impl ID2D1Factory5_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory5_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(d2ddevice4, core::mem::transmute(ok__));
+                    d2ddevice4.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2971,7 +2971,7 @@ impl ID2D1Factory6_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory6_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(d2ddevice5, core::mem::transmute(ok__));
+                    d2ddevice5.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2997,7 +2997,7 @@ impl ID2D1Factory7_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory7_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(d2ddevice6, core::mem::transmute(ok__));
+                    d2ddevice6.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3023,7 +3023,7 @@ impl ID2D1Factory8_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Factory8_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(d2ddevice6, core::mem::transmute(ok__));
+                    d2ddevice6.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3050,7 +3050,7 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1GdiInteropRenderTarget_Impl::GetDC(this, core::mem::transmute_copy(&mode)) {
                 Ok(ok__) => {
-                    core::ptr::write(hdc, core::mem::transmute(ok__));
+                    hdc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3091,7 +3091,7 @@ impl ID2D1GdiMetafile_Vtbl {
             let this = (*this).get_impl();
             match ID2D1GdiMetafile_Impl::GetBounds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bounds, core::mem::transmute(ok__));
+                    bounds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3127,7 +3127,7 @@ impl ID2D1GdiMetafile1_Vtbl {
             let this = (*this).get_impl();
             match ID2D1GdiMetafile1_Impl::GetSourceBounds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bounds, core::mem::transmute(ok__));
+                    bounds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3203,7 +3203,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Geometry_Impl::GetBounds(this, core::mem::transmute_copy(&worldtransform)) {
                 Ok(ok__) => {
-                    core::ptr::write(bounds, core::mem::transmute(ok__));
+                    bounds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3214,7 +3214,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Geometry_Impl::GetWidenedBounds(this, core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
-                    core::ptr::write(bounds, core::mem::transmute(ok__));
+                    bounds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3225,7 +3225,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Geometry_Impl::StrokeContainsPoint(this, core::mem::transmute(&point), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
-                    core::ptr::write(contains, core::mem::transmute(ok__));
+                    contains.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3236,7 +3236,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Geometry_Impl::FillContainsPoint(this, core::mem::transmute(&point), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
-                    core::ptr::write(contains, core::mem::transmute(ok__));
+                    contains.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3247,7 +3247,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Geometry_Impl::CompareWithGeometry(this, windows_core::from_raw_borrowed(&inputgeometry), core::mem::transmute_copy(&inputgeometrytransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
-                    core::ptr::write(relation, core::mem::transmute(ok__));
+                    relation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3278,7 +3278,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Geometry_Impl::ComputeArea(this, core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
-                    core::ptr::write(area, core::mem::transmute(ok__));
+                    area.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3289,7 +3289,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Geometry_Impl::ComputeLength(this, core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3699,7 +3699,7 @@ impl ID2D1ImageSource_Vtbl {
             let this = (*this).get_impl();
             match ID2D1ImageSource_Impl::TryReclaimResources(this) {
                 Ok(ok__) => {
-                    core::ptr::write(resourcesdiscarded, core::mem::transmute(ok__));
+                    resourcesdiscarded.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3820,7 +3820,7 @@ impl ID2D1Ink_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Ink_Impl::GetBounds(this, windows_core::from_raw_borrowed(&inkstyle), core::mem::transmute_copy(&worldtransform)) {
                 Ok(ok__) => {
-                    core::ptr::write(bounds, core::mem::transmute(ok__));
+                    bounds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3980,7 +3980,7 @@ impl ID2D1Mesh_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Mesh_Impl::Open(this) {
                 Ok(ok__) => {
-                    core::ptr::write(tessellationsink, core::mem::transmute(ok__));
+                    tessellationsink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4070,7 +4070,7 @@ impl ID2D1PathGeometry_Vtbl {
             let this = (*this).get_impl();
             match ID2D1PathGeometry_Impl::Open(this) {
                 Ok(ok__) => {
-                    core::ptr::write(geometrysink, core::mem::transmute(ok__));
+                    geometrysink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4086,7 +4086,7 @@ impl ID2D1PathGeometry_Vtbl {
             let this = (*this).get_impl();
             match ID2D1PathGeometry_Impl::GetSegmentCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4097,7 +4097,7 @@ impl ID2D1PathGeometry_Vtbl {
             let this = (*this).get_impl();
             match ID2D1PathGeometry_Impl::GetFigureCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4239,7 +4239,7 @@ impl ID2D1Properties_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Properties_Impl::GetSubProperties(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(subproperties, core::mem::transmute(ok__));
+                    subproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4470,7 +4470,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1RenderTarget_Impl::CreateBitmap(this, core::mem::transmute(&size), core::mem::transmute_copy(&srcdata), core::mem::transmute_copy(&pitch), core::mem::transmute_copy(&bitmapproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmap, core::mem::transmute(ok__));
+                    bitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4481,7 +4481,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1RenderTarget_Impl::CreateBitmapFromWicBitmap(this, windows_core::from_raw_borrowed(&wicbitmapsource), core::mem::transmute_copy(&bitmapproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmap, core::mem::transmute(ok__));
+                    bitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4497,7 +4497,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1RenderTarget_Impl::CreateBitmapBrush(this, windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&bitmapbrushproperties), core::mem::transmute_copy(&brushproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmapbrush, core::mem::transmute(ok__));
+                    bitmapbrush.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4508,7 +4508,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1RenderTarget_Impl::CreateSolidColorBrush(this, core::mem::transmute_copy(&color), core::mem::transmute_copy(&brushproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(solidcolorbrush, core::mem::transmute(ok__));
+                    solidcolorbrush.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4519,7 +4519,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1RenderTarget_Impl::CreateGradientStopCollection(this, core::mem::transmute_copy(&gradientstops), core::mem::transmute_copy(&gradientstopscount), core::mem::transmute_copy(&colorinterpolationgamma), core::mem::transmute_copy(&extendmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(gradientstopcollection, core::mem::transmute(ok__));
+                    gradientstopcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4530,7 +4530,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1RenderTarget_Impl::CreateLinearGradientBrush(this, core::mem::transmute_copy(&lineargradientbrushproperties), core::mem::transmute_copy(&brushproperties), windows_core::from_raw_borrowed(&gradientstopcollection)) {
                 Ok(ok__) => {
-                    core::ptr::write(lineargradientbrush, core::mem::transmute(ok__));
+                    lineargradientbrush.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4541,7 +4541,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1RenderTarget_Impl::CreateRadialGradientBrush(this, core::mem::transmute_copy(&radialgradientbrushproperties), core::mem::transmute_copy(&brushproperties), windows_core::from_raw_borrowed(&gradientstopcollection)) {
                 Ok(ok__) => {
-                    core::ptr::write(radialgradientbrush, core::mem::transmute(ok__));
+                    radialgradientbrush.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4552,7 +4552,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1RenderTarget_Impl::CreateCompatibleRenderTarget(this, core::mem::transmute_copy(&desiredsize), core::mem::transmute_copy(&desiredpixelsize), core::mem::transmute_copy(&desiredformat), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmaprendertarget, core::mem::transmute(ok__));
+                    bitmaprendertarget.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4563,7 +4563,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1RenderTarget_Impl::CreateLayer(this, core::mem::transmute_copy(&size)) {
                 Ok(ok__) => {
-                    core::ptr::write(layer, core::mem::transmute(ok__));
+                    layer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4574,7 +4574,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match ID2D1RenderTarget_Impl::CreateMesh(this) {
                 Ok(ok__) => {
-                    core::ptr::write(mesh, core::mem::transmute(ok__));
+                    mesh.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5126,7 +5126,7 @@ impl ID2D1SvgAttribute_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgAttribute_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(attribute, core::mem::transmute(ok__));
+                    attribute.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5186,7 +5186,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgDocument_Impl::FindElementById(this, core::mem::transmute(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(svgelement, core::mem::transmute(ok__));
+                    svgelement.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5202,7 +5202,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgDocument_Impl::Deserialize(this, windows_core::from_raw_borrowed(&inputxmlstream)) {
                 Ok(ok__) => {
-                    core::ptr::write(subtree, core::mem::transmute(ok__));
+                    subtree.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5213,7 +5213,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgDocument_Impl::CreatePaint(this, core::mem::transmute_copy(&painttype), core::mem::transmute_copy(&color), core::mem::transmute(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(paint, core::mem::transmute(ok__));
+                    paint.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5224,7 +5224,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgDocument_Impl::CreateStrokeDashArray(this, core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount)) {
                 Ok(ok__) => {
-                    core::ptr::write(strokedasharray, core::mem::transmute(ok__));
+                    strokedasharray.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5235,7 +5235,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgDocument_Impl::CreatePointCollection(this, core::mem::transmute_copy(&points), core::mem::transmute_copy(&pointscount)) {
                 Ok(ok__) => {
-                    core::ptr::write(pointcollection, core::mem::transmute(ok__));
+                    pointcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5246,7 +5246,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgDocument_Impl::CreatePathData(this, core::mem::transmute_copy(&segmentdata), core::mem::transmute_copy(&segmentdatacount), core::mem::transmute_copy(&commands), core::mem::transmute_copy(&commandscount)) {
                 Ok(ok__) => {
-                    core::ptr::write(pathdata, core::mem::transmute(ok__));
+                    pathdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5351,7 +5351,7 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgElement_Impl::GetPreviousChild(this, windows_core::from_raw_borrowed(&referencechild)) {
                 Ok(ok__) => {
-                    core::ptr::write(previouschild, core::mem::transmute(ok__));
+                    previouschild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5362,7 +5362,7 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgElement_Impl::GetNextChild(this, windows_core::from_raw_borrowed(&referencechild)) {
                 Ok(ok__) => {
-                    core::ptr::write(nextchild, core::mem::transmute(ok__));
+                    nextchild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5393,7 +5393,7 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgElement_Impl::CreateChild(this, core::mem::transmute(&tagname)) {
                 Ok(ok__) => {
-                    core::ptr::write(newchild, core::mem::transmute(ok__));
+                    newchild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5474,7 +5474,7 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgElement_Impl::GetAttributeValueLength(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type)) {
                 Ok(ok__) => {
-                    core::ptr::write(valuelength, core::mem::transmute(ok__));
+                    valuelength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5693,7 +5693,7 @@ impl ID2D1SvgPathData_Vtbl {
             let this = (*this).get_impl();
             match ID2D1SvgPathData_Impl::CreatePathGeometry(this, core::mem::transmute_copy(&fillmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(pathgeometry, core::mem::transmute(ok__));
+                    pathgeometry.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5868,7 +5868,7 @@ impl ID2D1Transform_Vtbl {
             let this = (*this).get_impl();
             match ID2D1Transform_Impl::MapInvalidRect(this, core::mem::transmute_copy(&inputindex), core::mem::transmute(&invalidinputrect)) {
                 Ok(ok__) => {
-                    core::ptr::write(invalidoutputrect, core::mem::transmute(ok__));
+                    invalidoutputrect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

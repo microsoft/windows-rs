@@ -10,7 +10,7 @@ impl IObjectArray_Vtbl {
             let this = (*this).get_impl();
             match IObjectArray_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcobjects, core::mem::transmute(ok__));
+                    pcobjects.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

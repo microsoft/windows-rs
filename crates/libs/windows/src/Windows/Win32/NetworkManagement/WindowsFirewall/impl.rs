@@ -25,7 +25,7 @@ impl IDynamicPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMapping_Impl::ExternalIPAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -36,7 +36,7 @@ impl IDynamicPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMapping_Impl::RemoteHost(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -47,7 +47,7 @@ impl IDynamicPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMapping_Impl::ExternalPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -58,7 +58,7 @@ impl IDynamicPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMapping_Impl::Protocol(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -69,7 +69,7 @@ impl IDynamicPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMapping_Impl::InternalPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -80,7 +80,7 @@ impl IDynamicPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMapping_Impl::InternalClient(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -91,7 +91,7 @@ impl IDynamicPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMapping_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -102,7 +102,7 @@ impl IDynamicPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMapping_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -113,7 +113,7 @@ impl IDynamicPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMapping_Impl::LeaseDuration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -124,7 +124,7 @@ impl IDynamicPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMapping_Impl::RenewLease(this, core::mem::transmute_copy(&lleasedurationdesired)) {
                 Ok(ok__) => {
-                    core::ptr::write(pleasedurationreturned, core::mem::transmute(ok__));
+                    pleasedurationreturned.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -190,7 +190,7 @@ impl IDynamicPortMappingCollection_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMappingCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl IDynamicPortMappingCollection_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMappingCollection_Impl::get_Item(this, core::mem::transmute(&bstrremotehost), core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdpm, core::mem::transmute(ok__));
+                    ppdpm.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -212,7 +212,7 @@ impl IDynamicPortMappingCollection_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMappingCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -228,7 +228,7 @@ impl IDynamicPortMappingCollection_Vtbl {
             let this = (*this).get_impl();
             match IDynamicPortMappingCollection_Impl::Add(this, core::mem::transmute(&bstrremotehost), core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol), core::mem::transmute_copy(&linternalport), core::mem::transmute(&bstrinternalclient), core::mem::transmute_copy(&benabled), core::mem::transmute(&bstrdescription), core::mem::transmute_copy(&lleaseduration)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdpm, core::mem::transmute(ok__));
+                    ppdpm.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -276,7 +276,7 @@ impl IEnumNetConnection_Vtbl {
             let this = (*this).get_impl();
             match IEnumNetConnection_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -323,7 +323,7 @@ impl IEnumNetSharingEveryConnection_Vtbl {
             let this = (*this).get_impl();
             match IEnumNetSharingEveryConnection_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -370,7 +370,7 @@ impl IEnumNetSharingPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IEnumNetSharingPortMapping_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -417,7 +417,7 @@ impl IEnumNetSharingPrivateConnection_Vtbl {
             let this = (*this).get_impl();
             match IEnumNetSharingPrivateConnection_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -464,7 +464,7 @@ impl IEnumNetSharingPublicConnection_Vtbl {
             let this = (*this).get_impl();
             match IEnumNetSharingPublicConnection_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -578,7 +578,7 @@ impl INetConnection_Vtbl {
             let this = (*this).get_impl();
             match INetConnection_Impl::Duplicate(this, core::mem::transmute(&pszwduplicatename)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcon, core::mem::transmute(ok__));
+                    ppcon.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -589,7 +589,7 @@ impl INetConnection_Vtbl {
             let this = (*this).get_impl();
             match INetConnection_Impl::GetProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprops, core::mem::transmute(ok__));
+                    ppprops.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -600,7 +600,7 @@ impl INetConnection_Vtbl {
             let this = (*this).get_impl();
             match INetConnection_Impl::GetUiObjectClassId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pclsid, core::mem::transmute(ok__));
+                    pclsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -671,7 +671,7 @@ impl INetConnectionManager_Vtbl {
             let this = (*this).get_impl();
             match INetConnectionManager_Impl::EnumConnections(this, core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -702,7 +702,7 @@ impl INetConnectionProps_Vtbl {
             let this = (*this).get_impl();
             match INetConnectionProps_Impl::Guid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguid, core::mem::transmute(ok__));
+                    pbstrguid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -713,7 +713,7 @@ impl INetConnectionProps_Vtbl {
             let this = (*this).get_impl();
             match INetConnectionProps_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -724,7 +724,7 @@ impl INetConnectionProps_Vtbl {
             let this = (*this).get_impl();
             match INetConnectionProps_Impl::DeviceName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdevicename, core::mem::transmute(ok__));
+                    pbstrdevicename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -735,7 +735,7 @@ impl INetConnectionProps_Vtbl {
             let this = (*this).get_impl();
             match INetConnectionProps_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -746,7 +746,7 @@ impl INetConnectionProps_Vtbl {
             let this = (*this).get_impl();
             match INetConnectionProps_Impl::MediaType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pmediatype, core::mem::transmute(ok__));
+                    pmediatype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -757,7 +757,7 @@ impl INetConnectionProps_Vtbl {
             let this = (*this).get_impl();
             match INetConnectionProps_Impl::Characteristics(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwflags, core::mem::transmute(ok__));
+                    pdwflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -802,7 +802,7 @@ impl INetFwAuthorizedApplication_Vtbl {
             let this = (*this).get_impl();
             match INetFwAuthorizedApplication_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -818,7 +818,7 @@ impl INetFwAuthorizedApplication_Vtbl {
             let this = (*this).get_impl();
             match INetFwAuthorizedApplication_Impl::ProcessImageFileName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(imagefilename, core::mem::transmute(ok__));
+                    imagefilename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -834,7 +834,7 @@ impl INetFwAuthorizedApplication_Vtbl {
             let this = (*this).get_impl();
             match INetFwAuthorizedApplication_Impl::IpVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ipversion, core::mem::transmute(ok__));
+                    ipversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -850,7 +850,7 @@ impl INetFwAuthorizedApplication_Vtbl {
             let this = (*this).get_impl();
             match INetFwAuthorizedApplication_Impl::Scope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(scope, core::mem::transmute(ok__));
+                    scope.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -866,7 +866,7 @@ impl INetFwAuthorizedApplication_Vtbl {
             let this = (*this).get_impl();
             match INetFwAuthorizedApplication_Impl::RemoteAddresses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(remoteaddrs, core::mem::transmute(ok__));
+                    remoteaddrs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -882,7 +882,7 @@ impl INetFwAuthorizedApplication_Vtbl {
             let this = (*this).get_impl();
             match INetFwAuthorizedApplication_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -931,7 +931,7 @@ impl INetFwAuthorizedApplications_Vtbl {
             let this = (*this).get_impl();
             match INetFwAuthorizedApplications_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -952,7 +952,7 @@ impl INetFwAuthorizedApplications_Vtbl {
             let this = (*this).get_impl();
             match INetFwAuthorizedApplications_Impl::Item(this, core::mem::transmute(&imagefilename)) {
                 Ok(ok__) => {
-                    core::ptr::write(app, core::mem::transmute(ok__));
+                    app.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -963,7 +963,7 @@ impl INetFwAuthorizedApplications_Vtbl {
             let this = (*this).get_impl();
             match INetFwAuthorizedApplications_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newenum, core::mem::transmute(ok__));
+                    newenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1015,7 +1015,7 @@ impl INetFwIcmpSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwIcmpSettings_Impl::AllowOutboundDestinationUnreachable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1031,7 +1031,7 @@ impl INetFwIcmpSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwIcmpSettings_Impl::AllowRedirect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1047,7 +1047,7 @@ impl INetFwIcmpSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwIcmpSettings_Impl::AllowInboundEchoRequest(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1063,7 +1063,7 @@ impl INetFwIcmpSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwIcmpSettings_Impl::AllowOutboundTimeExceeded(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1079,7 +1079,7 @@ impl INetFwIcmpSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwIcmpSettings_Impl::AllowOutboundParameterProblem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1095,7 +1095,7 @@ impl INetFwIcmpSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwIcmpSettings_Impl::AllowOutboundSourceQuench(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1111,7 +1111,7 @@ impl INetFwIcmpSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwIcmpSettings_Impl::AllowInboundRouterRequest(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1127,7 +1127,7 @@ impl INetFwIcmpSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwIcmpSettings_Impl::AllowInboundTimestampRequest(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1143,7 +1143,7 @@ impl INetFwIcmpSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwIcmpSettings_Impl::AllowInboundMaskRequest(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1159,7 +1159,7 @@ impl INetFwIcmpSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwIcmpSettings_Impl::AllowOutboundPacketTooBig(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1216,7 +1216,7 @@ impl INetFwMgr_Vtbl {
             let this = (*this).get_impl();
             match INetFwMgr_Impl::LocalPolicy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(localpolicy, core::mem::transmute(ok__));
+                    localpolicy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1227,7 +1227,7 @@ impl INetFwMgr_Vtbl {
             let this = (*this).get_impl();
             match INetFwMgr_Impl::CurrentProfileType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(profiletype, core::mem::transmute(ok__));
+                    profiletype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1289,7 +1289,7 @@ impl INetFwOpenPort_Vtbl {
             let this = (*this).get_impl();
             match INetFwOpenPort_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1305,7 +1305,7 @@ impl INetFwOpenPort_Vtbl {
             let this = (*this).get_impl();
             match INetFwOpenPort_Impl::IpVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ipversion, core::mem::transmute(ok__));
+                    ipversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1321,7 +1321,7 @@ impl INetFwOpenPort_Vtbl {
             let this = (*this).get_impl();
             match INetFwOpenPort_Impl::Protocol(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ipprotocol, core::mem::transmute(ok__));
+                    ipprotocol.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1337,7 +1337,7 @@ impl INetFwOpenPort_Vtbl {
             let this = (*this).get_impl();
             match INetFwOpenPort_Impl::Port(this) {
                 Ok(ok__) => {
-                    core::ptr::write(portnumber, core::mem::transmute(ok__));
+                    portnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1353,7 +1353,7 @@ impl INetFwOpenPort_Vtbl {
             let this = (*this).get_impl();
             match INetFwOpenPort_Impl::Scope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(scope, core::mem::transmute(ok__));
+                    scope.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1369,7 +1369,7 @@ impl INetFwOpenPort_Vtbl {
             let this = (*this).get_impl();
             match INetFwOpenPort_Impl::RemoteAddresses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(remoteaddrs, core::mem::transmute(ok__));
+                    remoteaddrs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1385,7 +1385,7 @@ impl INetFwOpenPort_Vtbl {
             let this = (*this).get_impl();
             match INetFwOpenPort_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1401,7 +1401,7 @@ impl INetFwOpenPort_Vtbl {
             let this = (*this).get_impl();
             match INetFwOpenPort_Impl::BuiltIn(this) {
                 Ok(ok__) => {
-                    core::ptr::write(builtin, core::mem::transmute(ok__));
+                    builtin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1448,7 +1448,7 @@ impl INetFwOpenPorts_Vtbl {
             let this = (*this).get_impl();
             match INetFwOpenPorts_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1469,7 +1469,7 @@ impl INetFwOpenPorts_Vtbl {
             let this = (*this).get_impl();
             match INetFwOpenPorts_Impl::Item(this, core::mem::transmute_copy(&portnumber), core::mem::transmute_copy(&ipprotocol)) {
                 Ok(ok__) => {
-                    core::ptr::write(openport, core::mem::transmute(ok__));
+                    openport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1480,7 +1480,7 @@ impl INetFwOpenPorts_Vtbl {
             let this = (*this).get_impl();
             match INetFwOpenPorts_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newenum, core::mem::transmute(ok__));
+                    newenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1514,7 +1514,7 @@ impl INetFwPolicy_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy_Impl::CurrentProfile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(profile, core::mem::transmute(ok__));
+                    profile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1525,7 +1525,7 @@ impl INetFwPolicy_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy_Impl::GetProfileByType(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
-                    core::ptr::write(profile, core::mem::transmute(ok__));
+                    profile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1576,7 +1576,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::CurrentProfileTypes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(profiletypesbitmask, core::mem::transmute(ok__));
+                    profiletypesbitmask.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1587,7 +1587,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::get_FirewallEnabled(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1603,7 +1603,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::get_ExcludedInterfaces(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
-                    core::ptr::write(interfaces, core::mem::transmute(ok__));
+                    interfaces.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1619,7 +1619,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::get_BlockAllInboundTraffic(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
-                    core::ptr::write(block, core::mem::transmute(ok__));
+                    block.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1635,7 +1635,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::get_NotificationsDisabled(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
-                    core::ptr::write(disabled, core::mem::transmute(ok__));
+                    disabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1651,7 +1651,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::get_UnicastResponsesToMulticastBroadcastDisabled(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
-                    core::ptr::write(disabled, core::mem::transmute(ok__));
+                    disabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1667,7 +1667,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::Rules(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rules, core::mem::transmute(ok__));
+                    rules.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1678,7 +1678,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::ServiceRestriction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(servicerestriction, core::mem::transmute(ok__));
+                    servicerestriction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1694,7 +1694,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::IsRuleGroupEnabled(this, core::mem::transmute_copy(&profiletypesbitmask), core::mem::transmute(&group)) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1710,7 +1710,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::get_DefaultInboundAction(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
-                    core::ptr::write(action, core::mem::transmute(ok__));
+                    action.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1726,7 +1726,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::get_DefaultOutboundAction(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
-                    core::ptr::write(action, core::mem::transmute(ok__));
+                    action.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1742,7 +1742,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::get_IsRuleGroupCurrentlyEnabled(this, core::mem::transmute(&group)) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1753,7 +1753,7 @@ impl INetFwPolicy2_Vtbl {
             let this = (*this).get_impl();
             match INetFwPolicy2_Impl::LocalPolicyModifyState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(modifystate, core::mem::transmute(ok__));
+                    modifystate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1807,7 +1807,7 @@ impl INetFwProduct_Vtbl {
             let this = (*this).get_impl();
             match INetFwProduct_Impl::RuleCategories(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rulecategories, core::mem::transmute(ok__));
+                    rulecategories.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1823,7 +1823,7 @@ impl INetFwProduct_Vtbl {
             let this = (*this).get_impl();
             match INetFwProduct_Impl::DisplayName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(displayname, core::mem::transmute(ok__));
+                    displayname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1839,7 +1839,7 @@ impl INetFwProduct_Vtbl {
             let this = (*this).get_impl();
             match INetFwProduct_Impl::PathToSignedProductExe(this) {
                 Ok(ok__) => {
-                    core::ptr::write(path, core::mem::transmute(ok__));
+                    path.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1875,7 +1875,7 @@ impl INetFwProducts_Vtbl {
             let this = (*this).get_impl();
             match INetFwProducts_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1886,7 +1886,7 @@ impl INetFwProducts_Vtbl {
             let this = (*this).get_impl();
             match INetFwProducts_Impl::Register(this, windows_core::from_raw_borrowed(&product)) {
                 Ok(ok__) => {
-                    core::ptr::write(registration, core::mem::transmute(ok__));
+                    registration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1897,7 +1897,7 @@ impl INetFwProducts_Vtbl {
             let this = (*this).get_impl();
             match INetFwProducts_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(product, core::mem::transmute(ok__));
+                    product.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1908,7 +1908,7 @@ impl INetFwProducts_Vtbl {
             let this = (*this).get_impl();
             match INetFwProducts_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newenum, core::mem::transmute(ok__));
+                    newenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1953,7 +1953,7 @@ impl INetFwProfile_Vtbl {
             let this = (*this).get_impl();
             match INetFwProfile_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1964,7 +1964,7 @@ impl INetFwProfile_Vtbl {
             let this = (*this).get_impl();
             match INetFwProfile_Impl::FirewallEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1980,7 +1980,7 @@ impl INetFwProfile_Vtbl {
             let this = (*this).get_impl();
             match INetFwProfile_Impl::ExceptionsNotAllowed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(notallowed, core::mem::transmute(ok__));
+                    notallowed.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1996,7 +1996,7 @@ impl INetFwProfile_Vtbl {
             let this = (*this).get_impl();
             match INetFwProfile_Impl::NotificationsDisabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(disabled, core::mem::transmute(ok__));
+                    disabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2012,7 +2012,7 @@ impl INetFwProfile_Vtbl {
             let this = (*this).get_impl();
             match INetFwProfile_Impl::UnicastResponsesToMulticastBroadcastDisabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(disabled, core::mem::transmute(ok__));
+                    disabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2028,7 +2028,7 @@ impl INetFwProfile_Vtbl {
             let this = (*this).get_impl();
             match INetFwProfile_Impl::RemoteAdminSettings(this) {
                 Ok(ok__) => {
-                    core::ptr::write(remoteadminsettings, core::mem::transmute(ok__));
+                    remoteadminsettings.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2039,7 +2039,7 @@ impl INetFwProfile_Vtbl {
             let this = (*this).get_impl();
             match INetFwProfile_Impl::IcmpSettings(this) {
                 Ok(ok__) => {
-                    core::ptr::write(icmpsettings, core::mem::transmute(ok__));
+                    icmpsettings.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2050,7 +2050,7 @@ impl INetFwProfile_Vtbl {
             let this = (*this).get_impl();
             match INetFwProfile_Impl::GloballyOpenPorts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(openports, core::mem::transmute(ok__));
+                    openports.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2061,7 +2061,7 @@ impl INetFwProfile_Vtbl {
             let this = (*this).get_impl();
             match INetFwProfile_Impl::Services(this) {
                 Ok(ok__) => {
-                    core::ptr::write(services, core::mem::transmute(ok__));
+                    services.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2072,7 +2072,7 @@ impl INetFwProfile_Vtbl {
             let this = (*this).get_impl();
             match INetFwProfile_Impl::AuthorizedApplications(this) {
                 Ok(ok__) => {
-                    core::ptr::write(apps, core::mem::transmute(ok__));
+                    apps.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2121,7 +2121,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwRemoteAdminSettings_Impl::IpVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ipversion, core::mem::transmute(ok__));
+                    ipversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2137,7 +2137,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwRemoteAdminSettings_Impl::Scope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(scope, core::mem::transmute(ok__));
+                    scope.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2153,7 +2153,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwRemoteAdminSettings_Impl::RemoteAddresses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(remoteaddrs, core::mem::transmute(ok__));
+                    remoteaddrs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2169,7 +2169,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
             let this = (*this).get_impl();
             match INetFwRemoteAdminSettings_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2245,7 +2245,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2261,7 +2261,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(desc, core::mem::transmute(ok__));
+                    desc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2277,7 +2277,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::ApplicationName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(imagefilename, core::mem::transmute(ok__));
+                    imagefilename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2293,7 +2293,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::ServiceName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(servicename, core::mem::transmute(ok__));
+                    servicename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2309,7 +2309,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::Protocol(this) {
                 Ok(ok__) => {
-                    core::ptr::write(protocol, core::mem::transmute(ok__));
+                    protocol.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2325,7 +2325,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::LocalPorts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(portnumbers, core::mem::transmute(ok__));
+                    portnumbers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2341,7 +2341,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::RemotePorts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(portnumbers, core::mem::transmute(ok__));
+                    portnumbers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2357,7 +2357,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::LocalAddresses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(localaddrs, core::mem::transmute(ok__));
+                    localaddrs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2373,7 +2373,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::RemoteAddresses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(remoteaddrs, core::mem::transmute(ok__));
+                    remoteaddrs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2389,7 +2389,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::IcmpTypesAndCodes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(icmptypesandcodes, core::mem::transmute(ok__));
+                    icmptypesandcodes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2405,7 +2405,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::Direction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(dir, core::mem::transmute(ok__));
+                    dir.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2421,7 +2421,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::Interfaces(this) {
                 Ok(ok__) => {
-                    core::ptr::write(interfaces, core::mem::transmute(ok__));
+                    interfaces.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2437,7 +2437,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::InterfaceTypes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(interfacetypes, core::mem::transmute(ok__));
+                    interfacetypes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2453,7 +2453,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2469,7 +2469,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::Grouping(this) {
                 Ok(ok__) => {
-                    core::ptr::write(context, core::mem::transmute(ok__));
+                    context.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2485,7 +2485,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::Profiles(this) {
                 Ok(ok__) => {
-                    core::ptr::write(profiletypesbitmask, core::mem::transmute(ok__));
+                    profiletypesbitmask.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2501,7 +2501,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::EdgeTraversal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2517,7 +2517,7 @@ impl INetFwRule_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule_Impl::Action(this) {
                 Ok(ok__) => {
-                    core::ptr::write(action, core::mem::transmute(ok__));
+                    action.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2587,7 +2587,7 @@ impl INetFwRule2_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule2_Impl::EdgeTraversalOptions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(loptions, core::mem::transmute(ok__));
+                    loptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2633,7 +2633,7 @@ impl INetFwRule3_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule3_Impl::LocalAppPackageId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(wszpackageid, core::mem::transmute(ok__));
+                    wszpackageid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2649,7 +2649,7 @@ impl INetFwRule3_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule3_Impl::LocalUserOwner(this) {
                 Ok(ok__) => {
-                    core::ptr::write(wszuserowner, core::mem::transmute(ok__));
+                    wszuserowner.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2665,7 +2665,7 @@ impl INetFwRule3_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule3_Impl::LocalUserAuthorizedList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(wszuserauthlist, core::mem::transmute(ok__));
+                    wszuserauthlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2681,7 +2681,7 @@ impl INetFwRule3_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule3_Impl::RemoteUserAuthorizedList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(wszuserauthlist, core::mem::transmute(ok__));
+                    wszuserauthlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2697,7 +2697,7 @@ impl INetFwRule3_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule3_Impl::RemoteMachineAuthorizedList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(wszuserauthlist, core::mem::transmute(ok__));
+                    wszuserauthlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2713,7 +2713,7 @@ impl INetFwRule3_Vtbl {
             let this = (*this).get_impl();
             match INetFwRule3_Impl::SecureFlags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(loptions, core::mem::transmute(ok__));
+                    loptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2762,7 +2762,7 @@ impl INetFwRules_Vtbl {
             let this = (*this).get_impl();
             match INetFwRules_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2783,7 +2783,7 @@ impl INetFwRules_Vtbl {
             let this = (*this).get_impl();
             match INetFwRules_Impl::Item(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(rule, core::mem::transmute(ok__));
+                    rule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2794,7 +2794,7 @@ impl INetFwRules_Vtbl {
             let this = (*this).get_impl();
             match INetFwRules_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newenum, core::mem::transmute(ok__));
+                    newenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2838,7 +2838,7 @@ impl INetFwService_Vtbl {
             let this = (*this).get_impl();
             match INetFwService_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2849,7 +2849,7 @@ impl INetFwService_Vtbl {
             let this = (*this).get_impl();
             match INetFwService_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2860,7 +2860,7 @@ impl INetFwService_Vtbl {
             let this = (*this).get_impl();
             match INetFwService_Impl::Customized(this) {
                 Ok(ok__) => {
-                    core::ptr::write(customized, core::mem::transmute(ok__));
+                    customized.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2871,7 +2871,7 @@ impl INetFwService_Vtbl {
             let this = (*this).get_impl();
             match INetFwService_Impl::IpVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ipversion, core::mem::transmute(ok__));
+                    ipversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2887,7 +2887,7 @@ impl INetFwService_Vtbl {
             let this = (*this).get_impl();
             match INetFwService_Impl::Scope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(scope, core::mem::transmute(ok__));
+                    scope.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2903,7 +2903,7 @@ impl INetFwService_Vtbl {
             let this = (*this).get_impl();
             match INetFwService_Impl::RemoteAddresses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(remoteaddrs, core::mem::transmute(ok__));
+                    remoteaddrs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2919,7 +2919,7 @@ impl INetFwService_Vtbl {
             let this = (*this).get_impl();
             match INetFwService_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enabled, core::mem::transmute(ok__));
+                    enabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2935,7 +2935,7 @@ impl INetFwService_Vtbl {
             let this = (*this).get_impl();
             match INetFwService_Impl::GloballyOpenPorts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(openports, core::mem::transmute(ok__));
+                    openports.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2982,7 +2982,7 @@ impl INetFwServiceRestriction_Vtbl {
             let this = (*this).get_impl();
             match INetFwServiceRestriction_Impl::ServiceRestricted(this, core::mem::transmute(&servicename), core::mem::transmute(&appname)) {
                 Ok(ok__) => {
-                    core::ptr::write(servicerestricted, core::mem::transmute(ok__));
+                    servicerestricted.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2993,7 +2993,7 @@ impl INetFwServiceRestriction_Vtbl {
             let this = (*this).get_impl();
             match INetFwServiceRestriction_Impl::Rules(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rules, core::mem::transmute(ok__));
+                    rules.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3026,7 +3026,7 @@ impl INetFwServices_Vtbl {
             let this = (*this).get_impl();
             match INetFwServices_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3037,7 +3037,7 @@ impl INetFwServices_Vtbl {
             let this = (*this).get_impl();
             match INetFwServices_Impl::Item(this, core::mem::transmute_copy(&svctype)) {
                 Ok(ok__) => {
-                    core::ptr::write(service, core::mem::transmute(ok__));
+                    service.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3048,7 +3048,7 @@ impl INetFwServices_Vtbl {
             let this = (*this).get_impl();
             match INetFwServices_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newenum, core::mem::transmute(ok__));
+                    newenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3088,7 +3088,7 @@ impl INetSharingConfiguration_Vtbl {
             let this = (*this).get_impl();
             match INetSharingConfiguration_Impl::SharingEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbenabled, core::mem::transmute(ok__));
+                    pbenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3099,7 +3099,7 @@ impl INetSharingConfiguration_Vtbl {
             let this = (*this).get_impl();
             match INetSharingConfiguration_Impl::SharingConnectionType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptype, core::mem::transmute(ok__));
+                    ptype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3120,7 +3120,7 @@ impl INetSharingConfiguration_Vtbl {
             let this = (*this).get_impl();
             match INetSharingConfiguration_Impl::InternetFirewallEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbenabled, core::mem::transmute(ok__));
+                    pbenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3141,7 +3141,7 @@ impl INetSharingConfiguration_Vtbl {
             let this = (*this).get_impl();
             match INetSharingConfiguration_Impl::get_EnumPortMappings(this, core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcoll, core::mem::transmute(ok__));
+                    ppcoll.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3152,7 +3152,7 @@ impl INetSharingConfiguration_Vtbl {
             let this = (*this).get_impl();
             match INetSharingConfiguration_Impl::AddPortMapping(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&ucipprotocol), core::mem::transmute_copy(&usexternalport), core::mem::transmute_copy(&usinternalport), core::mem::transmute_copy(&dwoptions), core::mem::transmute(&bstrtargetnameoripaddress), core::mem::transmute_copy(&etargettype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmapping, core::mem::transmute(ok__));
+                    ppmapping.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3196,7 +3196,7 @@ impl INetSharingEveryConnectionCollection_Vtbl {
             let this = (*this).get_impl();
             match INetSharingEveryConnectionCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3207,7 +3207,7 @@ impl INetSharingEveryConnectionCollection_Vtbl {
             let this = (*this).get_impl();
             match INetSharingEveryConnectionCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3242,7 +3242,7 @@ impl INetSharingManager_Vtbl {
             let this = (*this).get_impl();
             match INetSharingManager_Impl::SharingInstalled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbinstalled, core::mem::transmute(ok__));
+                    pbinstalled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3253,7 +3253,7 @@ impl INetSharingManager_Vtbl {
             let this = (*this).get_impl();
             match INetSharingManager_Impl::get_EnumPublicConnections(this, core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcoll, core::mem::transmute(ok__));
+                    ppcoll.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3264,7 +3264,7 @@ impl INetSharingManager_Vtbl {
             let this = (*this).get_impl();
             match INetSharingManager_Impl::get_EnumPrivateConnections(this, core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcoll, core::mem::transmute(ok__));
+                    ppcoll.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3275,7 +3275,7 @@ impl INetSharingManager_Vtbl {
             let this = (*this).get_impl();
             match INetSharingManager_Impl::get_INetSharingConfigurationForINetConnection(this, windows_core::from_raw_borrowed(&pnetconnection)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnetsharingconfiguration, core::mem::transmute(ok__));
+                    ppnetsharingconfiguration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3286,7 +3286,7 @@ impl INetSharingManager_Vtbl {
             let this = (*this).get_impl();
             match INetSharingManager_Impl::EnumEveryConnection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcoll, core::mem::transmute(ok__));
+                    ppcoll.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3297,7 +3297,7 @@ impl INetSharingManager_Vtbl {
             let this = (*this).get_impl();
             match INetSharingManager_Impl::get_NetConnectionProps(this, windows_core::from_raw_borrowed(&pnetconnection)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprops, core::mem::transmute(ok__));
+                    ppprops.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3344,7 +3344,7 @@ impl INetSharingPortMapping_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPortMapping_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnspmp, core::mem::transmute(ok__));
+                    ppnspmp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3382,7 +3382,7 @@ impl INetSharingPortMappingCollection_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPortMappingCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3393,7 +3393,7 @@ impl INetSharingPortMappingCollection_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPortMappingCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3430,7 +3430,7 @@ impl INetSharingPortMappingProps_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPortMappingProps_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3441,7 +3441,7 @@ impl INetSharingPortMappingProps_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPortMappingProps_Impl::IPProtocol(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pucipprot, core::mem::transmute(ok__));
+                    pucipprot.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3452,7 +3452,7 @@ impl INetSharingPortMappingProps_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPortMappingProps_Impl::ExternalPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pusport, core::mem::transmute(ok__));
+                    pusport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3463,7 +3463,7 @@ impl INetSharingPortMappingProps_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPortMappingProps_Impl::InternalPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pusport, core::mem::transmute(ok__));
+                    pusport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3474,7 +3474,7 @@ impl INetSharingPortMappingProps_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPortMappingProps_Impl::Options(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwoptions, core::mem::transmute(ok__));
+                    pdwoptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3485,7 +3485,7 @@ impl INetSharingPortMappingProps_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPortMappingProps_Impl::TargetName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrtargetname, core::mem::transmute(ok__));
+                    pbstrtargetname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3496,7 +3496,7 @@ impl INetSharingPortMappingProps_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPortMappingProps_Impl::TargetIPAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrtargetipaddress, core::mem::transmute(ok__));
+                    pbstrtargetipaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3507,7 +3507,7 @@ impl INetSharingPortMappingProps_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPortMappingProps_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbool, core::mem::transmute(ok__));
+                    pbool.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3544,7 +3544,7 @@ impl INetSharingPrivateConnectionCollection_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPrivateConnectionCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3555,7 +3555,7 @@ impl INetSharingPrivateConnectionCollection_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPrivateConnectionCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3586,7 +3586,7 @@ impl INetSharingPublicConnectionCollection_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPublicConnectionCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3597,7 +3597,7 @@ impl INetSharingPublicConnectionCollection_Vtbl {
             let this = (*this).get_impl();
             match INetSharingPublicConnectionCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3637,7 +3637,7 @@ impl IStaticPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IStaticPortMapping_Impl::ExternalIPAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3648,7 +3648,7 @@ impl IStaticPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IStaticPortMapping_Impl::ExternalPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3659,7 +3659,7 @@ impl IStaticPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IStaticPortMapping_Impl::InternalPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3670,7 +3670,7 @@ impl IStaticPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IStaticPortMapping_Impl::Protocol(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3681,7 +3681,7 @@ impl IStaticPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IStaticPortMapping_Impl::InternalClient(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3692,7 +3692,7 @@ impl IStaticPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IStaticPortMapping_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3703,7 +3703,7 @@ impl IStaticPortMapping_Vtbl {
             let this = (*this).get_impl();
             match IStaticPortMapping_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3766,7 +3766,7 @@ impl IStaticPortMappingCollection_Vtbl {
             let this = (*this).get_impl();
             match IStaticPortMappingCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3777,7 +3777,7 @@ impl IStaticPortMappingCollection_Vtbl {
             let this = (*this).get_impl();
             match IStaticPortMappingCollection_Impl::get_Item(this, core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppspm, core::mem::transmute(ok__));
+                    ppspm.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3788,7 +3788,7 @@ impl IStaticPortMappingCollection_Vtbl {
             let this = (*this).get_impl();
             match IStaticPortMappingCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3804,7 +3804,7 @@ impl IStaticPortMappingCollection_Vtbl {
             let this = (*this).get_impl();
             match IStaticPortMappingCollection_Impl::Add(this, core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol), core::mem::transmute_copy(&linternalport), core::mem::transmute(&bstrinternalclient), core::mem::transmute_copy(&benabled), core::mem::transmute(&bstrdescription)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppspm, core::mem::transmute(ok__));
+                    ppspm.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3839,7 +3839,7 @@ impl IUPnPNAT_Vtbl {
             let this = (*this).get_impl();
             match IUPnPNAT_Impl::StaticPortMappingCollection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppspms, core::mem::transmute(ok__));
+                    ppspms.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3850,7 +3850,7 @@ impl IUPnPNAT_Vtbl {
             let this = (*this).get_impl();
             match IUPnPNAT_Impl::DynamicPortMappingCollection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdpms, core::mem::transmute(ok__));
+                    ppdpms.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3861,7 +3861,7 @@ impl IUPnPNAT_Vtbl {
             let this = (*this).get_impl();
             match IUPnPNAT_Impl::NATEventManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnem, core::mem::transmute(ok__));
+                    ppnem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

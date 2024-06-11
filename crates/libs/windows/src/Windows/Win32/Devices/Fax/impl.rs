@@ -15,7 +15,7 @@ impl IFaxAccount_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccount_Impl::AccountName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstraccountname, core::mem::transmute(ok__));
+                    pbstraccountname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -26,7 +26,7 @@ impl IFaxAccount_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccount_Impl::Folders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfolders, core::mem::transmute(ok__));
+                    ppfolders.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl IFaxAccount_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccount_Impl::RegisteredEvents(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pregisteredevents, core::mem::transmute(ok__));
+                    pregisteredevents.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -77,7 +77,7 @@ impl IFaxAccountFolders_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountFolders_Impl::OutgoingQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingqueue, core::mem::transmute(ok__));
+                    pfaxoutgoingqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -88,7 +88,7 @@ impl IFaxAccountFolders_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountFolders_Impl::IncomingQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingqueue, core::mem::transmute(ok__));
+                    pfaxincomingqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -99,7 +99,7 @@ impl IFaxAccountFolders_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountFolders_Impl::IncomingArchive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingarchive, core::mem::transmute(ok__));
+                    pfaxincomingarchive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -110,7 +110,7 @@ impl IFaxAccountFolders_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountFolders_Impl::OutgoingArchive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingarchive, core::mem::transmute(ok__));
+                    pfaxoutgoingarchive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -146,7 +146,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountIncomingArchive_Impl::SizeLow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsizelow, core::mem::transmute(ok__));
+                    plsizelow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -157,7 +157,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountIncomingArchive_Impl::SizeHigh(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsizehigh, core::mem::transmute(ok__));
+                    plsizehigh.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -173,7 +173,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountIncomingArchive_Impl::GetMessages(this, core::mem::transmute_copy(&lprefetchsize)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingmessageiterator, core::mem::transmute(ok__));
+                    pfaxincomingmessageiterator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -184,7 +184,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountIncomingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingmessage, core::mem::transmute(ok__));
+                    pfaxincomingmessage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -218,7 +218,7 @@ impl IFaxAccountIncomingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountIncomingQueue_Impl::GetJobs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingjobs, core::mem::transmute(ok__));
+                    pfaxincomingjobs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -229,7 +229,7 @@ impl IFaxAccountIncomingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountIncomingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingjob, core::mem::transmute(ok__));
+                    pfaxincomingjob.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -356,7 +356,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountOutgoingArchive_Impl::SizeLow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsizelow, core::mem::transmute(ok__));
+                    plsizelow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -367,7 +367,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountOutgoingArchive_Impl::SizeHigh(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsizehigh, core::mem::transmute(ok__));
+                    plsizehigh.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -383,7 +383,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountOutgoingArchive_Impl::GetMessages(this, core::mem::transmute_copy(&lprefetchsize)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingmessageiterator, core::mem::transmute(ok__));
+                    pfaxoutgoingmessageiterator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -394,7 +394,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountOutgoingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingmessage, core::mem::transmute(ok__));
+                    pfaxoutgoingmessage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -428,7 +428,7 @@ impl IFaxAccountOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountOutgoingQueue_Impl::GetJobs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingjobs, core::mem::transmute(ok__));
+                    pfaxoutgoingjobs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -439,7 +439,7 @@ impl IFaxAccountOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountOutgoingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingjob, core::mem::transmute(ok__));
+                    pfaxoutgoingjob.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -472,7 +472,7 @@ impl IFaxAccountSet_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountSet_Impl::GetAccounts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxaccounts, core::mem::transmute(ok__));
+                    ppfaxaccounts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -483,7 +483,7 @@ impl IFaxAccountSet_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountSet_Impl::GetAccount(this, core::mem::transmute(&bstraccountname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxaccount, core::mem::transmute(ok__));
+                    pfaxaccount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -494,7 +494,7 @@ impl IFaxAccountSet_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccountSet_Impl::AddAccount(this, core::mem::transmute(&bstraccountname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxaccount, core::mem::transmute(ok__));
+                    pfaxaccount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -533,7 +533,7 @@ impl IFaxAccounts_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccounts_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -544,7 +544,7 @@ impl IFaxAccounts_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccounts_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxaccount, core::mem::transmute(ok__));
+                    pfaxaccount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -555,7 +555,7 @@ impl IFaxAccounts_Vtbl {
             let this = (*this).get_impl();
             match IFaxAccounts_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -590,7 +590,7 @@ impl IFaxActivity_Vtbl {
             let this = (*this).get_impl();
             match IFaxActivity_Impl::IncomingMessages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plincomingmessages, core::mem::transmute(ok__));
+                    plincomingmessages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -601,7 +601,7 @@ impl IFaxActivity_Vtbl {
             let this = (*this).get_impl();
             match IFaxActivity_Impl::RoutingMessages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plroutingmessages, core::mem::transmute(ok__));
+                    plroutingmessages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -612,7 +612,7 @@ impl IFaxActivity_Vtbl {
             let this = (*this).get_impl();
             match IFaxActivity_Impl::OutgoingMessages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ploutgoingmessages, core::mem::transmute(ok__));
+                    ploutgoingmessages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -623,7 +623,7 @@ impl IFaxActivity_Vtbl {
             let this = (*this).get_impl();
             match IFaxActivity_Impl::QueuedMessages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plqueuedmessages, core::mem::transmute(ok__));
+                    plqueuedmessages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -668,7 +668,7 @@ impl IFaxActivityLogging_Vtbl {
             let this = (*this).get_impl();
             match IFaxActivityLogging_Impl::LogIncoming(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pblogincoming, core::mem::transmute(ok__));
+                    pblogincoming.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -684,7 +684,7 @@ impl IFaxActivityLogging_Vtbl {
             let this = (*this).get_impl();
             match IFaxActivityLogging_Impl::LogOutgoing(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pblogoutgoing, core::mem::transmute(ok__));
+                    pblogoutgoing.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -700,7 +700,7 @@ impl IFaxActivityLogging_Vtbl {
             let this = (*this).get_impl();
             match IFaxActivityLogging_Impl::DatabasePath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdatabasepath, core::mem::transmute(ok__));
+                    pbstrdatabasepath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -792,7 +792,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::UseArchive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbusearchive, core::mem::transmute(ok__));
+                    pbusearchive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -808,7 +808,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::ArchiveLocation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrarchivelocation, core::mem::transmute(ok__));
+                    pbstrarchivelocation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -824,7 +824,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::SizeQuotaWarning(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbsizequotawarning, core::mem::transmute(ok__));
+                    pbsizequotawarning.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -840,7 +840,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::HighQuotaWaterMark(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plhighquotawatermark, core::mem::transmute(ok__));
+                    plhighquotawatermark.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -856,7 +856,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::LowQuotaWaterMark(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pllowquotawatermark, core::mem::transmute(ok__));
+                    pllowquotawatermark.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -872,7 +872,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::ArchiveAgeLimit(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plarchiveagelimit, core::mem::transmute(ok__));
+                    plarchiveagelimit.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -888,7 +888,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::ArchiveSizeLow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsizelow, core::mem::transmute(ok__));
+                    plsizelow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -899,7 +899,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::ArchiveSizeHigh(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsizehigh, core::mem::transmute(ok__));
+                    plsizehigh.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -910,7 +910,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::OutgoingQueueBlocked(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pboutgoingblocked, core::mem::transmute(ok__));
+                    pboutgoingblocked.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -926,7 +926,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::OutgoingQueuePaused(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pboutgoingpaused, core::mem::transmute(ok__));
+                    pboutgoingpaused.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -942,7 +942,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::AllowPersonalCoverPages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pballowpersonalcoverpages, core::mem::transmute(ok__));
+                    pballowpersonalcoverpages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -958,7 +958,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::UseDeviceTSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbusedevicetsid, core::mem::transmute(ok__));
+                    pbusedevicetsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -974,7 +974,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::Retries(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plretries, core::mem::transmute(ok__));
+                    plretries.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -990,7 +990,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::RetryDelay(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plretrydelay, core::mem::transmute(ok__));
+                    plretrydelay.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1006,7 +1006,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::DiscountRateStart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatediscountratestart, core::mem::transmute(ok__));
+                    pdatediscountratestart.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1022,7 +1022,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::DiscountRateEnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatediscountrateend, core::mem::transmute(ok__));
+                    pdatediscountrateend.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1038,7 +1038,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::OutgoingQueueAgeLimit(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ploutgoingqueueagelimit, core::mem::transmute(ok__));
+                    ploutgoingqueueagelimit.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1054,7 +1054,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::Branding(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbbranding, core::mem::transmute(ok__));
+                    pbbranding.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1070,7 +1070,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::IncomingQueueBlocked(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbincomingblocked, core::mem::transmute(ok__));
+                    pbincomingblocked.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1086,7 +1086,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::AutoCreateAccountOnConnect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbautocreateaccountonconnect, core::mem::transmute(ok__));
+                    pbautocreateaccountonconnect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1102,7 +1102,7 @@ impl IFaxConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IFaxConfiguration_Impl::IncomingFaxesArePublic(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbincomingfaxesarepublic, core::mem::transmute(ok__));
+                    pbincomingfaxesarepublic.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1212,7 +1212,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plid, core::mem::transmute(ok__));
+                    plid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1223,7 +1223,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::DeviceName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdevicename, core::mem::transmute(ok__));
+                    pbstrdevicename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1234,7 +1234,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::ProviderUniqueName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrprovideruniquename, core::mem::transmute(ok__));
+                    pbstrprovideruniquename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1245,7 +1245,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::PoweredOff(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbpoweredoff, core::mem::transmute(ok__));
+                    pbpoweredoff.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1256,7 +1256,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::ReceivingNow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbreceivingnow, core::mem::transmute(ok__));
+                    pbreceivingnow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1267,7 +1267,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::SendingNow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbsendingnow, core::mem::transmute(ok__));
+                    pbsendingnow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1278,7 +1278,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::UsedRoutingMethods(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvusedroutingmethods, core::mem::transmute(ok__));
+                    pvusedroutingmethods.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1289,7 +1289,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdescription, core::mem::transmute(ok__));
+                    pbstrdescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1305,7 +1305,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::SendEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbsendenabled, core::mem::transmute(ok__));
+                    pbsendenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1321,7 +1321,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::ReceiveMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(preceivemode, core::mem::transmute(ok__));
+                    preceivemode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1337,7 +1337,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::RingsBeforeAnswer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plringsbeforeanswer, core::mem::transmute(ok__));
+                    plringsbeforeanswer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1353,7 +1353,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::CSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcsid, core::mem::transmute(ok__));
+                    pbstrcsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1369,7 +1369,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::TSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrtsid, core::mem::transmute(ok__));
+                    pbstrtsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1395,7 +1395,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::GetExtensionProperty(this, core::mem::transmute(&bstrguid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvproperty, core::mem::transmute(ok__));
+                    pvproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1416,7 +1416,7 @@ impl IFaxDevice_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevice_Impl::RingingNow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbringingnow, core::mem::transmute(ok__));
+                    pbringingnow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1480,7 +1480,7 @@ impl IFaxDeviceIds_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceIds_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1491,7 +1491,7 @@ impl IFaxDeviceIds_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceIds_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pldeviceid, core::mem::transmute(ok__));
+                    pldeviceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1502,7 +1502,7 @@ impl IFaxDeviceIds_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceIds_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1562,7 +1562,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::FriendlyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrfriendlyname, core::mem::transmute(ok__));
+                    pbstrfriendlyname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1573,7 +1573,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::ImageName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrimagename, core::mem::transmute(ok__));
+                    pbstrimagename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1584,7 +1584,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::UniqueName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstruniquename, core::mem::transmute(ok__));
+                    pbstruniquename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1595,7 +1595,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::TapiProviderName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrtapiprovidername, core::mem::transmute(ok__));
+                    pbstrtapiprovidername.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1606,7 +1606,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::MajorVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmajorversion, core::mem::transmute(ok__));
+                    plmajorversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1617,7 +1617,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::MinorVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plminorversion, core::mem::transmute(ok__));
+                    plminorversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1628,7 +1628,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::MajorBuild(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmajorbuild, core::mem::transmute(ok__));
+                    plmajorbuild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1639,7 +1639,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::MinorBuild(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plminorbuild, core::mem::transmute(ok__));
+                    plminorbuild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1650,7 +1650,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::Debug(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbdebug, core::mem::transmute(ok__));
+                    pbdebug.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1661,7 +1661,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1672,7 +1672,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::InitErrorCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pliniterrorcode, core::mem::transmute(ok__));
+                    pliniterrorcode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1683,7 +1683,7 @@ impl IFaxDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProvider_Impl::DeviceIds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvdeviceids, core::mem::transmute(ok__));
+                    pvdeviceids.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1725,7 +1725,7 @@ impl IFaxDeviceProviders_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProviders_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1736,7 +1736,7 @@ impl IFaxDeviceProviders_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProviders_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxdeviceprovider, core::mem::transmute(ok__));
+                    pfaxdeviceprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1747,7 +1747,7 @@ impl IFaxDeviceProviders_Vtbl {
             let this = (*this).get_impl();
             match IFaxDeviceProviders_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1781,7 +1781,7 @@ impl IFaxDevices_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevices_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1792,7 +1792,7 @@ impl IFaxDevices_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevices_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxdevice, core::mem::transmute(ok__));
+                    pfaxdevice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1803,7 +1803,7 @@ impl IFaxDevices_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevices_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1814,7 +1814,7 @@ impl IFaxDevices_Vtbl {
             let this = (*this).get_impl();
             match IFaxDevices_Impl::get_ItemById(this, core::mem::transmute_copy(&lid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxdevice, core::mem::transmute(ok__));
+                    ppfaxdevice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1879,7 +1879,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::Body(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrbody, core::mem::transmute(ok__));
+                    pbstrbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1895,7 +1895,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::Sender(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxsender, core::mem::transmute(ok__));
+                    ppfaxsender.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1906,7 +1906,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::Recipients(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxrecipients, core::mem::transmute(ok__));
+                    ppfaxrecipients.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1917,7 +1917,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::CoverPage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcoverpage, core::mem::transmute(ok__));
+                    pbstrcoverpage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1933,7 +1933,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::Subject(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsubject, core::mem::transmute(ok__));
+                    pbstrsubject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1949,7 +1949,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::Note(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrnote, core::mem::transmute(ok__));
+                    pbstrnote.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1965,7 +1965,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::ScheduleTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatescheduletime, core::mem::transmute(ok__));
+                    pdatescheduletime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1981,7 +1981,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::ReceiptAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrreceiptaddress, core::mem::transmute(ok__));
+                    pbstrreceiptaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1997,7 +1997,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::DocumentName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdocumentname, core::mem::transmute(ok__));
+                    pbstrdocumentname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2013,7 +2013,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::CallHandle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcallhandle, core::mem::transmute(ok__));
+                    plcallhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2029,7 +2029,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::CoverPageType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcoverpagetype, core::mem::transmute(ok__));
+                    pcoverpagetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2045,7 +2045,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::ScheduleType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pscheduletype, core::mem::transmute(ok__));
+                    pscheduletype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2061,7 +2061,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::ReceiptType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(preceipttype, core::mem::transmute(ok__));
+                    preceipttype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2077,7 +2077,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::GroupBroadcastReceipts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbusegrouping, core::mem::transmute(ok__));
+                    pbusegrouping.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2093,7 +2093,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppriority, core::mem::transmute(ok__));
+                    ppriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2109,7 +2109,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::TapiConnection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pptapiconnection, core::mem::transmute(ok__));
+                    pptapiconnection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2125,7 +2125,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::Submit(this, core::mem::transmute(&bstrfaxservername)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvfaxoutgoingjobids, core::mem::transmute(ok__));
+                    pvfaxoutgoingjobids.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2136,7 +2136,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::ConnectedSubmit(this, windows_core::from_raw_borrowed(&pfaxserver)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvfaxoutgoingjobids, core::mem::transmute(ok__));
+                    pvfaxoutgoingjobids.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2147,7 +2147,7 @@ impl IFaxDocument_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument_Impl::AttachFaxToReceipt(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbattachfax, core::mem::transmute(ok__));
+                    pbattachfax.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2218,7 +2218,7 @@ impl IFaxDocument2_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument2_Impl::SubmissionId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsubmissionid, core::mem::transmute(ok__));
+                    pbstrsubmissionid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2229,7 +2229,7 @@ impl IFaxDocument2_Vtbl {
             let this = (*this).get_impl();
             match IFaxDocument2_Impl::Bodies(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvbodies, core::mem::transmute(ok__));
+                    pvbodies.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2286,7 +2286,7 @@ impl IFaxEventLogging_Vtbl {
             let this = (*this).get_impl();
             match IFaxEventLogging_Impl::InitEventsLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(piniteventlevel, core::mem::transmute(ok__));
+                    piniteventlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2302,7 +2302,7 @@ impl IFaxEventLogging_Vtbl {
             let this = (*this).get_impl();
             match IFaxEventLogging_Impl::InboundEventsLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pinboundeventlevel, core::mem::transmute(ok__));
+                    pinboundeventlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2318,7 +2318,7 @@ impl IFaxEventLogging_Vtbl {
             let this = (*this).get_impl();
             match IFaxEventLogging_Impl::OutboundEventsLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(poutboundeventlevel, core::mem::transmute(ok__));
+                    poutboundeventlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2334,7 +2334,7 @@ impl IFaxEventLogging_Vtbl {
             let this = (*this).get_impl();
             match IFaxEventLogging_Impl::GeneralEventsLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pgeneraleventlevel, core::mem::transmute(ok__));
+                    pgeneraleventlevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2390,7 +2390,7 @@ impl IFaxFolders_Vtbl {
             let this = (*this).get_impl();
             match IFaxFolders_Impl::OutgoingQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingqueue, core::mem::transmute(ok__));
+                    pfaxoutgoingqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2401,7 +2401,7 @@ impl IFaxFolders_Vtbl {
             let this = (*this).get_impl();
             match IFaxFolders_Impl::IncomingQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingqueue, core::mem::transmute(ok__));
+                    pfaxincomingqueue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2412,7 +2412,7 @@ impl IFaxFolders_Vtbl {
             let this = (*this).get_impl();
             match IFaxFolders_Impl::IncomingArchive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingarchive, core::mem::transmute(ok__));
+                    pfaxincomingarchive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2423,7 +2423,7 @@ impl IFaxFolders_Vtbl {
             let this = (*this).get_impl();
             match IFaxFolders_Impl::OutgoingArchive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingarchive, core::mem::transmute(ok__));
+                    pfaxoutgoingarchive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2456,7 +2456,7 @@ impl IFaxInboundRouting_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRouting_Impl::GetExtensions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxinboundroutingextensions, core::mem::transmute(ok__));
+                    pfaxinboundroutingextensions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2467,7 +2467,7 @@ impl IFaxInboundRouting_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRouting_Impl::GetMethods(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxinboundroutingmethods, core::mem::transmute(ok__));
+                    pfaxinboundroutingmethods.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2507,7 +2507,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::FriendlyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrfriendlyname, core::mem::transmute(ok__));
+                    pbstrfriendlyname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2518,7 +2518,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::ImageName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrimagename, core::mem::transmute(ok__));
+                    pbstrimagename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2529,7 +2529,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::UniqueName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstruniquename, core::mem::transmute(ok__));
+                    pbstruniquename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2540,7 +2540,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::MajorVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmajorversion, core::mem::transmute(ok__));
+                    plmajorversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2551,7 +2551,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::MinorVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plminorversion, core::mem::transmute(ok__));
+                    plminorversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2562,7 +2562,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::MajorBuild(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmajorbuild, core::mem::transmute(ok__));
+                    plmajorbuild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2573,7 +2573,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::MinorBuild(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plminorbuild, core::mem::transmute(ok__));
+                    plminorbuild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2584,7 +2584,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::Debug(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbdebug, core::mem::transmute(ok__));
+                    pbdebug.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2595,7 +2595,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2606,7 +2606,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::InitErrorCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pliniterrorcode, core::mem::transmute(ok__));
+                    pliniterrorcode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2617,7 +2617,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtension_Impl::Methods(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvmethods, core::mem::transmute(ok__));
+                    pvmethods.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2658,7 +2658,7 @@ impl IFaxInboundRoutingExtensions_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtensions_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2669,7 +2669,7 @@ impl IFaxInboundRoutingExtensions_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtensions_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxinboundroutingextension, core::mem::transmute(ok__));
+                    pfaxinboundroutingextension.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2680,7 +2680,7 @@ impl IFaxInboundRoutingExtensions_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingExtensions_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2719,7 +2719,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethod_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2730,7 +2730,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethod_Impl::GUID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrguid, core::mem::transmute(ok__));
+                    pbstrguid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2741,7 +2741,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethod_Impl::FunctionName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrfunctionname, core::mem::transmute(ok__));
+                    pbstrfunctionname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2752,7 +2752,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethod_Impl::ExtensionFriendlyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrextensionfriendlyname, core::mem::transmute(ok__));
+                    pbstrextensionfriendlyname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2763,7 +2763,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethod_Impl::ExtensionImageName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrextensionimagename, core::mem::transmute(ok__));
+                    pbstrextensionimagename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2774,7 +2774,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethod_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plpriority, core::mem::transmute(ok__));
+                    plpriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2828,7 +2828,7 @@ impl IFaxInboundRoutingMethods_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethods_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2839,7 +2839,7 @@ impl IFaxInboundRoutingMethods_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethods_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxinboundroutingmethod, core::mem::transmute(ok__));
+                    pfaxinboundroutingmethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2850,7 +2850,7 @@ impl IFaxInboundRoutingMethods_Vtbl {
             let this = (*this).get_impl();
             match IFaxInboundRoutingMethods_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2898,7 +2898,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::UseArchive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbusearchive, core::mem::transmute(ok__));
+                    pbusearchive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2914,7 +2914,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::ArchiveFolder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrarchivefolder, core::mem::transmute(ok__));
+                    pbstrarchivefolder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2930,7 +2930,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::SizeQuotaWarning(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbsizequotawarning, core::mem::transmute(ok__));
+                    pbsizequotawarning.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2946,7 +2946,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::HighQuotaWaterMark(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plhighquotawatermark, core::mem::transmute(ok__));
+                    plhighquotawatermark.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2962,7 +2962,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::LowQuotaWaterMark(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pllowquotawatermark, core::mem::transmute(ok__));
+                    pllowquotawatermark.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2978,7 +2978,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::AgeLimit(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plagelimit, core::mem::transmute(ok__));
+                    plagelimit.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2994,7 +2994,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::SizeLow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsizelow, core::mem::transmute(ok__));
+                    plsizelow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3005,7 +3005,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::SizeHigh(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsizehigh, core::mem::transmute(ok__));
+                    plsizehigh.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3026,7 +3026,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::GetMessages(this, core::mem::transmute_copy(&lprefetchsize)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingmessageiterator, core::mem::transmute(ok__));
+                    pfaxincomingmessageiterator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3037,7 +3037,7 @@ impl IFaxIncomingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingmessage, core::mem::transmute(ok__));
+                    pfaxincomingmessage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3101,7 +3101,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsize, core::mem::transmute(ok__));
+                    plsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3112,7 +3112,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrid, core::mem::transmute(ok__));
+                    pbstrid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3123,7 +3123,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::CurrentPage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcurrentpage, core::mem::transmute(ok__));
+                    plcurrentpage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3134,7 +3134,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::DeviceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pldeviceid, core::mem::transmute(ok__));
+                    pldeviceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3145,7 +3145,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3156,7 +3156,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::ExtendedStatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pextendedstatuscode, core::mem::transmute(ok__));
+                    pextendedstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3167,7 +3167,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::ExtendedStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrextendedstatus, core::mem::transmute(ok__));
+                    pbstrextendedstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3178,7 +3178,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::AvailableOperations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pavailableoperations, core::mem::transmute(ok__));
+                    pavailableoperations.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3189,7 +3189,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::Retries(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plretries, core::mem::transmute(ok__));
+                    plretries.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3200,7 +3200,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::TransmissionStart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatetransmissionstart, core::mem::transmute(ok__));
+                    pdatetransmissionstart.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3211,7 +3211,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::TransmissionEnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatetransmissionend, core::mem::transmute(ok__));
+                    pdatetransmissionend.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3222,7 +3222,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::CSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcsid, core::mem::transmute(ok__));
+                    pbstrcsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3233,7 +3233,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::TSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrtsid, core::mem::transmute(ok__));
+                    pbstrtsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3244,7 +3244,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::CallerId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcallerid, core::mem::transmute(ok__));
+                    pbstrcallerid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3255,7 +3255,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::RoutingInformation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrroutinginformation, core::mem::transmute(ok__));
+                    pbstrroutinginformation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3266,7 +3266,7 @@ impl IFaxIncomingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJob_Impl::JobType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pjobtype, core::mem::transmute(ok__));
+                    pjobtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3330,7 +3330,7 @@ impl IFaxIncomingJobs_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJobs_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3341,7 +3341,7 @@ impl IFaxIncomingJobs_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJobs_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingjob, core::mem::transmute(ok__));
+                    pfaxincomingjob.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3352,7 +3352,7 @@ impl IFaxIncomingJobs_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingJobs_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3395,7 +3395,7 @@ impl IFaxIncomingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrid, core::mem::transmute(ok__));
+                    pbstrid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3406,7 +3406,7 @@ impl IFaxIncomingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::Pages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plpages, core::mem::transmute(ok__));
+                    plpages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3417,7 +3417,7 @@ impl IFaxIncomingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsize, core::mem::transmute(ok__));
+                    plsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3428,7 +3428,7 @@ impl IFaxIncomingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::DeviceName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdevicename, core::mem::transmute(ok__));
+                    pbstrdevicename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3439,7 +3439,7 @@ impl IFaxIncomingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::Retries(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plretries, core::mem::transmute(ok__));
+                    plretries.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3450,7 +3450,7 @@ impl IFaxIncomingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::TransmissionStart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatetransmissionstart, core::mem::transmute(ok__));
+                    pdatetransmissionstart.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3461,7 +3461,7 @@ impl IFaxIncomingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::TransmissionEnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatetransmissionend, core::mem::transmute(ok__));
+                    pdatetransmissionend.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3472,7 +3472,7 @@ impl IFaxIncomingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::CSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcsid, core::mem::transmute(ok__));
+                    pbstrcsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3483,7 +3483,7 @@ impl IFaxIncomingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::TSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrtsid, core::mem::transmute(ok__));
+                    pbstrtsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3494,7 +3494,7 @@ impl IFaxIncomingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::CallerId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcallerid, core::mem::transmute(ok__));
+                    pbstrcallerid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3505,7 +3505,7 @@ impl IFaxIncomingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage_Impl::RoutingInformation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrroutinginformation, core::mem::transmute(ok__));
+                    pbstrroutinginformation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3571,7 +3571,7 @@ impl IFaxIncomingMessage2_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage2_Impl::Subject(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsubject, core::mem::transmute(ok__));
+                    pbstrsubject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3587,7 +3587,7 @@ impl IFaxIncomingMessage2_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage2_Impl::SenderName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsendername, core::mem::transmute(ok__));
+                    pbstrsendername.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3603,7 +3603,7 @@ impl IFaxIncomingMessage2_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage2_Impl::SenderFaxNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsenderfaxnumber, core::mem::transmute(ok__));
+                    pbstrsenderfaxnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3619,7 +3619,7 @@ impl IFaxIncomingMessage2_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage2_Impl::HasCoverPage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbhascoverpage, core::mem::transmute(ok__));
+                    pbhascoverpage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3635,7 +3635,7 @@ impl IFaxIncomingMessage2_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage2_Impl::Recipients(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrrecipients, core::mem::transmute(ok__));
+                    pbstrrecipients.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3651,7 +3651,7 @@ impl IFaxIncomingMessage2_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage2_Impl::WasReAssigned(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbwasreassigned, core::mem::transmute(ok__));
+                    pbwasreassigned.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3662,7 +3662,7 @@ impl IFaxIncomingMessage2_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessage2_Impl::Read(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbread, core::mem::transmute(ok__));
+                    pbread.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3731,7 +3731,7 @@ impl IFaxIncomingMessageIterator_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessageIterator_Impl::Message(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingmessage, core::mem::transmute(ok__));
+                    pfaxincomingmessage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3742,7 +3742,7 @@ impl IFaxIncomingMessageIterator_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessageIterator_Impl::PrefetchSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plprefetchsize, core::mem::transmute(ok__));
+                    plprefetchsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3758,7 +3758,7 @@ impl IFaxIncomingMessageIterator_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingMessageIterator_Impl::AtEOF(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbeof, core::mem::transmute(ok__));
+                    pbeof.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3807,7 +3807,7 @@ impl IFaxIncomingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingQueue_Impl::Blocked(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbblocked, core::mem::transmute(ok__));
+                    pbblocked.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3833,7 +3833,7 @@ impl IFaxIncomingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingQueue_Impl::GetJobs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingjobs, core::mem::transmute(ok__));
+                    pfaxincomingjobs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3844,7 +3844,7 @@ impl IFaxIncomingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxIncomingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxincomingjob, core::mem::transmute(ok__));
+                    pfaxincomingjob.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3894,7 +3894,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3905,7 +3905,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::Pages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plpages, core::mem::transmute(ok__));
+                    plpages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3916,7 +3916,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsize, core::mem::transmute(ok__));
+                    plsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3927,7 +3927,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::CurrentPage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcurrentpage, core::mem::transmute(ok__));
+                    plcurrentpage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3938,7 +3938,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::DeviceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pldeviceid, core::mem::transmute(ok__));
+                    pldeviceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3949,7 +3949,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::CSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcsid, core::mem::transmute(ok__));
+                    pbstrcsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3960,7 +3960,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::TSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrtsid, core::mem::transmute(ok__));
+                    pbstrtsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3971,7 +3971,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::ExtendedStatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pextendedstatuscode, core::mem::transmute(ok__));
+                    pextendedstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3982,7 +3982,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::ExtendedStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrextendedstatus, core::mem::transmute(ok__));
+                    pbstrextendedstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3993,7 +3993,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::AvailableOperations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pavailableoperations, core::mem::transmute(ok__));
+                    pavailableoperations.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4004,7 +4004,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::Retries(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plretries, core::mem::transmute(ok__));
+                    plretries.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4015,7 +4015,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::JobType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pjobtype, core::mem::transmute(ok__));
+                    pjobtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4026,7 +4026,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::ScheduledTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatescheduledtime, core::mem::transmute(ok__));
+                    pdatescheduledtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4037,7 +4037,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::TransmissionStart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatetransmissionstart, core::mem::transmute(ok__));
+                    pdatetransmissionstart.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4048,7 +4048,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::TransmissionEnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatetransmissionend, core::mem::transmute(ok__));
+                    pdatetransmissionend.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4059,7 +4059,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::CallerId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcallerid, core::mem::transmute(ok__));
+                    pbstrcallerid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4070,7 +4070,7 @@ impl IFaxJobStatus_Vtbl {
             let this = (*this).get_impl();
             match IFaxJobStatus_Impl::RoutingInformation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrroutinginformation, core::mem::transmute(ok__));
+                    pbstrroutinginformation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4116,7 +4116,7 @@ impl IFaxLoggingOptions_Vtbl {
             let this = (*this).get_impl();
             match IFaxLoggingOptions_Impl::EventLogging(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxeventlogging, core::mem::transmute(ok__));
+                    pfaxeventlogging.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4127,7 +4127,7 @@ impl IFaxLoggingOptions_Vtbl {
             let this = (*this).get_impl();
             match IFaxLoggingOptions_Impl::ActivityLogging(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxactivitylogging, core::mem::transmute(ok__));
+                    pfaxactivitylogging.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4158,7 +4158,7 @@ impl IFaxOutboundRouting_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRouting_Impl::GetGroups(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutboundroutinggroups, core::mem::transmute(ok__));
+                    pfaxoutboundroutinggroups.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4169,7 +4169,7 @@ impl IFaxOutboundRouting_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRouting_Impl::GetRules(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutboundroutingrules, core::mem::transmute(ok__));
+                    pfaxoutboundroutingrules.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4201,7 +4201,7 @@ impl IFaxOutboundRoutingGroup_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingGroup_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4212,7 +4212,7 @@ impl IFaxOutboundRoutingGroup_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingGroup_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4223,7 +4223,7 @@ impl IFaxOutboundRoutingGroup_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingGroup_Impl::DeviceIds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxdeviceids, core::mem::transmute(ok__));
+                    pfaxdeviceids.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4258,7 +4258,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingGroups_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4269,7 +4269,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingGroups_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutboundroutinggroup, core::mem::transmute(ok__));
+                    pfaxoutboundroutinggroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4280,7 +4280,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingGroups_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4291,7 +4291,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingGroups_Impl::Add(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutboundroutinggroup, core::mem::transmute(ok__));
+                    pfaxoutboundroutinggroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4339,7 +4339,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRule_Impl::CountryCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcountrycode, core::mem::transmute(ok__));
+                    plcountrycode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4350,7 +4350,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRule_Impl::AreaCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plareacode, core::mem::transmute(ok__));
+                    plareacode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4361,7 +4361,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRule_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4372,7 +4372,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRule_Impl::UseDevice(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbusedevice, core::mem::transmute(ok__));
+                    pbusedevice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4388,7 +4388,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRule_Impl::DeviceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pldeviceid, core::mem::transmute(ok__));
+                    pldeviceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4404,7 +4404,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRule_Impl::GroupName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrgroupname, core::mem::transmute(ok__));
+                    pbstrgroupname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4464,7 +4464,7 @@ impl IFaxOutboundRoutingRules_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRules_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4475,7 +4475,7 @@ impl IFaxOutboundRoutingRules_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRules_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutboundroutingrule, core::mem::transmute(ok__));
+                    pfaxoutboundroutingrule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4486,7 +4486,7 @@ impl IFaxOutboundRoutingRules_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRules_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4497,7 +4497,7 @@ impl IFaxOutboundRoutingRules_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRules_Impl::ItemByCountryAndArea(this, core::mem::transmute_copy(&lcountrycode), core::mem::transmute_copy(&lareacode)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutboundroutingrule, core::mem::transmute(ok__));
+                    pfaxoutboundroutingrule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4518,7 +4518,7 @@ impl IFaxOutboundRoutingRules_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutboundRoutingRules_Impl::Add(this, core::mem::transmute_copy(&lcountrycode), core::mem::transmute_copy(&lareacode), core::mem::transmute_copy(&busedevice), core::mem::transmute(&bstrgroupname), core::mem::transmute_copy(&ldeviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutboundroutingrule, core::mem::transmute(ok__));
+                    pfaxoutboundroutingrule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4570,7 +4570,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::UseArchive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbusearchive, core::mem::transmute(ok__));
+                    pbusearchive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4586,7 +4586,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::ArchiveFolder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrarchivefolder, core::mem::transmute(ok__));
+                    pbstrarchivefolder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4602,7 +4602,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::SizeQuotaWarning(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbsizequotawarning, core::mem::transmute(ok__));
+                    pbsizequotawarning.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4618,7 +4618,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::HighQuotaWaterMark(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plhighquotawatermark, core::mem::transmute(ok__));
+                    plhighquotawatermark.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4634,7 +4634,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::LowQuotaWaterMark(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pllowquotawatermark, core::mem::transmute(ok__));
+                    pllowquotawatermark.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4650,7 +4650,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::AgeLimit(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plagelimit, core::mem::transmute(ok__));
+                    plagelimit.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4666,7 +4666,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::SizeLow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsizelow, core::mem::transmute(ok__));
+                    plsizelow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4677,7 +4677,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::SizeHigh(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsizehigh, core::mem::transmute(ok__));
+                    plsizehigh.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4698,7 +4698,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::GetMessages(this, core::mem::transmute_copy(&lprefetchsize)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingmessageiterator, core::mem::transmute(ok__));
+                    pfaxoutgoingmessageiterator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4709,7 +4709,7 @@ impl IFaxOutgoingArchive_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingArchive_Impl::GetMessage(this, core::mem::transmute(&bstrmessageid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingmessage, core::mem::transmute(ok__));
+                    pfaxoutgoingmessage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4785,7 +4785,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::Subject(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsubject, core::mem::transmute(ok__));
+                    pbstrsubject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4796,7 +4796,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::DocumentName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdocumentname, core::mem::transmute(ok__));
+                    pbstrdocumentname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4807,7 +4807,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::Pages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plpages, core::mem::transmute(ok__));
+                    plpages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4818,7 +4818,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsize, core::mem::transmute(ok__));
+                    plsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4829,7 +4829,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::SubmissionId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsubmissionid, core::mem::transmute(ok__));
+                    pbstrsubmissionid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4840,7 +4840,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrid, core::mem::transmute(ok__));
+                    pbstrid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4851,7 +4851,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::OriginalScheduledTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdateoriginalscheduledtime, core::mem::transmute(ok__));
+                    pdateoriginalscheduledtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4862,7 +4862,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::SubmissionTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatesubmissiontime, core::mem::transmute(ok__));
+                    pdatesubmissiontime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4873,7 +4873,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::ReceiptType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(preceipttype, core::mem::transmute(ok__));
+                    preceipttype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4884,7 +4884,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppriority, core::mem::transmute(ok__));
+                    ppriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4895,7 +4895,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::Sender(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxsender, core::mem::transmute(ok__));
+                    ppfaxsender.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4906,7 +4906,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::Recipient(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxrecipient, core::mem::transmute(ok__));
+                    ppfaxrecipient.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4917,7 +4917,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::CurrentPage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcurrentpage, core::mem::transmute(ok__));
+                    plcurrentpage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4928,7 +4928,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::DeviceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pldeviceid, core::mem::transmute(ok__));
+                    pldeviceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4939,7 +4939,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4950,7 +4950,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::ExtendedStatusCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pextendedstatuscode, core::mem::transmute(ok__));
+                    pextendedstatuscode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4961,7 +4961,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::ExtendedStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrextendedstatus, core::mem::transmute(ok__));
+                    pbstrextendedstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4972,7 +4972,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::AvailableOperations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pavailableoperations, core::mem::transmute(ok__));
+                    pavailableoperations.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4983,7 +4983,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::Retries(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plretries, core::mem::transmute(ok__));
+                    plretries.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4994,7 +4994,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::ScheduledTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatescheduledtime, core::mem::transmute(ok__));
+                    pdatescheduledtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5005,7 +5005,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::TransmissionStart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatetransmissionstart, core::mem::transmute(ok__));
+                    pdatetransmissionstart.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5016,7 +5016,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::TransmissionEnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatetransmissionend, core::mem::transmute(ok__));
+                    pdatetransmissionend.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5027,7 +5027,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::CSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcsid, core::mem::transmute(ok__));
+                    pbstrcsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5038,7 +5038,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::TSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrtsid, core::mem::transmute(ok__));
+                    pbstrtsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5049,7 +5049,7 @@ impl IFaxOutgoingJob_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob_Impl::GroupBroadcastReceipts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbgroupbroadcastreceipts, core::mem::transmute(ok__));
+                    pbgroupbroadcastreceipts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5140,7 +5140,7 @@ impl IFaxOutgoingJob2_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob2_Impl::HasCoverPage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbhascoverpage, core::mem::transmute(ok__));
+                    pbhascoverpage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5151,7 +5151,7 @@ impl IFaxOutgoingJob2_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob2_Impl::ReceiptAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrreceiptaddress, core::mem::transmute(ok__));
+                    pbstrreceiptaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5162,7 +5162,7 @@ impl IFaxOutgoingJob2_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJob2_Impl::ScheduleType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pscheduletype, core::mem::transmute(ok__));
+                    pscheduletype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5195,7 +5195,7 @@ impl IFaxOutgoingJobs_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJobs_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5206,7 +5206,7 @@ impl IFaxOutgoingJobs_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJobs_Impl::get_Item(this, core::mem::transmute(&vindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingjob, core::mem::transmute(ok__));
+                    pfaxoutgoingjob.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5217,7 +5217,7 @@ impl IFaxOutgoingJobs_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingJobs_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5266,7 +5266,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::SubmissionId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsubmissionid, core::mem::transmute(ok__));
+                    pbstrsubmissionid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5277,7 +5277,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrid, core::mem::transmute(ok__));
+                    pbstrid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5288,7 +5288,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::Subject(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsubject, core::mem::transmute(ok__));
+                    pbstrsubject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5299,7 +5299,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::DocumentName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdocumentname, core::mem::transmute(ok__));
+                    pbstrdocumentname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5310,7 +5310,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::Retries(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plretries, core::mem::transmute(ok__));
+                    plretries.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5321,7 +5321,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::Pages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plpages, core::mem::transmute(ok__));
+                    plpages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5332,7 +5332,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsize, core::mem::transmute(ok__));
+                    plsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5343,7 +5343,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::OriginalScheduledTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdateoriginalscheduledtime, core::mem::transmute(ok__));
+                    pdateoriginalscheduledtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5354,7 +5354,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::SubmissionTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatesubmissiontime, core::mem::transmute(ok__));
+                    pdatesubmissiontime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5365,7 +5365,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppriority, core::mem::transmute(ok__));
+                    ppriority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5376,7 +5376,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::Sender(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxsender, core::mem::transmute(ok__));
+                    ppfaxsender.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5387,7 +5387,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::Recipient(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxrecipient, core::mem::transmute(ok__));
+                    ppfaxrecipient.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5398,7 +5398,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::DeviceName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdevicename, core::mem::transmute(ok__));
+                    pbstrdevicename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5409,7 +5409,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::TransmissionStart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatetransmissionstart, core::mem::transmute(ok__));
+                    pdatetransmissionstart.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5420,7 +5420,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::TransmissionEnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatetransmissionend, core::mem::transmute(ok__));
+                    pdatetransmissionend.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5431,7 +5431,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::CSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcsid, core::mem::transmute(ok__));
+                    pbstrcsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5442,7 +5442,7 @@ impl IFaxOutgoingMessage_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage_Impl::TSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrtsid, core::mem::transmute(ok__));
+                    pbstrtsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5505,7 +5505,7 @@ impl IFaxOutgoingMessage2_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage2_Impl::HasCoverPage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbhascoverpage, core::mem::transmute(ok__));
+                    pbhascoverpage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5516,7 +5516,7 @@ impl IFaxOutgoingMessage2_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage2_Impl::ReceiptType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(preceipttype, core::mem::transmute(ok__));
+                    preceipttype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5527,7 +5527,7 @@ impl IFaxOutgoingMessage2_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage2_Impl::ReceiptAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrreceiptaddress, core::mem::transmute(ok__));
+                    pbstrreceiptaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5538,7 +5538,7 @@ impl IFaxOutgoingMessage2_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessage2_Impl::Read(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbread, core::mem::transmute(ok__));
+                    pbread.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5593,7 +5593,7 @@ impl IFaxOutgoingMessageIterator_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessageIterator_Impl::Message(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingmessage, core::mem::transmute(ok__));
+                    pfaxoutgoingmessage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5604,7 +5604,7 @@ impl IFaxOutgoingMessageIterator_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessageIterator_Impl::AtEOF(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbeof, core::mem::transmute(ok__));
+                    pbeof.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5615,7 +5615,7 @@ impl IFaxOutgoingMessageIterator_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingMessageIterator_Impl::PrefetchSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plprefetchsize, core::mem::transmute(ok__));
+                    plprefetchsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5687,7 +5687,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::Blocked(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbblocked, core::mem::transmute(ok__));
+                    pbblocked.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5703,7 +5703,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::Paused(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbpaused, core::mem::transmute(ok__));
+                    pbpaused.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5719,7 +5719,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::AllowPersonalCoverPages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pballowpersonalcoverpages, core::mem::transmute(ok__));
+                    pballowpersonalcoverpages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5735,7 +5735,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::UseDeviceTSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbusedevicetsid, core::mem::transmute(ok__));
+                    pbusedevicetsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5751,7 +5751,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::Retries(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plretries, core::mem::transmute(ok__));
+                    plretries.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5767,7 +5767,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::RetryDelay(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plretrydelay, core::mem::transmute(ok__));
+                    plretrydelay.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5783,7 +5783,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::DiscountRateStart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatediscountratestart, core::mem::transmute(ok__));
+                    pdatediscountratestart.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5799,7 +5799,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::DiscountRateEnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdatediscountrateend, core::mem::transmute(ok__));
+                    pdatediscountrateend.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5815,7 +5815,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::AgeLimit(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plagelimit, core::mem::transmute(ok__));
+                    plagelimit.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5831,7 +5831,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::Branding(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbbranding, core::mem::transmute(ok__));
+                    pbbranding.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5857,7 +5857,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::GetJobs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingjobs, core::mem::transmute(ok__));
+                    pfaxoutgoingjobs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5868,7 +5868,7 @@ impl IFaxOutgoingQueue_Vtbl {
             let this = (*this).get_impl();
             match IFaxOutgoingQueue_Impl::GetJob(this, core::mem::transmute(&bstrjobid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxoutgoingjob, core::mem::transmute(ok__));
+                    pfaxoutgoingjob.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5937,7 +5937,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::AuthenticationType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptype, core::mem::transmute(ok__));
+                    ptype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5953,7 +5953,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::SMTPServer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsmtpserver, core::mem::transmute(ok__));
+                    pbstrsmtpserver.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5969,7 +5969,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::SMTPPort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plsmtpport, core::mem::transmute(ok__));
+                    plsmtpport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5985,7 +5985,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::SMTPSender(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsmtpsender, core::mem::transmute(ok__));
+                    pbstrsmtpsender.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6001,7 +6001,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::SMTPUser(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsmtpuser, core::mem::transmute(ok__));
+                    pbstrsmtpuser.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6017,7 +6017,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::AllowedReceipts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pallowedreceipts, core::mem::transmute(ok__));
+                    pallowedreceipts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6033,7 +6033,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::SMTPPassword(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrsmtppassword, core::mem::transmute(ok__));
+                    pbstrsmtppassword.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6059,7 +6059,7 @@ impl IFaxReceiptOptions_Vtbl {
             let this = (*this).get_impl();
             match IFaxReceiptOptions_Impl::UseForInboundRouting(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbuseforinboundrouting, core::mem::transmute(ok__));
+                    pbuseforinboundrouting.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6113,7 +6113,7 @@ impl IFaxRecipient_Vtbl {
             let this = (*this).get_impl();
             match IFaxRecipient_Impl::FaxNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrfaxnumber, core::mem::transmute(ok__));
+                    pbstrfaxnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6129,7 +6129,7 @@ impl IFaxRecipient_Vtbl {
             let this = (*this).get_impl();
             match IFaxRecipient_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6170,7 +6170,7 @@ impl IFaxRecipients_Vtbl {
             let this = (*this).get_impl();
             match IFaxRecipients_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6181,7 +6181,7 @@ impl IFaxRecipients_Vtbl {
             let this = (*this).get_impl();
             match IFaxRecipients_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxrecipient, core::mem::transmute(ok__));
+                    ppfaxrecipient.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6192,7 +6192,7 @@ impl IFaxRecipients_Vtbl {
             let this = (*this).get_impl();
             match IFaxRecipients_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6203,7 +6203,7 @@ impl IFaxRecipients_Vtbl {
             let this = (*this).get_impl();
             match IFaxRecipients_Impl::Add(this, core::mem::transmute(&bstrfaxnumber), core::mem::transmute(&bstrrecipientname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxrecipient, core::mem::transmute(ok__));
+                    ppfaxrecipient.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6247,7 +6247,7 @@ impl IFaxSecurity_Vtbl {
             let this = (*this).get_impl();
             match IFaxSecurity_Impl::Descriptor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvdescriptor, core::mem::transmute(ok__));
+                    pvdescriptor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6263,7 +6263,7 @@ impl IFaxSecurity_Vtbl {
             let this = (*this).get_impl();
             match IFaxSecurity_Impl::GrantedRights(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pgrantedrights, core::mem::transmute(ok__));
+                    pgrantedrights.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6284,7 +6284,7 @@ impl IFaxSecurity_Vtbl {
             let this = (*this).get_impl();
             match IFaxSecurity_Impl::InformationType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plinformationtype, core::mem::transmute(ok__));
+                    plinformationtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6330,7 +6330,7 @@ impl IFaxSecurity2_Vtbl {
             let this = (*this).get_impl();
             match IFaxSecurity2_Impl::Descriptor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvdescriptor, core::mem::transmute(ok__));
+                    pvdescriptor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6346,7 +6346,7 @@ impl IFaxSecurity2_Vtbl {
             let this = (*this).get_impl();
             match IFaxSecurity2_Impl::GrantedRights(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pgrantedrights, core::mem::transmute(ok__));
+                    pgrantedrights.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6367,7 +6367,7 @@ impl IFaxSecurity2_Vtbl {
             let this = (*this).get_impl();
             match IFaxSecurity2_Impl::InformationType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plinformationtype, core::mem::transmute(ok__));
+                    plinformationtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6440,7 +6440,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::BillingCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrbillingcode, core::mem::transmute(ok__));
+                    pbstrbillingcode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6456,7 +6456,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::City(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcity, core::mem::transmute(ok__));
+                    pbstrcity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6472,7 +6472,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::Company(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcompany, core::mem::transmute(ok__));
+                    pbstrcompany.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6488,7 +6488,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::Country(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcountry, core::mem::transmute(ok__));
+                    pbstrcountry.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6504,7 +6504,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::Department(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdepartment, core::mem::transmute(ok__));
+                    pbstrdepartment.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6520,7 +6520,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::Email(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstremail, core::mem::transmute(ok__));
+                    pbstremail.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6536,7 +6536,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::FaxNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrfaxnumber, core::mem::transmute(ok__));
+                    pbstrfaxnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6552,7 +6552,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::HomePhone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrhomephone, core::mem::transmute(ok__));
+                    pbstrhomephone.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6568,7 +6568,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6584,7 +6584,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::TSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrtsid, core::mem::transmute(ok__));
+                    pbstrtsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6600,7 +6600,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::OfficePhone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrofficephone, core::mem::transmute(ok__));
+                    pbstrofficephone.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6616,7 +6616,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::OfficeLocation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrofficelocation, core::mem::transmute(ok__));
+                    pbstrofficelocation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6632,7 +6632,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstate, core::mem::transmute(ok__));
+                    pbstrstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6648,7 +6648,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::StreetAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstreetaddress, core::mem::transmute(ok__));
+                    pbstrstreetaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6664,7 +6664,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::Title(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrtitle, core::mem::transmute(ok__));
+                    pbstrtitle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6680,7 +6680,7 @@ impl IFaxSender_Vtbl {
             let this = (*this).get_impl();
             match IFaxSender_Impl::ZipCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrzipcode, core::mem::transmute(ok__));
+                    pbstrzipcode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6787,7 +6787,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::ServerName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrservername, core::mem::transmute(ok__));
+                    pbstrservername.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6798,7 +6798,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::GetDeviceProviders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxdeviceproviders, core::mem::transmute(ok__));
+                    ppfaxdeviceproviders.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6809,7 +6809,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::GetDevices(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxdevices, core::mem::transmute(ok__));
+                    ppfaxdevices.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6820,7 +6820,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::InboundRouting(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxinboundrouting, core::mem::transmute(ok__));
+                    ppfaxinboundrouting.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6831,7 +6831,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::Folders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaxfolders, core::mem::transmute(ok__));
+                    pfaxfolders.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6842,7 +6842,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::LoggingOptions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxloggingoptions, core::mem::transmute(ok__));
+                    ppfaxloggingoptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6853,7 +6853,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::MajorVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmajorversion, core::mem::transmute(ok__));
+                    plmajorversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6864,7 +6864,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::MinorVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plminorversion, core::mem::transmute(ok__));
+                    plminorversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6875,7 +6875,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::MajorBuild(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plmajorbuild, core::mem::transmute(ok__));
+                    plmajorbuild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6886,7 +6886,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::MinorBuild(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plminorbuild, core::mem::transmute(ok__));
+                    plminorbuild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6897,7 +6897,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::Debug(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbdebug, core::mem::transmute(ok__));
+                    pbdebug.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6908,7 +6908,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::Activity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxactivity, core::mem::transmute(ok__));
+                    ppfaxactivity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6919,7 +6919,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::OutboundRouting(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxoutboundrouting, core::mem::transmute(ok__));
+                    ppfaxoutboundrouting.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6930,7 +6930,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::ReceiptOptions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxreceiptoptions, core::mem::transmute(ok__));
+                    ppfaxreceiptoptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6941,7 +6941,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::Security(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxsecurity, core::mem::transmute(ok__));
+                    ppfaxsecurity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6957,7 +6957,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::GetExtensionProperty(this, core::mem::transmute(&bstrguid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvproperty, core::mem::transmute(ok__));
+                    pvproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6998,7 +6998,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::RegisteredEvents(this) {
                 Ok(ok__) => {
-                    core::ptr::write(peventtypes, core::mem::transmute(ok__));
+                    peventtypes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7009,7 +7009,7 @@ impl IFaxServer_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer_Impl::APIVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(papiversion, core::mem::transmute(ok__));
+                    papiversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7066,7 +7066,7 @@ impl IFaxServer2_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer2_Impl::Configuration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxconfiguration, core::mem::transmute(ok__));
+                    ppfaxconfiguration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7077,7 +7077,7 @@ impl IFaxServer2_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer2_Impl::CurrentAccount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcurrentaccount, core::mem::transmute(ok__));
+                    ppcurrentaccount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7088,7 +7088,7 @@ impl IFaxServer2_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer2_Impl::FaxAccountSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxaccountset, core::mem::transmute(ok__));
+                    ppfaxaccountset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7099,7 +7099,7 @@ impl IFaxServer2_Vtbl {
             let this = (*this).get_impl();
             match IFaxServer2_Impl::Security2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfaxsecurity2, core::mem::transmute(ok__));
+                    ppfaxsecurity2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7388,7 +7388,7 @@ impl IStiDevice_Vtbl {
             let this = (*this).get_impl();
             match IStiDevice_Impl::GetLastError(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwlastdeviceerror, core::mem::transmute(ok__));
+                    pdwlastdeviceerror.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7596,7 +7596,7 @@ impl IStiUSD_Vtbl {
             let this = (*this).get_impl();
             match IStiUSD_Impl::GetCapabilities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdevcaps, core::mem::transmute(ok__));
+                    pdevcaps.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7627,7 +7627,7 @@ impl IStiUSD_Vtbl {
             let this = (*this).get_impl();
             match IStiUSD_Impl::GetLastError(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwlastdeviceerror, core::mem::transmute(ok__));
+                    pdwlastdeviceerror.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7777,7 +7777,7 @@ impl IStillImageW_Vtbl {
             let this = (*this).get_impl();
             match IStillImageW_Impl::GetHwNotificationState(this, core::mem::transmute(&pwszdevicename)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbcurrentstate, core::mem::transmute(ok__));
+                    pbcurrentstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

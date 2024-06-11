@@ -265,7 +265,7 @@ impl INetCfgBindingPath_Vtbl {
             let this = (*this).get_impl();
             match INetCfgBindingPath_Impl::GetDepth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcinterfaces, core::mem::transmute(ok__));
+                    pcinterfaces.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -418,7 +418,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match INetCfgComponent_Impl::GetCharacteristics(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcharacteristics, core::mem::transmute(ok__));
+                    pdwcharacteristics.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -449,7 +449,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match INetCfgComponent_Impl::GetDeviceStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulstatus, core::mem::transmute(ok__));
+                    pulstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -636,7 +636,7 @@ impl INetCfgComponentNotifyGlobal_Vtbl {
             let this = (*this).get_impl();
             match INetCfgComponentNotifyGlobal_Impl::GetSupportedNotifications(this) {
                 Ok(ok__) => {
-                    core::ptr::write(dwnotifications, core::mem::transmute(ok__));
+                    dwnotifications.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -929,7 +929,7 @@ impl INetLanConnectionUiInfo_Vtbl {
             let this = (*this).get_impl();
             match INetLanConnectionUiInfo_Impl::GetDeviceGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pguid, core::mem::transmute(ok__));
+                    pguid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -978,7 +978,7 @@ impl IProvisioningDomain_Vtbl {
             let this = (*this).get_impl();
             match IProvisioningDomain_Impl::Query(this, core::mem::transmute(&pszwdomain), core::mem::transmute(&pszwlanguage), core::mem::transmute(&pszwxpathquery)) {
                 Ok(ok__) => {
-                    core::ptr::write(nodes, core::mem::transmute(ok__));
+                    nodes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1001,7 +1001,7 @@ impl IProvisioningProfileWireless_Vtbl {
             let this = (*this).get_impl();
             match IProvisioningProfileWireless_Impl::CreateProfile(this, core::mem::transmute(&bstrxmlwirelessconfigprofile), core::mem::transmute(&bstrxmlconnectionconfigprofile), core::mem::transmute_copy(&padapterinstanceguid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pulstatus, core::mem::transmute(ok__));
+                    pulstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

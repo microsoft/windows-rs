@@ -98,7 +98,7 @@ impl IActiveIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIME_Impl::EnumRegisterWord(this, core::mem::transmute(&szreading), core::mem::transmute_copy(&dwstyle), core::mem::transmute(&szregister), core::mem::transmute_copy(&pdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -109,7 +109,7 @@ impl IActiveIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIME_Impl::GetCodePageA(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ucodepage, core::mem::transmute(ok__));
+                    ucodepage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -120,7 +120,7 @@ impl IActiveIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIME_Impl::GetLangId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plid, core::mem::transmute(ok__));
+                    plid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -258,7 +258,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::AssociateContext(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&hime)) {
                 Ok(ok__) => {
-                    core::ptr::write(phprev, core::mem::transmute(ok__));
+                    phprev.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -279,7 +279,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::CreateContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phimc, core::mem::transmute(ok__));
+                    phimc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -295,7 +295,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::EnumRegisterWordA(this, core::mem::transmute_copy(&hkl), core::mem::transmute(&szreading), core::mem::transmute_copy(&dwstyle), core::mem::transmute(&szregister), core::mem::transmute_copy(&pdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(penum, core::mem::transmute(ok__));
+                    penum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -306,7 +306,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::EnumRegisterWordW(this, core::mem::transmute_copy(&hkl), core::mem::transmute(&szreading), core::mem::transmute_copy(&dwstyle), core::mem::transmute(&szregister), core::mem::transmute_copy(&pdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(penum, core::mem::transmute(ok__));
+                    penum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -377,7 +377,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::GetContext(this, core::mem::transmute_copy(&hwnd)) {
                 Ok(ok__) => {
-                    core::ptr::write(phimc, core::mem::transmute(ok__));
+                    phimc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -403,7 +403,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::GetDefaultIMEWnd(this, core::mem::transmute_copy(&hwnd)) {
                 Ok(ok__) => {
-                    core::ptr::write(phdefwnd, core::mem::transmute(ok__));
+                    phdefwnd.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -449,7 +449,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::GetProperty(this, core::mem::transmute_copy(&hkl), core::mem::transmute_copy(&fdwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwproperty, core::mem::transmute(ok__));
+                    pdwproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -470,7 +470,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::GetStatusWindowPos(this, core::mem::transmute_copy(&himc)) {
                 Ok(ok__) => {
-                    core::ptr::write(pptpos, core::mem::transmute(ok__));
+                    pptpos.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -481,7 +481,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::GetVirtualKey(this, core::mem::transmute_copy(&hwnd)) {
                 Ok(ok__) => {
-                    core::ptr::write(puvirtualkey, core::mem::transmute(ok__));
+                    puvirtualkey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -492,7 +492,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::InstallIMEA(this, core::mem::transmute(&szimefilename), core::mem::transmute(&szlayouttext)) {
                 Ok(ok__) => {
-                    core::ptr::write(phkl, core::mem::transmute(ok__));
+                    phkl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -503,7 +503,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::InstallIMEW(this, core::mem::transmute(&szimefilename), core::mem::transmute(&szlayouttext)) {
                 Ok(ok__) => {
-                    core::ptr::write(phkl, core::mem::transmute(ok__));
+                    phkl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -619,7 +619,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::OnDefWindowProc(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
                 Ok(ok__) => {
-                    core::ptr::write(plresult, core::mem::transmute(ok__));
+                    plresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -635,7 +635,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::GetCodePageA(this, core::mem::transmute_copy(&hkl)) {
                 Ok(ok__) => {
-                    core::ptr::write(ucodepage, core::mem::transmute(ok__));
+                    ucodepage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -646,7 +646,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::GetLangId(this, core::mem::transmute_copy(&hkl)) {
                 Ok(ok__) => {
-                    core::ptr::write(plid, core::mem::transmute(ok__));
+                    plid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -677,7 +677,7 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMApp_Impl::EnumInputContext(this, core::mem::transmute_copy(&idthread)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -860,7 +860,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::AssociateContext(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&hime)) {
                 Ok(ok__) => {
-                    core::ptr::write(phprev, core::mem::transmute(ok__));
+                    phprev.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -881,7 +881,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::CreateContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phimc, core::mem::transmute(ok__));
+                    phimc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -897,7 +897,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::EnumRegisterWordA(this, core::mem::transmute_copy(&hkl), core::mem::transmute(&szreading), core::mem::transmute_copy(&dwstyle), core::mem::transmute(&szregister), core::mem::transmute_copy(&pdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(penum, core::mem::transmute(ok__));
+                    penum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -908,7 +908,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::EnumRegisterWordW(this, core::mem::transmute_copy(&hkl), core::mem::transmute(&szreading), core::mem::transmute_copy(&dwstyle), core::mem::transmute(&szregister), core::mem::transmute_copy(&pdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(penum, core::mem::transmute(ok__));
+                    penum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -979,7 +979,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::GetContext(this, core::mem::transmute_copy(&hwnd)) {
                 Ok(ok__) => {
-                    core::ptr::write(phimc, core::mem::transmute(ok__));
+                    phimc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1005,7 +1005,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::GetDefaultIMEWnd(this, core::mem::transmute_copy(&hwnd)) {
                 Ok(ok__) => {
-                    core::ptr::write(phdefwnd, core::mem::transmute(ok__));
+                    phdefwnd.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1051,7 +1051,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::GetProperty(this, core::mem::transmute_copy(&hkl), core::mem::transmute_copy(&fdwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwproperty, core::mem::transmute(ok__));
+                    pdwproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1072,7 +1072,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::GetStatusWindowPos(this, core::mem::transmute_copy(&himc)) {
                 Ok(ok__) => {
-                    core::ptr::write(pptpos, core::mem::transmute(ok__));
+                    pptpos.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1083,7 +1083,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::GetVirtualKey(this, core::mem::transmute_copy(&hwnd)) {
                 Ok(ok__) => {
-                    core::ptr::write(puvirtualkey, core::mem::transmute(ok__));
+                    puvirtualkey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1094,7 +1094,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::InstallIMEA(this, core::mem::transmute(&szimefilename), core::mem::transmute(&szlayouttext)) {
                 Ok(ok__) => {
-                    core::ptr::write(phkl, core::mem::transmute(ok__));
+                    phkl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1105,7 +1105,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::InstallIMEW(this, core::mem::transmute(&szimefilename), core::mem::transmute(&szlayouttext)) {
                 Ok(ok__) => {
-                    core::ptr::write(phkl, core::mem::transmute(ok__));
+                    phkl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1216,7 +1216,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::LockIMC(this, core::mem::transmute_copy(&himc)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppimc, core::mem::transmute(ok__));
+                    ppimc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1232,7 +1232,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::GetIMCLockCount(this, core::mem::transmute_copy(&himc)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwlockcount, core::mem::transmute(ok__));
+                    pdwlockcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1243,7 +1243,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::CreateIMCC(this, core::mem::transmute_copy(&dwsize)) {
                 Ok(ok__) => {
-                    core::ptr::write(phimcc, core::mem::transmute(ok__));
+                    phimcc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1269,7 +1269,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::ReSizeIMCC(this, core::mem::transmute_copy(&himcc), core::mem::transmute_copy(&dwsize)) {
                 Ok(ok__) => {
-                    core::ptr::write(phimcc, core::mem::transmute(ok__));
+                    phimcc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1280,7 +1280,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::GetIMCCSize(this, core::mem::transmute_copy(&himcc)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwsize, core::mem::transmute(ok__));
+                    pdwsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1291,7 +1291,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::GetIMCCLockCount(this, core::mem::transmute_copy(&himcc)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwlockcount, core::mem::transmute(ok__));
+                    pdwlockcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1312,7 +1312,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::CreateSoftKeyboard(this, core::mem::transmute_copy(&utype), core::mem::transmute_copy(&howner), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)) {
                 Ok(ok__) => {
-                    core::ptr::write(phsoftkbdwnd, core::mem::transmute(ok__));
+                    phsoftkbdwnd.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1333,7 +1333,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::GetCodePageA(this, core::mem::transmute_copy(&hkl)) {
                 Ok(ok__) => {
-                    core::ptr::write(ucodepage, core::mem::transmute(ok__));
+                    ucodepage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1344,7 +1344,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::GetLangId(this, core::mem::transmute_copy(&hkl)) {
                 Ok(ok__) => {
-                    core::ptr::write(plid, core::mem::transmute(ok__));
+                    plid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1390,7 +1390,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::EnumInputContext(this, core::mem::transmute_copy(&idthread)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1401,7 +1401,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::RequestMessageA(this, core::mem::transmute_copy(&himc), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
                 Ok(ok__) => {
-                    core::ptr::write(plresult, core::mem::transmute(ok__));
+                    plresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1412,7 +1412,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::RequestMessageW(this, core::mem::transmute_copy(&himc), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
                 Ok(ok__) => {
-                    core::ptr::write(plresult, core::mem::transmute(ok__));
+                    plresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1423,7 +1423,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::SendIMCA(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&umsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
                 Ok(ok__) => {
-                    core::ptr::write(plresult, core::mem::transmute(ok__));
+                    plresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1434,7 +1434,7 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMIME_Impl::SendIMCW(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&umsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
                 Ok(ok__) => {
-                    core::ptr::write(plresult, core::mem::transmute(ok__));
+                    plresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1574,7 +1574,7 @@ impl IActiveIMMMessagePumpOwner_Vtbl {
             let this = (*this).get_impl();
             match IActiveIMMMessagePumpOwner_Impl::Pause(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcookie, core::mem::transmute(ok__));
+                    pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1642,7 +1642,7 @@ impl IEnumInputContext_Vtbl {
             let this = (*this).get_impl();
             match IEnumInputContext_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1689,7 +1689,7 @@ impl IEnumRegisterWordA_Vtbl {
             let this = (*this).get_impl();
             match IEnumRegisterWordA_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1736,7 +1736,7 @@ impl IEnumRegisterWordW_Vtbl {
             let this = (*this).get_impl();
             match IEnumRegisterWordW_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

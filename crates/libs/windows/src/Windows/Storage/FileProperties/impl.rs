@@ -16,7 +16,7 @@ impl IStorageItemExtraProperties_Vtbl {
             let this = (*this).get_impl();
             match IStorageItemExtraProperties_Impl::RetrievePropertiesAsync(this, windows_core::from_raw_borrowed(&propertiestoretrieve)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -28,7 +28,7 @@ impl IStorageItemExtraProperties_Vtbl {
             let this = (*this).get_impl();
             match IStorageItemExtraProperties_Impl::SavePropertiesAsync(this, windows_core::from_raw_borrowed(&propertiestosave)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -40,7 +40,7 @@ impl IStorageItemExtraProperties_Vtbl {
             let this = (*this).get_impl();
             match IStorageItemExtraProperties_Impl::SavePropertiesAsyncOverloadDefault(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

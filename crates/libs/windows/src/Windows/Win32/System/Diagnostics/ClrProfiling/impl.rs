@@ -207,7 +207,7 @@ impl ICorProfilerCallback_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerCallback_Impl::JITCachedFunctionSearchStarted(this, core::mem::transmute_copy(&functionid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbusecachedfunction, core::mem::transmute(ok__));
+                    pbusecachedfunction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -228,7 +228,7 @@ impl ICorProfilerCallback_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerCallback_Impl::JITInlining(this, core::mem::transmute_copy(&callerid), core::mem::transmute_copy(&calleeid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfshouldinline, core::mem::transmute(ok__));
+                    pfshouldinline.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -903,7 +903,7 @@ impl ICorProfilerFunctionEnum_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerFunctionEnum_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -914,7 +914,7 @@ impl ICorProfilerFunctionEnum_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerFunctionEnum_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcelt, core::mem::transmute(ok__));
+                    pcelt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -984,7 +984,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetClassFromObject(this, core::mem::transmute_copy(&objectid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pclassid, core::mem::transmute(ok__));
+                    pclassid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -995,7 +995,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetClassFromToken(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&typedef)) {
                 Ok(ok__) => {
-                    core::ptr::write(pclassid, core::mem::transmute(ok__));
+                    pclassid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1011,7 +1011,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetEventMask(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwevents, core::mem::transmute(ok__));
+                    pdwevents.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1022,7 +1022,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetFunctionFromIP(this, core::mem::transmute_copy(&ip)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfunctionid, core::mem::transmute(ok__));
+                    pfunctionid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1033,7 +1033,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetFunctionFromToken(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&token)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfunctionid, core::mem::transmute(ok__));
+                    pfunctionid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1044,7 +1044,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetHandleFromThread(this, core::mem::transmute_copy(&threadid)) {
                 Ok(ok__) => {
-                    core::ptr::write(phthread, core::mem::transmute(ok__));
+                    phthread.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1055,7 +1055,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetObjectSize(this, core::mem::transmute_copy(&objectid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcsize, core::mem::transmute(ok__));
+                    pcsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1071,7 +1071,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetThreadInfo(this, core::mem::transmute_copy(&threadid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwwin32threadid, core::mem::transmute(ok__));
+                    pdwwin32threadid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1082,7 +1082,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetCurrentThreadID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pthreadid, core::mem::transmute(ok__));
+                    pthreadid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1128,7 +1128,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetModuleMetaData(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&dwopenflags), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppout, core::mem::transmute(ok__));
+                    ppout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1144,7 +1144,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetILFunctionBodyAllocator(this, core::mem::transmute_copy(&moduleid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmalloc, core::mem::transmute(ok__));
+                    ppmalloc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1185,7 +1185,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetInprocInspectionInterface(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppicd, core::mem::transmute(ok__));
+                    ppicd.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1196,7 +1196,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetInprocInspectionIThisThread(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppicd, core::mem::transmute(ok__));
+                    ppicd.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1207,7 +1207,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::GetThreadContext(this, core::mem::transmute_copy(&threadid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcontextid, core::mem::transmute(ok__));
+                    pcontextid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1218,7 +1218,7 @@ impl ICorProfilerInfo_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo_Impl::BeginInprocDebugging(this, core::mem::transmute_copy(&fthisthreadonly)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwprofilercontext, core::mem::transmute(ok__));
+                    pdwprofilercontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1383,7 +1383,7 @@ impl ICorProfilerInfo12_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo12_Impl::EventPipeStartSession(this, core::mem::transmute_copy(&cproviderconfigs), core::mem::transmute_copy(&pproviderconfigs), core::mem::transmute_copy(&requestrundown)) {
                 Ok(ok__) => {
-                    core::ptr::write(psession, core::mem::transmute(ok__));
+                    psession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1404,7 +1404,7 @@ impl ICorProfilerInfo12_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo12_Impl::EventPipeCreateProvider(this, core::mem::transmute(&providername)) {
                 Ok(ok__) => {
-                    core::ptr::write(pprovider, core::mem::transmute(ok__));
+                    pprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1420,7 +1420,7 @@ impl ICorProfilerInfo12_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo12_Impl::EventPipeDefineEvent(this, core::mem::transmute_copy(&provider), core::mem::transmute(&eventname), core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&keywords), core::mem::transmute_copy(&eventversion), core::mem::transmute_copy(&level), core::mem::transmute_copy(&opcode), core::mem::transmute_copy(&needstack), core::mem::transmute_copy(&cparamdescs), core::mem::transmute_copy(&pparamdescs)) {
                 Ok(ok__) => {
-                    core::ptr::write(pevent, core::mem::transmute(ok__));
+                    pevent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1472,7 +1472,7 @@ impl ICorProfilerInfo13_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo13_Impl::GetObjectIDFromHandle(this, core::mem::transmute_copy(&handle)) {
                 Ok(ok__) => {
-                    core::ptr::write(pobject, core::mem::transmute(ok__));
+                    pobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1517,7 +1517,7 @@ impl ICorProfilerInfo14_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo14_Impl::EnumerateNonGCObjects(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1533,7 +1533,7 @@ impl ICorProfilerInfo14_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo14_Impl::EventPipeCreateProvider2(this, core::mem::transmute(&providername), core::mem::transmute_copy(&pcallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(pprovider, core::mem::transmute(ok__));
+                    pprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1632,7 +1632,7 @@ impl ICorProfilerInfo2_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo2_Impl::GetClassFromTokenAndTypeArgs(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&typedef), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&typeargs)) {
                 Ok(ok__) => {
-                    core::ptr::write(pclassid, core::mem::transmute(ok__));
+                    pclassid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1643,7 +1643,7 @@ impl ICorProfilerInfo2_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo2_Impl::GetFunctionFromTokenAndTypeArgs(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&funcdef), core::mem::transmute_copy(&classid), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&typeargs)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfunctionid, core::mem::transmute(ok__));
+                    pfunctionid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1654,7 +1654,7 @@ impl ICorProfilerInfo2_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo2_Impl::EnumModuleFrozenObjects(this, core::mem::transmute_copy(&moduleid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1670,7 +1670,7 @@ impl ICorProfilerInfo2_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo2_Impl::GetBoxClassLayout(this, core::mem::transmute_copy(&classid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbufferoffset, core::mem::transmute(ok__));
+                    pbufferoffset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1681,7 +1681,7 @@ impl ICorProfilerInfo2_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo2_Impl::GetThreadAppDomain(this, core::mem::transmute_copy(&threadid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pappdomainid, core::mem::transmute(ok__));
+                    pappdomainid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1712,7 +1712,7 @@ impl ICorProfilerInfo2_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo2_Impl::GetStaticFieldInfo(this, core::mem::transmute_copy(&classid), core::mem::transmute_copy(&fieldtoken)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfieldinfo, core::mem::transmute(ok__));
+                    pfieldinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1728,7 +1728,7 @@ impl ICorProfilerInfo2_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo2_Impl::GetObjectGeneration(this, core::mem::transmute_copy(&objectid)) {
                 Ok(ok__) => {
-                    core::ptr::write(range, core::mem::transmute(ok__));
+                    range.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1739,7 +1739,7 @@ impl ICorProfilerInfo2_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo2_Impl::GetNotifiedExceptionClauseInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pinfo, core::mem::transmute(ok__));
+                    pinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1801,7 +1801,7 @@ impl ICorProfilerInfo3_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo3_Impl::EnumJITedFunctions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1847,7 +1847,7 @@ impl ICorProfilerInfo3_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo3_Impl::GetFunctionTailcall3Info(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&eltinfo)) {
                 Ok(ok__) => {
-                    core::ptr::write(pframeinfo, core::mem::transmute(ok__));
+                    pframeinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1858,7 +1858,7 @@ impl ICorProfilerInfo3_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo3_Impl::EnumModules(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1929,7 +1929,7 @@ impl ICorProfilerInfo4_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo4_Impl::EnumThreads(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1975,7 +1975,7 @@ impl ICorProfilerInfo4_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo4_Impl::EnumJITedFunctions2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1986,7 +1986,7 @@ impl ICorProfilerInfo4_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo4_Impl::GetObjectSize2(this, core::mem::transmute_copy(&objectid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcsize, core::mem::transmute(ok__));
+                    pcsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2084,7 +2084,7 @@ impl ICorProfilerInfo7_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo7_Impl::GetInMemorySymbolsLength(this, core::mem::transmute_copy(&moduleid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcountsymbolbytes, core::mem::transmute(ok__));
+                    pcountsymbolbytes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2122,7 +2122,7 @@ impl ICorProfilerInfo8_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerInfo8_Impl::IsFunctionDynamic(this, core::mem::transmute_copy(&functionid)) {
                 Ok(ok__) => {
-                    core::ptr::write(isdynamic, core::mem::transmute(ok__));
+                    isdynamic.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2211,7 +2211,7 @@ impl ICorProfilerMethodEnum_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerMethodEnum_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2222,7 +2222,7 @@ impl ICorProfilerMethodEnum_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerMethodEnum_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcelt, core::mem::transmute(ok__));
+                    pcelt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2271,7 +2271,7 @@ impl ICorProfilerModuleEnum_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerModuleEnum_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2282,7 +2282,7 @@ impl ICorProfilerModuleEnum_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerModuleEnum_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcelt, core::mem::transmute(ok__));
+                    pcelt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2331,7 +2331,7 @@ impl ICorProfilerObjectEnum_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerObjectEnum_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2342,7 +2342,7 @@ impl ICorProfilerObjectEnum_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerObjectEnum_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcelt, core::mem::transmute(ok__));
+                    pcelt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2391,7 +2391,7 @@ impl ICorProfilerThreadEnum_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerThreadEnum_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2402,7 +2402,7 @@ impl ICorProfilerThreadEnum_Vtbl {
             let this = (*this).get_impl();
             match ICorProfilerThreadEnum_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcelt, core::mem::transmute(ok__));
+                    pcelt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

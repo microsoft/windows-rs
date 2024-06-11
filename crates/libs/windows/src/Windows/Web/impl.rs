@@ -14,7 +14,7 @@ impl IUriToStreamResolver_Vtbl {
             let this = (*this).get_impl();
             match IUriToStreamResolver_Impl::UriToStreamAsync(this, windows_core::from_raw_borrowed(&uri)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

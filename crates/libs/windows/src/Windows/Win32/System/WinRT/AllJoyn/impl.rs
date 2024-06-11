@@ -29,7 +29,7 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDevicesAllJoynBusAttachmentInterop_Impl::Win32Handle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -87,7 +87,7 @@ impl IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDevicesAllJoynBusObjectInterop_Impl::Win32Handle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

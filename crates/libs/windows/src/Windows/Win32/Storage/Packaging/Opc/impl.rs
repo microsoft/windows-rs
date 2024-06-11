@@ -15,7 +15,7 @@ impl IOpcCertificateEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcCertificateEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasnext, core::mem::transmute(ok__));
+                    hasnext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -26,7 +26,7 @@ impl IOpcCertificateEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcCertificateEnumerator_Impl::MovePrevious(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasprevious, core::mem::transmute(ok__));
+                    hasprevious.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -37,7 +37,7 @@ impl IOpcCertificateEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcCertificateEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(certificate, core::mem::transmute(ok__));
+                    certificate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -48,7 +48,7 @@ impl IOpcCertificateEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcCertificateEnumerator_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(copy, core::mem::transmute(ok__));
+                    copy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -92,7 +92,7 @@ impl IOpcCertificateSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcCertificateSet_Impl::GetEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(certificateenumerator, core::mem::transmute(ok__));
+                    certificateenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -142,7 +142,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetSignatureId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signatureid, core::mem::transmute(ok__));
+                    signatureid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -153,7 +153,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetSignaturePartName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signaturepartname, core::mem::transmute(ok__));
+                    signaturepartname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -164,7 +164,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetSignatureMethod(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signaturemethod, core::mem::transmute(ok__));
+                    signaturemethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -175,7 +175,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetCanonicalizationMethod(this) {
                 Ok(ok__) => {
-                    core::ptr::write(canonicalizationmethod, core::mem::transmute(ok__));
+                    canonicalizationmethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -191,7 +191,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetSignaturePartReferenceEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(partreferenceenumerator, core::mem::transmute(ok__));
+                    partreferenceenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -202,7 +202,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetSignatureRelationshipReferenceEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipreferenceenumerator, core::mem::transmute(ok__));
+                    relationshipreferenceenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -213,7 +213,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetSigningTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signingtime, core::mem::transmute(ok__));
+                    signingtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -224,7 +224,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetTimeFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(timeformat, core::mem::transmute(ok__));
+                    timeformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -235,7 +235,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetPackageObjectReference(this) {
                 Ok(ok__) => {
-                    core::ptr::write(packageobjectreference, core::mem::transmute(ok__));
+                    packageobjectreference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -246,7 +246,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetCertificateEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(certificateenumerator, core::mem::transmute(ok__));
+                    certificateenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -257,7 +257,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetCustomReferenceEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(customreferenceenumerator, core::mem::transmute(ok__));
+                    customreferenceenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -268,7 +268,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignature_Impl::GetCustomObjectEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(customobjectenumerator, core::mem::transmute(ok__));
+                    customobjectenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -316,7 +316,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignatureEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasnext, core::mem::transmute(ok__));
+                    hasnext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -327,7 +327,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignatureEnumerator_Impl::MovePrevious(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasprevious, core::mem::transmute(ok__));
+                    hasprevious.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -338,7 +338,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignatureEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(digitalsignature, core::mem::transmute(ok__));
+                    digitalsignature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -349,7 +349,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignatureEnumerator_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(copy, core::mem::transmute(ok__));
+                    copy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -388,7 +388,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignatureManager_Impl::GetSignatureOriginPartName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signatureoriginpartname, core::mem::transmute(ok__));
+                    signatureoriginpartname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -404,7 +404,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignatureManager_Impl::GetSignatureEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signatureenumerator, core::mem::transmute(ok__));
+                    signatureenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -420,7 +420,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignatureManager_Impl::CreateSigningOptions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signingoptions, core::mem::transmute(ok__));
+                    signingoptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -431,7 +431,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignatureManager_Impl::Validate(this, windows_core::from_raw_borrowed(&signature), core::mem::transmute_copy(&certificate)) {
                 Ok(ok__) => {
-                    core::ptr::write(validationresult, core::mem::transmute(ok__));
+                    validationresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -442,7 +442,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignatureManager_Impl::Sign(this, core::mem::transmute_copy(&certificate), windows_core::from_raw_borrowed(&signingoptions)) {
                 Ok(ok__) => {
-                    core::ptr::write(digitalsignature, core::mem::transmute(ok__));
+                    digitalsignature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -453,7 +453,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             let this = (*this).get_impl();
             match IOpcDigitalSignatureManager_Impl::ReplaceSignatureXml(this, windows_core::from_raw_borrowed(&signaturepartname), core::mem::transmute_copy(&newsignaturexml), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
-                    core::ptr::write(digitalsignature, core::mem::transmute(ok__));
+                    digitalsignature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -495,7 +495,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match IOpcFactory_Impl::CreatePackageRootUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rooturi, core::mem::transmute(ok__));
+                    rooturi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -506,7 +506,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match IOpcFactory_Impl::CreatePartUri(this, core::mem::transmute(&pwzuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(parturi, core::mem::transmute(ok__));
+                    parturi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -517,7 +517,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match IOpcFactory_Impl::CreateStreamOnFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&iomode), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&dwflagsandattributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(stream, core::mem::transmute(ok__));
+                    stream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -528,7 +528,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match IOpcFactory_Impl::CreatePackage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(package, core::mem::transmute(ok__));
+                    package.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -539,7 +539,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match IOpcFactory_Impl::ReadPackageFromStream(this, windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
-                    core::ptr::write(package, core::mem::transmute(ok__));
+                    package.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -555,7 +555,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match IOpcFactory_Impl::CreateDigitalSignatureManager(this, windows_core::from_raw_borrowed(&package)) {
                 Ok(ok__) => {
-                    core::ptr::write(signaturemanager, core::mem::transmute(ok__));
+                    signaturemanager.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -588,7 +588,7 @@ impl IOpcPackage_Vtbl {
             let this = (*this).get_impl();
             match IOpcPackage_Impl::GetPartSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(partset, core::mem::transmute(ok__));
+                    partset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -599,7 +599,7 @@ impl IOpcPackage_Vtbl {
             let this = (*this).get_impl();
             match IOpcPackage_Impl::GetRelationshipSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipset, core::mem::transmute(ok__));
+                    relationshipset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -633,7 +633,7 @@ impl IOpcPart_Vtbl {
             let this = (*this).get_impl();
             match IOpcPart_Impl::GetRelationshipSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipset, core::mem::transmute(ok__));
+                    relationshipset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -644,7 +644,7 @@ impl IOpcPart_Vtbl {
             let this = (*this).get_impl();
             match IOpcPart_Impl::GetContentStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(stream, core::mem::transmute(ok__));
+                    stream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -655,7 +655,7 @@ impl IOpcPart_Vtbl {
             let this = (*this).get_impl();
             match IOpcPart_Impl::GetName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -666,7 +666,7 @@ impl IOpcPart_Vtbl {
             let this = (*this).get_impl();
             match IOpcPart_Impl::GetContentType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(contenttype, core::mem::transmute(ok__));
+                    contenttype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -677,7 +677,7 @@ impl IOpcPart_Vtbl {
             let this = (*this).get_impl();
             match IOpcPart_Impl::GetCompressionOptions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(compressionoptions, core::mem::transmute(ok__));
+                    compressionoptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -710,7 +710,7 @@ impl IOpcPartEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcPartEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasnext, core::mem::transmute(ok__));
+                    hasnext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -721,7 +721,7 @@ impl IOpcPartEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcPartEnumerator_Impl::MovePrevious(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasprevious, core::mem::transmute(ok__));
+                    hasprevious.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -732,7 +732,7 @@ impl IOpcPartEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcPartEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(part, core::mem::transmute(ok__));
+                    part.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -743,7 +743,7 @@ impl IOpcPartEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcPartEnumerator_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(copy, core::mem::transmute(ok__));
+                    copy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -779,7 +779,7 @@ impl IOpcPartSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcPartSet_Impl::GetPart(this, windows_core::from_raw_borrowed(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(part, core::mem::transmute(ok__));
+                    part.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -790,7 +790,7 @@ impl IOpcPartSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcPartSet_Impl::CreatePart(this, windows_core::from_raw_borrowed(&name), core::mem::transmute(&contenttype), core::mem::transmute_copy(&compressionoptions)) {
                 Ok(ok__) => {
-                    core::ptr::write(part, core::mem::transmute(ok__));
+                    part.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -806,7 +806,7 @@ impl IOpcPartSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcPartSet_Impl::PartExists(this, windows_core::from_raw_borrowed(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(partexists, core::mem::transmute(ok__));
+                    partexists.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -817,7 +817,7 @@ impl IOpcPartSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcPartSet_Impl::GetEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(partenumerator, core::mem::transmute(ok__));
+                    partenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -852,7 +852,7 @@ impl IOpcPartUri_Vtbl {
             let this = (*this).get_impl();
             match IOpcPartUri_Impl::ComparePartUri(this, windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
-                    core::ptr::write(comparisonresult, core::mem::transmute(ok__));
+                    comparisonresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -863,7 +863,7 @@ impl IOpcPartUri_Vtbl {
             let this = (*this).get_impl();
             match IOpcPartUri_Impl::GetSourceUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(sourceuri, core::mem::transmute(ok__));
+                    sourceuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -874,7 +874,7 @@ impl IOpcPartUri_Vtbl {
             let this = (*this).get_impl();
             match IOpcPartUri_Impl::IsRelationshipsPartUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(isrelationshipuri, core::mem::transmute(ok__));
+                    isrelationshipuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -909,7 +909,7 @@ impl IOpcRelationship_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationship_Impl::GetId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipidentifier, core::mem::transmute(ok__));
+                    relationshipidentifier.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -920,7 +920,7 @@ impl IOpcRelationship_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationship_Impl::GetRelationshipType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshiptype, core::mem::transmute(ok__));
+                    relationshiptype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -931,7 +931,7 @@ impl IOpcRelationship_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationship_Impl::GetSourceUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(sourceuri, core::mem::transmute(ok__));
+                    sourceuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -942,7 +942,7 @@ impl IOpcRelationship_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationship_Impl::GetTargetUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(targeturi, core::mem::transmute(ok__));
+                    targeturi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -953,7 +953,7 @@ impl IOpcRelationship_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationship_Impl::GetTargetMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(targetmode, core::mem::transmute(ok__));
+                    targetmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -986,7 +986,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasnext, core::mem::transmute(ok__));
+                    hasnext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -997,7 +997,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipEnumerator_Impl::MovePrevious(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasprevious, core::mem::transmute(ok__));
+                    hasprevious.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1008,7 +1008,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationship, core::mem::transmute(ok__));
+                    relationship.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1019,7 +1019,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipEnumerator_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(copy, core::mem::transmute(ok__));
+                    copy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1049,7 +1049,7 @@ impl IOpcRelationshipSelector_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSelector_Impl::GetSelectorType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(selector, core::mem::transmute(ok__));
+                    selector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1060,7 +1060,7 @@ impl IOpcRelationshipSelector_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSelector_Impl::GetSelectionCriterion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(selectioncriterion, core::mem::transmute(ok__));
+                    selectioncriterion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1090,7 +1090,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSelectorEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasnext, core::mem::transmute(ok__));
+                    hasnext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1101,7 +1101,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSelectorEnumerator_Impl::MovePrevious(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasprevious, core::mem::transmute(ok__));
+                    hasprevious.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1112,7 +1112,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSelectorEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipselector, core::mem::transmute(ok__));
+                    relationshipselector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1123,7 +1123,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSelectorEnumerator_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(copy, core::mem::transmute(ok__));
+                    copy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1154,7 +1154,7 @@ impl IOpcRelationshipSelectorSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSelectorSet_Impl::Create(this, core::mem::transmute_copy(&selector), core::mem::transmute(&selectioncriterion)) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipselector, core::mem::transmute(ok__));
+                    relationshipselector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1170,7 +1170,7 @@ impl IOpcRelationshipSelectorSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSelectorSet_Impl::GetEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipselectorenumerator, core::mem::transmute(ok__));
+                    relationshipselectorenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1207,7 +1207,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSet_Impl::GetRelationship(this, core::mem::transmute(&relationshipidentifier)) {
                 Ok(ok__) => {
-                    core::ptr::write(relationship, core::mem::transmute(ok__));
+                    relationship.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1218,7 +1218,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSet_Impl::CreateRelationship(this, core::mem::transmute(&relationshipidentifier), core::mem::transmute(&relationshiptype), windows_core::from_raw_borrowed(&targeturi), core::mem::transmute_copy(&targetmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(relationship, core::mem::transmute(ok__));
+                    relationship.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1234,7 +1234,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSet_Impl::RelationshipExists(this, core::mem::transmute(&relationshipidentifier)) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipexists, core::mem::transmute(ok__));
+                    relationshipexists.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1245,7 +1245,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSet_Impl::GetEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipenumerator, core::mem::transmute(ok__));
+                    relationshipenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1256,7 +1256,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSet_Impl::GetEnumeratorForType(this, core::mem::transmute(&relationshiptype)) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipenumerator, core::mem::transmute(ok__));
+                    relationshipenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1267,7 +1267,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcRelationshipSet_Impl::GetRelationshipsContentStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(contents, core::mem::transmute(ok__));
+                    contents.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1319,7 +1319,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureCustomObjectEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasnext, core::mem::transmute(ok__));
+                    hasnext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1330,7 +1330,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureCustomObjectEnumerator_Impl::MovePrevious(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasprevious, core::mem::transmute(ok__));
+                    hasprevious.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1341,7 +1341,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureCustomObjectEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(customobject, core::mem::transmute(ok__));
+                    customobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1352,7 +1352,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureCustomObjectEnumerator_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(copy, core::mem::transmute(ok__));
+                    copy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1383,7 +1383,7 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureCustomObjectSet_Impl::Create(this, core::mem::transmute_copy(&xmlmarkup), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
-                    core::ptr::write(customobject, core::mem::transmute(ok__));
+                    customobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1399,7 +1399,7 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureCustomObjectSet_Impl::GetEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(customobjectenumerator, core::mem::transmute(ok__));
+                    customobjectenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1434,7 +1434,7 @@ impl IOpcSignaturePartReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignaturePartReference_Impl::GetPartName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(partname, core::mem::transmute(ok__));
+                    partname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1445,7 +1445,7 @@ impl IOpcSignaturePartReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignaturePartReference_Impl::GetContentType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(contenttype, core::mem::transmute(ok__));
+                    contenttype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1456,7 +1456,7 @@ impl IOpcSignaturePartReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignaturePartReference_Impl::GetDigestMethod(this) {
                 Ok(ok__) => {
-                    core::ptr::write(digestmethod, core::mem::transmute(ok__));
+                    digestmethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1472,7 +1472,7 @@ impl IOpcSignaturePartReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignaturePartReference_Impl::GetTransformMethod(this) {
                 Ok(ok__) => {
-                    core::ptr::write(transformmethod, core::mem::transmute(ok__));
+                    transformmethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1505,7 +1505,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignaturePartReferenceEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasnext, core::mem::transmute(ok__));
+                    hasnext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1516,7 +1516,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignaturePartReferenceEnumerator_Impl::MovePrevious(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasprevious, core::mem::transmute(ok__));
+                    hasprevious.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1527,7 +1527,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignaturePartReferenceEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(partreference, core::mem::transmute(ok__));
+                    partreference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1538,7 +1538,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignaturePartReferenceEnumerator_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(copy, core::mem::transmute(ok__));
+                    copy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1572,7 +1572,7 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignaturePartReferenceSet_Impl::Create(this, windows_core::from_raw_borrowed(&parturi), core::mem::transmute(&digestmethod), core::mem::transmute_copy(&transformmethod)) {
                 Ok(ok__) => {
-                    core::ptr::write(partreference, core::mem::transmute(ok__));
+                    partreference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1588,7 +1588,7 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignaturePartReferenceSet_Impl::GetEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(partreferenceenumerator, core::mem::transmute(ok__));
+                    partreferenceenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1624,7 +1624,7 @@ impl IOpcSignatureReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureReference_Impl::GetId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(referenceid, core::mem::transmute(ok__));
+                    referenceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1635,7 +1635,7 @@ impl IOpcSignatureReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureReference_Impl::GetUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(referenceuri, core::mem::transmute(ok__));
+                    referenceuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1646,7 +1646,7 @@ impl IOpcSignatureReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureReference_Impl::GetType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1657,7 +1657,7 @@ impl IOpcSignatureReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureReference_Impl::GetTransformMethod(this) {
                 Ok(ok__) => {
-                    core::ptr::write(transformmethod, core::mem::transmute(ok__));
+                    transformmethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1668,7 +1668,7 @@ impl IOpcSignatureReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureReference_Impl::GetDigestMethod(this) {
                 Ok(ok__) => {
-                    core::ptr::write(digestmethod, core::mem::transmute(ok__));
+                    digestmethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1707,7 +1707,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureReferenceEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasnext, core::mem::transmute(ok__));
+                    hasnext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1718,7 +1718,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureReferenceEnumerator_Impl::MovePrevious(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasprevious, core::mem::transmute(ok__));
+                    hasprevious.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1729,7 +1729,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureReferenceEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(reference, core::mem::transmute(ok__));
+                    reference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1740,7 +1740,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureReferenceEnumerator_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(copy, core::mem::transmute(ok__));
+                    copy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1774,7 +1774,7 @@ impl IOpcSignatureReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureReferenceSet_Impl::Create(this, windows_core::from_raw_borrowed(&referenceuri), core::mem::transmute(&referenceid), core::mem::transmute(&r#type), core::mem::transmute(&digestmethod), core::mem::transmute_copy(&transformmethod)) {
                 Ok(ok__) => {
-                    core::ptr::write(reference, core::mem::transmute(ok__));
+                    reference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1790,7 +1790,7 @@ impl IOpcSignatureReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureReferenceSet_Impl::GetEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(referenceenumerator, core::mem::transmute(ok__));
+                    referenceenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1826,7 +1826,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReference_Impl::GetSourceUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(sourceuri, core::mem::transmute(ok__));
+                    sourceuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1837,7 +1837,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReference_Impl::GetDigestMethod(this) {
                 Ok(ok__) => {
-                    core::ptr::write(digestmethod, core::mem::transmute(ok__));
+                    digestmethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1853,7 +1853,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReference_Impl::GetTransformMethod(this) {
                 Ok(ok__) => {
-                    core::ptr::write(transformmethod, core::mem::transmute(ok__));
+                    transformmethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1864,7 +1864,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReference_Impl::GetRelationshipSigningOption(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipsigningoption, core::mem::transmute(ok__));
+                    relationshipsigningoption.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1875,7 +1875,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReference_Impl::GetRelationshipSelectorEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(selectorenumerator, core::mem::transmute(ok__));
+                    selectorenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1909,7 +1909,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReferenceEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasnext, core::mem::transmute(ok__));
+                    hasnext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1920,7 +1920,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReferenceEnumerator_Impl::MovePrevious(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hasprevious, core::mem::transmute(ok__));
+                    hasprevious.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1931,7 +1931,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReferenceEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipreference, core::mem::transmute(ok__));
+                    relationshipreference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1942,7 +1942,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReferenceEnumerator_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(copy, core::mem::transmute(ok__));
+                    copy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1977,7 +1977,7 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReferenceSet_Impl::Create(this, windows_core::from_raw_borrowed(&sourceuri), core::mem::transmute(&digestmethod), core::mem::transmute_copy(&relationshipsigningoption), windows_core::from_raw_borrowed(&selectorset), core::mem::transmute_copy(&transformmethod)) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipreference, core::mem::transmute(ok__));
+                    relationshipreference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1988,7 +1988,7 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReferenceSet_Impl::CreateRelationshipSelectorSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(selectorset, core::mem::transmute(ok__));
+                    selectorset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2004,7 +2004,7 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match IOpcSignatureRelationshipReferenceSet_Impl::GetEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipreferenceenumerator, core::mem::transmute(ok__));
+                    relationshipreferenceenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2052,7 +2052,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match IOpcSigningOptions_Impl::GetSignatureId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signatureid, core::mem::transmute(ok__));
+                    signatureid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2068,7 +2068,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match IOpcSigningOptions_Impl::GetSignatureMethod(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signaturemethod, core::mem::transmute(ok__));
+                    signaturemethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2084,7 +2084,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match IOpcSigningOptions_Impl::GetDefaultDigestMethod(this) {
                 Ok(ok__) => {
-                    core::ptr::write(digestmethod, core::mem::transmute(ok__));
+                    digestmethod.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2100,7 +2100,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match IOpcSigningOptions_Impl::GetCertificateEmbeddingOption(this) {
                 Ok(ok__) => {
-                    core::ptr::write(embeddingoption, core::mem::transmute(ok__));
+                    embeddingoption.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2116,7 +2116,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match IOpcSigningOptions_Impl::GetTimeFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(timeformat, core::mem::transmute(ok__));
+                    timeformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2132,7 +2132,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match IOpcSigningOptions_Impl::GetSignaturePartReferenceSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(partreferenceset, core::mem::transmute(ok__));
+                    partreferenceset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2143,7 +2143,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match IOpcSigningOptions_Impl::GetSignatureRelationshipReferenceSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipreferenceset, core::mem::transmute(ok__));
+                    relationshipreferenceset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2154,7 +2154,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match IOpcSigningOptions_Impl::GetCustomObjectSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(customobjectset, core::mem::transmute(ok__));
+                    customobjectset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2165,7 +2165,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match IOpcSigningOptions_Impl::GetCustomReferenceSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(customreferenceset, core::mem::transmute(ok__));
+                    customreferenceset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2176,7 +2176,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match IOpcSigningOptions_Impl::GetCertificateSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(certificateset, core::mem::transmute(ok__));
+                    certificateset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2187,7 +2187,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match IOpcSigningOptions_Impl::GetSignaturePartName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signaturepartname, core::mem::transmute(ok__));
+                    signaturepartname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2239,7 +2239,7 @@ impl IOpcUri_Vtbl {
             let this = (*this).get_impl();
             match IOpcUri_Impl::GetRelationshipsPartUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(relationshipparturi, core::mem::transmute(ok__));
+                    relationshipparturi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2250,7 +2250,7 @@ impl IOpcUri_Vtbl {
             let this = (*this).get_impl();
             match IOpcUri_Impl::GetRelativeUri(this, windows_core::from_raw_borrowed(&targetparturi)) {
                 Ok(ok__) => {
-                    core::ptr::write(relativeuri, core::mem::transmute(ok__));
+                    relativeuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2261,7 +2261,7 @@ impl IOpcUri_Vtbl {
             let this = (*this).get_impl();
             match IOpcUri_Impl::CombinePartUri(this, windows_core::from_raw_borrowed(&relativeuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(combineduri, core::mem::transmute(ok__));
+                    combineduri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

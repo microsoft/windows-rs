@@ -17,7 +17,7 @@ impl IAudioInputNode_Vtbl {
             let this = (*this).get_impl();
             match IAudioInputNode_Impl::OutgoingConnections(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -67,7 +67,7 @@ impl IAudioInputNode2_Vtbl {
             let this = (*this).get_impl();
             match IAudioInputNode2_Impl::Emitter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -106,7 +106,7 @@ impl IAudioNode_Vtbl {
             let this = (*this).get_impl();
             match IAudioNode_Impl::EffectDefinitions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -123,7 +123,7 @@ impl IAudioNode_Vtbl {
             let this = (*this).get_impl();
             match IAudioNode_Impl::OutgoingGain(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -134,7 +134,7 @@ impl IAudioNode_Vtbl {
             let this = (*this).get_impl();
             match IAudioNode_Impl::EncodingProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -146,7 +146,7 @@ impl IAudioNode_Vtbl {
             let this = (*this).get_impl();
             match IAudioNode_Impl::ConsumeInput(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -223,7 +223,7 @@ impl IAudioNodeWithListener_Vtbl {
             let this = (*this).get_impl();
             match IAudioNodeWithListener_Impl::Listener(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

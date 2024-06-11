@@ -94,7 +94,7 @@ impl IDirectManipulationContent_Vtbl {
             let this = (*this).get_impl();
             match IDirectManipulationContent_Impl::GetContentRect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(contentsize, core::mem::transmute(ok__));
+                    contentsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -202,7 +202,7 @@ impl IDirectManipulationDragDropBehavior_Vtbl {
             let this = (*this).get_impl();
             match IDirectManipulationDragDropBehavior_Impl::GetStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -304,7 +304,7 @@ impl IDirectManipulationManager_Vtbl {
             let this = (*this).get_impl();
             match IDirectManipulationManager_Impl::ProcessInput(this, core::mem::transmute_copy(&message)) {
                 Ok(ok__) => {
-                    core::ptr::write(handled, core::mem::transmute(ok__));
+                    handled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -486,7 +486,7 @@ impl IDirectManipulationUpdateManager_Vtbl {
             let this = (*this).get_impl();
             match IDirectManipulationUpdateManager_Impl::RegisterWaitHandleCallback(this, core::mem::transmute_copy(&handle), windows_core::from_raw_borrowed(&eventhandler)) {
                 Ok(ok__) => {
-                    core::ptr::write(cookie, core::mem::transmute(ok__));
+                    cookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -576,7 +576,7 @@ impl IDirectManipulationViewport_Vtbl {
             let this = (*this).get_impl();
             match IDirectManipulationViewport_Impl::GetStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -597,7 +597,7 @@ impl IDirectManipulationViewport_Vtbl {
             let this = (*this).get_impl();
             match IDirectManipulationViewport_Impl::GetViewportRect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(viewport, core::mem::transmute(ok__));
+                    viewport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -673,7 +673,7 @@ impl IDirectManipulationViewport_Vtbl {
             let this = (*this).get_impl();
             match IDirectManipulationViewport_Impl::AddEventHandler(this, core::mem::transmute_copy(&window), windows_core::from_raw_borrowed(&eventhandler)) {
                 Ok(ok__) => {
-                    core::ptr::write(cookie, core::mem::transmute(ok__));
+                    cookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -753,7 +753,7 @@ impl IDirectManipulationViewport2_Vtbl {
             let this = (*this).get_impl();
             match IDirectManipulationViewport2_Impl::AddBehavior(this, windows_core::from_raw_borrowed(&behavior)) {
                 Ok(ok__) => {
-                    core::ptr::write(cookie, core::mem::transmute(ok__));
+                    cookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

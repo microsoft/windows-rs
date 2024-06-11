@@ -13,7 +13,7 @@ impl IActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IActivatedEventArgs_Impl::Kind(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -24,7 +24,7 @@ impl IActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IActivatedEventArgs_Impl::PreviousExecutionState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -35,7 +35,7 @@ impl IActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IActivatedEventArgs_Impl::SplashScreen(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -69,7 +69,7 @@ impl IActivatedEventArgsWithUser_Vtbl {
             let this = (*this).get_impl();
             match IActivatedEventArgsWithUser_Impl::User(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -95,7 +95,7 @@ impl IApplicationViewActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IApplicationViewActivatedEventArgs_Impl::CurrentlyShownApplicationViewId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -123,7 +123,7 @@ impl IAppointmentsProviderActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IAppointmentsProviderActivatedEventArgs_Impl::Verb(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -155,7 +155,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl::AddAppointmentOperation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -187,7 +187,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl::RemoveAppointmentOperation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -219,7 +219,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl::ReplaceAppointmentOperation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -250,7 +250,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::InstanceStartDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -262,7 +262,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::LocalId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -274,7 +274,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::RoamingId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -306,7 +306,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl::TimeToShow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -317,7 +317,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl::Duration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -349,7 +349,7 @@ impl IBackgroundActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundActivatedEventArgs_Impl::TaskInstance(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -378,7 +378,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IBarcodeScannerPreviewActivatedEventArgs_Impl::ConnectionId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -410,7 +410,7 @@ impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ICachedFileUpdaterActivatedEventArgs_Impl::CachedFileUpdaterUI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -440,7 +440,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ICameraSettingsActivatedEventArgs_Impl::VideoDeviceController(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -452,7 +452,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ICameraSettingsActivatedEventArgs_Impl::VideoDeviceExtension(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -482,7 +482,7 @@ impl ICommandLineActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ICommandLineActivatedEventArgs_Impl::Operation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -511,7 +511,7 @@ impl IContactActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactActivatedEventArgs_Impl::Verb(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -542,7 +542,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactCallActivatedEventArgs_Impl::ServiceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -554,7 +554,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactCallActivatedEventArgs_Impl::ServiceUserId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -566,7 +566,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactCallActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -601,7 +601,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactMapActivatedEventArgs_Impl::Address(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -613,7 +613,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactMapActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -648,7 +648,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactMessageActivatedEventArgs_Impl::ServiceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -660,7 +660,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactMessageActivatedEventArgs_Impl::ServiceUserId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -672,7 +672,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactMessageActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -707,7 +707,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactPanelActivatedEventArgs_Impl::ContactPanel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -719,7 +719,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactPanelActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -752,7 +752,7 @@ impl IContactPickerActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactPickerActivatedEventArgs_Impl::ContactPickerUI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -786,7 +786,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactPostActivatedEventArgs_Impl::ServiceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -798,7 +798,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactPostActivatedEventArgs_Impl::ServiceUserId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -810,7 +810,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactPostActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -846,7 +846,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactVideoCallActivatedEventArgs_Impl::ServiceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -858,7 +858,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactVideoCallActivatedEventArgs_Impl::ServiceUserId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -870,7 +870,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactVideoCallActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -901,7 +901,7 @@ impl IContactsProviderActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContactsProviderActivatedEventArgs_Impl::Verb(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -930,7 +930,7 @@ impl IContinuationActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IContinuationActivatedEventArgs_Impl::ContinuationData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -960,7 +960,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDeviceActivatedEventArgs_Impl::DeviceInformationId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -972,7 +972,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDeviceActivatedEventArgs_Impl::Verb(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1005,7 +1005,7 @@ impl IDevicePairingActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDevicePairingActivatedEventArgs_Impl::DeviceInformation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1034,7 +1034,7 @@ impl IDialReceiverActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDialReceiverActivatedEventArgs_Impl::AppName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1064,7 +1064,7 @@ impl IFileActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IFileActivatedEventArgs_Impl::Files(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1076,7 +1076,7 @@ impl IFileActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IFileActivatedEventArgs_Impl::Verb(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1106,7 +1106,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
             let this = (*this).get_impl();
             match IFileActivatedEventArgsWithCallerPackageFamilyName_Impl::CallerPackageFamilyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1138,7 +1138,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
             let this = (*this).get_impl();
             match IFileActivatedEventArgsWithNeighboringFiles_Impl::NeighboringFilesQuery(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1170,7 +1170,7 @@ impl IFileOpenPickerActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IFileOpenPickerActivatedEventArgs_Impl::FileOpenPickerUI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1199,7 +1199,7 @@ impl IFileOpenPickerActivatedEventArgs2_Vtbl {
             let this = (*this).get_impl();
             match IFileOpenPickerActivatedEventArgs2_Impl::CallerPackageFamilyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1231,7 +1231,7 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IFileOpenPickerContinuationEventArgs_Impl::Files(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1260,7 +1260,7 @@ impl IFileSavePickerActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IFileSavePickerActivatedEventArgs_Impl::FileSavePickerUI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1290,7 +1290,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
             let this = (*this).get_impl();
             match IFileSavePickerActivatedEventArgs2_Impl::CallerPackageFamilyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1302,7 +1302,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
             let this = (*this).get_impl();
             match IFileSavePickerActivatedEventArgs2_Impl::EnterpriseId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1335,7 +1335,7 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IFileSavePickerContinuationEventArgs_Impl::File(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1364,7 +1364,7 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IFolderPickerContinuationEventArgs_Impl::Folder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1391,7 +1391,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ILaunchActivatedEventArgs_Impl::Arguments(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1403,7 +1403,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ILaunchActivatedEventArgs_Impl::TileId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1433,7 +1433,7 @@ impl ILaunchActivatedEventArgs2_Vtbl {
             let this = (*this).get_impl();
             match ILaunchActivatedEventArgs2_Impl::TileActivatedInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1462,7 +1462,7 @@ impl ILockScreenActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ILockScreenActivatedEventArgs_Impl::Info(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1491,7 +1491,7 @@ impl ILockScreenCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ILockScreenCallActivatedEventArgs_Impl::CallUI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1517,7 +1517,7 @@ impl IPhoneCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPhoneCallActivatedEventArgs_Impl::LineId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1542,7 +1542,7 @@ impl IPickerReturnedActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPickerReturnedActivatedEventArgs_Impl::PickerOperationId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1571,7 +1571,7 @@ impl IPrelaunchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPrelaunchActivatedEventArgs_Impl::PrelaunchActivated(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1602,7 +1602,7 @@ impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPrint3DWorkflowActivatedEventArgs_Impl::Workflow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1634,7 +1634,7 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IPrintTaskSettingsActivatedEventArgs_Impl::Configuration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1663,7 +1663,7 @@ impl IProtocolActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IProtocolActivatedEventArgs_Impl::Uri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1693,7 +1693,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
             let this = (*this).get_impl();
             match IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl::CallerPackageFamilyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1705,7 +1705,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
             let this = (*this).get_impl();
             match IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl::Data(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1738,7 +1738,7 @@ impl IProtocolForResultsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IProtocolForResultsActivatedEventArgs_Impl::ProtocolForResultsOperation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1767,7 +1767,7 @@ impl IRestrictedLaunchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IRestrictedLaunchActivatedEventArgs_Impl::SharedContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1797,7 +1797,7 @@ impl ISearchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ISearchActivatedEventArgs_Impl::QueryText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1809,7 +1809,7 @@ impl ISearchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ISearchActivatedEventArgs_Impl::Language(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1842,7 +1842,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
             let this = (*this).get_impl();
             match ISearchActivatedEventArgsWithLinguisticDetails_Impl::LinguisticDetails(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1874,7 +1874,7 @@ impl IShareTargetActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IShareTargetActivatedEventArgs_Impl::ShareOperation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1903,7 +1903,7 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IStartupTaskActivatedEventArgs_Impl::TaskId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1933,7 +1933,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IToastNotificationActivatedEventArgs_Impl::Argument(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1945,7 +1945,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IToastNotificationActivatedEventArgs_Impl::UserInput(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1978,7 +1978,7 @@ impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IUserDataAccountProviderActivatedEventArgs_Impl::Operation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -2010,7 +2010,7 @@ impl IViewSwitcherProvider_Vtbl {
             let this = (*this).get_impl();
             match IViewSwitcherProvider_Impl::ViewSwitcher(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -2039,7 +2039,7 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IVoiceCommandActivatedEventArgs_Impl::Result(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -2070,7 +2070,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWalletActionActivatedEventArgs_Impl::ItemId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -2082,7 +2082,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWalletActionActivatedEventArgs_Impl::ActionKind(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2093,7 +2093,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWalletActionActivatedEventArgs_Impl::ActionId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -2127,7 +2127,7 @@ impl IWebAccountProviderActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWebAccountProviderActivatedEventArgs_Impl::Operation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -2159,7 +2159,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWebAuthenticationBrokerContinuationEventArgs_Impl::WebAuthenticationResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

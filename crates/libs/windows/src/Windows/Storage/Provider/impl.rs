@@ -14,7 +14,7 @@ impl IStorageProviderItemPropertySource_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderItemPropertySource_Impl::GetItemProperties(this, core::mem::transmute(&itempath)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -45,7 +45,7 @@ impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderKnownFolderSyncInfoSource_Impl::GetKnownFolderSyncInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -57,7 +57,7 @@ impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderKnownFolderSyncInfoSource_Impl::KnownFolderSyncInfoChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -92,7 +92,7 @@ impl IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderKnownFolderSyncInfoSourceFactory_Impl::GetKnownFolderSyncInfoSource(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -121,7 +121,7 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderPropertyCapabilities_Impl::IsPropertySupported(this, core::mem::transmute(&propertycanonicalname)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -151,7 +151,7 @@ impl IStorageProviderStatusUISource_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderStatusUISource_Impl::GetStatusUI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -163,7 +163,7 @@ impl IStorageProviderStatusUISource_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderStatusUISource_Impl::StatusUIChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -198,7 +198,7 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderStatusUISourceFactory_Impl::GetStatusUISource(this, core::mem::transmute(&syncrootid)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -231,7 +231,7 @@ impl IStorageProviderUICommand_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderUICommand_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -243,7 +243,7 @@ impl IStorageProviderUICommand_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderUICommand_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -255,7 +255,7 @@ impl IStorageProviderUICommand_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderUICommand_Impl::Icon(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -267,7 +267,7 @@ impl IStorageProviderUICommand_Vtbl {
             let this = (*this).get_impl();
             match IStorageProviderUICommand_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

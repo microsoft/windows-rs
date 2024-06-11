@@ -57,7 +57,7 @@ impl IChangeConflict_Vtbl {
             let this = (*this).get_impl();
             match IChangeConflict_Impl::GetDestinationProviderConflictingChange(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconflictingchange, core::mem::transmute(ok__));
+                    ppconflictingchange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -68,7 +68,7 @@ impl IChangeConflict_Vtbl {
             let this = (*this).get_impl();
             match IChangeConflict_Impl::GetSourceProviderConflictingChange(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconflictingchange, core::mem::transmute(ok__));
+                    ppconflictingchange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -79,7 +79,7 @@ impl IChangeConflict_Vtbl {
             let this = (*this).get_impl();
             match IChangeConflict_Impl::GetDestinationProviderConflictingData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconflictingdata, core::mem::transmute(ok__));
+                    ppconflictingdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -90,7 +90,7 @@ impl IChangeConflict_Vtbl {
             let this = (*this).get_impl();
             match IChangeConflict_Impl::GetSourceProviderConflictingData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconflictingdata, core::mem::transmute(ok__));
+                    ppconflictingdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -272,7 +272,7 @@ impl ICombinedFilterInfo_Vtbl {
             let this = (*this).get_impl();
             match ICombinedFilterInfo_Impl::GetFilterInfo(this, core::mem::transmute_copy(&dwfilterindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifilterinfo, core::mem::transmute(ok__));
+                    ppifilterinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -316,7 +316,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match IConstraintConflict_Impl::GetDestinationProviderConflictingChange(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconflictingchange, core::mem::transmute(ok__));
+                    ppconflictingchange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -327,7 +327,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match IConstraintConflict_Impl::GetSourceProviderConflictingChange(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconflictingchange, core::mem::transmute(ok__));
+                    ppconflictingchange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -338,7 +338,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match IConstraintConflict_Impl::GetDestinationProviderOriginalChange(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pporiginalchange, core::mem::transmute(ok__));
+                    pporiginalchange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -349,7 +349,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match IConstraintConflict_Impl::GetDestinationProviderConflictingData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconflictingdata, core::mem::transmute(ok__));
+                    ppconflictingdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -360,7 +360,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match IConstraintConflict_Impl::GetSourceProviderConflictingData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconflictingdata, core::mem::transmute(ok__));
+                    ppconflictingdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -371,7 +371,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match IConstraintConflict_Impl::GetDestinationProviderOriginalData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pporiginaldata, core::mem::transmute(ok__));
+                    pporiginaldata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -530,7 +530,7 @@ impl ICustomFilterInfo_Vtbl {
             let this = (*this).get_impl();
             match ICustomFilterInfo_Impl::GetSyncFilter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisyncfilter, core::mem::transmute(ok__));
+                    pisyncfilter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -598,7 +598,7 @@ impl IEnumChangeUnitExceptions_Vtbl {
             let this = (*this).get_impl();
             match IEnumChangeUnitExceptions_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -645,7 +645,7 @@ impl IEnumClockVector_Vtbl {
             let this = (*this).get_impl();
             match IEnumClockVector_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienum, core::mem::transmute(ok__));
+                    ppienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -692,7 +692,7 @@ impl IEnumFeedClockVector_Vtbl {
             let this = (*this).get_impl();
             match IEnumFeedClockVector_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienum, core::mem::transmute(ok__));
+                    ppienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -756,7 +756,7 @@ impl IEnumRangeExceptions_Vtbl {
             let this = (*this).get_impl();
             match IEnumRangeExceptions_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -803,7 +803,7 @@ impl IEnumSingleItemExceptions_Vtbl {
             let this = (*this).get_impl();
             match IEnumSingleItemExceptions_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -850,7 +850,7 @@ impl IEnumSyncChangeUnits_Vtbl {
             let this = (*this).get_impl();
             match IEnumSyncChangeUnits_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -897,7 +897,7 @@ impl IEnumSyncChanges_Vtbl {
             let this = (*this).get_impl();
             match IEnumSyncChanges_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -947,7 +947,7 @@ impl IEnumSyncProviderConfigUIInfos_Vtbl {
             let this = (*this).get_impl();
             match IEnumSyncProviderConfigUIInfos_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -997,7 +997,7 @@ impl IEnumSyncProviderInfos_Vtbl {
             let this = (*this).get_impl();
             match IEnumSyncProviderInfos_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1093,7 +1093,7 @@ impl IFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match IFilterKeyMap_Impl::GetFilter(this, core::mem::transmute_copy(&dwfilterkey)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppisyncfilter, core::mem::transmute(ok__));
+                    ppisyncfilter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1296,7 +1296,7 @@ impl ILoadChangeContext_Vtbl {
             let this = (*this).get_impl();
             match ILoadChangeContext_Impl::GetSyncChange(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsyncchange, core::mem::transmute(ok__));
+                    ppsyncchange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1399,7 +1399,7 @@ impl IRecoverableError_Vtbl {
             let this = (*this).get_impl();
             match IRecoverableError_Impl::GetChangeWithRecoverableError(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppchangewithrecoverableerror, core::mem::transmute(ok__));
+                    ppchangewithrecoverableerror.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1483,7 +1483,7 @@ impl IRegisteredSyncProvider_Vtbl {
             let this = (*this).get_impl();
             match IRegisteredSyncProvider_Impl::GetInstanceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pguidinstanceid, core::mem::transmute(ok__));
+                    pguidinstanceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1752,7 +1752,7 @@ impl ISyncChange_Vtbl {
             let this = (*this).get_impl();
             match ISyncChange_Impl::GetChangeUnits(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1763,7 +1763,7 @@ impl ISyncChange_Vtbl {
             let this = (*this).get_impl();
             match ISyncChange_Impl::GetMadeWithKnowledge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmadewithknowledge, core::mem::transmute(ok__));
+                    ppmadewithknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1774,7 +1774,7 @@ impl ISyncChange_Vtbl {
             let this = (*this).get_impl();
             match ISyncChange_Impl::GetLearnedKnowledge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedknowledge, core::mem::transmute(ok__));
+                    pplearnedknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1826,7 +1826,7 @@ impl ISyncChangeBatch_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatch_Impl::AddLoggedConflict(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dwworkforchange), windows_core::from_raw_borrowed(&pconflictknowledge)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppchangebuilder, core::mem::transmute(ok__));
+                    ppchangebuilder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1855,7 +1855,7 @@ impl ISyncChangeBatch2_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatch2_Impl::AddMergeTombstoneMetadataToGroup(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbwinneritemid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwworkforchange)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppchangebuilder, core::mem::transmute(ok__));
+                    ppchangebuilder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1866,7 +1866,7 @@ impl ISyncChangeBatch2_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatch2_Impl::AddMergeTombstoneLoggedConflict(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbwinneritemid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwworkforchange), windows_core::from_raw_borrowed(&pconflictknowledge)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppchangebuilder, core::mem::transmute(ok__));
+                    ppchangebuilder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1896,7 +1896,7 @@ impl ISyncChangeBatchAdvanced_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchAdvanced_Impl::GetFilterInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfilterinfo, core::mem::transmute(ok__));
+                    ppfilterinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1907,7 +1907,7 @@ impl ISyncChangeBatchAdvanced_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchAdvanced_Impl::ConvertFullEnumerationChangeBatchToRegularChangeBatch(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppchangebatch, core::mem::transmute(ok__));
+                    ppchangebatch.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1959,7 +1959,7 @@ impl ISyncChangeBatchBase_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchBase_Impl::GetChangeEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1995,7 +1995,7 @@ impl ISyncChangeBatchBase_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchBase_Impl::AddItemMetadataToGroup(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dwworkforchange)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppchangebuilder, core::mem::transmute(ok__));
+                    ppchangebuilder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2006,7 +2006,7 @@ impl ISyncChangeBatchBase_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchBase_Impl::GetLearnedKnowledge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedknowledge, core::mem::transmute(ok__));
+                    pplearnedknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2017,7 +2017,7 @@ impl ISyncChangeBatchBase_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchBase_Impl::GetPrerequisiteKnowledge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprerequisteknowledge, core::mem::transmute(ok__));
+                    ppprerequisteknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2028,7 +2028,7 @@ impl ISyncChangeBatchBase_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchBase_Impl::GetSourceForgottenKnowledge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsourceforgottenknowledge, core::mem::transmute(ok__));
+                    ppsourceforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2111,7 +2111,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchWithFilterKeyMap_Impl::GetFilterKeyMap(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifilterkeymap, core::mem::transmute(ok__));
+                    ppifilterkeymap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2132,7 +2132,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchWithFilterKeyMap_Impl::GetFilteredReplicaLearnedKnowledge(this, windows_core::from_raw_borrowed(&pdestinationknowledge), windows_core::from_raw_borrowed(&pnewmoveins)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedforgottenknowledge, core::mem::transmute(ok__));
+                    pplearnedforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2143,7 +2143,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchWithFilterKeyMap_Impl::GetLearnedFilterForgottenKnowledge(this, windows_core::from_raw_borrowed(&pdestinationknowledge), windows_core::from_raw_borrowed(&pnewmoveins), core::mem::transmute_copy(&dwfilterkey)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedfilterforgottenknowledge, core::mem::transmute(ok__));
+                    pplearnedfilterforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2154,7 +2154,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchWithFilterKeyMap_Impl::GetFilteredReplicaLearnedForgottenKnowledge(this, windows_core::from_raw_borrowed(&pdestinationknowledge), windows_core::from_raw_borrowed(&pnewmoveins)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedforgottenknowledge, core::mem::transmute(ok__));
+                    pplearnedforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2165,7 +2165,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchWithFilterKeyMap_Impl::GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(this, windows_core::from_raw_borrowed(&pdestinationknowledge), windows_core::from_raw_borrowed(&pnewmoveins)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedforgottenknowledge, core::mem::transmute(ok__));
+                    pplearnedforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2176,7 +2176,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchWithFilterKeyMap_Impl::GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(this, windows_core::from_raw_borrowed(&pdestinationknowledge), windows_core::from_raw_borrowed(&pnewmoveins), core::mem::transmute_copy(&dwfilterkey)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedfilterforgottenknowledge, core::mem::transmute(ok__));
+                    pplearnedfilterforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2216,7 +2216,7 @@ impl ISyncChangeBatchWithPrerequisite_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchWithPrerequisite_Impl::GetLearnedKnowledgeWithPrerequisite(this, windows_core::from_raw_borrowed(&pdestinationknowledge)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedwithprerequisiteknowledge, core::mem::transmute(ok__));
+                    pplearnedwithprerequisiteknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2227,7 +2227,7 @@ impl ISyncChangeBatchWithPrerequisite_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeBatchWithPrerequisite_Impl::GetLearnedForgottenKnowledge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedforgottenknowledge, core::mem::transmute(ok__));
+                    pplearnedforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2274,7 +2274,7 @@ impl ISyncChangeUnit_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeUnit_Impl::GetItemChange(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsyncchange, core::mem::transmute(ok__));
+                    ppsyncchange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2335,7 +2335,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeWithFilterKeyMap_Impl::GetFilterForgottenKnowledge(this, core::mem::transmute_copy(&dwfilterkey)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifilterforgottenknowledge, core::mem::transmute(ok__));
+                    ppifilterforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2346,7 +2346,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeWithFilterKeyMap_Impl::GetFilteredReplicaLearnedKnowledge(this, windows_core::from_raw_borrowed(&pdestinationknowledge), windows_core::from_raw_borrowed(&pnewmoveins)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedknowledge, core::mem::transmute(ok__));
+                    pplearnedknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2357,7 +2357,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeWithFilterKeyMap_Impl::GetLearnedFilterForgottenKnowledge(this, windows_core::from_raw_borrowed(&pdestinationknowledge), windows_core::from_raw_borrowed(&pnewmoveins), core::mem::transmute_copy(&dwfilterkey)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedfilterforgottenknowledge, core::mem::transmute(ok__));
+                    pplearnedfilterforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2368,7 +2368,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeWithFilterKeyMap_Impl::GetFilteredReplicaLearnedForgottenKnowledge(this, windows_core::from_raw_borrowed(&pdestinationknowledge), windows_core::from_raw_borrowed(&pnewmoveins)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedforgottenknowledge, core::mem::transmute(ok__));
+                    pplearnedforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2379,7 +2379,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeWithFilterKeyMap_Impl::GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(this, windows_core::from_raw_borrowed(&pdestinationknowledge), windows_core::from_raw_borrowed(&pnewmoveins)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedforgottenknowledge, core::mem::transmute(ok__));
+                    pplearnedforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2390,7 +2390,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeWithFilterKeyMap_Impl::GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(this, windows_core::from_raw_borrowed(&pdestinationknowledge), windows_core::from_raw_borrowed(&pnewmoveins), core::mem::transmute_copy(&dwfilterkey)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedfilterforgottenknowledge, core::mem::transmute(ok__));
+                    pplearnedfilterforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2425,7 +2425,7 @@ impl ISyncChangeWithPrerequisite_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeWithPrerequisite_Impl::GetPrerequisiteKnowledge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprerequisiteknowledge, core::mem::transmute(ok__));
+                    ppprerequisiteknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2436,7 +2436,7 @@ impl ISyncChangeWithPrerequisite_Vtbl {
             let this = (*this).get_impl();
             match ISyncChangeWithPrerequisite_Impl::GetLearnedKnowledgeWithPrerequisite(this, windows_core::from_raw_borrowed(&pdestinationknowledge)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedknowledgewithprerequisite, core::mem::transmute(ok__));
+                    pplearnedknowledgewithprerequisite.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2483,7 +2483,7 @@ impl ISyncDataConverter_Vtbl {
             let this = (*this).get_impl();
             match ISyncDataConverter_Impl::ConvertDataRetrieverFromProviderFormat(this, windows_core::from_raw_borrowed(&punkdataretrieverin), windows_core::from_raw_borrowed(&penumsyncchanges)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunkdataout, core::mem::transmute(ok__));
+                    ppunkdataout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2494,7 +2494,7 @@ impl ISyncDataConverter_Vtbl {
             let this = (*this).get_impl();
             match ISyncDataConverter_Impl::ConvertDataRetrieverToProviderFormat(this, windows_core::from_raw_borrowed(&punkdataretrieverin), windows_core::from_raw_borrowed(&penumsyncchanges)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunkdataout, core::mem::transmute(ok__));
+                    ppunkdataout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2505,7 +2505,7 @@ impl ISyncDataConverter_Vtbl {
             let this = (*this).get_impl();
             match ISyncDataConverter_Impl::ConvertDataFromProviderFormat(this, windows_core::from_raw_borrowed(&pdatacontext), windows_core::from_raw_borrowed(&punkdatain)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunkdataout, core::mem::transmute(ok__));
+                    ppunkdataout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2516,7 +2516,7 @@ impl ISyncDataConverter_Vtbl {
             let this = (*this).get_impl();
             match ISyncDataConverter_Impl::ConvertDataToProviderFormat(this, windows_core::from_raw_borrowed(&pdatacontext), windows_core::from_raw_borrowed(&punkdataout)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunkdataout, core::mem::transmute(ok__));
+                    ppunkdataout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2572,7 +2572,7 @@ impl ISyncFilterDeserializer_Vtbl {
             let this = (*this).get_impl();
             match ISyncFilterDeserializer_Impl::DeserializeSyncFilter(this, core::mem::transmute_copy(&pbsyncfilter), core::mem::transmute_copy(&dwcbsyncfilter)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppisyncfilter, core::mem::transmute(ok__));
+                    ppisyncfilter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2630,7 +2630,7 @@ impl ISyncFullEnumerationChange_Vtbl {
             let this = (*this).get_impl();
             match ISyncFullEnumerationChange_Impl::GetLearnedKnowledgeAfterRecoveryComplete(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedknowledge, core::mem::transmute(ok__));
+                    pplearnedknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2641,7 +2641,7 @@ impl ISyncFullEnumerationChange_Vtbl {
             let this = (*this).get_impl();
             match ISyncFullEnumerationChange_Impl::GetLearnedForgottenKnowledge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedforgottenknowledge, core::mem::transmute(ok__));
+                    pplearnedforgottenknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2670,7 +2670,7 @@ impl ISyncFullEnumerationChangeBatch_Vtbl {
             let this = (*this).get_impl();
             match ISyncFullEnumerationChangeBatch_Impl::GetLearnedKnowledgeAfterRecoveryComplete(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pplearnedknowledgeafterrecoverycomplete, core::mem::transmute(ok__));
+                    pplearnedknowledgeafterrecoverycomplete.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2708,7 +2708,7 @@ impl ISyncFullEnumerationChangeBatch2_Vtbl {
             let this = (*this).get_impl();
             match ISyncFullEnumerationChangeBatch2_Impl::AddMergeTombstoneMetadataToGroup(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbwinneritemid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwworkforchange)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppchangebuilder, core::mem::transmute(ok__));
+                    ppchangebuilder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2787,7 +2787,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match ISyncKnowledge_Impl::GetReplicaKeyMap(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppreplicakeymap, core::mem::transmute(ok__));
+                    ppreplicakeymap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2798,7 +2798,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match ISyncKnowledge_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppclonedknowledge, core::mem::transmute(ok__));
+                    ppclonedknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2814,7 +2814,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match ISyncKnowledge_Impl::MapRemoteToLocal(this, windows_core::from_raw_borrowed(&premoteknowledge)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmappedknowledge, core::mem::transmute(ok__));
+                    ppmappedknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2830,7 +2830,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match ISyncKnowledge_Impl::ProjectOntoItem(this, core::mem::transmute_copy(&pbitemid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppknowledgeout, core::mem::transmute(ok__));
+                    ppknowledgeout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2841,7 +2841,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match ISyncKnowledge_Impl::ProjectOntoChangeUnit(this, core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pbchangeunitid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppknowledgeout, core::mem::transmute(ok__));
+                    ppknowledgeout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2852,7 +2852,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match ISyncKnowledge_Impl::ProjectOntoRange(this, core::mem::transmute_copy(&psrngsyncrange)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppknowledgeout, core::mem::transmute(ok__));
+                    ppknowledgeout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2969,7 +2969,7 @@ impl ISyncKnowledge2_Vtbl {
             let this = (*this).get_impl();
             match ISyncKnowledge2_Impl::ProjectOntoColumnSet(this, core::mem::transmute_copy(&ppcolumns), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiknowledgeout, core::mem::transmute(ok__));
+                    ppiknowledgeout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3015,7 +3015,7 @@ impl ISyncKnowledge2_Vtbl {
             let this = (*this).get_impl();
             match ISyncKnowledge2_Impl::ProjectOntoKnowledgeWithPrerequisite(this, windows_core::from_raw_borrowed(&pprerequisiteknowledge), windows_core::from_raw_borrowed(&ptemplateknowledge)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprojectedknowledge, core::mem::transmute(ok__));
+                    ppprojectedknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3026,7 +3026,7 @@ impl ISyncKnowledge2_Vtbl {
             let this = (*this).get_impl();
             match ISyncKnowledge2_Impl::Complement(this, windows_core::from_raw_borrowed(&psyncknowledge)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcomplementedknowledge, core::mem::transmute(ok__));
+                    ppcomplementedknowledge.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3042,7 +3042,7 @@ impl ISyncKnowledge2_Vtbl {
             let this = (*this).get_impl();
             match ISyncKnowledge2_Impl::GetKnowledgeCookie(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppknowledgecookie, core::mem::transmute(ok__));
+                    ppknowledgecookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3131,7 +3131,7 @@ impl ISyncProviderConfigUI_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderConfigUI_Impl::GetRegisteredProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconfiguiproperties, core::mem::transmute(ok__));
+                    ppconfiguiproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3142,7 +3142,7 @@ impl ISyncProviderConfigUI_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderConfigUI_Impl::CreateAndRegisterNewSyncProvider(this, core::mem::transmute_copy(&hwndparent), windows_core::from_raw_borrowed(&punkcontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppproviderinfo, core::mem::transmute(ok__));
+                    ppproviderinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3179,7 +3179,7 @@ impl ISyncProviderConfigUIInfo_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderConfigUIInfo_Impl::GetSyncProviderConfigUI(this, core::mem::transmute_copy(&dwclscontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsyncproviderconfigui, core::mem::transmute(ok__));
+                    ppsyncproviderconfigui.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3208,7 +3208,7 @@ impl ISyncProviderInfo_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderInfo_Impl::GetSyncProvider(this, core::mem::transmute_copy(&dwclscontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsyncprovider, core::mem::transmute(ok__));
+                    ppsyncprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3252,7 +3252,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderRegistration_Impl::CreateSyncProviderConfigUIRegistrationInstance(this, core::mem::transmute_copy(&pconfiguiconfig)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconfiguiinfo, core::mem::transmute(ok__));
+                    ppconfiguiinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3268,7 +3268,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderRegistration_Impl::EnumerateSyncProviderConfigUIs(this, core::mem::transmute_copy(&pguidcontenttype), core::mem::transmute_copy(&dwsupportedarchitecture)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenumsyncproviderconfiguiinfos, core::mem::transmute(ok__));
+                    ppenumsyncproviderconfiguiinfos.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3279,7 +3279,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderRegistration_Impl::CreateSyncProviderRegistrationInstance(this, core::mem::transmute_copy(&pproviderconfiguration)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppproviderinfo, core::mem::transmute(ok__));
+                    ppproviderinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3295,7 +3295,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderRegistration_Impl::GetSyncProviderConfigUIInfoforProvider(this, core::mem::transmute_copy(&pguidproviderinstanceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppproviderconfiguiinfo, core::mem::transmute(ok__));
+                    ppproviderconfiguiinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3306,7 +3306,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderRegistration_Impl::EnumerateSyncProviders(this, core::mem::transmute_copy(&pguidcontenttype), core::mem::transmute_copy(&dwstateflagstofiltermask), core::mem::transmute_copy(&dwstateflagstofilter), core::mem::transmute_copy(&refproviderclsid), core::mem::transmute_copy(&dwsupportedarchitecture)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenumsyncproviderinfos, core::mem::transmute(ok__));
+                    ppenumsyncproviderinfos.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3317,7 +3317,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderRegistration_Impl::GetSyncProviderInfo(this, core::mem::transmute_copy(&pguidinstanceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppproviderinfo, core::mem::transmute(ok__));
+                    ppproviderinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3328,7 +3328,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderRegistration_Impl::GetSyncProviderFromInstanceId(this, core::mem::transmute_copy(&pguidinstanceid), core::mem::transmute_copy(&dwclscontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsyncprovider, core::mem::transmute(ok__));
+                    ppsyncprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3339,7 +3339,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderRegistration_Impl::GetSyncProviderConfigUIInfo(this, core::mem::transmute_copy(&pguidinstanceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconfiguiinfo, core::mem::transmute(ok__));
+                    ppconfiguiinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3350,7 +3350,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderRegistration_Impl::GetSyncProviderConfigUIFromInstanceId(this, core::mem::transmute_copy(&pguidinstanceid), core::mem::transmute_copy(&dwclscontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconfigui, core::mem::transmute(ok__));
+                    ppconfigui.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3361,7 +3361,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderRegistration_Impl::GetSyncProviderState(this, core::mem::transmute_copy(&pguidinstanceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwstateflags, core::mem::transmute(ok__));
+                    pdwstateflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3387,7 +3387,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match ISyncProviderRegistration_Impl::GetChange(this, core::mem::transmute_copy(&hevent)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppchange, core::mem::transmute(ok__));
+                    ppchange.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3429,7 +3429,7 @@ impl ISyncRegistrationChange_Vtbl {
             let this = (*this).get_impl();
             match ISyncRegistrationChange_Impl::GetEvent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psreevent, core::mem::transmute(ok__));
+                    psreevent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3440,7 +3440,7 @@ impl ISyncRegistrationChange_Vtbl {
             let this = (*this).get_impl();
             match ISyncRegistrationChange_Impl::GetInstanceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pguidinstanceid, core::mem::transmute(ok__));
+                    pguidinstanceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3467,7 +3467,7 @@ impl ISyncSessionExtendedErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match ISyncSessionExtendedErrorInfo_Impl::GetSyncProviderWithError(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppproviderwitherror, core::mem::transmute(ok__));
+                    ppproviderwitherror.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3585,7 +3585,7 @@ impl ISynchronousDataRetriever_Vtbl {
             let this = (*this).get_impl();
             match ISynchronousDataRetriever_Impl::LoadChangeData(this, windows_core::from_raw_borrowed(&ploadchangecontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunkdata, core::mem::transmute(ok__));
+                    ppunkdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

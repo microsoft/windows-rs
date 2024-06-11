@@ -13,7 +13,7 @@ impl ICustomGameControllerFactory_Vtbl {
             let this = (*this).get_impl();
             match ICustomGameControllerFactory_Impl::CreateGameController(this, windows_core::from_raw_borrowed(&provider)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -87,7 +87,7 @@ impl IGameControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match IGameControllerProvider_Impl::FirmwareVersionInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -98,7 +98,7 @@ impl IGameControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match IGameControllerProvider_Impl::HardwareProductId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -109,7 +109,7 @@ impl IGameControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match IGameControllerProvider_Impl::HardwareVendorId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -120,7 +120,7 @@ impl IGameControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match IGameControllerProvider_Impl::HardwareVersionInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -131,7 +131,7 @@ impl IGameControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match IGameControllerProvider_Impl::IsConnected(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

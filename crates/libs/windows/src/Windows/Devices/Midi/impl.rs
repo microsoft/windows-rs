@@ -16,7 +16,7 @@ impl IMidiMessage_Vtbl {
             let this = (*this).get_impl();
             match IMidiMessage_Impl::Timestamp(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -27,7 +27,7 @@ impl IMidiMessage_Vtbl {
             let this = (*this).get_impl();
             match IMidiMessage_Impl::RawData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -39,7 +39,7 @@ impl IMidiMessage_Vtbl {
             let this = (*this).get_impl();
             match IMidiMessage_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -84,7 +84,7 @@ impl IMidiOutPort_Vtbl {
             let this = (*this).get_impl();
             match IMidiOutPort_Impl::DeviceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

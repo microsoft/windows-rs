@@ -15,7 +15,7 @@ impl IContentPrefetcherTaskTrigger_Vtbl {
             let this = (*this).get_impl();
             match IContentPrefetcherTaskTrigger_Impl::IsRegisteredForContentPrefetch(this, core::mem::transmute(&packagefullname)) {
                 Ok(ok__) => {
-                    core::ptr::write(isregistered, core::mem::transmute(ok__));
+                    isregistered.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

@@ -29,7 +29,7 @@ impl IEnumSpObjectTokens_Vtbl {
             let this = (*this).get_impl();
             match IEnumSpObjectTokens_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -40,7 +40,7 @@ impl IEnumSpObjectTokens_Vtbl {
             let this = (*this).get_impl();
             match IEnumSpObjectTokens_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(pptoken, core::mem::transmute(ok__));
+                    pptoken.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -208,7 +208,7 @@ impl ISpCFGInterpreterSite_Vtbl {
             let this = (*this).get_impl();
             match ISpCFGInterpreterSite_Impl::GetResourceValue(this, core::mem::transmute(&pszresourcename)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcomemresource, core::mem::transmute(ok__));
+                    ppcomemresource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -279,7 +279,7 @@ impl ISpDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpDataKey_Impl::GetStringValue(this, core::mem::transmute(&pszvaluename)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszvalue, core::mem::transmute(ok__));
+                    ppszvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -300,7 +300,7 @@ impl ISpDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpDataKey_Impl::OpenKey(this, core::mem::transmute(&pszsubkeyname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsubkey, core::mem::transmute(ok__));
+                    ppsubkey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -311,7 +311,7 @@ impl ISpDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpDataKey_Impl::CreateKey(this, core::mem::transmute(&pszsubkey)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsubkey, core::mem::transmute(ok__));
+                    ppsubkey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -332,7 +332,7 @@ impl ISpDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpDataKey_Impl::EnumKeys(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszsubkeyname, core::mem::transmute(ok__));
+                    ppszsubkeyname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -343,7 +343,7 @@ impl ISpDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpDataKey_Impl::EnumValues(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszvaluename, core::mem::transmute(ok__));
+                    ppszvaluename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -981,7 +981,7 @@ impl ISpObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpObjectToken_Impl::GetId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszcomemtokenid, core::mem::transmute(ok__));
+                    ppszcomemtokenid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -992,7 +992,7 @@ impl ISpObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpObjectToken_Impl::GetCategory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pptokencategory, core::mem::transmute(ok__));
+                    pptokencategory.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1008,7 +1008,7 @@ impl ISpObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpObjectToken_Impl::GetStorageFileName(this, core::mem::transmute_copy(&clsidcaller), core::mem::transmute(&pszvaluename), core::mem::transmute(&pszfilenamespecifier), core::mem::transmute_copy(&nfolder)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszfilepath, core::mem::transmute(ok__));
+                    ppszfilepath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1078,7 +1078,7 @@ impl ISpObjectTokenCategory_Vtbl {
             let this = (*this).get_impl();
             match ISpObjectTokenCategory_Impl::GetId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszcomemcategoryid, core::mem::transmute(ok__));
+                    ppszcomemcategoryid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1089,7 +1089,7 @@ impl ISpObjectTokenCategory_Vtbl {
             let this = (*this).get_impl();
             match ISpObjectTokenCategory_Impl::GetDataKey(this, core::mem::transmute_copy(&spdkl)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdatakey, core::mem::transmute(ok__));
+                    ppdatakey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1100,7 +1100,7 @@ impl ISpObjectTokenCategory_Vtbl {
             let this = (*this).get_impl();
             match ISpObjectTokenCategory_Impl::EnumTokens(this, core::mem::transmute(&pzsreqattribs), core::mem::transmute(&pszoptattribs)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1116,7 +1116,7 @@ impl ISpObjectTokenCategory_Vtbl {
             let this = (*this).get_impl();
             match ISpObjectTokenCategory_Impl::GetDefaultTokenId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszcomemtokenid, core::mem::transmute(ok__));
+                    ppszcomemtokenid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1218,7 +1218,7 @@ impl ISpObjectWithToken_Vtbl {
             let this = (*this).get_impl();
             match ISpObjectWithToken_Impl::GetObjectToken(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pptoken, core::mem::transmute(ok__));
+                    pptoken.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1246,7 +1246,7 @@ impl ISpPhoneConverter_Vtbl {
             let this = (*this).get_impl();
             match ISpPhoneConverter_Impl::PhoneToId(this, core::mem::transmute(&pszphone)) {
                 Ok(ok__) => {
-                    core::ptr::write(pid, core::mem::transmute(ok__));
+                    pid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1282,7 +1282,7 @@ impl ISpPhoneticAlphabetConverter_Vtbl {
             let this = (*this).get_impl();
             match ISpPhoneticAlphabetConverter_Impl::GetLangId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plangid, core::mem::transmute(ok__));
+                    plangid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1308,7 +1308,7 @@ impl ISpPhoneticAlphabetConverter_Vtbl {
             let this = (*this).get_impl();
             match ISpPhoneticAlphabetConverter_Impl::GetMaxConvertLength(this, core::mem::transmute_copy(&csrclength), core::mem::transmute_copy(&bsapi2ups)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcmaxdestlength, core::mem::transmute(ok__));
+                    pcmaxdestlength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1339,7 +1339,7 @@ impl ISpPhoneticAlphabetSelection_Vtbl {
             let this = (*this).get_impl();
             match ISpPhoneticAlphabetSelection_Impl::IsAlphabetUPS(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisups, core::mem::transmute(ok__));
+                    pfisups.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1374,7 +1374,7 @@ impl ISpPhrase_Vtbl {
             let this = (*this).get_impl();
             match ISpPhrase_Impl::GetPhrase(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcomemphrase, core::mem::transmute(ok__));
+                    ppcomemphrase.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1385,7 +1385,7 @@ impl ISpPhrase_Vtbl {
             let this = (*this).get_impl();
             match ISpPhrase_Impl::GetSerializedPhrase(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcomemphrase, core::mem::transmute(ok__));
+                    ppcomemphrase.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1439,7 +1439,7 @@ impl ISpPhrase2_Vtbl {
             let this = (*this).get_impl();
             match ISpPhrase2_Impl::GetAudio(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstream, core::mem::transmute(ok__));
+                    ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1514,7 +1514,7 @@ impl ISpPhraseBuilder_Vtbl {
             let this = (*this).get_impl();
             match ISpPhraseBuilder_Impl::AddRules(this, core::mem::transmute_copy(&hparent), core::mem::transmute_copy(&prule)) {
                 Ok(ok__) => {
-                    core::ptr::write(phnewrule, core::mem::transmute(ok__));
+                    phnewrule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1525,7 +1525,7 @@ impl ISpPhraseBuilder_Vtbl {
             let this = (*this).get_impl();
             match ISpPhraseBuilder_Impl::AddProperties(this, core::mem::transmute_copy(&hparent), core::mem::transmute_copy(&pproperty)) {
                 Ok(ok__) => {
-                    core::ptr::write(phnewproperty, core::mem::transmute(ok__));
+                    phnewproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1606,7 +1606,7 @@ impl ISpProperties_Vtbl {
             let this = (*this).get_impl();
             match ISpProperties_Impl::GetPropertyString(this, core::mem::transmute(&pname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcomemvalue, core::mem::transmute(ok__));
+                    ppcomemvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1655,7 +1655,7 @@ impl ISpRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpRecoContext_Impl::GetRecognizer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pprecognizer, core::mem::transmute(ok__));
+                    pprecognizer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1666,7 +1666,7 @@ impl ISpRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpRecoContext_Impl::CreateGrammar(this, core::mem::transmute_copy(&ullgrammarid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgrammar, core::mem::transmute(ok__));
+                    ppgrammar.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1702,7 +1702,7 @@ impl ISpRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpRecoContext_Impl::DeserializeResult(this, core::mem::transmute_copy(&pserializedresult)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresult, core::mem::transmute(ok__));
+                    ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1738,7 +1738,7 @@ impl ISpRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpRecoContext_Impl::GetVoice(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvoice, core::mem::transmute(ok__));
+                    ppvoice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1860,7 +1860,7 @@ impl ISpRecoGrammar_Vtbl {
             let this = (*this).get_impl();
             match ISpRecoGrammar_Impl::GetRecoContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pprecoctxt, core::mem::transmute(ok__));
+                    pprecoctxt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2074,7 +2074,7 @@ impl ISpRecoResult_Vtbl {
             let this = (*this).get_impl();
             match ISpRecoResult_Impl::GetAudio(this, core::mem::transmute_copy(&ulstartelement), core::mem::transmute_copy(&celements)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstream, core::mem::transmute(ok__));
+                    ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2100,7 +2100,7 @@ impl ISpRecoResult_Vtbl {
             let this = (*this).get_impl();
             match ISpRecoResult_Impl::GetRecoContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pprecocontext, core::mem::transmute(ok__));
+                    pprecocontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2137,7 +2137,7 @@ impl ISpRecoResult2_Vtbl {
             let this = (*this).get_impl();
             match ISpRecoResult2_Impl::CommitAlternate(this, windows_core::from_raw_borrowed(&pphrasealt)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnewresult, core::mem::transmute(ok__));
+                    ppnewresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2198,7 +2198,7 @@ impl ISpRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpRecognizer_Impl::GetRecognizer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pprecognizer, core::mem::transmute(ok__));
+                    pprecognizer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2214,7 +2214,7 @@ impl ISpRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpRecognizer_Impl::GetInputObjectToken(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pptoken, core::mem::transmute(ok__));
+                    pptoken.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2225,7 +2225,7 @@ impl ISpRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpRecognizer_Impl::GetInputStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstream, core::mem::transmute(ok__));
+                    ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2236,7 +2236,7 @@ impl ISpRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpRecognizer_Impl::CreateRecoContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnewctxt, core::mem::transmute(ok__));
+                    ppnewctxt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2247,7 +2247,7 @@ impl ISpRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpRecognizer_Impl::GetRecoProfile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pptoken, core::mem::transmute(ok__));
+                    pptoken.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2532,7 +2532,7 @@ impl ISpSREngine_Vtbl {
             let this = (*this).get_impl();
             match ISpSREngine_Impl::SetProprietaryRuleState(this, core::mem::transmute_copy(&pvenginegrammar), core::mem::transmute(&pszname), core::mem::transmute_copy(&preserved), core::mem::transmute_copy(&newstate)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcruleschanged, core::mem::transmute(ok__));
+                    pcruleschanged.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2573,7 +2573,7 @@ impl ISpSREngine_Vtbl {
             let this = (*this).get_impl();
             match ISpSREngine_Impl::IsPronounceable(this, core::mem::transmute_copy(&pvenginegrammar), core::mem::transmute(&pszword)) {
                 Ok(ok__) => {
-                    core::ptr::write(pwordpronounceable, core::mem::transmute(ok__));
+                    pwordpronounceable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2609,7 +2609,7 @@ impl ISpSREngine_Vtbl {
             let this = (*this).get_impl();
             match ISpSREngine_Impl::GetPropertyNum(this, core::mem::transmute_copy(&esrc), core::mem::transmute_copy(&pvsrcobj), core::mem::transmute(&pname)) {
                 Ok(ok__) => {
-                    core::ptr::write(lvalue, core::mem::transmute(ok__));
+                    lvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2625,7 +2625,7 @@ impl ISpSREngine_Vtbl {
             let this = (*this).get_impl();
             match ISpSREngine_Impl::GetPropertyString(this, core::mem::transmute_copy(&esrc), core::mem::transmute_copy(&pvsrcobj), core::mem::transmute(&pname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcomemvalue, core::mem::transmute(ok__));
+                    ppcomemvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2814,7 +2814,7 @@ impl ISpSREngineSite_Vtbl {
             let this = (*this).get_impl();
             match ISpSREngineSite_Impl::Read(this, core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcbread, core::mem::transmute(ok__));
+                    pcbread.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2825,7 +2825,7 @@ impl ISpSREngineSite_Vtbl {
             let this = (*this).get_impl();
             match ISpSREngineSite_Impl::DataAvailable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcb, core::mem::transmute(ok__));
+                    pcb.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2841,7 +2841,7 @@ impl ISpSREngineSite_Vtbl {
             let this = (*this).get_impl();
             match ISpSREngineSite_Impl::ParseFromTransitions(this, core::mem::transmute_copy(&pparseinfo)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnewphrase, core::mem::transmute(ok__));
+                    ppnewphrase.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2892,7 +2892,7 @@ impl ISpSREngineSite_Vtbl {
             let this = (*this).get_impl();
             match ISpSREngineSite_Impl::GetResource(this, core::mem::transmute_copy(&hrule), core::mem::transmute(&pszresourcename)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcomemresource, core::mem::transmute(ok__));
+                    ppcomemresource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2903,7 +2903,7 @@ impl ISpSREngineSite_Vtbl {
             let this = (*this).get_impl();
             match ISpSREngineSite_Impl::GetTransitionProperty(this, core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcomemproperty, core::mem::transmute(ok__));
+                    ppcomemproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2919,7 +2919,7 @@ impl ISpSREngineSite_Vtbl {
             let this = (*this).get_impl();
             match ISpSREngineSite_Impl::GetMaxAlternates(this, core::mem::transmute_copy(&hrule)) {
                 Ok(ok__) => {
-                    core::ptr::write(pulnumalts, core::mem::transmute(ok__));
+                    pulnumalts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2930,7 +2930,7 @@ impl ISpSREngineSite_Vtbl {
             let this = (*this).get_impl();
             match ISpSREngineSite_Impl::GetContextMaxAlternates(this, core::mem::transmute_copy(&hcontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(pulnumalts, core::mem::transmute(ok__));
+                    pulnumalts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3068,7 +3068,7 @@ impl ISpShortcut_Vtbl {
             let this = (*this).get_impl();
             match ISpShortcut_Impl::GetGeneration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwgeneration, core::mem::transmute(ok__));
+                    pdwgeneration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3132,7 +3132,7 @@ impl ISpStream_Vtbl {
             let this = (*this).get_impl();
             match ISpStream_Impl::GetBaseStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstream, core::mem::transmute(ok__));
+                    ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3174,7 +3174,7 @@ impl ISpStreamFormat_Vtbl {
             let this = (*this).get_impl();
             match ISpStreamFormat_Impl::GetFormat(this, core::mem::transmute_copy(&pguidformatid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcomemwaveformatex, core::mem::transmute(ok__));
+                    ppcomemwaveformatex.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3210,7 +3210,7 @@ impl ISpStreamFormatConverter_Vtbl {
             let this = (*this).get_impl();
             match ISpStreamFormatConverter_Impl::GetBaseStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstream, core::mem::transmute(ok__));
+                    ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3231,7 +3231,7 @@ impl ISpStreamFormatConverter_Vtbl {
             let this = (*this).get_impl();
             match ISpStreamFormatConverter_Impl::ScaleConvertedToBaseOffset(this, core::mem::transmute_copy(&ulloffsetconvertedstream)) {
                 Ok(ok__) => {
-                    core::ptr::write(pulloffsetbasestream, core::mem::transmute(ok__));
+                    pulloffsetbasestream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3242,7 +3242,7 @@ impl ISpStreamFormatConverter_Vtbl {
             let this = (*this).get_impl();
             match ISpStreamFormatConverter_Impl::ScaleBaseToConvertedOffset(this, core::mem::transmute_copy(&ulloffsetbasestream)) {
                 Ok(ok__) => {
-                    core::ptr::write(pulloffsetconvertedstream, core::mem::transmute(ok__));
+                    pulloffsetconvertedstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3313,7 +3313,7 @@ impl ISpTTSEngineSite_Vtbl {
             let this = (*this).get_impl();
             match ISpTTSEngineSite_Impl::Write(this, core::mem::transmute_copy(&pbuff), core::mem::transmute_copy(&cb)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcbwritten, core::mem::transmute(ok__));
+                    pcbwritten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3324,7 +3324,7 @@ impl ISpTTSEngineSite_Vtbl {
             let this = (*this).get_impl();
             match ISpTTSEngineSite_Impl::GetRate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(prateadjust, core::mem::transmute(ok__));
+                    prateadjust.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3335,7 +3335,7 @@ impl ISpTTSEngineSite_Vtbl {
             let this = (*this).get_impl();
             match ISpTTSEngineSite_Impl::GetVolume(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pusvolume, core::mem::transmute(ok__));
+                    pusvolume.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3412,7 +3412,7 @@ impl ISpTaskManager_Vtbl {
             let this = (*this).get_impl();
             match ISpTaskManager_Impl::GetThreadPoolInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoolinfo, core::mem::transmute(ok__));
+                    ppoolinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3428,7 +3428,7 @@ impl ISpTaskManager_Vtbl {
             let this = (*this).get_impl();
             match ISpTaskManager_Impl::CreateReoccurringTask(this, windows_core::from_raw_borrowed(&ptask), core::mem::transmute_copy(&pvtaskdata), core::mem::transmute_copy(&hcompevent)) {
                 Ok(ok__) => {
-                    core::ptr::write(pptaskctrl, core::mem::transmute(ok__));
+                    pptaskctrl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3439,7 +3439,7 @@ impl ISpTaskManager_Vtbl {
             let this = (*this).get_impl();
             match ISpTaskManager_Impl::CreateThreadControl(this, windows_core::from_raw_borrowed(&ptask), core::mem::transmute_copy(&pvtaskdata), core::mem::transmute_copy(&npriority)) {
                 Ok(ok__) => {
-                    core::ptr::write(pptaskctrl, core::mem::transmute(ok__));
+                    pptaskctrl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3489,7 +3489,7 @@ impl ISpThreadControl_Vtbl {
             let this = (*this).get_impl();
             match ISpThreadControl_Impl::StartThread(this, core::mem::transmute_copy(&dwflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(phwnd, core::mem::transmute(ok__));
+                    phwnd.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3601,7 +3601,7 @@ impl ISpTokenUI_Vtbl {
             let this = (*this).get_impl();
             match ISpTokenUI_Impl::IsUISupported(this, core::mem::transmute(&psztypeofui), core::mem::transmute_copy(&pvextradata), core::mem::transmute_copy(&cbextradata), windows_core::from_raw_borrowed(&punkobject)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfsupported, core::mem::transmute(ok__));
+                    pfsupported.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3634,7 +3634,7 @@ impl ISpTranscript_Vtbl {
             let this = (*this).get_impl();
             match ISpTranscript_Impl::GetTranscript(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsztranscript, core::mem::transmute(ok__));
+                    ppsztranscript.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3698,7 +3698,7 @@ impl ISpVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpVoice_Impl::GetOutputObjectToken(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobjecttoken, core::mem::transmute(ok__));
+                    ppobjecttoken.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3709,7 +3709,7 @@ impl ISpVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpVoice_Impl::GetOutputStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstream, core::mem::transmute(ok__));
+                    ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3735,7 +3735,7 @@ impl ISpVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpVoice_Impl::GetVoice(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pptoken, core::mem::transmute(ok__));
+                    pptoken.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3916,7 +3916,7 @@ impl ISpeechAudio_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudio_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3927,7 +3927,7 @@ impl ISpeechAudio_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudio_Impl::BufferInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bufferinfo, core::mem::transmute(ok__));
+                    bufferinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3938,7 +3938,7 @@ impl ISpeechAudio_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudio_Impl::DefaultFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(streamformat, core::mem::transmute(ok__));
+                    streamformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3949,7 +3949,7 @@ impl ISpeechAudio_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudio_Impl::Volume(this) {
                 Ok(ok__) => {
-                    core::ptr::write(volume, core::mem::transmute(ok__));
+                    volume.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3965,7 +3965,7 @@ impl ISpeechAudio_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudio_Impl::BufferNotifySize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(buffernotifysize, core::mem::transmute(ok__));
+                    buffernotifysize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3981,7 +3981,7 @@ impl ISpeechAudio_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudio_Impl::EventHandle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(eventhandle, core::mem::transmute(ok__));
+                    eventhandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4028,7 +4028,7 @@ impl ISpeechAudioBufferInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudioBufferInfo_Impl::MinNotification(this) {
                 Ok(ok__) => {
-                    core::ptr::write(minnotification, core::mem::transmute(ok__));
+                    minnotification.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4044,7 +4044,7 @@ impl ISpeechAudioBufferInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudioBufferInfo_Impl::BufferSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(buffersize, core::mem::transmute(ok__));
+                    buffersize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4060,7 +4060,7 @@ impl ISpeechAudioBufferInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudioBufferInfo_Impl::EventBias(this) {
                 Ok(ok__) => {
-                    core::ptr::write(eventbias, core::mem::transmute(ok__));
+                    eventbias.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4104,7 +4104,7 @@ impl ISpeechAudioFormat_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudioFormat_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audioformat, core::mem::transmute(ok__));
+                    audioformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4120,7 +4120,7 @@ impl ISpeechAudioFormat_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudioFormat_Impl::Guid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(guid, core::mem::transmute(ok__));
+                    guid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4136,7 +4136,7 @@ impl ISpeechAudioFormat_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudioFormat_Impl::GetWaveFormatEx(this) {
                 Ok(ok__) => {
-                    core::ptr::write(speechwaveformatex, core::mem::transmute(ok__));
+                    speechwaveformatex.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4179,7 +4179,7 @@ impl ISpeechAudioStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudioStatus_Impl::FreeBufferSpace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(freebufferspace, core::mem::transmute(ok__));
+                    freebufferspace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4190,7 +4190,7 @@ impl ISpeechAudioStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudioStatus_Impl::NonBlockingIO(this) {
                 Ok(ok__) => {
-                    core::ptr::write(nonblockingio, core::mem::transmute(ok__));
+                    nonblockingio.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4201,7 +4201,7 @@ impl ISpeechAudioStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudioStatus_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(state, core::mem::transmute(ok__));
+                    state.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4212,7 +4212,7 @@ impl ISpeechAudioStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudioStatus_Impl::CurrentSeekPosition(this) {
                 Ok(ok__) => {
-                    core::ptr::write(currentseekposition, core::mem::transmute(ok__));
+                    currentseekposition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4223,7 +4223,7 @@ impl ISpeechAudioStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechAudioStatus_Impl::CurrentDevicePosition(this) {
                 Ok(ok__) => {
-                    core::ptr::write(currentdeviceposition, core::mem::transmute(ok__));
+                    currentdeviceposition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4260,7 +4260,7 @@ impl ISpeechBaseStream_Vtbl {
             let this = (*this).get_impl();
             match ISpeechBaseStream_Impl::Format(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audioformat, core::mem::transmute(ok__));
+                    audioformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4281,7 +4281,7 @@ impl ISpeechBaseStream_Vtbl {
             let this = (*this).get_impl();
             match ISpeechBaseStream_Impl::Write(this, core::mem::transmute(&buffer)) {
                 Ok(ok__) => {
-                    core::ptr::write(byteswritten, core::mem::transmute(ok__));
+                    byteswritten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4292,7 +4292,7 @@ impl ISpeechBaseStream_Vtbl {
             let this = (*this).get_impl();
             match ISpeechBaseStream_Impl::Seek(this, core::mem::transmute(&position), core::mem::transmute_copy(&origin)) {
                 Ok(ok__) => {
-                    core::ptr::write(newposition, core::mem::transmute(ok__));
+                    newposition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4326,7 +4326,7 @@ impl ISpeechCustomStream_Vtbl {
             let this = (*this).get_impl();
             match ISpeechCustomStream_Impl::BaseStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunkstream, core::mem::transmute(ok__));
+                    ppunkstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4377,7 +4377,7 @@ impl ISpeechDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::GetBinaryValue(this, core::mem::transmute(&valuename)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4393,7 +4393,7 @@ impl ISpeechDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::GetStringValue(this, core::mem::transmute(&valuename)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4409,7 +4409,7 @@ impl ISpeechDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::GetLongValue(this, core::mem::transmute(&valuename)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4420,7 +4420,7 @@ impl ISpeechDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::OpenKey(this, core::mem::transmute(&subkeyname)) {
                 Ok(ok__) => {
-                    core::ptr::write(subkey, core::mem::transmute(ok__));
+                    subkey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4431,7 +4431,7 @@ impl ISpeechDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::CreateKey(this, core::mem::transmute(&subkeyname)) {
                 Ok(ok__) => {
-                    core::ptr::write(subkey, core::mem::transmute(ok__));
+                    subkey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4452,7 +4452,7 @@ impl ISpeechDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::EnumKeys(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(subkeyname, core::mem::transmute(ok__));
+                    subkeyname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4463,7 +4463,7 @@ impl ISpeechDataKey_Vtbl {
             let this = (*this).get_impl();
             match ISpeechDataKey_Impl::EnumValues(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(valuename, core::mem::transmute(ok__));
+                    valuename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4535,7 +4535,7 @@ impl ISpeechGrammarRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRule_Impl::Attributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(attributes, core::mem::transmute(ok__));
+                    attributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4546,7 +4546,7 @@ impl ISpeechGrammarRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRule_Impl::InitialState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(state, core::mem::transmute(ok__));
+                    state.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4557,7 +4557,7 @@ impl ISpeechGrammarRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRule_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4568,7 +4568,7 @@ impl ISpeechGrammarRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRule_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(id, core::mem::transmute(ok__));
+                    id.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4589,7 +4589,7 @@ impl ISpeechGrammarRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRule_Impl::AddState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(state, core::mem::transmute(ok__));
+                    state.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4628,7 +4628,7 @@ impl ISpeechGrammarRuleState_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleState_Impl::Rule(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rule, core::mem::transmute(ok__));
+                    rule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4639,7 +4639,7 @@ impl ISpeechGrammarRuleState_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleState_Impl::Transitions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(transitions, core::mem::transmute(ok__));
+                    transitions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4694,7 +4694,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4705,7 +4705,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::Text(this) {
                 Ok(ok__) => {
-                    core::ptr::write(text, core::mem::transmute(ok__));
+                    text.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4716,7 +4716,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::Rule(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rule, core::mem::transmute(ok__));
+                    rule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4727,7 +4727,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::Weight(this) {
                 Ok(ok__) => {
-                    core::ptr::write(weight, core::mem::transmute(ok__));
+                    weight.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4738,7 +4738,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::PropertyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(propertyname, core::mem::transmute(ok__));
+                    propertyname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4749,7 +4749,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::PropertyId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(propertyid, core::mem::transmute(ok__));
+                    propertyid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4760,7 +4760,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::PropertyValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(propertyvalue, core::mem::transmute(ok__));
+                    propertyvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4771,7 +4771,7 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransition_Impl::NextState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(nextstate, core::mem::transmute(ok__));
+                    nextstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4809,7 +4809,7 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransitions_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4820,7 +4820,7 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransitions_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4831,7 +4831,7 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRuleStateTransitions_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enumvariant, core::mem::transmute(ok__));
+                    enumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4869,7 +4869,7 @@ impl ISpeechGrammarRules_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRules_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4880,7 +4880,7 @@ impl ISpeechGrammarRules_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRules_Impl::FindRule(this, core::mem::transmute(&rulenameorid)) {
                 Ok(ok__) => {
-                    core::ptr::write(rule, core::mem::transmute(ok__));
+                    rule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4891,7 +4891,7 @@ impl ISpeechGrammarRules_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRules_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(rule, core::mem::transmute(ok__));
+                    rule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4902,7 +4902,7 @@ impl ISpeechGrammarRules_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRules_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enumvariant, core::mem::transmute(ok__));
+                    enumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4913,7 +4913,7 @@ impl ISpeechGrammarRules_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRules_Impl::Dynamic(this) {
                 Ok(ok__) => {
-                    core::ptr::write(dynamic, core::mem::transmute(ok__));
+                    dynamic.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4924,7 +4924,7 @@ impl ISpeechGrammarRules_Vtbl {
             let this = (*this).get_impl();
             match ISpeechGrammarRules_Impl::Add(this, core::mem::transmute(&rulename), core::mem::transmute_copy(&attributes), core::mem::transmute_copy(&ruleid)) {
                 Ok(ok__) => {
-                    core::ptr::write(rule, core::mem::transmute(ok__));
+                    rule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4977,7 +4977,7 @@ impl ISpeechLexicon_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexicon_Impl::GenerationId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(generationid, core::mem::transmute(ok__));
+                    generationid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5013,7 +5013,7 @@ impl ISpeechLexicon_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexicon_Impl::GetPronunciations(this, core::mem::transmute(&bstrword), core::mem::transmute_copy(&langid), core::mem::transmute_copy(&typeflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(pppronunciations, core::mem::transmute(ok__));
+                    pppronunciations.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5058,7 +5058,7 @@ impl ISpeechLexiconPronunciation_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconPronunciation_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(lexicontype, core::mem::transmute(ok__));
+                    lexicontype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5069,7 +5069,7 @@ impl ISpeechLexiconPronunciation_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconPronunciation_Impl::LangId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(langid, core::mem::transmute(ok__));
+                    langid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5080,7 +5080,7 @@ impl ISpeechLexiconPronunciation_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconPronunciation_Impl::PartOfSpeech(this) {
                 Ok(ok__) => {
-                    core::ptr::write(partofspeech, core::mem::transmute(ok__));
+                    partofspeech.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5091,7 +5091,7 @@ impl ISpeechLexiconPronunciation_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconPronunciation_Impl::PhoneIds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phoneids, core::mem::transmute(ok__));
+                    phoneids.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5102,7 +5102,7 @@ impl ISpeechLexiconPronunciation_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconPronunciation_Impl::Symbolic(this) {
                 Ok(ok__) => {
-                    core::ptr::write(symbolic, core::mem::transmute(ok__));
+                    symbolic.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5137,7 +5137,7 @@ impl ISpeechLexiconPronunciations_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconPronunciations_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5148,7 +5148,7 @@ impl ISpeechLexiconPronunciations_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconPronunciations_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(pronunciation, core::mem::transmute(ok__));
+                    pronunciation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5159,7 +5159,7 @@ impl ISpeechLexiconPronunciations_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconPronunciations_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enumvariant, core::mem::transmute(ok__));
+                    enumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5193,7 +5193,7 @@ impl ISpeechLexiconWord_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconWord_Impl::LangId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(langid, core::mem::transmute(ok__));
+                    langid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5204,7 +5204,7 @@ impl ISpeechLexiconWord_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconWord_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(wordtype, core::mem::transmute(ok__));
+                    wordtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5215,7 +5215,7 @@ impl ISpeechLexiconWord_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconWord_Impl::Word(this) {
                 Ok(ok__) => {
-                    core::ptr::write(word, core::mem::transmute(ok__));
+                    word.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5226,7 +5226,7 @@ impl ISpeechLexiconWord_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconWord_Impl::Pronunciations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pronunciations, core::mem::transmute(ok__));
+                    pronunciations.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5260,7 +5260,7 @@ impl ISpeechLexiconWords_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconWords_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5271,7 +5271,7 @@ impl ISpeechLexiconWords_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconWords_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(word, core::mem::transmute(ok__));
+                    word.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5282,7 +5282,7 @@ impl ISpeechLexiconWords_Vtbl {
             let this = (*this).get_impl();
             match ISpeechLexiconWords_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enumvariant, core::mem::transmute(ok__));
+                    enumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5317,7 +5317,7 @@ impl ISpeechMMSysAudio_Vtbl {
             let this = (*this).get_impl();
             match ISpeechMMSysAudio_Impl::DeviceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(deviceid, core::mem::transmute(ok__));
+                    deviceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5333,7 +5333,7 @@ impl ISpeechMMSysAudio_Vtbl {
             let this = (*this).get_impl();
             match ISpeechMMSysAudio_Impl::LineId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(lineid, core::mem::transmute(ok__));
+                    lineid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5349,7 +5349,7 @@ impl ISpeechMMSysAudio_Vtbl {
             let this = (*this).get_impl();
             match ISpeechMMSysAudio_Impl::MMHandle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(handle, core::mem::transmute(ok__));
+                    handle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5388,7 +5388,7 @@ impl ISpeechMemoryStream_Vtbl {
             let this = (*this).get_impl();
             match ISpeechMemoryStream_Impl::GetData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdata, core::mem::transmute(ok__));
+                    pdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5430,7 +5430,7 @@ impl ISpeechObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(objectid, core::mem::transmute(ok__));
+                    objectid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5441,7 +5441,7 @@ impl ISpeechObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::DataKey(this) {
                 Ok(ok__) => {
-                    core::ptr::write(datakey, core::mem::transmute(ok__));
+                    datakey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5452,7 +5452,7 @@ impl ISpeechObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::Category(this) {
                 Ok(ok__) => {
-                    core::ptr::write(category, core::mem::transmute(ok__));
+                    category.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5463,7 +5463,7 @@ impl ISpeechObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::GetDescription(this, core::mem::transmute_copy(&locale)) {
                 Ok(ok__) => {
-                    core::ptr::write(description, core::mem::transmute(ok__));
+                    description.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5479,7 +5479,7 @@ impl ISpeechObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::GetAttribute(this, core::mem::transmute(&attributename)) {
                 Ok(ok__) => {
-                    core::ptr::write(attributevalue, core::mem::transmute(ok__));
+                    attributevalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5490,7 +5490,7 @@ impl ISpeechObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::CreateInstance(this, windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&clscontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(object, core::mem::transmute(ok__));
+                    object.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5506,7 +5506,7 @@ impl ISpeechObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::GetStorageFileName(this, core::mem::transmute(&objectstorageclsid), core::mem::transmute(&keyname), core::mem::transmute(&filename), core::mem::transmute_copy(&folder)) {
                 Ok(ok__) => {
-                    core::ptr::write(filepath, core::mem::transmute(ok__));
+                    filepath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5522,7 +5522,7 @@ impl ISpeechObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::IsUISupported(this, core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata), windows_core::from_raw_borrowed(&object)) {
                 Ok(ok__) => {
-                    core::ptr::write(supported, core::mem::transmute(ok__));
+                    supported.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5538,7 +5538,7 @@ impl ISpeechObjectToken_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectToken_Impl::MatchesAttributes(this, core::mem::transmute(&attributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(matches, core::mem::transmute(ok__));
+                    matches.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5584,7 +5584,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectTokenCategory_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(id, core::mem::transmute(ok__));
+                    id.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5600,7 +5600,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectTokenCategory_Impl::Default(this) {
                 Ok(ok__) => {
-                    core::ptr::write(tokenid, core::mem::transmute(ok__));
+                    tokenid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5616,7 +5616,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectTokenCategory_Impl::GetDataKey(this, core::mem::transmute_copy(&location)) {
                 Ok(ok__) => {
-                    core::ptr::write(datakey, core::mem::transmute(ok__));
+                    datakey.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5627,7 +5627,7 @@ impl ISpeechObjectTokenCategory_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectTokenCategory_Impl::EnumerateTokens(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(tokens, core::mem::transmute(ok__));
+                    tokens.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5663,7 +5663,7 @@ impl ISpeechObjectTokens_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectTokens_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5674,7 +5674,7 @@ impl ISpeechObjectTokens_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectTokens_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(token, core::mem::transmute(ok__));
+                    token.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5685,7 +5685,7 @@ impl ISpeechObjectTokens_Vtbl {
             let this = (*this).get_impl();
             match ISpeechObjectTokens_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenumvariant, core::mem::transmute(ok__));
+                    ppenumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5719,7 +5719,7 @@ impl ISpeechPhoneConverter_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhoneConverter_Impl::LanguageId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(languageid, core::mem::transmute(ok__));
+                    languageid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5735,7 +5735,7 @@ impl ISpeechPhoneConverter_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhoneConverter_Impl::PhoneToId(this, core::mem::transmute(&phonemes)) {
                 Ok(ok__) => {
-                    core::ptr::write(idarray, core::mem::transmute(ok__));
+                    idarray.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5746,7 +5746,7 @@ impl ISpeechPhoneConverter_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhoneConverter_Impl::IdToPhone(this, core::mem::transmute(&idarray)) {
                 Ok(ok__) => {
-                    core::ptr::write(phonemes, core::mem::transmute(ok__));
+                    phonemes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5782,7 +5782,7 @@ impl ISpeechPhraseAlternate_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseAlternate_Impl::RecoResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(recoresult, core::mem::transmute(ok__));
+                    recoresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5793,7 +5793,7 @@ impl ISpeechPhraseAlternate_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseAlternate_Impl::StartElementInResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(startelement, core::mem::transmute(ok__));
+                    startelement.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5804,7 +5804,7 @@ impl ISpeechPhraseAlternate_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseAlternate_Impl::NumberOfElementsInResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(numberofelements, core::mem::transmute(ok__));
+                    numberofelements.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5815,7 +5815,7 @@ impl ISpeechPhraseAlternate_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseAlternate_Impl::PhraseInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phraseinfo, core::mem::transmute(ok__));
+                    phraseinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5855,7 +5855,7 @@ impl ISpeechPhraseAlternates_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseAlternates_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5866,7 +5866,7 @@ impl ISpeechPhraseAlternates_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseAlternates_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(phrasealternate, core::mem::transmute(ok__));
+                    phrasealternate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5877,7 +5877,7 @@ impl ISpeechPhraseAlternates_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseAlternates_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enumvariant, core::mem::transmute(ok__));
+                    enumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5920,7 +5920,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::AudioTimeOffset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audiotimeoffset, core::mem::transmute(ok__));
+                    audiotimeoffset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5931,7 +5931,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::AudioSizeTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audiosizetime, core::mem::transmute(ok__));
+                    audiosizetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5942,7 +5942,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::AudioStreamOffset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audiostreamoffset, core::mem::transmute(ok__));
+                    audiostreamoffset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5953,7 +5953,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::AudioSizeBytes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audiosizebytes, core::mem::transmute(ok__));
+                    audiosizebytes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5964,7 +5964,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::RetainedStreamOffset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retainedstreamoffset, core::mem::transmute(ok__));
+                    retainedstreamoffset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5975,7 +5975,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::RetainedSizeBytes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retainedsizebytes, core::mem::transmute(ok__));
+                    retainedsizebytes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5986,7 +5986,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::DisplayText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(displaytext, core::mem::transmute(ok__));
+                    displaytext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5997,7 +5997,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::LexicalForm(this) {
                 Ok(ok__) => {
-                    core::ptr::write(lexicalform, core::mem::transmute(ok__));
+                    lexicalform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6008,7 +6008,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::Pronunciation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pronunciation, core::mem::transmute(ok__));
+                    pronunciation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6019,7 +6019,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::DisplayAttributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(displayattributes, core::mem::transmute(ok__));
+                    displayattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6030,7 +6030,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::RequiredConfidence(this) {
                 Ok(ok__) => {
-                    core::ptr::write(requiredconfidence, core::mem::transmute(ok__));
+                    requiredconfidence.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6041,7 +6041,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::ActualConfidence(this) {
                 Ok(ok__) => {
-                    core::ptr::write(actualconfidence, core::mem::transmute(ok__));
+                    actualconfidence.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6052,7 +6052,7 @@ impl ISpeechPhraseElement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElement_Impl::EngineConfidence(this) {
                 Ok(ok__) => {
-                    core::ptr::write(engineconfidence, core::mem::transmute(ok__));
+                    engineconfidence.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6095,7 +6095,7 @@ impl ISpeechPhraseElements_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElements_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6106,7 +6106,7 @@ impl ISpeechPhraseElements_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElements_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(element, core::mem::transmute(ok__));
+                    element.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6117,7 +6117,7 @@ impl ISpeechPhraseElements_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseElements_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enumvariant, core::mem::transmute(ok__));
+                    enumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6163,7 +6163,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::LanguageId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(languageid, core::mem::transmute(ok__));
+                    languageid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6174,7 +6174,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::GrammarId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(grammarid, core::mem::transmute(ok__));
+                    grammarid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6185,7 +6185,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::StartTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(starttime, core::mem::transmute(ok__));
+                    starttime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6196,7 +6196,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::AudioStreamPosition(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audiostreamposition, core::mem::transmute(ok__));
+                    audiostreamposition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6207,7 +6207,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::AudioSizeBytes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(paudiosizebytes, core::mem::transmute(ok__));
+                    paudiosizebytes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6218,7 +6218,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::RetainedSizeBytes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retainedsizebytes, core::mem::transmute(ok__));
+                    retainedsizebytes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6229,7 +6229,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::AudioSizeTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audiosizetime, core::mem::transmute(ok__));
+                    audiosizetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6240,7 +6240,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::Rule(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rule, core::mem::transmute(ok__));
+                    rule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6251,7 +6251,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(properties, core::mem::transmute(ok__));
+                    properties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6262,7 +6262,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::Elements(this) {
                 Ok(ok__) => {
-                    core::ptr::write(elements, core::mem::transmute(ok__));
+                    elements.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6273,7 +6273,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::Replacements(this) {
                 Ok(ok__) => {
-                    core::ptr::write(replacements, core::mem::transmute(ok__));
+                    replacements.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6284,7 +6284,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::EngineId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(engineidguid, core::mem::transmute(ok__));
+                    engineidguid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6295,7 +6295,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::EnginePrivateData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(privatedata, core::mem::transmute(ok__));
+                    privatedata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6306,7 +6306,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::SaveToMemory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phraseblock, core::mem::transmute(ok__));
+                    phraseblock.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6317,7 +6317,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::GetText(this, core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&elements), core::mem::transmute_copy(&usereplacements)) {
                 Ok(ok__) => {
-                    core::ptr::write(text, core::mem::transmute(ok__));
+                    text.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6328,7 +6328,7 @@ impl ISpeechPhraseInfo_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfo_Impl::GetDisplayAttributes(this, core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&elements), core::mem::transmute_copy(&usereplacements)) {
                 Ok(ok__) => {
-                    core::ptr::write(displayattributes, core::mem::transmute(ok__));
+                    displayattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6372,7 +6372,7 @@ impl ISpeechPhraseInfoBuilder_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseInfoBuilder_Impl::RestorePhraseFromMemory(this, core::mem::transmute_copy(&phraseinmemory)) {
                 Ok(ok__) => {
-                    core::ptr::write(phraseinfo, core::mem::transmute(ok__));
+                    phraseinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6403,7 +6403,7 @@ impl ISpeechPhraseProperties_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperties_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6414,7 +6414,7 @@ impl ISpeechPhraseProperties_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperties_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(property, core::mem::transmute(ok__));
+                    property.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6425,7 +6425,7 @@ impl ISpeechPhraseProperties_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperties_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enumvariant, core::mem::transmute(ok__));
+                    enumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6464,7 +6464,7 @@ impl ISpeechPhraseProperty_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperty_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6475,7 +6475,7 @@ impl ISpeechPhraseProperty_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperty_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(id, core::mem::transmute(ok__));
+                    id.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6486,7 +6486,7 @@ impl ISpeechPhraseProperty_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperty_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6497,7 +6497,7 @@ impl ISpeechPhraseProperty_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperty_Impl::FirstElement(this) {
                 Ok(ok__) => {
-                    core::ptr::write(firstelement, core::mem::transmute(ok__));
+                    firstelement.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6508,7 +6508,7 @@ impl ISpeechPhraseProperty_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperty_Impl::NumberOfElements(this) {
                 Ok(ok__) => {
-                    core::ptr::write(numberofelements, core::mem::transmute(ok__));
+                    numberofelements.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6519,7 +6519,7 @@ impl ISpeechPhraseProperty_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperty_Impl::EngineConfidence(this) {
                 Ok(ok__) => {
-                    core::ptr::write(confidence, core::mem::transmute(ok__));
+                    confidence.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6530,7 +6530,7 @@ impl ISpeechPhraseProperty_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperty_Impl::Confidence(this) {
                 Ok(ok__) => {
-                    core::ptr::write(confidence, core::mem::transmute(ok__));
+                    confidence.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6541,7 +6541,7 @@ impl ISpeechPhraseProperty_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperty_Impl::Parent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(parentproperty, core::mem::transmute(ok__));
+                    parentproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6552,7 +6552,7 @@ impl ISpeechPhraseProperty_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseProperty_Impl::Children(this) {
                 Ok(ok__) => {
-                    core::ptr::write(children, core::mem::transmute(ok__));
+                    children.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6592,7 +6592,7 @@ impl ISpeechPhraseReplacement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseReplacement_Impl::DisplayAttributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(displayattributes, core::mem::transmute(ok__));
+                    displayattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6603,7 +6603,7 @@ impl ISpeechPhraseReplacement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseReplacement_Impl::Text(this) {
                 Ok(ok__) => {
-                    core::ptr::write(text, core::mem::transmute(ok__));
+                    text.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6614,7 +6614,7 @@ impl ISpeechPhraseReplacement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseReplacement_Impl::FirstElement(this) {
                 Ok(ok__) => {
-                    core::ptr::write(firstelement, core::mem::transmute(ok__));
+                    firstelement.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6625,7 +6625,7 @@ impl ISpeechPhraseReplacement_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseReplacement_Impl::NumberOfElements(this) {
                 Ok(ok__) => {
-                    core::ptr::write(numberofelements, core::mem::transmute(ok__));
+                    numberofelements.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6659,7 +6659,7 @@ impl ISpeechPhraseReplacements_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseReplacements_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6670,7 +6670,7 @@ impl ISpeechPhraseReplacements_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseReplacements_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(reps, core::mem::transmute(ok__));
+                    reps.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6681,7 +6681,7 @@ impl ISpeechPhraseReplacements_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseReplacements_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enumvariant, core::mem::transmute(ok__));
+                    enumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6719,7 +6719,7 @@ impl ISpeechPhraseRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseRule_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6730,7 +6730,7 @@ impl ISpeechPhraseRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseRule_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(id, core::mem::transmute(ok__));
+                    id.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6741,7 +6741,7 @@ impl ISpeechPhraseRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseRule_Impl::FirstElement(this) {
                 Ok(ok__) => {
-                    core::ptr::write(firstelement, core::mem::transmute(ok__));
+                    firstelement.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6752,7 +6752,7 @@ impl ISpeechPhraseRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseRule_Impl::NumberOfElements(this) {
                 Ok(ok__) => {
-                    core::ptr::write(numberofelements, core::mem::transmute(ok__));
+                    numberofelements.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6763,7 +6763,7 @@ impl ISpeechPhraseRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseRule_Impl::Parent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(parent, core::mem::transmute(ok__));
+                    parent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6774,7 +6774,7 @@ impl ISpeechPhraseRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseRule_Impl::Children(this) {
                 Ok(ok__) => {
-                    core::ptr::write(children, core::mem::transmute(ok__));
+                    children.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6785,7 +6785,7 @@ impl ISpeechPhraseRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseRule_Impl::Confidence(this) {
                 Ok(ok__) => {
-                    core::ptr::write(actualconfidence, core::mem::transmute(ok__));
+                    actualconfidence.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6796,7 +6796,7 @@ impl ISpeechPhraseRule_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseRule_Impl::EngineConfidence(this) {
                 Ok(ok__) => {
-                    core::ptr::write(engineconfidence, core::mem::transmute(ok__));
+                    engineconfidence.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6834,7 +6834,7 @@ impl ISpeechPhraseRules_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseRules_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6845,7 +6845,7 @@ impl ISpeechPhraseRules_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseRules_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(rule, core::mem::transmute(ok__));
+                    rule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6856,7 +6856,7 @@ impl ISpeechPhraseRules_Vtbl {
             let this = (*this).get_impl();
             match ISpeechPhraseRules_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enumvariant, core::mem::transmute(ok__));
+                    enumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6911,7 +6911,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::Recognizer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(recognizer, core::mem::transmute(ok__));
+                    recognizer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6922,7 +6922,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::AudioInputInterferenceStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(interference, core::mem::transmute(ok__));
+                    interference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6933,7 +6933,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::RequestedUIType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(uitype, core::mem::transmute(ok__));
+                    uitype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6949,7 +6949,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::Voice(this) {
                 Ok(ok__) => {
-                    core::ptr::write(voice, core::mem::transmute(ok__));
+                    voice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6965,7 +6965,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::AllowVoiceFormatMatchingOnNextSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pallow, core::mem::transmute(ok__));
+                    pallow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6981,7 +6981,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::VoicePurgeEvent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(eventinterest, core::mem::transmute(ok__));
+                    eventinterest.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6997,7 +6997,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::EventInterests(this) {
                 Ok(ok__) => {
-                    core::ptr::write(eventinterest, core::mem::transmute(ok__));
+                    eventinterest.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7013,7 +7013,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::CmdMaxAlternates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(maxalternates, core::mem::transmute(ok__));
+                    maxalternates.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7029,7 +7029,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(state, core::mem::transmute(ok__));
+                    state.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7045,7 +7045,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::RetainedAudio(this) {
                 Ok(ok__) => {
-                    core::ptr::write(option, core::mem::transmute(ok__));
+                    option.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7061,7 +7061,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::RetainedAudioFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(format, core::mem::transmute(ok__));
+                    format.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7082,7 +7082,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::CreateGrammar(this, core::mem::transmute(&grammarid)) {
                 Ok(ok__) => {
-                    core::ptr::write(grammar, core::mem::transmute(ok__));
+                    grammar.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7093,7 +7093,7 @@ impl ISpeechRecoContext_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoContext_Impl::CreateResultFromMemory(this, core::mem::transmute_copy(&resultblock)) {
                 Ok(ok__) => {
-                    core::ptr::write(result, core::mem::transmute(ok__));
+                    result.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7174,7 +7174,7 @@ impl ISpeechRecoGrammar_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoGrammar_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(id, core::mem::transmute(ok__));
+                    id.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7185,7 +7185,7 @@ impl ISpeechRecoGrammar_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoGrammar_Impl::RecoContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(recocontext, core::mem::transmute(ok__));
+                    recocontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7201,7 +7201,7 @@ impl ISpeechRecoGrammar_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoGrammar_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(state, core::mem::transmute(ok__));
+                    state.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7212,7 +7212,7 @@ impl ISpeechRecoGrammar_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoGrammar_Impl::Rules(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rules, core::mem::transmute(ok__));
+                    rules.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7288,7 +7288,7 @@ impl ISpeechRecoGrammar_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoGrammar_Impl::IsPronounceable(this, core::mem::transmute(&word)) {
                 Ok(ok__) => {
-                    core::ptr::write(wordpronounceable, core::mem::transmute(ok__));
+                    wordpronounceable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7344,7 +7344,7 @@ impl ISpeechRecoResult_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResult_Impl::RecoContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(recocontext, core::mem::transmute(ok__));
+                    recocontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7355,7 +7355,7 @@ impl ISpeechRecoResult_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResult_Impl::Times(this) {
                 Ok(ok__) => {
-                    core::ptr::write(times, core::mem::transmute(ok__));
+                    times.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7371,7 +7371,7 @@ impl ISpeechRecoResult_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResult_Impl::AudioFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(format, core::mem::transmute(ok__));
+                    format.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7382,7 +7382,7 @@ impl ISpeechRecoResult_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResult_Impl::PhraseInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phraseinfo, core::mem::transmute(ok__));
+                    phraseinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7393,7 +7393,7 @@ impl ISpeechRecoResult_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResult_Impl::Alternates(this, core::mem::transmute_copy(&requestcount), core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&elements)) {
                 Ok(ok__) => {
-                    core::ptr::write(alternates, core::mem::transmute(ok__));
+                    alternates.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7404,7 +7404,7 @@ impl ISpeechRecoResult_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResult_Impl::Audio(this, core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&elements)) {
                 Ok(ok__) => {
-                    core::ptr::write(stream, core::mem::transmute(ok__));
+                    stream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7415,7 +7415,7 @@ impl ISpeechRecoResult_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResult_Impl::SpeakAudio(this, core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&elements), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
-                    core::ptr::write(streamnumber, core::mem::transmute(ok__));
+                    streamnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7426,7 +7426,7 @@ impl ISpeechRecoResult_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResult_Impl::SaveToMemory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(resultblock, core::mem::transmute(ok__));
+                    resultblock.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7501,7 +7501,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultDispatch_Impl::RecoContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(recocontext, core::mem::transmute(ok__));
+                    recocontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7512,7 +7512,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultDispatch_Impl::Times(this) {
                 Ok(ok__) => {
-                    core::ptr::write(times, core::mem::transmute(ok__));
+                    times.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7528,7 +7528,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultDispatch_Impl::AudioFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(format, core::mem::transmute(ok__));
+                    format.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7539,7 +7539,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultDispatch_Impl::PhraseInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phraseinfo, core::mem::transmute(ok__));
+                    phraseinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7550,7 +7550,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultDispatch_Impl::Alternates(this, core::mem::transmute_copy(&requestcount), core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&elements)) {
                 Ok(ok__) => {
-                    core::ptr::write(alternates, core::mem::transmute(ok__));
+                    alternates.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7561,7 +7561,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultDispatch_Impl::Audio(this, core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&elements)) {
                 Ok(ok__) => {
-                    core::ptr::write(stream, core::mem::transmute(ok__));
+                    stream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7572,7 +7572,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultDispatch_Impl::SpeakAudio(this, core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&elements), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
-                    core::ptr::write(streamnumber, core::mem::transmute(ok__));
+                    streamnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7583,7 +7583,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultDispatch_Impl::SaveToMemory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(resultblock, core::mem::transmute(ok__));
+                    resultblock.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7599,7 +7599,7 @@ impl ISpeechRecoResultDispatch_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultDispatch_Impl::GetXMLResult(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(presult, core::mem::transmute(ok__));
+                    presult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7653,7 +7653,7 @@ impl ISpeechRecoResultTimes_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultTimes_Impl::StreamTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(time, core::mem::transmute(ok__));
+                    time.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7664,7 +7664,7 @@ impl ISpeechRecoResultTimes_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultTimes_Impl::Length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7675,7 +7675,7 @@ impl ISpeechRecoResultTimes_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultTimes_Impl::TickCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(tickcount, core::mem::transmute(ok__));
+                    tickcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7686,7 +7686,7 @@ impl ISpeechRecoResultTimes_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecoResultTimes_Impl::OffsetFromStart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(offsetfromstart, core::mem::transmute(ok__));
+                    offsetfromstart.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7748,7 +7748,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::Recognizer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(recognizer, core::mem::transmute(ok__));
+                    recognizer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7764,7 +7764,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::AllowAudioInputFormatChangesOnNextSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7780,7 +7780,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::AudioInput(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audioinput, core::mem::transmute(ok__));
+                    audioinput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7796,7 +7796,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::AudioInputStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audioinputstream, core::mem::transmute(ok__));
+                    audioinputstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7807,7 +7807,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::IsShared(this) {
                 Ok(ok__) => {
-                    core::ptr::write(shared, core::mem::transmute(ok__));
+                    shared.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7823,7 +7823,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(state, core::mem::transmute(ok__));
+                    state.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7834,7 +7834,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7850,7 +7850,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::Profile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(profile, core::mem::transmute(ok__));
+                    profile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7866,7 +7866,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::CreateRecoContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newcontext, core::mem::transmute(ok__));
+                    newcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7877,7 +7877,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::GetFormat(this, core::mem::transmute_copy(&r#type)) {
                 Ok(ok__) => {
-                    core::ptr::write(format, core::mem::transmute(ok__));
+                    format.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7888,7 +7888,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::SetPropertyNumber(this, core::mem::transmute(&name), core::mem::transmute_copy(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(supported, core::mem::transmute(ok__));
+                    supported.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7904,7 +7904,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::SetPropertyString(this, core::mem::transmute(&name), core::mem::transmute(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(supported, core::mem::transmute(ok__));
+                    supported.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7920,7 +7920,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::IsUISupported(this, core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata)) {
                 Ok(ok__) => {
-                    core::ptr::write(supported, core::mem::transmute(ok__));
+                    supported.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7936,7 +7936,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::GetRecognizers(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(objecttokens, core::mem::transmute(ok__));
+                    objecttokens.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7947,7 +7947,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::GetAudioInputs(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(objecttokens, core::mem::transmute(ok__));
+                    objecttokens.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7958,7 +7958,7 @@ impl ISpeechRecognizer_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizer_Impl::GetProfiles(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(objecttokens, core::mem::transmute(ok__));
+                    objecttokens.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8017,7 +8017,7 @@ impl ISpeechRecognizerStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizerStatus_Impl::AudioStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audiostatus, core::mem::transmute(ok__));
+                    audiostatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8028,7 +8028,7 @@ impl ISpeechRecognizerStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizerStatus_Impl::CurrentStreamPosition(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcurrentstreampos, core::mem::transmute(ok__));
+                    pcurrentstreampos.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8039,7 +8039,7 @@ impl ISpeechRecognizerStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizerStatus_Impl::CurrentStreamNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(streamnumber, core::mem::transmute(ok__));
+                    streamnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8050,7 +8050,7 @@ impl ISpeechRecognizerStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizerStatus_Impl::NumberOfActiveRules(this) {
                 Ok(ok__) => {
-                    core::ptr::write(numberofactiverules, core::mem::transmute(ok__));
+                    numberofactiverules.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8061,7 +8061,7 @@ impl ISpeechRecognizerStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizerStatus_Impl::ClsidEngine(this) {
                 Ok(ok__) => {
-                    core::ptr::write(clsidengine, core::mem::transmute(ok__));
+                    clsidengine.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8072,7 +8072,7 @@ impl ISpeechRecognizerStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognizerStatus_Impl::SupportedLanguages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(supportedlanguages, core::mem::transmute(ok__));
+                    supportedlanguages.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8155,7 +8155,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
             let this = (*this).get_impl();
             match ISpeechTextSelectionInformation_Impl::ActiveOffset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(activeoffset, core::mem::transmute(ok__));
+                    activeoffset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8171,7 +8171,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
             let this = (*this).get_impl();
             match ISpeechTextSelectionInformation_Impl::ActiveLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(activelength, core::mem::transmute(ok__));
+                    activelength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8187,7 +8187,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
             let this = (*this).get_impl();
             match ISpeechTextSelectionInformation_Impl::SelectionOffset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(selectionoffset, core::mem::transmute(ok__));
+                    selectionoffset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8203,7 +8203,7 @@ impl ISpeechTextSelectionInformation_Vtbl {
             let this = (*this).get_impl();
             match ISpeechTextSelectionInformation_Impl::SelectionLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(selectionlength, core::mem::transmute(ok__));
+                    selectionlength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8270,7 +8270,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8281,7 +8281,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::Voice(this) {
                 Ok(ok__) => {
-                    core::ptr::write(voice, core::mem::transmute(ok__));
+                    voice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8297,7 +8297,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::AudioOutput(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audiooutput, core::mem::transmute(ok__));
+                    audiooutput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8313,7 +8313,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::AudioOutputStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(audiooutputstream, core::mem::transmute(ok__));
+                    audiooutputstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8329,7 +8329,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::Rate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rate, core::mem::transmute(ok__));
+                    rate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8345,7 +8345,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::Volume(this) {
                 Ok(ok__) => {
-                    core::ptr::write(volume, core::mem::transmute(ok__));
+                    volume.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8366,7 +8366,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::AllowAudioOutputFormatChangesOnNextSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allow, core::mem::transmute(ok__));
+                    allow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8377,7 +8377,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::EventInterests(this) {
                 Ok(ok__) => {
-                    core::ptr::write(eventinterestflags, core::mem::transmute(ok__));
+                    eventinterestflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8398,7 +8398,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(priority, core::mem::transmute(ok__));
+                    priority.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8414,7 +8414,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::AlertBoundary(this) {
                 Ok(ok__) => {
-                    core::ptr::write(boundary, core::mem::transmute(ok__));
+                    boundary.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8430,7 +8430,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::SynchronousSpeakTimeout(this) {
                 Ok(ok__) => {
-                    core::ptr::write(mstimeout, core::mem::transmute(ok__));
+                    mstimeout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8441,7 +8441,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::Speak(this, core::mem::transmute(&text), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
-                    core::ptr::write(streamnumber, core::mem::transmute(ok__));
+                    streamnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8452,7 +8452,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::SpeakStream(this, windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
-                    core::ptr::write(streamnumber, core::mem::transmute(ok__));
+                    streamnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8473,7 +8473,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::Skip(this, core::mem::transmute(&r#type), core::mem::transmute_copy(&numitems)) {
                 Ok(ok__) => {
-                    core::ptr::write(numskipped, core::mem::transmute(ok__));
+                    numskipped.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8484,7 +8484,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::GetVoices(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(objecttokens, core::mem::transmute(ok__));
+                    objecttokens.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8495,7 +8495,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::GetAudioOutputs(this, core::mem::transmute(&requiredattributes), core::mem::transmute(&optionalattributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(objecttokens, core::mem::transmute(ok__));
+                    objecttokens.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8506,7 +8506,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::WaitUntilDone(this, core::mem::transmute_copy(&mstimeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(done, core::mem::transmute(ok__));
+                    done.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8517,7 +8517,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::SpeakCompleteEvent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(handle, core::mem::transmute(ok__));
+                    handle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8528,7 +8528,7 @@ impl ISpeechVoice_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoice_Impl::IsUISupported(this, core::mem::transmute(&typeofui), core::mem::transmute_copy(&extradata)) {
                 Ok(ok__) => {
-                    core::ptr::write(supported, core::mem::transmute(ok__));
+                    supported.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8604,7 +8604,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::CurrentStreamNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(streamnumber, core::mem::transmute(ok__));
+                    streamnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8615,7 +8615,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::LastStreamNumberQueued(this) {
                 Ok(ok__) => {
-                    core::ptr::write(streamnumber, core::mem::transmute(ok__));
+                    streamnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8626,7 +8626,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::LastHResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hresult, core::mem::transmute(ok__));
+                    hresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8637,7 +8637,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::RunningState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(state, core::mem::transmute(ok__));
+                    state.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8648,7 +8648,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::InputWordPosition(this) {
                 Ok(ok__) => {
-                    core::ptr::write(position, core::mem::transmute(ok__));
+                    position.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8659,7 +8659,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::InputWordLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8670,7 +8670,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::InputSentencePosition(this) {
                 Ok(ok__) => {
-                    core::ptr::write(position, core::mem::transmute(ok__));
+                    position.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8681,7 +8681,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::InputSentenceLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8692,7 +8692,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::LastBookmark(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bookmark, core::mem::transmute(ok__));
+                    bookmark.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8703,7 +8703,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::LastBookmarkId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bookmarkid, core::mem::transmute(ok__));
+                    bookmarkid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8714,7 +8714,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::PhonemeId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phoneid, core::mem::transmute(ok__));
+                    phoneid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8725,7 +8725,7 @@ impl ISpeechVoiceStatus_Vtbl {
             let this = (*this).get_impl();
             match ISpeechVoiceStatus_Impl::VisemeId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(visemeid, core::mem::transmute(ok__));
+                    visemeid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8778,7 +8778,7 @@ impl ISpeechWaveFormatEx_Vtbl {
             let this = (*this).get_impl();
             match ISpeechWaveFormatEx_Impl::FormatTag(this) {
                 Ok(ok__) => {
-                    core::ptr::write(formattag, core::mem::transmute(ok__));
+                    formattag.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8794,7 +8794,7 @@ impl ISpeechWaveFormatEx_Vtbl {
             let this = (*this).get_impl();
             match ISpeechWaveFormatEx_Impl::Channels(this) {
                 Ok(ok__) => {
-                    core::ptr::write(channels, core::mem::transmute(ok__));
+                    channels.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8810,7 +8810,7 @@ impl ISpeechWaveFormatEx_Vtbl {
             let this = (*this).get_impl();
             match ISpeechWaveFormatEx_Impl::SamplesPerSec(this) {
                 Ok(ok__) => {
-                    core::ptr::write(samplespersec, core::mem::transmute(ok__));
+                    samplespersec.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8826,7 +8826,7 @@ impl ISpeechWaveFormatEx_Vtbl {
             let this = (*this).get_impl();
             match ISpeechWaveFormatEx_Impl::AvgBytesPerSec(this) {
                 Ok(ok__) => {
-                    core::ptr::write(avgbytespersec, core::mem::transmute(ok__));
+                    avgbytespersec.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8842,7 +8842,7 @@ impl ISpeechWaveFormatEx_Vtbl {
             let this = (*this).get_impl();
             match ISpeechWaveFormatEx_Impl::BlockAlign(this) {
                 Ok(ok__) => {
-                    core::ptr::write(blockalign, core::mem::transmute(ok__));
+                    blockalign.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8858,7 +8858,7 @@ impl ISpeechWaveFormatEx_Vtbl {
             let this = (*this).get_impl();
             match ISpeechWaveFormatEx_Impl::BitsPerSample(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bitspersample, core::mem::transmute(ok__));
+                    bitspersample.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8874,7 +8874,7 @@ impl ISpeechWaveFormatEx_Vtbl {
             let this = (*this).get_impl();
             match ISpeechWaveFormatEx_Impl::ExtraData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(extradata, core::mem::transmute(ok__));
+                    extradata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -8922,7 +8922,7 @@ impl ISpeechXMLRecoResult_Vtbl {
             let this = (*this).get_impl();
             match ISpeechXMLRecoResult_Impl::GetXMLResult(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(presult, core::mem::transmute(ok__));
+                    presult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

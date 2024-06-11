@@ -21,7 +21,7 @@ impl IMediaCue_Vtbl {
             let this = (*this).get_impl();
             match IMediaCue_Impl::StartTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -37,7 +37,7 @@ impl IMediaCue_Vtbl {
             let this = (*this).get_impl();
             match IMediaCue_Impl::Duration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -53,7 +53,7 @@ impl IMediaCue_Vtbl {
             let this = (*this).get_impl();
             match IMediaCue_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -103,7 +103,7 @@ impl IMediaStreamDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IMediaStreamDescriptor_Impl::IsSelected(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -119,7 +119,7 @@ impl IMediaStreamDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IMediaStreamDescriptor_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -136,7 +136,7 @@ impl IMediaStreamDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IMediaStreamDescriptor_Impl::Language(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -175,7 +175,7 @@ impl IMediaStreamDescriptor2_Vtbl {
             let this = (*this).get_impl();
             match IMediaStreamDescriptor2_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -209,7 +209,7 @@ impl IMediaTrack_Vtbl {
             let this = (*this).get_impl();
             match IMediaTrack_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -221,7 +221,7 @@ impl IMediaTrack_Vtbl {
             let this = (*this).get_impl();
             match IMediaTrack_Impl::Language(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -233,7 +233,7 @@ impl IMediaTrack_Vtbl {
             let this = (*this).get_impl();
             match IMediaTrack_Impl::TrackKind(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -249,7 +249,7 @@ impl IMediaTrack_Vtbl {
             let this = (*this).get_impl();
             match IMediaTrack_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -285,7 +285,7 @@ impl ISingleSelectMediaTrackList_Vtbl {
             let this = (*this).get_impl();
             match ISingleSelectMediaTrackList_Impl::SelectedIndexChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -306,7 +306,7 @@ impl ISingleSelectMediaTrackList_Vtbl {
             let this = (*this).get_impl();
             match ISingleSelectMediaTrackList_Impl::SelectedIndex(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -340,7 +340,7 @@ impl ITimedMetadataTrackProvider_Vtbl {
             let this = (*this).get_impl();
             match ITimedMetadataTrackProvider_Impl::TimedMetadataTracks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

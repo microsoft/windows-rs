@@ -15,7 +15,7 @@ impl IIOControlCode_Vtbl {
             let this = (*this).get_impl();
             match IIOControlCode_Impl::AccessMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -26,7 +26,7 @@ impl IIOControlCode_Vtbl {
             let this = (*this).get_impl();
             match IIOControlCode_Impl::BufferingMethod(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -37,7 +37,7 @@ impl IIOControlCode_Vtbl {
             let this = (*this).get_impl();
             match IIOControlCode_Impl::Function(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -48,7 +48,7 @@ impl IIOControlCode_Vtbl {
             let this = (*this).get_impl();
             match IIOControlCode_Impl::DeviceType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -59,7 +59,7 @@ impl IIOControlCode_Vtbl {
             let this = (*this).get_impl();
             match IIOControlCode_Impl::ControlCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

@@ -29,7 +29,7 @@ impl IContactInformation_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation_Impl::DisplayName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -46,7 +46,7 @@ impl IContactInformation_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation_Impl::FamilyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -63,7 +63,7 @@ impl IContactInformation_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation_Impl::GivenName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -80,7 +80,7 @@ impl IContactInformation_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation_Impl::HonorificPrefix(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -97,7 +97,7 @@ impl IContactInformation_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation_Impl::HonorificSuffix(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -114,7 +114,7 @@ impl IContactInformation_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation_Impl::GetDisplayPictureAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -126,7 +126,7 @@ impl IContactInformation_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation_Impl::SetDisplayPictureAsync(this, windows_core::from_raw_borrowed(&stream)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -138,7 +138,7 @@ impl IContactInformation_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation_Impl::DisplayPicture(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -150,7 +150,7 @@ impl IContactInformation_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation_Impl::GetPropertiesAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -162,7 +162,7 @@ impl IContactInformation_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation_Impl::ToVcardAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -174,7 +174,7 @@ impl IContactInformation_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation_Impl::ToVcardWithOptionsAsync(this, format) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -219,7 +219,7 @@ impl IContactInformation2_Vtbl {
             let this = (*this).get_impl();
             match IContactInformation2_Impl::DisplayPictureDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

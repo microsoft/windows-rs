@@ -28,7 +28,7 @@ impl IAVIEditStream_Vtbl {
             let this = (*this).get_impl();
             match IAVIEditStream_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresult, core::mem::transmute(ok__));
+                    ppresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

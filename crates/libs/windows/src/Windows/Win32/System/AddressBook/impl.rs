@@ -15,7 +15,7 @@ impl IABContainer_Vtbl {
             let this = (*this).get_impl();
             match IABContainer_Impl::CreateEntry(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&ulcreateflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lppmapipropentry, core::mem::transmute(ok__));
+                    lppmapipropentry.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -36,7 +36,7 @@ impl IABContainer_Vtbl {
             let this = (*this).get_impl();
             match IABContainer_Impl::ResolveNames(this, core::mem::transmute_copy(&lpproptagarray), core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&lpadrlist)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpflaglist, core::mem::transmute(ok__));
+                    lpflaglist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -226,7 +226,7 @@ impl IDistList_Vtbl {
             let this = (*this).get_impl();
             match IDistList_Impl::CreateEntry(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&ulcreateflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lppmapipropentry, core::mem::transmute(ok__));
+                    lppmapipropentry.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -247,7 +247,7 @@ impl IDistList_Vtbl {
             let this = (*this).get_impl();
             match IDistList_Impl::ResolveNames(this, core::mem::transmute_copy(&lpproptagarray), core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&lpadrlist)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpflaglist, core::mem::transmute(ok__));
+                    lpflaglist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -303,7 +303,7 @@ impl IMAPIContainer_Vtbl {
             let this = (*this).get_impl();
             match IMAPIContainer_Impl::GetContentsTable(this, core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpptable, core::mem::transmute(ok__));
+                    lpptable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -314,7 +314,7 @@ impl IMAPIContainer_Vtbl {
             let this = (*this).get_impl();
             match IMAPIContainer_Impl::GetHierarchyTable(this, core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpptable, core::mem::transmute(ok__));
+                    lpptable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -361,7 +361,7 @@ impl IMAPIControl_Vtbl {
             let this = (*this).get_impl();
             match IMAPIControl_Impl::GetLastError(this, core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lppmapierror, core::mem::transmute(ok__));
+                    lppmapierror.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -427,7 +427,7 @@ impl IMAPIFolder_Vtbl {
             let this = (*this).get_impl();
             match IMAPIFolder_Impl::CreateFolder(this, core::mem::transmute_copy(&ulfoldertype), core::mem::transmute_copy(&lpszfoldername), core::mem::transmute_copy(&lpszfoldercomment), core::mem::transmute_copy(&lpinterface), core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lppfolder, core::mem::transmute(ok__));
+                    lppfolder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -453,7 +453,7 @@ impl IMAPIFolder_Vtbl {
             let this = (*this).get_impl();
             match IMAPIFolder_Impl::GetMessageStatus(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpulmessagestatus, core::mem::transmute(ok__));
+                    lpulmessagestatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -464,7 +464,7 @@ impl IMAPIFolder_Vtbl {
             let this = (*this).get_impl();
             match IMAPIFolder_Impl::SetMessageStatus(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&ulnewstatus), core::mem::transmute_copy(&ulnewstatusmask)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpuloldstatus, core::mem::transmute(ok__));
+                    lpuloldstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -895,7 +895,7 @@ impl IMessage_Vtbl {
             let this = (*this).get_impl();
             match IMessage_Impl::GetAttachmentTable(this, core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpptable, core::mem::transmute(ok__));
+                    lpptable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -906,7 +906,7 @@ impl IMessage_Vtbl {
             let this = (*this).get_impl();
             match IMessage_Impl::OpenAttach(this, core::mem::transmute_copy(&ulattachmentnum), core::mem::transmute_copy(&lpinterface), core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lppattach, core::mem::transmute(ok__));
+                    lppattach.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -927,7 +927,7 @@ impl IMessage_Vtbl {
             let this = (*this).get_impl();
             match IMessage_Impl::GetRecipientTable(this, core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpptable, core::mem::transmute(ok__));
+                    lpptable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -990,7 +990,7 @@ impl IMsgStore_Vtbl {
             let this = (*this).get_impl();
             match IMsgStore_Impl::Advise(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&uleventmask), windows_core::from_raw_borrowed(&lpadvisesink)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpulconnection, core::mem::transmute(ok__));
+                    lpulconnection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1006,7 +1006,7 @@ impl IMsgStore_Vtbl {
             let this = (*this).get_impl();
             match IMsgStore_Impl::CompareEntryIDs(this, core::mem::transmute_copy(&cbentryid1), core::mem::transmute_copy(&lpentryid1), core::mem::transmute_copy(&cbentryid2), core::mem::transmute_copy(&lpentryid2), core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpulresult, core::mem::transmute(ok__));
+                    lpulresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1032,7 +1032,7 @@ impl IMsgStore_Vtbl {
             let this = (*this).get_impl();
             match IMsgStore_Impl::GetReceiveFolderTable(this, core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpptable, core::mem::transmute(ok__));
+                    lpptable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1053,7 +1053,7 @@ impl IMsgStore_Vtbl {
             let this = (*this).get_impl();
             match IMsgStore_Impl::GetOutgoingQueue(this, core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpptable, core::mem::transmute(ok__));
+                    lpptable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1170,7 +1170,7 @@ impl IProviderAdmin_Vtbl {
             let this = (*this).get_impl();
             match IProviderAdmin_Impl::GetLastError(this, core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lppmapierror, core::mem::transmute(ok__));
+                    lppmapierror.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1181,7 +1181,7 @@ impl IProviderAdmin_Vtbl {
             let this = (*this).get_impl();
             match IProviderAdmin_Impl::GetProviderTable(this, core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpptable, core::mem::transmute(ok__));
+                    lpptable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1192,7 +1192,7 @@ impl IProviderAdmin_Vtbl {
             let this = (*this).get_impl();
             match IProviderAdmin_Impl::CreateProvider(this, core::mem::transmute_copy(&lpszprovider), core::mem::transmute_copy(&cvalues), core::mem::transmute_copy(&lpprops), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lpuid, core::mem::transmute(ok__));
+                    lpuid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1208,7 +1208,7 @@ impl IProviderAdmin_Vtbl {
             let this = (*this).get_impl();
             match IProviderAdmin_Impl::OpenProfileSection(this, core::mem::transmute_copy(&lpuid), core::mem::transmute_copy(&lpinterface), core::mem::transmute_copy(&ulflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(lppprofsect, core::mem::transmute(ok__));
+                    lppprofsect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1386,7 +1386,7 @@ impl IWABObject_Vtbl {
             let this = (*this).get_impl();
             match IWABObject_Impl::LDAPUrl(this, windows_core::from_raw_borrowed(&lpiab), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&ulflags), core::mem::transmute(&lpszurl)) {
                 Ok(ok__) => {
-                    core::ptr::write(lppmailuser, core::mem::transmute(ok__));
+                    lppmailuser.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1402,7 +1402,7 @@ impl IWABObject_Vtbl {
             let this = (*this).get_impl();
             match IWABObject_Impl::VCardRetrieve(this, windows_core::from_raw_borrowed(&lpiab), core::mem::transmute_copy(&ulflags), core::mem::transmute(&lpszvcard)) {
                 Ok(ok__) => {
-                    core::ptr::write(lppmailuser, core::mem::transmute(ok__));
+                    lppmailuser.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

@@ -551,7 +551,7 @@ impl IWordBreakerConfig_Vtbl {
             let this = (*this).get_impl();
             match IWordBreakerConfig_Impl::GetWordStemmer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstemmer, core::mem::transmute(ok__));
+                    ppstemmer.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

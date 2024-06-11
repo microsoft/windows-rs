@@ -16,7 +16,7 @@ impl IUICommand_Vtbl {
             let this = (*this).get_impl();
             match IUICommand_Impl::Label(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -33,7 +33,7 @@ impl IUICommand_Vtbl {
             let this = (*this).get_impl();
             match IUICommand_Impl::Invoked(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -50,7 +50,7 @@ impl IUICommand_Vtbl {
             let this = (*this).get_impl();
             match IUICommand_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

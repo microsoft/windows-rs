@@ -14,7 +14,7 @@ impl ICoreDropOperationTarget_Vtbl {
             let this = (*this).get_impl();
             match ICoreDropOperationTarget_Impl::EnterAsync(this, windows_core::from_raw_borrowed(&draginfo), windows_core::from_raw_borrowed(&draguioverride)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -26,7 +26,7 @@ impl ICoreDropOperationTarget_Vtbl {
             let this = (*this).get_impl();
             match ICoreDropOperationTarget_Impl::OverAsync(this, windows_core::from_raw_borrowed(&draginfo), windows_core::from_raw_borrowed(&draguioverride)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -38,7 +38,7 @@ impl ICoreDropOperationTarget_Vtbl {
             let this = (*this).get_impl();
             match ICoreDropOperationTarget_Impl::LeaveAsync(this, windows_core::from_raw_borrowed(&draginfo)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -50,7 +50,7 @@ impl ICoreDropOperationTarget_Vtbl {
             let this = (*this).get_impl();
             match ICoreDropOperationTarget_Impl::DropAsync(this, windows_core::from_raw_borrowed(&draginfo)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

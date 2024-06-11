@@ -40,7 +40,7 @@ impl IIsolatedProcessLauncher_Vtbl {
             let this = (*this).get_impl();
             match IIsolatedProcessLauncher_Impl::GetContainerGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(guid, core::mem::transmute(ok__));
+                    guid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -56,7 +56,7 @@ impl IIsolatedProcessLauncher_Vtbl {
             let this = (*this).get_impl();
             match IIsolatedProcessLauncher_Impl::IsContainerRunning(this) {
                 Ok(ok__) => {
-                    core::ptr::write(running, core::mem::transmute(ok__));
+                    running.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

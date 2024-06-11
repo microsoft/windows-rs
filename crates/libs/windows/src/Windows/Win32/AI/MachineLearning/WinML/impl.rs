@@ -12,7 +12,7 @@ impl IMLOperatorAttributes_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorAttributes_Impl::GetAttributeElementCount(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type)) {
                 Ok(ok__) => {
-                    core::ptr::write(elementcount, core::mem::transmute(ok__));
+                    elementcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -28,7 +28,7 @@ impl IMLOperatorAttributes_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorAttributes_Impl::GetStringAttributeElementLength(this, core::mem::transmute(&name), core::mem::transmute_copy(&elementindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(attributeelementbytesize, core::mem::transmute(ok__));
+                    attributeelementbytesize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -83,7 +83,7 @@ impl IMLOperatorKernelContext_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorKernelContext_Impl::GetInputTensor(this, core::mem::transmute_copy(&inputindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(tensor, core::mem::transmute(ok__));
+                    tensor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -94,7 +94,7 @@ impl IMLOperatorKernelContext_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorKernelContext_Impl::GetOutputTensor(this, core::mem::transmute_copy(&outputindex), core::mem::transmute_copy(&dimensioncount), core::mem::transmute_copy(&dimensionsizes)) {
                 Ok(ok__) => {
-                    core::ptr::write(tensor, core::mem::transmute(ok__));
+                    tensor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -105,7 +105,7 @@ impl IMLOperatorKernelContext_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorKernelContext_Impl::GetOutputTensor2(this, core::mem::transmute_copy(&outputindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(tensor, core::mem::transmute(ok__));
+                    tensor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -116,7 +116,7 @@ impl IMLOperatorKernelContext_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorKernelContext_Impl::AllocateTemporaryData(this, core::mem::transmute_copy(&size)) {
                 Ok(ok__) => {
-                    core::ptr::write(data, core::mem::transmute(ok__));
+                    data.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -179,7 +179,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorKernelCreationContext_Impl::GetInputEdgeDescription(this, core::mem::transmute_copy(&inputindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(edgedescription, core::mem::transmute(ok__));
+                    edgedescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -190,7 +190,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorKernelCreationContext_Impl::GetOutputEdgeDescription(this, core::mem::transmute_copy(&outputindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(edgedescription, core::mem::transmute(ok__));
+                    edgedescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -206,7 +206,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorKernelCreationContext_Impl::GetTensorShapeDescription(this) {
                 Ok(ok__) => {
-                    core::ptr::write(shapedescription, core::mem::transmute(ok__));
+                    shapedescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -245,7 +245,7 @@ impl IMLOperatorKernelFactory_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorKernelFactory_Impl::CreateKernel(this, windows_core::from_raw_borrowed(&context)) {
                 Ok(ok__) => {
-                    core::ptr::write(kernel, core::mem::transmute(ok__));
+                    kernel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -322,7 +322,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorShapeInferenceContext_Impl::GetInputEdgeDescription(this, core::mem::transmute_copy(&inputindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(edgedescription, core::mem::transmute(ok__));
+                    edgedescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -333,7 +333,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorShapeInferenceContext_Impl::GetInputTensorDimensionCount(this, core::mem::transmute_copy(&inputindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(dimensioncount, core::mem::transmute(ok__));
+                    dimensioncount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -459,7 +459,7 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorTensorShapeDescription_Impl::GetInputTensorDimensionCount(this, core::mem::transmute_copy(&inputindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(dimensioncount, core::mem::transmute(ok__));
+                    dimensioncount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -480,7 +480,7 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorTensorShapeDescription_Impl::GetOutputTensorDimensionCount(this, core::mem::transmute_copy(&outputindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(dimensioncount, core::mem::transmute(ok__));
+                    dimensioncount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -540,7 +540,7 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
             let this = (*this).get_impl();
             match IMLOperatorTypeInferenceContext_Impl::GetInputEdgeDescription(this, core::mem::transmute_copy(&inputindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(edgedescription, core::mem::transmute(ok__));
+                    edgedescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -603,7 +603,7 @@ impl IWinMLEvaluationContext_Vtbl {
             let this = (*this).get_impl();
             match IWinMLEvaluationContext_Impl::GetValueByName(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdescriptor, core::mem::transmute(ok__));
+                    pdescriptor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -639,7 +639,7 @@ impl IWinMLModel_Vtbl {
             let this = (*this).get_impl();
             match IWinMLModel_Impl::GetDescription(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdescription, core::mem::transmute(ok__));
+                    ppdescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -655,7 +655,7 @@ impl IWinMLModel_Vtbl {
             let this = (*this).get_impl();
             match IWinMLModel_Impl::EnumerateModelInputs(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppinputdescriptor, core::mem::transmute(ok__));
+                    ppinputdescriptor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -666,7 +666,7 @@ impl IWinMLModel_Vtbl {
             let this = (*this).get_impl();
             match IWinMLModel_Impl::EnumerateModelOutputs(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoutputdescriptor, core::mem::transmute(ok__));
+                    ppoutputdescriptor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -700,7 +700,7 @@ impl IWinMLRuntime_Vtbl {
             let this = (*this).get_impl();
             match IWinMLRuntime_Impl::LoadModel(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmodel, core::mem::transmute(ok__));
+                    ppmodel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -711,7 +711,7 @@ impl IWinMLRuntime_Vtbl {
             let this = (*this).get_impl();
             match IWinMLRuntime_Impl::CreateEvaluationContext(this, windows_core::from_raw_borrowed(&device)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontext, core::mem::transmute(ok__));
+                    ppcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -744,7 +744,7 @@ impl IWinMLRuntimeFactory_Vtbl {
             let this = (*this).get_impl();
             match IWinMLRuntimeFactory_Impl::CreateRuntime(this, core::mem::transmute_copy(&runtimetype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppruntime, core::mem::transmute(ok__));
+                    ppruntime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

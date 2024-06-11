@@ -13,7 +13,7 @@ impl IAccountingProviderConfig_Vtbl {
             let this = (*this).get_impl();
             match IAccountingProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename)) {
                 Ok(ok__) => {
-                    core::ptr::write(puconnectionparam, core::mem::transmute(ok__));
+                    puconnectionparam.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -67,7 +67,7 @@ impl IAuthenticationProviderConfig_Vtbl {
             let this = (*this).get_impl();
             match IAuthenticationProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename)) {
                 Ok(ok__) => {
-                    core::ptr::write(puconnectionparam, core::mem::transmute(ok__));
+                    puconnectionparam.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -121,7 +121,7 @@ impl IEAPProviderConfig_Vtbl {
             let this = (*this).get_impl();
             match IEAPProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename), core::mem::transmute_copy(&dweaptypeid)) {
                 Ok(ok__) => {
-                    core::ptr::write(puconnectionparam, core::mem::transmute(ok__));
+                    puconnectionparam.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

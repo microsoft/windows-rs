@@ -50,7 +50,7 @@ impl IWinHttpRequest_Vtbl {
             let this = (*this).get_impl();
             match IWinHttpRequest_Impl::GetResponseHeader(this, core::mem::transmute(&header)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -61,7 +61,7 @@ impl IWinHttpRequest_Vtbl {
             let this = (*this).get_impl();
             match IWinHttpRequest_Impl::GetAllResponseHeaders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(headers, core::mem::transmute(ok__));
+                    headers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -77,7 +77,7 @@ impl IWinHttpRequest_Vtbl {
             let this = (*this).get_impl();
             match IWinHttpRequest_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -88,7 +88,7 @@ impl IWinHttpRequest_Vtbl {
             let this = (*this).get_impl();
             match IWinHttpRequest_Impl::StatusText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -99,7 +99,7 @@ impl IWinHttpRequest_Vtbl {
             let this = (*this).get_impl();
             match IWinHttpRequest_Impl::ResponseText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(body, core::mem::transmute(ok__));
+                    body.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -110,7 +110,7 @@ impl IWinHttpRequest_Vtbl {
             let this = (*this).get_impl();
             match IWinHttpRequest_Impl::ResponseBody(this) {
                 Ok(ok__) => {
-                    core::ptr::write(body, core::mem::transmute(ok__));
+                    body.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -121,7 +121,7 @@ impl IWinHttpRequest_Vtbl {
             let this = (*this).get_impl();
             match IWinHttpRequest_Impl::ResponseStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(body, core::mem::transmute(ok__));
+                    body.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -132,7 +132,7 @@ impl IWinHttpRequest_Vtbl {
             let this = (*this).get_impl();
             match IWinHttpRequest_Impl::get_Option(this, core::mem::transmute_copy(&option)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -148,7 +148,7 @@ impl IWinHttpRequest_Vtbl {
             let this = (*this).get_impl();
             match IWinHttpRequest_Impl::WaitForResponse(this, core::mem::transmute(&timeout)) {
                 Ok(ok__) => {
-                    core::ptr::write(succeeded, core::mem::transmute(ok__));
+                    succeeded.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

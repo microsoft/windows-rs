@@ -32,7 +32,7 @@ impl ITpmVirtualSmartCardManager_Vtbl {
             let this = (*this).get_impl();
             match ITpmVirtualSmartCardManager_Impl::DestroyVirtualSmartCard(this, core::mem::transmute(&pszinstanceid), windows_core::from_raw_borrowed(&pstatuscallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfneedreboot, core::mem::transmute(ok__));
+                    pfneedreboot.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -115,7 +115,7 @@ impl ITpmVirtualSmartCardManager3_Vtbl {
                 windows_core::from_raw_borrowed(&pstatuscallback),
             ) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszinstanceid, core::mem::transmute(ok__));
+                    ppszinstanceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

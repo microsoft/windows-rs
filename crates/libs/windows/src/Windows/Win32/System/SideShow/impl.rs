@@ -50,7 +50,7 @@ impl ISideShowCapabilitiesCollection_Vtbl {
             let this = (*this).get_impl();
             match ISideShowCapabilitiesCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(out_pdwcount, core::mem::transmute(ok__));
+                    out_pdwcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -61,7 +61,7 @@ impl ISideShowCapabilitiesCollection_Vtbl {
             let this = (*this).get_impl();
             match ISideShowCapabilitiesCollection_Impl::GetAt(this, core::mem::transmute_copy(&in_dwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(out_ppcapabilities, core::mem::transmute(ok__));
+                    out_ppcapabilities.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -95,7 +95,7 @@ impl ISideShowContent_Vtbl {
             let this = (*this).get_impl();
             match ISideShowContent_Impl::ContentId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(out_pcontentid, core::mem::transmute(ok__));
+                    out_pcontentid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -106,7 +106,7 @@ impl ISideShowContent_Vtbl {
             let this = (*this).get_impl();
             match ISideShowContent_Impl::DifferentiateContent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(out_pfdifferentiatecontent, core::mem::transmute(ok__));
+                    out_pfdifferentiatecontent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -158,7 +158,7 @@ impl ISideShowContentManager_Vtbl {
             let this = (*this).get_impl();
             match ISideShowContentManager_Impl::GetDeviceCapabilities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(out_ppcollection, core::mem::transmute(ok__));
+                    out_ppcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -191,7 +191,7 @@ impl ISideShowEvents_Vtbl {
             let this = (*this).get_impl();
             match ISideShowEvents_Impl::ContentMissing(this, core::mem::transmute_copy(&in_contentid)) {
                 Ok(ok__) => {
-                    core::ptr::write(out_ppicontent, core::mem::transmute(ok__));
+                    out_ppicontent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -298,7 +298,7 @@ impl ISideShowNotification_Vtbl {
             let this = (*this).get_impl();
             match ISideShowNotification_Impl::NotificationId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(out_pnotificationid, core::mem::transmute(ok__));
+                    out_pnotificationid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -314,7 +314,7 @@ impl ISideShowNotification_Vtbl {
             let this = (*this).get_impl();
             match ISideShowNotification_Impl::Title(this) {
                 Ok(ok__) => {
-                    core::ptr::write(out_ppwsztitle, core::mem::transmute(ok__));
+                    out_ppwsztitle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -330,7 +330,7 @@ impl ISideShowNotification_Vtbl {
             let this = (*this).get_impl();
             match ISideShowNotification_Impl::Message(this) {
                 Ok(ok__) => {
-                    core::ptr::write(out_ppwszmessage, core::mem::transmute(ok__));
+                    out_ppwszmessage.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -346,7 +346,7 @@ impl ISideShowNotification_Vtbl {
             let this = (*this).get_impl();
             match ISideShowNotification_Impl::Image(this) {
                 Ok(ok__) => {
-                    core::ptr::write(out_phicon, core::mem::transmute(ok__));
+                    out_phicon.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -362,7 +362,7 @@ impl ISideShowNotification_Vtbl {
             let this = (*this).get_impl();
             match ISideShowNotification_Impl::ExpirationTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(out_ptime, core::mem::transmute(ok__));
+                    out_ptime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -485,7 +485,7 @@ impl ISideShowSession_Vtbl {
             let this = (*this).get_impl();
             match ISideShowSession_Impl::RegisterContent(this, core::mem::transmute_copy(&in_applicationid), core::mem::transmute_copy(&in_endpointid)) {
                 Ok(ok__) => {
-                    core::ptr::write(out_ppicontent, core::mem::transmute(ok__));
+                    out_ppicontent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -496,7 +496,7 @@ impl ISideShowSession_Vtbl {
             let this = (*this).get_impl();
             match ISideShowSession_Impl::RegisterNotifications(this, core::mem::transmute_copy(&in_applicationid)) {
                 Ok(ok__) => {
-                    core::ptr::write(out_ppinotification, core::mem::transmute(ok__));
+                    out_ppinotification.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

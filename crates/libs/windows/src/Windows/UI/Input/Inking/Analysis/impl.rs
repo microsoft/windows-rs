@@ -20,7 +20,7 @@ impl IInkAnalysisNode_Vtbl {
             let this = (*this).get_impl();
             match IInkAnalysisNode_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -31,7 +31,7 @@ impl IInkAnalysisNode_Vtbl {
             let this = (*this).get_impl();
             match IInkAnalysisNode_Impl::Kind(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl IInkAnalysisNode_Vtbl {
             let this = (*this).get_impl();
             match IInkAnalysisNode_Impl::BoundingRect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -53,7 +53,7 @@ impl IInkAnalysisNode_Vtbl {
             let this = (*this).get_impl();
             match IInkAnalysisNode_Impl::RotatedBoundingRect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -65,7 +65,7 @@ impl IInkAnalysisNode_Vtbl {
             let this = (*this).get_impl();
             match IInkAnalysisNode_Impl::Children(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -77,7 +77,7 @@ impl IInkAnalysisNode_Vtbl {
             let this = (*this).get_impl();
             match IInkAnalysisNode_Impl::Parent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -89,7 +89,7 @@ impl IInkAnalysisNode_Vtbl {
             let this = (*this).get_impl();
             match IInkAnalysisNode_Impl::GetStrokeIds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -124,7 +124,7 @@ impl IInkAnalyzerFactory_Vtbl {
             let this = (*this).get_impl();
             match IInkAnalyzerFactory_Impl::CreateAnalyzer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

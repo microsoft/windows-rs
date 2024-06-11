@@ -25,7 +25,7 @@ impl ISyndicationClient_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationClient_Impl::ServerCredential(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -42,7 +42,7 @@ impl ISyndicationClient_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationClient_Impl::ProxyCredential(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -59,7 +59,7 @@ impl ISyndicationClient_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationClient_Impl::MaxResponseBufferSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -75,7 +75,7 @@ impl ISyndicationClient_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationClient_Impl::Timeout(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -91,7 +91,7 @@ impl ISyndicationClient_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationClient_Impl::BypassCacheOnRetrieve(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -112,7 +112,7 @@ impl ISyndicationClient_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationClient_Impl::RetrieveFeedAsync(this, windows_core::from_raw_borrowed(&uri)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -167,7 +167,7 @@ impl ISyndicationNode_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationNode_Impl::NodeName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -184,7 +184,7 @@ impl ISyndicationNode_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationNode_Impl::NodeNamespace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -201,7 +201,7 @@ impl ISyndicationNode_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationNode_Impl::NodeValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -218,7 +218,7 @@ impl ISyndicationNode_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationNode_Impl::Language(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -235,7 +235,7 @@ impl ISyndicationNode_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationNode_Impl::BaseUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -252,7 +252,7 @@ impl ISyndicationNode_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationNode_Impl::AttributeExtensions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -264,7 +264,7 @@ impl ISyndicationNode_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationNode_Impl::ElementExtensions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -276,7 +276,7 @@ impl ISyndicationNode_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationNode_Impl::GetXmlDocument(this, format) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -325,7 +325,7 @@ impl ISyndicationText_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationText_Impl::Text(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -342,7 +342,7 @@ impl ISyndicationText_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationText_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -359,7 +359,7 @@ impl ISyndicationText_Vtbl {
             let this = (*this).get_impl();
             match ISyndicationText_Impl::Xml(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

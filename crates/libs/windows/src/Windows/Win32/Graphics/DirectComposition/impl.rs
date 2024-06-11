@@ -408,7 +408,7 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDelegatedInkTrail_Impl::AddTrailPoints(this, core::mem::transmute_copy(&inkpoints), core::mem::transmute_copy(&inkpointscount)) {
                 Ok(ok__) => {
-                    core::ptr::write(generationid, core::mem::transmute(ok__));
+                    generationid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -419,7 +419,7 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDelegatedInkTrail_Impl::AddTrailPointsWithPrediction(this, core::mem::transmute_copy(&inkpoints), core::mem::transmute_copy(&inkpointscount), core::mem::transmute_copy(&predictedinkpoints), core::mem::transmute_copy(&predictedinkpointscount)) {
                 Ok(ok__) => {
-                    core::ptr::write(generationid, core::mem::transmute(ok__));
+                    generationid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -463,7 +463,7 @@ impl IDCompositionDesktopDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDesktopDevice_Impl::CreateTargetForHwnd(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&topmost)) {
                 Ok(ok__) => {
-                    core::ptr::write(target, core::mem::transmute(ok__));
+                    target.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -474,7 +474,7 @@ impl IDCompositionDesktopDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDesktopDevice_Impl::CreateSurfaceFromHandle(this, core::mem::transmute_copy(&handle)) {
                 Ok(ok__) => {
-                    core::ptr::write(surface, core::mem::transmute(ok__));
+                    surface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -485,7 +485,7 @@ impl IDCompositionDesktopDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDesktopDevice_Impl::CreateSurfaceFromHwnd(this, core::mem::transmute_copy(&hwnd)) {
                 Ok(ok__) => {
-                    core::ptr::write(surface, core::mem::transmute(ok__));
+                    surface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -554,7 +554,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateTargetForHwnd(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&topmost)) {
                 Ok(ok__) => {
-                    core::ptr::write(target, core::mem::transmute(ok__));
+                    target.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -565,7 +565,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateVisual(this) {
                 Ok(ok__) => {
-                    core::ptr::write(visual, core::mem::transmute(ok__));
+                    visual.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -576,7 +576,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                 Ok(ok__) => {
-                    core::ptr::write(surface, core::mem::transmute(ok__));
+                    surface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -587,7 +587,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                 Ok(ok__) => {
-                    core::ptr::write(virtualsurface, core::mem::transmute(ok__));
+                    virtualsurface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -598,7 +598,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateSurfaceFromHandle(this, core::mem::transmute_copy(&handle)) {
                 Ok(ok__) => {
-                    core::ptr::write(surface, core::mem::transmute(ok__));
+                    surface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -609,7 +609,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateSurfaceFromHwnd(this, core::mem::transmute_copy(&hwnd)) {
                 Ok(ok__) => {
-                    core::ptr::write(surface, core::mem::transmute(ok__));
+                    surface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -620,7 +620,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateTranslateTransform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(translatetransform, core::mem::transmute(ok__));
+                    translatetransform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -631,7 +631,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateScaleTransform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(scaletransform, core::mem::transmute(ok__));
+                    scaletransform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -642,7 +642,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateRotateTransform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rotatetransform, core::mem::transmute(ok__));
+                    rotatetransform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -653,7 +653,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateSkewTransform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(skewtransform, core::mem::transmute(ok__));
+                    skewtransform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -664,7 +664,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateMatrixTransform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(matrixtransform, core::mem::transmute(ok__));
+                    matrixtransform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -675,7 +675,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateTransformGroup(this, core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&elements)) {
                 Ok(ok__) => {
-                    core::ptr::write(transformgroup, core::mem::transmute(ok__));
+                    transformgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -686,7 +686,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateTranslateTransform3D(this) {
                 Ok(ok__) => {
-                    core::ptr::write(translatetransform3d, core::mem::transmute(ok__));
+                    translatetransform3d.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -697,7 +697,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateScaleTransform3D(this) {
                 Ok(ok__) => {
-                    core::ptr::write(scaletransform3d, core::mem::transmute(ok__));
+                    scaletransform3d.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -708,7 +708,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateRotateTransform3D(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rotatetransform3d, core::mem::transmute(ok__));
+                    rotatetransform3d.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -719,7 +719,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateMatrixTransform3D(this) {
                 Ok(ok__) => {
-                    core::ptr::write(matrixtransform3d, core::mem::transmute(ok__));
+                    matrixtransform3d.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -730,7 +730,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateTransform3DGroup(this, core::mem::transmute_copy(&transforms3d), core::mem::transmute_copy(&elements)) {
                 Ok(ok__) => {
-                    core::ptr::write(transform3dgroup, core::mem::transmute(ok__));
+                    transform3dgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -741,7 +741,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateEffectGroup(this) {
                 Ok(ok__) => {
-                    core::ptr::write(effectgroup, core::mem::transmute(ok__));
+                    effectgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -752,7 +752,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateRectangleClip(this) {
                 Ok(ok__) => {
-                    core::ptr::write(clip, core::mem::transmute(ok__));
+                    clip.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -763,7 +763,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CreateAnimation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(animation, core::mem::transmute(ok__));
+                    animation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -774,7 +774,7 @@ impl IDCompositionDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice_Impl::CheckDeviceState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfvalid, core::mem::transmute(ok__));
+                    pfvalid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -861,7 +861,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateVisual(this) {
                 Ok(ok__) => {
-                    core::ptr::write(visual, core::mem::transmute(ok__));
+                    visual.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -872,7 +872,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateSurfaceFactory(this, windows_core::from_raw_borrowed(&renderingdevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(surfacefactory, core::mem::transmute(ok__));
+                    surfacefactory.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -883,7 +883,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                 Ok(ok__) => {
-                    core::ptr::write(surface, core::mem::transmute(ok__));
+                    surface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -894,7 +894,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                 Ok(ok__) => {
-                    core::ptr::write(virtualsurface, core::mem::transmute(ok__));
+                    virtualsurface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -905,7 +905,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateTranslateTransform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(translatetransform, core::mem::transmute(ok__));
+                    translatetransform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -916,7 +916,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateScaleTransform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(scaletransform, core::mem::transmute(ok__));
+                    scaletransform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -927,7 +927,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateRotateTransform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rotatetransform, core::mem::transmute(ok__));
+                    rotatetransform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -938,7 +938,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateSkewTransform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(skewtransform, core::mem::transmute(ok__));
+                    skewtransform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -949,7 +949,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateMatrixTransform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(matrixtransform, core::mem::transmute(ok__));
+                    matrixtransform.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -960,7 +960,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateTransformGroup(this, core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&elements)) {
                 Ok(ok__) => {
-                    core::ptr::write(transformgroup, core::mem::transmute(ok__));
+                    transformgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -971,7 +971,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateTranslateTransform3D(this) {
                 Ok(ok__) => {
-                    core::ptr::write(translatetransform3d, core::mem::transmute(ok__));
+                    translatetransform3d.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -982,7 +982,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateScaleTransform3D(this) {
                 Ok(ok__) => {
-                    core::ptr::write(scaletransform3d, core::mem::transmute(ok__));
+                    scaletransform3d.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -993,7 +993,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateRotateTransform3D(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rotatetransform3d, core::mem::transmute(ok__));
+                    rotatetransform3d.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1004,7 +1004,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateMatrixTransform3D(this) {
                 Ok(ok__) => {
-                    core::ptr::write(matrixtransform3d, core::mem::transmute(ok__));
+                    matrixtransform3d.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1015,7 +1015,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateTransform3DGroup(this, core::mem::transmute_copy(&transforms3d), core::mem::transmute_copy(&elements)) {
                 Ok(ok__) => {
-                    core::ptr::write(transform3dgroup, core::mem::transmute(ok__));
+                    transform3dgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1026,7 +1026,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateEffectGroup(this) {
                 Ok(ok__) => {
-                    core::ptr::write(effectgroup, core::mem::transmute(ok__));
+                    effectgroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1037,7 +1037,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateRectangleClip(this) {
                 Ok(ok__) => {
-                    core::ptr::write(clip, core::mem::transmute(ok__));
+                    clip.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1048,7 +1048,7 @@ impl IDCompositionDevice2_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice2_Impl::CreateAnimation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(animation, core::mem::transmute(ok__));
+                    animation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1109,7 +1109,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateGaussianBlurEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(gaussianblureffect, core::mem::transmute(ok__));
+                    gaussianblureffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1120,7 +1120,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateBrightnessEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(brightnesseffect, core::mem::transmute(ok__));
+                    brightnesseffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1131,7 +1131,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateColorMatrixEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(colormatrixeffect, core::mem::transmute(ok__));
+                    colormatrixeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1142,7 +1142,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateShadowEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(shadoweffect, core::mem::transmute(ok__));
+                    shadoweffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1153,7 +1153,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateHueRotationEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(huerotationeffect, core::mem::transmute(ok__));
+                    huerotationeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1164,7 +1164,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateSaturationEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(saturationeffect, core::mem::transmute(ok__));
+                    saturationeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1175,7 +1175,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateTurbulenceEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(turbulenceeffect, core::mem::transmute(ok__));
+                    turbulenceeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1186,7 +1186,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateLinearTransferEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(lineartransfereffect, core::mem::transmute(ok__));
+                    lineartransfereffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1197,7 +1197,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateTableTransferEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(tabletransfereffect, core::mem::transmute(ok__));
+                    tabletransfereffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1208,7 +1208,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateCompositeEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(compositeeffect, core::mem::transmute(ok__));
+                    compositeeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1219,7 +1219,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateBlendEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(blendeffect, core::mem::transmute(ok__));
+                    blendeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1230,7 +1230,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateArithmeticCompositeEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(arithmeticcompositeeffect, core::mem::transmute(ok__));
+                    arithmeticcompositeeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1241,7 +1241,7 @@ impl IDCompositionDevice3_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice3_Impl::CreateAffineTransform2DEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(affinetransform2deffect, core::mem::transmute(ok__));
+                    affinetransform2deffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1283,7 +1283,7 @@ impl IDCompositionDevice4_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice4_Impl::CheckCompositionTextureSupport(this, windows_core::from_raw_borrowed(&renderingdevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(supportscompositiontextures, core::mem::transmute(ok__));
+                    supportscompositiontextures.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1294,7 +1294,7 @@ impl IDCompositionDevice4_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionDevice4_Impl::CreateCompositionTexture(this, windows_core::from_raw_borrowed(&d3dtexture)) {
                 Ok(ok__) => {
-                    core::ptr::write(compositiontexture, core::mem::transmute(ok__));
+                    compositiontexture.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1474,7 +1474,7 @@ impl IDCompositionInkTrailDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionInkTrailDevice_Impl::CreateDelegatedInkTrail(this) {
                 Ok(ok__) => {
-                    core::ptr::write(inktrail, core::mem::transmute(ok__));
+                    inktrail.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1485,7 +1485,7 @@ impl IDCompositionInkTrailDevice_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionInkTrailDevice_Impl::CreateDelegatedInkTrailForSwapChain(this, windows_core::from_raw_borrowed(&swapchain)) {
                 Ok(ok__) => {
-                    core::ptr::write(inktrail, core::mem::transmute(ok__));
+                    inktrail.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2500,7 +2500,7 @@ impl IDCompositionSurfaceFactory_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionSurfaceFactory_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                 Ok(ok__) => {
-                    core::ptr::write(surface, core::mem::transmute(ok__));
+                    surface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2511,7 +2511,7 @@ impl IDCompositionSurfaceFactory_Vtbl {
             let this = (*this).get_impl();
             match IDCompositionSurfaceFactory_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
                 Ok(ok__) => {
-                    core::ptr::write(virtualsurface, core::mem::transmute(ok__));
+                    virtualsurface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
