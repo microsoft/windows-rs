@@ -18,7 +18,7 @@ impl IGameListEntry_Vtbl {
             let this = (*this).get_impl();
             match IGameListEntry_Impl::DisplayInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -30,7 +30,7 @@ impl IGameListEntry_Vtbl {
             let this = (*this).get_impl();
             match IGameListEntry_Impl::LaunchAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -42,7 +42,7 @@ impl IGameListEntry_Vtbl {
             let this = (*this).get_impl();
             match IGameListEntry_Impl::Category(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -53,7 +53,7 @@ impl IGameListEntry_Vtbl {
             let this = (*this).get_impl();
             match IGameListEntry_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -65,7 +65,7 @@ impl IGameListEntry_Vtbl {
             let this = (*this).get_impl();
             match IGameListEntry_Impl::SetCategoryAsync(this, value) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

@@ -18,7 +18,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
             let this = (*this).get_impl();
             match ILowLevelDevicesAggregateProvider_Impl::AdcControllerProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -30,7 +30,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
             let this = (*this).get_impl();
             match ILowLevelDevicesAggregateProvider_Impl::PwmControllerProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -42,7 +42,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
             let this = (*this).get_impl();
             match ILowLevelDevicesAggregateProvider_Impl::GpioControllerProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -54,7 +54,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
             let this = (*this).get_impl();
             match ILowLevelDevicesAggregateProvider_Impl::I2cControllerProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -66,7 +66,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
             let this = (*this).get_impl();
             match ILowLevelDevicesAggregateProvider_Impl::SpiControllerProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

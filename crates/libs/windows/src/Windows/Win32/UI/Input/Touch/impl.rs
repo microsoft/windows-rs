@@ -57,7 +57,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::InitialOriginX(this) {
                 Ok(ok__) => {
-                    core::ptr::write(x, core::mem::transmute(ok__));
+                    x.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -73,7 +73,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::InitialOriginY(this) {
                 Ok(ok__) => {
-                    core::ptr::write(y, core::mem::transmute(ok__));
+                    y.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -89,7 +89,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::InitialVelocityX(this) {
                 Ok(ok__) => {
-                    core::ptr::write(x, core::mem::transmute(ok__));
+                    x.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -105,7 +105,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::InitialVelocityY(this) {
                 Ok(ok__) => {
-                    core::ptr::write(y, core::mem::transmute(ok__));
+                    y.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -121,7 +121,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::InitialAngularVelocity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(velocity, core::mem::transmute(ok__));
+                    velocity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -137,7 +137,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::InitialExpansionVelocity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(velocity, core::mem::transmute(ok__));
+                    velocity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -153,7 +153,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::InitialRadius(this) {
                 Ok(ok__) => {
-                    core::ptr::write(radius, core::mem::transmute(ok__));
+                    radius.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -169,7 +169,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::BoundaryLeft(this) {
                 Ok(ok__) => {
-                    core::ptr::write(left, core::mem::transmute(ok__));
+                    left.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -185,7 +185,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::BoundaryTop(this) {
                 Ok(ok__) => {
-                    core::ptr::write(top, core::mem::transmute(ok__));
+                    top.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::BoundaryRight(this) {
                 Ok(ok__) => {
-                    core::ptr::write(right, core::mem::transmute(ok__));
+                    right.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -217,7 +217,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::BoundaryBottom(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bottom, core::mem::transmute(ok__));
+                    bottom.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -233,7 +233,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::ElasticMarginLeft(this) {
                 Ok(ok__) => {
-                    core::ptr::write(left, core::mem::transmute(ok__));
+                    left.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -249,7 +249,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::ElasticMarginTop(this) {
                 Ok(ok__) => {
-                    core::ptr::write(top, core::mem::transmute(ok__));
+                    top.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -265,7 +265,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::ElasticMarginRight(this) {
                 Ok(ok__) => {
-                    core::ptr::write(right, core::mem::transmute(ok__));
+                    right.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -281,7 +281,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::ElasticMarginBottom(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bottom, core::mem::transmute(ok__));
+                    bottom.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -297,7 +297,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::DesiredDisplacement(this) {
                 Ok(ok__) => {
-                    core::ptr::write(displacement, core::mem::transmute(ok__));
+                    displacement.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -313,7 +313,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::DesiredRotation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rotation, core::mem::transmute(ok__));
+                    rotation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -329,7 +329,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::DesiredExpansion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(expansion, core::mem::transmute(ok__));
+                    expansion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -345,7 +345,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::DesiredDeceleration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(deceleration, core::mem::transmute(ok__));
+                    deceleration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -361,7 +361,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::DesiredAngularDeceleration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(deceleration, core::mem::transmute(ok__));
+                    deceleration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -377,7 +377,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::DesiredExpansionDeceleration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(deceleration, core::mem::transmute(ok__));
+                    deceleration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -393,7 +393,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::InitialTimestamp(this) {
                 Ok(ok__) => {
-                    core::ptr::write(timestamp, core::mem::transmute(ok__));
+                    timestamp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -414,7 +414,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::Process(this) {
                 Ok(ok__) => {
-                    core::ptr::write(completed, core::mem::transmute(ok__));
+                    completed.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -425,7 +425,7 @@ impl IInertiaProcessor_Vtbl {
             let this = (*this).get_impl();
             match IInertiaProcessor_Impl::ProcessTime(this, core::mem::transmute_copy(&timestamp)) {
                 Ok(ok__) => {
-                    core::ptr::write(completed, core::mem::transmute(ok__));
+                    completed.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -529,7 +529,7 @@ impl IManipulationProcessor_Vtbl {
             let this = (*this).get_impl();
             match IManipulationProcessor_Impl::SupportedManipulations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(manipulations, core::mem::transmute(ok__));
+                    manipulations.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -545,7 +545,7 @@ impl IManipulationProcessor_Vtbl {
             let this = (*this).get_impl();
             match IManipulationProcessor_Impl::PivotPointX(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivotpointx, core::mem::transmute(ok__));
+                    pivotpointx.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -561,7 +561,7 @@ impl IManipulationProcessor_Vtbl {
             let this = (*this).get_impl();
             match IManipulationProcessor_Impl::PivotPointY(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivotpointy, core::mem::transmute(ok__));
+                    pivotpointy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -577,7 +577,7 @@ impl IManipulationProcessor_Vtbl {
             let this = (*this).get_impl();
             match IManipulationProcessor_Impl::PivotRadius(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pivotradius, core::mem::transmute(ok__));
+                    pivotradius.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -628,7 +628,7 @@ impl IManipulationProcessor_Vtbl {
             let this = (*this).get_impl();
             match IManipulationProcessor_Impl::GetVelocityX(this) {
                 Ok(ok__) => {
-                    core::ptr::write(velocityx, core::mem::transmute(ok__));
+                    velocityx.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -639,7 +639,7 @@ impl IManipulationProcessor_Vtbl {
             let this = (*this).get_impl();
             match IManipulationProcessor_Impl::GetVelocityY(this) {
                 Ok(ok__) => {
-                    core::ptr::write(velocityy, core::mem::transmute(ok__));
+                    velocityy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -650,7 +650,7 @@ impl IManipulationProcessor_Vtbl {
             let this = (*this).get_impl();
             match IManipulationProcessor_Impl::GetExpansionVelocity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(expansionvelocity, core::mem::transmute(ok__));
+                    expansionvelocity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -661,7 +661,7 @@ impl IManipulationProcessor_Vtbl {
             let this = (*this).get_impl();
             match IManipulationProcessor_Impl::GetAngularVelocity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(angularvelocity, core::mem::transmute(ok__));
+                    angularvelocity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -672,7 +672,7 @@ impl IManipulationProcessor_Vtbl {
             let this = (*this).get_impl();
             match IManipulationProcessor_Impl::MinimumScaleRotateRadius(this) {
                 Ok(ok__) => {
-                    core::ptr::write(minradius, core::mem::transmute(ok__));
+                    minradius.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

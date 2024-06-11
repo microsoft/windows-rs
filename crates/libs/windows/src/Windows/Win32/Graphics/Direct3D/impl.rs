@@ -37,7 +37,7 @@ impl ID3DDestructionNotifier_Vtbl {
             let this = (*this).get_impl();
             match ID3DDestructionNotifier_Impl::RegisterDestructionCallback(this, core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcallbackid, core::mem::transmute(ok__));
+                    pcallbackid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

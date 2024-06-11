@@ -12,7 +12,7 @@ impl ICoreApplicationUnhandledError_Vtbl {
             let this = (*this).get_impl();
             match ICoreApplicationUnhandledError_Impl::UnhandledErrorDetected(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -99,7 +99,7 @@ impl IFrameworkViewSource_Vtbl {
             let this = (*this).get_impl();
             match IFrameworkViewSource_Impl::CreateView(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

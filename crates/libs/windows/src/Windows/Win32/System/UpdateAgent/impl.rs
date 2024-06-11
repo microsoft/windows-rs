@@ -38,7 +38,7 @@ impl IAutomaticUpdates_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdates_Impl::Settings(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -49,7 +49,7 @@ impl IAutomaticUpdates_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdates_Impl::ServiceEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -89,7 +89,7 @@ impl IAutomaticUpdates2_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdates2_Impl::Results(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -116,7 +116,7 @@ impl IAutomaticUpdatesResults_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdatesResults_Impl::LastSearchSuccessDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -127,7 +127,7 @@ impl IAutomaticUpdatesResults_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdatesResults_Impl::LastInstallationSuccessDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -166,7 +166,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdatesSettings_Impl::NotificationLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -182,7 +182,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdatesSettings_Impl::ReadOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -193,7 +193,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdatesSettings_Impl::Required(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -204,7 +204,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdatesSettings_Impl::ScheduledInstallationDay(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -220,7 +220,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdatesSettings_Impl::ScheduledInstallationTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -275,7 +275,7 @@ impl IAutomaticUpdatesSettings2_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdatesSettings2_Impl::IncludeRecommendedUpdates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -291,7 +291,7 @@ impl IAutomaticUpdatesSettings2_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdatesSettings2_Impl::CheckPermission(this, core::mem::transmute_copy(&usertype), core::mem::transmute_copy(&permissiontype)) {
                 Ok(ok__) => {
-                    core::ptr::write(userhaspermission, core::mem::transmute(ok__));
+                    userhaspermission.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -325,7 +325,7 @@ impl IAutomaticUpdatesSettings3_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdatesSettings3_Impl::NonAdministratorsElevated(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -341,7 +341,7 @@ impl IAutomaticUpdatesSettings3_Vtbl {
             let this = (*this).get_impl();
             match IAutomaticUpdatesSettings3_Impl::FeaturedUpdatesEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -386,7 +386,7 @@ impl ICategory_Vtbl {
             let this = (*this).get_impl();
             match ICategory_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -397,7 +397,7 @@ impl ICategory_Vtbl {
             let this = (*this).get_impl();
             match ICategory_Impl::CategoryID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -408,7 +408,7 @@ impl ICategory_Vtbl {
             let this = (*this).get_impl();
             match ICategory_Impl::Children(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -419,7 +419,7 @@ impl ICategory_Vtbl {
             let this = (*this).get_impl();
             match ICategory_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -430,7 +430,7 @@ impl ICategory_Vtbl {
             let this = (*this).get_impl();
             match ICategory_Impl::Image(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -441,7 +441,7 @@ impl ICategory_Vtbl {
             let this = (*this).get_impl();
             match ICategory_Impl::Order(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -452,7 +452,7 @@ impl ICategory_Vtbl {
             let this = (*this).get_impl();
             match ICategory_Impl::Parent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -463,7 +463,7 @@ impl ICategory_Vtbl {
             let this = (*this).get_impl();
             match ICategory_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -474,7 +474,7 @@ impl ICategory_Vtbl {
             let this = (*this).get_impl();
             match ICategory_Impl::Updates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -513,7 +513,7 @@ impl ICategoryCollection_Vtbl {
             let this = (*this).get_impl();
             match ICategoryCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -524,7 +524,7 @@ impl ICategoryCollection_Vtbl {
             let this = (*this).get_impl();
             match ICategoryCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -535,7 +535,7 @@ impl ICategoryCollection_Vtbl {
             let this = (*this).get_impl();
             match ICategoryCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -604,7 +604,7 @@ impl IDownloadJob_Vtbl {
             let this = (*this).get_impl();
             match IDownloadJob_Impl::AsyncState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -615,7 +615,7 @@ impl IDownloadJob_Vtbl {
             let this = (*this).get_impl();
             match IDownloadJob_Impl::IsCompleted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -626,7 +626,7 @@ impl IDownloadJob_Vtbl {
             let this = (*this).get_impl();
             match IDownloadJob_Impl::Updates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -642,7 +642,7 @@ impl IDownloadJob_Vtbl {
             let this = (*this).get_impl();
             match IDownloadJob_Impl::GetProgress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -689,7 +689,7 @@ impl IDownloadProgress_Vtbl {
             let this = (*this).get_impl();
             match IDownloadProgress_Impl::CurrentUpdateBytesDownloaded(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -700,7 +700,7 @@ impl IDownloadProgress_Vtbl {
             let this = (*this).get_impl();
             match IDownloadProgress_Impl::CurrentUpdateBytesToDownload(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -711,7 +711,7 @@ impl IDownloadProgress_Vtbl {
             let this = (*this).get_impl();
             match IDownloadProgress_Impl::CurrentUpdateIndex(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -722,7 +722,7 @@ impl IDownloadProgress_Vtbl {
             let this = (*this).get_impl();
             match IDownloadProgress_Impl::PercentComplete(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -733,7 +733,7 @@ impl IDownloadProgress_Vtbl {
             let this = (*this).get_impl();
             match IDownloadProgress_Impl::TotalBytesDownloaded(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -744,7 +744,7 @@ impl IDownloadProgress_Vtbl {
             let this = (*this).get_impl();
             match IDownloadProgress_Impl::TotalBytesToDownload(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -755,7 +755,7 @@ impl IDownloadProgress_Vtbl {
             let this = (*this).get_impl();
             match IDownloadProgress_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -766,7 +766,7 @@ impl IDownloadProgress_Vtbl {
             let this = (*this).get_impl();
             match IDownloadProgress_Impl::CurrentUpdateDownloadPhase(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -777,7 +777,7 @@ impl IDownloadProgress_Vtbl {
             let this = (*this).get_impl();
             match IDownloadProgress_Impl::CurrentUpdatePercentComplete(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -834,7 +834,7 @@ impl IDownloadProgressChangedCallbackArgs_Vtbl {
             let this = (*this).get_impl();
             match IDownloadProgressChangedCallbackArgs_Impl::Progress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -862,7 +862,7 @@ impl IDownloadResult_Vtbl {
             let this = (*this).get_impl();
             match IDownloadResult_Impl::HResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -873,7 +873,7 @@ impl IDownloadResult_Vtbl {
             let this = (*this).get_impl();
             match IDownloadResult_Impl::ResultCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -884,7 +884,7 @@ impl IDownloadResult_Vtbl {
             let this = (*this).get_impl();
             match IDownloadResult_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -918,7 +918,7 @@ impl IImageInformation_Vtbl {
             let this = (*this).get_impl();
             match IImageInformation_Impl::AltText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -929,7 +929,7 @@ impl IImageInformation_Vtbl {
             let this = (*this).get_impl();
             match IImageInformation_Impl::Height(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -940,7 +940,7 @@ impl IImageInformation_Vtbl {
             let this = (*this).get_impl();
             match IImageInformation_Impl::Source(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -951,7 +951,7 @@ impl IImageInformation_Vtbl {
             let this = (*this).get_impl();
             match IImageInformation_Impl::Width(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1009,7 +1009,7 @@ impl IInstallationBehavior_Vtbl {
             let this = (*this).get_impl();
             match IInstallationBehavior_Impl::CanRequestUserInput(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1020,7 +1020,7 @@ impl IInstallationBehavior_Vtbl {
             let this = (*this).get_impl();
             match IInstallationBehavior_Impl::Impact(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1031,7 +1031,7 @@ impl IInstallationBehavior_Vtbl {
             let this = (*this).get_impl();
             match IInstallationBehavior_Impl::RebootBehavior(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1042,7 +1042,7 @@ impl IInstallationBehavior_Vtbl {
             let this = (*this).get_impl();
             match IInstallationBehavior_Impl::RequiresNetworkConnectivity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1112,7 +1112,7 @@ impl IInstallationJob_Vtbl {
             let this = (*this).get_impl();
             match IInstallationJob_Impl::AsyncState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1123,7 +1123,7 @@ impl IInstallationJob_Vtbl {
             let this = (*this).get_impl();
             match IInstallationJob_Impl::IsCompleted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1134,7 +1134,7 @@ impl IInstallationJob_Vtbl {
             let this = (*this).get_impl();
             match IInstallationJob_Impl::Updates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1150,7 +1150,7 @@ impl IInstallationJob_Vtbl {
             let this = (*this).get_impl();
             match IInstallationJob_Impl::GetProgress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1192,7 +1192,7 @@ impl IInstallationProgress_Vtbl {
             let this = (*this).get_impl();
             match IInstallationProgress_Impl::CurrentUpdateIndex(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1203,7 +1203,7 @@ impl IInstallationProgress_Vtbl {
             let this = (*this).get_impl();
             match IInstallationProgress_Impl::CurrentUpdatePercentComplete(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1214,7 +1214,7 @@ impl IInstallationProgress_Vtbl {
             let this = (*this).get_impl();
             match IInstallationProgress_Impl::PercentComplete(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1225,7 +1225,7 @@ impl IInstallationProgress_Vtbl {
             let this = (*this).get_impl();
             match IInstallationProgress_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1277,7 +1277,7 @@ impl IInstallationProgressChangedCallbackArgs_Vtbl {
             let this = (*this).get_impl();
             match IInstallationProgressChangedCallbackArgs_Impl::Progress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1306,7 +1306,7 @@ impl IInstallationResult_Vtbl {
             let this = (*this).get_impl();
             match IInstallationResult_Impl::HResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1317,7 +1317,7 @@ impl IInstallationResult_Vtbl {
             let this = (*this).get_impl();
             match IInstallationResult_Impl::RebootRequired(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1328,7 +1328,7 @@ impl IInstallationResult_Vtbl {
             let this = (*this).get_impl();
             match IInstallationResult_Impl::ResultCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1339,7 +1339,7 @@ impl IInstallationResult_Vtbl {
             let this = (*this).get_impl();
             match IInstallationResult_Impl::GetUpdateResult(this, core::mem::transmute_copy(&updateindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1371,7 +1371,7 @@ impl IInvalidProductLicenseException_Vtbl {
             let this = (*this).get_impl();
             match IInvalidProductLicenseException_Impl::Product(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1433,7 +1433,7 @@ impl ISearchJob_Vtbl {
             let this = (*this).get_impl();
             match ISearchJob_Impl::AsyncState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1444,7 +1444,7 @@ impl ISearchJob_Vtbl {
             let this = (*this).get_impl();
             match ISearchJob_Impl::IsCompleted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1489,7 +1489,7 @@ impl ISearchResult_Vtbl {
             let this = (*this).get_impl();
             match ISearchResult_Impl::ResultCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1500,7 +1500,7 @@ impl ISearchResult_Vtbl {
             let this = (*this).get_impl();
             match ISearchResult_Impl::RootCategories(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1511,7 +1511,7 @@ impl ISearchResult_Vtbl {
             let this = (*this).get_impl();
             match ISearchResult_Impl::Updates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1522,7 +1522,7 @@ impl ISearchResult_Vtbl {
             let this = (*this).get_impl();
             match ISearchResult_Impl::Warnings(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1563,7 +1563,7 @@ impl IStringCollection_Vtbl {
             let this = (*this).get_impl();
             match IStringCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1579,7 +1579,7 @@ impl IStringCollection_Vtbl {
             let this = (*this).get_impl();
             match IStringCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1590,7 +1590,7 @@ impl IStringCollection_Vtbl {
             let this = (*this).get_impl();
             match IStringCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1601,7 +1601,7 @@ impl IStringCollection_Vtbl {
             let this = (*this).get_impl();
             match IStringCollection_Impl::ReadOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1612,7 +1612,7 @@ impl IStringCollection_Vtbl {
             let this = (*this).get_impl();
             match IStringCollection_Impl::Add(this, core::mem::transmute(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1628,7 +1628,7 @@ impl IStringCollection_Vtbl {
             let this = (*this).get_impl();
             match IStringCollection_Impl::Copy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1677,7 +1677,7 @@ impl ISystemInformation_Vtbl {
             let this = (*this).get_impl();
             match ISystemInformation_Impl::OemHardwareSupportLink(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1688,7 +1688,7 @@ impl ISystemInformation_Vtbl {
             let this = (*this).get_impl();
             match ISystemInformation_Impl::RebootRequired(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1762,7 +1762,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::Title(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1773,7 +1773,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::AutoSelectOnWebSites(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1784,7 +1784,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::BundledUpdates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1795,7 +1795,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::CanRequireSource(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1806,7 +1806,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::Categories(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1817,7 +1817,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::Deadline(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1828,7 +1828,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::DeltaCompressedContentAvailable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1839,7 +1839,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::DeltaCompressedContentPreferred(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1850,7 +1850,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1861,7 +1861,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::EulaAccepted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1872,7 +1872,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::EulaText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1883,7 +1883,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::HandlerID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1894,7 +1894,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::Identity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1905,7 +1905,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::Image(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1916,7 +1916,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::InstallationBehavior(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1927,7 +1927,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::IsBeta(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1938,7 +1938,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::IsDownloaded(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1949,7 +1949,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::IsHidden(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1965,7 +1965,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::IsInstalled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1976,7 +1976,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::IsMandatory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1987,7 +1987,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::IsUninstallable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1998,7 +1998,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::Languages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2009,7 +2009,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::LastDeploymentChangeTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2020,7 +2020,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::MaxDownloadSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2031,7 +2031,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::MinDownloadSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2042,7 +2042,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::MoreInfoUrls(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2053,7 +2053,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::MsrcSeverity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2064,7 +2064,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::RecommendedCpuSpeed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2075,7 +2075,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::RecommendedHardDiskSpace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2086,7 +2086,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::RecommendedMemory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2097,7 +2097,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::ReleaseNotes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2108,7 +2108,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::SecurityBulletinIDs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2119,7 +2119,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::SupersededUpdateIDs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2130,7 +2130,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::SupportUrl(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2141,7 +2141,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2152,7 +2152,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::UninstallationNotes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2163,7 +2163,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::UninstallationBehavior(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2174,7 +2174,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::UninstallationSteps(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2185,7 +2185,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::KBArticleIDs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2201,7 +2201,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::DeploymentAction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2217,7 +2217,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::DownloadPriority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2228,7 +2228,7 @@ impl IUpdate_Vtbl {
             let this = (*this).get_impl();
             match IUpdate_Impl::DownloadContents(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2304,7 +2304,7 @@ impl IUpdate2_Vtbl {
             let this = (*this).get_impl();
             match IUpdate2_Impl::RebootRequired(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2315,7 +2315,7 @@ impl IUpdate2_Vtbl {
             let this = (*this).get_impl();
             match IUpdate2_Impl::IsPresent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2326,7 +2326,7 @@ impl IUpdate2_Vtbl {
             let this = (*this).get_impl();
             match IUpdate2_Impl::CveIDs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2363,7 +2363,7 @@ impl IUpdate3_Vtbl {
             let this = (*this).get_impl();
             match IUpdate3_Impl::BrowseOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2389,7 +2389,7 @@ impl IUpdate4_Vtbl {
             let this = (*this).get_impl();
             match IUpdate4_Impl::PerUser(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2416,7 +2416,7 @@ impl IUpdate5_Vtbl {
             let this = (*this).get_impl();
             match IUpdate5_Impl::AutoSelection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2427,7 +2427,7 @@ impl IUpdate5_Vtbl {
             let this = (*this).get_impl();
             match IUpdate5_Impl::AutoDownload(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2466,7 +2466,7 @@ impl IUpdateCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2482,7 +2482,7 @@ impl IUpdateCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2493,7 +2493,7 @@ impl IUpdateCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2504,7 +2504,7 @@ impl IUpdateCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateCollection_Impl::ReadOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2515,7 +2515,7 @@ impl IUpdateCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateCollection_Impl::Add(this, windows_core::from_raw_borrowed(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2531,7 +2531,7 @@ impl IUpdateCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateCollection_Impl::Copy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2579,7 +2579,7 @@ impl IUpdateDownloadContent_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloadContent_Impl::DownloadUrl(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2605,7 +2605,7 @@ impl IUpdateDownloadContent2_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloadContent2_Impl::IsDeltaCompressedContent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2636,7 +2636,7 @@ impl IUpdateDownloadContentCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloadContentCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2647,7 +2647,7 @@ impl IUpdateDownloadContentCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloadContentCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2658,7 +2658,7 @@ impl IUpdateDownloadContentCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloadContentCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2690,7 +2690,7 @@ impl IUpdateDownloadResult_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloadResult_Impl::HResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2701,7 +2701,7 @@ impl IUpdateDownloadResult_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloadResult_Impl::ResultCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2741,7 +2741,7 @@ impl IUpdateDownloader_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloader_Impl::ClientApplicationID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2757,7 +2757,7 @@ impl IUpdateDownloader_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloader_Impl::IsForced(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2773,7 +2773,7 @@ impl IUpdateDownloader_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloader_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2789,7 +2789,7 @@ impl IUpdateDownloader_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloader_Impl::Updates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2805,7 +2805,7 @@ impl IUpdateDownloader_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloader_Impl::BeginDownload(this, windows_core::from_raw_borrowed(&onprogresschanged), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2816,7 +2816,7 @@ impl IUpdateDownloader_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloader_Impl::Download(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2827,7 +2827,7 @@ impl IUpdateDownloader_Vtbl {
             let this = (*this).get_impl();
             match IUpdateDownloader_Impl::EndDownload(this, windows_core::from_raw_borrowed(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2868,7 +2868,7 @@ impl IUpdateException_Vtbl {
             let this = (*this).get_impl();
             match IUpdateException_Impl::Message(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2879,7 +2879,7 @@ impl IUpdateException_Vtbl {
             let this = (*this).get_impl();
             match IUpdateException_Impl::HResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2890,7 +2890,7 @@ impl IUpdateException_Vtbl {
             let this = (*this).get_impl();
             match IUpdateException_Impl::Context(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2923,7 +2923,7 @@ impl IUpdateExceptionCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateExceptionCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2934,7 +2934,7 @@ impl IUpdateExceptionCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateExceptionCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2945,7 +2945,7 @@ impl IUpdateExceptionCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateExceptionCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2989,7 +2989,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::Operation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3000,7 +3000,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::ResultCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3011,7 +3011,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::HResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3022,7 +3022,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::Date(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3033,7 +3033,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::UpdateIdentity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3044,7 +3044,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::Title(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3055,7 +3055,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3066,7 +3066,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::UnmappedResultCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3077,7 +3077,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::ClientApplicationID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3088,7 +3088,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::ServerSelection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3099,7 +3099,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::ServiceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3110,7 +3110,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::UninstallationSteps(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3121,7 +3121,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::UninstallationNotes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3132,7 +3132,7 @@ impl IUpdateHistoryEntry_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry_Impl::SupportUrl(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3174,7 +3174,7 @@ impl IUpdateHistoryEntry2_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntry2_Impl::Categories(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3202,7 +3202,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntryCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3213,7 +3213,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntryCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3224,7 +3224,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateHistoryEntryCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3256,7 +3256,7 @@ impl IUpdateIdentity_Vtbl {
             let this = (*this).get_impl();
             match IUpdateIdentity_Impl::RevisionNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3267,7 +3267,7 @@ impl IUpdateIdentity_Vtbl {
             let this = (*this).get_impl();
             match IUpdateIdentity_Impl::UpdateID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3299,7 +3299,7 @@ impl IUpdateInstallationResult_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstallationResult_Impl::HResult(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3310,7 +3310,7 @@ impl IUpdateInstallationResult_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstallationResult_Impl::RebootRequired(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3321,7 +3321,7 @@ impl IUpdateInstallationResult_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstallationResult_Impl::ResultCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3372,7 +3372,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::ClientApplicationID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3388,7 +3388,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::IsForced(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3404,7 +3404,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::ParentHwnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3425,7 +3425,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::ParentWindow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3436,7 +3436,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::Updates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3452,7 +3452,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::BeginInstall(this, windows_core::from_raw_borrowed(&onprogresschanged), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3463,7 +3463,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::BeginUninstall(this, windows_core::from_raw_borrowed(&onprogresschanged), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3474,7 +3474,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::EndInstall(this, windows_core::from_raw_borrowed(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3485,7 +3485,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::EndUninstall(this, windows_core::from_raw_borrowed(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3496,7 +3496,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::Install(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3507,7 +3507,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::RunWizard(this, core::mem::transmute(&dialogtitle)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3518,7 +3518,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::IsBusy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3529,7 +3529,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::Uninstall(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3540,7 +3540,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::AllowSourcePrompts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3556,7 +3556,7 @@ impl IUpdateInstaller_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller_Impl::RebootRequiredBeforeInstallation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3606,7 +3606,7 @@ impl IUpdateInstaller2_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller2_Impl::ForceQuiet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3642,7 +3642,7 @@ impl IUpdateInstaller3_Vtbl {
             let this = (*this).get_impl();
             match IUpdateInstaller3_Impl::AttemptCloseAppsIfNecessary(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3731,7 +3731,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::CanAutomaticallyUpgradeService(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3747,7 +3747,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::ClientApplicationID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3763,7 +3763,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::IncludePotentiallySupersededUpdates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3779,7 +3779,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::ServerSelection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3795,7 +3795,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::BeginSearch(this, core::mem::transmute(&criteria), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3806,7 +3806,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::EndSearch(this, windows_core::from_raw_borrowed(&searchjob)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3817,7 +3817,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::EscapeString(this, core::mem::transmute(&unescaped)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3828,7 +3828,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::QueryHistory(this, core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3839,7 +3839,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::Search(this, core::mem::transmute(&criteria)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3850,7 +3850,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::Online(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3866,7 +3866,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::GetTotalHistoryCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3877,7 +3877,7 @@ impl IUpdateSearcher_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher_Impl::ServiceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3929,7 +3929,7 @@ impl IUpdateSearcher2_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher2_Impl::IgnoreDownloadPriority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3965,7 +3965,7 @@ impl IUpdateSearcher3_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSearcher3_Impl::SearchScope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4012,7 +4012,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4023,7 +4023,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::ContentValidationCert(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4034,7 +4034,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::ExpirationDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4045,7 +4045,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::IsManaged(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4056,7 +4056,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::IsRegisteredWithAU(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4067,7 +4067,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::IssueDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4078,7 +4078,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::OffersWindowsUpdates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4089,7 +4089,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::RedirectUrls(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4100,7 +4100,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::ServiceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4111,7 +4111,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::IsScanPackageService(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4122,7 +4122,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::CanRegisterWithAU(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4133,7 +4133,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::ServiceUrl(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4144,7 +4144,7 @@ impl IUpdateService_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService_Impl::SetupPrefix(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4185,7 +4185,7 @@ impl IUpdateService2_Vtbl {
             let this = (*this).get_impl();
             match IUpdateService2_Impl::IsDefaultAUService(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4213,7 +4213,7 @@ impl IUpdateServiceCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4224,7 +4224,7 @@ impl IUpdateServiceCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4235,7 +4235,7 @@ impl IUpdateServiceCollection_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4272,7 +4272,7 @@ impl IUpdateServiceManager_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceManager_Impl::Services(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4283,7 +4283,7 @@ impl IUpdateServiceManager_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceManager_Impl::AddService(this, core::mem::transmute(&serviceid), core::mem::transmute(&authorizationcabpath)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4309,7 +4309,7 @@ impl IUpdateServiceManager_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceManager_Impl::AddScanPackageService(this, core::mem::transmute(&servicename), core::mem::transmute(&scanfilelocation), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservice, core::mem::transmute(ok__));
+                    ppservice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4352,7 +4352,7 @@ impl IUpdateServiceManager2_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceManager2_Impl::ClientApplicationID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4368,7 +4368,7 @@ impl IUpdateServiceManager2_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceManager2_Impl::QueryServiceRegistration(this, core::mem::transmute(&serviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4379,7 +4379,7 @@ impl IUpdateServiceManager2_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceManager2_Impl::AddService2(this, core::mem::transmute(&serviceid), core::mem::transmute_copy(&flags), core::mem::transmute(&authorizationcabpath)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4414,7 +4414,7 @@ impl IUpdateServiceRegistration_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceRegistration_Impl::RegistrationState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4425,7 +4425,7 @@ impl IUpdateServiceRegistration_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceRegistration_Impl::ServiceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4436,7 +4436,7 @@ impl IUpdateServiceRegistration_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceRegistration_Impl::IsPendingRegistrationWithAU(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4447,7 +4447,7 @@ impl IUpdateServiceRegistration_Vtbl {
             let this = (*this).get_impl();
             match IUpdateServiceRegistration_Impl::Service(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4486,7 +4486,7 @@ impl IUpdateSession_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSession_Impl::ClientApplicationID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4502,7 +4502,7 @@ impl IUpdateSession_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSession_Impl::ReadOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4513,7 +4513,7 @@ impl IUpdateSession_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSession_Impl::WebProxy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4529,7 +4529,7 @@ impl IUpdateSession_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSession_Impl::CreateUpdateSearcher(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4540,7 +4540,7 @@ impl IUpdateSession_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSession_Impl::CreateUpdateDownloader(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4551,7 +4551,7 @@ impl IUpdateSession_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSession_Impl::CreateUpdateInstaller(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4588,7 +4588,7 @@ impl IUpdateSession2_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSession2_Impl::UserLocale(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4624,7 +4624,7 @@ impl IUpdateSession3_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSession3_Impl::CreateUpdateServiceManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4635,7 +4635,7 @@ impl IUpdateSession3_Vtbl {
             let this = (*this).get_impl();
             match IUpdateSession3_Impl::QueryHistory(this, core::mem::transmute(&criteria), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4678,7 +4678,7 @@ impl IWebProxy_Vtbl {
             let this = (*this).get_impl();
             match IWebProxy_Impl::Address(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4694,7 +4694,7 @@ impl IWebProxy_Vtbl {
             let this = (*this).get_impl();
             match IWebProxy_Impl::BypassList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4710,7 +4710,7 @@ impl IWebProxy_Vtbl {
             let this = (*this).get_impl();
             match IWebProxy_Impl::BypassProxyOnLocal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4726,7 +4726,7 @@ impl IWebProxy_Vtbl {
             let this = (*this).get_impl();
             match IWebProxy_Impl::ReadOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4737,7 +4737,7 @@ impl IWebProxy_Vtbl {
             let this = (*this).get_impl();
             match IWebProxy_Impl::UserName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4768,7 +4768,7 @@ impl IWebProxy_Vtbl {
             let this = (*this).get_impl();
             match IWebProxy_Impl::AutoDetect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4822,7 +4822,7 @@ impl IWindowsDriverUpdate_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate_Impl::DriverClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4833,7 +4833,7 @@ impl IWindowsDriverUpdate_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate_Impl::DriverHardwareID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4844,7 +4844,7 @@ impl IWindowsDriverUpdate_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate_Impl::DriverManufacturer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4855,7 +4855,7 @@ impl IWindowsDriverUpdate_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate_Impl::DriverModel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4866,7 +4866,7 @@ impl IWindowsDriverUpdate_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate_Impl::DriverProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4877,7 +4877,7 @@ impl IWindowsDriverUpdate_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate_Impl::DriverVerDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4888,7 +4888,7 @@ impl IWindowsDriverUpdate_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate_Impl::DeviceProblemNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4899,7 +4899,7 @@ impl IWindowsDriverUpdate_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate_Impl::DeviceStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4938,7 +4938,7 @@ impl IWindowsDriverUpdate2_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate2_Impl::RebootRequired(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4949,7 +4949,7 @@ impl IWindowsDriverUpdate2_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate2_Impl::IsPresent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4960,7 +4960,7 @@ impl IWindowsDriverUpdate2_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate2_Impl::CveIDs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4997,7 +4997,7 @@ impl IWindowsDriverUpdate3_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate3_Impl::BrowseOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5024,7 +5024,7 @@ impl IWindowsDriverUpdate4_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate4_Impl::WindowsDriverUpdateEntries(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5035,7 +5035,7 @@ impl IWindowsDriverUpdate4_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate4_Impl::PerUser(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5066,7 +5066,7 @@ impl IWindowsDriverUpdate5_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate5_Impl::AutoSelection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5077,7 +5077,7 @@ impl IWindowsDriverUpdate5_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdate5_Impl::AutoDownload(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5114,7 +5114,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdateEntry_Impl::DriverClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5125,7 +5125,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdateEntry_Impl::DriverHardwareID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5136,7 +5136,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdateEntry_Impl::DriverManufacturer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5147,7 +5147,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdateEntry_Impl::DriverModel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5158,7 +5158,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdateEntry_Impl::DriverProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5169,7 +5169,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdateEntry_Impl::DriverVerDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5180,7 +5180,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdateEntry_Impl::DeviceProblemNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5191,7 +5191,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdateEntry_Impl::DeviceStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5229,7 +5229,7 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdateEntryCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5240,7 +5240,7 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdateEntryCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5251,7 +5251,7 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
             let this = (*this).get_impl();
             match IWindowsDriverUpdateEntryCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5282,7 +5282,7 @@ impl IWindowsUpdateAgentInfo_Vtbl {
             let this = (*this).get_impl();
             match IWindowsUpdateAgentInfo_Impl::GetInfo(this, core::mem::transmute(&varinfoidentifier)) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

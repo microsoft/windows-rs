@@ -13,7 +13,7 @@ impl IGeoshape_Vtbl {
             let this = (*this).get_impl();
             match IGeoshape_Impl::GeoshapeType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -24,7 +24,7 @@ impl IGeoshape_Vtbl {
             let this = (*this).get_impl();
             match IGeoshape_Impl::SpatialReferenceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -35,7 +35,7 @@ impl IGeoshape_Vtbl {
             let this = (*this).get_impl();
             match IGeoshape_Impl::AltitudeReferenceSystem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

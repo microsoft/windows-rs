@@ -24,7 +24,7 @@ impl IADs_Vtbl {
             let this = (*this).get_impl();
             match IADs_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -35,7 +35,7 @@ impl IADs_Vtbl {
             let this = (*this).get_impl();
             match IADs_Impl::Class(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -46,7 +46,7 @@ impl IADs_Vtbl {
             let this = (*this).get_impl();
             match IADs_Impl::GUID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -57,7 +57,7 @@ impl IADs_Vtbl {
             let this = (*this).get_impl();
             match IADs_Impl::ADsPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -68,7 +68,7 @@ impl IADs_Vtbl {
             let this = (*this).get_impl();
             match IADs_Impl::Parent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -79,7 +79,7 @@ impl IADs_Vtbl {
             let this = (*this).get_impl();
             match IADs_Impl::Schema(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -100,7 +100,7 @@ impl IADs_Vtbl {
             let this = (*this).get_impl();
             match IADs_Impl::Get(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvprop, core::mem::transmute(ok__));
+                    pvprop.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -116,7 +116,7 @@ impl IADs_Vtbl {
             let this = (*this).get_impl();
             match IADs_Impl::GetEx(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvprop, core::mem::transmute(ok__));
+                    pvprop.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -179,7 +179,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::UserName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -190,7 +190,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::ComputerName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::SiteName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -212,7 +212,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::DomainShortName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -223,7 +223,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::DomainDNSName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::ForestDNSName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -245,7 +245,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::PDCRoleOwner(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -256,7 +256,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::SchemaRoleOwner(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -267,7 +267,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::IsNativeMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -278,7 +278,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::GetAnyDCName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pszdcname, core::mem::transmute(ok__));
+                    pszdcname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -289,7 +289,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::GetDCSiteName(this, core::mem::transmute(&szserver)) {
                 Ok(ok__) => {
-                    core::ptr::write(pszsitename, core::mem::transmute(ok__));
+                    pszsitename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -305,7 +305,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsADSystemInfo_Impl::GetTrees(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvtrees, core::mem::transmute(ok__));
+                    pvtrees.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -359,7 +359,7 @@ impl IADsAccessControlEntry_Vtbl {
             let this = (*this).get_impl();
             match IADsAccessControlEntry_Impl::AccessMask(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -375,7 +375,7 @@ impl IADsAccessControlEntry_Vtbl {
             let this = (*this).get_impl();
             match IADsAccessControlEntry_Impl::AceType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -391,7 +391,7 @@ impl IADsAccessControlEntry_Vtbl {
             let this = (*this).get_impl();
             match IADsAccessControlEntry_Impl::AceFlags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -407,7 +407,7 @@ impl IADsAccessControlEntry_Vtbl {
             let this = (*this).get_impl();
             match IADsAccessControlEntry_Impl::Flags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -423,7 +423,7 @@ impl IADsAccessControlEntry_Vtbl {
             let this = (*this).get_impl();
             match IADsAccessControlEntry_Impl::ObjectType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -439,7 +439,7 @@ impl IADsAccessControlEntry_Vtbl {
             let this = (*this).get_impl();
             match IADsAccessControlEntry_Impl::InheritedObjectType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -455,7 +455,7 @@ impl IADsAccessControlEntry_Vtbl {
             let this = (*this).get_impl();
             match IADsAccessControlEntry_Impl::Trustee(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -509,7 +509,7 @@ impl IADsAccessControlList_Vtbl {
             let this = (*this).get_impl();
             match IADsAccessControlList_Impl::AclRevision(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -525,7 +525,7 @@ impl IADsAccessControlList_Vtbl {
             let this = (*this).get_impl();
             match IADsAccessControlList_Impl::AceCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -551,7 +551,7 @@ impl IADsAccessControlList_Vtbl {
             let this = (*this).get_impl();
             match IADsAccessControlList_Impl::CopyAccessList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaccesscontrollist, core::mem::transmute(ok__));
+                    ppaccesscontrollist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -562,7 +562,7 @@ impl IADsAccessControlList_Vtbl {
             let this = (*this).get_impl();
             match IADsAccessControlList_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -604,7 +604,7 @@ impl IADsAcl_Vtbl {
             let this = (*this).get_impl();
             match IADsAcl_Impl::ProtectedAttrName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -620,7 +620,7 @@ impl IADsAcl_Vtbl {
             let this = (*this).get_impl();
             match IADsAcl_Impl::SubjectName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -636,7 +636,7 @@ impl IADsAcl_Vtbl {
             let this = (*this).get_impl();
             match IADsAcl_Impl::Privileges(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -652,7 +652,7 @@ impl IADsAcl_Vtbl {
             let this = (*this).get_impl();
             match IADsAcl_Impl::CopyAcl(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppacl, core::mem::transmute(ok__));
+                    ppacl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -758,7 +758,7 @@ impl IADsBackLink_Vtbl {
             let this = (*this).get_impl();
             match IADsBackLink_Impl::RemoteID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -774,7 +774,7 @@ impl IADsBackLink_Vtbl {
             let this = (*this).get_impl();
             match IADsBackLink_Impl::ObjectName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -812,7 +812,7 @@ impl IADsCaseIgnoreList_Vtbl {
             let this = (*this).get_impl();
             match IADsCaseIgnoreList_Impl::CaseIgnoreList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -876,7 +876,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::PrimaryInterface(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -887,7 +887,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::CLSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -903,7 +903,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::OID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -919,7 +919,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::Abstract(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -935,7 +935,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::Auxiliary(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -951,7 +951,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::MandatoryProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -967,7 +967,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::OptionalProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -983,7 +983,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::NamingProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -999,7 +999,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::DerivedFrom(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1015,7 +1015,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::AuxDerivedFrom(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1031,7 +1031,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::PossibleSuperiors(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1047,7 +1047,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::Containment(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1063,7 +1063,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::Container(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1079,7 +1079,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::HelpFileName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1095,7 +1095,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::HelpFileContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1111,7 +1111,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             match IADsClass_Impl::Qualifiers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqualifiers, core::mem::transmute(ok__));
+                    ppqualifiers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1172,7 +1172,7 @@ impl IADsCollection_Vtbl {
             let this = (*this).get_impl();
             match IADsCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenumerator, core::mem::transmute(ok__));
+                    ppenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1193,7 +1193,7 @@ impl IADsCollection_Vtbl {
             let this = (*this).get_impl();
             match IADsCollection_Impl::GetObject(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvitem, core::mem::transmute(ok__));
+                    pvitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1256,7 +1256,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::ComputerID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1267,7 +1267,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::Site(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1278,7 +1278,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1294,7 +1294,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::Location(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1310,7 +1310,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::PrimaryUser(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1326,7 +1326,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::Owner(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1342,7 +1342,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::Division(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1358,7 +1358,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::Department(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1374,7 +1374,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::Role(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1390,7 +1390,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::OperatingSystem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1406,7 +1406,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::OperatingSystemVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1422,7 +1422,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::Model(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1438,7 +1438,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::Processor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1454,7 +1454,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::ProcessorCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1470,7 +1470,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::MemorySize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1486,7 +1486,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::StorageCapacity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1502,7 +1502,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             match IADsComputer_Impl::NetAddresses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1568,7 +1568,7 @@ impl IADsComputerOperations_Vtbl {
             let this = (*this).get_impl();
             match IADsComputerOperations_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobject, core::mem::transmute(ok__));
+                    ppobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1609,7 +1609,7 @@ impl IADsContainer_Vtbl {
             let this = (*this).get_impl();
             match IADsContainer_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1620,7 +1620,7 @@ impl IADsContainer_Vtbl {
             let this = (*this).get_impl();
             match IADsContainer_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1631,7 +1631,7 @@ impl IADsContainer_Vtbl {
             let this = (*this).get_impl();
             match IADsContainer_Impl::Filter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvar, core::mem::transmute(ok__));
+                    pvar.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1647,7 +1647,7 @@ impl IADsContainer_Vtbl {
             let this = (*this).get_impl();
             match IADsContainer_Impl::Hints(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvfilter, core::mem::transmute(ok__));
+                    pvfilter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1663,7 +1663,7 @@ impl IADsContainer_Vtbl {
             let this = (*this).get_impl();
             match IADsContainer_Impl::GetObject(this, core::mem::transmute(&classname), core::mem::transmute(&relativename)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobject, core::mem::transmute(ok__));
+                    ppobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1674,7 +1674,7 @@ impl IADsContainer_Vtbl {
             let this = (*this).get_impl();
             match IADsContainer_Impl::Create(this, core::mem::transmute(&classname), core::mem::transmute(&relativename)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobject, core::mem::transmute(ok__));
+                    ppobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1690,7 +1690,7 @@ impl IADsContainer_Vtbl {
             let this = (*this).get_impl();
             match IADsContainer_Impl::CopyHere(this, core::mem::transmute(&sourcename), core::mem::transmute(&newname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobject, core::mem::transmute(ok__));
+                    ppobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1701,7 +1701,7 @@ impl IADsContainer_Vtbl {
             let this = (*this).get_impl();
             match IADsContainer_Impl::MoveHere(this, core::mem::transmute(&sourcename), core::mem::transmute(&newname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobject, core::mem::transmute(ok__));
+                    ppobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1743,7 +1743,7 @@ impl IADsDNWithBinary_Vtbl {
             let this = (*this).get_impl();
             match IADsDNWithBinary_Impl::BinaryValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1759,7 +1759,7 @@ impl IADsDNWithBinary_Vtbl {
             let this = (*this).get_impl();
             match IADsDNWithBinary_Impl::DNString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1799,7 +1799,7 @@ impl IADsDNWithString_Vtbl {
             let this = (*this).get_impl();
             match IADsDNWithString_Impl::StringValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1815,7 +1815,7 @@ impl IADsDNWithString_Vtbl {
             let this = (*this).get_impl();
             match IADsDNWithString_Impl::DNString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1888,7 +1888,7 @@ impl IADsDomain_Vtbl {
             let this = (*this).get_impl();
             match IADsDomain_Impl::IsWorkgroup(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1899,7 +1899,7 @@ impl IADsDomain_Vtbl {
             let this = (*this).get_impl();
             match IADsDomain_Impl::MinPasswordLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1915,7 +1915,7 @@ impl IADsDomain_Vtbl {
             let this = (*this).get_impl();
             match IADsDomain_Impl::MinPasswordAge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1931,7 +1931,7 @@ impl IADsDomain_Vtbl {
             let this = (*this).get_impl();
             match IADsDomain_Impl::MaxPasswordAge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1947,7 +1947,7 @@ impl IADsDomain_Vtbl {
             let this = (*this).get_impl();
             match IADsDomain_Impl::MaxBadPasswordsAllowed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1963,7 +1963,7 @@ impl IADsDomain_Vtbl {
             let this = (*this).get_impl();
             match IADsDomain_Impl::PasswordHistoryLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1979,7 +1979,7 @@ impl IADsDomain_Vtbl {
             let this = (*this).get_impl();
             match IADsDomain_Impl::PasswordAttributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1995,7 +1995,7 @@ impl IADsDomain_Vtbl {
             let this = (*this).get_impl();
             match IADsDomain_Impl::AutoUnlockInterval(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2011,7 +2011,7 @@ impl IADsDomain_Vtbl {
             let this = (*this).get_impl();
             match IADsDomain_Impl::LockoutObservationInterval(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2064,7 +2064,7 @@ impl IADsEmail_Vtbl {
             let this = (*this).get_impl();
             match IADsEmail_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2080,7 +2080,7 @@ impl IADsEmail_Vtbl {
             let this = (*this).get_impl();
             match IADsEmail_Impl::Address(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2124,7 +2124,7 @@ impl IADsExtension_Vtbl {
             let this = (*this).get_impl();
             match IADsExtension_Impl::PrivateGetIDsOfNames(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&rgsznames), core::mem::transmute_copy(&cnames), core::mem::transmute_copy(&lcid)) {
                 Ok(ok__) => {
-                    core::ptr::write(rgdispid, core::mem::transmute(ok__));
+                    rgdispid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2163,7 +2163,7 @@ impl IADsFaxNumber_Vtbl {
             let this = (*this).get_impl();
             match IADsFaxNumber_Impl::TelephoneNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2179,7 +2179,7 @@ impl IADsFaxNumber_Vtbl {
             let this = (*this).get_impl();
             match IADsFaxNumber_Impl::Parameters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2219,7 +2219,7 @@ impl IADsFileService_Vtbl {
             let this = (*this).get_impl();
             match IADsFileService_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2235,7 +2235,7 @@ impl IADsFileService_Vtbl {
             let this = (*this).get_impl();
             match IADsFileService_Impl::MaxUserCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2273,7 +2273,7 @@ impl IADsFileServiceOperations_Vtbl {
             let this = (*this).get_impl();
             match IADsFileServiceOperations_Impl::Sessions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsessions, core::mem::transmute(ok__));
+                    ppsessions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2284,7 +2284,7 @@ impl IADsFileServiceOperations_Vtbl {
             let this = (*this).get_impl();
             match IADsFileServiceOperations_Impl::Resources(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresources, core::mem::transmute(ok__));
+                    ppresources.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2322,7 +2322,7 @@ impl IADsFileShare_Vtbl {
             let this = (*this).get_impl();
             match IADsFileShare_Impl::CurrentUserCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2333,7 +2333,7 @@ impl IADsFileShare_Vtbl {
             let this = (*this).get_impl();
             match IADsFileShare_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2349,7 +2349,7 @@ impl IADsFileShare_Vtbl {
             let this = (*this).get_impl();
             match IADsFileShare_Impl::HostComputer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2365,7 +2365,7 @@ impl IADsFileShare_Vtbl {
             let this = (*this).get_impl();
             match IADsFileShare_Impl::Path(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2381,7 +2381,7 @@ impl IADsFileShare_Vtbl {
             let this = (*this).get_impl();
             match IADsFileShare_Impl::MaxUserCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2428,7 +2428,7 @@ impl IADsGroup_Vtbl {
             let this = (*this).get_impl();
             match IADsGroup_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2444,7 +2444,7 @@ impl IADsGroup_Vtbl {
             let this = (*this).get_impl();
             match IADsGroup_Impl::Members(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmembers, core::mem::transmute(ok__));
+                    ppmembers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2455,7 +2455,7 @@ impl IADsGroup_Vtbl {
             let this = (*this).get_impl();
             match IADsGroup_Impl::IsMember(this, core::mem::transmute(&bstrmember)) {
                 Ok(ok__) => {
-                    core::ptr::write(bmember, core::mem::transmute(ok__));
+                    bmember.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2502,7 +2502,7 @@ impl IADsHold_Vtbl {
             let this = (*this).get_impl();
             match IADsHold_Impl::ObjectName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2518,7 +2518,7 @@ impl IADsHold_Vtbl {
             let this = (*this).get_impl();
             match IADsHold_Impl::Amount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2558,7 +2558,7 @@ impl IADsLargeInteger_Vtbl {
             let this = (*this).get_impl();
             match IADsLargeInteger_Impl::HighPart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2574,7 +2574,7 @@ impl IADsLargeInteger_Vtbl {
             let this = (*this).get_impl();
             match IADsLargeInteger_Impl::LowPart(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2618,7 +2618,7 @@ impl IADsLocality_Vtbl {
             let this = (*this).get_impl();
             match IADsLocality_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2634,7 +2634,7 @@ impl IADsLocality_Vtbl {
             let this = (*this).get_impl();
             match IADsLocality_Impl::LocalityName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2650,7 +2650,7 @@ impl IADsLocality_Vtbl {
             let this = (*this).get_impl();
             match IADsLocality_Impl::PostalAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2666,7 +2666,7 @@ impl IADsLocality_Vtbl {
             let this = (*this).get_impl();
             match IADsLocality_Impl::SeeAlso(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2710,7 +2710,7 @@ impl IADsMembers_Vtbl {
             let this = (*this).get_impl();
             match IADsMembers_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2721,7 +2721,7 @@ impl IADsMembers_Vtbl {
             let this = (*this).get_impl();
             match IADsMembers_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenumerator, core::mem::transmute(ok__));
+                    ppenumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2732,7 +2732,7 @@ impl IADsMembers_Vtbl {
             let this = (*this).get_impl();
             match IADsMembers_Impl::Filter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvfilter, core::mem::transmute(ok__));
+                    pvfilter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2795,7 +2795,7 @@ impl IADsNameTranslate_Vtbl {
             let this = (*this).get_impl();
             match IADsNameTranslate_Impl::Get(this, core::mem::transmute_copy(&lnformattype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstradspath, core::mem::transmute(ok__));
+                    pbstradspath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2811,7 +2811,7 @@ impl IADsNameTranslate_Vtbl {
             let this = (*this).get_impl();
             match IADsNameTranslate_Impl::GetEx(this, core::mem::transmute_copy(&lnformattype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvar, core::mem::transmute(ok__));
+                    pvar.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2847,7 +2847,7 @@ impl IADsNamespaces_Vtbl {
             let this = (*this).get_impl();
             match IADsNamespaces_Impl::DefaultContainer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2885,7 +2885,7 @@ impl IADsNetAddress_Vtbl {
             let this = (*this).get_impl();
             match IADsNetAddress_Impl::AddressType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2901,7 +2901,7 @@ impl IADsNetAddress_Vtbl {
             let this = (*this).get_impl();
             match IADsNetAddress_Impl::Address(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2949,7 +2949,7 @@ impl IADsO_Vtbl {
             let this = (*this).get_impl();
             match IADsO_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2965,7 +2965,7 @@ impl IADsO_Vtbl {
             let this = (*this).get_impl();
             match IADsO_Impl::LocalityName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2981,7 +2981,7 @@ impl IADsO_Vtbl {
             let this = (*this).get_impl();
             match IADsO_Impl::PostalAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2997,7 +2997,7 @@ impl IADsO_Vtbl {
             let this = (*this).get_impl();
             match IADsO_Impl::TelephoneNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3013,7 +3013,7 @@ impl IADsO_Vtbl {
             let this = (*this).get_impl();
             match IADsO_Impl::FaxNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3029,7 +3029,7 @@ impl IADsO_Vtbl {
             let this = (*this).get_impl();
             match IADsO_Impl::SeeAlso(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3087,7 +3087,7 @@ impl IADsOU_Vtbl {
             let this = (*this).get_impl();
             match IADsOU_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3103,7 +3103,7 @@ impl IADsOU_Vtbl {
             let this = (*this).get_impl();
             match IADsOU_Impl::LocalityName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3119,7 +3119,7 @@ impl IADsOU_Vtbl {
             let this = (*this).get_impl();
             match IADsOU_Impl::PostalAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3135,7 +3135,7 @@ impl IADsOU_Vtbl {
             let this = (*this).get_impl();
             match IADsOU_Impl::TelephoneNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3151,7 +3151,7 @@ impl IADsOU_Vtbl {
             let this = (*this).get_impl();
             match IADsOU_Impl::FaxNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3167,7 +3167,7 @@ impl IADsOU_Vtbl {
             let this = (*this).get_impl();
             match IADsOU_Impl::SeeAlso(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3183,7 +3183,7 @@ impl IADsOU_Vtbl {
             let this = (*this).get_impl();
             match IADsOU_Impl::BusinessCategory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3231,7 +3231,7 @@ impl IADsObjectOptions_Vtbl {
             let this = (*this).get_impl();
             match IADsObjectOptions_Impl::GetOption(this, core::mem::transmute_copy(&lnoption)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvvalue, core::mem::transmute(ok__));
+                    pvvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3267,7 +3267,7 @@ impl IADsOctetList_Vtbl {
             let this = (*this).get_impl();
             match IADsOctetList_Impl::OctetList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3302,7 +3302,7 @@ impl IADsOpenDSObject_Vtbl {
             let this = (*this).get_impl();
             match IADsOpenDSObject_Impl::OpenDSObject(this, core::mem::transmute(&lpszdnname), core::mem::transmute(&lpszusername), core::mem::transmute(&lpszpassword), core::mem::transmute_copy(&lnreserved)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoledsobj, core::mem::transmute(ok__));
+                    ppoledsobj.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3333,7 +3333,7 @@ impl IADsPath_Vtbl {
             let this = (*this).get_impl();
             match IADsPath_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3349,7 +3349,7 @@ impl IADsPath_Vtbl {
             let this = (*this).get_impl();
             match IADsPath_Impl::VolumeName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3365,7 +3365,7 @@ impl IADsPath_Vtbl {
             let this = (*this).get_impl();
             match IADsPath_Impl::Path(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3424,7 +3424,7 @@ impl IADsPathname_Vtbl {
             let this = (*this).get_impl();
             match IADsPathname_Impl::Retrieve(this, core::mem::transmute_copy(&lnformattype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstradspath, core::mem::transmute(ok__));
+                    pbstradspath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3435,7 +3435,7 @@ impl IADsPathname_Vtbl {
             let this = (*this).get_impl();
             match IADsPathname_Impl::GetNumElements(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plnnumpathelements, core::mem::transmute(ok__));
+                    plnnumpathelements.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3446,7 +3446,7 @@ impl IADsPathname_Vtbl {
             let this = (*this).get_impl();
             match IADsPathname_Impl::GetElement(this, core::mem::transmute_copy(&lnelementindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrelement, core::mem::transmute(ok__));
+                    pbstrelement.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3467,7 +3467,7 @@ impl IADsPathname_Vtbl {
             let this = (*this).get_impl();
             match IADsPathname_Impl::CopyPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppadspath, core::mem::transmute(ok__));
+                    ppadspath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3478,7 +3478,7 @@ impl IADsPathname_Vtbl {
             let this = (*this).get_impl();
             match IADsPathname_Impl::GetEscapedElement(this, core::mem::transmute_copy(&lnreserved), core::mem::transmute(&bstrinstr)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstroutstr, core::mem::transmute(ok__));
+                    pbstroutstr.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3489,7 +3489,7 @@ impl IADsPathname_Vtbl {
             let this = (*this).get_impl();
             match IADsPathname_Impl::EscapedMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3534,7 +3534,7 @@ impl IADsPostalAddress_Vtbl {
             let this = (*this).get_impl();
             match IADsPostalAddress_Impl::PostalAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3586,7 +3586,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::HostPrintQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3597,7 +3597,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::User(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3608,7 +3608,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::UserPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3619,7 +3619,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::TimeSubmitted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3630,7 +3630,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::TotalPages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3641,7 +3641,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3652,7 +3652,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3668,7 +3668,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3684,7 +3684,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::StartTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3700,7 +3700,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::UntilTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3716,7 +3716,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::Notify(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3732,7 +3732,7 @@ impl IADsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJob_Impl::NotifyPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3789,7 +3789,7 @@ impl IADsPrintJobOperations_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJobOperations_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3800,7 +3800,7 @@ impl IADsPrintJobOperations_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJobOperations_Impl::TimeElapsed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3811,7 +3811,7 @@ impl IADsPrintJobOperations_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJobOperations_Impl::PagesPrinted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3822,7 +3822,7 @@ impl IADsPrintJobOperations_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintJobOperations_Impl::Position(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3897,7 +3897,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::PrinterPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3913,7 +3913,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::Model(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3929,7 +3929,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::Datatype(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3945,7 +3945,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::PrintProcessor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3961,7 +3961,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3977,7 +3977,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::Location(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3993,7 +3993,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::StartTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4009,7 +4009,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::UntilTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4025,7 +4025,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::DefaultJobPriority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4041,7 +4041,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4057,7 +4057,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::BannerPage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4073,7 +4073,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::PrintDevices(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4089,7 +4089,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueue_Impl::NetAddresses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4152,7 +4152,7 @@ impl IADsPrintQueueOperations_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueueOperations_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4163,7 +4163,7 @@ impl IADsPrintQueueOperations_Vtbl {
             let this = (*this).get_impl();
             match IADsPrintQueueOperations_Impl::PrintJobs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pobject, core::mem::transmute(ok__));
+                    pobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4221,7 +4221,7 @@ impl IADsProperty_Vtbl {
             let this = (*this).get_impl();
             match IADsProperty_Impl::OID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4237,7 +4237,7 @@ impl IADsProperty_Vtbl {
             let this = (*this).get_impl();
             match IADsProperty_Impl::Syntax(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4253,7 +4253,7 @@ impl IADsProperty_Vtbl {
             let this = (*this).get_impl();
             match IADsProperty_Impl::MaxRange(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4269,7 +4269,7 @@ impl IADsProperty_Vtbl {
             let this = (*this).get_impl();
             match IADsProperty_Impl::MinRange(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4285,7 +4285,7 @@ impl IADsProperty_Vtbl {
             let this = (*this).get_impl();
             match IADsProperty_Impl::MultiValued(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4301,7 +4301,7 @@ impl IADsProperty_Vtbl {
             let this = (*this).get_impl();
             match IADsProperty_Impl::Qualifiers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqualifiers, core::mem::transmute(ok__));
+                    ppqualifiers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4353,7 +4353,7 @@ impl IADsPropertyEntry_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyEntry_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4369,7 +4369,7 @@ impl IADsPropertyEntry_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyEntry_Impl::ADsType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4385,7 +4385,7 @@ impl IADsPropertyEntry_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyEntry_Impl::ControlCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4401,7 +4401,7 @@ impl IADsPropertyEntry_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyEntry_Impl::Values(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4451,7 +4451,7 @@ impl IADsPropertyList_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyList_Impl::PropertyCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4477,7 +4477,7 @@ impl IADsPropertyList_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyList_Impl::Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvariant, core::mem::transmute(ok__));
+                    pvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4488,7 +4488,7 @@ impl IADsPropertyList_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyList_Impl::GetPropertyItem(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&lnadstype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvariant, core::mem::transmute(ok__));
+                    pvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4569,7 +4569,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::ADsType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4585,7 +4585,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::DNString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4601,7 +4601,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::CaseExactString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4617,7 +4617,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::CaseIgnoreString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4633,7 +4633,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::PrintableString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4649,7 +4649,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::NumericString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4665,7 +4665,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::Boolean(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4681,7 +4681,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::Integer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4697,7 +4697,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::OctetString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4713,7 +4713,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::SecurityDescriptor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4729,7 +4729,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::LargeInteger(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4745,7 +4745,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match IADsPropertyValue_Impl::UTCTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4842,7 +4842,7 @@ impl IADsReplicaPointer_Vtbl {
             let this = (*this).get_impl();
             match IADsReplicaPointer_Impl::ServerName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4858,7 +4858,7 @@ impl IADsReplicaPointer_Vtbl {
             let this = (*this).get_impl();
             match IADsReplicaPointer_Impl::ReplicaType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4874,7 +4874,7 @@ impl IADsReplicaPointer_Vtbl {
             let this = (*this).get_impl();
             match IADsReplicaPointer_Impl::ReplicaNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4890,7 +4890,7 @@ impl IADsReplicaPointer_Vtbl {
             let this = (*this).get_impl();
             match IADsReplicaPointer_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4906,7 +4906,7 @@ impl IADsReplicaPointer_Vtbl {
             let this = (*this).get_impl();
             match IADsReplicaPointer_Impl::ReplicaAddressHints(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4952,7 +4952,7 @@ impl IADsResource_Vtbl {
             let this = (*this).get_impl();
             match IADsResource_Impl::User(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4963,7 +4963,7 @@ impl IADsResource_Vtbl {
             let this = (*this).get_impl();
             match IADsResource_Impl::UserPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4974,7 +4974,7 @@ impl IADsResource_Vtbl {
             let this = (*this).get_impl();
             match IADsResource_Impl::Path(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4985,7 +4985,7 @@ impl IADsResource_Vtbl {
             let this = (*this).get_impl();
             match IADsResource_Impl::LockCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5037,7 +5037,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityDescriptor_Impl::Revision(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5053,7 +5053,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityDescriptor_Impl::Control(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5069,7 +5069,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityDescriptor_Impl::Owner(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5085,7 +5085,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityDescriptor_Impl::OwnerDefaulted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5101,7 +5101,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityDescriptor_Impl::Group(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5117,7 +5117,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityDescriptor_Impl::GroupDefaulted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5133,7 +5133,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityDescriptor_Impl::DiscretionaryAcl(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5149,7 +5149,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityDescriptor_Impl::DaclDefaulted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5165,7 +5165,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityDescriptor_Impl::SystemAcl(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5181,7 +5181,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityDescriptor_Impl::SaclDefaulted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5197,7 +5197,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityDescriptor_Impl::CopySecurityDescriptor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsecuritydescriptor, core::mem::transmute(ok__));
+                    ppsecuritydescriptor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5250,7 +5250,7 @@ impl IADsSecurityUtility_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityUtility_Impl::GetSecurityDescriptor(this, core::mem::transmute(&varpath), core::mem::transmute_copy(&lpathformat), core::mem::transmute_copy(&lformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvariant, core::mem::transmute(ok__));
+                    pvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5266,7 +5266,7 @@ impl IADsSecurityUtility_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityUtility_Impl::ConvertSecurityDescriptor(this, core::mem::transmute(&varsd), core::mem::transmute_copy(&ldataformat), core::mem::transmute_copy(&loutformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(presult, core::mem::transmute(ok__));
+                    presult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5277,7 +5277,7 @@ impl IADsSecurityUtility_Vtbl {
             let this = (*this).get_impl();
             match IADsSecurityUtility_Impl::SecurityMask(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5338,7 +5338,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::HostComputer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5354,7 +5354,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::DisplayName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5370,7 +5370,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::Version(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5386,7 +5386,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::ServiceType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5402,7 +5402,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::StartType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5418,7 +5418,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::Path(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5434,7 +5434,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::StartupParameters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5450,7 +5450,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::ErrorControl(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5466,7 +5466,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::LoadOrderGroup(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5482,7 +5482,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::ServiceAccountName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5498,7 +5498,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::ServiceAccountPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5514,7 +5514,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             match IADsService_Impl::Dependencies(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5576,7 +5576,7 @@ impl IADsServiceOperations_Vtbl {
             let this = (*this).get_impl();
             match IADsServiceOperations_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5640,7 +5640,7 @@ impl IADsSession_Vtbl {
             let this = (*this).get_impl();
             match IADsSession_Impl::User(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5651,7 +5651,7 @@ impl IADsSession_Vtbl {
             let this = (*this).get_impl();
             match IADsSession_Impl::UserPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5662,7 +5662,7 @@ impl IADsSession_Vtbl {
             let this = (*this).get_impl();
             match IADsSession_Impl::Computer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5673,7 +5673,7 @@ impl IADsSession_Vtbl {
             let this = (*this).get_impl();
             match IADsSession_Impl::ComputerPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5684,7 +5684,7 @@ impl IADsSession_Vtbl {
             let this = (*this).get_impl();
             match IADsSession_Impl::ConnectTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5695,7 +5695,7 @@ impl IADsSession_Vtbl {
             let this = (*this).get_impl();
             match IADsSession_Impl::IdleTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5730,7 +5730,7 @@ impl IADsSyntax_Vtbl {
             let this = (*this).get_impl();
             match IADsSyntax_Impl::OleAutoDataType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5768,7 +5768,7 @@ impl IADsTimestamp_Vtbl {
             let this = (*this).get_impl();
             match IADsTimestamp_Impl::WholeSeconds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5784,7 +5784,7 @@ impl IADsTimestamp_Vtbl {
             let this = (*this).get_impl();
             match IADsTimestamp_Impl::EventID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5826,7 +5826,7 @@ impl IADsTypedName_Vtbl {
             let this = (*this).get_impl();
             match IADsTypedName_Impl::ObjectName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5842,7 +5842,7 @@ impl IADsTypedName_Vtbl {
             let this = (*this).get_impl();
             match IADsTypedName_Impl::Level(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5858,7 +5858,7 @@ impl IADsTypedName_Vtbl {
             let this = (*this).get_impl();
             match IADsTypedName_Impl::Interval(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5987,7 +5987,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::BadLoginAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5998,7 +5998,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::BadLoginCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6009,7 +6009,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::LastLogin(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6020,7 +6020,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::LastLogoff(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6031,7 +6031,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::LastFailedLogin(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6042,7 +6042,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::PasswordLastChanged(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6053,7 +6053,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6069,7 +6069,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::Division(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6085,7 +6085,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::Department(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6101,7 +6101,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::EmployeeID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6117,7 +6117,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::FullName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6133,7 +6133,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::FirstName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6149,7 +6149,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::LastName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6165,7 +6165,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::OtherName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6181,7 +6181,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::NamePrefix(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6197,7 +6197,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::NameSuffix(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6213,7 +6213,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::Title(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6229,7 +6229,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::Manager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6245,7 +6245,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::TelephoneHome(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6261,7 +6261,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::TelephoneMobile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6277,7 +6277,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::TelephoneNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6293,7 +6293,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::TelephonePager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6309,7 +6309,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::FaxNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6325,7 +6325,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::OfficeLocations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6341,7 +6341,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::PostalAddresses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6357,7 +6357,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::PostalCodes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6373,7 +6373,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::SeeAlso(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6389,7 +6389,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::AccountDisabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6405,7 +6405,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::AccountExpirationDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6421,7 +6421,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::GraceLoginsAllowed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6437,7 +6437,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::GraceLoginsRemaining(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6453,7 +6453,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::IsAccountLocked(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6469,7 +6469,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::LoginHours(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6485,7 +6485,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::LoginWorkstations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6501,7 +6501,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::MaxLogins(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6517,7 +6517,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::MaxStorage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6533,7 +6533,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::PasswordExpirationDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6549,7 +6549,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::PasswordMinimumLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6565,7 +6565,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::PasswordRequired(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6581,7 +6581,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::RequireUniquePassword(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6597,7 +6597,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::EmailAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6613,7 +6613,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::HomeDirectory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6629,7 +6629,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::Languages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6645,7 +6645,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::Profile(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6661,7 +6661,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::LoginScript(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6677,7 +6677,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::Picture(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6693,7 +6693,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::HomePage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6709,7 +6709,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             match IADsUser_Impl::Groups(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppgroups, core::mem::transmute(ok__));
+                    ppgroups.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6841,7 +6841,7 @@ impl IADsWinNTSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsWinNTSystemInfo_Impl::UserName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6852,7 +6852,7 @@ impl IADsWinNTSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsWinNTSystemInfo_Impl::ComputerName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6863,7 +6863,7 @@ impl IADsWinNTSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsWinNTSystemInfo_Impl::DomainName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6874,7 +6874,7 @@ impl IADsWinNTSystemInfo_Vtbl {
             let this = (*this).get_impl();
             match IADsWinNTSystemInfo_Impl::PDC(this) {
                 Ok(ok__) => {
-                    core::ptr::write(retval, core::mem::transmute(ok__));
+                    retval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6930,7 +6930,7 @@ impl IDirectoryObject_Vtbl {
             let this = (*this).get_impl();
             match IDirectoryObject_Impl::GetObjectInformation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobjinfo, core::mem::transmute(ok__));
+                    ppobjinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6946,7 +6946,7 @@ impl IDirectoryObject_Vtbl {
             let this = (*this).get_impl();
             match IDirectoryObject_Impl::SetObjectAttributes(this, core::mem::transmute_copy(&pattributeentries), core::mem::transmute_copy(&dwnumattributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwnumattributesmodified, core::mem::transmute(ok__));
+                    pdwnumattributesmodified.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6957,7 +6957,7 @@ impl IDirectoryObject_Vtbl {
             let this = (*this).get_impl();
             match IDirectoryObject_Impl::CreateDSObject(this, core::mem::transmute(&pszrdnname), core::mem::transmute_copy(&pattributeentries), core::mem::transmute_copy(&dwnumattributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobject, core::mem::transmute(ok__));
+                    ppobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7075,7 +7075,7 @@ impl IDirectorySearch_Vtbl {
             let this = (*this).get_impl();
             match IDirectorySearch_Impl::ExecuteSearch(this, core::mem::transmute(&pszsearchfilter), core::mem::transmute_copy(&pattributenames), core::mem::transmute_copy(&dwnumberattributes)) {
                 Ok(ok__) => {
-                    core::ptr::write(phsearchresult, core::mem::transmute(ok__));
+                    phsearchresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7159,7 +7159,7 @@ impl IDsAdminCreateObj_Vtbl {
             let this = (*this).get_impl();
             match IDsAdminCreateObj_Impl::CreateModal(this, core::mem::transmute_copy(&hwndparent)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppadsobj, core::mem::transmute(ok__));
+                    ppadsobj.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7492,7 +7492,7 @@ impl IDsObjectPicker_Vtbl {
             let this = (*this).get_impl();
             match IDsObjectPicker_Impl::InvokeDialog(this, core::mem::transmute_copy(&hwndparent)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdoselections, core::mem::transmute(ok__));
+                    ppdoselections.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7616,7 +7616,7 @@ impl IPrivateDispatch_Vtbl {
             let this = (*this).get_impl();
             match IPrivateDispatch_Impl::ADSIGetTypeInfoCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pctinfo, core::mem::transmute(ok__));
+                    pctinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7627,7 +7627,7 @@ impl IPrivateDispatch_Vtbl {
             let this = (*this).get_impl();
             match IPrivateDispatch_Impl::ADSIGetTypeInfo(this, core::mem::transmute_copy(&itinfo), core::mem::transmute_copy(&lcid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pptinfo, core::mem::transmute(ok__));
+                    pptinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7638,7 +7638,7 @@ impl IPrivateDispatch_Vtbl {
             let this = (*this).get_impl();
             match IPrivateDispatch_Impl::ADSIGetIDsOfNames(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&rgsznames), core::mem::transmute_copy(&cnames), core::mem::transmute_copy(&lcid)) {
                 Ok(ok__) => {
-                    core::ptr::write(rgdispid, core::mem::transmute(ok__));
+                    rgdispid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

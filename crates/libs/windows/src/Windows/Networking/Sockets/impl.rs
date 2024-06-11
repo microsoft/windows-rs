@@ -11,7 +11,7 @@ impl IControlChannelTriggerEventDetails_Vtbl {
             let this = (*this).get_impl();
             match IControlChannelTriggerEventDetails_Impl::ControlChannelTrigger(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -42,7 +42,7 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
             let this = (*this).get_impl();
             match IControlChannelTriggerResetEventDetails_Impl::ResetReason(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -53,7 +53,7 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
             let this = (*this).get_impl();
             match IControlChannelTriggerResetEventDetails_Impl::HardwareSlotReset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -64,7 +64,7 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
             let this = (*this).get_impl();
             match IControlChannelTriggerResetEventDetails_Impl::SoftwareSlotReset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -102,7 +102,7 @@ impl IWebSocket_Vtbl {
             let this = (*this).get_impl();
             match IWebSocket_Impl::OutputStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -114,7 +114,7 @@ impl IWebSocket_Vtbl {
             let this = (*this).get_impl();
             match IWebSocket_Impl::ConnectAsync(this, windows_core::from_raw_borrowed(&uri)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -131,7 +131,7 @@ impl IWebSocket_Vtbl {
             let this = (*this).get_impl();
             match IWebSocket_Impl::Closed(this, windows_core::from_raw_borrowed(&eventhandler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -183,7 +183,7 @@ impl IWebSocketControl_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketControl_Impl::OutboundBufferSizeInBytes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -199,7 +199,7 @@ impl IWebSocketControl_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketControl_Impl::ServerCredential(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -216,7 +216,7 @@ impl IWebSocketControl_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketControl_Impl::ProxyCredential(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -233,7 +233,7 @@ impl IWebSocketControl_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketControl_Impl::SupportedProtocols(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -271,7 +271,7 @@ impl IWebSocketControl2_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketControl2_Impl::IgnorableServerCertificateErrors(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -302,7 +302,7 @@ impl IWebSocketInformation_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketInformation_Impl::LocalAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -314,7 +314,7 @@ impl IWebSocketInformation_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketInformation_Impl::BandwidthStatistics(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -325,7 +325,7 @@ impl IWebSocketInformation_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketInformation_Impl::Protocol(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -362,7 +362,7 @@ impl IWebSocketInformation2_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketInformation2_Impl::ServerCertificate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -374,7 +374,7 @@ impl IWebSocketInformation2_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketInformation2_Impl::ServerCertificateErrorSeverity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -385,7 +385,7 @@ impl IWebSocketInformation2_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketInformation2_Impl::ServerCertificateErrors(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -397,7 +397,7 @@ impl IWebSocketInformation2_Vtbl {
             let this = (*this).get_impl();
             match IWebSocketInformation2_Impl::ServerIntermediateCertificates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

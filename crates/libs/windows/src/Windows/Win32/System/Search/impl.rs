@@ -13,7 +13,7 @@ impl DataSource_Vtbl {
             let this = (*this).get_impl();
             match DataSource_Impl::getDataMember(this, core::mem::transmute_copy(&bstrdm), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -24,7 +24,7 @@ impl DataSource_Vtbl {
             let this = (*this).get_impl();
             match DataSource_Impl::getDataMemberName(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdm, core::mem::transmute(ok__));
+                    pbstrdm.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -35,7 +35,7 @@ impl DataSource_Vtbl {
             let this = (*this).get_impl();
             match DataSource_Impl::getDataMemberCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -307,7 +307,7 @@ impl IColumnMapperCreator_Vtbl {
             let this = (*this).get_impl();
             match IColumnMapperCreator_Impl::GetColumnMapper(this, core::mem::transmute(&wcsmachinename), core::mem::transmute(&wcscatalogname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcolumnmapper, core::mem::transmute(ok__));
+                    ppcolumnmapper.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -422,7 +422,7 @@ impl ICommand_Vtbl {
             let this = (*this).get_impl();
             match ICommand_Impl::GetDBSession(this, core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession, core::mem::transmute(ok__));
+                    ppsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -516,7 +516,7 @@ impl ICommandPersist_Vtbl {
             let this = (*this).get_impl();
             match ICommandPersist_Impl::GetCurrentCommand(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcommandid, core::mem::transmute(ok__));
+                    ppcommandid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -739,7 +739,7 @@ impl ICondition_Vtbl {
             let this = (*this).get_impl();
             match ICondition_Impl::GetConditionType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnodetype, core::mem::transmute(ok__));
+                    pnodetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -760,7 +760,7 @@ impl ICondition_Vtbl {
             let this = (*this).get_impl();
             match ICondition_Impl::GetValueType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszvaluetypename, core::mem::transmute(ok__));
+                    ppszvaluetypename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -771,7 +771,7 @@ impl ICondition_Vtbl {
             let this = (*this).get_impl();
             match ICondition_Impl::GetValueNormalization(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsznormalization, core::mem::transmute(ok__));
+                    ppsznormalization.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -787,7 +787,7 @@ impl ICondition_Vtbl {
             let this = (*this).get_impl();
             match ICondition_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppc, core::mem::transmute(ok__));
+                    ppc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -823,7 +823,7 @@ impl ICondition2_Vtbl {
             let this = (*this).get_impl();
             match ICondition2_Impl::GetLocale(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszlocalename, core::mem::transmute(ok__));
+                    ppszlocalename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -861,7 +861,7 @@ impl IConditionFactory_Vtbl {
             let this = (*this).get_impl();
             match IConditionFactory_Impl::MakeNot(this, windows_core::from_raw_borrowed(&pcsub), core::mem::transmute_copy(&fsimplify)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcresult, core::mem::transmute(ok__));
+                    ppcresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -872,7 +872,7 @@ impl IConditionFactory_Vtbl {
             let this = (*this).get_impl();
             match IConditionFactory_Impl::MakeAndOr(this, core::mem::transmute_copy(&ct), windows_core::from_raw_borrowed(&peusubs), core::mem::transmute_copy(&fsimplify)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcresult, core::mem::transmute(ok__));
+                    ppcresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -883,7 +883,7 @@ impl IConditionFactory_Vtbl {
             let this = (*this).get_impl();
             match IConditionFactory_Impl::MakeLeaf(this, core::mem::transmute(&pszpropertyname), core::mem::transmute_copy(&cop), core::mem::transmute(&pszvaluetype), core::mem::transmute_copy(&ppropvar), windows_core::from_raw_borrowed(&ppropertynameterm), windows_core::from_raw_borrowed(&poperationterm), windows_core::from_raw_borrowed(&pvalueterm), core::mem::transmute_copy(&fexpand)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcresult, core::mem::transmute(ok__));
+                    ppcresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -894,7 +894,7 @@ impl IConditionFactory_Vtbl {
             let this = (*this).get_impl();
             match IConditionFactory_Impl::Resolve(this, windows_core::from_raw_borrowed(&pc), core::mem::transmute_copy(&sqro), core::mem::transmute_copy(&pstreferencetime)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcresolved, core::mem::transmute(ok__));
+                    ppcresolved.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1018,7 +1018,7 @@ impl IConditionGenerator_Vtbl {
             let this = (*this).get_impl();
             match IConditionGenerator_Impl::GenerateForLeaf(this, windows_core::from_raw_borrowed(&pconditionfactory), core::mem::transmute(&pszpropertyname), core::mem::transmute_copy(&cop), core::mem::transmute(&pszvaluetype), core::mem::transmute(&pszvalue), core::mem::transmute(&pszvalue2), windows_core::from_raw_borrowed(&ppropertynameterm), windows_core::from_raw_borrowed(&poperationterm), windows_core::from_raw_borrowed(&pvalueterm), core::mem::transmute_copy(&automaticwildcard), core::mem::transmute_copy(&pnostringquery)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppqueryexpression, core::mem::transmute(ok__));
+                    ppqueryexpression.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1170,7 +1170,7 @@ impl IDBCreateCommand_Vtbl {
             let this = (*this).get_impl();
             match IDBCreateCommand_Impl::CreateCommand(this, windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcommand, core::mem::transmute(ok__));
+                    ppcommand.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1193,7 +1193,7 @@ impl IDBCreateSession_Vtbl {
             let this = (*this).get_impl();
             match IDBCreateSession_Impl::CreateSession(this, windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdbsession, core::mem::transmute(ok__));
+                    ppdbsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1261,7 +1261,7 @@ impl IDBInfo_Vtbl {
             let this = (*this).get_impl();
             match IDBInfo_Impl::GetKeywords(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwszkeywords, core::mem::transmute(ok__));
+                    ppwszkeywords.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1326,7 +1326,7 @@ impl IDBPromptInitialize_Vtbl {
             let this = (*this).get_impl();
             match IDBPromptInitialize_Impl::PromptFileName(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwpromptoptions), core::mem::transmute(&pwszinitialdirectory), core::mem::transmute(&pwszinitialfile)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwszselectedfile, core::mem::transmute(ok__));
+                    ppwszselectedfile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1391,7 +1391,7 @@ impl IDBSchemaCommand_Vtbl {
             let this = (*this).get_impl();
             match IDBSchemaCommand_Impl::GetCommand(this, windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&rguidschema)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcommand, core::mem::transmute(ok__));
+                    ppcommand.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1527,7 +1527,7 @@ impl IDataInitialize_Vtbl {
             let this = (*this).get_impl();
             match IDataInitialize_Impl::GetInitializationString(this, windows_core::from_raw_borrowed(&pdatasource), core::mem::transmute_copy(&fincludepassword)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwszinitstring, core::mem::transmute(ok__));
+                    ppwszinitstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1538,7 +1538,7 @@ impl IDataInitialize_Vtbl {
             let this = (*this).get_impl();
             match IDataInitialize_Impl::CreateDBInstance(this, core::mem::transmute_copy(&clsidprovider), windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&dwclsctx), core::mem::transmute(&pwszreserved), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdatasource, core::mem::transmute(ok__));
+                    ppdatasource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1554,7 +1554,7 @@ impl IDataInitialize_Vtbl {
             let this = (*this).get_impl();
             match IDataInitialize_Impl::LoadStringFromStorage(this, core::mem::transmute(&pwszfilename)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwszinitializationstring, core::mem::transmute(ok__));
+                    ppwszinitializationstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1596,7 +1596,7 @@ impl IDataSourceLocator_Vtbl {
             let this = (*this).get_impl();
             match IDataSourceLocator_Impl::hWnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phwndparent, core::mem::transmute(ok__));
+                    phwndparent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1612,7 +1612,7 @@ impl IDataSourceLocator_Vtbl {
             let this = (*this).get_impl();
             match IDataSourceLocator_Impl::PromptNew(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppadoconnection, core::mem::transmute(ok__));
+                    ppadoconnection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1658,7 +1658,7 @@ impl IEntity_Vtbl {
             let this = (*this).get_impl();
             match IEntity_Impl::Base(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbaseentity, core::mem::transmute(ok__));
+                    pbaseentity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1674,7 +1674,7 @@ impl IEntity_Vtbl {
             let this = (*this).get_impl();
             match IEntity_Impl::GetRelationship(this, core::mem::transmute(&pszrelationname)) {
                 Ok(ok__) => {
-                    core::ptr::write(prelationship, core::mem::transmute(ok__));
+                    prelationship.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1695,7 +1695,7 @@ impl IEntity_Vtbl {
             let this = (*this).get_impl();
             match IEntity_Impl::GetNamedEntity(this, core::mem::transmute(&pszvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnamedentity, core::mem::transmute(ok__));
+                    ppnamedentity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1752,7 +1752,7 @@ impl IEnumItemProperties_Vtbl {
             let this = (*this).get_impl();
             match IEnumItemProperties_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1763,7 +1763,7 @@ impl IEnumItemProperties_Vtbl {
             let this = (*this).get_impl();
             match IEnumItemProperties_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pncount, core::mem::transmute(ok__));
+                    pncount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1811,7 +1811,7 @@ impl IEnumSearchRoots_Vtbl {
             let this = (*this).get_impl();
             match IEnumSearchRoots_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1858,7 +1858,7 @@ impl IEnumSearchScopeRules_Vtbl {
             let this = (*this).get_impl();
             match IEnumSearchScopeRules_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1906,7 +1906,7 @@ impl IEnumSubscription_Vtbl {
             let this = (*this).get_impl();
             match IEnumSubscription_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1917,7 +1917,7 @@ impl IEnumSubscription_Vtbl {
             let this = (*this).get_impl();
             match IEnumSubscription_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pncount, core::mem::transmute(ok__));
+                    pncount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2002,7 +2002,7 @@ impl IErrorRecords_Vtbl {
             let this = (*this).get_impl();
             match IErrorRecords_Impl::GetCustomErrorObject(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobject, core::mem::transmute(ok__));
+                    ppobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2013,7 +2013,7 @@ impl IErrorRecords_Vtbl {
             let this = (*this).get_impl();
             match IErrorRecords_Impl::GetErrorInfo(this, core::mem::transmute_copy(&ulrecordnum), core::mem::transmute_copy(&lcid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pperrorinfo, core::mem::transmute(ok__));
+                    pperrorinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2024,7 +2024,7 @@ impl IErrorRecords_Vtbl {
             let this = (*this).get_impl();
             match IErrorRecords_Impl::GetErrorParameters(this, core::mem::transmute_copy(&ulrecordnum)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdispparams, core::mem::transmute(ok__));
+                    pdispparams.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2035,7 +2035,7 @@ impl IErrorRecords_Vtbl {
             let this = (*this).get_impl();
             match IErrorRecords_Impl::GetRecordCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcrecords, core::mem::transmute(ok__));
+                    pcrecords.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2066,7 +2066,7 @@ impl IGetDataSource_Vtbl {
             let this = (*this).get_impl();
             match IGetDataSource_Impl::GetDataSource(this, core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdatasource, core::mem::transmute(ok__));
+                    ppdatasource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2090,7 +2090,7 @@ impl IGetRow_Vtbl {
             let this = (*this).get_impl();
             match IGetRow_Impl::GetRowFromHROW(this, windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2101,7 +2101,7 @@ impl IGetRow_Vtbl {
             let this = (*this).get_impl();
             match IGetRow_Impl::GetURLFromHROW(this, core::mem::transmute_copy(&hrow)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwszurl, core::mem::transmute(ok__));
+                    ppwszurl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2128,7 +2128,7 @@ impl IGetSession_Vtbl {
             let this = (*this).get_impl();
             match IGetSession_Impl::GetSession(this, core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsession, core::mem::transmute(ok__));
+                    ppsession.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2151,7 +2151,7 @@ impl IGetSourceRow_Vtbl {
             let this = (*this).get_impl();
             match IGetSourceRow_Impl::GetSourceRow(this, core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pprow, core::mem::transmute(ok__));
+                    pprow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2308,7 +2308,7 @@ impl IMDDataset_Vtbl {
             let this = (*this).get_impl();
             match IMDDataset_Impl::GetSpecification(this, core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppspecification, core::mem::transmute(ok__));
+                    ppspecification.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2339,7 +2339,7 @@ impl IMDFind_Vtbl {
             let this = (*this).get_impl();
             match IMDFind_Impl::FindCell(this, core::mem::transmute_copy(&ulstartingordinal), core::mem::transmute_copy(&cmembers), core::mem::transmute_copy(&rgpwszmember)) {
                 Ok(ok__) => {
-                    core::ptr::write(pulcellordinal, core::mem::transmute(ok__));
+                    pulcellordinal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2350,7 +2350,7 @@ impl IMDFind_Vtbl {
             let this = (*this).get_impl();
             match IMDFind_Impl::FindTuple(this, core::mem::transmute_copy(&ulaxisidentifier), core::mem::transmute_copy(&ulstartingordinal), core::mem::transmute_copy(&cmembers), core::mem::transmute_copy(&rgpwszmember)) {
                 Ok(ok__) => {
-                    core::ptr::write(pultupleordinal, core::mem::transmute(ok__));
+                    pultupleordinal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2432,7 +2432,7 @@ impl INamedEntity_Vtbl {
             let this = (*this).get_impl();
             match INamedEntity_Impl::GetValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszvalue, core::mem::transmute(ok__));
+                    ppszvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2493,7 +2493,7 @@ impl IObjectAccessControl_Vtbl {
             let this = (*this).get_impl();
             match IObjectAccessControl_Impl::GetObjectOwner(this, core::mem::transmute_copy(&pobject)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppowner, core::mem::transmute(ok__));
+                    ppowner.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2504,7 +2504,7 @@ impl IObjectAccessControl_Vtbl {
             let this = (*this).get_impl();
             match IObjectAccessControl_Impl::IsObjectAccessAllowed(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&paccessentry)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfresult, core::mem::transmute(ok__));
+                    pfresult.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2546,7 +2546,7 @@ impl IOpLockStatus_Vtbl {
             let this = (*this).get_impl();
             match IOpLockStatus_Impl::IsOplockValid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisoplockvalid, core::mem::transmute(ok__));
+                    pfisoplockvalid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2557,7 +2557,7 @@ impl IOpLockStatus_Vtbl {
             let this = (*this).get_impl();
             match IOpLockStatus_Impl::IsOplockBroken(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisoplockbroken, core::mem::transmute(ok__));
+                    pfisoplockbroken.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2568,7 +2568,7 @@ impl IOpLockStatus_Vtbl {
             let this = (*this).get_impl();
             match IOpLockStatus_Impl::GetOplockEventHandle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phoplockev, core::mem::transmute(ok__));
+                    phoplockev.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2616,7 +2616,7 @@ impl IParentRowset_Vtbl {
             let this = (*this).get_impl();
             match IParentRowset_Impl::GetChildRowset(this, windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&iordinal), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pprowset, core::mem::transmute(ok__));
+                    pprowset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2642,7 +2642,7 @@ impl IProtocolHandlerSite_Vtbl {
             let this = (*this).get_impl();
             match IProtocolHandlerSite_Impl::GetFilter(this, core::mem::transmute_copy(&pclsidobj), core::mem::transmute(&pcwszcontenttype), core::mem::transmute(&pcwszextension)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfilter, core::mem::transmute(ok__));
+                    ppfilter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2668,7 +2668,7 @@ impl IProvideMoniker_Vtbl {
             let this = (*this).get_impl();
             match IProvideMoniker_Impl::GetMoniker(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppimoniker, core::mem::transmute(ok__));
+                    ppimoniker.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2701,7 +2701,7 @@ impl IQueryParser_Vtbl {
             let this = (*this).get_impl();
             match IQueryParser_Impl::Parse(this, core::mem::transmute(&pszinputstring), windows_core::from_raw_borrowed(&pcustomproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsolution, core::mem::transmute(ok__));
+                    ppsolution.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2717,7 +2717,7 @@ impl IQueryParser_Vtbl {
             let this = (*this).get_impl();
             match IQueryParser_Impl::GetOption(this, core::mem::transmute_copy(&option)) {
                 Ok(ok__) => {
-                    core::ptr::write(poptionvalue, core::mem::transmute(ok__));
+                    poptionvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2733,7 +2733,7 @@ impl IQueryParser_Vtbl {
             let this = (*this).get_impl();
             match IQueryParser_Impl::GetSchemaProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppschemaprovider, core::mem::transmute(ok__));
+                    ppschemaprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2744,7 +2744,7 @@ impl IQueryParser_Vtbl {
             let this = (*this).get_impl();
             match IQueryParser_Impl::RestateToString(this, windows_core::from_raw_borrowed(&pcondition), core::mem::transmute_copy(&fuseenglish)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszquerystring, core::mem::transmute(ok__));
+                    ppszquerystring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2755,7 +2755,7 @@ impl IQueryParser_Vtbl {
             let this = (*this).get_impl();
             match IQueryParser_Impl::ParsePropertyValue(this, core::mem::transmute(&pszpropertyname), core::mem::transmute(&pszinputstring)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsolution, core::mem::transmute(ok__));
+                    ppsolution.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2893,7 +2893,7 @@ impl IRegisterProvider_Vtbl {
             let this = (*this).get_impl();
             match IRegisterProvider_Impl::GetURLMapping(this, core::mem::transmute(&pwszurl), core::mem::transmute_copy(&dwreserved)) {
                 Ok(ok__) => {
-                    core::ptr::write(pclsidprovider, core::mem::transmute(ok__));
+                    pclsidprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2940,7 +2940,7 @@ impl IRelationship_Vtbl {
             let this = (*this).get_impl();
             match IRelationship_Impl::IsReal(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pisreal, core::mem::transmute(ok__));
+                    pisreal.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2951,7 +2951,7 @@ impl IRelationship_Vtbl {
             let this = (*this).get_impl();
             match IRelationship_Impl::Destination(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdestinationentity, core::mem::transmute(ok__));
+                    pdestinationentity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3079,7 +3079,7 @@ impl IRowPosition_Vtbl {
             let this = (*this).get_impl();
             match IRowPosition_Impl::GetRowset(this, core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pprowset, core::mem::transmute(ok__));
+                    pprowset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3270,7 +3270,7 @@ impl IRowsetChange_Vtbl {
             let this = (*this).get_impl();
             match IRowsetChange_Impl::InsertRow(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(phrow, core::mem::transmute(ok__));
+                    phrow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3355,7 +3355,7 @@ impl IRowsetCopyRows_Vtbl {
             let this = (*this).get_impl();
             match IRowsetCopyRows_Impl::CopyRows(this, core::mem::transmute_copy(&hsourceid), core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&bflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcrowscopied, core::mem::transmute(ok__));
+                    pcrowscopied.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3366,7 +3366,7 @@ impl IRowsetCopyRows_Vtbl {
             let this = (*this).get_impl();
             match IRowsetCopyRows_Impl::DefineSource(this, windows_core::from_raw_borrowed(&prowsetsource), core::mem::transmute_copy(&ccolids), core::mem::transmute_copy(&rgsourcecolumns), core::mem::transmute_copy(&rgtargetcolumns)) {
                 Ok(ok__) => {
-                    core::ptr::write(phsourceid, core::mem::transmute(ok__));
+                    phsourceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3399,7 +3399,7 @@ impl IRowsetCurrentIndex_Vtbl {
             let this = (*this).get_impl();
             match IRowsetCurrentIndex_Impl::GetIndex(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppindexid, core::mem::transmute(ok__));
+                    ppindexid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3597,7 +3597,7 @@ impl IRowsetInfo_Vtbl {
             let this = (*this).get_impl();
             match IRowsetInfo_Impl::GetReferencedRowset(this, core::mem::transmute_copy(&iordinal), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppreferencedrowset, core::mem::transmute(ok__));
+                    ppreferencedrowset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3608,7 +3608,7 @@ impl IRowsetInfo_Vtbl {
             let this = (*this).get_impl();
             match IRowsetInfo_Impl::GetSpecification(this, core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppspecification, core::mem::transmute(ok__));
+                    ppspecification.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3656,7 +3656,7 @@ impl IRowsetLocate_Vtbl {
             let this = (*this).get_impl();
             match IRowsetLocate_Impl::Compare(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&cbbookmark1), core::mem::transmute_copy(&pbookmark1), core::mem::transmute_copy(&cbbookmark2), core::mem::transmute_copy(&pbookmark2)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcomparison, core::mem::transmute(ok__));
+                    pcomparison.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3700,7 +3700,7 @@ impl IRowsetNewRowAfter_Vtbl {
             let this = (*this).get_impl();
             match IRowsetNewRowAfter_Impl::SetNewDataAfter(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&cbbmprevious), core::mem::transmute_copy(&pbmprevious), core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(phrow, core::mem::transmute(ok__));
+                    phrow.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3723,7 +3723,7 @@ impl IRowsetNextRowset_Vtbl {
             let this = (*this).get_impl();
             match IRowsetNextRowset_Impl::GetNextRowset(this, windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnextrowset, core::mem::transmute(ok__));
+                    ppnextrowset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3971,7 +3971,7 @@ impl IRowsetView_Vtbl {
             let this = (*this).get_impl();
             match IRowsetView_Impl::CreateView(this, windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppview, core::mem::transmute(ok__));
+                    ppview.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4059,7 +4059,7 @@ impl IRowsetWatchRegion_Vtbl {
             let this = (*this).get_impl();
             match IRowsetWatchRegion_Impl::CreateWatchRegion(this, core::mem::transmute_copy(&dwwatchmode)) {
                 Ok(ok__) => {
-                    core::ptr::write(phregion, core::mem::transmute(ok__));
+                    phregion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4216,7 +4216,7 @@ impl ISchemaLocalizerSupport_Vtbl {
             let this = (*this).get_impl();
             match ISchemaLocalizerSupport_Impl::Localize(this, core::mem::transmute(&pszglobalstring)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszlocalstring, core::mem::transmute(ok__));
+                    ppszlocalstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4280,7 +4280,7 @@ impl ISchemaProvider_Vtbl {
             let this = (*this).get_impl();
             match ISchemaProvider_Impl::RootEntity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(prootentity, core::mem::transmute(ok__));
+                    prootentity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4291,7 +4291,7 @@ impl ISchemaProvider_Vtbl {
             let this = (*this).get_impl();
             match ISchemaProvider_Impl::GetEntity(this, core::mem::transmute(&pszentityname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pentity, core::mem::transmute(ok__));
+                    pentity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4415,7 +4415,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pszname, core::mem::transmute(ok__));
+                    pszname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4426,7 +4426,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::GetParameter(this, core::mem::transmute(&pszname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4472,7 +4472,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::ConnectTimeout(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwconnecttimeout, core::mem::transmute(ok__));
+                    pdwconnecttimeout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4488,7 +4488,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::DataTimeout(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwdatatimeout, core::mem::transmute(ok__));
+                    pdwdatatimeout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4499,7 +4499,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::NumberOfItems(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcount, core::mem::transmute(ok__));
+                    plcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4515,7 +4515,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::URLBeingIndexed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pszurl, core::mem::transmute(ok__));
+                    pszurl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4526,7 +4526,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::GetURLIndexingState(this, core::mem::transmute(&pszurl)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwstate, core::mem::transmute(ok__));
+                    pdwstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4537,7 +4537,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::GetPersistentItemsChangedSink(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppisearchpersistentitemschangedsink, core::mem::transmute(ok__));
+                    ppisearchpersistentitemschangedsink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4548,7 +4548,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::RegisterViewForNotification(this, core::mem::transmute(&pszview), windows_core::from_raw_borrowed(&pviewchangedsink)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcookie, core::mem::transmute(ok__));
+                    pdwcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4574,7 +4574,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::EnumerateExcludedExtensions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppextensions, core::mem::transmute(ok__));
+                    ppextensions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4585,7 +4585,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::GetQueryHelper(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsearchqueryhelper, core::mem::transmute(ok__));
+                    ppsearchqueryhelper.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4601,7 +4601,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::DiacriticSensitivity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfdiacriticsensitive, core::mem::transmute(ok__));
+                    pfdiacriticsensitive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4612,7 +4612,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCatalogManager_Impl::GetCrawlScopeManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcrawlscopemanager, core::mem::transmute(ok__));
+                    ppcrawlscopemanager.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4713,7 +4713,7 @@ impl ISearchCrawlScopeManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCrawlScopeManager_Impl::EnumerateRoots(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsearchroots, core::mem::transmute(ok__));
+                    ppsearchroots.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4739,7 +4739,7 @@ impl ISearchCrawlScopeManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCrawlScopeManager_Impl::EnumerateScopeRules(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsearchscoperules, core::mem::transmute(ok__));
+                    ppsearchscoperules.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4750,7 +4750,7 @@ impl ISearchCrawlScopeManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCrawlScopeManager_Impl::HasParentScopeRule(this, core::mem::transmute(&pszurl)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfhasparentrule, core::mem::transmute(ok__));
+                    pfhasparentrule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4761,7 +4761,7 @@ impl ISearchCrawlScopeManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCrawlScopeManager_Impl::HasChildScopeRule(this, core::mem::transmute(&pszurl)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfhaschildrule, core::mem::transmute(ok__));
+                    pfhaschildrule.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4772,7 +4772,7 @@ impl ISearchCrawlScopeManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCrawlScopeManager_Impl::IncludedInCrawlScope(this, core::mem::transmute(&pszurl)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisincluded, core::mem::transmute(ok__));
+                    pfisincluded.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4798,7 +4798,7 @@ impl ISearchCrawlScopeManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchCrawlScopeManager_Impl::GetParentScopeVersionId(this, core::mem::transmute(&pszurl)) {
                 Ok(ok__) => {
-                    core::ptr::write(plscopeid, core::mem::transmute(ok__));
+                    plscopeid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4907,7 +4907,7 @@ impl ISearchLanguageSupport_Vtbl {
             let this = (*this).get_impl();
             match ISearchLanguageSupport_Impl::GetDiacriticSensitivity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfdiacriticsensitive, core::mem::transmute(ok__));
+                    pfdiacriticsensitive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4928,7 +4928,7 @@ impl ISearchLanguageSupport_Vtbl {
             let this = (*this).get_impl();
             match ISearchLanguageSupport_Impl::IsPrefixNormalized(this, core::mem::transmute(&pwcsquerytoken), core::mem::transmute_copy(&cwcquerytoken), core::mem::transmute(&pwcsdocumenttoken), core::mem::transmute_copy(&cwcdocumenttoken)) {
                 Ok(ok__) => {
-                    core::ptr::write(pulprefixlength, core::mem::transmute(ok__));
+                    pulprefixlength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4970,7 +4970,7 @@ impl ISearchManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchManager_Impl::GetIndexerVersionStr(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszversionstring, core::mem::transmute(ok__));
+                    ppszversionstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4986,7 +4986,7 @@ impl ISearchManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchManager_Impl::GetParameter(this, core::mem::transmute(&pszname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5002,7 +5002,7 @@ impl ISearchManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchManager_Impl::ProxyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszproxyname, core::mem::transmute(ok__));
+                    ppszproxyname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5013,7 +5013,7 @@ impl ISearchManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchManager_Impl::BypassList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszbypasslist, core::mem::transmute(ok__));
+                    ppszbypasslist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5029,7 +5029,7 @@ impl ISearchManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchManager_Impl::GetCatalog(this, core::mem::transmute(&pszcatalog)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcatalogmanager, core::mem::transmute(ok__));
+                    ppcatalogmanager.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5040,7 +5040,7 @@ impl ISearchManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchManager_Impl::UserAgent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszuseragent, core::mem::transmute(ok__));
+                    ppszuseragent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5056,7 +5056,7 @@ impl ISearchManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchManager_Impl::UseProxy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puseproxy, core::mem::transmute(ok__));
+                    puseproxy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5067,7 +5067,7 @@ impl ISearchManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchManager_Impl::LocalBypass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pflocalbypass, core::mem::transmute(ok__));
+                    pflocalbypass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5078,7 +5078,7 @@ impl ISearchManager_Vtbl {
             let this = (*this).get_impl();
             match ISearchManager_Impl::PortNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwportnumber, core::mem::transmute(ok__));
+                    pdwportnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5117,7 +5117,7 @@ impl ISearchManager2_Vtbl {
             let this = (*this).get_impl();
             match ISearchManager2_Impl::CreateCatalog(this, core::mem::transmute(&pszcatalog)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcatalogmanager, core::mem::transmute(ok__));
+                    ppcatalogmanager.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5218,7 +5218,7 @@ impl ISearchProtocol_Vtbl {
             let this = (*this).get_impl();
             match ISearchProtocol_Impl::CreateAccessor(this, core::mem::transmute(&pcwszurl), core::mem::transmute_copy(&pauthenticationinfo), core::mem::transmute_copy(&pincrementalaccessinfo), core::mem::transmute_copy(&piteminfo)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaccessor, core::mem::transmute(ok__));
+                    ppaccessor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5260,7 +5260,7 @@ impl ISearchProtocol2_Vtbl {
             let this = (*this).get_impl();
             match ISearchProtocol2_Impl::CreateAccessorEx(this, core::mem::transmute(&pcwszurl), core::mem::transmute_copy(&pauthenticationinfo), core::mem::transmute_copy(&pincrementalaccessinfo), core::mem::transmute_copy(&piteminfo), core::mem::transmute_copy(&puserdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppaccessor, core::mem::transmute(ok__));
+                    ppaccessor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5340,7 +5340,7 @@ impl ISearchQueryHelper_Vtbl {
             let this = (*this).get_impl();
             match ISearchQueryHelper_Impl::ConnectionString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pszconnectionstring, core::mem::transmute(ok__));
+                    pszconnectionstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5356,7 +5356,7 @@ impl ISearchQueryHelper_Vtbl {
             let this = (*this).get_impl();
             match ISearchQueryHelper_Impl::QueryContentLocale(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcid, core::mem::transmute(ok__));
+                    plcid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5372,7 +5372,7 @@ impl ISearchQueryHelper_Vtbl {
             let this = (*this).get_impl();
             match ISearchQueryHelper_Impl::QueryKeywordLocale(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plcid, core::mem::transmute(ok__));
+                    plcid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5388,7 +5388,7 @@ impl ISearchQueryHelper_Vtbl {
             let this = (*this).get_impl();
             match ISearchQueryHelper_Impl::QueryTermExpansion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pexpandterms, core::mem::transmute(ok__));
+                    pexpandterms.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5404,7 +5404,7 @@ impl ISearchQueryHelper_Vtbl {
             let this = (*this).get_impl();
             match ISearchQueryHelper_Impl::QuerySyntax(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pquerysyntax, core::mem::transmute(ok__));
+                    pquerysyntax.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5420,7 +5420,7 @@ impl ISearchQueryHelper_Vtbl {
             let this = (*this).get_impl();
             match ISearchQueryHelper_Impl::QueryContentProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszcontentproperties, core::mem::transmute(ok__));
+                    ppszcontentproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5436,7 +5436,7 @@ impl ISearchQueryHelper_Vtbl {
             let this = (*this).get_impl();
             match ISearchQueryHelper_Impl::QuerySelectColumns(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszselectcolumns, core::mem::transmute(ok__));
+                    ppszselectcolumns.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5452,7 +5452,7 @@ impl ISearchQueryHelper_Vtbl {
             let this = (*this).get_impl();
             match ISearchQueryHelper_Impl::QueryWhereRestrictions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszrestrictions, core::mem::transmute(ok__));
+                    ppszrestrictions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5468,7 +5468,7 @@ impl ISearchQueryHelper_Vtbl {
             let this = (*this).get_impl();
             match ISearchQueryHelper_Impl::QuerySorting(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszsorting, core::mem::transmute(ok__));
+                    ppszsorting.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5479,7 +5479,7 @@ impl ISearchQueryHelper_Vtbl {
             let this = (*this).get_impl();
             match ISearchQueryHelper_Impl::GenerateSQLFromUserQuery(this, core::mem::transmute(&pszquery)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszsql, core::mem::transmute(ok__));
+                    ppszsql.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5500,7 +5500,7 @@ impl ISearchQueryHelper_Vtbl {
             let this = (*this).get_impl();
             match ISearchQueryHelper_Impl::QueryMaxResults(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcmaxresults, core::mem::transmute(ok__));
+                    pcmaxresults.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5609,7 +5609,7 @@ impl ISearchRoot_Vtbl {
             let this = (*this).get_impl();
             match ISearchRoot_Impl::Schedule(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsztaskarg, core::mem::transmute(ok__));
+                    ppsztaskarg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5625,7 +5625,7 @@ impl ISearchRoot_Vtbl {
             let this = (*this).get_impl();
             match ISearchRoot_Impl::RootURL(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszurl, core::mem::transmute(ok__));
+                    ppszurl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5641,7 +5641,7 @@ impl ISearchRoot_Vtbl {
             let this = (*this).get_impl();
             match ISearchRoot_Impl::IsHierarchical(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfishierarchical, core::mem::transmute(ok__));
+                    pfishierarchical.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5657,7 +5657,7 @@ impl ISearchRoot_Vtbl {
             let this = (*this).get_impl();
             match ISearchRoot_Impl::ProvidesNotifications(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfprovidesnotifications, core::mem::transmute(ok__));
+                    pfprovidesnotifications.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5673,7 +5673,7 @@ impl ISearchRoot_Vtbl {
             let this = (*this).get_impl();
             match ISearchRoot_Impl::UseNotificationsOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfusenotificationsonly, core::mem::transmute(ok__));
+                    pfusenotificationsonly.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5689,7 +5689,7 @@ impl ISearchRoot_Vtbl {
             let this = (*this).get_impl();
             match ISearchRoot_Impl::EnumerationDepth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwdepth, core::mem::transmute(ok__));
+                    pdwdepth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5705,7 +5705,7 @@ impl ISearchRoot_Vtbl {
             let this = (*this).get_impl();
             match ISearchRoot_Impl::HostDepth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwdepth, core::mem::transmute(ok__));
+                    pdwdepth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5721,7 +5721,7 @@ impl ISearchRoot_Vtbl {
             let this = (*this).get_impl();
             match ISearchRoot_Impl::FollowDirectories(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pffollowdirectories, core::mem::transmute(ok__));
+                    pffollowdirectories.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5737,7 +5737,7 @@ impl ISearchRoot_Vtbl {
             let this = (*this).get_impl();
             match ISearchRoot_Impl::AuthenticationType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pauthtype, core::mem::transmute(ok__));
+                    pauthtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5753,7 +5753,7 @@ impl ISearchRoot_Vtbl {
             let this = (*this).get_impl();
             match ISearchRoot_Impl::User(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszuser, core::mem::transmute(ok__));
+                    ppszuser.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5769,7 +5769,7 @@ impl ISearchRoot_Vtbl {
             let this = (*this).get_impl();
             match ISearchRoot_Impl::Password(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszpassword, core::mem::transmute(ok__));
+                    ppszpassword.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5819,7 +5819,7 @@ impl ISearchScopeRule_Vtbl {
             let this = (*this).get_impl();
             match ISearchScopeRule_Impl::PatternOrURL(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszpatternorurl, core::mem::transmute(ok__));
+                    ppszpatternorurl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5830,7 +5830,7 @@ impl ISearchScopeRule_Vtbl {
             let this = (*this).get_impl();
             match ISearchScopeRule_Impl::IsIncluded(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisincluded, core::mem::transmute(ok__));
+                    pfisincluded.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5841,7 +5841,7 @@ impl ISearchScopeRule_Vtbl {
             let this = (*this).get_impl();
             match ISearchScopeRule_Impl::IsDefault(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfisdefault, core::mem::transmute(ok__));
+                    pfisdefault.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5852,7 +5852,7 @@ impl ISearchScopeRule_Vtbl {
             let this = (*this).get_impl();
             match ISearchScopeRule_Impl::FollowFlags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfollowflags, core::mem::transmute(ok__));
+                    pfollowflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5906,7 +5906,7 @@ impl ISecurityInfo_Vtbl {
             let this = (*this).get_impl();
             match ISecurityInfo_Impl::GetCurrentTrustee(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pptrustee, core::mem::transmute(ok__));
+                    pptrustee.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5922,7 +5922,7 @@ impl ISecurityInfo_Vtbl {
             let this = (*this).get_impl();
             match ISecurityInfo_Impl::GetPermissions(this, core::mem::transmute(&objecttype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppermissions, core::mem::transmute(ok__));
+                    ppermissions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6091,7 +6091,7 @@ impl ISubscriptionItem_Vtbl {
             let this = (*this).get_impl();
             match ISubscriptionItem_Impl::GetCookie(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcookie, core::mem::transmute(ok__));
+                    pcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6122,7 +6122,7 @@ impl ISubscriptionItem_Vtbl {
             let this = (*this).get_impl();
             match ISubscriptionItem_Impl::EnumProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenumitemproperties, core::mem::transmute(ok__));
+                    ppenumitemproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6181,7 +6181,7 @@ impl ISubscriptionMgr_Vtbl {
             let this = (*this).get_impl();
             match ISubscriptionMgr_Impl::IsSubscribed(this, core::mem::transmute(&pwszurl)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfsubscribed, core::mem::transmute(ok__));
+                    pfsubscribed.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6240,7 +6240,7 @@ impl ISubscriptionMgr2_Vtbl {
             let this = (*this).get_impl();
             match ISubscriptionMgr2_Impl::GetItemFromURL(this, core::mem::transmute(&pwszurl)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsubscriptionitem, core::mem::transmute(ok__));
+                    ppsubscriptionitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6251,7 +6251,7 @@ impl ISubscriptionMgr2_Vtbl {
             let this = (*this).get_impl();
             match ISubscriptionMgr2_Impl::GetItemFromCookie(this, core::mem::transmute_copy(&psubscriptioncookie)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsubscriptionitem, core::mem::transmute(ok__));
+                    ppsubscriptionitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6267,7 +6267,7 @@ impl ISubscriptionMgr2_Vtbl {
             let this = (*this).get_impl();
             match ISubscriptionMgr2_Impl::EnumSubscriptions(this, core::mem::transmute_copy(&dwflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenumsubscriptions, core::mem::transmute(ok__));
+                    ppenumsubscriptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6476,7 +6476,7 @@ impl ITransactionJoin_Vtbl {
             let this = (*this).get_impl();
             match ITransactionJoin_Impl::GetOptionsObject(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoptions, core::mem::transmute(ok__));
+                    ppoptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6512,7 +6512,7 @@ impl ITransactionLocal_Vtbl {
             let this = (*this).get_impl();
             match ITransactionLocal_Impl::GetOptionsObject(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoptions, core::mem::transmute(ok__));
+                    ppoptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6547,7 +6547,7 @@ impl ITransactionObject_Vtbl {
             let this = (*this).get_impl();
             match ITransactionObject_Impl::GetTransactionObject(this, core::mem::transmute_copy(&ultransactionlevel)) {
                 Ok(ok__) => {
-                    core::ptr::write(pptransactionobject, core::mem::transmute(ok__));
+                    pptransactionobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6638,7 +6638,7 @@ impl ITrusteeGroupAdmin_Vtbl {
             let this = (*this).get_impl();
             match ITrusteeGroupAdmin_Impl::IsMember(this, core::mem::transmute_copy(&pmembershiptrustee), core::mem::transmute_copy(&pmembertrustee)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfstatus, core::mem::transmute(ok__));
+                    pfstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6775,7 +6775,7 @@ impl IUrlAccessor_Vtbl {
             let this = (*this).get_impl();
             match IUrlAccessor_Impl::GetCLSID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pclsid, core::mem::transmute(ok__));
+                    pclsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6796,7 +6796,7 @@ impl IUrlAccessor_Vtbl {
             let this = (*this).get_impl();
             match IUrlAccessor_Impl::GetSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pllsize, core::mem::transmute(ok__));
+                    pllsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6807,7 +6807,7 @@ impl IUrlAccessor_Vtbl {
             let this = (*this).get_impl();
             match IUrlAccessor_Impl::GetLastModified(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pftlastmodified, core::mem::transmute(ok__));
+                    pftlastmodified.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6833,7 +6833,7 @@ impl IUrlAccessor_Vtbl {
             let this = (*this).get_impl();
             match IUrlAccessor_Impl::GetSecurityProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pspclsid, core::mem::transmute(ok__));
+                    pspclsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6844,7 +6844,7 @@ impl IUrlAccessor_Vtbl {
             let this = (*this).get_impl();
             match IUrlAccessor_Impl::BindToStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppstream, core::mem::transmute(ok__));
+                    ppstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6855,7 +6855,7 @@ impl IUrlAccessor_Vtbl {
             let this = (*this).get_impl();
             match IUrlAccessor_Impl::BindToFilter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppfilter, core::mem::transmute(ok__));
+                    ppfilter.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6954,7 +6954,7 @@ impl IUrlAccessor4_Vtbl {
             let this = (*this).get_impl();
             match IUrlAccessor4_Impl::ShouldIndexItemContent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfindexcontent, core::mem::transmute(ok__));
+                    pfindexcontent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6965,7 +6965,7 @@ impl IUrlAccessor4_Vtbl {
             let this = (*this).get_impl();
             match IUrlAccessor4_Impl::ShouldIndexProperty(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfindexproperty, core::mem::transmute(ok__));
+                    pfindexproperty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6993,7 +6993,7 @@ impl IViewChapter_Vtbl {
             let this = (*this).get_impl();
             match IViewChapter_Impl::GetSpecification(this, core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pprowset, core::mem::transmute(ok__));
+                    pprowset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7063,7 +7063,7 @@ impl IViewRowset_Vtbl {
             let this = (*this).get_impl();
             match IViewRowset_Impl::GetSpecification(this, core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobject, core::mem::transmute(ok__));
+                    ppobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7074,7 +7074,7 @@ impl IViewRowset_Vtbl {
             let this = (*this).get_impl();
             match IViewRowset_Impl::OpenViewRowset(this, windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pprowset, core::mem::transmute(ok__));
+                    pprowset.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7263,7 +7263,7 @@ impl OLEDBSimpleProvider_Vtbl {
             let this = (*this).get_impl();
             match OLEDBSimpleProvider_Impl::getRowCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcrows, core::mem::transmute(ok__));
+                    pcrows.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7274,7 +7274,7 @@ impl OLEDBSimpleProvider_Vtbl {
             let this = (*this).get_impl();
             match OLEDBSimpleProvider_Impl::getColumnCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pccolumns, core::mem::transmute(ok__));
+                    pccolumns.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7285,7 +7285,7 @@ impl OLEDBSimpleProvider_Vtbl {
             let this = (*this).get_impl();
             match OLEDBSimpleProvider_Impl::getRWStatus(this, core::mem::transmute_copy(&irow), core::mem::transmute_copy(&icolumn)) {
                 Ok(ok__) => {
-                    core::ptr::write(prwstatus, core::mem::transmute(ok__));
+                    prwstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7296,7 +7296,7 @@ impl OLEDBSimpleProvider_Vtbl {
             let this = (*this).get_impl();
             match OLEDBSimpleProvider_Impl::getVariant(this, core::mem::transmute_copy(&irow), core::mem::transmute_copy(&icolumn), core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvar, core::mem::transmute(ok__));
+                    pvar.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7312,7 +7312,7 @@ impl OLEDBSimpleProvider_Vtbl {
             let this = (*this).get_impl();
             match OLEDBSimpleProvider_Impl::getLocale(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrlocale, core::mem::transmute(ok__));
+                    pbstrlocale.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7323,7 +7323,7 @@ impl OLEDBSimpleProvider_Vtbl {
             let this = (*this).get_impl();
             match OLEDBSimpleProvider_Impl::deleteRows(this, core::mem::transmute_copy(&irow), core::mem::transmute_copy(&crows)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcrowsdeleted, core::mem::transmute(ok__));
+                    pcrowsdeleted.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7334,7 +7334,7 @@ impl OLEDBSimpleProvider_Vtbl {
             let this = (*this).get_impl();
             match OLEDBSimpleProvider_Impl::insertRows(this, core::mem::transmute_copy(&irow), core::mem::transmute_copy(&crows)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcrowsinserted, core::mem::transmute(ok__));
+                    pcrowsinserted.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7345,7 +7345,7 @@ impl OLEDBSimpleProvider_Vtbl {
             let this = (*this).get_impl();
             match OLEDBSimpleProvider_Impl::find(this, core::mem::transmute_copy(&irowstart), core::mem::transmute_copy(&icolumn), core::mem::transmute(&val), core::mem::transmute_copy(&findflags), core::mem::transmute_copy(&comptype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pirowfound, core::mem::transmute(ok__));
+                    pirowfound.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7366,7 +7366,7 @@ impl OLEDBSimpleProvider_Vtbl {
             let this = (*this).get_impl();
             match OLEDBSimpleProvider_Impl::isAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbasynch, core::mem::transmute(ok__));
+                    pbasynch.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7377,7 +7377,7 @@ impl OLEDBSimpleProvider_Vtbl {
             let this = (*this).get_impl();
             match OLEDBSimpleProvider_Impl::getEstimatedRows(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pirows, core::mem::transmute(ok__));
+                    pirows.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

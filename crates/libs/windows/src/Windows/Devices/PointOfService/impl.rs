@@ -11,7 +11,7 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
             let this = (*this).get_impl();
             match ICashDrawerEventSourceEventArgs_Impl::CashDrawer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -63,7 +63,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::CharactersPerLine(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -79,7 +79,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::LineHeight(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -95,7 +95,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::LineSpacing(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -106,7 +106,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::LineWidth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -122,7 +122,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::IsLetterQuality(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::IsPaperNearEnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -149,7 +149,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::ColorCartridge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -160,7 +160,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::IsCoverOpen(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -171,7 +171,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::IsCartridgeRemoved(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -182,7 +182,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::IsCartridgeEmpty(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -193,7 +193,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::IsHeadCleaning(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -204,7 +204,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::IsPaperEmpty(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -215,7 +215,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::IsReadyToPrint(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -226,7 +226,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match ICommonClaimedPosPrinterStation_Impl::ValidateData(this, core::mem::transmute(&data)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -287,7 +287,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::IsPrinterPresent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -298,7 +298,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::IsDualColorSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -309,7 +309,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::ColorCartridgeCapabilities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -320,7 +320,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::CartridgeSensors(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -331,7 +331,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::IsBoldSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -342,7 +342,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::IsItalicSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -353,7 +353,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::IsUnderlineSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -364,7 +364,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::IsDoubleHighPrintSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -375,7 +375,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::IsDoubleWidePrintSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -386,7 +386,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::IsDoubleHighDoubleWidePrintSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -397,7 +397,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::IsPaperEmptySensorSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -408,7 +408,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::IsPaperNearEndSensorSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -419,7 +419,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonPosPrintStationCapabilities_Impl::SupportedCharactersPerLine(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -471,7 +471,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonReceiptSlipCapabilities_Impl::IsBarcodeSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -482,7 +482,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonReceiptSlipCapabilities_Impl::IsBitmapSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -493,7 +493,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonReceiptSlipCapabilities_Impl::IsLeft90RotationSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -504,7 +504,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonReceiptSlipCapabilities_Impl::IsRight90RotationSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -515,7 +515,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonReceiptSlipCapabilities_Impl::Is180RotationSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -526,7 +526,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonReceiptSlipCapabilities_Impl::IsPrintAreaSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -537,7 +537,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonReceiptSlipCapabilities_Impl::RuledLineCapabilities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -548,7 +548,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonReceiptSlipCapabilities_Impl::SupportedBarcodeRotations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -560,7 +560,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match ICommonReceiptSlipCapabilities_Impl::SupportedBitmapRotations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -615,7 +615,7 @@ impl IPosPrinterJob_Vtbl {
             let this = (*this).get_impl();
             match IPosPrinterJob_Impl::ExecuteAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

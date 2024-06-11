@@ -21,7 +21,7 @@ impl IDMOQualityControl_Vtbl {
             let this = (*this).get_impl();
             match IDMOQualityControl_Impl::GetStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwflags, core::mem::transmute(ok__));
+                    pdwflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -52,7 +52,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
             let this = (*this).get_impl();
             match IDMOVideoOutputOptimizations_Impl::QueryOperationModePreferences(this, core::mem::transmute_copy(&uloutputstreamindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwrequestedcapabilities, core::mem::transmute(ok__));
+                    pdwrequestedcapabilities.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -68,7 +68,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
             let this = (*this).get_impl();
             match IDMOVideoOutputOptimizations_Impl::GetCurrentOperationMode(this, core::mem::transmute_copy(&uloutputstreamindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwenabledfeatures, core::mem::transmute(ok__));
+                    pdwenabledfeatures.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -79,7 +79,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
             let this = (*this).get_impl();
             match IDMOVideoOutputOptimizations_Impl::GetCurrentSampleRequirements(this, core::mem::transmute_copy(&uloutputstreamindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwrequestedfeatures, core::mem::transmute(ok__));
+                    pdwrequestedfeatures.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -126,7 +126,7 @@ impl IEnumDMO_Vtbl {
             let this = (*this).get_impl();
             match IEnumDMO_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -162,7 +162,7 @@ impl IMediaBuffer_Vtbl {
             let this = (*this).get_impl();
             match IMediaBuffer_Impl::GetMaxLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcbmaxlength, core::mem::transmute(ok__));
+                    pcbmaxlength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -220,7 +220,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match IMediaObject_Impl::GetInputStreamInfo(this, core::mem::transmute_copy(&dwinputstreamindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwflags, core::mem::transmute(ok__));
+                    pdwflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -231,7 +231,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match IMediaObject_Impl::GetOutputStreamInfo(this, core::mem::transmute_copy(&dwoutputstreamindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwflags, core::mem::transmute(ok__));
+                    pdwflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -282,7 +282,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match IMediaObject_Impl::GetInputMaxLatency(this, core::mem::transmute_copy(&dwinputstreamindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(prtmaxlatency, core::mem::transmute(ok__));
+                    prtmaxlatency.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -318,7 +318,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match IMediaObject_Impl::GetInputStatus(this, core::mem::transmute_copy(&dwinputstreamindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(dwflags, core::mem::transmute(ok__));
+                    dwflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -386,7 +386,7 @@ impl IMediaObjectInPlace_Vtbl {
             let this = (*this).get_impl();
             match IMediaObjectInPlace_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmediaobject, core::mem::transmute(ok__));
+                    ppmediaobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -397,7 +397,7 @@ impl IMediaObjectInPlace_Vtbl {
             let this = (*this).get_impl();
             match IMediaObjectInPlace_Impl::GetLatency(this) {
                 Ok(ok__) => {
-                    core::ptr::write(platencytime, core::mem::transmute(ok__));
+                    platencytime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

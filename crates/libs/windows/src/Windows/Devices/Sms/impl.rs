@@ -17,7 +17,7 @@ impl ISmsBinaryMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsBinaryMessage_Impl::Format(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -34,8 +34,8 @@ impl ISmsBinaryMessage_Vtbl {
             match ISmsBinaryMessage_Impl::GetData(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -83,7 +83,7 @@ impl ISmsDevice_Vtbl {
             let this = (*this).get_impl();
             match ISmsDevice_Impl::SendMessageAsync(this, windows_core::from_raw_borrowed(&message)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -95,7 +95,7 @@ impl ISmsDevice_Vtbl {
             let this = (*this).get_impl();
             match ISmsDevice_Impl::CalculateLength(this, windows_core::from_raw_borrowed(&message)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -106,7 +106,7 @@ impl ISmsDevice_Vtbl {
             let this = (*this).get_impl();
             match ISmsDevice_Impl::AccountPhoneNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -118,7 +118,7 @@ impl ISmsDevice_Vtbl {
             let this = (*this).get_impl();
             match ISmsDevice_Impl::CellularClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -129,7 +129,7 @@ impl ISmsDevice_Vtbl {
             let this = (*this).get_impl();
             match ISmsDevice_Impl::MessageStore(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -141,7 +141,7 @@ impl ISmsDevice_Vtbl {
             let this = (*this).get_impl();
             match ISmsDevice_Impl::DeviceStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -152,7 +152,7 @@ impl ISmsDevice_Vtbl {
             let this = (*this).get_impl();
             match ISmsDevice_Impl::SmsMessageReceived(this, windows_core::from_raw_borrowed(&eventhandler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -168,7 +168,7 @@ impl ISmsDevice_Vtbl {
             let this = (*this).get_impl();
             match ISmsDevice_Impl::SmsDeviceStatusChanged(this, windows_core::from_raw_borrowed(&eventhandler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -211,7 +211,7 @@ impl ISmsMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsMessage_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -222,7 +222,7 @@ impl ISmsMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsMessage_Impl::MessageClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -255,7 +255,7 @@ impl ISmsMessageBase_Vtbl {
             let this = (*this).get_impl();
             match ISmsMessageBase_Impl::MessageType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -266,7 +266,7 @@ impl ISmsMessageBase_Vtbl {
             let this = (*this).get_impl();
             match ISmsMessageBase_Impl::DeviceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -278,7 +278,7 @@ impl ISmsMessageBase_Vtbl {
             let this = (*this).get_impl();
             match ISmsMessageBase_Impl::CellularClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -289,7 +289,7 @@ impl ISmsMessageBase_Vtbl {
             let this = (*this).get_impl();
             match ISmsMessageBase_Impl::MessageClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -300,7 +300,7 @@ impl ISmsMessageBase_Vtbl {
             let this = (*this).get_impl();
             match ISmsMessageBase_Impl::SimIccId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -348,7 +348,7 @@ impl ISmsTextMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsTextMessage_Impl::Timestamp(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -359,7 +359,7 @@ impl ISmsTextMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsTextMessage_Impl::PartReferenceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -370,7 +370,7 @@ impl ISmsTextMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsTextMessage_Impl::PartNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -381,7 +381,7 @@ impl ISmsTextMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsTextMessage_Impl::PartCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -392,7 +392,7 @@ impl ISmsTextMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsTextMessage_Impl::To(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -409,7 +409,7 @@ impl ISmsTextMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsTextMessage_Impl::From(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -426,7 +426,7 @@ impl ISmsTextMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsTextMessage_Impl::Body(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -443,7 +443,7 @@ impl ISmsTextMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsTextMessage_Impl::Encoding(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -459,7 +459,7 @@ impl ISmsTextMessage_Vtbl {
             let this = (*this).get_impl();
             match ISmsTextMessage_Impl::ToBinaryMessages(this, format) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

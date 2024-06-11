@@ -12,7 +12,7 @@ impl ISysStorageProviderEventSource_Vtbl {
             let this = (*this).get_impl();
             match ISysStorageProviderEventSource_Impl::EventReceived(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -47,7 +47,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
             let this = (*this).get_impl();
             match ISysStorageProviderHandlerFactory_Impl::GetHttpRequestProvider(this, core::mem::transmute(&syncrootid)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -59,7 +59,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
             let this = (*this).get_impl();
             match ISysStorageProviderHandlerFactory_Impl::GetEventSource(this, core::mem::transmute(&syncrootid), core::mem::transmute(&eventname)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -92,7 +92,7 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
             let this = (*this).get_impl();
             match ISysStorageProviderHttpRequestProvider_Impl::SendRequestAsync(this, windows_core::from_raw_borrowed(&request)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

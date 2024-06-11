@@ -78,7 +78,7 @@ impl IViewHelper_Vtbl {
             let this = (*this).get_impl();
             match IViewHelper_Impl::SetConfiguration(this, windows_core::from_raw_borrowed(&pistream)) {
                 Ok(ok__) => {
-                    core::ptr::write(pulstatus, core::mem::transmute(ok__));
+                    pulstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

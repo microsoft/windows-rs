@@ -17,7 +17,7 @@ impl IFunctionDiscovery_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscovery_Impl::GetInstanceCollection(this, core::mem::transmute(&pszcategory), core::mem::transmute(&pszsubcategory), core::mem::transmute_copy(&fincludeallsubcategories)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstancecollection, core::mem::transmute(ok__));
+                    ppifunctioninstancecollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -28,7 +28,7 @@ impl IFunctionDiscovery_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscovery_Impl::GetInstance(this, core::mem::transmute(&pszfunctioninstanceidentity)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstance, core::mem::transmute(ok__));
+                    ppifunctioninstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -39,7 +39,7 @@ impl IFunctionDiscovery_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscovery_Impl::CreateInstanceCollectionQuery(this, core::mem::transmute(&pszcategory), core::mem::transmute(&pszsubcategory), core::mem::transmute_copy(&fincludeallsubcategories), windows_core::from_raw_borrowed(&pifunctiondiscoverynotification), core::mem::transmute_copy(&pfdqcquerycontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstancecollectionquery, core::mem::transmute(ok__));
+                    ppifunctioninstancecollectionquery.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -50,7 +50,7 @@ impl IFunctionDiscovery_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscovery_Impl::CreateInstanceQuery(this, core::mem::transmute(&pszfunctioninstanceidentity), windows_core::from_raw_borrowed(&pifunctiondiscoverynotification), core::mem::transmute_copy(&pfdqcquerycontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstancequery, core::mem::transmute(ok__));
+                    ppifunctioninstancequery.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -61,7 +61,7 @@ impl IFunctionDiscovery_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscovery_Impl::AddInstance(this, core::mem::transmute_copy(&enumsystemvisibility), core::mem::transmute(&pszcategory), core::mem::transmute(&pszsubcategory), core::mem::transmute(&pszcategoryidentity)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstance, core::mem::transmute(ok__));
+                    ppifunctioninstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -144,7 +144,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscoveryProvider_Impl::Initialize(this, windows_core::from_raw_borrowed(&pifunctiondiscoveryproviderfactory), windows_core::from_raw_borrowed(&pifunctiondiscoverynotification), core::mem::transmute_copy(&lciduserdefault)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwstgaccesscapabilities, core::mem::transmute(ok__));
+                    pdwstgaccesscapabilities.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -155,7 +155,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscoveryProvider_Impl::Query(this, windows_core::from_raw_borrowed(&pifunctiondiscoveryproviderquery)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstancecollection, core::mem::transmute(ok__));
+                    ppifunctioninstancecollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -176,7 +176,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscoveryProvider_Impl::InstancePropertyStoreOpen(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&dwstgaccess)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppipropertystore, core::mem::transmute(ok__));
+                    ppipropertystore.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -192,7 +192,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscoveryProvider_Impl::InstanceQueryService(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&guidservice), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiunknown, core::mem::transmute(ok__));
+                    ppiunknown.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -235,7 +235,7 @@ impl IFunctionDiscoveryProviderFactory_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscoveryProviderFactory_Impl::CreatePropertyStore(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppipropertystore, core::mem::transmute(ok__));
+                    ppipropertystore.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -246,7 +246,7 @@ impl IFunctionDiscoveryProviderFactory_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscoveryProviderFactory_Impl::CreateInstance(this, core::mem::transmute(&pszsubcategory), core::mem::transmute(&pszproviderinstanceidentity), core::mem::transmute_copy(&iproviderinstancecontext), windows_core::from_raw_borrowed(&pipropertystore), windows_core::from_raw_borrowed(&pifunctiondiscoveryprovider)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstance, core::mem::transmute(ok__));
+                    ppifunctioninstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -257,7 +257,7 @@ impl IFunctionDiscoveryProviderFactory_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscoveryProviderFactory_Impl::CreateFunctionInstanceCollection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstancecollection, core::mem::transmute(ok__));
+                    ppifunctioninstancecollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -298,7 +298,7 @@ impl IFunctionDiscoveryProviderQuery_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscoveryProviderQuery_Impl::GetQueryConstraints(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiproviderqueryconstraints, core::mem::transmute(ok__));
+                    ppiproviderqueryconstraints.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -309,7 +309,7 @@ impl IFunctionDiscoveryProviderQuery_Vtbl {
             let this = (*this).get_impl();
             match IFunctionDiscoveryProviderQuery_Impl::GetPropertyConstraints(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiproviderpropertyconstraints, core::mem::transmute(ok__));
+                    ppiproviderpropertyconstraints.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -364,7 +364,7 @@ impl IFunctionInstance_Vtbl {
             let this = (*this).get_impl();
             match IFunctionInstance_Impl::GetID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszcomemidentity, core::mem::transmute(ok__));
+                    ppszcomemidentity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -375,7 +375,7 @@ impl IFunctionInstance_Vtbl {
             let this = (*this).get_impl();
             match IFunctionInstance_Impl::GetProviderInstanceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszcomemproviderinstanceidentity, core::mem::transmute(ok__));
+                    ppszcomemproviderinstanceidentity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -386,7 +386,7 @@ impl IFunctionInstance_Vtbl {
             let this = (*this).get_impl();
             match IFunctionInstance_Impl::OpenPropertyStore(this, core::mem::transmute_copy(&dwstgaccess)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppipropertystore, core::mem::transmute(ok__));
+                    ppipropertystore.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl IFunctionInstanceCollection_Vtbl {
             let this = (*this).get_impl();
             match IFunctionInstanceCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcount, core::mem::transmute(ok__));
+                    pdwcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -440,7 +440,7 @@ impl IFunctionInstanceCollection_Vtbl {
             let this = (*this).get_impl();
             match IFunctionInstanceCollection_Impl::Get(this, core::mem::transmute(&pszinstanceidentity), core::mem::transmute_copy(&pdwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstance, core::mem::transmute(ok__));
+                    ppifunctioninstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -451,7 +451,7 @@ impl IFunctionInstanceCollection_Vtbl {
             let this = (*this).get_impl();
             match IFunctionInstanceCollection_Impl::Item(this, core::mem::transmute_copy(&dwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstance, core::mem::transmute(ok__));
+                    ppifunctioninstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -467,7 +467,7 @@ impl IFunctionInstanceCollection_Vtbl {
             let this = (*this).get_impl();
             match IFunctionInstanceCollection_Impl::Remove(this, core::mem::transmute_copy(&dwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstance, core::mem::transmute(ok__));
+                    ppifunctioninstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -524,7 +524,7 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
             let this = (*this).get_impl();
             match IFunctionInstanceCollectionQuery_Impl::Execute(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstancecollection, core::mem::transmute(ok__));
+                    ppifunctioninstancecollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -555,7 +555,7 @@ impl IFunctionInstanceQuery_Vtbl {
             let this = (*this).get_impl();
             match IFunctionInstanceQuery_Impl::Execute(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstance, core::mem::transmute(ok__));
+                    ppifunctioninstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -655,7 +655,7 @@ impl IPropertyStoreCollection_Vtbl {
             let this = (*this).get_impl();
             match IPropertyStoreCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcount, core::mem::transmute(ok__));
+                    pdwcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -666,7 +666,7 @@ impl IPropertyStoreCollection_Vtbl {
             let this = (*this).get_impl();
             match IPropertyStoreCollection_Impl::Get(this, core::mem::transmute(&pszinstanceidentity), core::mem::transmute_copy(&pdwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppipropertystore, core::mem::transmute(ok__));
+                    ppipropertystore.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -677,7 +677,7 @@ impl IPropertyStoreCollection_Vtbl {
             let this = (*this).get_impl();
             match IPropertyStoreCollection_Impl::Item(this, core::mem::transmute_copy(&dwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppipropertystore, core::mem::transmute(ok__));
+                    ppipropertystore.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -693,7 +693,7 @@ impl IPropertyStoreCollection_Vtbl {
             let this = (*this).get_impl();
             match IPropertyStoreCollection_Impl::Remove(this, core::mem::transmute_copy(&dwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pipropertystore, core::mem::transmute(ok__));
+                    pipropertystore.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -741,7 +741,7 @@ impl IProviderProperties_Vtbl {
             let this = (*this).get_impl();
             match IProviderProperties_Impl::GetCount(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcount, core::mem::transmute(ok__));
+                    pdwcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -757,7 +757,7 @@ impl IProviderProperties_Vtbl {
             let this = (*this).get_impl();
             match IProviderProperties_Impl::GetValue(this, windows_core::from_raw_borrowed(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext), core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppropvar, core::mem::transmute(ok__));
+                    ppropvar.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -799,7 +799,7 @@ impl IProviderPropertyConstraintCollection_Vtbl {
             let this = (*this).get_impl();
             match IProviderPropertyConstraintCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcount, core::mem::transmute(ok__));
+                    pdwcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -859,7 +859,7 @@ impl IProviderPublishing_Vtbl {
             let this = (*this).get_impl();
             match IProviderPublishing_Impl::CreateInstance(this, core::mem::transmute_copy(&enumvisibilityflags), core::mem::transmute(&pszsubcategory), core::mem::transmute(&pszproviderinstanceidentity)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppifunctioninstance, core::mem::transmute(ok__));
+                    ppifunctioninstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -896,7 +896,7 @@ impl IProviderQueryConstraintCollection_Vtbl {
             let this = (*this).get_impl();
             match IProviderQueryConstraintCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcount, core::mem::transmute(ok__));
+                    pdwcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -907,7 +907,7 @@ impl IProviderQueryConstraintCollection_Vtbl {
             let this = (*this).get_impl();
             match IProviderQueryConstraintCollection_Impl::Get(this, core::mem::transmute(&pszconstraintname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszconstraintvalue, core::mem::transmute(ok__));
+                    ppszconstraintvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

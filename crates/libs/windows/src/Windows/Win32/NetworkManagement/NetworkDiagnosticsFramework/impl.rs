@@ -48,7 +48,7 @@ impl INetDiagHelper_Vtbl {
             let this = (*this).get_impl();
             match INetDiagHelper_Impl::GetDiagnosticsInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppinfo, core::mem::transmute(ok__));
+                    ppinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -109,7 +109,7 @@ impl INetDiagHelper_Vtbl {
             let this = (*this).get_impl();
             match INetDiagHelper_Impl::GetLifeTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plifetime, core::mem::transmute(ok__));
+                    plifetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -125,7 +125,7 @@ impl INetDiagHelper_Vtbl {
             let this = (*this).get_impl();
             match INetDiagHelper_Impl::GetCacheTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcachetime, core::mem::transmute(ok__));
+                    pcachetime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

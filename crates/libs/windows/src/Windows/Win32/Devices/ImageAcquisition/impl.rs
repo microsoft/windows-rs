@@ -28,7 +28,7 @@ impl IEnumWIA_DEV_CAPS_Vtbl {
             let this = (*this).get_impl();
             match IEnumWIA_DEV_CAPS_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienum, core::mem::transmute(ok__));
+                    ppienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -39,7 +39,7 @@ impl IEnumWIA_DEV_CAPS_Vtbl {
             let this = (*this).get_impl();
             match IEnumWIA_DEV_CAPS_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcelt, core::mem::transmute(ok__));
+                    pcelt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -88,7 +88,7 @@ impl IEnumWIA_DEV_INFO_Vtbl {
             let this = (*this).get_impl();
             match IEnumWIA_DEV_INFO_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienum, core::mem::transmute(ok__));
+                    ppienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -99,7 +99,7 @@ impl IEnumWIA_DEV_INFO_Vtbl {
             let this = (*this).get_impl();
             match IEnumWIA_DEV_INFO_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(celt, core::mem::transmute(ok__));
+                    celt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -148,7 +148,7 @@ impl IEnumWIA_FORMAT_INFO_Vtbl {
             let this = (*this).get_impl();
             match IEnumWIA_FORMAT_INFO_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienum, core::mem::transmute(ok__));
+                    ppienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -159,7 +159,7 @@ impl IEnumWIA_FORMAT_INFO_Vtbl {
             let this = (*this).get_impl();
             match IEnumWIA_FORMAT_INFO_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcelt, core::mem::transmute(ok__));
+                    pcelt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -208,7 +208,7 @@ impl IEnumWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IEnumWiaItem_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienum, core::mem::transmute(ok__));
+                    ppienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -219,7 +219,7 @@ impl IEnumWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IEnumWiaItem_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(celt, core::mem::transmute(ok__));
+                    celt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -268,7 +268,7 @@ impl IEnumWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IEnumWiaItem2_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienum, core::mem::transmute(ok__));
+                    ppienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -279,7 +279,7 @@ impl IEnumWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IEnumWiaItem2_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(celt, core::mem::transmute(ok__));
+                    celt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -310,7 +310,7 @@ impl IWiaAppErrorHandler_Vtbl {
             let this = (*this).get_impl();
             match IWiaAppErrorHandler_Impl::GetWindow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phwnd, core::mem::transmute(ok__));
+                    phwnd.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -381,7 +381,7 @@ impl IWiaDataTransfer_Vtbl {
             let this = (*this).get_impl();
             match IWiaDataTransfer_Impl::idtEnumWIA_FORMAT_INFO(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -424,7 +424,7 @@ impl IWiaDevMgr_Vtbl {
             let this = (*this).get_impl();
             match IWiaDevMgr_Impl::EnumDeviceInfo(this, core::mem::transmute_copy(&lflag)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienum, core::mem::transmute(ok__));
+                    ppienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -435,7 +435,7 @@ impl IWiaDevMgr_Vtbl {
             let this = (*this).get_impl();
             match IWiaDevMgr_Impl::CreateDevice(this, core::mem::transmute(&bstrdeviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwiaitemroot, core::mem::transmute(ok__));
+                    ppwiaitemroot.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -466,7 +466,7 @@ impl IWiaDevMgr_Vtbl {
             let this = (*this).get_impl();
             match IWiaDevMgr_Impl::RegisterEventCallbackInterface(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&peventguid), windows_core::from_raw_borrowed(&piwiaeventcallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(peventobject, core::mem::transmute(ok__));
+                    peventobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -517,7 +517,7 @@ impl IWiaDevMgr2_Vtbl {
             let this = (*this).get_impl();
             match IWiaDevMgr2_Impl::EnumDeviceInfo(this, core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienum, core::mem::transmute(ok__));
+                    ppienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -528,7 +528,7 @@ impl IWiaDevMgr2_Vtbl {
             let this = (*this).get_impl();
             match IWiaDevMgr2_Impl::CreateDevice(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrdeviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwiaitem2root, core::mem::transmute(ok__));
+                    ppwiaitem2root.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -549,7 +549,7 @@ impl IWiaDevMgr2_Vtbl {
             let this = (*this).get_impl();
             match IWiaDevMgr2_Impl::RegisterEventCallbackInterface(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrdeviceid), core::mem::transmute_copy(&peventguid), windows_core::from_raw_borrowed(&piwiaeventcallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(peventobject, core::mem::transmute(ok__));
+                    peventobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -609,7 +609,7 @@ impl IWiaDrvItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::GetItemFlags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiadrvitem0000, core::mem::transmute(ok__));
+                    __midl__iwiadrvitem0000.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -620,7 +620,7 @@ impl IWiaDrvItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::GetDeviceSpecContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiadrvitem0001, core::mem::transmute(ok__));
+                    __midl__iwiadrvitem0001.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -631,7 +631,7 @@ impl IWiaDrvItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::GetFullItemName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiadrvitem0002, core::mem::transmute(ok__));
+                    __midl__iwiadrvitem0002.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -642,7 +642,7 @@ impl IWiaDrvItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::GetItemName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiadrvitem0003, core::mem::transmute(ok__));
+                    __midl__iwiadrvitem0003.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -668,7 +668,7 @@ impl IWiaDrvItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::FindItemByName(this, core::mem::transmute_copy(&__midl__iwiadrvitem0007), core::mem::transmute(&__midl__iwiadrvitem0008)) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiadrvitem0009, core::mem::transmute(ok__));
+                    __midl__iwiadrvitem0009.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -679,7 +679,7 @@ impl IWiaDrvItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::FindChildItemByName(this, core::mem::transmute(&__midl__iwiadrvitem0010)) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiadrvitem0011, core::mem::transmute(ok__));
+                    __midl__iwiadrvitem0011.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -690,7 +690,7 @@ impl IWiaDrvItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::GetParentItem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiadrvitem0012, core::mem::transmute(ok__));
+                    __midl__iwiadrvitem0012.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -701,7 +701,7 @@ impl IWiaDrvItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::GetFirstChildItem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiadrvitem0013, core::mem::transmute(ok__));
+                    __midl__iwiadrvitem0013.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -712,7 +712,7 @@ impl IWiaDrvItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::GetNextSiblingItem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiadrvitem0014, core::mem::transmute(ok__));
+                    __midl__iwiadrvitem0014.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -723,7 +723,7 @@ impl IWiaDrvItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaDrvItem_Impl::DumpItemData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiadrvitem0015, core::mem::transmute(ok__));
+                    __midl__iwiadrvitem0015.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -767,7 +767,7 @@ impl IWiaErrorHandler_Vtbl {
             let this = (*this).get_impl();
             match IWiaErrorHandler_Impl::GetStatusDescription(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pwiaitem2), core::mem::transmute_copy(&hrstatus)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrdescription, core::mem::transmute(ok__));
+                    pbstrdescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -869,7 +869,7 @@ impl IWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem_Impl::GetItemType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pitemtype, core::mem::transmute(ok__));
+                    pitemtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -885,7 +885,7 @@ impl IWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem_Impl::EnumChildItems(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienumwiaitem, core::mem::transmute(ok__));
+                    ppienumwiaitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -901,7 +901,7 @@ impl IWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem_Impl::CreateChildItem(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstritemname), core::mem::transmute(&bstrfullitemname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiwiaitem, core::mem::transmute(ok__));
+                    ppiwiaitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -912,7 +912,7 @@ impl IWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem_Impl::EnumRegisterEventInfo(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&peventguid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienum, core::mem::transmute(ok__));
+                    ppienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -923,7 +923,7 @@ impl IWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem_Impl::FindItemByName(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrfullitemname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiwiaitem, core::mem::transmute(ok__));
+                    ppiwiaitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -944,7 +944,7 @@ impl IWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem_Impl::GetRootItem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiwiaitem, core::mem::transmute(ok__));
+                    ppiwiaitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -955,7 +955,7 @@ impl IWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem_Impl::EnumDeviceCapabilities(this, core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienumwia_dev_caps, core::mem::transmute(ok__));
+                    ppienumwia_dev_caps.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -966,7 +966,7 @@ impl IWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem_Impl::DumpItemData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bstrdata, core::mem::transmute(ok__));
+                    bstrdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -977,7 +977,7 @@ impl IWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem_Impl::DumpDrvItemData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bstrdata, core::mem::transmute(ok__));
+                    bstrdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -988,7 +988,7 @@ impl IWiaItem_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem_Impl::DumpTreeItemData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bstrdata, core::mem::transmute(ok__));
+                    bstrdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1048,7 +1048,7 @@ impl IWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem2_Impl::CreateChildItem(this, core::mem::transmute_copy(&litemflags), core::mem::transmute_copy(&lcreationflags), core::mem::transmute(&bstritemname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiwiaitem2, core::mem::transmute(ok__));
+                    ppiwiaitem2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1064,7 +1064,7 @@ impl IWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem2_Impl::EnumChildItems(this, core::mem::transmute_copy(&pcategoryguid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienumwiaitem2, core::mem::transmute(ok__));
+                    ppienumwiaitem2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1075,7 +1075,7 @@ impl IWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem2_Impl::FindItemByName(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrfullitemname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiwiaitem2, core::mem::transmute(ok__));
+                    ppiwiaitem2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1086,7 +1086,7 @@ impl IWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem2_Impl::GetItemCategory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pitemcategoryguid, core::mem::transmute(ok__));
+                    pitemcategoryguid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1097,7 +1097,7 @@ impl IWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem2_Impl::GetItemType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pitemtype, core::mem::transmute(ok__));
+                    pitemtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1118,7 +1118,7 @@ impl IWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem2_Impl::EnumDeviceCapabilities(this, core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienumwia_dev_caps, core::mem::transmute(ok__));
+                    ppienumwia_dev_caps.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1139,7 +1139,7 @@ impl IWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem2_Impl::GetParentItem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiwiaitem2, core::mem::transmute(ok__));
+                    ppiwiaitem2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1150,7 +1150,7 @@ impl IWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem2_Impl::GetRootItem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiwiaitem2, core::mem::transmute(ok__));
+                    ppiwiaitem2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1161,7 +1161,7 @@ impl IWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem2_Impl::GetPreviewComponent(this, core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwiapreview, core::mem::transmute(ok__));
+                    ppwiapreview.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1172,7 +1172,7 @@ impl IWiaItem2_Vtbl {
             let this = (*this).get_impl();
             match IWiaItem2_Impl::EnumRegisterEventInfo(this, core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&peventguid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppienum, core::mem::transmute(ok__));
+                    ppienum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1220,7 +1220,7 @@ impl IWiaItemExtras_Vtbl {
             let this = (*this).get_impl();
             match IWiaItemExtras_Impl::GetExtendedErrorInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bstrerrortext, core::mem::transmute(ok__));
+                    bstrerrortext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1381,7 +1381,7 @@ impl IWiaMiniDrv_Vtbl {
             let this = (*this).get_impl();
             match IWiaMiniDrv_Impl::drvInitItemProperties(this, core::mem::transmute_copy(&__midl__iwiaminidrv0013), core::mem::transmute_copy(&__midl__iwiaminidrv0014)) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiaminidrv0015, core::mem::transmute(ok__));
+                    __midl__iwiaminidrv0015.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1392,7 +1392,7 @@ impl IWiaMiniDrv_Vtbl {
             let this = (*this).get_impl();
             match IWiaMiniDrv_Impl::drvValidateItemProperties(this, core::mem::transmute_copy(&__midl__iwiaminidrv0016), core::mem::transmute_copy(&__midl__iwiaminidrv0017), core::mem::transmute_copy(&__midl__iwiaminidrv0018), core::mem::transmute_copy(&__midl__iwiaminidrv0019)) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiaminidrv0020, core::mem::transmute(ok__));
+                    __midl__iwiaminidrv0020.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1403,7 +1403,7 @@ impl IWiaMiniDrv_Vtbl {
             let this = (*this).get_impl();
             match IWiaMiniDrv_Impl::drvWriteItemProperties(this, core::mem::transmute_copy(&__midl__iwiaminidrv0021), core::mem::transmute_copy(&__midl__iwiaminidrv0022), core::mem::transmute_copy(&__midl__iwiaminidrv0023)) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiaminidrv0024, core::mem::transmute(ok__));
+                    __midl__iwiaminidrv0024.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1414,7 +1414,7 @@ impl IWiaMiniDrv_Vtbl {
             let this = (*this).get_impl();
             match IWiaMiniDrv_Impl::drvReadItemProperties(this, core::mem::transmute_copy(&__midl__iwiaminidrv0025), core::mem::transmute_copy(&__midl__iwiaminidrv0026), core::mem::transmute_copy(&__midl__iwiaminidrv0027), core::mem::transmute_copy(&__midl__iwiaminidrv0028)) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiaminidrv0029, core::mem::transmute(ok__));
+                    __midl__iwiaminidrv0029.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1425,7 +1425,7 @@ impl IWiaMiniDrv_Vtbl {
             let this = (*this).get_impl();
             match IWiaMiniDrv_Impl::drvLockWiaDevice(this, core::mem::transmute_copy(&__midl__iwiaminidrv0030), core::mem::transmute_copy(&__midl__iwiaminidrv0031)) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiaminidrv0032, core::mem::transmute(ok__));
+                    __midl__iwiaminidrv0032.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1436,7 +1436,7 @@ impl IWiaMiniDrv_Vtbl {
             let this = (*this).get_impl();
             match IWiaMiniDrv_Impl::drvUnLockWiaDevice(this, core::mem::transmute_copy(&__midl__iwiaminidrv0033), core::mem::transmute_copy(&__midl__iwiaminidrv0034)) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiaminidrv0035, core::mem::transmute(ok__));
+                    __midl__iwiaminidrv0035.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1467,7 +1467,7 @@ impl IWiaMiniDrv_Vtbl {
             let this = (*this).get_impl();
             match IWiaMiniDrv_Impl::drvDeleteItem(this, core::mem::transmute_copy(&__midl__iwiaminidrv0053), core::mem::transmute_copy(&__midl__iwiaminidrv0054)) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiaminidrv0055, core::mem::transmute(ok__));
+                    __midl__iwiaminidrv0055.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1478,7 +1478,7 @@ impl IWiaMiniDrv_Vtbl {
             let this = (*this).get_impl();
             match IWiaMiniDrv_Impl::drvFreeDrvItemContext(this, core::mem::transmute_copy(&__midl__iwiaminidrv0056), core::mem::transmute_copy(&__midl__iwiaminidrv0057)) {
                 Ok(ok__) => {
-                    core::ptr::write(__midl__iwiaminidrv0058, core::mem::transmute(ok__));
+                    __midl__iwiaminidrv0058.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1556,7 +1556,7 @@ impl IWiaMiniDrvTransferCallback_Vtbl {
             let this = (*this).get_impl();
             match IWiaMiniDrvTransferCallback_Impl::GetNextStream(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstritemname), core::mem::transmute(&bstrfullitemname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppistream, core::mem::transmute(ok__));
+                    ppistream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1704,7 +1704,7 @@ impl IWiaPropertyStorage_Vtbl {
             let this = (*this).get_impl();
             match IWiaPropertyStorage_Impl::Enum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1735,7 +1735,7 @@ impl IWiaPropertyStorage_Vtbl {
             let this = (*this).get_impl();
             match IWiaPropertyStorage_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulnumprops, core::mem::transmute(ok__));
+                    pulnumprops.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1827,7 +1827,7 @@ impl IWiaTransfer_Vtbl {
             let this = (*this).get_impl();
             match IWiaTransfer_Impl::EnumWIA_FORMAT_INFO(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1865,7 +1865,7 @@ impl IWiaTransferCallback_Vtbl {
             let this = (*this).get_impl();
             match IWiaTransferCallback_Impl::GetNextStream(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstritemname), core::mem::transmute(&bstrfullitemname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdestination, core::mem::transmute(ok__));
+                    ppdestination.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1971,7 +1971,7 @@ impl IWiaVideo_Vtbl {
             let this = (*this).get_impl();
             match IWiaVideo_Impl::PreviewVisible(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbpreviewvisible, core::mem::transmute(ok__));
+                    pbpreviewvisible.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1987,7 +1987,7 @@ impl IWiaVideo_Vtbl {
             let this = (*this).get_impl();
             match IWiaVideo_Impl::ImagesDirectory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrimagedirectory, core::mem::transmute(ok__));
+                    pbstrimagedirectory.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2033,7 +2033,7 @@ impl IWiaVideo_Vtbl {
             let this = (*this).get_impl();
             match IWiaVideo_Impl::TakePicture(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrnewimagefilename, core::mem::transmute(ok__));
+                    pbstrnewimagefilename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2049,7 +2049,7 @@ impl IWiaVideo_Vtbl {
             let this = (*this).get_impl();
             match IWiaVideo_Impl::GetCurrentState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstate, core::mem::transmute(ok__));
+                    pstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

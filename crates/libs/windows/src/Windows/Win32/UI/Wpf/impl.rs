@@ -14,7 +14,7 @@ impl IMILBitmapEffect_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffect_Impl::GetOutput(this, core::mem::transmute_copy(&uiindex), windows_core::from_raw_borrowed(&pcontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbitmapsource, core::mem::transmute(ok__));
+                    ppbitmapsource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -25,7 +25,7 @@ impl IMILBitmapEffect_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffect_Impl::GetParentEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppparenteffect, core::mem::transmute(ok__));
+                    ppparenteffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -59,7 +59,7 @@ impl IMILBitmapEffectConnections_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnections_Impl::GetInputConnector(this, core::mem::transmute_copy(&uiindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconnector, core::mem::transmute(ok__));
+                    ppconnector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -70,7 +70,7 @@ impl IMILBitmapEffectConnections_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnections_Impl::GetOutputConnector(this, core::mem::transmute_copy(&uiindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconnector, core::mem::transmute(ok__));
+                    ppconnector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -100,7 +100,7 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnectionsInfo_Impl::GetNumberInputs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puinuminputs, core::mem::transmute(ok__));
+                    puinuminputs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -111,7 +111,7 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnectionsInfo_Impl::GetNumberOutputs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puinumoutputs, core::mem::transmute(ok__));
+                    puinumoutputs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -122,7 +122,7 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnectionsInfo_Impl::GetInputConnectorInfo(this, core::mem::transmute_copy(&uiindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconnectorinfo, core::mem::transmute(ok__));
+                    ppconnectorinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnectionsInfo_Impl::GetOutputConnectorInfo(this, core::mem::transmute_copy(&uiindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconnectorinfo, core::mem::transmute(ok__));
+                    ppconnectorinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -163,7 +163,7 @@ impl IMILBitmapEffectConnector_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnector_Impl::IsConnected(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfconnected, core::mem::transmute(ok__));
+                    pfconnected.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -174,7 +174,7 @@ impl IMILBitmapEffectConnector_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnector_Impl::GetBitmapEffect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppeffect, core::mem::transmute(ok__));
+                    ppeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -204,7 +204,7 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnectorInfo_Impl::GetIndex(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puiindex, core::mem::transmute(ok__));
+                    puiindex.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -215,7 +215,7 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnectorInfo_Impl::GetOptimalFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pformat, core::mem::transmute(ok__));
+                    pformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -226,7 +226,7 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnectorInfo_Impl::GetNumberFormats(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pulnumberformats, core::mem::transmute(ok__));
+                    pulnumberformats.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -237,7 +237,7 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectConnectorInfo_Impl::GetFormat(this, core::mem::transmute_copy(&ulindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pformat, core::mem::transmute(ok__));
+                    pformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -295,7 +295,7 @@ impl IMILBitmapEffectFactory_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectFactory_Impl::CreateEffect(this, core::mem::transmute_copy(&pguideffect)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppeffect, core::mem::transmute(ok__));
+                    ppeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -306,7 +306,7 @@ impl IMILBitmapEffectFactory_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectFactory_Impl::CreateContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontext, core::mem::transmute(ok__));
+                    ppcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -317,7 +317,7 @@ impl IMILBitmapEffectFactory_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectFactory_Impl::CreateEffectOuter(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppeffect, core::mem::transmute(ok__));
+                    ppeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -347,7 +347,7 @@ impl IMILBitmapEffectGroup_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectGroup_Impl::GetInteriorInputConnector(this, core::mem::transmute_copy(&uiindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconnector, core::mem::transmute(ok__));
+                    ppconnector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -358,7 +358,7 @@ impl IMILBitmapEffectGroup_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectGroup_Impl::GetInteriorOutputConnector(this, core::mem::transmute_copy(&uiindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconnector, core::mem::transmute(ok__));
+                    ppconnector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -398,7 +398,7 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectGroupImpl_Impl::GetNumberChildren(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puinumberchildren, core::mem::transmute(ok__));
+                    puinumberchildren.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -409,7 +409,7 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectGroupImpl_Impl::GetChildren(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pchildren, core::mem::transmute(ok__));
+                    pchildren.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -446,7 +446,7 @@ impl IMILBitmapEffectImpl_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectImpl_Impl::IsInPlaceModificationAllowed(this, windows_core::from_raw_borrowed(&poutputconnector)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfmodifyinplace, core::mem::transmute(ok__));
+                    pfmodifyinplace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -462,7 +462,7 @@ impl IMILBitmapEffectImpl_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectImpl_Impl::GetInputSource(this, core::mem::transmute_copy(&uiindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbitmapsource, core::mem::transmute(ok__));
+                    ppbitmapsource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -478,7 +478,7 @@ impl IMILBitmapEffectImpl_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectImpl_Impl::GetInputBitmapSource(this, core::mem::transmute_copy(&uiindex), windows_core::from_raw_borrowed(&prendercontext), core::mem::transmute_copy(&pfmodifyinplace)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbitmapsource, core::mem::transmute(ok__));
+                    ppbitmapsource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -489,7 +489,7 @@ impl IMILBitmapEffectImpl_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectImpl_Impl::GetOutputBitmapSource(this, core::mem::transmute_copy(&uiindex), windows_core::from_raw_borrowed(&prendercontext), core::mem::transmute_copy(&pfmodifyinplace)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbitmapsource, core::mem::transmute(ok__));
+                    ppbitmapsource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -532,7 +532,7 @@ impl IMILBitmapEffectInputConnector_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectInputConnector_Impl::GetConnection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconnector, core::mem::transmute(ok__));
+                    ppconnector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -559,7 +559,7 @@ impl IMILBitmapEffectInteriorInputConnector_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectInteriorInputConnector_Impl::GetInputConnector(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pinputconnector, core::mem::transmute(ok__));
+                    pinputconnector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -582,7 +582,7 @@ impl IMILBitmapEffectInteriorOutputConnector_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectInteriorOutputConnector_Impl::GetOutputConnector(this) {
                 Ok(ok__) => {
-                    core::ptr::write(poutputconnector, core::mem::transmute(ok__));
+                    poutputconnector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -606,7 +606,7 @@ impl IMILBitmapEffectOutputConnector_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectOutputConnector_Impl::GetNumberConnections(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puinumberconnections, core::mem::transmute(ok__));
+                    puinumberconnections.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -617,7 +617,7 @@ impl IMILBitmapEffectOutputConnector_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectOutputConnector_Impl::GetConnection(this, core::mem::transmute_copy(&uiindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppconnection, core::mem::transmute(ok__));
+                    ppconnection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -679,7 +679,7 @@ impl IMILBitmapEffectPrimitive_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectPrimitive_Impl::GetOutput(this, core::mem::transmute_copy(&uiindex), windows_core::from_raw_borrowed(&pcontext), core::mem::transmute_copy(&pfmodifyinplace)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbitmapsource, core::mem::transmute(ok__));
+                    ppbitmapsource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -700,7 +700,7 @@ impl IMILBitmapEffectPrimitive_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectPrimitive_Impl::HasAffineTransform(this, core::mem::transmute_copy(&uiindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfaffine, core::mem::transmute(ok__));
+                    pfaffine.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -711,7 +711,7 @@ impl IMILBitmapEffectPrimitive_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectPrimitive_Impl::HasInverseTransform(this, core::mem::transmute_copy(&uiindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfhasinverse, core::mem::transmute(ok__));
+                    pfhasinverse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -753,7 +753,7 @@ impl IMILBitmapEffectPrimitiveImpl_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectPrimitiveImpl_Impl::IsVolatile(this, core::mem::transmute_copy(&uioutputindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfvolatile, core::mem::transmute(ok__));
+                    pfvolatile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -792,7 +792,7 @@ impl IMILBitmapEffectRenderContext_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectRenderContext_Impl::GetOutputPixelFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pformat, core::mem::transmute(ok__));
+                    pformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -859,7 +859,7 @@ impl IMILBitmapEffectRenderContextImpl_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffectRenderContextImpl_Impl::GetUseSoftwareRenderer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfsoftware, core::mem::transmute(ok__));
+                    pfsoftware.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -912,7 +912,7 @@ impl IMILBitmapEffects_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffects_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiureturn, core::mem::transmute(ok__));
+                    ppiureturn.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -923,7 +923,7 @@ impl IMILBitmapEffects_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffects_Impl::Parent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppeffect, core::mem::transmute(ok__));
+                    ppeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -934,7 +934,7 @@ impl IMILBitmapEffects_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffects_Impl::Item(this, core::mem::transmute_copy(&uindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppeffect, core::mem::transmute(ok__));
+                    ppeffect.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -945,7 +945,7 @@ impl IMILBitmapEffects_Vtbl {
             let this = (*this).get_impl();
             match IMILBitmapEffects_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puicount, core::mem::transmute(ok__));
+                    puicount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

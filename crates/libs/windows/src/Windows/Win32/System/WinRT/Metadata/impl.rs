@@ -43,7 +43,7 @@ impl ICeeGen_Vtbl {
             let this = (*this).get_impl();
             match ICeeGen_Impl::GetIMapTokenIface(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pimaptoken, core::mem::transmute(ok__));
+                    pimaptoken.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -363,7 +363,7 @@ impl IMetaDataDispenser_Vtbl {
             let this = (*this).get_impl();
             match IMetaDataDispenser_Impl::DefineScope(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&dwcreateflags), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiunk, core::mem::transmute(ok__));
+                    ppiunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -374,7 +374,7 @@ impl IMetaDataDispenser_Vtbl {
             let this = (*this).get_impl();
             match IMetaDataDispenser_Impl::OpenScope(this, core::mem::transmute(&szscope), core::mem::transmute_copy(&dwopenflags), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiunk, core::mem::transmute(ok__));
+                    ppiunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -385,7 +385,7 @@ impl IMetaDataDispenser_Vtbl {
             let this = (*this).get_impl();
             match IMetaDataDispenser_Impl::OpenScopeOnMemory(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&cbdata), core::mem::transmute_copy(&dwopenflags), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiunk, core::mem::transmute(ok__));
+                    ppiunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -431,7 +431,7 @@ impl IMetaDataDispenserEx_Vtbl {
             let this = (*this).get_impl();
             match IMetaDataDispenserEx_Impl::OpenScopeOnITypeInfo(this, windows_core::from_raw_borrowed(&piti), core::mem::transmute_copy(&dwopenflags), core::mem::transmute_copy(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppiunk, core::mem::transmute(ok__));
+                    ppiunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

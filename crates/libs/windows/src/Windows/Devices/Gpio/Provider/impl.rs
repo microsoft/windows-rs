@@ -12,7 +12,7 @@ impl IGpioControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match IGpioControllerProvider_Impl::PinCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -23,7 +23,7 @@ impl IGpioControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match IGpioControllerProvider_Impl::OpenPinProvider(this, pin, sharingmode) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -63,7 +63,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match IGpioPinProvider_Impl::ValueChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -79,7 +79,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match IGpioPinProvider_Impl::DebounceTimeout(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -95,7 +95,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match IGpioPinProvider_Impl::PinNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -106,7 +106,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match IGpioPinProvider_Impl::SharingMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -117,7 +117,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match IGpioPinProvider_Impl::IsDriveModeSupported(this, drivemode) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -128,7 +128,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match IGpioPinProvider_Impl::GetDriveMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -149,7 +149,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match IGpioPinProvider_Impl::Read(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -190,7 +190,7 @@ impl IGpioProvider_Vtbl {
             let this = (*this).get_impl();
             match IGpioProvider_Impl::GetControllers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

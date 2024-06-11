@@ -11,7 +11,7 @@ impl IItemEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IItemEnumerator_Impl::Current(this) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -22,7 +22,7 @@ impl IItemEnumerator_Vtbl {
             let this = (*this).get_impl();
             match IItemEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(itemvalid, core::mem::transmute(ok__));
+                    itemvalid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -69,7 +69,7 @@ impl ISettingsContext_Vtbl {
             let this = (*this).get_impl();
             match ISettingsContext_Impl::Deserialize(this, windows_core::from_raw_borrowed(&pstream), windows_core::from_raw_borrowed(&ptarget), core::mem::transmute_copy(&pppresults)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcresultcount, core::mem::transmute(ok__));
+                    pcresultcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -85,7 +85,7 @@ impl ISettingsContext_Vtbl {
             let this = (*this).get_impl();
             match ISettingsContext_Impl::GetUserData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puserdata, core::mem::transmute(ok__));
+                    puserdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -96,7 +96,7 @@ impl ISettingsContext_Vtbl {
             let this = (*this).get_impl();
             match ISettingsContext_Impl::GetNamespaces(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnamespaceids, core::mem::transmute(ok__));
+                    ppnamespaceids.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -156,7 +156,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             match ISettingsEngine_Impl::GetNamespaces(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&reserved)) {
                 Ok(ok__) => {
-                    core::ptr::write(namespaces, core::mem::transmute(ok__));
+                    namespaces.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -167,7 +167,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             match ISettingsEngine_Impl::GetNamespace(this, windows_core::from_raw_borrowed(&settingsid), core::mem::transmute_copy(&access), core::mem::transmute_copy(&reserved)) {
                 Ok(ok__) => {
-                    core::ptr::write(namespaceitem, core::mem::transmute(ok__));
+                    namespaceitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -178,7 +178,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             match ISettingsEngine_Impl::GetErrorDescription(this, core::mem::transmute_copy(&hresult)) {
                 Ok(ok__) => {
-                    core::ptr::write(message, core::mem::transmute(ok__));
+                    message.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -189,7 +189,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             match ISettingsEngine_Impl::CreateSettingsIdentity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(settingsid, core::mem::transmute(ok__));
+                    settingsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -200,7 +200,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             match ISettingsEngine_Impl::GetStoreStatus(this, core::mem::transmute_copy(&reserved)) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -221,7 +221,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             match ISettingsEngine_Impl::RegisterNamespace(this, windows_core::from_raw_borrowed(&settingsid), windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&pushsettings)) {
                 Ok(ok__) => {
-                    core::ptr::write(results, core::mem::transmute(ok__));
+                    results.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -237,7 +237,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             match ISettingsEngine_Impl::CreateTargetInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(target, core::mem::transmute(ok__));
+                    target.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -248,7 +248,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             match ISettingsEngine_Impl::GetTargetInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(target, core::mem::transmute(ok__));
+                    target.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -264,7 +264,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             match ISettingsEngine_Impl::CreateSettingsContext(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&reserved)) {
                 Ok(ok__) => {
-                    core::ptr::write(settingscontext, core::mem::transmute(ok__));
+                    settingscontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -280,7 +280,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             match ISettingsEngine_Impl::ApplySettingsContext(this, windows_core::from_raw_borrowed(&settingscontext), core::mem::transmute_copy(&pppwzidentities)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcidentities, core::mem::transmute(ok__));
+                    pcidentities.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -291,7 +291,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             match ISettingsEngine_Impl::GetSettingsContext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(settingscontext, core::mem::transmute(ok__));
+                    settingscontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -335,7 +335,7 @@ impl ISettingsIdentity_Vtbl {
             let this = (*this).get_impl();
             match ISettingsIdentity_Impl::GetAttribute(this, core::mem::transmute_copy(&reserved), core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -351,7 +351,7 @@ impl ISettingsIdentity_Vtbl {
             let this = (*this).get_impl();
             match ISettingsIdentity_Impl::GetFlags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(flags, core::mem::transmute(ok__));
+                    flags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -406,7 +406,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -417,7 +417,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -433,7 +433,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetSettingType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -444,7 +444,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetDataType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -455,7 +455,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetValueRaw(this, core::mem::transmute_copy(&data)) {
                 Ok(ok__) => {
-                    core::ptr::write(datasize, core::mem::transmute(ok__));
+                    datasize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -471,7 +471,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::HasChild(this) {
                 Ok(ok__) => {
-                    core::ptr::write(itemhaschild, core::mem::transmute(ok__));
+                    itemhaschild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -482,7 +482,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::Children(this) {
                 Ok(ok__) => {
-                    core::ptr::write(children, core::mem::transmute(ok__));
+                    children.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -493,7 +493,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetChild(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(child, core::mem::transmute(ok__));
+                    child.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -504,7 +504,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetSettingByPath(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
-                    core::ptr::write(setting, core::mem::transmute(ok__));
+                    setting.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -515,7 +515,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::CreateSettingByPath(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
-                    core::ptr::write(setting, core::mem::transmute(ok__));
+                    setting.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -531,7 +531,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetListKeyInformation(this, core::mem::transmute_copy(&keyname)) {
                 Ok(ok__) => {
-                    core::ptr::write(datatype, core::mem::transmute(ok__));
+                    datatype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -542,7 +542,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::CreateListElement(this, core::mem::transmute_copy(&keydata)) {
                 Ok(ok__) => {
-                    core::ptr::write(child, core::mem::transmute(ok__));
+                    child.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -558,7 +558,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::Attributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(attributes, core::mem::transmute(ok__));
+                    attributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -569,7 +569,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetAttribute(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -580,7 +580,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(path, core::mem::transmute(ok__));
+                    path.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -591,7 +591,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetRestrictionFacets(this) {
                 Ok(ok__) => {
-                    core::ptr::write(restrictionfacets, core::mem::transmute(ok__));
+                    restrictionfacets.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -602,7 +602,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetRestriction(this, core::mem::transmute_copy(&restrictionfacet)) {
                 Ok(ok__) => {
-                    core::ptr::write(facetdata, core::mem::transmute(ok__));
+                    facetdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -613,7 +613,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             match ISettingsItem_Impl::GetKeyValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -666,7 +666,7 @@ impl ISettingsNamespace_Vtbl {
             let this = (*this).get_impl();
             match ISettingsNamespace_Impl::GetIdentity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(settingsid, core::mem::transmute(ok__));
+                    settingsid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -677,7 +677,7 @@ impl ISettingsNamespace_Vtbl {
             let this = (*this).get_impl();
             match ISettingsNamespace_Impl::Settings(this) {
                 Ok(ok__) => {
-                    core::ptr::write(settings, core::mem::transmute(ok__));
+                    settings.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -688,7 +688,7 @@ impl ISettingsNamespace_Vtbl {
             let this = (*this).get_impl();
             match ISettingsNamespace_Impl::Save(this, core::mem::transmute_copy(&pushsettings)) {
                 Ok(ok__) => {
-                    core::ptr::write(result, core::mem::transmute(ok__));
+                    result.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -699,7 +699,7 @@ impl ISettingsNamespace_Vtbl {
             let this = (*this).get_impl();
             match ISettingsNamespace_Impl::GetSettingByPath(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
-                    core::ptr::write(setting, core::mem::transmute(ok__));
+                    setting.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -710,7 +710,7 @@ impl ISettingsNamespace_Vtbl {
             let this = (*this).get_impl();
             match ISettingsNamespace_Impl::CreateSettingByPath(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
-                    core::ptr::write(setting, core::mem::transmute(ok__));
+                    setting.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -726,7 +726,7 @@ impl ISettingsNamespace_Vtbl {
             let this = (*this).get_impl();
             match ISettingsNamespace_Impl::GetAttribute(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -763,7 +763,7 @@ impl ISettingsResult_Vtbl {
             let this = (*this).get_impl();
             match ISettingsResult_Impl::GetDescription(this) {
                 Ok(ok__) => {
-                    core::ptr::write(description, core::mem::transmute(ok__));
+                    description.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -774,7 +774,7 @@ impl ISettingsResult_Vtbl {
             let this = (*this).get_impl();
             match ISettingsResult_Impl::GetErrorCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hrout, core::mem::transmute(ok__));
+                    hrout.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -785,7 +785,7 @@ impl ISettingsResult_Vtbl {
             let this = (*this).get_impl();
             match ISettingsResult_Impl::GetContextDescription(this) {
                 Ok(ok__) => {
-                    core::ptr::write(description, core::mem::transmute(ok__));
+                    description.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -796,7 +796,7 @@ impl ISettingsResult_Vtbl {
             let this = (*this).get_impl();
             match ISettingsResult_Impl::GetLine(this) {
                 Ok(ok__) => {
-                    core::ptr::write(dwline, core::mem::transmute(ok__));
+                    dwline.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -807,7 +807,7 @@ impl ISettingsResult_Vtbl {
             let this = (*this).get_impl();
             match ISettingsResult_Impl::GetColumn(this) {
                 Ok(ok__) => {
-                    core::ptr::write(dwcolumn, core::mem::transmute(ok__));
+                    dwcolumn.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -818,7 +818,7 @@ impl ISettingsResult_Vtbl {
             let this = (*this).get_impl();
             match ISettingsResult_Impl::GetSource(this) {
                 Ok(ok__) => {
-                    core::ptr::write(file, core::mem::transmute(ok__));
+                    file.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -869,7 +869,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::GetTargetMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(targetmode, core::mem::transmute(ok__));
+                    targetmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -885,7 +885,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::GetTemporaryStoreLocation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(temporarystorelocation, core::mem::transmute(ok__));
+                    temporarystorelocation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -901,7 +901,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::GetTargetID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(targetid, core::mem::transmute(ok__));
+                    targetid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -917,7 +917,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::GetTargetProcessorArchitecture(this) {
                 Ok(ok__) => {
-                    core::ptr::write(processorarchitecture, core::mem::transmute(ok__));
+                    processorarchitecture.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -933,7 +933,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::GetProperty(this, core::mem::transmute_copy(&offline), core::mem::transmute(&property)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -949,7 +949,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::GetEnumerator(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enumerator, core::mem::transmute(ok__));
+                    enumerator.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -960,7 +960,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::ExpandTarget(this, core::mem::transmute_copy(&offline), core::mem::transmute(&location)) {
                 Ok(ok__) => {
-                    core::ptr::write(expandedlocation, core::mem::transmute(ok__));
+                    expandedlocation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -971,7 +971,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::ExpandTargetPath(this, core::mem::transmute_copy(&offline), core::mem::transmute(&location)) {
                 Ok(ok__) => {
-                    core::ptr::write(expandedlocation, core::mem::transmute(ok__));
+                    expandedlocation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -987,7 +987,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::LoadModule(this, core::mem::transmute(&module)) {
                 Ok(ok__) => {
-                    core::ptr::write(modulehandle, core::mem::transmute(ok__));
+                    modulehandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1003,7 +1003,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::TranslateWow64(this, core::mem::transmute(&clientarchitecture), core::mem::transmute(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(translatedvalue, core::mem::transmute(ok__));
+                    translatedvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1019,7 +1019,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::GetSchemaHiveLocation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(phivelocation, core::mem::transmute(ok__));
+                    phivelocation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1035,7 +1035,7 @@ impl ITargetInfo_Vtbl {
             let this = (*this).get_impl();
             match ITargetInfo_Impl::GetSchemaHiveMountName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pmountname, core::mem::transmute(ok__));
+                    pmountname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

@@ -46,7 +46,7 @@ impl IMediaFrame_Vtbl {
             let this = (*this).get_impl();
             match IMediaFrame_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -58,7 +58,7 @@ impl IMediaFrame_Vtbl {
             let this = (*this).get_impl();
             match IMediaFrame_Impl::IsReadOnly(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -74,7 +74,7 @@ impl IMediaFrame_Vtbl {
             let this = (*this).get_impl();
             match IMediaFrame_Impl::RelativeTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -91,7 +91,7 @@ impl IMediaFrame_Vtbl {
             let this = (*this).get_impl();
             match IMediaFrame_Impl::SystemRelativeTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -108,7 +108,7 @@ impl IMediaFrame_Vtbl {
             let this = (*this).get_impl();
             match IMediaFrame_Impl::Duration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -125,7 +125,7 @@ impl IMediaFrame_Vtbl {
             let this = (*this).get_impl();
             match IMediaFrame_Impl::IsDiscontinuous(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -136,7 +136,7 @@ impl IMediaFrame_Vtbl {
             let this = (*this).get_impl();
             match IMediaFrame_Impl::ExtendedProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -177,7 +177,7 @@ impl IMediaMarker_Vtbl {
             let this = (*this).get_impl();
             match IMediaMarker_Impl::Time(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -188,7 +188,7 @@ impl IMediaMarker_Vtbl {
             let this = (*this).get_impl();
             match IMediaMarker_Impl::MediaMarkerType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -200,7 +200,7 @@ impl IMediaMarker_Vtbl {
             let this = (*this).get_impl();
             match IMediaMarker_Impl::Text(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -234,7 +234,7 @@ impl IMediaMarkers_Vtbl {
             let this = (*this).get_impl();
             match IMediaMarkers_Impl::Markers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

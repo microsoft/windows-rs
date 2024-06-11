@@ -31,7 +31,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetup_Impl::CAErrorId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetup_Impl::CAErrorString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -58,7 +58,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetup_Impl::GetCASetupProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppropertyvalue, core::mem::transmute(ok__));
+                    ppropertyvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -74,7 +74,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetup_Impl::IsPropertyEditable(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbeditable, core::mem::transmute(ok__));
+                    pbeditable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -85,7 +85,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetup_Impl::GetSupportedCATypes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcatypes, core::mem::transmute(ok__));
+                    pcatypes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -96,7 +96,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetup_Impl::GetProviderNameList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -107,7 +107,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetup_Impl::GetKeyLengthList(this, core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -118,7 +118,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetup_Impl::GetHashAlgorithmList(this, core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -129,7 +129,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetup_Impl::GetPrivateKeyContainerList(this, core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -140,7 +140,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetup_Impl::GetExistingCACertificates(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -151,7 +151,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetup_Impl::CAImportPFX(this, core::mem::transmute(&bstrfilename), core::mem::transmute(&bstrpasswd), core::mem::transmute_copy(&boverwriteexistingkey)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -245,7 +245,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetupKeyInformation_Impl::ProviderName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -261,7 +261,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetupKeyInformation_Impl::Length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -277,7 +277,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetupKeyInformation_Impl::Existing(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -293,7 +293,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetupKeyInformation_Impl::ContainerName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -309,7 +309,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetupKeyInformation_Impl::HashAlgorithm(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -325,7 +325,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetupKeyInformation_Impl::ExistingCACertificate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -373,7 +373,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetupKeyInformationCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppval, core::mem::transmute(ok__));
+                    ppval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -384,7 +384,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetupKeyInformationCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -395,7 +395,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
             let this = (*this).get_impl();
             match ICertSrvSetupKeyInformationCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -437,7 +437,7 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertificateEnrollmentPolicyServerSetup_Impl::ErrorString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -453,7 +453,7 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertificateEnrollmentPolicyServerSetup_Impl::GetProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppropertyvalue, core::mem::transmute(ok__));
+                    ppropertyvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -508,7 +508,7 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertificateEnrollmentServerSetup_Impl::ErrorString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -524,7 +524,7 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
             let this = (*this).get_impl();
             match ICertificateEnrollmentServerSetup_Impl::GetProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppropertyvalue, core::mem::transmute(ok__));
+                    ppropertyvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -590,7 +590,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match IMSCEPSetup_Impl::MSCEPErrorId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -601,7 +601,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match IMSCEPSetup_Impl::MSCEPErrorString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -617,7 +617,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match IMSCEPSetup_Impl::GetMSCEPSetupProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -638,7 +638,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match IMSCEPSetup_Impl::IsMSCEPStoreEmpty(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbempty, core::mem::transmute(ok__));
+                    pbempty.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -649,7 +649,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match IMSCEPSetup_Impl::GetProviderNameList(this, core::mem::transmute_copy(&bexchange)) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -660,7 +660,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match IMSCEPSetup_Impl::GetKeyLengthList(this, core::mem::transmute_copy(&bexchange), core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

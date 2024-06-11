@@ -16,7 +16,7 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match INDClosedCaptionDataReceivedEventArgs_Impl::ClosedCaptionDataFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -27,7 +27,7 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match INDClosedCaptionDataReceivedEventArgs_Impl::PresentationTimestamp(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -39,8 +39,8 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
             match INDClosedCaptionDataReceivedEventArgs_Impl::ClosedCaptionData(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -75,8 +75,8 @@ impl INDCustomData_Vtbl {
             match INDCustomData_Impl::CustomDataTypeID(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -88,8 +88,8 @@ impl INDCustomData_Vtbl {
             match INDCustomData_Impl::CustomData(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -154,7 +154,7 @@ impl INDDownloadEngine_Vtbl {
             let this = (*this).get_impl();
             match INDDownloadEngine_Impl::CanSeek(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -165,7 +165,7 @@ impl INDDownloadEngine_Vtbl {
             let this = (*this).get_impl();
             match INDDownloadEngine_Impl::BufferFullMinThresholdInSamples(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -176,7 +176,7 @@ impl INDDownloadEngine_Vtbl {
             let this = (*this).get_impl();
             match INDDownloadEngine_Impl::BufferFullMaxThresholdInSamples(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -187,7 +187,7 @@ impl INDDownloadEngine_Vtbl {
             let this = (*this).get_impl();
             match INDDownloadEngine_Impl::Notifier(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -287,7 +287,7 @@ impl INDLicenseFetchCompletedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match INDLicenseFetchCompletedEventArgs_Impl::ResponseCustomData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -322,7 +322,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
             let this = (*this).get_impl();
             match INDLicenseFetchDescriptor_Impl::ContentIDType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -334,8 +334,8 @@ impl INDLicenseFetchDescriptor_Vtbl {
             match INDLicenseFetchDescriptor_Impl::ContentID(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -346,7 +346,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
             let this = (*this).get_impl();
             match INDLicenseFetchDescriptor_Impl::LicenseFetchChallengeCustomData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -386,7 +386,7 @@ impl INDLicenseFetchResult_Vtbl {
             let this = (*this).get_impl();
             match INDLicenseFetchResult_Impl::ResponseCustomData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -421,7 +421,7 @@ impl INDMessenger_Vtbl {
             let this = (*this).get_impl();
             match INDMessenger_Impl::SendRegistrationRequestAsync(this, core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -433,7 +433,7 @@ impl INDMessenger_Vtbl {
             let this = (*this).get_impl();
             match INDMessenger_Impl::SendProximityDetectionStartAsync(this, pdtype, core::slice::from_raw_parts(core::mem::transmute_copy(&transmitterchannelbytes), transmitterChannelBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -445,7 +445,7 @@ impl INDMessenger_Vtbl {
             let this = (*this).get_impl();
             match INDMessenger_Impl::SendProximityDetectionResponseAsync(this, pdtype, core::slice::from_raw_parts(core::mem::transmute_copy(&transmitterchannelbytes), transmitterChannelBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&responsedatabytes), responseDataBytes_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -457,7 +457,7 @@ impl INDMessenger_Vtbl {
             let this = (*this).get_impl();
             match INDMessenger_Impl::SendLicenseFetchRequestAsync(this, core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -492,7 +492,7 @@ impl INDProximityDetectionCompletedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match INDProximityDetectionCompletedEventArgs_Impl::ProximityDetectionRetryCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -526,7 +526,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match INDRegistrationCompletedEventArgs_Impl::ResponseCustomData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -538,7 +538,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match INDRegistrationCompletedEventArgs_Impl::TransmitterProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -550,7 +550,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match INDRegistrationCompletedEventArgs_Impl::TransmitterCertificateAccepted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -590,8 +590,8 @@ impl INDSendResult_Vtbl {
             match INDSendResult_Impl::Response(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -619,7 +619,7 @@ impl INDStartResult_Vtbl {
             let this = (*this).get_impl();
             match INDStartResult_Impl::MediaStreamSource(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -651,7 +651,7 @@ impl INDStorageFileHelper_Vtbl {
             let this = (*this).get_impl();
             match INDStorageFileHelper_Impl::GetFileURLs(this, windows_core::from_raw_borrowed(&file)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -689,7 +689,7 @@ impl INDStreamParser_Vtbl {
             let this = (*this).get_impl();
             match INDStreamParser_Impl::GetStreamInformation(this, windows_core::from_raw_borrowed(&descriptor), core::mem::transmute_copy(&streamtype)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -710,7 +710,7 @@ impl INDStreamParser_Vtbl {
             let this = (*this).get_impl();
             match INDStreamParser_Impl::Notifier(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -802,7 +802,7 @@ impl INDTransmitterProperties_Vtbl {
             let this = (*this).get_impl();
             match INDTransmitterProperties_Impl::CertificateType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -813,7 +813,7 @@ impl INDTransmitterProperties_Vtbl {
             let this = (*this).get_impl();
             match INDTransmitterProperties_Impl::PlatformIdentifier(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -825,8 +825,8 @@ impl INDTransmitterProperties_Vtbl {
             match INDTransmitterProperties_Impl::SupportedFeatures(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -837,7 +837,7 @@ impl INDTransmitterProperties_Vtbl {
             let this = (*this).get_impl();
             match INDTransmitterProperties_Impl::SecurityLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -848,7 +848,7 @@ impl INDTransmitterProperties_Vtbl {
             let this = (*this).get_impl();
             match INDTransmitterProperties_Impl::SecurityVersion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -859,7 +859,7 @@ impl INDTransmitterProperties_Vtbl {
             let this = (*this).get_impl();
             match INDTransmitterProperties_Impl::ExpirationDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -871,8 +871,8 @@ impl INDTransmitterProperties_Vtbl {
             match INDTransmitterProperties_Impl::ClientID(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -884,8 +884,8 @@ impl INDTransmitterProperties_Vtbl {
             match INDTransmitterProperties_Impl::ModelDigest(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -896,7 +896,7 @@ impl INDTransmitterProperties_Vtbl {
             let this = (*this).get_impl();
             match INDTransmitterProperties_Impl::ModelManufacturerName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -908,7 +908,7 @@ impl INDTransmitterProperties_Vtbl {
             let this = (*this).get_impl();
             match INDTransmitterProperties_Impl::ModelName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -920,7 +920,7 @@ impl INDTransmitterProperties_Vtbl {
             let this = (*this).get_impl();
             match INDTransmitterProperties_Impl::ModelNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -963,7 +963,7 @@ impl IPlayReadyDomain_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyDomain_Impl::AccountId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -974,7 +974,7 @@ impl IPlayReadyDomain_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyDomain_Impl::ServiceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -985,7 +985,7 @@ impl IPlayReadyDomain_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyDomain_Impl::Revision(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -996,7 +996,7 @@ impl IPlayReadyDomain_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyDomain_Impl::FriendlyName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1008,7 +1008,7 @@ impl IPlayReadyDomain_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyDomain_Impl::DomainJoinUrl(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1047,7 +1047,7 @@ impl IPlayReadyLicense_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyLicense_Impl::FullyEvaluated(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1058,7 +1058,7 @@ impl IPlayReadyLicense_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyLicense_Impl::UsableForPlay(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1069,7 +1069,7 @@ impl IPlayReadyLicense_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyLicense_Impl::ExpirationDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1081,7 +1081,7 @@ impl IPlayReadyLicense_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyLicense_Impl::ExpireAfterFirstPlay(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1092,7 +1092,7 @@ impl IPlayReadyLicense_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyLicense_Impl::DomainAccountID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1103,7 +1103,7 @@ impl IPlayReadyLicense_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyLicense_Impl::ChainDepth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1114,7 +1114,7 @@ impl IPlayReadyLicense_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyLicense_Impl::GetKIDAtChainDepth(this, chaindepth) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1151,7 +1151,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyLicenseAcquisitionServiceRequest_Impl::ContentHeader(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1168,7 +1168,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyLicenseAcquisitionServiceRequest_Impl::DomainServiceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1205,7 +1205,7 @@ impl IPlayReadyLicenseSession_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyLicenseSession_Impl::CreateLAServiceRequest(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1243,7 +1243,7 @@ impl IPlayReadyLicenseSession2_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyLicenseSession2_Impl::CreateLicenseIterable(this, windows_core::from_raw_borrowed(&contentheader), fullyevaluated) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1276,7 +1276,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadySecureStopServiceRequest_Impl::SessionID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1287,7 +1287,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadySecureStopServiceRequest_Impl::StartTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1298,7 +1298,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadySecureStopServiceRequest_Impl::UpdateTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1309,7 +1309,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadySecureStopServiceRequest_Impl::Stopped(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1321,8 +1321,8 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
             match IPlayReadySecureStopServiceRequest_Impl::PublisherCertificate(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1362,7 +1362,7 @@ impl IPlayReadyServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyServiceRequest_Impl::Uri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1379,7 +1379,7 @@ impl IPlayReadyServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyServiceRequest_Impl::ResponseCustomData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1391,7 +1391,7 @@ impl IPlayReadyServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyServiceRequest_Impl::ChallengeCustomData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1408,7 +1408,7 @@ impl IPlayReadyServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyServiceRequest_Impl::BeginServiceRequest(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1420,7 +1420,7 @@ impl IPlayReadyServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyServiceRequest_Impl::NextServiceRequest(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1432,7 +1432,7 @@ impl IPlayReadyServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyServiceRequest_Impl::GenerateManualEnablingChallenge(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -1444,7 +1444,7 @@ impl IPlayReadyServiceRequest_Vtbl {
             let this = (*this).get_impl();
             match IPlayReadyServiceRequest_Impl::ProcessManualEnablingResponse(this, core::slice::from_raw_parts(core::mem::transmute_copy(&responsebytes), responseBytes_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

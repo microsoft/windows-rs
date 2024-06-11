@@ -9,7 +9,7 @@ impl IWPCGamesSettings_Vtbl {
             let this = (*this).get_impl();
             match IWPCGamesSettings_Impl::IsBlocked(this, core::mem::transmute(&guidappid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwreasons, core::mem::transmute(ok__));
+                    pdwreasons.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -34,7 +34,7 @@ impl IWPCProviderConfig_Vtbl {
             let this = (*this).get_impl();
             match IWPCProviderConfig_Impl::GetUserSummary(this, core::mem::transmute(&bstrsid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrusersummary, core::mem::transmute(ok__));
+                    pbstrusersummary.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -99,7 +99,7 @@ impl IWPCProviderSupport_Vtbl {
             let this = (*this).get_impl();
             match IWPCProviderSupport_Impl::GetCurrent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pguidprovider, core::mem::transmute(ok__));
+                    pguidprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -124,7 +124,7 @@ impl IWPCSettings_Vtbl {
             let this = (*this).get_impl();
             match IWPCSettings_Impl::IsLoggingRequired(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfrequired, core::mem::transmute(ok__));
+                    pfrequired.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -135,7 +135,7 @@ impl IWPCSettings_Vtbl {
             let this = (*this).get_impl();
             match IWPCSettings_Impl::GetLastSettingsChangeTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptime, core::mem::transmute(ok__));
+                    ptime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -146,7 +146,7 @@ impl IWPCSettings_Vtbl {
             let this = (*this).get_impl();
             match IWPCSettings_Impl::GetRestrictions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwrestrictions, core::mem::transmute(ok__));
+                    pdwrestrictions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -175,7 +175,7 @@ impl IWPCWebSettings_Vtbl {
             let this = (*this).get_impl();
             match IWPCWebSettings_Impl::GetSettings(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwsettings, core::mem::transmute(ok__));
+                    pdwsettings.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -186,7 +186,7 @@ impl IWPCWebSettings_Vtbl {
             let this = (*this).get_impl();
             match IWPCWebSettings_Impl::RequestURLOverride(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&pcszurl), core::mem::transmute_copy(&curls), core::mem::transmute_copy(&ppcszsuburls)) {
                 Ok(ok__) => {
-                    core::ptr::write(pfchanged, core::mem::transmute(ok__));
+                    pfchanged.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -213,7 +213,7 @@ impl IWindowsParentalControls_Vtbl {
             let this = (*this).get_impl();
             match IWindowsParentalControls_Impl::GetGamesSettings(this, core::mem::transmute(&pcszsid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsettings, core::mem::transmute(ok__));
+                    ppsettings.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -239,7 +239,7 @@ impl IWindowsParentalControlsCore_Vtbl {
             let this = (*this).get_impl();
             match IWindowsParentalControlsCore_Impl::GetVisibility(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pevisibility, core::mem::transmute(ok__));
+                    pevisibility.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -250,7 +250,7 @@ impl IWindowsParentalControlsCore_Vtbl {
             let this = (*this).get_impl();
             match IWindowsParentalControlsCore_Impl::GetUserSettings(this, core::mem::transmute(&pcszsid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsettings, core::mem::transmute(ok__));
+                    ppsettings.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -261,7 +261,7 @@ impl IWindowsParentalControlsCore_Vtbl {
             let this = (*this).get_impl();
             match IWindowsParentalControlsCore_Impl::GetWebSettings(this, core::mem::transmute(&pcszsid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsettings, core::mem::transmute(ok__));
+                    ppsettings.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

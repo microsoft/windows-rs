@@ -18,7 +18,7 @@ impl ICivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match ICivicAddressReport_Impl::GetAddressLine1(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstraddress1, core::mem::transmute(ok__));
+                    pbstraddress1.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -29,7 +29,7 @@ impl ICivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match ICivicAddressReport_Impl::GetAddressLine2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstraddress2, core::mem::transmute(ok__));
+                    pbstraddress2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -40,7 +40,7 @@ impl ICivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match ICivicAddressReport_Impl::GetCity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcity, core::mem::transmute(ok__));
+                    pbstrcity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -51,7 +51,7 @@ impl ICivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match ICivicAddressReport_Impl::GetStateProvince(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstateprovince, core::mem::transmute(ok__));
+                    pbstrstateprovince.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -62,7 +62,7 @@ impl ICivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match ICivicAddressReport_Impl::GetPostalCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrpostalcode, core::mem::transmute(ok__));
+                    pbstrpostalcode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -73,7 +73,7 @@ impl ICivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match ICivicAddressReport_Impl::GetCountryRegion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrcountryregion, core::mem::transmute(ok__));
+                    pbstrcountryregion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -84,7 +84,7 @@ impl ICivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match ICivicAddressReport_Impl::GetDetailLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdetaillevel, core::mem::transmute(ok__));
+                    pdetaillevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -119,7 +119,7 @@ impl ICivicAddressReportFactory_Vtbl {
             let this = (*this).get_impl();
             match ICivicAddressReportFactory_Impl::CivicAddressReport(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -148,7 +148,7 @@ impl IDefaultLocation_Vtbl {
             let this = (*this).get_impl();
             match IDefaultLocation_Impl::GetReport(this, core::mem::transmute_copy(&reporttype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplocationreport, core::mem::transmute(ok__));
+                    pplocationreport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -185,7 +185,7 @@ impl IDispCivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match IDispCivicAddressReport_Impl::AddressLine1(this) {
                 Ok(ok__) => {
-                    core::ptr::write(paddress1, core::mem::transmute(ok__));
+                    paddress1.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -196,7 +196,7 @@ impl IDispCivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match IDispCivicAddressReport_Impl::AddressLine2(this) {
                 Ok(ok__) => {
-                    core::ptr::write(paddress2, core::mem::transmute(ok__));
+                    paddress2.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -207,7 +207,7 @@ impl IDispCivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match IDispCivicAddressReport_Impl::City(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcity, core::mem::transmute(ok__));
+                    pcity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -218,7 +218,7 @@ impl IDispCivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match IDispCivicAddressReport_Impl::StateProvince(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pstateprovince, core::mem::transmute(ok__));
+                    pstateprovince.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -229,7 +229,7 @@ impl IDispCivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match IDispCivicAddressReport_Impl::PostalCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppostalcode, core::mem::transmute(ok__));
+                    ppostalcode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -240,7 +240,7 @@ impl IDispCivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match IDispCivicAddressReport_Impl::CountryRegion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcountryregion, core::mem::transmute(ok__));
+                    pcountryregion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -251,7 +251,7 @@ impl IDispCivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match IDispCivicAddressReport_Impl::DetailLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdetaillevel, core::mem::transmute(ok__));
+                    pdetaillevel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -262,7 +262,7 @@ impl IDispCivicAddressReport_Vtbl {
             let this = (*this).get_impl();
             match IDispCivicAddressReport_Impl::Timestamp(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -303,7 +303,7 @@ impl IDispLatLongReport_Vtbl {
             let this = (*this).get_impl();
             match IDispLatLongReport_Impl::Latitude(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -314,7 +314,7 @@ impl IDispLatLongReport_Vtbl {
             let this = (*this).get_impl();
             match IDispLatLongReport_Impl::Longitude(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -325,7 +325,7 @@ impl IDispLatLongReport_Vtbl {
             let this = (*this).get_impl();
             match IDispLatLongReport_Impl::ErrorRadius(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -336,7 +336,7 @@ impl IDispLatLongReport_Vtbl {
             let this = (*this).get_impl();
             match IDispLatLongReport_Impl::Altitude(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -347,7 +347,7 @@ impl IDispLatLongReport_Vtbl {
             let this = (*this).get_impl();
             match IDispLatLongReport_Impl::AltitudeError(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -358,7 +358,7 @@ impl IDispLatLongReport_Vtbl {
             let this = (*this).get_impl();
             match IDispLatLongReport_Impl::Timestamp(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -396,7 +396,7 @@ impl ILatLongReport_Vtbl {
             let this = (*this).get_impl();
             match ILatLongReport_Impl::GetLatitude(this) {
                 Ok(ok__) => {
-                    core::ptr::write(platitude, core::mem::transmute(ok__));
+                    platitude.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -407,7 +407,7 @@ impl ILatLongReport_Vtbl {
             let this = (*this).get_impl();
             match ILatLongReport_Impl::GetLongitude(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plongitude, core::mem::transmute(ok__));
+                    plongitude.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -418,7 +418,7 @@ impl ILatLongReport_Vtbl {
             let this = (*this).get_impl();
             match ILatLongReport_Impl::GetErrorRadius(this) {
                 Ok(ok__) => {
-                    core::ptr::write(perrorradius, core::mem::transmute(ok__));
+                    perrorradius.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl ILatLongReport_Vtbl {
             let this = (*this).get_impl();
             match ILatLongReport_Impl::GetAltitude(this) {
                 Ok(ok__) => {
-                    core::ptr::write(paltitude, core::mem::transmute(ok__));
+                    paltitude.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -440,7 +440,7 @@ impl ILatLongReport_Vtbl {
             let this = (*this).get_impl();
             match ILatLongReport_Impl::GetAltitudeError(this) {
                 Ok(ok__) => {
-                    core::ptr::write(paltitudeerror, core::mem::transmute(ok__));
+                    paltitudeerror.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -473,7 +473,7 @@ impl ILatLongReportFactory_Vtbl {
             let this = (*this).get_impl();
             match ILatLongReportFactory_Impl::LatLongReport(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -517,7 +517,7 @@ impl ILocation_Vtbl {
             let this = (*this).get_impl();
             match ILocation_Impl::GetReport(this, core::mem::transmute_copy(&reporttype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pplocationreport, core::mem::transmute(ok__));
+                    pplocationreport.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -528,7 +528,7 @@ impl ILocation_Vtbl {
             let this = (*this).get_impl();
             match ILocation_Impl::GetReportStatus(this, core::mem::transmute_copy(&reporttype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pstatus, core::mem::transmute(ok__));
+                    pstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -539,7 +539,7 @@ impl ILocation_Vtbl {
             let this = (*this).get_impl();
             match ILocation_Impl::GetReportInterval(this, core::mem::transmute_copy(&reporttype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pmilliseconds, core::mem::transmute(ok__));
+                    pmilliseconds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -555,7 +555,7 @@ impl ILocation_Vtbl {
             let this = (*this).get_impl();
             match ILocation_Impl::GetDesiredAccuracy(this, core::mem::transmute_copy(&reporttype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdesiredaccuracy, core::mem::transmute(ok__));
+                    pdesiredaccuracy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -658,7 +658,7 @@ impl ILocationReport_Vtbl {
             let this = (*this).get_impl();
             match ILocationReport_Impl::GetSensorID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psensorid, core::mem::transmute(ok__));
+                    psensorid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -669,7 +669,7 @@ impl ILocationReport_Vtbl {
             let this = (*this).get_impl();
             match ILocationReport_Impl::GetTimestamp(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcreationtime, core::mem::transmute(ok__));
+                    pcreationtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -680,7 +680,7 @@ impl ILocationReport_Vtbl {
             let this = (*this).get_impl();
             match ILocationReport_Impl::GetValue(this, core::mem::transmute_copy(&pkey)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -728,7 +728,7 @@ impl ILocationReportFactory_Vtbl {
             let this = (*this).get_impl();
             match ILocationReportFactory_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -739,7 +739,7 @@ impl ILocationReportFactory_Vtbl {
             let this = (*this).get_impl();
             match ILocationReportFactory_Impl::ReportInterval(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pmilliseconds, core::mem::transmute(ok__));
+                    pmilliseconds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -755,7 +755,7 @@ impl ILocationReportFactory_Vtbl {
             let this = (*this).get_impl();
             match ILocationReportFactory_Impl::DesiredAccuracy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdesiredaccuracy, core::mem::transmute(ok__));
+                    pdesiredaccuracy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

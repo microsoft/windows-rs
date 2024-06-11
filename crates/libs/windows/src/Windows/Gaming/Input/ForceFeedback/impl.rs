@@ -15,7 +15,7 @@ impl IForceFeedbackEffect_Vtbl {
             let this = (*this).get_impl();
             match IForceFeedbackEffect_Impl::Gain(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -31,7 +31,7 @@ impl IForceFeedbackEffect_Vtbl {
             let this = (*this).get_impl();
             match IForceFeedbackEffect_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

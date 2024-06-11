@@ -387,7 +387,7 @@ impl<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F>
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
         match (this.invoke)(a) {
             Ok(ok__) => {
-                core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                result__.write(core::mem::transmute_copy(&ok__));
                 windows_core::HRESULT(0)
             }
             Err(err) => err.into(),
@@ -449,7 +449,7 @@ impl IClass_Vtbl {
             let this = (*this).get_impl();
             match IClass_Impl::Property(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -479,7 +479,7 @@ impl IClass_Vtbl {
             let this = (*this).get_impl();
             match IClass_Impl::Flags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -517,8 +517,8 @@ impl IClass_Vtbl {
             ) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -556,8 +556,8 @@ impl IClass_Vtbl {
             ) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    core::ptr::write(result__, ok_data__);
-                    core::ptr::write(result_size__, ok_data_len__);
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

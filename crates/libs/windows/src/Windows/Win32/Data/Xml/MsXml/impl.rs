@@ -119,7 +119,7 @@ impl IMXNamespaceManager_Vtbl {
             let this = (*this).get_impl();
             match IMXNamespaceManager_Impl::getAllowOverride(this) {
                 Ok(ok__) => {
-                    core::ptr::write(foverride, core::mem::transmute(ok__));
+                    foverride.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -199,7 +199,7 @@ impl IMXNamespacePrefixes_Vtbl {
             let this = (*this).get_impl();
             match IMXNamespacePrefixes_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(prefix, core::mem::transmute(ok__));
+                    prefix.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -210,7 +210,7 @@ impl IMXNamespacePrefixes_Vtbl {
             let this = (*this).get_impl();
             match IMXNamespacePrefixes_Impl::length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -221,7 +221,7 @@ impl IMXNamespacePrefixes_Vtbl {
             let this = (*this).get_impl();
             match IMXNamespacePrefixes_Impl::_newEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -333,7 +333,7 @@ impl IMXWriter_Vtbl {
             let this = (*this).get_impl();
             match IMXWriter_Impl::output(this) {
                 Ok(ok__) => {
-                    core::ptr::write(vardestination, core::mem::transmute(ok__));
+                    vardestination.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -349,7 +349,7 @@ impl IMXWriter_Vtbl {
             let this = (*this).get_impl();
             match IMXWriter_Impl::encoding(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strencoding, core::mem::transmute(ok__));
+                    strencoding.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -365,7 +365,7 @@ impl IMXWriter_Vtbl {
             let this = (*this).get_impl();
             match IMXWriter_Impl::byteOrderMark(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fwritebyteordermark, core::mem::transmute(ok__));
+                    fwritebyteordermark.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -381,7 +381,7 @@ impl IMXWriter_Vtbl {
             let this = (*this).get_impl();
             match IMXWriter_Impl::indent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(findentmode, core::mem::transmute(ok__));
+                    findentmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -397,7 +397,7 @@ impl IMXWriter_Vtbl {
             let this = (*this).get_impl();
             match IMXWriter_Impl::standalone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fvalue, core::mem::transmute(ok__));
+                    fvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -413,7 +413,7 @@ impl IMXWriter_Vtbl {
             let this = (*this).get_impl();
             match IMXWriter_Impl::omitXMLDeclaration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fvalue, core::mem::transmute(ok__));
+                    fvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl IMXWriter_Vtbl {
             let this = (*this).get_impl();
             match IMXWriter_Impl::version(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strversion, core::mem::transmute(ok__));
+                    strversion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -445,7 +445,7 @@ impl IMXWriter_Vtbl {
             let this = (*this).get_impl();
             match IMXWriter_Impl::disableOutputEscaping(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fvalue, core::mem::transmute(ok__));
+                    fvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -506,7 +506,7 @@ impl IMXXMLFilter_Vtbl {
             let this = (*this).get_impl();
             match IMXXMLFilter_Impl::getFeature(this, core::mem::transmute(&strname)) {
                 Ok(ok__) => {
-                    core::ptr::write(fvalue, core::mem::transmute(ok__));
+                    fvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -522,7 +522,7 @@ impl IMXXMLFilter_Vtbl {
             let this = (*this).get_impl();
             match IMXXMLFilter_Impl::getProperty(this, core::mem::transmute(&strname)) {
                 Ok(ok__) => {
-                    core::ptr::write(varvalue, core::mem::transmute(ok__));
+                    varvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -538,7 +538,7 @@ impl IMXXMLFilter_Vtbl {
             let this = (*this).get_impl();
             match IMXXMLFilter_Impl::entityResolver(this) {
                 Ok(ok__) => {
-                    core::ptr::write(oresolver, core::mem::transmute(ok__));
+                    oresolver.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -554,7 +554,7 @@ impl IMXXMLFilter_Vtbl {
             let this = (*this).get_impl();
             match IMXXMLFilter_Impl::contentHandler(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ohandler, core::mem::transmute(ok__));
+                    ohandler.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -570,7 +570,7 @@ impl IMXXMLFilter_Vtbl {
             let this = (*this).get_impl();
             match IMXXMLFilter_Impl::dtdHandler(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ohandler, core::mem::transmute(ok__));
+                    ohandler.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -586,7 +586,7 @@ impl IMXXMLFilter_Vtbl {
             let this = (*this).get_impl();
             match IMXXMLFilter_Impl::errorHandler(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ohandler, core::mem::transmute(ok__));
+                    ohandler.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -640,7 +640,7 @@ impl ISAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match ISAXAttributes_Impl::getLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnlength, core::mem::transmute(ok__));
+                    pnlength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -671,7 +671,7 @@ impl ISAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match ISAXAttributes_Impl::getIndexFromName(this, core::mem::transmute(&pwchuri), core::mem::transmute_copy(&cchuri), core::mem::transmute(&pwchlocalname), core::mem::transmute_copy(&cchlocalname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnindex, core::mem::transmute(ok__));
+                    pnindex.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -682,7 +682,7 @@ impl ISAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match ISAXAttributes_Impl::getIndexFromQName(this, core::mem::transmute(&pwchqname), core::mem::transmute_copy(&cchqname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnindex, core::mem::transmute(ok__));
+                    pnindex.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -908,7 +908,7 @@ impl ISAXEntityResolver_Vtbl {
             let this = (*this).get_impl();
             match ISAXEntityResolver_Impl::resolveEntity(this, core::mem::transmute(&pwchpublicid), core::mem::transmute(&pwchsystemid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarinput, core::mem::transmute(ok__));
+                    pvarinput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1030,7 +1030,7 @@ impl ISAXLocator_Vtbl {
             let this = (*this).get_impl();
             match ISAXLocator_Impl::getColumnNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pncolumn, core::mem::transmute(ok__));
+                    pncolumn.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1041,7 +1041,7 @@ impl ISAXLocator_Vtbl {
             let this = (*this).get_impl();
             match ISAXLocator_Impl::getLineNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnline, core::mem::transmute(ok__));
+                    pnline.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1052,7 +1052,7 @@ impl ISAXLocator_Vtbl {
             let this = (*this).get_impl();
             match ISAXLocator_Impl::getPublicId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwchpublicid, core::mem::transmute(ok__));
+                    ppwchpublicid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1063,7 +1063,7 @@ impl ISAXLocator_Vtbl {
             let this = (*this).get_impl();
             match ISAXLocator_Impl::getSystemId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwchsystemid, core::mem::transmute(ok__));
+                    ppwchsystemid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1093,7 +1093,7 @@ impl ISAXXMLFilter_Vtbl {
             let this = (*this).get_impl();
             match ISAXXMLFilter_Impl::getParent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppreader, core::mem::transmute(ok__));
+                    ppreader.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1142,7 +1142,7 @@ impl ISAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match ISAXXMLReader_Impl::getFeature(this, core::mem::transmute(&pwchname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvfvalue, core::mem::transmute(ok__));
+                    pvfvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1158,7 +1158,7 @@ impl ISAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match ISAXXMLReader_Impl::getProperty(this, core::mem::transmute(&pwchname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarvalue, core::mem::transmute(ok__));
+                    pvarvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1174,7 +1174,7 @@ impl ISAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match ISAXXMLReader_Impl::getEntityResolver(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresolver, core::mem::transmute(ok__));
+                    ppresolver.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1190,7 +1190,7 @@ impl ISAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match ISAXXMLReader_Impl::getContentHandler(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pphandler, core::mem::transmute(ok__));
+                    pphandler.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1206,7 +1206,7 @@ impl ISAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match ISAXXMLReader_Impl::getDTDHandler(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pphandler, core::mem::transmute(ok__));
+                    pphandler.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1222,7 +1222,7 @@ impl ISAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match ISAXXMLReader_Impl::getErrorHandler(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pphandler, core::mem::transmute(ok__));
+                    pphandler.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1238,7 +1238,7 @@ impl ISAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match ISAXXMLReader_Impl::getBaseURL(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwchbaseurl, core::mem::transmute(ok__));
+                    ppwchbaseurl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1254,7 +1254,7 @@ impl ISAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match ISAXXMLReader_Impl::getSecureBaseURL(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwchsecurebaseurl, core::mem::transmute(ok__));
+                    ppwchsecurebaseurl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1323,7 +1323,7 @@ impl ISchema_Vtbl {
             let this = (*this).get_impl();
             match ISchema_Impl::targetNamespace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(targetnamespace, core::mem::transmute(ok__));
+                    targetnamespace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1334,7 +1334,7 @@ impl ISchema_Vtbl {
             let this = (*this).get_impl();
             match ISchema_Impl::version(this) {
                 Ok(ok__) => {
-                    core::ptr::write(version, core::mem::transmute(ok__));
+                    version.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1345,7 +1345,7 @@ impl ISchema_Vtbl {
             let this = (*this).get_impl();
             match ISchema_Impl::types(this) {
                 Ok(ok__) => {
-                    core::ptr::write(types, core::mem::transmute(ok__));
+                    types.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1356,7 +1356,7 @@ impl ISchema_Vtbl {
             let this = (*this).get_impl();
             match ISchema_Impl::elements(this) {
                 Ok(ok__) => {
-                    core::ptr::write(elements, core::mem::transmute(ok__));
+                    elements.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1367,7 +1367,7 @@ impl ISchema_Vtbl {
             let this = (*this).get_impl();
             match ISchema_Impl::attributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(attributes, core::mem::transmute(ok__));
+                    attributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1378,7 +1378,7 @@ impl ISchema_Vtbl {
             let this = (*this).get_impl();
             match ISchema_Impl::attributeGroups(this) {
                 Ok(ok__) => {
-                    core::ptr::write(attributegroups, core::mem::transmute(ok__));
+                    attributegroups.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1389,7 +1389,7 @@ impl ISchema_Vtbl {
             let this = (*this).get_impl();
             match ISchema_Impl::modelGroups(this) {
                 Ok(ok__) => {
-                    core::ptr::write(modelgroups, core::mem::transmute(ok__));
+                    modelgroups.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1400,7 +1400,7 @@ impl ISchema_Vtbl {
             let this = (*this).get_impl();
             match ISchema_Impl::notations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(notations, core::mem::transmute(ok__));
+                    notations.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1411,7 +1411,7 @@ impl ISchema_Vtbl {
             let this = (*this).get_impl();
             match ISchema_Impl::schemaLocations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(schemalocations, core::mem::transmute(ok__));
+                    schemalocations.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1449,7 +1449,7 @@ impl ISchemaAny_Vtbl {
             let this = (*this).get_impl();
             match ISchemaAny_Impl::namespaces(this) {
                 Ok(ok__) => {
-                    core::ptr::write(namespaces, core::mem::transmute(ok__));
+                    namespaces.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1460,7 +1460,7 @@ impl ISchemaAny_Vtbl {
             let this = (*this).get_impl();
             match ISchemaAny_Impl::processContents(this) {
                 Ok(ok__) => {
-                    core::ptr::write(processcontents, core::mem::transmute(ok__));
+                    processcontents.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1495,7 +1495,7 @@ impl ISchemaAttribute_Vtbl {
             let this = (*this).get_impl();
             match ISchemaAttribute_Impl::r#type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1506,7 +1506,7 @@ impl ISchemaAttribute_Vtbl {
             let this = (*this).get_impl();
             match ISchemaAttribute_Impl::scope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(scope, core::mem::transmute(ok__));
+                    scope.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1517,7 +1517,7 @@ impl ISchemaAttribute_Vtbl {
             let this = (*this).get_impl();
             match ISchemaAttribute_Impl::defaultValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(defaultvalue, core::mem::transmute(ok__));
+                    defaultvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1528,7 +1528,7 @@ impl ISchemaAttribute_Vtbl {
             let this = (*this).get_impl();
             match ISchemaAttribute_Impl::fixedValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fixedvalue, core::mem::transmute(ok__));
+                    fixedvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1539,7 +1539,7 @@ impl ISchemaAttribute_Vtbl {
             let this = (*this).get_impl();
             match ISchemaAttribute_Impl::r#use(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#use, core::mem::transmute(ok__));
+                    r#use.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1550,7 +1550,7 @@ impl ISchemaAttribute_Vtbl {
             let this = (*this).get_impl();
             match ISchemaAttribute_Impl::isReference(this) {
                 Ok(ok__) => {
-                    core::ptr::write(reference, core::mem::transmute(ok__));
+                    reference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1585,7 +1585,7 @@ impl ISchemaAttributeGroup_Vtbl {
             let this = (*this).get_impl();
             match ISchemaAttributeGroup_Impl::anyAttribute(this) {
                 Ok(ok__) => {
-                    core::ptr::write(anyattribute, core::mem::transmute(ok__));
+                    anyattribute.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1596,7 +1596,7 @@ impl ISchemaAttributeGroup_Vtbl {
             let this = (*this).get_impl();
             match ISchemaAttributeGroup_Impl::attributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(attributes, core::mem::transmute(ok__));
+                    attributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1631,7 +1631,7 @@ impl ISchemaComplexType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaComplexType_Impl::isAbstract(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#abstract, core::mem::transmute(ok__));
+                    r#abstract.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1642,7 +1642,7 @@ impl ISchemaComplexType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaComplexType_Impl::anyAttribute(this) {
                 Ok(ok__) => {
-                    core::ptr::write(anyattribute, core::mem::transmute(ok__));
+                    anyattribute.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1653,7 +1653,7 @@ impl ISchemaComplexType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaComplexType_Impl::attributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(attributes, core::mem::transmute(ok__));
+                    attributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1664,7 +1664,7 @@ impl ISchemaComplexType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaComplexType_Impl::contentType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(contenttype, core::mem::transmute(ok__));
+                    contenttype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1675,7 +1675,7 @@ impl ISchemaComplexType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaComplexType_Impl::contentModel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(contentmodel, core::mem::transmute(ok__));
+                    contentmodel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1686,7 +1686,7 @@ impl ISchemaComplexType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaComplexType_Impl::prohibitedSubstitutions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(prohibited, core::mem::transmute(ok__));
+                    prohibited.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1730,7 +1730,7 @@ impl ISchemaElement_Vtbl {
             let this = (*this).get_impl();
             match ISchemaElement_Impl::r#type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1741,7 +1741,7 @@ impl ISchemaElement_Vtbl {
             let this = (*this).get_impl();
             match ISchemaElement_Impl::scope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(scope, core::mem::transmute(ok__));
+                    scope.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1752,7 +1752,7 @@ impl ISchemaElement_Vtbl {
             let this = (*this).get_impl();
             match ISchemaElement_Impl::defaultValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(defaultvalue, core::mem::transmute(ok__));
+                    defaultvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1763,7 +1763,7 @@ impl ISchemaElement_Vtbl {
             let this = (*this).get_impl();
             match ISchemaElement_Impl::fixedValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fixedvalue, core::mem::transmute(ok__));
+                    fixedvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1774,7 +1774,7 @@ impl ISchemaElement_Vtbl {
             let this = (*this).get_impl();
             match ISchemaElement_Impl::isNillable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(nillable, core::mem::transmute(ok__));
+                    nillable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1785,7 +1785,7 @@ impl ISchemaElement_Vtbl {
             let this = (*this).get_impl();
             match ISchemaElement_Impl::identityConstraints(this) {
                 Ok(ok__) => {
-                    core::ptr::write(constraints, core::mem::transmute(ok__));
+                    constraints.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1796,7 +1796,7 @@ impl ISchemaElement_Vtbl {
             let this = (*this).get_impl();
             match ISchemaElement_Impl::substitutionGroup(this) {
                 Ok(ok__) => {
-                    core::ptr::write(element, core::mem::transmute(ok__));
+                    element.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1807,7 +1807,7 @@ impl ISchemaElement_Vtbl {
             let this = (*this).get_impl();
             match ISchemaElement_Impl::substitutionGroupExclusions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(exclusions, core::mem::transmute(ok__));
+                    exclusions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1818,7 +1818,7 @@ impl ISchemaElement_Vtbl {
             let this = (*this).get_impl();
             match ISchemaElement_Impl::disallowedSubstitutions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(disallowed, core::mem::transmute(ok__));
+                    disallowed.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1829,7 +1829,7 @@ impl ISchemaElement_Vtbl {
             let this = (*this).get_impl();
             match ISchemaElement_Impl::isAbstract(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#abstract, core::mem::transmute(ok__));
+                    r#abstract.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1840,7 +1840,7 @@ impl ISchemaElement_Vtbl {
             let this = (*this).get_impl();
             match ISchemaElement_Impl::isReference(this) {
                 Ok(ok__) => {
-                    core::ptr::write(reference, core::mem::transmute(ok__));
+                    reference.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1881,7 +1881,7 @@ impl ISchemaIdentityConstraint_Vtbl {
             let this = (*this).get_impl();
             match ISchemaIdentityConstraint_Impl::selector(this) {
                 Ok(ok__) => {
-                    core::ptr::write(selector, core::mem::transmute(ok__));
+                    selector.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1892,7 +1892,7 @@ impl ISchemaIdentityConstraint_Vtbl {
             let this = (*this).get_impl();
             match ISchemaIdentityConstraint_Impl::fields(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fields, core::mem::transmute(ok__));
+                    fields.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1903,7 +1903,7 @@ impl ISchemaIdentityConstraint_Vtbl {
             let this = (*this).get_impl();
             match ISchemaIdentityConstraint_Impl::referencedKey(this) {
                 Ok(ok__) => {
-                    core::ptr::write(key, core::mem::transmute(ok__));
+                    key.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1940,7 +1940,7 @@ impl ISchemaItem_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItem_Impl::name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1951,7 +1951,7 @@ impl ISchemaItem_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItem_Impl::namespaceURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(namespaceuri, core::mem::transmute(ok__));
+                    namespaceuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1962,7 +1962,7 @@ impl ISchemaItem_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItem_Impl::schema(this) {
                 Ok(ok__) => {
-                    core::ptr::write(schema, core::mem::transmute(ok__));
+                    schema.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1973,7 +1973,7 @@ impl ISchemaItem_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItem_Impl::id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(id, core::mem::transmute(ok__));
+                    id.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1984,7 +1984,7 @@ impl ISchemaItem_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItem_Impl::itemType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(itemtype, core::mem::transmute(ok__));
+                    itemtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1995,7 +1995,7 @@ impl ISchemaItem_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItem_Impl::unhandledAttributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(attributes, core::mem::transmute(ok__));
+                    attributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2006,7 +2006,7 @@ impl ISchemaItem_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItem_Impl::writeAnnotation(this, windows_core::from_raw_borrowed(&annotationsink)) {
                 Ok(ok__) => {
-                    core::ptr::write(iswritten, core::mem::transmute(ok__));
+                    iswritten.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2045,7 +2045,7 @@ impl ISchemaItemCollection_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItemCollection_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2056,7 +2056,7 @@ impl ISchemaItemCollection_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItemCollection_Impl::itemByName(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2067,7 +2067,7 @@ impl ISchemaItemCollection_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItemCollection_Impl::itemByQName(this, core::mem::transmute(&name), core::mem::transmute(&namespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2078,7 +2078,7 @@ impl ISchemaItemCollection_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItemCollection_Impl::length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2089,7 +2089,7 @@ impl ISchemaItemCollection_Vtbl {
             let this = (*this).get_impl();
             match ISchemaItemCollection_Impl::_newEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2122,7 +2122,7 @@ impl ISchemaModelGroup_Vtbl {
             let this = (*this).get_impl();
             match ISchemaModelGroup_Impl::particles(this) {
                 Ok(ok__) => {
-                    core::ptr::write(particles, core::mem::transmute(ok__));
+                    particles.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2149,7 +2149,7 @@ impl ISchemaNotation_Vtbl {
             let this = (*this).get_impl();
             match ISchemaNotation_Impl::systemIdentifier(this) {
                 Ok(ok__) => {
-                    core::ptr::write(uri, core::mem::transmute(ok__));
+                    uri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2160,7 +2160,7 @@ impl ISchemaNotation_Vtbl {
             let this = (*this).get_impl();
             match ISchemaNotation_Impl::publicIdentifier(this) {
                 Ok(ok__) => {
-                    core::ptr::write(uri, core::mem::transmute(ok__));
+                    uri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2191,7 +2191,7 @@ impl ISchemaParticle_Vtbl {
             let this = (*this).get_impl();
             match ISchemaParticle_Impl::minOccurs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(minoccurs, core::mem::transmute(ok__));
+                    minoccurs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2202,7 +2202,7 @@ impl ISchemaParticle_Vtbl {
             let this = (*this).get_impl();
             match ISchemaParticle_Impl::maxOccurs(this) {
                 Ok(ok__) => {
-                    core::ptr::write(maxoccurs, core::mem::transmute(ok__));
+                    maxoccurs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2234,7 +2234,7 @@ impl ISchemaStringCollection_Vtbl {
             let this = (*this).get_impl();
             match ISchemaStringCollection_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(bstr, core::mem::transmute(ok__));
+                    bstr.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2245,7 +2245,7 @@ impl ISchemaStringCollection_Vtbl {
             let this = (*this).get_impl();
             match ISchemaStringCollection_Impl::length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2256,7 +2256,7 @@ impl ISchemaStringCollection_Vtbl {
             let this = (*this).get_impl();
             match ISchemaStringCollection_Impl::_newEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2303,7 +2303,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::baseTypes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(basetypes, core::mem::transmute(ok__));
+                    basetypes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2314,7 +2314,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::r#final(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#final, core::mem::transmute(ok__));
+                    r#final.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2325,7 +2325,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::variety(this) {
                 Ok(ok__) => {
-                    core::ptr::write(variety, core::mem::transmute(ok__));
+                    variety.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2336,7 +2336,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::derivedBy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(derivedby, core::mem::transmute(ok__));
+                    derivedby.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2347,7 +2347,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::isValid(this, core::mem::transmute(&data)) {
                 Ok(ok__) => {
-                    core::ptr::write(valid, core::mem::transmute(ok__));
+                    valid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2358,7 +2358,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::minExclusive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(minexclusive, core::mem::transmute(ok__));
+                    minexclusive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2369,7 +2369,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::minInclusive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(mininclusive, core::mem::transmute(ok__));
+                    mininclusive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2380,7 +2380,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::maxExclusive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(maxexclusive, core::mem::transmute(ok__));
+                    maxexclusive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2391,7 +2391,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::maxInclusive(this) {
                 Ok(ok__) => {
-                    core::ptr::write(maxinclusive, core::mem::transmute(ok__));
+                    maxinclusive.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2402,7 +2402,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::totalDigits(this) {
                 Ok(ok__) => {
-                    core::ptr::write(totaldigits, core::mem::transmute(ok__));
+                    totaldigits.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2413,7 +2413,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::fractionDigits(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fractiondigits, core::mem::transmute(ok__));
+                    fractiondigits.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2424,7 +2424,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2435,7 +2435,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::minLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(minlength, core::mem::transmute(ok__));
+                    minlength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2446,7 +2446,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::maxLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(maxlength, core::mem::transmute(ok__));
+                    maxlength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2457,7 +2457,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::enumeration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(enumeration, core::mem::transmute(ok__));
+                    enumeration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2468,7 +2468,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::whitespace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(whitespace, core::mem::transmute(ok__));
+                    whitespace.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2479,7 +2479,7 @@ impl ISchemaType_Vtbl {
             let this = (*this).get_impl();
             match ISchemaType_Impl::patterns(this) {
                 Ok(ok__) => {
-                    core::ptr::write(patterns, core::mem::transmute(ok__));
+                    patterns.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2532,7 +2532,7 @@ impl IServerXMLHTTPRequest_Vtbl {
             let this = (*this).get_impl();
             match IServerXMLHTTPRequest_Impl::waitForResponse(this, core::mem::transmute(&timeoutinseconds)) {
                 Ok(ok__) => {
-                    core::ptr::write(issuccessful, core::mem::transmute(ok__));
+                    issuccessful.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2543,7 +2543,7 @@ impl IServerXMLHTTPRequest_Vtbl {
             let this = (*this).get_impl();
             match IServerXMLHTTPRequest_Impl::getOption(this, core::mem::transmute_copy(&option)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2625,7 +2625,7 @@ impl IVBMXNamespaceManager_Vtbl {
             let this = (*this).get_impl();
             match IVBMXNamespaceManager_Impl::allowOverride(this) {
                 Ok(ok__) => {
-                    core::ptr::write(foverride, core::mem::transmute(ok__));
+                    foverride.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2661,7 +2661,7 @@ impl IVBMXNamespaceManager_Vtbl {
             let this = (*this).get_impl();
             match IVBMXNamespaceManager_Impl::getDeclaredPrefixes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(prefixes, core::mem::transmute(ok__));
+                    prefixes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2672,7 +2672,7 @@ impl IVBMXNamespaceManager_Vtbl {
             let this = (*this).get_impl();
             match IVBMXNamespaceManager_Impl::getPrefixes(this, core::mem::transmute(&namespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(prefixes, core::mem::transmute(ok__));
+                    prefixes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2683,7 +2683,7 @@ impl IVBMXNamespaceManager_Vtbl {
             let this = (*this).get_impl();
             match IVBMXNamespaceManager_Impl::getURI(this, core::mem::transmute(&prefix)) {
                 Ok(ok__) => {
-                    core::ptr::write(uri, core::mem::transmute(ok__));
+                    uri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2694,7 +2694,7 @@ impl IVBMXNamespaceManager_Vtbl {
             let this = (*this).get_impl();
             match IVBMXNamespaceManager_Impl::getURIFromNode(this, core::mem::transmute(&strprefix), windows_core::from_raw_borrowed(&contextnode)) {
                 Ok(ok__) => {
-                    core::ptr::write(uri, core::mem::transmute(ok__));
+                    uri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2744,7 +2744,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(nlength, core::mem::transmute(ok__));
+                    nlength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2755,7 +2755,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::getURI(this, core::mem::transmute_copy(&nindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(struri, core::mem::transmute(ok__));
+                    struri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2766,7 +2766,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::getLocalName(this, core::mem::transmute_copy(&nindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(strlocalname, core::mem::transmute(ok__));
+                    strlocalname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2777,7 +2777,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::getQName(this, core::mem::transmute_copy(&nindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(strqname, core::mem::transmute(ok__));
+                    strqname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2788,7 +2788,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::getIndexFromName(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname)) {
                 Ok(ok__) => {
-                    core::ptr::write(nindex, core::mem::transmute(ok__));
+                    nindex.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2799,7 +2799,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::getIndexFromQName(this, core::mem::transmute(&strqname)) {
                 Ok(ok__) => {
-                    core::ptr::write(nindex, core::mem::transmute(ok__));
+                    nindex.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2810,7 +2810,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::getType(this, core::mem::transmute_copy(&nindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(strtype, core::mem::transmute(ok__));
+                    strtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2821,7 +2821,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::getTypeFromName(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname)) {
                 Ok(ok__) => {
-                    core::ptr::write(strtype, core::mem::transmute(ok__));
+                    strtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2832,7 +2832,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::getTypeFromQName(this, core::mem::transmute(&strqname)) {
                 Ok(ok__) => {
-                    core::ptr::write(strtype, core::mem::transmute(ok__));
+                    strtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2843,7 +2843,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::getValue(this, core::mem::transmute_copy(&nindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(strvalue, core::mem::transmute(ok__));
+                    strvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2854,7 +2854,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::getValueFromName(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname)) {
                 Ok(ok__) => {
-                    core::ptr::write(strvalue, core::mem::transmute(ok__));
+                    strvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2865,7 +2865,7 @@ impl IVBSAXAttributes_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXAttributes_Impl::getValueFromQName(this, core::mem::transmute(&strqname)) {
                 Ok(ok__) => {
-                    core::ptr::write(strvalue, core::mem::transmute(ok__));
+                    strvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3072,7 +3072,7 @@ impl IVBSAXEntityResolver_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXEntityResolver_Impl::resolveEntity(this, core::mem::transmute_copy(&strpublicid), core::mem::transmute_copy(&strsystemid)) {
                 Ok(ok__) => {
-                    core::ptr::write(varinput, core::mem::transmute(ok__));
+                    varinput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3206,7 +3206,7 @@ impl IVBSAXLocator_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXLocator_Impl::columnNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ncolumn, core::mem::transmute(ok__));
+                    ncolumn.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3217,7 +3217,7 @@ impl IVBSAXLocator_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXLocator_Impl::lineNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(nline, core::mem::transmute(ok__));
+                    nline.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3228,7 +3228,7 @@ impl IVBSAXLocator_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXLocator_Impl::publicId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strpublicid, core::mem::transmute(ok__));
+                    strpublicid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3239,7 +3239,7 @@ impl IVBSAXLocator_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXLocator_Impl::systemId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strsystemid, core::mem::transmute(ok__));
+                    strsystemid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3272,7 +3272,7 @@ impl IVBSAXXMLFilter_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXXMLFilter_Impl::parent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(oreader, core::mem::transmute(ok__));
+                    oreader.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3324,7 +3324,7 @@ impl IVBSAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXXMLReader_Impl::getFeature(this, core::mem::transmute(&strname)) {
                 Ok(ok__) => {
-                    core::ptr::write(fvalue, core::mem::transmute(ok__));
+                    fvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3340,7 +3340,7 @@ impl IVBSAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXXMLReader_Impl::getProperty(this, core::mem::transmute(&strname)) {
                 Ok(ok__) => {
-                    core::ptr::write(varvalue, core::mem::transmute(ok__));
+                    varvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3356,7 +3356,7 @@ impl IVBSAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXXMLReader_Impl::entityResolver(this) {
                 Ok(ok__) => {
-                    core::ptr::write(oresolver, core::mem::transmute(ok__));
+                    oresolver.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3372,7 +3372,7 @@ impl IVBSAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXXMLReader_Impl::contentHandler(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ohandler, core::mem::transmute(ok__));
+                    ohandler.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3388,7 +3388,7 @@ impl IVBSAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXXMLReader_Impl::dtdHandler(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ohandler, core::mem::transmute(ok__));
+                    ohandler.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3404,7 +3404,7 @@ impl IVBSAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXXMLReader_Impl::errorHandler(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ohandler, core::mem::transmute(ok__));
+                    ohandler.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3420,7 +3420,7 @@ impl IVBSAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXXMLReader_Impl::baseURL(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strbaseurl, core::mem::transmute(ok__));
+                    strbaseurl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3436,7 +3436,7 @@ impl IVBSAXXMLReader_Vtbl {
             let this = (*this).get_impl();
             match IVBSAXXMLReader_Impl::secureBaseURL(this) {
                 Ok(ok__) => {
-                    core::ptr::write(strsecurebaseurl, core::mem::transmute(ok__));
+                    strsecurebaseurl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3498,7 +3498,7 @@ impl IXMLAttribute_Vtbl {
             let this = (*this).get_impl();
             match IXMLAttribute_Impl::name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(n, core::mem::transmute(ok__));
+                    n.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3509,7 +3509,7 @@ impl IXMLAttribute_Vtbl {
             let this = (*this).get_impl();
             match IXMLAttribute_Impl::value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(v, core::mem::transmute(ok__));
+                    v.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3541,7 +3541,7 @@ impl IXMLDOMAttribute_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMAttribute_Impl::name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(attributename, core::mem::transmute(ok__));
+                    attributename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3552,7 +3552,7 @@ impl IXMLDOMAttribute_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMAttribute_Impl::value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(attributevalue, core::mem::transmute(ok__));
+                    attributevalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3608,7 +3608,7 @@ impl IXMLDOMCharacterData_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMCharacterData_Impl::data(this) {
                 Ok(ok__) => {
-                    core::ptr::write(data, core::mem::transmute(ok__));
+                    data.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3624,7 +3624,7 @@ impl IXMLDOMCharacterData_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMCharacterData_Impl::length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(datalength, core::mem::transmute(ok__));
+                    datalength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3635,7 +3635,7 @@ impl IXMLDOMCharacterData_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMCharacterData_Impl::substringData(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
-                    core::ptr::write(data, core::mem::transmute(ok__));
+                    data.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3736,7 +3736,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::doctype(this) {
                 Ok(ok__) => {
-                    core::ptr::write(documenttype, core::mem::transmute(ok__));
+                    documenttype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3747,7 +3747,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::implementation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#impl, core::mem::transmute(ok__));
+                    r#impl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3758,7 +3758,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::documentElement(this) {
                 Ok(ok__) => {
-                    core::ptr::write(domelement, core::mem::transmute(ok__));
+                    domelement.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3774,7 +3774,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::createElement(this, core::mem::transmute(&tagname)) {
                 Ok(ok__) => {
-                    core::ptr::write(element, core::mem::transmute(ok__));
+                    element.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3785,7 +3785,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::createDocumentFragment(this) {
                 Ok(ok__) => {
-                    core::ptr::write(docfrag, core::mem::transmute(ok__));
+                    docfrag.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3796,7 +3796,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::createTextNode(this, core::mem::transmute(&data)) {
                 Ok(ok__) => {
-                    core::ptr::write(text, core::mem::transmute(ok__));
+                    text.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3807,7 +3807,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::createComment(this, core::mem::transmute(&data)) {
                 Ok(ok__) => {
-                    core::ptr::write(comment, core::mem::transmute(ok__));
+                    comment.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3818,7 +3818,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::createCDATASection(this, core::mem::transmute(&data)) {
                 Ok(ok__) => {
-                    core::ptr::write(cdata, core::mem::transmute(ok__));
+                    cdata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3829,7 +3829,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::createProcessingInstruction(this, core::mem::transmute(&target), core::mem::transmute(&data)) {
                 Ok(ok__) => {
-                    core::ptr::write(pi, core::mem::transmute(ok__));
+                    pi.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3840,7 +3840,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::createAttribute(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(attribute, core::mem::transmute(ok__));
+                    attribute.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3851,7 +3851,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::createEntityReference(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(entityref, core::mem::transmute(ok__));
+                    entityref.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3862,7 +3862,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::getElementsByTagName(this, core::mem::transmute(&tagname)) {
                 Ok(ok__) => {
-                    core::ptr::write(resultlist, core::mem::transmute(ok__));
+                    resultlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3873,7 +3873,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::createNode(this, core::mem::transmute(&r#type), core::mem::transmute(&name), core::mem::transmute(&namespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(node, core::mem::transmute(ok__));
+                    node.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3884,7 +3884,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::nodeFromID(this, core::mem::transmute(&idstring)) {
                 Ok(ok__) => {
-                    core::ptr::write(node, core::mem::transmute(ok__));
+                    node.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3895,7 +3895,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::load(this, core::mem::transmute(&xmlsource)) {
                 Ok(ok__) => {
-                    core::ptr::write(issuccessful, core::mem::transmute(ok__));
+                    issuccessful.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3906,7 +3906,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::readyState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3917,7 +3917,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::parseError(this) {
                 Ok(ok__) => {
-                    core::ptr::write(errorobj, core::mem::transmute(ok__));
+                    errorobj.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3928,7 +3928,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::url(this) {
                 Ok(ok__) => {
-                    core::ptr::write(urlstring, core::mem::transmute(ok__));
+                    urlstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3939,7 +3939,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::r#async(this) {
                 Ok(ok__) => {
-                    core::ptr::write(isasync, core::mem::transmute(ok__));
+                    isasync.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3960,7 +3960,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::loadXML(this, core::mem::transmute(&bstrxml)) {
                 Ok(ok__) => {
-                    core::ptr::write(issuccessful, core::mem::transmute(ok__));
+                    issuccessful.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3976,7 +3976,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::validateOnParse(this) {
                 Ok(ok__) => {
-                    core::ptr::write(isvalidating, core::mem::transmute(ok__));
+                    isvalidating.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3992,7 +3992,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::resolveExternals(this) {
                 Ok(ok__) => {
-                    core::ptr::write(isresolving, core::mem::transmute(ok__));
+                    isresolving.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4008,7 +4008,7 @@ impl IXMLDOMDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument_Impl::preserveWhiteSpace(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ispreserving, core::mem::transmute(ok__));
+                    ispreserving.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4094,7 +4094,7 @@ impl IXMLDOMDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument2_Impl::namespaces(this) {
                 Ok(ok__) => {
-                    core::ptr::write(namespacecollection, core::mem::transmute(ok__));
+                    namespacecollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4105,7 +4105,7 @@ impl IXMLDOMDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument2_Impl::schemas(this) {
                 Ok(ok__) => {
-                    core::ptr::write(othercollection, core::mem::transmute(ok__));
+                    othercollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4121,7 +4121,7 @@ impl IXMLDOMDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument2_Impl::validate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(errorobj, core::mem::transmute(ok__));
+                    errorobj.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4137,7 +4137,7 @@ impl IXMLDOMDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument2_Impl::getProperty(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4172,7 +4172,7 @@ impl IXMLDOMDocument3_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument3_Impl::validateNode(this, windows_core::from_raw_borrowed(&node)) {
                 Ok(ok__) => {
-                    core::ptr::write(errorobj, core::mem::transmute(ok__));
+                    errorobj.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4183,7 +4183,7 @@ impl IXMLDOMDocument3_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocument3_Impl::importNode(this, windows_core::from_raw_borrowed(&node), core::mem::transmute_copy(&deep)) {
                 Ok(ok__) => {
-                    core::ptr::write(clone, core::mem::transmute(ok__));
+                    clone.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4228,7 +4228,7 @@ impl IXMLDOMDocumentType_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocumentType_Impl::name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(rootname, core::mem::transmute(ok__));
+                    rootname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4239,7 +4239,7 @@ impl IXMLDOMDocumentType_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocumentType_Impl::entities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(entitymap, core::mem::transmute(ok__));
+                    entitymap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4250,7 +4250,7 @@ impl IXMLDOMDocumentType_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMDocumentType_Impl::notations(this) {
                 Ok(ok__) => {
-                    core::ptr::write(notationmap, core::mem::transmute(ok__));
+                    notationmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4289,7 +4289,7 @@ impl IXMLDOMElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMElement_Impl::tagName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(tagname, core::mem::transmute(ok__));
+                    tagname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4300,7 +4300,7 @@ impl IXMLDOMElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMElement_Impl::getAttribute(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4321,7 +4321,7 @@ impl IXMLDOMElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMElement_Impl::getAttributeNode(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(attributenode, core::mem::transmute(ok__));
+                    attributenode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4332,7 +4332,7 @@ impl IXMLDOMElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMElement_Impl::setAttributeNode(this, windows_core::from_raw_borrowed(&domattribute)) {
                 Ok(ok__) => {
-                    core::ptr::write(attributenode, core::mem::transmute(ok__));
+                    attributenode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4343,7 +4343,7 @@ impl IXMLDOMElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMElement_Impl::removeAttributeNode(this, windows_core::from_raw_borrowed(&domattribute)) {
                 Ok(ok__) => {
-                    core::ptr::write(attributenode, core::mem::transmute(ok__));
+                    attributenode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4354,7 +4354,7 @@ impl IXMLDOMElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMElement_Impl::getElementsByTagName(this, core::mem::transmute(&tagname)) {
                 Ok(ok__) => {
-                    core::ptr::write(resultlist, core::mem::transmute(ok__));
+                    resultlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4398,7 +4398,7 @@ impl IXMLDOMEntity_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMEntity_Impl::publicId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(publicid, core::mem::transmute(ok__));
+                    publicid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4409,7 +4409,7 @@ impl IXMLDOMEntity_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMEntity_Impl::systemId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(systemid, core::mem::transmute(ok__));
+                    systemid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4420,7 +4420,7 @@ impl IXMLDOMEntity_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMEntity_Impl::notationName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4464,7 +4464,7 @@ impl IXMLDOMImplementation_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMImplementation_Impl::hasFeature(this, core::mem::transmute(&feature), core::mem::transmute(&version)) {
                 Ok(ok__) => {
-                    core::ptr::write(hasfeature, core::mem::transmute(ok__));
+                    hasfeature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4499,7 +4499,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNamedNodeMap_Impl::getNamedItem(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(nameditem, core::mem::transmute(ok__));
+                    nameditem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4510,7 +4510,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNamedNodeMap_Impl::setNamedItem(this, windows_core::from_raw_borrowed(&newitem)) {
                 Ok(ok__) => {
-                    core::ptr::write(nameitem, core::mem::transmute(ok__));
+                    nameitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4521,7 +4521,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNamedNodeMap_Impl::removeNamedItem(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(nameditem, core::mem::transmute(ok__));
+                    nameditem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4532,7 +4532,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNamedNodeMap_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(listitem, core::mem::transmute(ok__));
+                    listitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4543,7 +4543,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNamedNodeMap_Impl::length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(listlength, core::mem::transmute(ok__));
+                    listlength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4554,7 +4554,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNamedNodeMap_Impl::getQualifiedItem(this, core::mem::transmute(&basename), core::mem::transmute(&namespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(qualifieditem, core::mem::transmute(ok__));
+                    qualifieditem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4565,7 +4565,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNamedNodeMap_Impl::removeQualifiedItem(this, core::mem::transmute(&basename), core::mem::transmute(&namespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(qualifieditem, core::mem::transmute(ok__));
+                    qualifieditem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4576,7 +4576,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNamedNodeMap_Impl::nextNode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(nextitem, core::mem::transmute(ok__));
+                    nextitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4592,7 +4592,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNamedNodeMap_Impl::_newEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4665,7 +4665,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::nodeName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4676,7 +4676,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::nodeValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4692,7 +4692,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::nodeType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(r#type, core::mem::transmute(ok__));
+                    r#type.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4703,7 +4703,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::parentNode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(parent, core::mem::transmute(ok__));
+                    parent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4714,7 +4714,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::childNodes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(childlist, core::mem::transmute(ok__));
+                    childlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4725,7 +4725,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::firstChild(this) {
                 Ok(ok__) => {
-                    core::ptr::write(firstchild, core::mem::transmute(ok__));
+                    firstchild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4736,7 +4736,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::lastChild(this) {
                 Ok(ok__) => {
-                    core::ptr::write(lastchild, core::mem::transmute(ok__));
+                    lastchild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4747,7 +4747,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::previousSibling(this) {
                 Ok(ok__) => {
-                    core::ptr::write(previoussibling, core::mem::transmute(ok__));
+                    previoussibling.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4758,7 +4758,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::nextSibling(this) {
                 Ok(ok__) => {
-                    core::ptr::write(nextsibling, core::mem::transmute(ok__));
+                    nextsibling.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4769,7 +4769,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::attributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(attributemap, core::mem::transmute(ok__));
+                    attributemap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4780,7 +4780,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::insertBefore(this, windows_core::from_raw_borrowed(&newchild), core::mem::transmute(&refchild)) {
                 Ok(ok__) => {
-                    core::ptr::write(outnewchild, core::mem::transmute(ok__));
+                    outnewchild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4791,7 +4791,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::replaceChild(this, windows_core::from_raw_borrowed(&newchild), windows_core::from_raw_borrowed(&oldchild)) {
                 Ok(ok__) => {
-                    core::ptr::write(outoldchild, core::mem::transmute(ok__));
+                    outoldchild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4802,7 +4802,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::removeChild(this, windows_core::from_raw_borrowed(&childnode)) {
                 Ok(ok__) => {
-                    core::ptr::write(oldchild, core::mem::transmute(ok__));
+                    oldchild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4813,7 +4813,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::appendChild(this, windows_core::from_raw_borrowed(&newchild)) {
                 Ok(ok__) => {
-                    core::ptr::write(outnewchild, core::mem::transmute(ok__));
+                    outnewchild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4824,7 +4824,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::hasChildNodes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(haschild, core::mem::transmute(ok__));
+                    haschild.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4835,7 +4835,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::ownerDocument(this) {
                 Ok(ok__) => {
-                    core::ptr::write(xmldomdocument, core::mem::transmute(ok__));
+                    xmldomdocument.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4846,7 +4846,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::cloneNode(this, core::mem::transmute_copy(&deep)) {
                 Ok(ok__) => {
-                    core::ptr::write(cloneroot, core::mem::transmute(ok__));
+                    cloneroot.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4857,7 +4857,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::nodeTypeString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(nodetype, core::mem::transmute(ok__));
+                    nodetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4868,7 +4868,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::text(this) {
                 Ok(ok__) => {
-                    core::ptr::write(text, core::mem::transmute(ok__));
+                    text.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4884,7 +4884,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::specified(this) {
                 Ok(ok__) => {
-                    core::ptr::write(isspecified, core::mem::transmute(ok__));
+                    isspecified.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4895,7 +4895,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::definition(this) {
                 Ok(ok__) => {
-                    core::ptr::write(definitionnode, core::mem::transmute(ok__));
+                    definitionnode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4906,7 +4906,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::nodeTypedValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(typedvalue, core::mem::transmute(ok__));
+                    typedvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4922,7 +4922,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::dataType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(datatypename, core::mem::transmute(ok__));
+                    datatypename.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4938,7 +4938,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::xml(this) {
                 Ok(ok__) => {
-                    core::ptr::write(xmlstring, core::mem::transmute(ok__));
+                    xmlstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4949,7 +4949,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::transformNode(this, windows_core::from_raw_borrowed(&stylesheet)) {
                 Ok(ok__) => {
-                    core::ptr::write(xmlstring, core::mem::transmute(ok__));
+                    xmlstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4960,7 +4960,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::selectNodes(this, core::mem::transmute(&querystring)) {
                 Ok(ok__) => {
-                    core::ptr::write(resultlist, core::mem::transmute(ok__));
+                    resultlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4971,7 +4971,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::selectSingleNode(this, core::mem::transmute(&querystring)) {
                 Ok(ok__) => {
-                    core::ptr::write(resultnode, core::mem::transmute(ok__));
+                    resultnode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4982,7 +4982,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::parsed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(isparsed, core::mem::transmute(ok__));
+                    isparsed.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4993,7 +4993,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::namespaceURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(namespaceuri, core::mem::transmute(ok__));
+                    namespaceuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5004,7 +5004,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::prefix(this) {
                 Ok(ok__) => {
-                    core::ptr::write(prefixstring, core::mem::transmute(ok__));
+                    prefixstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5015,7 +5015,7 @@ impl IXMLDOMNode_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNode_Impl::baseName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(namestring, core::mem::transmute(ok__));
+                    namestring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5088,7 +5088,7 @@ impl IXMLDOMNodeList_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNodeList_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(listitem, core::mem::transmute(ok__));
+                    listitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5099,7 +5099,7 @@ impl IXMLDOMNodeList_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNodeList_Impl::length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(listlength, core::mem::transmute(ok__));
+                    listlength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5110,7 +5110,7 @@ impl IXMLDOMNodeList_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNodeList_Impl::nextNode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(nextitem, core::mem::transmute(ok__));
+                    nextitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5126,7 +5126,7 @@ impl IXMLDOMNodeList_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNodeList_Impl::_newEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5160,7 +5160,7 @@ impl IXMLDOMNotation_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNotation_Impl::publicId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(publicid, core::mem::transmute(ok__));
+                    publicid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5171,7 +5171,7 @@ impl IXMLDOMNotation_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMNotation_Impl::systemId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(systemid, core::mem::transmute(ok__));
+                    systemid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5207,7 +5207,7 @@ impl IXMLDOMParseError_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseError_Impl::errorCode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(errorcode, core::mem::transmute(ok__));
+                    errorcode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5218,7 +5218,7 @@ impl IXMLDOMParseError_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseError_Impl::url(this) {
                 Ok(ok__) => {
-                    core::ptr::write(urlstring, core::mem::transmute(ok__));
+                    urlstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5229,7 +5229,7 @@ impl IXMLDOMParseError_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseError_Impl::reason(this) {
                 Ok(ok__) => {
-                    core::ptr::write(reasonstring, core::mem::transmute(ok__));
+                    reasonstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5240,7 +5240,7 @@ impl IXMLDOMParseError_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseError_Impl::srcText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(sourcestring, core::mem::transmute(ok__));
+                    sourcestring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5251,7 +5251,7 @@ impl IXMLDOMParseError_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseError_Impl::line(this) {
                 Ok(ok__) => {
-                    core::ptr::write(linenumber, core::mem::transmute(ok__));
+                    linenumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5262,7 +5262,7 @@ impl IXMLDOMParseError_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseError_Impl::linepos(this) {
                 Ok(ok__) => {
-                    core::ptr::write(lineposition, core::mem::transmute(ok__));
+                    lineposition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5273,7 +5273,7 @@ impl IXMLDOMParseError_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseError_Impl::filepos(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fileposition, core::mem::transmute(ok__));
+                    fileposition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5311,7 +5311,7 @@ impl IXMLDOMParseError2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseError2_Impl::errorXPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(xpathexpr, core::mem::transmute(ok__));
+                    xpathexpr.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5322,7 +5322,7 @@ impl IXMLDOMParseError2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseError2_Impl::allErrors(this) {
                 Ok(ok__) => {
-                    core::ptr::write(allerrors, core::mem::transmute(ok__));
+                    allerrors.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5333,7 +5333,7 @@ impl IXMLDOMParseError2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseError2_Impl::errorParameters(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(param1, core::mem::transmute(ok__));
+                    param1.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5344,7 +5344,7 @@ impl IXMLDOMParseError2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseError2_Impl::errorParametersCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5380,7 +5380,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseErrorCollection_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(error, core::mem::transmute(ok__));
+                    error.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5391,7 +5391,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseErrorCollection_Impl::length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5402,7 +5402,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseErrorCollection_Impl::next(this) {
                 Ok(ok__) => {
-                    core::ptr::write(error, core::mem::transmute(ok__));
+                    error.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5418,7 +5418,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMParseErrorCollection_Impl::_newEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5453,7 +5453,7 @@ impl IXMLDOMProcessingInstruction_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMProcessingInstruction_Impl::target(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5464,7 +5464,7 @@ impl IXMLDOMProcessingInstruction_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMProcessingInstruction_Impl::data(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5511,7 +5511,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSchemaCollection_Impl::get(this, core::mem::transmute(&namespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(schemanode, core::mem::transmute(ok__));
+                    schemanode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5527,7 +5527,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSchemaCollection_Impl::length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5538,7 +5538,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSchemaCollection_Impl::get_namespaceURI(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(length, core::mem::transmute(ok__));
+                    length.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5554,7 +5554,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSchemaCollection_Impl::_newEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5603,7 +5603,7 @@ impl IXMLDOMSchemaCollection2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSchemaCollection2_Impl::validateOnLoad(this) {
                 Ok(ok__) => {
-                    core::ptr::write(validateonload, core::mem::transmute(ok__));
+                    validateonload.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5614,7 +5614,7 @@ impl IXMLDOMSchemaCollection2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSchemaCollection2_Impl::getSchema(this, core::mem::transmute(&namespaceuri)) {
                 Ok(ok__) => {
-                    core::ptr::write(schema, core::mem::transmute(ok__));
+                    schema.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5625,7 +5625,7 @@ impl IXMLDOMSchemaCollection2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSchemaCollection2_Impl::getDeclaration(this, windows_core::from_raw_borrowed(&node)) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5668,7 +5668,7 @@ impl IXMLDOMSelection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSelection_Impl::expr(this) {
                 Ok(ok__) => {
-                    core::ptr::write(expression, core::mem::transmute(ok__));
+                    expression.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5684,7 +5684,7 @@ impl IXMLDOMSelection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSelection_Impl::context(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnode, core::mem::transmute(ok__));
+                    ppnode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5700,7 +5700,7 @@ impl IXMLDOMSelection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSelection_Impl::peekNode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnode, core::mem::transmute(ok__));
+                    ppnode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5711,7 +5711,7 @@ impl IXMLDOMSelection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSelection_Impl::matches(this, windows_core::from_raw_borrowed(&pnode)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnode, core::mem::transmute(ok__));
+                    ppnode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5722,7 +5722,7 @@ impl IXMLDOMSelection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSelection_Impl::removeNext(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnode, core::mem::transmute(ok__));
+                    ppnode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5738,7 +5738,7 @@ impl IXMLDOMSelection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSelection_Impl::clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppnode, core::mem::transmute(ok__));
+                    ppnode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5749,7 +5749,7 @@ impl IXMLDOMSelection_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMSelection_Impl::getProperty(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5793,7 +5793,7 @@ impl IXMLDOMText_Vtbl {
             let this = (*this).get_impl();
             match IXMLDOMText_Impl::splitText(this, core::mem::transmute_copy(&offset)) {
                 Ok(ok__) => {
-                    core::ptr::write(righthandtextnode, core::mem::transmute(ok__));
+                    righthandtextnode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5823,7 +5823,7 @@ impl IXMLDSOControl_Vtbl {
             let this = (*this).get_impl();
             match IXMLDSOControl_Impl::XMLDocument(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdoc, core::mem::transmute(ok__));
+                    ppdoc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5839,7 +5839,7 @@ impl IXMLDSOControl_Vtbl {
             let this = (*this).get_impl();
             match IXMLDSOControl_Impl::JavaDSOCompatible(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fjavadsocompatible, core::mem::transmute(ok__));
+                    fjavadsocompatible.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5855,7 +5855,7 @@ impl IXMLDSOControl_Vtbl {
             let this = (*this).get_impl();
             match IXMLDSOControl_Impl::readyState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(state, core::mem::transmute(ok__));
+                    state.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5901,7 +5901,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::root(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5912,7 +5912,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::fileSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5923,7 +5923,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::fileModifiedDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5934,7 +5934,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::fileUpdatedDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5945,7 +5945,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::URL(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5961,7 +5961,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::mimeType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5972,7 +5972,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::readyState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pl, core::mem::transmute(ok__));
+                    pl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5983,7 +5983,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::charset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5999,7 +5999,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::version(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6010,7 +6010,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::doctype(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6021,7 +6021,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::dtdURL(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6032,7 +6032,7 @@ impl IXMLDocument_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument_Impl::createElement(this, core::mem::transmute(&vtype), core::mem::transmute(&var1)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppelem, core::mem::transmute(ok__));
+                    ppelem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6089,7 +6089,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::root(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6100,7 +6100,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::fileSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6111,7 +6111,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::fileModifiedDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6122,7 +6122,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::fileUpdatedDate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6133,7 +6133,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::URL(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6149,7 +6149,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::mimeType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6160,7 +6160,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::readyState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pl, core::mem::transmute(ok__));
+                    pl.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6171,7 +6171,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::charset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6187,7 +6187,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::version(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6198,7 +6198,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::doctype(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6209,7 +6209,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::dtdURL(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6220,7 +6220,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::createElement(this, core::mem::transmute(&vtype), core::mem::transmute(&var1)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppelem, core::mem::transmute(ok__));
+                    ppelem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6231,7 +6231,7 @@ impl IXMLDocument2_Vtbl {
             let this = (*this).get_impl();
             match IXMLDocument2_Impl::r#async(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pf, core::mem::transmute(ok__));
+                    pf.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6291,7 +6291,7 @@ impl IXMLElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement_Impl::tagName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6307,7 +6307,7 @@ impl IXMLElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement_Impl::parent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppparent, core::mem::transmute(ok__));
+                    ppparent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6323,7 +6323,7 @@ impl IXMLElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement_Impl::getAttribute(this, core::mem::transmute(&strpropertyname)) {
                 Ok(ok__) => {
-                    core::ptr::write(propertyvalue, core::mem::transmute(ok__));
+                    propertyvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6339,7 +6339,7 @@ impl IXMLElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement_Impl::children(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pp, core::mem::transmute(ok__));
+                    pp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6350,7 +6350,7 @@ impl IXMLElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement_Impl::r#type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pltype, core::mem::transmute(ok__));
+                    pltype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6361,7 +6361,7 @@ impl IXMLElement_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement_Impl::text(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6428,7 +6428,7 @@ impl IXMLElement2_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement2_Impl::tagName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6444,7 +6444,7 @@ impl IXMLElement2_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement2_Impl::parent(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppparent, core::mem::transmute(ok__));
+                    ppparent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6460,7 +6460,7 @@ impl IXMLElement2_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement2_Impl::getAttribute(this, core::mem::transmute(&strpropertyname)) {
                 Ok(ok__) => {
-                    core::ptr::write(propertyvalue, core::mem::transmute(ok__));
+                    propertyvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6476,7 +6476,7 @@ impl IXMLElement2_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement2_Impl::children(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pp, core::mem::transmute(ok__));
+                    pp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6487,7 +6487,7 @@ impl IXMLElement2_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement2_Impl::r#type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pltype, core::mem::transmute(ok__));
+                    pltype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6498,7 +6498,7 @@ impl IXMLElement2_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement2_Impl::text(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6524,7 +6524,7 @@ impl IXMLElement2_Vtbl {
             let this = (*this).get_impl();
             match IXMLElement2_Impl::attributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pp, core::mem::transmute(ok__));
+                    pp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6573,7 +6573,7 @@ impl IXMLElementCollection_Vtbl {
             let this = (*this).get_impl();
             match IXMLElementCollection_Impl::length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(p, core::mem::transmute(ok__));
+                    p.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6584,7 +6584,7 @@ impl IXMLElementCollection_Vtbl {
             let this = (*this).get_impl();
             match IXMLElementCollection_Impl::_newEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6595,7 +6595,7 @@ impl IXMLElementCollection_Vtbl {
             let this = (*this).get_impl();
             match IXMLElementCollection_Impl::item(this, core::mem::transmute(&var1), core::mem::transmute(&var2)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdisp, core::mem::transmute(ok__));
+                    ppdisp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6667,7 +6667,7 @@ impl IXMLHTTPRequest_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest_Impl::getResponseHeader(this, core::mem::transmute(&bstrheader)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrvalue, core::mem::transmute(ok__));
+                    pbstrvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6678,7 +6678,7 @@ impl IXMLHTTPRequest_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest_Impl::getAllResponseHeaders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrheaders, core::mem::transmute(ok__));
+                    pbstrheaders.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6699,7 +6699,7 @@ impl IXMLHTTPRequest_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest_Impl::status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstatus, core::mem::transmute(ok__));
+                    plstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6710,7 +6710,7 @@ impl IXMLHTTPRequest_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest_Impl::statusText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrstatus, core::mem::transmute(ok__));
+                    pbstrstatus.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6721,7 +6721,7 @@ impl IXMLHTTPRequest_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest_Impl::responseXML(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppbody, core::mem::transmute(ok__));
+                    ppbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6732,7 +6732,7 @@ impl IXMLHTTPRequest_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest_Impl::responseText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrbody, core::mem::transmute(ok__));
+                    pbstrbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6743,7 +6743,7 @@ impl IXMLHTTPRequest_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest_Impl::responseBody(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarbody, core::mem::transmute(ok__));
+                    pvarbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6754,7 +6754,7 @@ impl IXMLHTTPRequest_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest_Impl::responseStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvarbody, core::mem::transmute(ok__));
+                    pvarbody.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6765,7 +6765,7 @@ impl IXMLHTTPRequest_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest_Impl::readyState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(plstate, core::mem::transmute(ok__));
+                    plstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6836,7 +6836,7 @@ impl IXMLHTTPRequest2_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest2_Impl::SetCookie(this, core::mem::transmute_copy(&pcookie)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwcookiestate, core::mem::transmute(ok__));
+                    pdwcookiestate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6862,7 +6862,7 @@ impl IXMLHTTPRequest2_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest2_Impl::GetAllResponseHeaders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwszheaders, core::mem::transmute(ok__));
+                    ppwszheaders.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -6878,7 +6878,7 @@ impl IXMLHTTPRequest2_Vtbl {
             let this = (*this).get_impl();
             match IXMLHTTPRequest2_Impl::GetResponseHeader(this, core::mem::transmute(&pwszheader)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwszvalue, core::mem::transmute(ok__));
+                    ppwszvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7035,7 +7035,7 @@ impl IXSLProcessor_Vtbl {
             let this = (*this).get_impl();
             match IXSLProcessor_Impl::input(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvar, core::mem::transmute(ok__));
+                    pvar.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7046,7 +7046,7 @@ impl IXSLProcessor_Vtbl {
             let this = (*this).get_impl();
             match IXSLProcessor_Impl::ownerTemplate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pptemplate, core::mem::transmute(ok__));
+                    pptemplate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7062,7 +7062,7 @@ impl IXSLProcessor_Vtbl {
             let this = (*this).get_impl();
             match IXSLProcessor_Impl::startMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(mode, core::mem::transmute(ok__));
+                    mode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7073,7 +7073,7 @@ impl IXSLProcessor_Vtbl {
             let this = (*this).get_impl();
             match IXSLProcessor_Impl::startModeURI(this) {
                 Ok(ok__) => {
-                    core::ptr::write(namespaceuri, core::mem::transmute(ok__));
+                    namespaceuri.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7089,7 +7089,7 @@ impl IXSLProcessor_Vtbl {
             let this = (*this).get_impl();
             match IXSLProcessor_Impl::output(this) {
                 Ok(ok__) => {
-                    core::ptr::write(poutput, core::mem::transmute(ok__));
+                    poutput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7100,7 +7100,7 @@ impl IXSLProcessor_Vtbl {
             let this = (*this).get_impl();
             match IXSLProcessor_Impl::transform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdone, core::mem::transmute(ok__));
+                    pdone.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7116,7 +7116,7 @@ impl IXSLProcessor_Vtbl {
             let this = (*this).get_impl();
             match IXSLProcessor_Impl::readyState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(preadystate, core::mem::transmute(ok__));
+                    preadystate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7137,7 +7137,7 @@ impl IXSLProcessor_Vtbl {
             let this = (*this).get_impl();
             match IXSLProcessor_Impl::stylesheet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(stylesheet, core::mem::transmute(ok__));
+                    stylesheet.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7186,7 +7186,7 @@ impl IXSLTemplate_Vtbl {
             let this = (*this).get_impl();
             match IXSLTemplate_Impl::stylesheet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(stylesheet, core::mem::transmute(ok__));
+                    stylesheet.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7197,7 +7197,7 @@ impl IXSLTemplate_Vtbl {
             let this = (*this).get_impl();
             match IXSLTemplate_Impl::createProcessor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppprocessor, core::mem::transmute(ok__));
+                    ppprocessor.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7236,7 +7236,7 @@ impl IXTLRuntime_Vtbl {
             let this = (*this).get_impl();
             match IXTLRuntime_Impl::uniqueID(this, windows_core::from_raw_borrowed(&pnode)) {
                 Ok(ok__) => {
-                    core::ptr::write(pid, core::mem::transmute(ok__));
+                    pid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7247,7 +7247,7 @@ impl IXTLRuntime_Vtbl {
             let this = (*this).get_impl();
             match IXTLRuntime_Impl::depth(this, windows_core::from_raw_borrowed(&pnode)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdepth, core::mem::transmute(ok__));
+                    pdepth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7258,7 +7258,7 @@ impl IXTLRuntime_Vtbl {
             let this = (*this).get_impl();
             match IXTLRuntime_Impl::childNumber(this, windows_core::from_raw_borrowed(&pnode)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnumber, core::mem::transmute(ok__));
+                    pnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7269,7 +7269,7 @@ impl IXTLRuntime_Vtbl {
             let this = (*this).get_impl();
             match IXTLRuntime_Impl::ancestorChildNumber(this, core::mem::transmute(&bstrnodename), windows_core::from_raw_borrowed(&pnode)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnumber, core::mem::transmute(ok__));
+                    pnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7280,7 +7280,7 @@ impl IXTLRuntime_Vtbl {
             let this = (*this).get_impl();
             match IXTLRuntime_Impl::absoluteChildNumber(this, windows_core::from_raw_borrowed(&pnode)) {
                 Ok(ok__) => {
-                    core::ptr::write(pnumber, core::mem::transmute(ok__));
+                    pnumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7291,7 +7291,7 @@ impl IXTLRuntime_Vtbl {
             let this = (*this).get_impl();
             match IXTLRuntime_Impl::formatIndex(this, core::mem::transmute_copy(&lindex), core::mem::transmute(&bstrformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrformattedstring, core::mem::transmute(ok__));
+                    pbstrformattedstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7302,7 +7302,7 @@ impl IXTLRuntime_Vtbl {
             let this = (*this).get_impl();
             match IXTLRuntime_Impl::formatNumber(this, core::mem::transmute_copy(&dblnumber), core::mem::transmute(&bstrformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrformattedstring, core::mem::transmute(ok__));
+                    pbstrformattedstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7313,7 +7313,7 @@ impl IXTLRuntime_Vtbl {
             let this = (*this).get_impl();
             match IXTLRuntime_Impl::formatDate(this, core::mem::transmute(&vardate), core::mem::transmute(&bstrformat), core::mem::transmute(&vardestlocale)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrformattedstring, core::mem::transmute(ok__));
+                    pbstrformattedstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -7324,7 +7324,7 @@ impl IXTLRuntime_Vtbl {
             let this = (*this).get_impl();
             match IXTLRuntime_Impl::formatTime(this, core::mem::transmute(&vartime), core::mem::transmute(&bstrformat), core::mem::transmute(&vardestlocale)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrformattedstring, core::mem::transmute(ok__));
+                    pbstrformattedstring.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

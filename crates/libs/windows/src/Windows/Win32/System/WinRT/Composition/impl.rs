@@ -12,7 +12,7 @@ impl ICompositionCapabilitiesInteropFactory_Vtbl {
             let this = (*this).get_impl();
             match ICompositionCapabilitiesInteropFactory_Impl::GetForWindow(this, core::mem::transmute_copy(&hwnd)) {
                 Ok(ok__) => {
-                    core::ptr::write(result, core::mem::transmute(ok__));
+                    result.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -111,7 +111,7 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
             let this = (*this).get_impl();
             match ICompositionGraphicsDeviceInterop_Impl::GetRenderingDevice(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -164,7 +164,7 @@ impl ICompositorDesktopInterop_Vtbl {
             let this = (*this).get_impl();
             match ICompositorDesktopInterop_Impl::CreateDesktopWindowTarget(this, core::mem::transmute_copy(&hwndtarget), core::mem::transmute_copy(&istopmost)) {
                 Ok(ok__) => {
-                    core::ptr::write(result, core::mem::transmute(ok__));
+                    result.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl ICompositorInterop_Vtbl {
             let this = (*this).get_impl();
             match ICompositorInterop_Impl::CreateCompositionSurfaceForHandle(this, core::mem::transmute_copy(&swapchain)) {
                 Ok(ok__) => {
-                    core::ptr::write(result, core::mem::transmute(ok__));
+                    result.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -212,7 +212,7 @@ impl ICompositorInterop_Vtbl {
             let this = (*this).get_impl();
             match ICompositorInterop_Impl::CreateCompositionSurfaceForSwapChain(this, windows_core::from_raw_borrowed(&swapchain)) {
                 Ok(ok__) => {
-                    core::ptr::write(result, core::mem::transmute(ok__));
+                    result.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -223,7 +223,7 @@ impl ICompositorInterop_Vtbl {
             let this = (*this).get_impl();
             match ICompositorInterop_Impl::CreateGraphicsDevice(this, windows_core::from_raw_borrowed(&renderingdevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(result, core::mem::transmute(ok__));
+                    result.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -255,7 +255,7 @@ impl ICompositorInterop2_Vtbl {
             let this = (*this).get_impl();
             match ICompositorInterop2_Impl::CheckCompositionTextureSupport(this, windows_core::from_raw_borrowed(&renderingdevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(supportscompositiontextures, core::mem::transmute(ok__));
+                    supportscompositiontextures.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -266,7 +266,7 @@ impl ICompositorInterop2_Vtbl {
             let this = (*this).get_impl();
             match ICompositorInterop2_Impl::CreateCompositionTexture(this, windows_core::from_raw_borrowed(&d3dtexture)) {
                 Ok(ok__) => {
-                    core::ptr::write(compositiontexture, core::mem::transmute(ok__));
+                    compositiontexture.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -293,7 +293,7 @@ impl IDesktopWindowTargetInterop_Vtbl {
             let this = (*this).get_impl();
             match IDesktopWindowTargetInterop_Impl::Hwnd(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

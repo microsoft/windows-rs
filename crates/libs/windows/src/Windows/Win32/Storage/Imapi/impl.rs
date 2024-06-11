@@ -183,7 +183,7 @@ impl IBlockRange_Vtbl {
             let this = (*this).get_impl();
             match IBlockRange_Impl::StartLba(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -194,7 +194,7 @@ impl IBlockRange_Vtbl {
             let this = (*this).get_impl();
             match IBlockRange_Impl::EndLba(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -224,7 +224,7 @@ impl IBlockRangeList_Vtbl {
             let this = (*this).get_impl();
             match IBlockRangeList_Impl::BlockRanges(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -258,7 +258,7 @@ impl IBootOptions_Vtbl {
             let this = (*this).get_impl();
             match IBootOptions_Impl::BootImage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -269,7 +269,7 @@ impl IBootOptions_Vtbl {
             let this = (*this).get_impl();
             match IBootOptions_Impl::Manufacturer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -285,7 +285,7 @@ impl IBootOptions_Vtbl {
             let this = (*this).get_impl();
             match IBootOptions_Impl::PlatformId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -301,7 +301,7 @@ impl IBootOptions_Vtbl {
             let this = (*this).get_impl();
             match IBootOptions_Impl::Emulation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -317,7 +317,7 @@ impl IBootOptions_Vtbl {
             let this = (*this).get_impl();
             match IBootOptions_Impl::ImageSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -362,7 +362,7 @@ impl IBurnVerification_Vtbl {
             let this = (*this).get_impl();
             match IBurnVerification_Impl::BurnVerificationLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -396,7 +396,7 @@ impl IDiscFormat2_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2_Impl::IsRecorderSupported(this, windows_core::from_raw_borrowed(&recorder)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -407,7 +407,7 @@ impl IDiscFormat2_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2_Impl::IsCurrentMediaSupported(this, windows_core::from_raw_borrowed(&recorder)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -418,7 +418,7 @@ impl IDiscFormat2_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2_Impl::MediaPhysicallyBlank(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl IDiscFormat2_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2_Impl::MediaHeuristicallyBlank(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -440,7 +440,7 @@ impl IDiscFormat2_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2_Impl::SupportedMediaTypes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -509,7 +509,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::Recorder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -525,7 +525,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::BufferUnderrunFreeDisabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -541,7 +541,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::PostgapAlreadyInImage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -552,7 +552,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::CurrentMediaStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -563,7 +563,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::WriteProtectStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -574,7 +574,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::TotalSectorsOnMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -585,7 +585,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::FreeSectorsOnMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -596,7 +596,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::NextWritableAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -607,7 +607,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::StartAddressOfPreviousSession(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -618,7 +618,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::LastWrittenAddressOfPreviousSession(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -634,7 +634,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::ForceMediaToBeClosed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -650,7 +650,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::DisableConsumerDvdCompatibilityMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -661,7 +661,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::CurrentPhysicalMediaType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -677,7 +677,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::ClientName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -688,7 +688,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::RequestedWriteSpeed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -699,7 +699,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::RequestedRotationTypeIsPureCAV(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -710,7 +710,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::CurrentWriteSpeed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -721,7 +721,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::CurrentRotationTypeIsPureCAV(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -732,7 +732,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::SupportedWriteSpeeds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(supportedspeeds, core::mem::transmute(ok__));
+                    supportedspeeds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -743,7 +743,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::SupportedWriteSpeedDescriptors(this) {
                 Ok(ok__) => {
-                    core::ptr::write(supportedspeeddescriptors, core::mem::transmute(ok__));
+                    supportedspeeddescriptors.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -759,7 +759,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::ForceOverwrite(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -770,7 +770,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Data_Impl::MultisessionInterfaces(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -848,7 +848,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2DataEventArgs_Impl::ElapsedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -859,7 +859,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2DataEventArgs_Impl::RemainingTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -870,7 +870,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2DataEventArgs_Impl::TotalTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -881,7 +881,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2DataEventArgs_Impl::CurrentAction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -925,7 +925,7 @@ impl IDiscFormat2Erase_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Erase_Impl::Recorder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -941,7 +941,7 @@ impl IDiscFormat2Erase_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Erase_Impl::FullErase(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -952,7 +952,7 @@ impl IDiscFormat2Erase_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Erase_Impl::CurrentPhysicalMediaType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -968,7 +968,7 @@ impl IDiscFormat2Erase_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2Erase_Impl::ClientName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1067,7 +1067,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::Recorder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1083,7 +1083,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::BufferUnderrunFreeDisabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1094,7 +1094,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::StartOfNextSession(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1105,7 +1105,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::LastPossibleStartOfLeadout(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1116,7 +1116,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::CurrentPhysicalMediaType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1127,7 +1127,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::SupportedSectorTypes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1143,7 +1143,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::RequestedSectorType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1159,7 +1159,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::ClientName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1170,7 +1170,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::RequestedWriteSpeed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1181,7 +1181,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::RequestedRotationTypeIsPureCAV(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1192,7 +1192,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::CurrentWriteSpeed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1203,7 +1203,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::CurrentRotationTypeIsPureCAV(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1214,7 +1214,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::SupportedWriteSpeeds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(supportedspeeds, core::mem::transmute(ok__));
+                    supportedspeeds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1225,7 +1225,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCD_Impl::SupportedWriteSpeedDescriptors(this) {
                 Ok(ok__) => {
-                    core::ptr::write(supportedspeeddescriptors, core::mem::transmute(ok__));
+                    supportedspeeddescriptors.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1279,7 +1279,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCDEventArgs_Impl::CurrentAction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1290,7 +1290,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCDEventArgs_Impl::ElapsedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1301,7 +1301,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2RawCDEventArgs_Impl::RemainingTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1386,7 +1386,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::Recorder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1402,7 +1402,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::BufferUnderrunFreeDisabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1413,7 +1413,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::NumberOfExistingTracks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1424,7 +1424,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::TotalSectorsOnMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1435,7 +1435,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::FreeSectorsOnMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1446,7 +1446,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::UsedSectorsOnMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1462,7 +1462,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::DoNotFinalizeMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1473,7 +1473,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::ExpectedTableOfContents(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1484,7 +1484,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::CurrentPhysicalMediaType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1500,7 +1500,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::ClientName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1511,7 +1511,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::RequestedWriteSpeed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1522,7 +1522,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::RequestedRotationTypeIsPureCAV(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1533,7 +1533,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::CurrentWriteSpeed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1544,7 +1544,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::CurrentRotationTypeIsPureCAV(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1555,7 +1555,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::SupportedWriteSpeeds(this) {
                 Ok(ok__) => {
-                    core::ptr::write(supportedspeeds, core::mem::transmute(ok__));
+                    supportedspeeds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1566,7 +1566,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnce_Impl::SupportedWriteSpeedDescriptors(this) {
                 Ok(ok__) => {
-                    core::ptr::write(supportedspeeddescriptors, core::mem::transmute(ok__));
+                    supportedspeeddescriptors.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1622,7 +1622,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnceEventArgs_Impl::CurrentTrackNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1633,7 +1633,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnceEventArgs_Impl::CurrentAction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1644,7 +1644,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnceEventArgs_Impl::ElapsedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1655,7 +1655,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDiscFormat2TrackAtOnceEventArgs_Impl::RemainingTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1700,7 +1700,7 @@ impl IDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IDiscMaster_Impl::EnumDiscMasterFormats(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1711,7 +1711,7 @@ impl IDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IDiscMaster_Impl::GetActiveDiscMasterFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(lpiid, core::mem::transmute(ok__));
+                    lpiid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1727,7 +1727,7 @@ impl IDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IDiscMaster_Impl::EnumDiscRecorders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1738,7 +1738,7 @@ impl IDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IDiscMaster_Impl::GetActiveDiscRecorder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pprecorder, core::mem::transmute(ok__));
+                    pprecorder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1759,7 +1759,7 @@ impl IDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IDiscMaster_Impl::ProgressAdvise(this, windows_core::from_raw_borrowed(&pevents)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvcookie, core::mem::transmute(ok__));
+                    pvcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1817,7 +1817,7 @@ impl IDiscMaster2_Vtbl {
             let this = (*this).get_impl();
             match IDiscMaster2_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunk, core::mem::transmute(ok__));
+                    ppunk.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1828,7 +1828,7 @@ impl IDiscMaster2_Vtbl {
             let this = (*this).get_impl();
             match IDiscMaster2_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1839,7 +1839,7 @@ impl IDiscMaster2_Vtbl {
             let this = (*this).get_impl();
             match IDiscMaster2_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1850,7 +1850,7 @@ impl IDiscMaster2_Vtbl {
             let this = (*this).get_impl();
             match IDiscMaster2_Impl::IsSupportedEnvironment(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1887,7 +1887,7 @@ impl IDiscMasterProgressEvents_Vtbl {
             let this = (*this).get_impl();
             match IDiscMasterProgressEvents_Impl::QueryCancel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbcancel, core::mem::transmute(ok__));
+                    pbcancel.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1988,7 +1988,7 @@ impl IDiscRecorder_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder_Impl::GetRecorderType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ftypecode, core::mem::transmute(ok__));
+                    ftypecode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2004,7 +2004,7 @@ impl IDiscRecorder_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder_Impl::GetBasePnPID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrbasepnpid, core::mem::transmute(ok__));
+                    pbstrbasepnpid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2015,7 +2015,7 @@ impl IDiscRecorder_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder_Impl::GetPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrpath, core::mem::transmute(ok__));
+                    pbstrpath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2026,7 +2026,7 @@ impl IDiscRecorder_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder_Impl::GetRecorderProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppropstg, core::mem::transmute(ok__));
+                    pppropstg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2042,7 +2042,7 @@ impl IDiscRecorder_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder_Impl::GetRecorderState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(puldevstateflags, core::mem::transmute(ok__));
+                    puldevstateflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2170,7 +2170,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::ActiveDiscRecorder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2181,7 +2181,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::VendorId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2192,7 +2192,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::ProductId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2203,7 +2203,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::ProductRevision(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2214,7 +2214,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::VolumeName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2225,7 +2225,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::VolumePathNames(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2236,7 +2236,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::DeviceCanLoadMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2247,7 +2247,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::LegacyDeviceNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(legacydevicenumber, core::mem::transmute(ok__));
+                    legacydevicenumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2258,7 +2258,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::SupportedFeaturePages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2269,7 +2269,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::CurrentFeaturePages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2280,7 +2280,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::SupportedProfiles(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2291,7 +2291,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::CurrentProfiles(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2302,7 +2302,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::SupportedModePages(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2313,7 +2313,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2_Impl::ExclusiveAccessOwner(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2451,7 +2451,7 @@ impl IDiscRecorder2Ex_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2Ex_Impl::GetByteAlignmentMask(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2462,7 +2462,7 @@ impl IDiscRecorder2Ex_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2Ex_Impl::GetMaximumNonPageAlignedTransferSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2473,7 +2473,7 @@ impl IDiscRecorder2Ex_Vtbl {
             let this = (*this).get_impl();
             match IDiscRecorder2Ex_Impl::GetMaximumPageAlignedTransferSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2534,7 +2534,7 @@ impl IEnumDiscMasterFormats_Vtbl {
             let this = (*this).get_impl();
             match IEnumDiscMasterFormats_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2581,7 +2581,7 @@ impl IEnumDiscRecorders_Vtbl {
             let this = (*this).get_impl();
             match IEnumDiscRecorders_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2631,7 +2631,7 @@ impl IEnumFsiItems_Vtbl {
             let this = (*this).get_impl();
             match IEnumFsiItems_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2681,7 +2681,7 @@ impl IEnumProgressItems_Vtbl {
             let this = (*this).get_impl();
             match IEnumProgressItems_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2762,7 +2762,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::Root(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2773,7 +2773,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::SessionStartBlock(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2789,7 +2789,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::FreeMediaBlocks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2810,7 +2810,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::UsedBlocks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2821,7 +2821,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::VolumeName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2837,7 +2837,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::ImportedVolumeName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2848,7 +2848,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::BootImageOptions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2864,7 +2864,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::FileCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2875,7 +2875,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::DirectoryCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2886,7 +2886,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::WorkingDirectory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2902,7 +2902,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::ChangePoint(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2913,7 +2913,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::StrictFileSystemCompliance(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2929,7 +2929,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::UseRestrictedCharacterSet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2945,7 +2945,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::FileSystemsToCreate(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2961,7 +2961,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::FileSystemsSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2977,7 +2977,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::UDFRevision(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2988,7 +2988,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::UDFRevisionsSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3014,7 +3014,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::ISO9660InterchangeLevel(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3025,7 +3025,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::ISO9660InterchangeLevelsSupported(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3036,7 +3036,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::CreateResultImage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(resultstream, core::mem::transmute(ok__));
+                    resultstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3047,7 +3047,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::Exists(this, core::mem::transmute(&fullpath)) {
                 Ok(ok__) => {
-                    core::ptr::write(itemtype, core::mem::transmute(ok__));
+                    itemtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3058,7 +3058,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::CalculateDiscIdentifier(this) {
                 Ok(ok__) => {
-                    core::ptr::write(discidentifier, core::mem::transmute(ok__));
+                    discidentifier.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3069,7 +3069,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::IdentifyFileSystemsOnDisc(this, windows_core::from_raw_borrowed(&discrecorder)) {
                 Ok(ok__) => {
-                    core::ptr::write(filesystems, core::mem::transmute(ok__));
+                    filesystems.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3080,7 +3080,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::GetDefaultFileSystemForImport(this, core::mem::transmute_copy(&filesystems)) {
                 Ok(ok__) => {
-                    core::ptr::write(importdefault, core::mem::transmute(ok__));
+                    importdefault.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3091,7 +3091,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::ImportFileSystem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(importedfilesystem, core::mem::transmute(ok__));
+                    importedfilesystem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3117,7 +3117,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::CreateDirectoryItem(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(newitem, core::mem::transmute(ok__));
+                    newitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3128,7 +3128,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::CreateFileItem(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(newitem, core::mem::transmute(ok__));
+                    newitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3139,7 +3139,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::VolumeNameUDF(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3150,7 +3150,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::VolumeNameJoliet(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3161,7 +3161,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::VolumeNameISO9660(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3172,7 +3172,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::StageFiles(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3188,7 +3188,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage_Impl::MultisessionInterfaces(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3272,7 +3272,7 @@ impl IFileSystemImage2_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage2_Impl::BootImageOptionsArray(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3309,7 +3309,7 @@ impl IFileSystemImage3_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage3_Impl::CreateRedundantUdfMetadataFiles(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3325,7 +3325,7 @@ impl IFileSystemImage3_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImage3_Impl::ProbeSpecificFileSystem(this, core::mem::transmute_copy(&filesystemtoprobe)) {
                 Ok(ok__) => {
-                    core::ptr::write(isappendable, core::mem::transmute(ok__));
+                    isappendable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3360,7 +3360,7 @@ impl IFileSystemImageResult_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImageResult_Impl::ImageStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3371,7 +3371,7 @@ impl IFileSystemImageResult_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImageResult_Impl::ProgressItems(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3382,7 +3382,7 @@ impl IFileSystemImageResult_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImageResult_Impl::TotalBlocks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3393,7 +3393,7 @@ impl IFileSystemImageResult_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImageResult_Impl::BlockSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3404,7 +3404,7 @@ impl IFileSystemImageResult_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImageResult_Impl::DiscId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3437,7 +3437,7 @@ impl IFileSystemImageResult2_Vtbl {
             let this = (*this).get_impl();
             match IFileSystemImageResult2_Impl::ModifiedBlocks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3472,7 +3472,7 @@ impl IFsiDirectoryItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiDirectoryItem_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newenum, core::mem::transmute(ok__));
+                    newenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3483,7 +3483,7 @@ impl IFsiDirectoryItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiDirectoryItem_Impl::get_Item(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3494,7 +3494,7 @@ impl IFsiDirectoryItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiDirectoryItem_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3505,7 +3505,7 @@ impl IFsiDirectoryItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiDirectoryItem_Impl::EnumFsiItems(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newenum, core::mem::transmute(ok__));
+                    newenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3597,7 +3597,7 @@ impl IFsiFileItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiFileItem_Impl::DataSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3608,7 +3608,7 @@ impl IFsiFileItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiFileItem_Impl::DataSize32BitLow(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3619,7 +3619,7 @@ impl IFsiFileItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiFileItem_Impl::DataSize32BitHigh(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3630,7 +3630,7 @@ impl IFsiFileItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiFileItem_Impl::Data(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3673,7 +3673,7 @@ impl IFsiFileItem2_Vtbl {
             let this = (*this).get_impl();
             match IFsiFileItem2_Impl::FsiNamedStreams(this) {
                 Ok(ok__) => {
-                    core::ptr::write(streams, core::mem::transmute(ok__));
+                    streams.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3684,7 +3684,7 @@ impl IFsiFileItem2_Vtbl {
             let this = (*this).get_impl();
             match IFsiFileItem2_Impl::IsNamedStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3705,7 +3705,7 @@ impl IFsiFileItem2_Vtbl {
             let this = (*this).get_impl();
             match IFsiFileItem2_Impl::IsRealTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3755,7 +3755,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiItem_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3766,7 +3766,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiItem_Impl::FullPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3777,7 +3777,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiItem_Impl::CreationTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3793,7 +3793,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiItem_Impl::LastAccessedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3809,7 +3809,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiItem_Impl::LastModifiedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3825,7 +3825,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiItem_Impl::IsHidden(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3841,7 +3841,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiItem_Impl::FileSystemName(this, core::mem::transmute_copy(&filesystem)) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3852,7 +3852,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match IFsiItem_Impl::FileSystemPath(this, core::mem::transmute_copy(&filesystem)) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3895,7 +3895,7 @@ impl IFsiNamedStreams_Vtbl {
             let this = (*this).get_impl();
             match IFsiNamedStreams_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newenum, core::mem::transmute(ok__));
+                    newenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3906,7 +3906,7 @@ impl IFsiNamedStreams_Vtbl {
             let this = (*this).get_impl();
             match IFsiNamedStreams_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3917,7 +3917,7 @@ impl IFsiNamedStreams_Vtbl {
             let this = (*this).get_impl();
             match IFsiNamedStreams_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3928,7 +3928,7 @@ impl IFsiNamedStreams_Vtbl {
             let this = (*this).get_impl();
             match IFsiNamedStreams_Impl::EnumNamedStreams(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newenum, core::mem::transmute(ok__));
+                    newenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3964,7 +3964,7 @@ impl IIsoImageManager_Vtbl {
             let this = (*this).get_impl();
             match IIsoImageManager_Impl::Path(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pval, core::mem::transmute(ok__));
+                    pval.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -3975,7 +3975,7 @@ impl IIsoImageManager_Vtbl {
             let this = (*this).get_impl();
             match IIsoImageManager_Impl::Stream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(data, core::mem::transmute(ok__));
+                    data.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4028,7 +4028,7 @@ impl IJolietDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IJolietDiscMaster_Impl::GetTotalDataBlocks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnblocks, core::mem::transmute(ok__));
+                    pnblocks.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4039,7 +4039,7 @@ impl IJolietDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IJolietDiscMaster_Impl::GetUsedDataBlocks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnblocks, core::mem::transmute(ok__));
+                    pnblocks.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4050,7 +4050,7 @@ impl IJolietDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IJolietDiscMaster_Impl::GetDataBlockSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnblockbytes, core::mem::transmute(ok__));
+                    pnblockbytes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4066,7 +4066,7 @@ impl IJolietDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IJolietDiscMaster_Impl::GetJolietProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pppropstg, core::mem::transmute(ok__));
+                    pppropstg.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4108,7 +4108,7 @@ impl IMultisession_Vtbl {
             let this = (*this).get_impl();
             match IMultisession_Impl::IsSupportedOnCurrentMediaState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4124,7 +4124,7 @@ impl IMultisession_Vtbl {
             let this = (*this).get_impl();
             match IMultisession_Impl::InUse(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4135,7 +4135,7 @@ impl IMultisession_Vtbl {
             let this = (*this).get_impl();
             match IMultisession_Impl::ImportRecorder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4169,7 +4169,7 @@ impl IMultisessionRandomWrite_Vtbl {
             let this = (*this).get_impl();
             match IMultisessionRandomWrite_Impl::WriteUnitSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4180,7 +4180,7 @@ impl IMultisessionRandomWrite_Vtbl {
             let this = (*this).get_impl();
             match IMultisessionRandomWrite_Impl::LastWrittenAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4191,7 +4191,7 @@ impl IMultisessionRandomWrite_Vtbl {
             let this = (*this).get_impl();
             match IMultisessionRandomWrite_Impl::TotalSectorsOnMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4226,7 +4226,7 @@ impl IMultisessionSequential_Vtbl {
             let this = (*this).get_impl();
             match IMultisessionSequential_Impl::IsFirstDataSession(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4237,7 +4237,7 @@ impl IMultisessionSequential_Vtbl {
             let this = (*this).get_impl();
             match IMultisessionSequential_Impl::StartAddressOfPreviousSession(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4248,7 +4248,7 @@ impl IMultisessionSequential_Vtbl {
             let this = (*this).get_impl();
             match IMultisessionSequential_Impl::LastWrittenAddressOfPreviousSession(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4259,7 +4259,7 @@ impl IMultisessionSequential_Vtbl {
             let this = (*this).get_impl();
             match IMultisessionSequential_Impl::NextWritableAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4270,7 +4270,7 @@ impl IMultisessionSequential_Vtbl {
             let this = (*this).get_impl();
             match IMultisessionSequential_Impl::FreeSectorsOnMedia(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4303,7 +4303,7 @@ impl IMultisessionSequential2_Vtbl {
             let this = (*this).get_impl();
             match IMultisessionSequential2_Impl::WriteUnitSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4332,7 +4332,7 @@ impl IProgressItem_Vtbl {
             let this = (*this).get_impl();
             match IProgressItem_Impl::Description(this) {
                 Ok(ok__) => {
-                    core::ptr::write(desc, core::mem::transmute(ok__));
+                    desc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4343,7 +4343,7 @@ impl IProgressItem_Vtbl {
             let this = (*this).get_impl();
             match IProgressItem_Impl::FirstBlock(this) {
                 Ok(ok__) => {
-                    core::ptr::write(block, core::mem::transmute(ok__));
+                    block.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4354,7 +4354,7 @@ impl IProgressItem_Vtbl {
             let this = (*this).get_impl();
             match IProgressItem_Impl::LastBlock(this) {
                 Ok(ok__) => {
-                    core::ptr::write(block, core::mem::transmute(ok__));
+                    block.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4365,7 +4365,7 @@ impl IProgressItem_Vtbl {
             let this = (*this).get_impl();
             match IProgressItem_Impl::BlockCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(blocks, core::mem::transmute(ok__));
+                    blocks.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4402,7 +4402,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match IProgressItems_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newenum, core::mem::transmute(ok__));
+                    newenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4413,7 +4413,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match IProgressItems_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4424,7 +4424,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match IProgressItems_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4435,7 +4435,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match IProgressItems_Impl::ProgressItemFromBlock(this, core::mem::transmute_copy(&block)) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4446,7 +4446,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match IProgressItems_Impl::ProgressItemFromDescription(this, core::mem::transmute(&description)) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4457,7 +4457,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match IProgressItems_Impl::EnumProgressItems(this) {
                 Ok(ok__) => {
-                    core::ptr::write(newenum, core::mem::transmute(ok__));
+                    newenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4509,7 +4509,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::CreateResultImage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(resultstream, core::mem::transmute(ok__));
+                    resultstream.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4520,7 +4520,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::AddTrack(this, core::mem::transmute_copy(&datatype), windows_core::from_raw_borrowed(&data)) {
                 Ok(ok__) => {
-                    core::ptr::write(trackindex, core::mem::transmute(ok__));
+                    trackindex.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4546,7 +4546,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::ResultingImageType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4557,7 +4557,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::StartOfLeadout(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4573,7 +4573,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::StartOfLeadoutLimit(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4589,7 +4589,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::DisableGaplessAudio(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4605,7 +4605,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::MediaCatalogNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4621,7 +4621,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::StartingTrackNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4632,7 +4632,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::get_TrackInfo(this, core::mem::transmute_copy(&trackindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4643,7 +4643,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::NumberOfExistingTracks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4654,7 +4654,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::LastUsedUserSectorInImage(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4665,7 +4665,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageCreator_Impl::ExpectedTableOfContents(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4724,7 +4724,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageTrackInfo_Impl::StartingLba(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4735,7 +4735,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageTrackInfo_Impl::SectorCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4746,7 +4746,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageTrackInfo_Impl::TrackNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4757,7 +4757,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageTrackInfo_Impl::SectorType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4768,7 +4768,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageTrackInfo_Impl::ISRC(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4784,7 +4784,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageTrackInfo_Impl::DigitalAudioCopySetting(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4800,7 +4800,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageTrackInfo_Impl::AudioHasPreemphasis(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4816,7 +4816,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match IRawCDImageTrackInfo_Impl::TrackIndexes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4871,7 +4871,7 @@ impl IRedbookDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IRedbookDiscMaster_Impl::GetTotalAudioTracks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pntracks, core::mem::transmute(ok__));
+                    pntracks.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4882,7 +4882,7 @@ impl IRedbookDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IRedbookDiscMaster_Impl::GetTotalAudioBlocks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnblocks, core::mem::transmute(ok__));
+                    pnblocks.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4893,7 +4893,7 @@ impl IRedbookDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IRedbookDiscMaster_Impl::GetUsedAudioBlocks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnblocks, core::mem::transmute(ok__));
+                    pnblocks.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4904,7 +4904,7 @@ impl IRedbookDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IRedbookDiscMaster_Impl::GetAvailableAudioTrackBlocks(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnblocks, core::mem::transmute(ok__));
+                    pnblocks.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -4915,7 +4915,7 @@ impl IRedbookDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match IRedbookDiscMaster_Impl::GetAudioBlockSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnblockbytes, core::mem::transmute(ok__));
+                    pnblockbytes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5038,7 +5038,7 @@ impl IStreamPseudoRandomBased_Vtbl {
             let this = (*this).get_impl();
             match IStreamPseudoRandomBased_Impl::Seed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5107,7 +5107,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2_Impl::Recorder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5123,7 +5123,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2_Impl::UseStreamingWrite12(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5139,7 +5139,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2_Impl::StartingSectorsPerSecond(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5155,7 +5155,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2_Impl::EndingSectorsPerSecond(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5171,7 +5171,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2_Impl::BytesPerSector(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5182,7 +5182,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2_Impl::WriteInProgress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5229,7 +5229,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2EventArgs_Impl::StartLba(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5240,7 +5240,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2EventArgs_Impl::SectorCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5251,7 +5251,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2EventArgs_Impl::LastReadLba(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5262,7 +5262,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2EventArgs_Impl::LastWrittenLba(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5273,7 +5273,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2EventArgs_Impl::TotalSystemBuffer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5284,7 +5284,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2EventArgs_Impl::UsedSystemBuffer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5295,7 +5295,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match IWriteEngine2EventArgs_Impl::FreeSystemBuffer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5332,7 +5332,7 @@ impl IWriteSpeedDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IWriteSpeedDescriptor_Impl::MediaType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5343,7 +5343,7 @@ impl IWriteSpeedDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IWriteSpeedDescriptor_Impl::RotationTypeIsPureCAV(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -5354,7 +5354,7 @@ impl IWriteSpeedDescriptor_Vtbl {
             let this = (*this).get_impl();
             match IWriteSpeedDescriptor_Impl::WriteSpeed(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

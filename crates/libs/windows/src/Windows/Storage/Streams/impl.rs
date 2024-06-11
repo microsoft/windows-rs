@@ -13,7 +13,7 @@ impl IBuffer_Vtbl {
             let this = (*this).get_impl();
             match IBuffer_Impl::Capacity(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -24,7 +24,7 @@ impl IBuffer_Vtbl {
             let this = (*this).get_impl();
             match IBuffer_Impl::Length(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -59,7 +59,7 @@ impl IContentTypeProvider_Vtbl {
             let this = (*this).get_impl();
             match IContentTypeProvider_Impl::ContentType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -110,7 +110,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::UnconsumedBufferLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -121,7 +121,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::UnicodeEncoding(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -137,7 +137,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ByteOrder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -153,7 +153,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::InputStreamOptions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -169,7 +169,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadByte(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -185,7 +185,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadBuffer(this, length) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -197,7 +197,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadBoolean(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -208,7 +208,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadGuid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -219,7 +219,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadInt16(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -230,7 +230,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadInt32(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -241,7 +241,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadInt64(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -252,7 +252,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadUInt16(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -263,7 +263,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadUInt32(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -274,7 +274,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadUInt64(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -285,7 +285,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadSingle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -296,7 +296,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadDouble(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -307,7 +307,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadString(this, codeunitcount) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -319,7 +319,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadDateTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -330,7 +330,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::ReadTimeSpan(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -341,7 +341,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::LoadAsync(this, count) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -353,7 +353,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::DetachBuffer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -365,7 +365,7 @@ impl IDataReader_Vtbl {
             let this = (*this).get_impl();
             match IDataReader_Impl::DetachStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -445,7 +445,7 @@ impl IDataWriter_Vtbl {
             let this = (*this).get_impl();
             match IDataWriter_Impl::UnstoredBufferLength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -456,7 +456,7 @@ impl IDataWriter_Vtbl {
             let this = (*this).get_impl();
             match IDataWriter_Impl::UnicodeEncoding(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -472,7 +472,7 @@ impl IDataWriter_Vtbl {
             let this = (*this).get_impl();
             match IDataWriter_Impl::ByteOrder(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -568,7 +568,7 @@ impl IDataWriter_Vtbl {
             let this = (*this).get_impl();
             match IDataWriter_Impl::WriteString(this, core::mem::transmute(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -579,7 +579,7 @@ impl IDataWriter_Vtbl {
             let this = (*this).get_impl();
             match IDataWriter_Impl::MeasureString(this, core::mem::transmute(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -590,7 +590,7 @@ impl IDataWriter_Vtbl {
             let this = (*this).get_impl();
             match IDataWriter_Impl::StoreAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -602,7 +602,7 @@ impl IDataWriter_Vtbl {
             let this = (*this).get_impl();
             match IDataWriter_Impl::FlushAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -614,7 +614,7 @@ impl IDataWriter_Vtbl {
             let this = (*this).get_impl();
             match IDataWriter_Impl::DetachBuffer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -626,7 +626,7 @@ impl IDataWriter_Vtbl {
             let this = (*this).get_impl();
             match IDataWriter_Impl::DetachStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -681,7 +681,7 @@ impl IInputStream_Vtbl {
             let this = (*this).get_impl();
             match IInputStream_Impl::ReadAsync(this, windows_core::from_raw_borrowed(&buffer), count, options) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -707,7 +707,7 @@ impl IInputStreamReference_Vtbl {
             let this = (*this).get_impl();
             match IInputStreamReference_Impl::OpenSequentialReadAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -737,7 +737,7 @@ impl IOutputStream_Vtbl {
             let this = (*this).get_impl();
             match IOutputStream_Impl::WriteAsync(this, windows_core::from_raw_borrowed(&buffer)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -749,7 +749,7 @@ impl IOutputStream_Vtbl {
             let this = (*this).get_impl();
             match IOutputStream_Impl::FlushAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -783,7 +783,7 @@ impl IPropertySetSerializer_Vtbl {
             let this = (*this).get_impl();
             match IPropertySetSerializer_Impl::Serialize(this, windows_core::from_raw_borrowed(&propertyset)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -826,7 +826,7 @@ impl IRandomAccessStream_Vtbl {
             let this = (*this).get_impl();
             match IRandomAccessStream_Impl::Size(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -842,7 +842,7 @@ impl IRandomAccessStream_Vtbl {
             let this = (*this).get_impl();
             match IRandomAccessStream_Impl::GetInputStreamAt(this, position) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -854,7 +854,7 @@ impl IRandomAccessStream_Vtbl {
             let this = (*this).get_impl();
             match IRandomAccessStream_Impl::GetOutputStreamAt(this, position) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -866,7 +866,7 @@ impl IRandomAccessStream_Vtbl {
             let this = (*this).get_impl();
             match IRandomAccessStream_Impl::Position(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -882,7 +882,7 @@ impl IRandomAccessStream_Vtbl {
             let this = (*this).get_impl();
             match IRandomAccessStream_Impl::CloneStream(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -894,7 +894,7 @@ impl IRandomAccessStream_Vtbl {
             let this = (*this).get_impl();
             match IRandomAccessStream_Impl::CanRead(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -905,7 +905,7 @@ impl IRandomAccessStream_Vtbl {
             let this = (*this).get_impl();
             match IRandomAccessStream_Impl::CanWrite(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -941,7 +941,7 @@ impl IRandomAccessStreamReference_Vtbl {
             let this = (*this).get_impl();
             match IRandomAccessStreamReference_Impl::OpenReadAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

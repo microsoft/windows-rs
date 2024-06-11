@@ -22,7 +22,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match IGameController_Impl::HeadsetConnected(this, windows_core::from_raw_borrowed(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -38,7 +38,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match IGameController_Impl::HeadsetDisconnected(this, windows_core::from_raw_borrowed(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -54,7 +54,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match IGameController_Impl::UserChanged(this, windows_core::from_raw_borrowed(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -70,7 +70,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match IGameController_Impl::Headset(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -82,7 +82,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match IGameController_Impl::IsWireless(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -93,7 +93,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match IGameController_Impl::User(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -133,7 +133,7 @@ impl IGameControllerBatteryInfo_Vtbl {
             let this = (*this).get_impl();
             match IGameControllerBatteryInfo_Impl::TryGetBatteryReport(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

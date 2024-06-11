@@ -31,7 +31,7 @@ impl IApoAuxiliaryInputConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IApoAuxiliaryInputConfiguration_Impl::IsInputFormatSupported(this, windows_core::from_raw_borrowed(&prequestedinputformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsupportedinputformat, core::mem::transmute(ok__));
+                    ppsupportedinputformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -99,7 +99,7 @@ impl IAudioMediaType_Vtbl {
             let this = (*this).get_impl();
             match IAudioMediaType_Impl::IsCompressedFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pfcompressed, core::mem::transmute(ok__));
+                    pfcompressed.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -110,7 +110,7 @@ impl IAudioMediaType_Vtbl {
             let this = (*this).get_impl();
             match IAudioMediaType_Impl::IsEqual(this, windows_core::from_raw_borrowed(&piaudiotype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwflags, core::mem::transmute(ok__));
+                    pdwflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -160,7 +160,7 @@ impl IAudioProcessingObject_Vtbl {
             let this = (*this).get_impl();
             match IAudioProcessingObject_Impl::GetLatency(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptime, core::mem::transmute(ok__));
+                    ptime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -171,7 +171,7 @@ impl IAudioProcessingObject_Vtbl {
             let this = (*this).get_impl();
             match IAudioProcessingObject_Impl::GetRegistrationProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppregprops, core::mem::transmute(ok__));
+                    ppregprops.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -187,7 +187,7 @@ impl IAudioProcessingObject_Vtbl {
             let this = (*this).get_impl();
             match IAudioProcessingObject_Impl::IsInputFormatSupported(this, windows_core::from_raw_borrowed(&poppositeformat), windows_core::from_raw_borrowed(&prequestedinputformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsupportedinputformat, core::mem::transmute(ok__));
+                    ppsupportedinputformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -198,7 +198,7 @@ impl IAudioProcessingObject_Vtbl {
             let this = (*this).get_impl();
             match IAudioProcessingObject_Impl::IsOutputFormatSupported(this, windows_core::from_raw_borrowed(&poppositeformat), windows_core::from_raw_borrowed(&prequestedoutputformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsupportedoutputformat, core::mem::transmute(ok__));
+                    ppsupportedoutputformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -209,7 +209,7 @@ impl IAudioProcessingObject_Vtbl {
             let this = (*this).get_impl();
             match IAudioProcessingObject_Impl::GetInputChannelCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pu32channelcount, core::mem::transmute(ok__));
+                    pu32channelcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -372,7 +372,7 @@ impl IAudioProcessingObjectRTQueueService_Vtbl {
             let this = (*this).get_impl();
             match IAudioProcessingObjectRTQueueService_Impl::GetRealTimeWorkQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(workqueueid, core::mem::transmute(ok__));
+                    workqueueid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -396,7 +396,7 @@ impl IAudioProcessingObjectVBR_Vtbl {
             let this = (*this).get_impl();
             match IAudioProcessingObjectVBR_Impl::CalcMaxInputFrames(this, core::mem::transmute_copy(&u32maxoutputframecount)) {
                 Ok(ok__) => {
-                    core::ptr::write(pu32inputframecount, core::mem::transmute(ok__));
+                    pu32inputframecount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -407,7 +407,7 @@ impl IAudioProcessingObjectVBR_Vtbl {
             let this = (*this).get_impl();
             match IAudioProcessingObjectVBR_Impl::CalcMaxOutputFrames(this, core::mem::transmute_copy(&u32maxinputframecount)) {
                 Ok(ok__) => {
-                    core::ptr::write(pu32outputframecount, core::mem::transmute(ok__));
+                    pu32outputframecount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -490,7 +490,7 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
             let this = (*this).get_impl();
             match IAudioSystemEffectsCustomFormats_Impl::GetFormatCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcformats, core::mem::transmute(ok__));
+                    pcformats.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -501,7 +501,7 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
             let this = (*this).get_impl();
             match IAudioSystemEffectsCustomFormats_Impl::GetFormat(this, core::mem::transmute_copy(&nformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppformat, core::mem::transmute(ok__));
+                    ppformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -512,7 +512,7 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
             let this = (*this).get_impl();
             match IAudioSystemEffectsCustomFormats_Impl::GetFormatRepresentation(this, core::mem::transmute_copy(&nformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwstrformatrep, core::mem::transmute(ok__));
+                    ppwstrformatrep.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

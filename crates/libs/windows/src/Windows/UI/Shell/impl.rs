@@ -11,7 +11,7 @@ impl IAdaptiveCard_Vtbl {
             let this = (*this).get_impl();
             match IAdaptiveCard_Impl::ToJson(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -37,7 +37,7 @@ impl IAdaptiveCardBuilderStatics_Vtbl {
             let this = (*this).get_impl();
             match IAdaptiveCardBuilderStatics_Impl::CreateAdaptiveCardFromJson(this, core::mem::transmute(&value)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

@@ -28,7 +28,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnection_Impl::ConnectionID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(connectionid, core::mem::transmute(ok__));
+                    connectionid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -39,7 +39,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnection_Impl::InterfaceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(interfaceid, core::mem::transmute(ok__));
+                    interfaceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -50,7 +50,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnection_Impl::Connect(this, core::mem::transmute_copy(&connectionmode), core::mem::transmute(&strprofile)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -61,7 +61,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnection_Impl::Disconnect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -77,7 +77,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnection_Impl::GetVoiceCallState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(voicecallstate, core::mem::transmute(ok__));
+                    voicecallstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -88,7 +88,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnection_Impl::GetActivationNetworkError(this) {
                 Ok(ok__) => {
-                    core::ptr::write(networkerror, core::mem::transmute(ok__));
+                    networkerror.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -124,7 +124,7 @@ impl IMbnConnectionContext_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnectionContext_Impl::GetProvisionedContexts(this) {
                 Ok(ok__) => {
-                    core::ptr::write(provisionedcontexts, core::mem::transmute(ok__));
+                    provisionedcontexts.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -135,7 +135,7 @@ impl IMbnConnectionContext_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnectionContext_Impl::SetProvisionedContext(this, core::mem::transmute(&provisionedcontexts), core::mem::transmute(&providerid)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl IMbnConnectionManager_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnectionManager_Impl::GetConnection(this, core::mem::transmute(&connectionid)) {
                 Ok(ok__) => {
-                    core::ptr::write(mbnconnection, core::mem::transmute(ok__));
+                    mbnconnection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -245,7 +245,7 @@ impl IMbnConnectionManager_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnectionManager_Impl::GetConnections(this) {
                 Ok(ok__) => {
-                    core::ptr::write(mbnconnections, core::mem::transmute(ok__));
+                    mbnconnections.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -301,7 +301,7 @@ impl IMbnConnectionProfile_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnectionProfile_Impl::GetProfileXmlData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(profiledata, core::mem::transmute(ok__));
+                    profiledata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -361,7 +361,7 @@ impl IMbnConnectionProfileManager_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnectionProfileManager_Impl::GetConnectionProfiles(this, windows_core::from_raw_borrowed(&mbninterface)) {
                 Ok(ok__) => {
-                    core::ptr::write(connectionprofiles, core::mem::transmute(ok__));
+                    connectionprofiles.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -372,7 +372,7 @@ impl IMbnConnectionProfileManager_Vtbl {
             let this = (*this).get_impl();
             match IMbnConnectionProfileManager_Impl::GetConnectionProfile(this, windows_core::from_raw_borrowed(&mbninterface), core::mem::transmute(&profilename)) {
                 Ok(ok__) => {
-                    core::ptr::write(connectionprofile, core::mem::transmute(ok__));
+                    connectionprofile.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -446,7 +446,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::QuerySupportedCommands(this) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -457,7 +457,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::OpenCommandSession(this) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -468,7 +468,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::CloseCommandSession(this) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -479,7 +479,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::SetCommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&deviceservicedata)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -490,7 +490,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::QueryCommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&deviceservicedata)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -501,7 +501,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::OpenDataSession(this) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -512,7 +512,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::CloseDataSession(this) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -523,7 +523,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::WriteData(this, core::mem::transmute_copy(&deviceservicedata)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -534,7 +534,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::InterfaceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(interfaceid, core::mem::transmute(ok__));
+                    interfaceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -545,7 +545,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::DeviceServiceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(deviceserviceid, core::mem::transmute(ok__));
+                    deviceserviceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -556,7 +556,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::IsCommandSessionOpen(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -567,7 +567,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceService_Impl::IsDataSessionOpen(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -627,7 +627,7 @@ impl IMbnDeviceServicesContext_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceServicesContext_Impl::EnumerateDeviceServices(this) {
                 Ok(ok__) => {
-                    core::ptr::write(deviceservices, core::mem::transmute(ok__));
+                    deviceservices.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -638,7 +638,7 @@ impl IMbnDeviceServicesContext_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceServicesContext_Impl::GetDeviceService(this, core::mem::transmute(&deviceserviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(mbndeviceservice, core::mem::transmute(ok__));
+                    mbndeviceservice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -649,7 +649,7 @@ impl IMbnDeviceServicesContext_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceServicesContext_Impl::MaxCommandSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(maxcommandsize, core::mem::transmute(ok__));
+                    maxcommandsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -660,7 +660,7 @@ impl IMbnDeviceServicesContext_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceServicesContext_Impl::MaxDataSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(maxdatasize, core::mem::transmute(ok__));
+                    maxdatasize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -782,7 +782,7 @@ impl IMbnDeviceServicesManager_Vtbl {
             let this = (*this).get_impl();
             match IMbnDeviceServicesManager_Impl::GetDeviceServicesContext(this, core::mem::transmute(&networkinterfaceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(mbndevicescontext, core::mem::transmute(ok__));
+                    mbndevicescontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -818,7 +818,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterface_Impl::InterfaceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(interfaceid, core::mem::transmute(ok__));
+                    interfaceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -834,7 +834,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterface_Impl::GetSubscriberInformation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(subscriberinformation, core::mem::transmute(ok__));
+                    subscriberinformation.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -845,7 +845,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterface_Impl::GetReadyState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(readystate, core::mem::transmute(ok__));
+                    readystate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -856,7 +856,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterface_Impl::InEmergencyMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(emergencymode, core::mem::transmute(ok__));
+                    emergencymode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -867,7 +867,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterface_Impl::GetHomeProvider(this) {
                 Ok(ok__) => {
-                    core::ptr::write(homeprovider, core::mem::transmute(ok__));
+                    homeprovider.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -878,7 +878,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterface_Impl::GetPreferredProviders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(preferredproviders, core::mem::transmute(ok__));
+                    preferredproviders.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -889,7 +889,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterface_Impl::SetPreferredProviders(this, core::mem::transmute_copy(&preferredproviders)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -900,7 +900,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterface_Impl::GetVisibleProviders(this, core::mem::transmute_copy(&age)) {
                 Ok(ok__) => {
-                    core::ptr::write(visibleproviders, core::mem::transmute(ok__));
+                    visibleproviders.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -911,7 +911,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterface_Impl::ScanNetwork(this) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -922,7 +922,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterface_Impl::GetConnection(this) {
                 Ok(ok__) => {
-                    core::ptr::write(mbnconnection, core::mem::transmute(ok__));
+                    mbnconnection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1031,7 +1031,7 @@ impl IMbnInterfaceManager_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterfaceManager_Impl::GetInterface(this, core::mem::transmute(&interfaceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(mbninterface, core::mem::transmute(ok__));
+                    mbninterface.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1042,7 +1042,7 @@ impl IMbnInterfaceManager_Vtbl {
             let this = (*this).get_impl();
             match IMbnInterfaceManager_Impl::GetInterfaces(this) {
                 Ok(ok__) => {
-                    core::ptr::write(mbninterfaces, core::mem::transmute(ok__));
+                    mbninterfaces.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1104,7 +1104,7 @@ impl IMbnMultiCarrier_Vtbl {
             let this = (*this).get_impl();
             match IMbnMultiCarrier_Impl::SetHomeProvider(this, core::mem::transmute_copy(&homeprovider)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1115,7 +1115,7 @@ impl IMbnMultiCarrier_Vtbl {
             let this = (*this).get_impl();
             match IMbnMultiCarrier_Impl::GetPreferredProviders(this) {
                 Ok(ok__) => {
-                    core::ptr::write(preferredmulticarrierproviders, core::mem::transmute(ok__));
+                    preferredmulticarrierproviders.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1126,7 +1126,7 @@ impl IMbnMultiCarrier_Vtbl {
             let this = (*this).get_impl();
             match IMbnMultiCarrier_Impl::GetVisibleProviders(this, core::mem::transmute_copy(&age)) {
                 Ok(ok__) => {
-                    core::ptr::write(visibleproviders, core::mem::transmute(ok__));
+                    visibleproviders.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1137,7 +1137,7 @@ impl IMbnMultiCarrier_Vtbl {
             let this = (*this).get_impl();
             match IMbnMultiCarrier_Impl::GetSupportedCellularClasses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(cellularclasses, core::mem::transmute(ok__));
+                    cellularclasses.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1148,7 +1148,7 @@ impl IMbnMultiCarrier_Vtbl {
             let this = (*this).get_impl();
             match IMbnMultiCarrier_Impl::GetCurrentCellularClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(currentcellularclass, core::mem::transmute(ok__));
+                    currentcellularclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1159,7 +1159,7 @@ impl IMbnMultiCarrier_Vtbl {
             let this = (*this).get_impl();
             match IMbnMultiCarrier_Impl::ScanNetwork(this) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1248,7 +1248,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match IMbnPin_Impl::PinType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pintype, core::mem::transmute(ok__));
+                    pintype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1259,7 +1259,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match IMbnPin_Impl::PinFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pinformat, core::mem::transmute(ok__));
+                    pinformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1270,7 +1270,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match IMbnPin_Impl::PinLengthMin(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pinlengthmin, core::mem::transmute(ok__));
+                    pinlengthmin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1281,7 +1281,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match IMbnPin_Impl::PinLengthMax(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pinlengthmax, core::mem::transmute(ok__));
+                    pinlengthmax.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1292,7 +1292,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match IMbnPin_Impl::PinMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pinmode, core::mem::transmute(ok__));
+                    pinmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1303,7 +1303,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match IMbnPin_Impl::Enable(this, core::mem::transmute(&pin)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1314,7 +1314,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match IMbnPin_Impl::Disable(this, core::mem::transmute(&pin)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1325,7 +1325,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match IMbnPin_Impl::Enter(this, core::mem::transmute(&pin)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1336,7 +1336,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match IMbnPin_Impl::Change(this, core::mem::transmute(&pin), core::mem::transmute(&newpin)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1347,7 +1347,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match IMbnPin_Impl::Unblock(this, core::mem::transmute(&puk), core::mem::transmute(&newpin)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1358,7 +1358,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match IMbnPin_Impl::GetPinManager(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pinmanager, core::mem::transmute(ok__));
+                    pinmanager.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1447,7 +1447,7 @@ impl IMbnPinManager_Vtbl {
             let this = (*this).get_impl();
             match IMbnPinManager_Impl::GetPinList(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pinlist, core::mem::transmute(ok__));
+                    pinlist.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1458,7 +1458,7 @@ impl IMbnPinManager_Vtbl {
             let this = (*this).get_impl();
             match IMbnPinManager_Impl::GetPin(this, core::mem::transmute_copy(&pintype)) {
                 Ok(ok__) => {
-                    core::ptr::write(pin, core::mem::transmute(ok__));
+                    pin.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1469,7 +1469,7 @@ impl IMbnPinManager_Vtbl {
             let this = (*this).get_impl();
             match IMbnPinManager_Impl::GetPinState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1526,7 +1526,7 @@ impl IMbnRadio_Vtbl {
             let this = (*this).get_impl();
             match IMbnRadio_Impl::SoftwareRadioState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(softwareradiostate, core::mem::transmute(ok__));
+                    softwareradiostate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1537,7 +1537,7 @@ impl IMbnRadio_Vtbl {
             let this = (*this).get_impl();
             match IMbnRadio_Impl::HardwareRadioState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(hardwareradiostate, core::mem::transmute(ok__));
+                    hardwareradiostate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1548,7 +1548,7 @@ impl IMbnRadio_Vtbl {
             let this = (*this).get_impl();
             match IMbnRadio_Impl::SetSoftwareRadioState(this, core::mem::transmute_copy(&radiostate)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1612,7 +1612,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetRegisterState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(registerstate, core::mem::transmute(ok__));
+                    registerstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1623,7 +1623,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetRegisterMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(registermode, core::mem::transmute(ok__));
+                    registermode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1634,7 +1634,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetProviderID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(providerid, core::mem::transmute(ok__));
+                    providerid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1645,7 +1645,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetProviderName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(providername, core::mem::transmute(ok__));
+                    providername.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1656,7 +1656,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetRoamingText(this) {
                 Ok(ok__) => {
-                    core::ptr::write(roamingtext, core::mem::transmute(ok__));
+                    roamingtext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1667,7 +1667,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetAvailableDataClasses(this) {
                 Ok(ok__) => {
-                    core::ptr::write(availabledataclasses, core::mem::transmute(ok__));
+                    availabledataclasses.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1678,7 +1678,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetCurrentDataClass(this) {
                 Ok(ok__) => {
-                    core::ptr::write(currentdataclass, core::mem::transmute(ok__));
+                    currentdataclass.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1689,7 +1689,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetRegistrationNetworkError(this) {
                 Ok(ok__) => {
-                    core::ptr::write(registrationnetworkerror, core::mem::transmute(ok__));
+                    registrationnetworkerror.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1700,7 +1700,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::GetPacketAttachNetworkError(this) {
                 Ok(ok__) => {
-                    core::ptr::write(packetattachnetworkerror, core::mem::transmute(ok__));
+                    packetattachnetworkerror.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1711,7 +1711,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match IMbnRegistration_Impl::SetRegisterMode(this, core::mem::transmute_copy(&registermode), core::mem::transmute(&providerid), core::mem::transmute_copy(&dataclass)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1790,7 +1790,7 @@ impl IMbnServiceActivation_Vtbl {
             let this = (*this).get_impl();
             match IMbnServiceActivation_Impl::Activate(this, core::mem::transmute_copy(&vendorspecificdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1834,7 +1834,7 @@ impl IMbnSignal_Vtbl {
             let this = (*this).get_impl();
             match IMbnSignal_Impl::GetSignalStrength(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signalstrength, core::mem::transmute(ok__));
+                    signalstrength.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1845,7 +1845,7 @@ impl IMbnSignal_Vtbl {
             let this = (*this).get_impl();
             match IMbnSignal_Impl::GetSignalError(this) {
                 Ok(ok__) => {
-                    core::ptr::write(signalerror, core::mem::transmute(ok__));
+                    signalerror.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1899,7 +1899,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match IMbnSms_Impl::GetSmsConfiguration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(smsconfiguration, core::mem::transmute(ok__));
+                    smsconfiguration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1910,7 +1910,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match IMbnSms_Impl::SetSmsConfiguration(this, windows_core::from_raw_borrowed(&smsconfiguration)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1921,7 +1921,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match IMbnSms_Impl::SmsSendPdu(this, core::mem::transmute(&pdudata), core::mem::transmute_copy(&size)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1932,7 +1932,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match IMbnSms_Impl::SmsSendCdma(this, core::mem::transmute(&address), core::mem::transmute_copy(&encoding), core::mem::transmute_copy(&language), core::mem::transmute_copy(&sizeincharacters), core::mem::transmute_copy(&message)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1943,7 +1943,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match IMbnSms_Impl::SmsSendCdmaPdu(this, core::mem::transmute_copy(&message)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1954,7 +1954,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match IMbnSms_Impl::SmsRead(this, core::mem::transmute_copy(&smsfilter), core::mem::transmute_copy(&smsformat)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1965,7 +1965,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match IMbnSms_Impl::SmsDelete(this, core::mem::transmute_copy(&smsfilter)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1976,7 +1976,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match IMbnSms_Impl::GetSmsStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(smsstatusinfo, core::mem::transmute(ok__));
+                    smsstatusinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2014,7 +2014,7 @@ impl IMbnSmsConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsConfiguration_Impl::ServiceCenterAddress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(scaddress, core::mem::transmute(ok__));
+                    scaddress.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2030,7 +2030,7 @@ impl IMbnSmsConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsConfiguration_Impl::MaxMessageIndex(this) {
                 Ok(ok__) => {
-                    core::ptr::write(index, core::mem::transmute(ok__));
+                    index.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2041,7 +2041,7 @@ impl IMbnSmsConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsConfiguration_Impl::CdmaShortMsgSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(shortmsgsize, core::mem::transmute(ok__));
+                    shortmsgsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2052,7 +2052,7 @@ impl IMbnSmsConfiguration_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsConfiguration_Impl::SmsFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(smsformat, core::mem::transmute(ok__));
+                    smsformat.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2159,7 +2159,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgPdu_Impl::Index(this) {
                 Ok(ok__) => {
-                    core::ptr::write(index, core::mem::transmute(ok__));
+                    index.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2170,7 +2170,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgPdu_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2181,7 +2181,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgPdu_Impl::PduData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdudata, core::mem::transmute(ok__));
+                    pdudata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2192,7 +2192,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgPdu_Impl::Message(this) {
                 Ok(ok__) => {
-                    core::ptr::write(message, core::mem::transmute(ok__));
+                    message.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2231,7 +2231,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgTextCdma_Impl::Index(this) {
                 Ok(ok__) => {
-                    core::ptr::write(index, core::mem::transmute(ok__));
+                    index.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2242,7 +2242,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgTextCdma_Impl::Status(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2253,7 +2253,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgTextCdma_Impl::Address(this) {
                 Ok(ok__) => {
-                    core::ptr::write(address, core::mem::transmute(ok__));
+                    address.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2264,7 +2264,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgTextCdma_Impl::Timestamp(this) {
                 Ok(ok__) => {
-                    core::ptr::write(timestamp, core::mem::transmute(ok__));
+                    timestamp.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2275,7 +2275,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgTextCdma_Impl::EncodingID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(encodingid, core::mem::transmute(ok__));
+                    encodingid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2286,7 +2286,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgTextCdma_Impl::LanguageID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(languageid, core::mem::transmute(ok__));
+                    languageid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2297,7 +2297,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgTextCdma_Impl::SizeInCharacters(this) {
                 Ok(ok__) => {
-                    core::ptr::write(sizeincharacters, core::mem::transmute(ok__));
+                    sizeincharacters.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2308,7 +2308,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match IMbnSmsReadMsgTextCdma_Impl::Message(this) {
                 Ok(ok__) => {
-                    core::ptr::write(message, core::mem::transmute(ok__));
+                    message.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2346,7 +2346,7 @@ impl IMbnSubscriberInformation_Vtbl {
             let this = (*this).get_impl();
             match IMbnSubscriberInformation_Impl::SubscriberID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(subscriberid, core::mem::transmute(ok__));
+                    subscriberid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2357,7 +2357,7 @@ impl IMbnSubscriberInformation_Vtbl {
             let this = (*this).get_impl();
             match IMbnSubscriberInformation_Impl::SimIccID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(simiccid, core::mem::transmute(ok__));
+                    simiccid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2368,7 +2368,7 @@ impl IMbnSubscriberInformation_Vtbl {
             let this = (*this).get_impl();
             match IMbnSubscriberInformation_Impl::TelephoneNumbers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(telephonenumbers, core::mem::transmute(ok__));
+                    telephonenumbers.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2429,7 +2429,7 @@ impl IMbnVendorSpecificOperation_Vtbl {
             let this = (*this).get_impl();
             match IMbnVendorSpecificOperation_Impl::SetVendorSpecific(this, core::mem::transmute_copy(&vendorspecificdata)) {
                 Ok(ok__) => {
-                    core::ptr::write(requestid, core::mem::transmute(ok__));
+                    requestid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

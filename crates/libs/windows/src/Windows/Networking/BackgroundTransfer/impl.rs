@@ -29,7 +29,7 @@ impl IBackgroundTransferBase_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferBase_Impl::ServerCredential(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -46,7 +46,7 @@ impl IBackgroundTransferBase_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferBase_Impl::ProxyCredential(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -63,7 +63,7 @@ impl IBackgroundTransferBase_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferBase_Impl::Method(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -80,7 +80,7 @@ impl IBackgroundTransferBase_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferBase_Impl::Group(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -97,7 +97,7 @@ impl IBackgroundTransferBase_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferBase_Impl::CostPolicy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -141,7 +141,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferContentPartFactory_Impl::CreateWithName(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -153,7 +153,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferContentPartFactory_Impl::CreateWithNameAndFileName(this, core::mem::transmute(&name), core::mem::transmute(&filename)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -193,7 +193,7 @@ impl IBackgroundTransferOperation_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferOperation_Impl::Guid(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -204,7 +204,7 @@ impl IBackgroundTransferOperation_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferOperation_Impl::RequestedUri(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -216,7 +216,7 @@ impl IBackgroundTransferOperation_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferOperation_Impl::Method(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -228,7 +228,7 @@ impl IBackgroundTransferOperation_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferOperation_Impl::Group(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -240,7 +240,7 @@ impl IBackgroundTransferOperation_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferOperation_Impl::CostPolicy(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -256,7 +256,7 @@ impl IBackgroundTransferOperation_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferOperation_Impl::GetResultStreamAt(this, position) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -268,7 +268,7 @@ impl IBackgroundTransferOperation_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferOperation_Impl::GetResponseInformation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -305,7 +305,7 @@ impl IBackgroundTransferOperationPriority_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTransferOperationPriority_Impl::Priority(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

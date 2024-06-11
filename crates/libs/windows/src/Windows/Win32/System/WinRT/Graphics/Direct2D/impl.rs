@@ -13,7 +13,7 @@ impl IGeometrySource2DInterop_Vtbl {
             let this = (*this).get_impl();
             match IGeometrySource2DInterop_Impl::GetGeometry(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -24,7 +24,7 @@ impl IGeometrySource2DInterop_Vtbl {
             let this = (*this).get_impl();
             match IGeometrySource2DInterop_Impl::TryGetGeometryUsingFactory(this, windows_core::from_raw_borrowed(&factory)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -59,7 +59,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             let this = (*this).get_impl();
             match IGraphicsEffectD2D1Interop_Impl::GetEffectId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(id, core::mem::transmute(ok__));
+                    id.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -75,7 +75,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             let this = (*this).get_impl();
             match IGraphicsEffectD2D1Interop_Impl::GetPropertyCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -86,7 +86,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             let this = (*this).get_impl();
             match IGraphicsEffectD2D1Interop_Impl::GetProperty(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -97,7 +97,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             let this = (*this).get_impl();
             match IGraphicsEffectD2D1Interop_Impl::GetSource(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(source, core::mem::transmute(ok__));
+                    source.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -108,7 +108,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             let this = (*this).get_impl();
             match IGraphicsEffectD2D1Interop_Impl::GetSourceCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

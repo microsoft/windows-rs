@@ -25,7 +25,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::GetThumbnailAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -37,7 +37,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::BitmapProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -49,7 +49,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::BitmapPixelFormat(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -60,7 +60,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::BitmapAlphaMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -71,7 +71,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::DpiX(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -82,7 +82,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::DpiY(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -93,7 +93,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::PixelWidth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -104,7 +104,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::PixelHeight(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -115,7 +115,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::OrientedPixelWidth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -126,7 +126,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::OrientedPixelHeight(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -137,7 +137,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::GetPixelDataAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -149,7 +149,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrame_Impl::GetPixelDataTransformedAsync(this, pixelformat, alphamode, windows_core::from_raw_borrowed(&transform), exiforientationmode, colormanagementmode) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -194,7 +194,7 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrameWithSoftwareBitmap_Impl::GetSoftwareBitmapAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -206,7 +206,7 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrameWithSoftwareBitmap_Impl::GetSoftwareBitmapConvertedAsync(this, pixelformat, alphamode) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -218,7 +218,7 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
             let this = (*this).get_impl();
             match IBitmapFrameWithSoftwareBitmap_Impl::GetSoftwareBitmapTransformedAsync(this, pixelformat, alphamode, windows_core::from_raw_borrowed(&transform), exiforientationmode, colormanagementmode) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -252,7 +252,7 @@ impl IBitmapPropertiesView_Vtbl {
             let this = (*this).get_impl();
             match IBitmapPropertiesView_Impl::GetPropertiesAsync(this, windows_core::from_raw_borrowed(&propertiestoretrieve)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

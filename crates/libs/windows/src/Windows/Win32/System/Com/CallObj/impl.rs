@@ -62,7 +62,7 @@ impl ICallFrame_Vtbl {
             let this = (*this).get_impl();
             match ICallFrame_Impl::GetParamInfo(this, core::mem::transmute_copy(&iparam)) {
                 Ok(ok__) => {
-                    core::ptr::write(pinfo, core::mem::transmute(ok__));
+                    pinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -78,7 +78,7 @@ impl ICallFrame_Vtbl {
             let this = (*this).get_impl();
             match ICallFrame_Impl::GetParam(this, core::mem::transmute_copy(&iparam)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvar, core::mem::transmute(ok__));
+                    pvar.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -89,7 +89,7 @@ impl ICallFrame_Vtbl {
             let this = (*this).get_impl();
             match ICallFrame_Impl::Copy(this, core::mem::transmute_copy(&copycontrol), windows_core::from_raw_borrowed(&pwalker)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppframe, core::mem::transmute(ok__));
+                    ppframe.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -115,7 +115,7 @@ impl ICallFrame_Vtbl {
             let this = (*this).get_impl();
             match ICallFrame_Impl::GetMarshalSizeMax(this, core::mem::transmute_copy(&pmshlcontext), core::mem::transmute_copy(&mshlflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcbbufferneeded, core::mem::transmute(ok__));
+                    pcbbufferneeded.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -131,7 +131,7 @@ impl ICallFrame_Vtbl {
             let this = (*this).get_impl();
             match ICallFrame_Impl::Unmarshal(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&cbbuffer), core::mem::transmute_copy(&datarep), core::mem::transmute_copy(&pcontext)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcbunmarshalled, core::mem::transmute(ok__));
+                    pcbunmarshalled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -232,7 +232,7 @@ impl ICallIndirect_Vtbl {
             let this = (*this).get_impl();
             match ICallIndirect_Impl::GetStackSize(this, core::mem::transmute_copy(&imethod)) {
                 Ok(ok__) => {
-                    core::ptr::write(cbargs, core::mem::transmute(ok__));
+                    cbargs.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -272,7 +272,7 @@ impl ICallInterceptor_Vtbl {
             let this = (*this).get_impl();
             match ICallInterceptor_Impl::GetRegisteredSink(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsink, core::mem::transmute(ok__));
+                    ppsink.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -332,7 +332,7 @@ impl IInterfaceRelated_Vtbl {
             let this = (*this).get_impl();
             match IInterfaceRelated_Impl::GetIID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(piid, core::mem::transmute(ok__));
+                    piid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

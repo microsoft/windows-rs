@@ -355,7 +355,7 @@ impl<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F>
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
         match (this.invoke)(a) {
             Ok(ok__) => {
-                core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                result__.write(core::mem::transmute_copy(&ok__));
                 windows_core::HRESULT(0)
             }
             Err(err) => err.into(),

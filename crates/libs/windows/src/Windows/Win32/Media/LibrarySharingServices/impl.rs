@@ -15,7 +15,7 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDevice_Impl::DeviceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(deviceid, core::mem::transmute(ok__));
+                    deviceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -26,7 +26,7 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDevice_Impl::Authorization(this) {
                 Ok(ok__) => {
-                    core::ptr::write(authorization, core::mem::transmute(ok__));
+                    authorization.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDevice_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(deviceproperties, core::mem::transmute(ok__));
+                    deviceproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -76,7 +76,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDeviceProperties_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(property, core::mem::transmute(ok__));
+                    property.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -87,7 +87,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDeviceProperties_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -98,7 +98,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDeviceProperties_Impl::GetProperty(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(property, core::mem::transmute(ok__));
+                    property.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -130,7 +130,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDeviceProperty_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(name, core::mem::transmute(ok__));
+                    name.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -141,7 +141,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDeviceProperty_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -173,7 +173,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDevices_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(device, core::mem::transmute(ok__));
+                    device.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -184,7 +184,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDevices_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -195,7 +195,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingDevices_Impl::GetDevice(this, core::mem::transmute(&deviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(device, core::mem::transmute(ok__));
+                    device.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -249,7 +249,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingServices_Impl::userHomeMediaSharingState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(sharingenabled, core::mem::transmute(ok__));
+                    sharingenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -265,7 +265,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingServices_Impl::userHomeMediaSharingLibraryName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(libraryname, core::mem::transmute(ok__));
+                    libraryname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -281,7 +281,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingServices_Impl::computerHomeMediaSharingAllowedState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(sharingallowed, core::mem::transmute(ok__));
+                    sharingallowed.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -297,7 +297,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingServices_Impl::userInternetMediaSharingState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(sharingenabled, core::mem::transmute(ok__));
+                    sharingenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -313,7 +313,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingServices_Impl::computerInternetMediaSharingAllowedState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(sharingallowed, core::mem::transmute(ok__));
+                    sharingallowed.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -329,7 +329,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingServices_Impl::internetMediaSharingSecurityGroup(this) {
                 Ok(ok__) => {
-                    core::ptr::write(securitygroup, core::mem::transmute(ok__));
+                    securitygroup.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -345,7 +345,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingServices_Impl::allowSharingToAllDevices(this) {
                 Ok(ok__) => {
-                    core::ptr::write(sharingenabled, core::mem::transmute(ok__));
+                    sharingenabled.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -371,7 +371,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingServices_Impl::getAllDevices(this) {
                 Ok(ok__) => {
-                    core::ptr::write(devices, core::mem::transmute(ok__));
+                    devices.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -382,7 +382,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             match IWindowsMediaLibrarySharingServices_Impl::customSettingsApplied(this) {
                 Ok(ok__) => {
-                    core::ptr::write(customsettingsapplied, core::mem::transmute(ok__));
+                    customsettingsapplied.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

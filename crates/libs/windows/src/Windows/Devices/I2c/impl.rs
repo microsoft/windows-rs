@@ -13,7 +13,7 @@ impl II2cDeviceStatics_Vtbl {
             let this = (*this).get_impl();
             match II2cDeviceStatics_Impl::GetDeviceSelector(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -25,7 +25,7 @@ impl II2cDeviceStatics_Vtbl {
             let this = (*this).get_impl();
             match II2cDeviceStatics_Impl::GetDeviceSelectorFromFriendlyName(this, core::mem::transmute(&friendlyname)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -37,7 +37,7 @@ impl II2cDeviceStatics_Vtbl {
             let this = (*this).get_impl();
             match II2cDeviceStatics_Impl::FromIdAsync(this, core::mem::transmute(&deviceid), windows_core::from_raw_borrowed(&settings)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

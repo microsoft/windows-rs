@@ -11,7 +11,7 @@ impl II2cControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match II2cControllerProvider_Impl::GetDeviceProvider(this, windows_core::from_raw_borrowed(&settings)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -46,7 +46,7 @@ impl II2cDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match II2cDeviceProvider_Impl::DeviceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -63,7 +63,7 @@ impl II2cDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match II2cDeviceProvider_Impl::WritePartial(this, core::slice::from_raw_parts(core::mem::transmute_copy(&buffer), buffer_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -79,7 +79,7 @@ impl II2cDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match II2cDeviceProvider_Impl::ReadPartial(this, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&buffer), buffer_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -95,7 +95,7 @@ impl II2cDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match II2cDeviceProvider_Impl::WriteReadPartial(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readBuffer_array_size as usize)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -132,7 +132,7 @@ impl II2cProvider_Vtbl {
             let this = (*this).get_impl();
             match II2cProvider_Impl::GetControllersAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

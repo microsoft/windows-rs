@@ -16,7 +16,7 @@ impl IUIApplication_Vtbl {
             let this = (*this).get_impl();
             match IUIApplication_Impl::OnCreateUICommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&typeid)) {
                 Ok(ok__) => {
-                    core::ptr::write(commandhandler, core::mem::transmute(ok__));
+                    commandhandler.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -55,7 +55,7 @@ impl IUICollection_Vtbl {
             let this = (*this).get_impl();
             match IUICollection_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(count, core::mem::transmute(ok__));
+                    count.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -66,7 +66,7 @@ impl IUICollection_Vtbl {
             let this = (*this).get_impl();
             match IUICollection_Impl::GetItem(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
-                    core::ptr::write(item, core::mem::transmute(ok__));
+                    item.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -149,7 +149,7 @@ impl IUICommandHandler_Vtbl {
             let this = (*this).get_impl();
             match IUICommandHandler_Impl::UpdateProperty(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&key), core::mem::transmute_copy(&currentvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(newvalue, core::mem::transmute(ok__));
+                    newvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -258,7 +258,7 @@ impl IUIFramework_Vtbl {
             let this = (*this).get_impl();
             match IUIFramework_Impl::GetUICommandProperty(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -315,7 +315,7 @@ impl IUIImage_Vtbl {
             let this = (*this).get_impl();
             match IUIImage_Impl::GetBitmap(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bitmap, core::mem::transmute(ok__));
+                    bitmap.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -341,7 +341,7 @@ impl IUIImageFromBitmap_Vtbl {
             let this = (*this).get_impl();
             match IUIImageFromBitmap_Impl::CreateImage(this, core::mem::transmute_copy(&bitmap), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(image, core::mem::transmute(ok__));
+                    image.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -369,7 +369,7 @@ impl IUIRibbon_Vtbl {
             let this = (*this).get_impl();
             match IUIRibbon_Impl::GetHeight(this) {
                 Ok(ok__) => {
-                    core::ptr::write(cy, core::mem::transmute(ok__));
+                    cy.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -410,7 +410,7 @@ impl IUISimplePropertySet_Vtbl {
             let this = (*this).get_impl();
             match IUISimplePropertySet_Impl::GetValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

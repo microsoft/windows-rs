@@ -10,7 +10,7 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             let ok__ = ICoreAutomationConnectionBoundObjectProvider_Impl::IsComThreadingRequired(this);
-            core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+            result__.write(core::mem::transmute_copy(&ok__));
             windows_core::HRESULT(0)
         }
         Self {
@@ -41,7 +41,7 @@ impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
             let this = (*this).get_impl();
             match ICoreAutomationRemoteOperationExtensionProvider_Impl::IsExtensionSupported(this, core::mem::transmute(&extensionid)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

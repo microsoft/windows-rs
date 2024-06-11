@@ -17,7 +17,7 @@ impl IErrorReportingSettings_Vtbl {
             let this = (*this).get_impl();
             match IErrorReportingSettings_Impl::GetErrorOptions(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -55,7 +55,7 @@ impl IFileLoggingSession_Vtbl {
             let this = (*this).get_impl();
             match IFileLoggingSession_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -82,7 +82,7 @@ impl IFileLoggingSession_Vtbl {
             let this = (*this).get_impl();
             match IFileLoggingSession_Impl::CloseAndSaveToFileAsync(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -94,7 +94,7 @@ impl IFileLoggingSession_Vtbl {
             let this = (*this).get_impl();
             match IFileLoggingSession_Impl::LogFileGenerated(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -141,7 +141,7 @@ impl ILoggingChannel_Vtbl {
             let this = (*this).get_impl();
             match ILoggingChannel_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -153,7 +153,7 @@ impl ILoggingChannel_Vtbl {
             let this = (*this).get_impl();
             match ILoggingChannel_Impl::Enabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -164,7 +164,7 @@ impl ILoggingChannel_Vtbl {
             let this = (*this).get_impl();
             match ILoggingChannel_Impl::Level(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -195,7 +195,7 @@ impl ILoggingChannel_Vtbl {
             let this = (*this).get_impl();
             match ILoggingChannel_Impl::LoggingEnabled(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -243,7 +243,7 @@ impl ILoggingSession_Vtbl {
             let this = (*this).get_impl();
             match ILoggingSession_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -255,7 +255,7 @@ impl ILoggingSession_Vtbl {
             let this = (*this).get_impl();
             match ILoggingSession_Impl::SaveToFileAsync(this, windows_core::from_raw_borrowed(&folder), core::mem::transmute(&filename)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -313,7 +313,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match ILoggingTarget_Impl::IsEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -324,7 +324,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match ILoggingTarget_Impl::IsEnabledWithLevel(this, level) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -335,7 +335,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match ILoggingTarget_Impl::IsEnabledWithLevelAndKeywords(this, level, keywords) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -366,7 +366,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match ILoggingTarget_Impl::StartActivity(this, core::mem::transmute(&starteventname)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -378,7 +378,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match ILoggingTarget_Impl::StartActivityWithFields(this, core::mem::transmute(&starteventname), windows_core::from_raw_borrowed(&fields)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -390,7 +390,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match ILoggingTarget_Impl::StartActivityWithFieldsAndLevel(this, core::mem::transmute(&starteventname), windows_core::from_raw_borrowed(&fields), level) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -402,7 +402,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match ILoggingTarget_Impl::StartActivityWithFieldsAndOptions(this, core::mem::transmute(&starteventname), windows_core::from_raw_borrowed(&fields), level, windows_core::from_raw_borrowed(&options)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

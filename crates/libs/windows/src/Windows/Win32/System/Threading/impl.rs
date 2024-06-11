@@ -40,7 +40,7 @@ impl IRtwqAsyncResult_Vtbl {
             let this = (*this).get_impl();
             match IRtwqAsyncResult_Impl::GetState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppunkstate, core::mem::transmute(ok__));
+                    ppunkstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -61,7 +61,7 @@ impl IRtwqAsyncResult_Vtbl {
             let this = (*this).get_impl();
             match IRtwqAsyncResult_Impl::GetObject(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobject, core::mem::transmute(ok__));
+                    ppobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

@@ -41,7 +41,7 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
             let this = (*this).get_impl();
             match IPrintWorkflowConfigurationNative_Impl::PrinterQueue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -52,7 +52,7 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
             let this = (*this).get_impl();
             match IPrintWorkflowConfigurationNative_Impl::DriverProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -63,7 +63,7 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
             let this = (*this).get_impl();
             match IPrintWorkflowConfigurationNative_Impl::UserProperties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -100,7 +100,7 @@ impl IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
             let this = (*this).get_impl();
             match IPrintWorkflowObjectModelSourceFileContentNative_Impl::ObjectFactory(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -130,7 +130,7 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
             let this = (*this).get_impl();
             match IPrintWorkflowXpsObjectModelTargetPackageNative_Impl::DocumentPackageTarget(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

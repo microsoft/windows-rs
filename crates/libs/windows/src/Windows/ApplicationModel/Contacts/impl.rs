@@ -14,7 +14,7 @@ impl IContactField_Vtbl {
             let this = (*this).get_impl();
             match IContactField_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -25,7 +25,7 @@ impl IContactField_Vtbl {
             let this = (*this).get_impl();
             match IContactField_Impl::Category(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -36,7 +36,7 @@ impl IContactField_Vtbl {
             let this = (*this).get_impl();
             match IContactField_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -48,7 +48,7 @@ impl IContactField_Vtbl {
             let this = (*this).get_impl();
             match IContactField_Impl::Value(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -82,7 +82,7 @@ impl IContactFieldFactory_Vtbl {
             let this = (*this).get_impl();
             match IContactFieldFactory_Impl::CreateField_Default(this, core::mem::transmute(&value), r#type) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -94,7 +94,7 @@ impl IContactFieldFactory_Vtbl {
             let this = (*this).get_impl();
             match IContactFieldFactory_Impl::CreateField_Category(this, core::mem::transmute(&value), r#type, category) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -106,7 +106,7 @@ impl IContactFieldFactory_Vtbl {
             let this = (*this).get_impl();
             match IContactFieldFactory_Impl::CreateField_Custom(this, core::mem::transmute(&name), core::mem::transmute(&value), r#type, category) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -139,7 +139,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
             let this = (*this).get_impl();
             match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_Default(this, core::mem::transmute(&username)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -151,7 +151,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
             let this = (*this).get_impl();
             match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_Category(this, core::mem::transmute(&username), category) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -163,7 +163,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
             let this = (*this).get_impl();
             match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_All(this, core::mem::transmute(&username), category, core::mem::transmute(&service), core::mem::transmute(&displaytext), windows_core::from_raw_borrowed(&verb)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -196,7 +196,7 @@ impl IContactLocationFieldFactory_Vtbl {
             let this = (*this).get_impl();
             match IContactLocationFieldFactory_Impl::CreateLocation_Default(this, core::mem::transmute(&unstructuredaddress)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -208,7 +208,7 @@ impl IContactLocationFieldFactory_Vtbl {
             let this = (*this).get_impl();
             match IContactLocationFieldFactory_Impl::CreateLocation_Category(this, core::mem::transmute(&unstructuredaddress), category) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -220,7 +220,7 @@ impl IContactLocationFieldFactory_Vtbl {
             let this = (*this).get_impl();
             match IContactLocationFieldFactory_Impl::CreateLocation_All(this, core::mem::transmute(&unstructuredaddress), category, core::mem::transmute(&street), core::mem::transmute(&city), core::mem::transmute(&region), core::mem::transmute(&country), core::mem::transmute(&postalcode)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

@@ -12,7 +12,7 @@ impl IReferenceClock_Vtbl {
             let this = (*this).get_impl();
             match IReferenceClock_Impl::GetTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptime, core::mem::transmute(ok__));
+                    ptime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -23,7 +23,7 @@ impl IReferenceClock_Vtbl {
             let this = (*this).get_impl();
             match IReferenceClock_Impl::AdviseTime(this, core::mem::transmute_copy(&basetime), core::mem::transmute_copy(&streamtime), core::mem::transmute_copy(&hevent)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwadvisecookie, core::mem::transmute(ok__));
+                    pdwadvisecookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -34,7 +34,7 @@ impl IReferenceClock_Vtbl {
             let this = (*this).get_impl();
             match IReferenceClock_Impl::AdvisePeriodic(this, core::mem::transmute_copy(&starttime), core::mem::transmute_copy(&periodtime), core::mem::transmute_copy(&hsemaphore)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwadvisecookie, core::mem::transmute(ok__));
+                    pdwadvisecookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -84,7 +84,7 @@ impl IReferenceClockTimerControl_Vtbl {
             let this = (*this).get_impl();
             match IReferenceClockTimerControl_Impl::GetDefaultTimerResolution(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptimerresolution, core::mem::transmute(ok__));
+                    ptimerresolution.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

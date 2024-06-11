@@ -18,7 +18,7 @@ impl ISdo_Vtbl {
             let this = (*this).get_impl();
             match ISdo_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(pppropertyinfo, core::mem::transmute(ok__));
+                    pppropertyinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -29,7 +29,7 @@ impl ISdo_Vtbl {
             let this = (*this).get_impl();
             match ISdo_Impl::GetProperty(this, core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -60,7 +60,7 @@ impl ISdo_Vtbl {
             let this = (*this).get_impl();
             match ISdo_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenumvariant, core::mem::transmute(ok__));
+                    ppenumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -102,7 +102,7 @@ impl ISdoCollection_Vtbl {
             let this = (*this).get_impl();
             match ISdoCollection_Impl::Count(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcount, core::mem::transmute(ok__));
+                    pcount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl ISdoCollection_Vtbl {
             let this = (*this).get_impl();
             match ISdoCollection_Impl::IsNameUnique(this, core::mem::transmute(&bstrname)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbool, core::mem::transmute(ok__));
+                    pbool.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -144,7 +144,7 @@ impl ISdoCollection_Vtbl {
             let this = (*this).get_impl();
             match ISdoCollection_Impl::Item(this, core::mem::transmute_copy(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(pitem, core::mem::transmute(ok__));
+                    pitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -155,7 +155,7 @@ impl ISdoCollection_Vtbl {
             let this = (*this).get_impl();
             match ISdoCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenumvariant, core::mem::transmute(ok__));
+                    ppenumvariant.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -195,7 +195,7 @@ impl ISdoDictionaryOld_Vtbl {
             let this = (*this).get_impl();
             match ISdoDictionaryOld_Impl::EnumAttributes(this, core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalues, core::mem::transmute(ok__));
+                    pvalues.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -206,7 +206,7 @@ impl ISdoDictionaryOld_Vtbl {
             let this = (*this).get_impl();
             match ISdoDictionaryOld_Impl::GetAttributeInfo(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pinfoids)) {
                 Ok(ok__) => {
-                    core::ptr::write(pinfovalues, core::mem::transmute(ok__));
+                    pinfovalues.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -217,7 +217,7 @@ impl ISdoDictionaryOld_Vtbl {
             let this = (*this).get_impl();
             match ISdoDictionaryOld_Impl::EnumAttributeValues(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pvalueids)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvaluesdesc, core::mem::transmute(ok__));
+                    pvaluesdesc.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -228,7 +228,7 @@ impl ISdoDictionaryOld_Vtbl {
             let this = (*this).get_impl();
             match ISdoDictionaryOld_Impl::CreateAttribute(this, core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppattributeobject, core::mem::transmute(ok__));
+                    ppattributeobject.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -239,7 +239,7 @@ impl ISdoDictionaryOld_Vtbl {
             let this = (*this).get_impl();
             match ISdoDictionaryOld_Impl::GetAttributeID(this, core::mem::transmute(&bstrattributename)) {
                 Ok(ok__) => {
-                    core::ptr::write(pid, core::mem::transmute(ok__));
+                    pid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -285,7 +285,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match ISdoMachine_Impl::GetDictionarySDO(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdictionarysdo, core::mem::transmute(ok__));
+                    ppdictionarysdo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -296,7 +296,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match ISdoMachine_Impl::GetServiceSDO(this, core::mem::transmute_copy(&edatastore), core::mem::transmute(&bstrservicename)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservicesdo, core::mem::transmute(ok__));
+                    ppservicesdo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -307,7 +307,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match ISdoMachine_Impl::GetUserSDO(this, core::mem::transmute_copy(&edatastore), core::mem::transmute(&bstrusername)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppusersdo, core::mem::transmute(ok__));
+                    ppusersdo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -318,7 +318,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match ISdoMachine_Impl::GetOSType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(eostype, core::mem::transmute(ok__));
+                    eostype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -329,7 +329,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match ISdoMachine_Impl::GetDomainType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(edomaintype, core::mem::transmute(ok__));
+                    edomaintype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -340,7 +340,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match ISdoMachine_Impl::IsDirectoryAvailable(this) {
                 Ok(ok__) => {
-                    core::ptr::write(booldirectoryavailable, core::mem::transmute(ok__));
+                    booldirectoryavailable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -351,7 +351,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match ISdoMachine_Impl::GetAttachedComputer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bstrcomputername, core::mem::transmute(ok__));
+                    bstrcomputername.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -362,7 +362,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match ISdoMachine_Impl::GetSDOSchema(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsdoschema, core::mem::transmute(ok__));
+                    ppsdoschema.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -403,7 +403,7 @@ impl ISdoMachine2_Vtbl {
             let this = (*this).get_impl();
             match ISdoMachine2_Impl::GetTemplatesSDO(this, core::mem::transmute(&bstrservicename)) {
                 Ok(ok__) => {
-                    core::ptr::write(pptemplatessdo, core::mem::transmute(ok__));
+                    pptemplatessdo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -469,7 +469,7 @@ impl ISdoServiceControl_Vtbl {
             let this = (*this).get_impl();
             match ISdoServiceControl_Impl::GetServiceStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

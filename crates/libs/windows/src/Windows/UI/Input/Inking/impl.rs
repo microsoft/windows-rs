@@ -11,7 +11,7 @@ impl IInkPointFactory_Vtbl {
             let this = (*this).get_impl();
             match IInkPointFactory_Impl::CreateInkPoint(this, core::mem::transmute(&position), pressure) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -37,7 +37,7 @@ impl IInkPresenterRulerFactory_Vtbl {
             let this = (*this).get_impl();
             match IInkPresenterRulerFactory_Impl::Create(this, windows_core::from_raw_borrowed(&inkpresenter)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -74,7 +74,7 @@ impl IInkPresenterStencil_Vtbl {
             let this = (*this).get_impl();
             match IInkPresenterStencil_Impl::Kind(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -85,7 +85,7 @@ impl IInkPresenterStencil_Vtbl {
             let this = (*this).get_impl();
             match IInkPresenterStencil_Impl::IsVisible(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -101,7 +101,7 @@ impl IInkPresenterStencil_Vtbl {
             let this = (*this).get_impl();
             match IInkPresenterStencil_Impl::BackgroundColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -117,7 +117,7 @@ impl IInkPresenterStencil_Vtbl {
             let this = (*this).get_impl();
             match IInkPresenterStencil_Impl::ForegroundColor(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl IInkPresenterStencil_Vtbl {
             let this = (*this).get_impl();
             match IInkPresenterStencil_Impl::Transform(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -184,7 +184,7 @@ impl IInkRecognizerContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkRecognizerContainer_Impl::RecognizeAsync(this, windows_core::from_raw_borrowed(&strokecollection), recognitiontarget) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -196,7 +196,7 @@ impl IInkRecognizerContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkRecognizerContainer_Impl::GetRecognizers(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -243,7 +243,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkStrokeContainer_Impl::BoundingRect(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -259,7 +259,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkStrokeContainer_Impl::DeleteSelected(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -270,7 +270,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkStrokeContainer_Impl::MoveSelected(this, core::mem::transmute(&translation)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -281,7 +281,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkStrokeContainer_Impl::SelectWithPolyLine(this, windows_core::from_raw_borrowed(&polyline)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -292,7 +292,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkStrokeContainer_Impl::SelectWithLine(this, core::mem::transmute(&from), core::mem::transmute(&to)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -308,7 +308,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkStrokeContainer_Impl::PasteFromClipboard(this, core::mem::transmute(&position)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -319,7 +319,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkStrokeContainer_Impl::CanPasteFromClipboard(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -330,7 +330,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkStrokeContainer_Impl::LoadAsync(this, windows_core::from_raw_borrowed(&inputstream)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -342,7 +342,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkStrokeContainer_Impl::SaveAsync(this, windows_core::from_raw_borrowed(&outputstream)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -359,7 +359,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkStrokeContainer_Impl::GetStrokes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -371,7 +371,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match IInkStrokeContainer_Impl::GetRecognitionResults(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

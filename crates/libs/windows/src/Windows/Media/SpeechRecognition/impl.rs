@@ -17,7 +17,7 @@ impl ISpeechRecognitionConstraint_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognitionConstraint_Impl::IsEnabled(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -33,7 +33,7 @@ impl ISpeechRecognitionConstraint_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognitionConstraint_Impl::Tag(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -50,7 +50,7 @@ impl ISpeechRecognitionConstraint_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognitionConstraint_Impl::Type(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -61,7 +61,7 @@ impl ISpeechRecognitionConstraint_Vtbl {
             let this = (*this).get_impl();
             match ISpeechRecognitionConstraint_Impl::Probability(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

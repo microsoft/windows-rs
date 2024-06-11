@@ -27,7 +27,7 @@ impl IEnumOfflineFilesItems_Vtbl {
             let this = (*this).get_impl();
             match IEnumOfflineFilesItems_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -74,7 +74,7 @@ impl IEnumOfflineFilesSettings_Vtbl {
             let this = (*this).get_impl();
             match IEnumOfflineFilesSettings_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -154,7 +154,7 @@ impl IOfflineFilesCache_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesCache_Impl::FindItem(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&dwqueryflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -165,7 +165,7 @@ impl IOfflineFilesCache_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesCache_Impl::FindItemEx(this, core::mem::transmute(&pszpath), windows_core::from_raw_borrowed(&pincludefilefilter), windows_core::from_raw_borrowed(&pincludedirfilter), windows_core::from_raw_borrowed(&pexcludefilefilter), windows_core::from_raw_borrowed(&pexcludedirfilter), core::mem::transmute_copy(&dwqueryflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -181,7 +181,7 @@ impl IOfflineFilesCache_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesCache_Impl::GetLocation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszpath, core::mem::transmute(ok__));
+                    ppszpath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -207,7 +207,7 @@ impl IOfflineFilesCache_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesCache_Impl::GetSettingObject(this, core::mem::transmute(&pszsettingname)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppsetting, core::mem::transmute(ok__));
+                    ppsetting.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -218,7 +218,7 @@ impl IOfflineFilesCache_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesCache_Impl::EnumSettingObjects(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -292,7 +292,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesChangeInfo_Impl::IsDeletedOffline(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbdeletedoffline, core::mem::transmute(ok__));
+                    pbdeletedoffline.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -303,7 +303,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesChangeInfo_Impl::IsCreatedOffline(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbcreatedoffline, core::mem::transmute(ok__));
+                    pbcreatedoffline.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -314,7 +314,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesChangeInfo_Impl::IsLocallyModifiedData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pblocallymodifieddata, core::mem::transmute(ok__));
+                    pblocallymodifieddata.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -325,7 +325,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesChangeInfo_Impl::IsLocallyModifiedAttributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pblocallymodifiedattributes, core::mem::transmute(ok__));
+                    pblocallymodifiedattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -336,7 +336,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesChangeInfo_Impl::IsLocallyModifiedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pblocallymodifiedtime, core::mem::transmute(ok__));
+                    pblocallymodifiedtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -385,7 +385,7 @@ impl IOfflineFilesConnectionInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesConnectionInfo_Impl::TransitionOffline(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&bforceopenfilesclosed)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbopenfilespreventedtransition, core::mem::transmute(ok__));
+                    pbopenfilespreventedtransition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -425,7 +425,7 @@ impl IOfflineFilesDirtyInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesDirtyInfo_Impl::LocalDirtyByteCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdirtybytecount, core::mem::transmute(ok__));
+                    pdirtybytecount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -436,7 +436,7 @@ impl IOfflineFilesDirtyInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesDirtyInfo_Impl::RemoteDirtyByteCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdirtybytecount, core::mem::transmute(ok__));
+                    pdirtybytecount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -467,7 +467,7 @@ impl IOfflineFilesErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesErrorInfo_Impl::GetRawData(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppblob, core::mem::transmute(ok__));
+                    ppblob.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -478,7 +478,7 @@ impl IOfflineFilesErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesErrorInfo_Impl::GetDescription(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszdescription, core::mem::transmute(ok__));
+                    ppszdescription.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -865,7 +865,7 @@ impl IOfflineFilesFileItem_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesFileItem_Impl::IsSparse(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbissparse, core::mem::transmute(ok__));
+                    pbissparse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -876,7 +876,7 @@ impl IOfflineFilesFileItem_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesFileItem_Impl::IsEncrypted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbisencrypted, core::mem::transmute(ok__));
+                    pbisencrypted.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -905,7 +905,7 @@ impl IOfflineFilesFileSysInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesFileSysInfo_Impl::GetAttributes(this, core::mem::transmute_copy(&copy)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwattributes, core::mem::transmute(ok__));
+                    pdwattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -921,7 +921,7 @@ impl IOfflineFilesFileSysInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesFileSysInfo_Impl::GetFileSize(this, core::mem::transmute_copy(&copy)) {
                 Ok(ok__) => {
-                    core::ptr::write(psize, core::mem::transmute(ok__));
+                    psize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -949,7 +949,7 @@ impl IOfflineFilesGhostInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesGhostInfo_Impl::IsGhosted(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbghosted, core::mem::transmute(ok__));
+                    pbghosted.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -976,7 +976,7 @@ impl IOfflineFilesItem_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesItem_Impl::GetItemType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pitemtype, core::mem::transmute(ok__));
+                    pitemtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -987,7 +987,7 @@ impl IOfflineFilesItem_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesItem_Impl::GetPath(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszpath, core::mem::transmute(ok__));
+                    ppszpath.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -998,7 +998,7 @@ impl IOfflineFilesItem_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesItem_Impl::GetParentItem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppitem, core::mem::transmute(ok__));
+                    ppitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1014,7 +1014,7 @@ impl IOfflineFilesItem_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesItem_Impl::IsMarkedForDeletion(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbmarkedfordeletion, core::mem::transmute(ok__));
+                    pbmarkedfordeletion.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1045,7 +1045,7 @@ impl IOfflineFilesItemContainer_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesItemContainer_Impl::EnumItems(this, core::mem::transmute_copy(&dwqueryflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1056,7 +1056,7 @@ impl IOfflineFilesItemContainer_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesItemContainer_Impl::EnumItemsEx(this, windows_core::from_raw_borrowed(&pincludefilefilter), windows_core::from_raw_borrowed(&pincludedirfilter), windows_core::from_raw_borrowed(&pexcludefilefilter), windows_core::from_raw_borrowed(&pexcludedirfilter), core::mem::transmute_copy(&dwenumflags), core::mem::transmute_copy(&dwqueryflags)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1121,7 +1121,7 @@ impl IOfflineFilesPinInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesPinInfo_Impl::IsPinned(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbpinned, core::mem::transmute(ok__));
+                    pbpinned.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1171,7 +1171,7 @@ impl IOfflineFilesPinInfo2_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesPinInfo2_Impl::IsPartlyPinned(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbpartlypinned, core::mem::transmute(ok__));
+                    pbpartlypinned.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1196,7 +1196,7 @@ impl IOfflineFilesProgress_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesProgress_Impl::Begin(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbabort, core::mem::transmute(ok__));
+                    pbabort.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1207,7 +1207,7 @@ impl IOfflineFilesProgress_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesProgress_Impl::QueryAbort(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbabort, core::mem::transmute(ok__));
+                    pbabort.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1258,7 +1258,7 @@ impl IOfflineFilesSetting_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSetting_Impl::GetName(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszname, core::mem::transmute(ok__));
+                    ppszname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1269,7 +1269,7 @@ impl IOfflineFilesSetting_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSetting_Impl::GetValueType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ptype, core::mem::transmute(ok__));
+                    ptype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1285,7 +1285,7 @@ impl IOfflineFilesSetting_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSetting_Impl::GetPreferenceScope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwscope, core::mem::transmute(ok__));
+                    pdwscope.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1311,7 +1311,7 @@ impl IOfflineFilesSetting_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSetting_Impl::GetPolicyScope(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwscope, core::mem::transmute(ok__));
+                    pdwscope.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1352,7 +1352,7 @@ impl IOfflineFilesShareInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesShareInfo_Impl::GetShareItem(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppshareitem, core::mem::transmute(ok__));
+                    ppshareitem.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1363,7 +1363,7 @@ impl IOfflineFilesShareInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesShareInfo_Impl::GetShareCachingMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcachingmode, core::mem::transmute(ok__));
+                    pcachingmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1374,7 +1374,7 @@ impl IOfflineFilesShareInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesShareInfo_Impl::IsShareDfsJunction(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbisdfsjunction, core::mem::transmute(ok__));
+                    pbisdfsjunction.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1413,7 +1413,7 @@ impl IOfflineFilesSimpleProgress_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSimpleProgress_Impl::ItemBegin(this, core::mem::transmute(&pszfile)) {
                 Ok(ok__) => {
-                    core::ptr::write(presponse, core::mem::transmute(ok__));
+                    presponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1424,7 +1424,7 @@ impl IOfflineFilesSimpleProgress_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSimpleProgress_Impl::ItemResult(this, core::mem::transmute(&pszfile), core::mem::transmute_copy(&hrresult)) {
                 Ok(ok__) => {
-                    core::ptr::write(presponse, core::mem::transmute(ok__));
+                    presponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1511,7 +1511,7 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSyncErrorInfo_Impl::GetSyncOperation(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psyncop, core::mem::transmute(ok__));
+                    psyncop.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1522,7 +1522,7 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSyncErrorInfo_Impl::GetItemChangeFlags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwitemchangeflags, core::mem::transmute(ok__));
+                    pdwitemchangeflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1543,7 +1543,7 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSyncErrorInfo_Impl::GetLocalInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppinfo, core::mem::transmute(ok__));
+                    ppinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1554,7 +1554,7 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSyncErrorInfo_Impl::GetRemoteInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppinfo, core::mem::transmute(ok__));
+                    ppinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1565,7 +1565,7 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSyncErrorInfo_Impl::GetOriginalInfo(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppinfo, core::mem::transmute(ok__));
+                    ppinfo.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1599,7 +1599,7 @@ impl IOfflineFilesSyncErrorItemInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSyncErrorItemInfo_Impl::GetFileAttributes(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwattributes, core::mem::transmute(ok__));
+                    pdwattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1615,7 +1615,7 @@ impl IOfflineFilesSyncErrorItemInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSyncErrorItemInfo_Impl::GetFileSize(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psize, core::mem::transmute(ok__));
+                    psize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1644,7 +1644,7 @@ impl IOfflineFilesSyncProgress_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSyncProgress_Impl::SyncItemBegin(this, core::mem::transmute(&pszfile)) {
                 Ok(ok__) => {
-                    core::ptr::write(presponse, core::mem::transmute(ok__));
+                    presponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1655,7 +1655,7 @@ impl IOfflineFilesSyncProgress_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesSyncProgress_Impl::SyncItemResult(this, core::mem::transmute(&pszfile), core::mem::transmute_copy(&hrresult), windows_core::from_raw_borrowed(&perrorinfo)) {
                 Ok(ok__) => {
-                    core::ptr::write(presponse, core::mem::transmute(ok__));
+                    presponse.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1682,7 +1682,7 @@ impl IOfflineFilesTransparentCacheInfo_Vtbl {
             let this = (*this).get_impl();
             match IOfflineFilesTransparentCacheInfo_Impl::IsTransparentlyCached(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbtransparentlycached, core::mem::transmute(ok__));
+                    pbtransparentlycached.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

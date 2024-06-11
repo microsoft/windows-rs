@@ -50,7 +50,7 @@ impl IBackgroundTaskInstance_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskInstance_Impl::InstanceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -61,7 +61,7 @@ impl IBackgroundTaskInstance_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskInstance_Impl::Task(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -73,7 +73,7 @@ impl IBackgroundTaskInstance_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskInstance_Impl::Progress(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -89,7 +89,7 @@ impl IBackgroundTaskInstance_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskInstance_Impl::TriggerDetails(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -101,7 +101,7 @@ impl IBackgroundTaskInstance_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskInstance_Impl::Canceled(this, windows_core::from_raw_borrowed(&cancelhandler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -117,7 +117,7 @@ impl IBackgroundTaskInstance_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskInstance_Impl::SuspendedCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -128,7 +128,7 @@ impl IBackgroundTaskInstance_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskInstance_Impl::GetDeferral(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -165,7 +165,7 @@ impl IBackgroundTaskInstance2_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskInstance2_Impl::GetThrottleCount(this, counter) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -196,7 +196,7 @@ impl IBackgroundTaskInstance4_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskInstance4_Impl::User(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -228,7 +228,7 @@ impl IBackgroundTaskRegistration_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskRegistration_Impl::TaskId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -239,7 +239,7 @@ impl IBackgroundTaskRegistration_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskRegistration_Impl::Name(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -251,7 +251,7 @@ impl IBackgroundTaskRegistration_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskRegistration_Impl::Progress(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -267,7 +267,7 @@ impl IBackgroundTaskRegistration_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskRegistration_Impl::Completed(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -311,7 +311,7 @@ impl IBackgroundTaskRegistration2_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskRegistration2_Impl::Trigger(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -337,7 +337,7 @@ impl IBackgroundTaskRegistration3_Vtbl {
             let this = (*this).get_impl();
             match IBackgroundTaskRegistration3_Impl::TaskGroup(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

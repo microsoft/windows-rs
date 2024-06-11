@@ -12,7 +12,7 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDefaultAudioDeviceChangedEventArgs_Impl::Id(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -24,7 +24,7 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match IDefaultAudioDeviceChangedEventArgs_Impl::Role(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -58,7 +58,7 @@ impl IMediaDeviceController_Vtbl {
             let this = (*this).get_impl();
             match IMediaDeviceController_Impl::GetAvailableMediaStreamProperties(this, mediastreamtype) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -70,7 +70,7 @@ impl IMediaDeviceController_Vtbl {
             let this = (*this).get_impl();
             match IMediaDeviceController_Impl::GetMediaStreamProperties(this, mediastreamtype) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -82,7 +82,7 @@ impl IMediaDeviceController_Vtbl {
             let this = (*this).get_impl();
             match IMediaDeviceController_Impl::SetMediaStreamPropertiesAsync(this, mediastreamtype, windows_core::from_raw_borrowed(&mediaencodingproperties)) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }

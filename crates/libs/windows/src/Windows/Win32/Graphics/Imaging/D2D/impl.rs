@@ -49,7 +49,7 @@ impl IWICImagingFactory2_Vtbl {
             let this = (*this).get_impl();
             match IWICImagingFactory2_Impl::CreateImageEncoder(this, windows_core::from_raw_borrowed(&pd2ddevice)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwicimageencoder, core::mem::transmute(ok__));
+                    ppwicimageencoder.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

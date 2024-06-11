@@ -16,7 +16,7 @@ impl IHolographicCameraInterop_Vtbl {
             let this = (*this).get_impl();
             match IHolographicCameraInterop_Impl::CreateDirect3D12BackBufferResource(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&ptexture2ddesc)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcreatedtexture2dresource, core::mem::transmute(ok__));
+                    ppcreatedtexture2dresource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -27,7 +27,7 @@ impl IHolographicCameraInterop_Vtbl {
             let this = (*this).get_impl();
             match IHolographicCameraInterop_Impl::CreateDirect3D12HardwareProtectedBackBufferResource(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&ptexture2ddesc), windows_core::from_raw_borrowed(&pprotectedresourcesession)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcreatedtexture2dresource, core::mem::transmute(ok__));
+                    ppcreatedtexture2dresource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -109,7 +109,7 @@ impl IHolographicQuadLayerInterop_Vtbl {
             let this = (*this).get_impl();
             match IHolographicQuadLayerInterop_Impl::CreateDirect3D12ContentBufferResource(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&ptexture2ddesc)) {
                 Ok(ok__) => {
-                    core::ptr::write(pptexture2dresource, core::mem::transmute(ok__));
+                    pptexture2dresource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -120,7 +120,7 @@ impl IHolographicQuadLayerInterop_Vtbl {
             let this = (*this).get_impl();
             match IHolographicQuadLayerInterop_Impl::CreateDirect3D12HardwareProtectedContentBufferResource(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&ptexture2ddesc), windows_core::from_raw_borrowed(&pprotectedresourcesession)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcreatedtexture2dresource, core::mem::transmute(ok__));
+                    ppcreatedtexture2dresource.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

@@ -13,7 +13,7 @@ impl IDisplayDeviceInterop_Vtbl {
             let this = (*this).get_impl();
             match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, windows_core::from_raw_borrowed(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
                 Ok(ok__) => {
-                    core::ptr::write(phandle, core::mem::transmute(ok__));
+                    phandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -24,7 +24,7 @@ impl IDisplayDeviceInterop_Vtbl {
             let this = (*this).get_impl();
             match IDisplayDeviceInterop_Impl::OpenSharedHandle(this, core::mem::transmute_copy(&nthandle), core::mem::transmute(&riid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvobj, core::mem::transmute(ok__));
+                    ppvobj.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -52,7 +52,7 @@ impl IDisplayPathInterop_Vtbl {
             let this = (*this).get_impl();
             match IDisplayPathInterop_Impl::CreateSourcePresentationHandle(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -63,7 +63,7 @@ impl IDisplayPathInterop_Vtbl {
             let this = (*this).get_impl();
             match IDisplayPathInterop_Impl::GetSourceId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psourceid, core::mem::transmute(ok__));
+                    psourceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

@@ -26,7 +26,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
             let this = (*this).get_impl();
             match IRandomAccessStreamFileAccessMode_Impl::GetMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(fileaccessmode, core::mem::transmute(ok__));
+                    fileaccessmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -49,7 +49,7 @@ impl IStorageFolderHandleAccess_Vtbl {
             let this = (*this).get_impl();
             match IStorageFolderHandleAccess_Impl::Create(this, core::mem::transmute(&filename), core::mem::transmute_copy(&creationoptions), core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), windows_core::from_raw_borrowed(&oplockbreakinghandler)) {
                 Ok(ok__) => {
-                    core::ptr::write(interophandle, core::mem::transmute(ok__));
+                    interophandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -72,7 +72,7 @@ impl IStorageItemHandleAccess_Vtbl {
             let this = (*this).get_impl();
             match IStorageItemHandleAccess_Impl::Create(this, core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), windows_core::from_raw_borrowed(&oplockbreakinghandler)) {
                 Ok(ok__) => {
-                    core::ptr::write(interophandle, core::mem::transmute(ok__));
+                    interophandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -113,7 +113,7 @@ impl IUnbufferedFileHandleProvider_Vtbl {
             let this = (*this).get_impl();
             match IUnbufferedFileHandleProvider_Impl::OpenUnbufferedFileHandle(this, windows_core::from_raw_borrowed(&oplockbreakcallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(filehandle, core::mem::transmute(ok__));
+                    filehandle.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

@@ -36,7 +36,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match IXmlReader_Impl::GetProperty(this, core::mem::transmute_copy(&nproperty)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -57,7 +57,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match IXmlReader_Impl::GetNodeType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnodetype, core::mem::transmute(ok__));
+                    pnodetype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match IXmlReader_Impl::GetLineNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnlinenumber, core::mem::transmute(ok__));
+                    pnlinenumber.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -144,7 +144,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match IXmlReader_Impl::GetLinePosition(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnlineposition, core::mem::transmute(ok__));
+                    pnlineposition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -155,7 +155,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match IXmlReader_Impl::GetAttributeCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pnattributecount, core::mem::transmute(ok__));
+                    pnattributecount.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -166,7 +166,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match IXmlReader_Impl::GetDepth(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pndepth, core::mem::transmute(ok__));
+                    pndepth.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -219,7 +219,7 @@ impl IXmlResolver_Vtbl {
             let this = (*this).get_impl();
             match IXmlResolver_Impl::ResolveUri(this, core::mem::transmute(&pwszbaseuri), core::mem::transmute(&pwszpublicidentifier), core::mem::transmute(&pwszsystemidentifier)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresolvedinput, core::mem::transmute(ok__));
+                    ppresolvedinput.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -275,7 +275,7 @@ impl IXmlWriter_Vtbl {
             let this = (*this).get_impl();
             match IXmlWriter_Impl::GetProperty(this, core::mem::transmute_copy(&nproperty)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -496,7 +496,7 @@ impl IXmlWriterLite_Vtbl {
             let this = (*this).get_impl();
             match IXmlWriterLite_Impl::GetProperty(this, core::mem::transmute_copy(&nproperty)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

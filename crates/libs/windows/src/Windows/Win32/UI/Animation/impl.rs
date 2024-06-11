@@ -25,7 +25,7 @@ impl IUIAnimationInterpolator_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationInterpolator_Impl::GetDuration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(duration, core::mem::transmute(ok__));
+                    duration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -36,7 +36,7 @@ impl IUIAnimationInterpolator_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationInterpolator_Impl::GetFinalValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -47,7 +47,7 @@ impl IUIAnimationInterpolator_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationInterpolator_Impl::InterpolateValue(this, core::mem::transmute_copy(&offset)) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -58,7 +58,7 @@ impl IUIAnimationInterpolator_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationInterpolator_Impl::InterpolateVelocity(this, core::mem::transmute_copy(&offset)) {
                 Ok(ok__) => {
-                    core::ptr::write(velocity, core::mem::transmute(ok__));
+                    velocity.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -103,7 +103,7 @@ impl IUIAnimationInterpolator2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationInterpolator2_Impl::GetDimension(this) {
                 Ok(ok__) => {
-                    core::ptr::write(dimension, core::mem::transmute(ok__));
+                    dimension.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -124,7 +124,7 @@ impl IUIAnimationInterpolator2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationInterpolator2_Impl::GetDuration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(duration, core::mem::transmute(ok__));
+                    duration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -218,7 +218,7 @@ impl IUIAnimationManager_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager_Impl::CreateAnimationVariable(this, core::mem::transmute_copy(&initialvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(variable, core::mem::transmute(ok__));
+                    variable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl IUIAnimationManager_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager_Impl::CreateStoryboard(this) {
                 Ok(ok__) => {
-                    core::ptr::write(storyboard, core::mem::transmute(ok__));
+                    storyboard.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -260,7 +260,7 @@ impl IUIAnimationManager_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager_Impl::GetVariableFromTag(this, windows_core::from_raw_borrowed(&object), core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(variable, core::mem::transmute(ok__));
+                    variable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -271,7 +271,7 @@ impl IUIAnimationManager_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager_Impl::GetStoryboardFromTag(this, windows_core::from_raw_borrowed(&object), core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(storyboard, core::mem::transmute(ok__));
+                    storyboard.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -282,7 +282,7 @@ impl IUIAnimationManager_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager_Impl::GetStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -396,7 +396,7 @@ impl IUIAnimationManager2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager2_Impl::CreateAnimationVectorVariable(this, core::mem::transmute_copy(&initialvalue), core::mem::transmute_copy(&cdimension)) {
                 Ok(ok__) => {
-                    core::ptr::write(variable, core::mem::transmute(ok__));
+                    variable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -407,7 +407,7 @@ impl IUIAnimationManager2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager2_Impl::CreateAnimationVariable(this, core::mem::transmute_copy(&initialvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(variable, core::mem::transmute(ok__));
+                    variable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -423,7 +423,7 @@ impl IUIAnimationManager2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager2_Impl::CreateStoryboard(this) {
                 Ok(ok__) => {
-                    core::ptr::write(storyboard, core::mem::transmute(ok__));
+                    storyboard.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -449,7 +449,7 @@ impl IUIAnimationManager2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager2_Impl::GetVariableFromTag(this, windows_core::from_raw_borrowed(&object), core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(variable, core::mem::transmute(ok__));
+                    variable.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -460,7 +460,7 @@ impl IUIAnimationManager2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager2_Impl::GetStoryboardFromTag(this, windows_core::from_raw_borrowed(&object), core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
-                    core::ptr::write(storyboard, core::mem::transmute(ok__));
+                    storyboard.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -471,7 +471,7 @@ impl IUIAnimationManager2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager2_Impl::EstimateNextEventTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(seconds, core::mem::transmute(ok__));
+                    seconds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -482,7 +482,7 @@ impl IUIAnimationManager2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationManager2_Impl::GetStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -694,7 +694,7 @@ impl IUIAnimationStoryboard_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationStoryboard_Impl::AddKeyframeAtOffset(this, core::mem::transmute_copy(&existingkeyframe), core::mem::transmute_copy(&offset)) {
                 Ok(ok__) => {
-                    core::ptr::write(keyframe, core::mem::transmute(ok__));
+                    keyframe.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -705,7 +705,7 @@ impl IUIAnimationStoryboard_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationStoryboard_Impl::AddKeyframeAfterTransition(this, windows_core::from_raw_borrowed(&transition)) {
                 Ok(ok__) => {
-                    core::ptr::write(keyframe, core::mem::transmute(ok__));
+                    keyframe.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -771,7 +771,7 @@ impl IUIAnimationStoryboard_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationStoryboard_Impl::GetStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -782,7 +782,7 @@ impl IUIAnimationStoryboard_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationStoryboard_Impl::GetElapsedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(elapsedtime, core::mem::transmute(ok__));
+                    elapsedtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -851,7 +851,7 @@ impl IUIAnimationStoryboard2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationStoryboard2_Impl::AddKeyframeAtOffset(this, core::mem::transmute_copy(&existingkeyframe), core::mem::transmute_copy(&offset)) {
                 Ok(ok__) => {
-                    core::ptr::write(keyframe, core::mem::transmute(ok__));
+                    keyframe.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -862,7 +862,7 @@ impl IUIAnimationStoryboard2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationStoryboard2_Impl::AddKeyframeAfterTransition(this, windows_core::from_raw_borrowed(&transition)) {
                 Ok(ok__) => {
-                    core::ptr::write(keyframe, core::mem::transmute(ok__));
+                    keyframe.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -933,7 +933,7 @@ impl IUIAnimationStoryboard2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationStoryboard2_Impl::GetStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(status, core::mem::transmute(ok__));
+                    status.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -944,7 +944,7 @@ impl IUIAnimationStoryboard2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationStoryboard2_Impl::GetElapsedTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(elapsedtime, core::mem::transmute(ok__));
+                    elapsedtime.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1077,7 +1077,7 @@ impl IUIAnimationTimer_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTimer_Impl::GetTime(this) {
                 Ok(ok__) => {
-                    core::ptr::write(seconds, core::mem::transmute(ok__));
+                    seconds.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1167,7 +1167,7 @@ impl IUIAnimationTimerUpdateHandler_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTimerUpdateHandler_Impl::OnUpdate(this, core::mem::transmute_copy(&timenow)) {
                 Ok(ok__) => {
-                    core::ptr::write(result, core::mem::transmute(ok__));
+                    result.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1223,7 +1223,7 @@ impl IUIAnimationTransition_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransition_Impl::GetDuration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(duration, core::mem::transmute(ok__));
+                    duration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1258,7 +1258,7 @@ impl IUIAnimationTransition2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransition2_Impl::GetDimension(this) {
                 Ok(ok__) => {
-                    core::ptr::write(dimension, core::mem::transmute(ok__));
+                    dimension.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1294,7 +1294,7 @@ impl IUIAnimationTransition2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransition2_Impl::GetDuration(this) {
                 Ok(ok__) => {
-                    core::ptr::write(duration, core::mem::transmute(ok__));
+                    duration.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1326,7 +1326,7 @@ impl IUIAnimationTransitionFactory_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionFactory_Impl::CreateTransition(this, windows_core::from_raw_borrowed(&interpolator)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1349,7 +1349,7 @@ impl IUIAnimationTransitionFactory2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionFactory2_Impl::CreateTransition(this, windows_core::from_raw_borrowed(&interpolator)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1383,7 +1383,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateInstantaneousTransition(this, core::mem::transmute_copy(&finalvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1394,7 +1394,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateConstantTransition(this, core::mem::transmute_copy(&duration)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1405,7 +1405,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateDiscreteTransition(this, core::mem::transmute_copy(&delay), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&hold)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1416,7 +1416,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateLinearTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1427,7 +1427,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateLinearTransitionFromSpeed(this, core::mem::transmute_copy(&speed), core::mem::transmute_copy(&finalvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1438,7 +1438,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateSinusoidalTransitionFromVelocity(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&period)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1449,7 +1449,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateSinusoidalTransitionFromRange(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&minimumvalue), core::mem::transmute_copy(&maximumvalue), core::mem::transmute_copy(&period), core::mem::transmute_copy(&slope)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1460,7 +1460,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateAccelerateDecelerateTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&accelerationratio), core::mem::transmute_copy(&decelerationratio)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1471,7 +1471,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateReversalTransition(this, core::mem::transmute_copy(&duration)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1482,7 +1482,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateCubicTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&finalvelocity)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1493,7 +1493,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateSmoothStopTransition(this, core::mem::transmute_copy(&maximumduration), core::mem::transmute_copy(&finalvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1504,7 +1504,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary_Impl::CreateParabolicTransitionFromAcceleration(this, core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&finalvelocity), core::mem::transmute_copy(&acceleration)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1559,7 +1559,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateInstantaneousTransition(this, core::mem::transmute_copy(&finalvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1570,7 +1570,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateInstantaneousVectorTransition(this, core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1581,7 +1581,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateConstantTransition(this, core::mem::transmute_copy(&duration)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1592,7 +1592,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateDiscreteTransition(this, core::mem::transmute_copy(&delay), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&hold)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1603,7 +1603,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateDiscreteVectorTransition(this, core::mem::transmute_copy(&delay), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension), core::mem::transmute_copy(&hold)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1614,7 +1614,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateLinearTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1625,7 +1625,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateLinearVectorTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1636,7 +1636,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateLinearTransitionFromSpeed(this, core::mem::transmute_copy(&speed), core::mem::transmute_copy(&finalvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1647,7 +1647,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateLinearVectorTransitionFromSpeed(this, core::mem::transmute_copy(&speed), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1658,7 +1658,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateSinusoidalTransitionFromVelocity(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&period)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1669,7 +1669,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateSinusoidalTransitionFromRange(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&minimumvalue), core::mem::transmute_copy(&maximumvalue), core::mem::transmute_copy(&period), core::mem::transmute_copy(&slope)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1680,7 +1680,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateAccelerateDecelerateTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&accelerationratio), core::mem::transmute_copy(&decelerationratio)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1691,7 +1691,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateReversalTransition(this, core::mem::transmute_copy(&duration)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1702,7 +1702,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateCubicTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&finalvelocity)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1713,7 +1713,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateCubicVectorTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&finalvelocity), core::mem::transmute_copy(&cdimension)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1724,7 +1724,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateSmoothStopTransition(this, core::mem::transmute_copy(&maximumduration), core::mem::transmute_copy(&finalvalue)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1735,7 +1735,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateParabolicTransitionFromAcceleration(this, core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&finalvelocity), core::mem::transmute_copy(&acceleration)) {
                 Ok(ok__) => {
-                    core::ptr::write(transition, core::mem::transmute(ok__));
+                    transition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1746,7 +1746,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateCubicBezierLinearTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&x1), core::mem::transmute_copy(&y1), core::mem::transmute_copy(&x2), core::mem::transmute_copy(&y2)) {
                 Ok(ok__) => {
-                    core::ptr::write(pptransition, core::mem::transmute(ok__));
+                    pptransition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1757,7 +1757,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationTransitionLibrary2_Impl::CreateCubicBezierLinearVectorTransition(this, core::mem::transmute_copy(&duration), core::mem::transmute_copy(&finalvalue), core::mem::transmute_copy(&cdimension), core::mem::transmute_copy(&x1), core::mem::transmute_copy(&y1), core::mem::transmute_copy(&x2), core::mem::transmute_copy(&y2)) {
                 Ok(ok__) => {
-                    core::ptr::write(pptransition, core::mem::transmute(ok__));
+                    pptransition.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1814,7 +1814,7 @@ impl IUIAnimationVariable_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable_Impl::GetValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1825,7 +1825,7 @@ impl IUIAnimationVariable_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable_Impl::GetFinalValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(finalvalue, core::mem::transmute(ok__));
+                    finalvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1836,7 +1836,7 @@ impl IUIAnimationVariable_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable_Impl::GetPreviousValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(previousvalue, core::mem::transmute(ok__));
+                    previousvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1847,7 +1847,7 @@ impl IUIAnimationVariable_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable_Impl::GetIntegerValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1858,7 +1858,7 @@ impl IUIAnimationVariable_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable_Impl::GetFinalIntegerValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(finalvalue, core::mem::transmute(ok__));
+                    finalvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1869,7 +1869,7 @@ impl IUIAnimationVariable_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable_Impl::GetPreviousIntegerValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(previousvalue, core::mem::transmute(ok__));
+                    previousvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1880,7 +1880,7 @@ impl IUIAnimationVariable_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable_Impl::GetCurrentStoryboard(this) {
                 Ok(ok__) => {
-                    core::ptr::write(storyboard, core::mem::transmute(ok__));
+                    storyboard.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1982,7 +1982,7 @@ impl IUIAnimationVariable2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable2_Impl::GetDimension(this) {
                 Ok(ok__) => {
-                    core::ptr::write(dimension, core::mem::transmute(ok__));
+                    dimension.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1993,7 +1993,7 @@ impl IUIAnimationVariable2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable2_Impl::GetValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2019,7 +2019,7 @@ impl IUIAnimationVariable2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable2_Impl::GetFinalValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(finalvalue, core::mem::transmute(ok__));
+                    finalvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2035,7 +2035,7 @@ impl IUIAnimationVariable2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable2_Impl::GetPreviousValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(previousvalue, core::mem::transmute(ok__));
+                    previousvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2051,7 +2051,7 @@ impl IUIAnimationVariable2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable2_Impl::GetIntegerValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(value, core::mem::transmute(ok__));
+                    value.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2067,7 +2067,7 @@ impl IUIAnimationVariable2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable2_Impl::GetFinalIntegerValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(finalvalue, core::mem::transmute(ok__));
+                    finalvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2083,7 +2083,7 @@ impl IUIAnimationVariable2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable2_Impl::GetPreviousIntegerValue(this) {
                 Ok(ok__) => {
-                    core::ptr::write(previousvalue, core::mem::transmute(ok__));
+                    previousvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2099,7 +2099,7 @@ impl IUIAnimationVariable2_Vtbl {
             let this = (*this).get_impl();
             match IUIAnimationVariable2_Impl::GetCurrentStoryboard(this) {
                 Ok(ok__) => {
-                    core::ptr::write(storyboard, core::mem::transmute(ok__));
+                    storyboard.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

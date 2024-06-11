@@ -43,7 +43,7 @@ impl IRendezvousSession_Vtbl {
             let this = (*this).get_impl();
             match IRendezvousSession_Impl::State(this) {
                 Ok(ok__) => {
-                    core::ptr::write(psessionstate, core::mem::transmute(ok__));
+                    psessionstate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -54,7 +54,7 @@ impl IRendezvousSession_Vtbl {
             let this = (*this).get_impl();
             match IRendezvousSession_Impl::RemoteUser(this) {
                 Ok(ok__) => {
-                    core::ptr::write(bstrusername, core::mem::transmute(ok__));
+                    bstrusername.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -65,7 +65,7 @@ impl IRendezvousSession_Vtbl {
             let this = (*this).get_impl();
             match IRendezvousSession_Impl::Flags(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pflags, core::mem::transmute(ok__));
+                    pflags.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

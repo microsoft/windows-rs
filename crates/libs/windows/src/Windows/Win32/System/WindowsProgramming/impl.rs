@@ -29,7 +29,7 @@ impl ICameraUIControl_Vtbl {
             let this = (*this).get_impl();
             match ICameraUIControl_Impl::Suspend(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbdeferralrequired, core::mem::transmute(ok__));
+                    pbdeferralrequired.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -45,7 +45,7 @@ impl ICameraUIControl_Vtbl {
             let this = (*this).get_impl();
             match ICameraUIControl_Impl::GetCurrentViewType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pviewtype, core::mem::transmute(ok__));
+                    pviewtype.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -61,7 +61,7 @@ impl ICameraUIControl_Vtbl {
             let this = (*this).get_impl();
             match ICameraUIControl_Impl::GetSelectedItems(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppselecteditempaths, core::mem::transmute(ok__));
+                    ppselecteditempaths.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -164,7 +164,7 @@ impl IContainerActivationHelper_Vtbl {
             let this = (*this).get_impl();
             match IContainerActivationHelper_Impl::CanActivateClientVM(this) {
                 Ok(ok__) => {
-                    core::ptr::write(isallowed, core::mem::transmute(ok__));
+                    isallowed.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -269,7 +269,7 @@ impl IEditionUpgradeHelper_Vtbl {
             let this = (*this).get_impl();
             match IEditionUpgradeHelper_Impl::CanUpgrade(this) {
                 Ok(ok__) => {
-                    core::ptr::write(isallowed, core::mem::transmute(ok__));
+                    isallowed.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -290,7 +290,7 @@ impl IEditionUpgradeHelper_Vtbl {
             let this = (*this).get_impl();
             match IEditionUpgradeHelper_Impl::GetOsProductContentId(this) {
                 Ok(ok__) => {
-                    core::ptr::write(contentid, core::mem::transmute(ok__));
+                    contentid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -301,7 +301,7 @@ impl IEditionUpgradeHelper_Vtbl {
             let this = (*this).get_impl();
             match IEditionUpgradeHelper_Impl::GetGenuineLocalStatus(this) {
                 Ok(ok__) => {
-                    core::ptr::write(isgenuine, core::mem::transmute(ok__));
+                    isgenuine.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -348,7 +348,7 @@ impl IWindowsLockModeHelper_Vtbl {
             let this = (*this).get_impl();
             match IWindowsLockModeHelper_Impl::GetSMode(this) {
                 Ok(ok__) => {
-                    core::ptr::write(issmode, core::mem::transmute(ok__));
+                    issmode.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

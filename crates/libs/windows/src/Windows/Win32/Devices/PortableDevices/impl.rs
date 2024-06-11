@@ -44,7 +44,7 @@ impl IEnumPortableDeviceConnectors_Vtbl {
             let this = (*this).get_impl();
             match IEnumPortableDeviceConnectors_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -92,7 +92,7 @@ impl IEnumPortableDeviceObjectIDs_Vtbl {
             let this = (*this).get_impl();
             match IEnumPortableDeviceObjectIDs_Impl::Clone(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -128,7 +128,7 @@ impl IMediaRadioManager_Vtbl {
             let this = (*this).get_impl();
             match IMediaRadioManager_Impl::GetRadioInstances(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcollection, core::mem::transmute(ok__));
+                    ppcollection.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -207,7 +207,7 @@ impl IPortableDevice_Vtbl {
             let this = (*this).get_impl();
             match IPortableDevice_Impl::SendCommand(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pparameters)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresults, core::mem::transmute(ok__));
+                    ppresults.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -218,7 +218,7 @@ impl IPortableDevice_Vtbl {
             let this = (*this).get_impl();
             match IPortableDevice_Impl::Content(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontent, core::mem::transmute(ok__));
+                    ppcontent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -229,7 +229,7 @@ impl IPortableDevice_Vtbl {
             let this = (*this).get_impl();
             match IPortableDevice_Impl::Capabilities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcapabilities, core::mem::transmute(ok__));
+                    ppcapabilities.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -250,7 +250,7 @@ impl IPortableDevice_Vtbl {
             let this = (*this).get_impl();
             match IPortableDevice_Impl::Advise(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pcallback), windows_core::from_raw_borrowed(&pparameters)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszcookie, core::mem::transmute(ok__));
+                    ppszcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -266,7 +266,7 @@ impl IPortableDevice_Vtbl {
             let this = (*this).get_impl();
             match IPortableDevice_Impl::GetPnPDeviceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszpnpdeviceid, core::mem::transmute(ok__));
+                    ppszpnpdeviceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -313,7 +313,7 @@ impl IPortableDeviceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceCapabilities_Impl::GetSupportedCommands(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcommands, core::mem::transmute(ok__));
+                    ppcommands.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -324,7 +324,7 @@ impl IPortableDeviceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceCapabilities_Impl::GetCommandOptions(this, core::mem::transmute_copy(&command)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoptions, core::mem::transmute(ok__));
+                    ppoptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -335,7 +335,7 @@ impl IPortableDeviceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceCapabilities_Impl::GetFunctionalCategories(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcategories, core::mem::transmute(ok__));
+                    ppcategories.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -346,7 +346,7 @@ impl IPortableDeviceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceCapabilities_Impl::GetFunctionalObjects(this, core::mem::transmute_copy(&category)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobjectids, core::mem::transmute(ok__));
+                    ppobjectids.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -357,7 +357,7 @@ impl IPortableDeviceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceCapabilities_Impl::GetSupportedContentTypes(this, core::mem::transmute_copy(&category)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontenttypes, core::mem::transmute(ok__));
+                    ppcontenttypes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -368,7 +368,7 @@ impl IPortableDeviceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceCapabilities_Impl::GetSupportedFormats(this, core::mem::transmute_copy(&contenttype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppformats, core::mem::transmute(ok__));
+                    ppformats.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -379,7 +379,7 @@ impl IPortableDeviceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceCapabilities_Impl::GetSupportedFormatProperties(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppkeys, core::mem::transmute(ok__));
+                    ppkeys.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -390,7 +390,7 @@ impl IPortableDeviceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceCapabilities_Impl::GetFixedPropertyAttributes(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppattributes, core::mem::transmute(ok__));
+                    ppattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -406,7 +406,7 @@ impl IPortableDeviceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceCapabilities_Impl::GetSupportedEvents(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppevents, core::mem::transmute(ok__));
+                    ppevents.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -417,7 +417,7 @@ impl IPortableDeviceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceCapabilities_Impl::GetEventOptions(this, core::mem::transmute_copy(&event)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoptions, core::mem::transmute(ok__));
+                    ppoptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -486,7 +486,7 @@ impl IPortableDeviceConnector_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceConnector_Impl::GetPnPID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppwszpnpid, core::mem::transmute(ok__));
+                    ppwszpnpid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -529,7 +529,7 @@ impl IPortableDeviceContent_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceContent_Impl::EnumObjects(this, core::mem::transmute_copy(&dwflags), core::mem::transmute(&pszparentobjectid), windows_core::from_raw_borrowed(&pfilter)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppenum, core::mem::transmute(ok__));
+                    ppenum.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -540,7 +540,7 @@ impl IPortableDeviceContent_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceContent_Impl::Properties(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppproperties, core::mem::transmute(ok__));
+                    ppproperties.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -551,7 +551,7 @@ impl IPortableDeviceContent_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceContent_Impl::Transfer(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresources, core::mem::transmute(ok__));
+                    ppresources.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -577,7 +577,7 @@ impl IPortableDeviceContent_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceContent_Impl::GetObjectIDsFromPersistentUniqueIDs(this, windows_core::from_raw_borrowed(&ppersistentuniqueids)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppobjectids, core::mem::transmute(ok__));
+                    ppobjectids.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -654,7 +654,7 @@ impl IPortableDeviceDataStream_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceDataStream_Impl::GetObjectID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszobjectid, core::mem::transmute(ok__));
+                    ppszobjectid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -689,7 +689,7 @@ impl IPortableDeviceDispatchFactory_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceDispatchFactory_Impl::GetDeviceDispatch(this, core::mem::transmute(&pszpnpdeviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdevicedispatch, core::mem::transmute(ok__));
+                    ppdevicedispatch.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -863,7 +863,7 @@ impl IPortableDevicePropVariantCollection_Vtbl {
             let this = (*this).get_impl();
             match IPortableDevicePropVariantCollection_Impl::GetType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pvt, core::mem::transmute(ok__));
+                    pvt.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -918,7 +918,7 @@ impl IPortableDeviceProperties_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceProperties_Impl::GetSupportedProperties(this, core::mem::transmute(&pszobjectid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppkeys, core::mem::transmute(ok__));
+                    ppkeys.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -929,7 +929,7 @@ impl IPortableDeviceProperties_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceProperties_Impl::GetPropertyAttributes(this, core::mem::transmute(&pszobjectid), core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppattributes, core::mem::transmute(ok__));
+                    ppattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -940,7 +940,7 @@ impl IPortableDeviceProperties_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceProperties_Impl::GetValues(this, core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pkeys)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalues, core::mem::transmute(ok__));
+                    ppvalues.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -951,7 +951,7 @@ impl IPortableDeviceProperties_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceProperties_Impl::SetValues(this, core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pvalues)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresults, core::mem::transmute(ok__));
+                    ppresults.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -996,7 +996,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
             let this = (*this).get_impl();
             match IPortableDevicePropertiesBulk_Impl::QueueGetValuesByObjectList(this, windows_core::from_raw_borrowed(&pobjectids), windows_core::from_raw_borrowed(&pkeys), windows_core::from_raw_borrowed(&pcallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcontext, core::mem::transmute(ok__));
+                    pcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1007,7 +1007,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
             let this = (*this).get_impl();
             match IPortableDevicePropertiesBulk_Impl::QueueGetValuesByObjectFormat(this, core::mem::transmute_copy(&pguidobjectformat), core::mem::transmute(&pszparentobjectid), core::mem::transmute_copy(&dwdepth), windows_core::from_raw_borrowed(&pkeys), windows_core::from_raw_borrowed(&pcallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcontext, core::mem::transmute(ok__));
+                    pcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1018,7 +1018,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
             let this = (*this).get_impl();
             match IPortableDevicePropertiesBulk_Impl::QueueSetValuesByObjectList(this, windows_core::from_raw_borrowed(&pobjectvalues), windows_core::from_raw_borrowed(&pcallback)) {
                 Ok(ok__) => {
-                    core::ptr::write(pcontext, core::mem::transmute(ok__));
+                    pcontext.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1100,7 +1100,7 @@ impl IPortableDeviceResources_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceResources_Impl::GetSupportedResources(this, core::mem::transmute(&pszobjectid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppkeys, core::mem::transmute(ok__));
+                    ppkeys.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1111,7 +1111,7 @@ impl IPortableDeviceResources_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceResources_Impl::GetResourceAttributes(this, core::mem::transmute(&pszobjectid), core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresourceattributes, core::mem::transmute(ok__));
+                    ppresourceattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1177,7 +1177,7 @@ impl IPortableDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceService_Impl::Capabilities(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcapabilities, core::mem::transmute(ok__));
+                    ppcapabilities.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1188,7 +1188,7 @@ impl IPortableDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceService_Impl::Content(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcontent, core::mem::transmute(ok__));
+                    ppcontent.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1199,7 +1199,7 @@ impl IPortableDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceService_Impl::Methods(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmethods, core::mem::transmute(ok__));
+                    ppmethods.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1220,7 +1220,7 @@ impl IPortableDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceService_Impl::GetServiceObjectID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszserviceobjectid, core::mem::transmute(ok__));
+                    ppszserviceobjectid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1231,7 +1231,7 @@ impl IPortableDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceService_Impl::GetPnPServiceID(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszpnpserviceid, core::mem::transmute(ok__));
+                    ppszpnpserviceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1242,7 +1242,7 @@ impl IPortableDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceService_Impl::Advise(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pcallback), windows_core::from_raw_borrowed(&pparameters)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszcookie, core::mem::transmute(ok__));
+                    ppszcookie.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1258,7 +1258,7 @@ impl IPortableDeviceService_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceService_Impl::SendCommand(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pparameters)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppresults, core::mem::transmute(ok__));
+                    ppresults.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1339,7 +1339,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetSupportedMethods(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmethods, core::mem::transmute(ok__));
+                    ppmethods.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1350,7 +1350,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetSupportedMethodsByFormat(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppmethods, core::mem::transmute(ok__));
+                    ppmethods.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1361,7 +1361,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetMethodAttributes(this, core::mem::transmute_copy(&method)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppattributes, core::mem::transmute(ok__));
+                    ppattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1372,7 +1372,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetMethodParameterAttributes(this, core::mem::transmute_copy(&method), core::mem::transmute_copy(&parameter)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppattributes, core::mem::transmute(ok__));
+                    ppattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1383,7 +1383,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetSupportedFormats(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppformats, core::mem::transmute(ok__));
+                    ppformats.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1394,7 +1394,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetFormatAttributes(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppattributes, core::mem::transmute(ok__));
+                    ppattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1405,7 +1405,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetSupportedFormatProperties(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppkeys, core::mem::transmute(ok__));
+                    ppkeys.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1416,7 +1416,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetFormatPropertyAttributes(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&property)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppattributes, core::mem::transmute(ok__));
+                    ppattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1427,7 +1427,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetSupportedEvents(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppevents, core::mem::transmute(ok__));
+                    ppevents.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1438,7 +1438,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetEventAttributes(this, core::mem::transmute_copy(&event)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppattributes, core::mem::transmute(ok__));
+                    ppattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1449,7 +1449,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetEventParameterAttributes(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&parameter)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppattributes, core::mem::transmute(ok__));
+                    ppattributes.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1460,7 +1460,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetInheritedServices(this, core::mem::transmute_copy(&dwinheritancetype)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppservices, core::mem::transmute(ok__));
+                    ppservices.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1471,7 +1471,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetFormatRenderingProfiles(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
-                    core::ptr::write(pprenderingprofiles, core::mem::transmute(ok__));
+                    pprenderingprofiles.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1482,7 +1482,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetSupportedCommands(this) {
                 Ok(ok__) => {
-                    core::ptr::write(ppcommands, core::mem::transmute(ok__));
+                    ppcommands.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1493,7 +1493,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceCapabilities_Impl::GetCommandOptions(this, core::mem::transmute_copy(&command)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppoptions, core::mem::transmute(ok__));
+                    ppoptions.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1545,7 +1545,7 @@ impl IPortableDeviceServiceManager_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceServiceManager_Impl::GetDeviceForService(this, core::mem::transmute(&pszpnpserviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppszpnpdeviceid, core::mem::transmute(ok__));
+                    ppszpnpdeviceid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1724,7 +1724,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1740,7 +1740,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetStringValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1756,7 +1756,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetUnsignedIntegerValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1772,7 +1772,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetSignedIntegerValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1788,7 +1788,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetUnsignedLargeIntegerValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1804,7 +1804,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetSignedLargeIntegerValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1820,7 +1820,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetFloatValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1836,7 +1836,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetErrorValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1862,7 +1862,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetBoolValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1878,7 +1878,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetIUnknownValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1894,7 +1894,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetGuidValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(pvalue, core::mem::transmute(ok__));
+                    pvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1920,7 +1920,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetIPortableDeviceValuesValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1936,7 +1936,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetIPortableDevicePropVariantCollectionValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1952,7 +1952,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetIPortableDeviceKeyCollectionValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -1968,7 +1968,7 @@ impl IPortableDeviceValues_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValues_Impl::GetIPortableDeviceValuesCollectionValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalue, core::mem::transmute(ok__));
+                    ppvalue.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2062,7 +2062,7 @@ impl IPortableDeviceValuesCollection_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceValuesCollection_Impl::GetAt(this, core::mem::transmute_copy(&dwindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppvalues, core::mem::transmute(ok__));
+                    ppvalues.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2111,7 +2111,7 @@ impl IPortableDeviceWebControl_Vtbl {
             let this = (*this).get_impl();
             match IPortableDeviceWebControl_Impl::GetDeviceFromId(this, core::mem::transmute(&deviceid)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppdevice, core::mem::transmute(ok__));
+                    ppdevice.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2149,7 +2149,7 @@ impl IRadioInstance_Vtbl {
             let this = (*this).get_impl();
             match IRadioInstance_Impl::GetRadioManagerSignature(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pguidsignature, core::mem::transmute(ok__));
+                    pguidsignature.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2160,7 +2160,7 @@ impl IRadioInstance_Vtbl {
             let this = (*this).get_impl();
             match IRadioInstance_Impl::GetInstanceSignature(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrid, core::mem::transmute(ok__));
+                    pbstrid.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2171,7 +2171,7 @@ impl IRadioInstance_Vtbl {
             let this = (*this).get_impl();
             match IRadioInstance_Impl::GetFriendlyName(this, core::mem::transmute_copy(&lcid)) {
                 Ok(ok__) => {
-                    core::ptr::write(pbstrname, core::mem::transmute(ok__));
+                    pbstrname.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2182,7 +2182,7 @@ impl IRadioInstance_Vtbl {
             let this = (*this).get_impl();
             match IRadioInstance_Impl::GetRadioState(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pradiostate, core::mem::transmute(ok__));
+                    pradiostate.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2230,7 +2230,7 @@ impl IRadioInstanceCollection_Vtbl {
             let this = (*this).get_impl();
             match IRadioInstanceCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
-                    core::ptr::write(pcinstance, core::mem::transmute(ok__));
+                    pcinstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2241,7 +2241,7 @@ impl IRadioInstanceCollection_Vtbl {
             let this = (*this).get_impl();
             match IRadioInstanceCollection_Impl::GetAt(this, core::mem::transmute_copy(&uindex)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppradioinstance, core::mem::transmute(ok__));
+                    ppradioinstance.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2271,7 +2271,7 @@ impl IWpdSerializer_Vtbl {
             let this = (*this).get_impl();
             match IWpdSerializer_Impl::GetIPortableDeviceValuesFromBuffer(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwinputbufferlength)) {
                 Ok(ok__) => {
-                    core::ptr::write(ppparams, core::mem::transmute(ok__));
+                    ppparams.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -2292,7 +2292,7 @@ impl IWpdSerializer_Vtbl {
             let this = (*this).get_impl();
             match IWpdSerializer_Impl::GetSerializedSize(this, windows_core::from_raw_borrowed(&psource)) {
                 Ok(ok__) => {
-                    core::ptr::write(pdwsize, core::mem::transmute(ok__));
+                    pdwsize.write(core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),

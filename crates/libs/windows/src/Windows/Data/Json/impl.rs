@@ -17,7 +17,7 @@ impl IJsonValue_Vtbl {
             let this = (*this).get_impl();
             match IJsonValue_Impl::ValueType(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -28,7 +28,7 @@ impl IJsonValue_Vtbl {
             let this = (*this).get_impl();
             match IJsonValue_Impl::Stringify(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -40,7 +40,7 @@ impl IJsonValue_Vtbl {
             let this = (*this).get_impl();
             match IJsonValue_Impl::GetString(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -52,7 +52,7 @@ impl IJsonValue_Vtbl {
             let this = (*this).get_impl();
             match IJsonValue_Impl::GetNumber(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -63,7 +63,7 @@ impl IJsonValue_Vtbl {
             let this = (*this).get_impl();
             match IJsonValue_Impl::GetBoolean(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
                 }
                 Err(err) => err.into(),
@@ -74,7 +74,7 @@ impl IJsonValue_Vtbl {
             let this = (*this).get_impl();
             match IJsonValue_Impl::GetArray(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
@@ -86,7 +86,7 @@ impl IJsonValue_Vtbl {
             let this = (*this).get_impl();
             match IJsonValue_Impl::GetObject(this) {
                 Ok(ok__) => {
-                    core::ptr::write(result__, core::mem::transmute_copy(&ok__));
+                    result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
                     windows_core::HRESULT(0)
                 }
