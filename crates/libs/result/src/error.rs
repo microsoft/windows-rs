@@ -5,6 +5,7 @@ use core::ffi::c_void;
 #[derive(Clone, PartialEq, Eq)]
 pub struct Error {
     code: HRESULT,
+    #[cfg(windows)]
     info: Option<ComPtr>,
 }
 
@@ -13,6 +14,7 @@ impl Error {
     pub const fn empty() -> Self {
         Self {
             code: HRESULT(0),
+            #[cfg(windows)]
             info: None,
         }
     }
@@ -20,28 +22,46 @@ impl Error {
     /// Creates a new error object, capturing the stack and other information about the
     /// point of failure.
     pub fn new<T: AsRef<str>>(code: HRESULT, message: T) -> Self {
-        let message: Vec<_> = message.as_ref().encode_utf16().collect();
-
-        if message.is_empty() {
-            Self::from_hresult(code)
-        } else {
-            unsafe {
-                RoOriginateErrorW(code.0, message.len() as u32, message.as_ptr());
+        #[cfg(windows)]
+        {
+            let message: Vec<_> = message.as_ref().encode_utf16().collect();
+            if message.is_empty() {
+                Self::from_hresult(code)
+            } else {
+                unsafe {
+                    RoOriginateErrorW(code.0, message.len() as u32, message.as_ptr());
+                }
+                code.into()
             }
-            code.into()
+        }
+        #[cfg(not(windows))]
+        {
+            let _ = message;
+            Self::from_hresult(code)
         }
     }
 
     /// Creates a new error object with an error code, but without additional error information.
     pub fn from_hresult(code: HRESULT) -> Self {
-        Self { code, info: None }
+        Self {
+            code,
+            #[cfg(windows)]
+            info: None,
+        }
     }
 
     /// Creates a new `Error` from the Win32 error code returned by `GetLastError()`.
     pub fn from_win32() -> Self {
-        Self {
-            code: HRESULT::from_win32(unsafe { GetLastError() }),
-            info: None,
+        #[cfg(windows)]
+        {
+            Self {
+                code: HRESULT::from_win32(unsafe { GetLastError() }),
+                info: None,
+            }
+        }
+        #[cfg(not(windows))]
+        {
+            unimplemented!()
         }
     }
 
@@ -52,42 +72,45 @@ impl Error {
 
     /// The error message describing the error.
     pub fn message(&self) -> String {
-        if let Some(info) = &self.info {
-            let mut message = BasicString::default();
+        #[cfg(windows)]
+        {
+            if let Some(info) = &self.info {
+                let mut message = BasicString::default();
 
-            // First attempt to retrieve the restricted error information.
-            if let Some(info) = info.cast(&IID_IRestrictedErrorInfo) {
-                let mut fallback = BasicString::default();
-                let mut code = 0;
+                // First attempt to retrieve the restricted error information.
+                if let Some(info) = info.cast(&IID_IRestrictedErrorInfo) {
+                    let mut fallback = BasicString::default();
+                    let mut code = 0;
 
-                unsafe {
-                    com_call!(
-                        IRestrictedErrorInfo_Vtbl,
-                        info.GetErrorDetails(
-                            &mut fallback as *mut _ as _,
-                            &mut code,
-                            &mut message as *mut _ as _,
-                            &mut BasicString::default() as *mut _ as _
-                        )
-                    );
+                    unsafe {
+                        com_call!(
+                            IRestrictedErrorInfo_Vtbl,
+                            info.GetErrorDetails(
+                                &mut fallback as *mut _ as _,
+                                &mut code,
+                                &mut message as *mut _ as _,
+                                &mut BasicString::default() as *mut _ as _
+                            )
+                        );
+                    }
+
+                    if message.is_empty() {
+                        message = fallback
+                    };
                 }
 
+                // Next attempt to retrieve the regular error information.
                 if message.is_empty() {
-                    message = fallback
-                };
-            }
-
-            // Next attempt to retrieve the regular error information.
-            if message.is_empty() {
-                unsafe {
-                    com_call!(
-                        IErrorInfo_Vtbl,
-                        info.GetDescription(&mut message as *mut _ as _)
-                    );
+                    unsafe {
+                        com_call!(
+                            IErrorInfo_Vtbl,
+                            info.GetDescription(&mut message as *mut _ as _)
+                        );
+                    }
                 }
-            }
 
-            return String::from_utf16_lossy(wide_trim_end(message.as_wide()));
+                return String::from_utf16_lossy(wide_trim_end(message.as_wide()));
+            }
         }
 
         // Otherwise fallback to a generic error code description.
@@ -95,6 +118,7 @@ impl Error {
     }
 
     /// The error object describing the error.
+    #[cfg(windows)]
     pub fn as_ptr(&self) -> *mut c_void {
         self.info
             .as_ref()
@@ -109,9 +133,12 @@ unsafe impl Sync for Error {}
 
 impl From<Error> for HRESULT {
     fn from(error: Error) -> Self {
-        if let Some(info) = error.info {
-            unsafe {
-                SetErrorInfo(0, info.as_raw());
+        #[cfg(windows)]
+        {
+            if let Some(info) = error.info {
+                unsafe {
+                    SetErrorInfo(0, info.as_raw());
+                }
             }
         }
         error.code
@@ -120,9 +147,15 @@ impl From<Error> for HRESULT {
 
 impl From<HRESULT> for Error {
     fn from(code: HRESULT) -> Self {
-        let mut info = None;
-        unsafe { GetErrorInfo(0, &mut info as *mut _ as _) };
-        Self { code, info }
+        Self {
+            code,
+            #[cfg(windows)]
+            info: {
+                let mut info = None;
+                unsafe { GetErrorInfo(0, &mut info as *mut _ as _) };
+                info
+            },
+        }
     }
 }
 
@@ -147,6 +180,7 @@ impl From<alloc::string::FromUtf16Error> for Error {
     fn from(_: alloc::string::FromUtf16Error) -> Self {
         Self {
             code: HRESULT::from_win32(ERROR_NO_UNICODE_TRANSLATION),
+            #[cfg(windows)]
             info: None,
         }
     }
@@ -156,6 +190,7 @@ impl From<alloc::string::FromUtf8Error> for Error {
     fn from(_: alloc::string::FromUtf8Error) -> Self {
         Self {
             code: HRESULT::from_win32(ERROR_NO_UNICODE_TRANSLATION),
+            #[cfg(windows)]
             info: None,
         }
     }
@@ -165,6 +200,7 @@ impl From<core::num::TryFromIntError> for Error {
     fn from(_: core::num::TryFromIntError) -> Self {
         Self {
             code: HRESULT::from_win32(ERROR_INVALID_DATA),
+            #[cfg(windows)]
             info: None,
         }
     }
