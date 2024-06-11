@@ -2325,7 +2325,7 @@ windows_core::imp::interface_hierarchy!(ID3D12VideoDecoder, windows_core::IUnkno
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoder {
     pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_DECODER_DESC {
-        let mut result__: D3D12_VIDEO_DECODER_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -2385,7 +2385,7 @@ windows_core::imp::interface_hierarchy!(ID3D12VideoDecoderHeap, windows_core::IU
 impl ID3D12VideoDecoderHeap {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_DECODER_HEAP_DESC {
-        let mut result__: D3D12_VIDEO_DECODER_HEAP_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3037,7 +3037,7 @@ windows_core::imp::interface_hierarchy!(ID3D12VideoExtensionCommand, windows_cor
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoExtensionCommand {
     pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_EXTENSION_COMMAND_DESC {
-        let mut result__: D3D12_VIDEO_EXTENSION_COMMAND_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3074,7 +3074,7 @@ windows_core::imp::interface_hierarchy!(ID3D12VideoMotionEstimator, windows_core
 impl ID3D12VideoMotionEstimator {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
-        let mut result__: D3D12_VIDEO_MOTION_ESTIMATOR_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3114,7 +3114,7 @@ windows_core::imp::interface_hierarchy!(ID3D12VideoMotionVectorHeap, windows_cor
 impl ID3D12VideoMotionVectorHeap {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
-        let mut result__: D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3422,7 +3422,7 @@ impl ID3D12VideoProcessor {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetOutputStreamDesc(&self) -> D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
-        let mut result__: D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOutputStreamDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }

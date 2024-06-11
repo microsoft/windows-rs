@@ -754,7 +754,7 @@ impl IKsPinPipe {
         (windows_core::Interface::vtable(self).KsSetPipeAllocatorFlag)(windows_core::Interface::as_raw(self), flag).ok()
     }
     pub unsafe fn KsGetPinBusCache(&self) -> windows_core::GUID {
-        let mut result__: windows_core::GUID = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).KsGetPinBusCache)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }

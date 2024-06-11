@@ -134,7 +134,7 @@ pub fn writer(
             quote! {
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
-                    let mut result__: #return_type = core::mem::zeroed();
+                    let mut result__ = core::mem::zeroed();
                     (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), &mut result__, #args);
                     result__
                 }

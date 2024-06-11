@@ -158,7 +158,7 @@ impl ID3D12CommandQueue {
         (windows_core::Interface::vtable(self).GetClockCalibration)(windows_core::Interface::as_raw(self), pgputimestamp, pcputimestamp).ok()
     }
     pub unsafe fn GetDesc(&self) -> D3D12_COMMAND_QUEUE_DESC {
-        let mut result__: D3D12_COMMAND_QUEUE_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -628,17 +628,17 @@ impl core::ops::Deref for ID3D12DescriptorHeap {
 windows_core::imp::interface_hierarchy!(ID3D12DescriptorHeap, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ID3D12DescriptorHeap {
     pub unsafe fn GetDesc(&self) -> D3D12_DESCRIPTOR_HEAP_DESC {
-        let mut result__: D3D12_DESCRIPTOR_HEAP_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
     pub unsafe fn GetCPUDescriptorHandleForHeapStart(&self) -> D3D12_CPU_DESCRIPTOR_HANDLE {
-        let mut result__: D3D12_CPU_DESCRIPTOR_HANDLE = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCPUDescriptorHandleForHeapStart)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
     pub unsafe fn GetGPUDescriptorHandleForHeapStart(&self) -> D3D12_GPU_DESCRIPTOR_HANDLE {
-        let mut result__: D3D12_GPU_DESCRIPTOR_HANDLE = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetGPUDescriptorHandleForHeapStart)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -765,12 +765,12 @@ impl ID3D12Device {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, presourcedescs: &[D3D12_RESOURCE_DESC]) -> D3D12_RESOURCE_ALLOCATION_INFO {
-        let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetResourceAllocationInfo)(windows_core::Interface::as_raw(self), &mut result__, visiblemask, presourcedescs.len().try_into().unwrap(), core::mem::transmute(presourcedescs.as_ptr()));
         result__
     }
     pub unsafe fn GetCustomHeapProperties(&self, nodemask: u32, heaptype: D3D12_HEAP_TYPE) -> D3D12_HEAP_PROPERTIES {
-        let mut result__: D3D12_HEAP_PROPERTIES = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCustomHeapProperties)(windows_core::Interface::as_raw(self), &mut result__, nodemask, heaptype);
         result__
     }
@@ -871,7 +871,7 @@ impl ID3D12Device {
         (windows_core::Interface::vtable(self).GetResourceTiling)(windows_core::Interface::as_raw(self), ptiledresource.param().abi(), core::mem::transmute(pnumtilesforentireresource.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppackedmipdesc.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pstandardtileshapefornonpackedmips.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pnumsubresourcetilings.unwrap_or(std::ptr::null_mut())), firstsubresourcetilingtoget, psubresourcetilingsfornonpackedmips)
     }
     pub unsafe fn GetAdapterLuid(&self) -> super::super::Foundation::LUID {
-        let mut result__: super::super::Foundation::LUID = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAdapterLuid)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -1070,7 +1070,7 @@ windows_core::imp::interface_hierarchy!(ID3D12Device12, windows_core::IUnknown, 
 impl ID3D12Device12 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo3(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, pnumcastableformats: Option<*const u32>, ppcastableformats: Option<*const *const super::Dxgi::Common::DXGI_FORMAT>, presourceallocationinfo1: Option<*mut D3D12_RESOURCE_ALLOCATION_INFO1>) -> D3D12_RESOURCE_ALLOCATION_INFO {
-        let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetResourceAllocationInfo3)(windows_core::Interface::as_raw(self), &mut result__, visiblemask, numresourcedescs, presourcedescs, core::mem::transmute(pnumcastableformats.unwrap_or(std::ptr::null())), core::mem::transmute(ppcastableformats.unwrap_or(std::ptr::null())), core::mem::transmute(presourceallocationinfo1.unwrap_or(std::ptr::null_mut())));
         result__
     }
@@ -1221,7 +1221,7 @@ impl ID3D12Device4 {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: Option<*mut D3D12_RESOURCE_ALLOCATION_INFO1>) -> D3D12_RESOURCE_ALLOCATION_INFO {
-        let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetResourceAllocationInfo1)(windows_core::Interface::as_raw(self), &mut result__, visiblemask, numresourcedescs, presourcedescs, core::mem::transmute(presourceallocationinfo1.unwrap_or(std::ptr::null_mut())));
         result__
     }
@@ -1379,7 +1379,7 @@ windows_core::imp::interface_hierarchy!(ID3D12Device8, windows_core::IUnknown, I
 impl ID3D12Device8 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetResourceAllocationInfo2(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: Option<*mut D3D12_RESOURCE_ALLOCATION_INFO1>) -> D3D12_RESOURCE_ALLOCATION_INFO {
-        let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetResourceAllocationInfo2)(windows_core::Interface::as_raw(self), &mut result__, visiblemask, numresourcedescs, presourcedescs, core::mem::transmute(presourceallocationinfo1.unwrap_or(std::ptr::null_mut())));
         result__
     }
@@ -1502,7 +1502,7 @@ impl core::ops::Deref for ID3D12DeviceConfiguration {
 windows_core::imp::interface_hierarchy!(ID3D12DeviceConfiguration, windows_core::IUnknown);
 impl ID3D12DeviceConfiguration {
     pub unsafe fn GetDesc(&self) -> D3D12_DEVICE_CONFIGURATION_DESC {
-        let mut result__: D3D12_DEVICE_CONFIGURATION_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -2451,7 +2451,7 @@ impl core::ops::Deref for ID3D12Heap {
 windows_core::imp::interface_hierarchy!(ID3D12Heap, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ID3D12Heap {
     pub unsafe fn GetDesc(&self) -> D3D12_HEAP_DESC {
-        let mut result__: D3D12_HEAP_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -2959,7 +2959,7 @@ impl core::ops::Deref for ID3D12ProtectedResourceSession {
 windows_core::imp::interface_hierarchy!(ID3D12ProtectedResourceSession, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12ProtectedSession);
 impl ID3D12ProtectedResourceSession {
     pub unsafe fn GetDesc(&self) -> D3D12_PROTECTED_RESOURCE_SESSION_DESC {
-        let mut result__: D3D12_PROTECTED_RESOURCE_SESSION_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -2981,7 +2981,7 @@ impl core::ops::Deref for ID3D12ProtectedResourceSession1 {
 windows_core::imp::interface_hierarchy!(ID3D12ProtectedResourceSession1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12ProtectedSession, ID3D12ProtectedResourceSession);
 impl ID3D12ProtectedResourceSession1 {
     pub unsafe fn GetDesc1(&self) -> D3D12_PROTECTED_RESOURCE_SESSION_DESC1 {
-        let mut result__: D3D12_PROTECTED_RESOURCE_SESSION_DESC1 = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3052,7 +3052,7 @@ impl ID3D12Resource {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> D3D12_RESOURCE_DESC {
-        let mut result__: D3D12_RESOURCE_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3119,7 +3119,7 @@ windows_core::imp::interface_hierarchy!(ID3D12Resource2, windows_core::IUnknown,
 impl ID3D12Resource2 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc1(&self) -> D3D12_RESOURCE_DESC1 {
-        let mut result__: D3D12_RESOURCE_DESC1 = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3240,7 +3240,7 @@ impl ID3D12ShaderCacheSession {
         (windows_core::Interface::vtable(self).SetDeleteOnDestroy)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn GetDesc(&self) -> D3D12_SHADER_CACHE_SESSION_DESC {
-        let mut result__: D3D12_SHADER_CACHE_SESSION_DESC = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
@@ -3610,7 +3610,7 @@ impl core::ops::Deref for ID3D12SwapChainAssistant {
 windows_core::imp::interface_hierarchy!(ID3D12SwapChainAssistant, windows_core::IUnknown);
 impl ID3D12SwapChainAssistant {
     pub unsafe fn GetLUID(&self) -> super::super::Foundation::LUID {
-        let mut result__: super::super::Foundation::LUID = core::mem::zeroed();
+        let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLUID)(windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
