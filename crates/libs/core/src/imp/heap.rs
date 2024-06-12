@@ -53,8 +53,6 @@ pub unsafe fn heap_free(ptr: *mut c_void) {
             fn free(ptr: *mut c_void);
         }
 
-        if !ptr.is_null() {
-            free(ptr);
-        }
+        free(ptr);
     }
 }
