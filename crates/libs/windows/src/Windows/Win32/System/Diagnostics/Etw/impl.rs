@@ -14,10 +14,15 @@ pub trait ITraceEvent_Impl: Sized {
 }
 impl windows_core::RuntimeName for ITraceEvent {}
 impl ITraceEvent_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>() -> ITraceEvent_Vtbl {
-        unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ITraceEvent_Vtbl
+    where
+        Identity: ITraceEvent_Impl,
+    {
+        unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITraceEvent_Impl::Clone(this) {
                 Ok(ok__) => {
                     newevent.write(core::mem::transmute(ok__));
@@ -26,9 +31,11 @@ impl ITraceEvent_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUserContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usercontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetUserContext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, usercontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITraceEvent_Impl::GetUserContext(this) {
                 Ok(ok__) => {
                     usercontext.write(core::mem::transmute(ok__));
@@ -37,9 +44,11 @@ impl ITraceEvent_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEventRecord<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventrecord: *mut *mut EVENT_RECORD) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetEventRecord<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventrecord: *mut *mut EVENT_RECORD) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITraceEvent_Impl::GetEventRecord(this) {
                 Ok(ok__) => {
                     eventrecord.write(core::mem::transmute(ok__));
@@ -48,65 +57,83 @@ impl ITraceEvent_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPayload<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, payload: *const u8, payloadsize: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetPayload<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, payload: *const u8, payloadsize: u32) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEvent_Impl::SetPayload(this, core::mem::transmute_copy(&payload), core::mem::transmute_copy(&payloadsize)).into()
         }
-        unsafe extern "system" fn SetEventDescriptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventdescriptor: *const EVENT_DESCRIPTOR) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetEventDescriptor<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventdescriptor: *const EVENT_DESCRIPTOR) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEvent_Impl::SetEventDescriptor(this, core::mem::transmute_copy(&eventdescriptor)).into()
         }
-        unsafe extern "system" fn SetProcessId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processid: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetProcessId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, processid: u32) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEvent_Impl::SetProcessId(this, core::mem::transmute_copy(&processid)).into()
         }
-        unsafe extern "system" fn SetProcessorIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processorindex: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetProcessorIndex<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, processorindex: u32) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEvent_Impl::SetProcessorIndex(this, core::mem::transmute_copy(&processorindex)).into()
         }
-        unsafe extern "system" fn SetThreadId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetThreadId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: u32) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEvent_Impl::SetThreadId(this, core::mem::transmute_copy(&threadid)).into()
         }
-        unsafe extern "system" fn SetThreadTimes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, kerneltime: u32, usertime: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetThreadTimes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, kerneltime: u32, usertime: u32) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEvent_Impl::SetThreadTimes(this, core::mem::transmute_copy(&kerneltime), core::mem::transmute_copy(&usertime)).into()
         }
-        unsafe extern "system" fn SetActivityId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activityid: *const windows_core::GUID) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetActivityId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, activityid: *const windows_core::GUID) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEvent_Impl::SetActivityId(this, core::mem::transmute_copy(&activityid)).into()
         }
-        unsafe extern "system" fn SetTimeStamp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timestamp: *const i64) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetTimeStamp<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, timestamp: *const i64) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEvent_Impl::SetTimeStamp(this, core::mem::transmute_copy(&timestamp)).into()
         }
-        unsafe extern "system" fn SetProviderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providerid: *const windows_core::GUID) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetProviderId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, providerid: *const windows_core::GUID) -> windows_core::HRESULT
+        where
+            Identity: ITraceEvent_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEvent_Impl::SetProviderId(this, core::mem::transmute_copy(&providerid)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Clone: Clone::<Identity, Impl, OFFSET>,
-            GetUserContext: GetUserContext::<Identity, Impl, OFFSET>,
-            GetEventRecord: GetEventRecord::<Identity, Impl, OFFSET>,
-            SetPayload: SetPayload::<Identity, Impl, OFFSET>,
-            SetEventDescriptor: SetEventDescriptor::<Identity, Impl, OFFSET>,
-            SetProcessId: SetProcessId::<Identity, Impl, OFFSET>,
-            SetProcessorIndex: SetProcessorIndex::<Identity, Impl, OFFSET>,
-            SetThreadId: SetThreadId::<Identity, Impl, OFFSET>,
-            SetThreadTimes: SetThreadTimes::<Identity, Impl, OFFSET>,
-            SetActivityId: SetActivityId::<Identity, Impl, OFFSET>,
-            SetTimeStamp: SetTimeStamp::<Identity, Impl, OFFSET>,
-            SetProviderId: SetProviderId::<Identity, Impl, OFFSET>,
+            Clone: Clone::<Identity, OFFSET>,
+            GetUserContext: GetUserContext::<Identity, OFFSET>,
+            GetEventRecord: GetEventRecord::<Identity, OFFSET>,
+            SetPayload: SetPayload::<Identity, OFFSET>,
+            SetEventDescriptor: SetEventDescriptor::<Identity, OFFSET>,
+            SetProcessId: SetProcessId::<Identity, OFFSET>,
+            SetProcessorIndex: SetProcessorIndex::<Identity, OFFSET>,
+            SetThreadId: SetThreadId::<Identity, OFFSET>,
+            SetThreadTimes: SetThreadTimes::<Identity, OFFSET>,
+            SetActivityId: SetActivityId::<Identity, OFFSET>,
+            SetTimeStamp: SetTimeStamp::<Identity, OFFSET>,
+            SetProviderId: SetProviderId::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -120,27 +147,36 @@ pub trait ITraceEventCallback_Impl: Sized {
 }
 impl windows_core::RuntimeName for ITraceEventCallback {}
 impl ITraceEventCallback_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEventCallback_Impl, const OFFSET: isize>() -> ITraceEventCallback_Vtbl {
-        unsafe extern "system" fn OnBeginProcessTrace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, headerevent: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ITraceEventCallback_Vtbl
+    where
+        Identity: ITraceEventCallback_Impl,
+    {
+        unsafe extern "system" fn OnBeginProcessTrace<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, headerevent: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ITraceEventCallback_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEventCallback_Impl::OnBeginProcessTrace(this, windows_core::from_raw_borrowed(&headerevent), windows_core::from_raw_borrowed(&relogger)).into()
         }
-        unsafe extern "system" fn OnFinalizeProcessTrace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn OnFinalizeProcessTrace<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ITraceEventCallback_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEventCallback_Impl::OnFinalizeProcessTrace(this, windows_core::from_raw_borrowed(&relogger)).into()
         }
-        unsafe extern "system" fn OnEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn OnEvent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ITraceEventCallback_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEventCallback_Impl::OnEvent(this, windows_core::from_raw_borrowed(&event), windows_core::from_raw_borrowed(&relogger)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            OnBeginProcessTrace: OnBeginProcessTrace::<Identity, Impl, OFFSET>,
-            OnFinalizeProcessTrace: OnFinalizeProcessTrace::<Identity, Impl, OFFSET>,
-            OnEvent: OnEvent::<Identity, Impl, OFFSET>,
+            OnBeginProcessTrace: OnBeginProcessTrace::<Identity, OFFSET>,
+            OnFinalizeProcessTrace: OnFinalizeProcessTrace::<Identity, OFFSET>,
+            OnEvent: OnEvent::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -160,10 +196,15 @@ pub trait ITraceRelogger_Impl: Sized {
 }
 impl windows_core::RuntimeName for ITraceRelogger {}
 impl ITraceRelogger_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>() -> ITraceRelogger_Vtbl {
-        unsafe extern "system" fn AddLogfileTraceStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilename: core::mem::MaybeUninit<windows_core::BSTR>, usercontext: *const core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ITraceRelogger_Vtbl
+    where
+        Identity: ITraceRelogger_Impl,
+    {
+        unsafe extern "system" fn AddLogfileTraceStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilename: core::mem::MaybeUninit<windows_core::BSTR>, usercontext: *const core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT
+        where
+            Identity: ITraceRelogger_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITraceRelogger_Impl::AddLogfileTraceStream(this, core::mem::transmute(&logfilename), core::mem::transmute_copy(&usercontext)) {
                 Ok(ok__) => {
                     tracehandle.write(core::mem::transmute(ok__));
@@ -172,9 +213,11 @@ impl ITraceRelogger_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddRealtimeTraceStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggername: core::mem::MaybeUninit<windows_core::BSTR>, usercontext: *const core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddRealtimeTraceStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggername: core::mem::MaybeUninit<windows_core::BSTR>, usercontext: *const core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT
+        where
+            Identity: ITraceRelogger_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITraceRelogger_Impl::AddRealtimeTraceStream(this, core::mem::transmute(&loggername), core::mem::transmute_copy(&usercontext)) {
                 Ok(ok__) => {
                     tracehandle.write(core::mem::transmute(ok__));
@@ -183,19 +226,25 @@ impl ITraceRelogger_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterCallback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RegisterCallback<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ITraceRelogger_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceRelogger_Impl::RegisterCallback(this, windows_core::from_raw_borrowed(&callback)).into()
         }
-        unsafe extern "system" fn Inject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Inject<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ITraceRelogger_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceRelogger_Impl::Inject(this, windows_core::from_raw_borrowed(&event)).into()
         }
-        unsafe extern "system" fn CreateEventInstance<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tracehandle: RELOGSTREAM_HANDLE, flags: u32, event: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreateEventInstance<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, tracehandle: RELOGSTREAM_HANDLE, flags: u32, event: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ITraceRelogger_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITraceRelogger_Impl::CreateEventInstance(this, core::mem::transmute(&tracehandle), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     event.write(core::mem::transmute(ok__));
@@ -204,37 +253,45 @@ impl ITraceRelogger_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProcessTrace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ProcessTrace<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ITraceRelogger_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceRelogger_Impl::ProcessTrace(this).into()
         }
-        unsafe extern "system" fn SetOutputFilename<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetOutputFilename<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
+        where
+            Identity: ITraceRelogger_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceRelogger_Impl::SetOutputFilename(this, core::mem::transmute(&logfilename)).into()
         }
-        unsafe extern "system" fn SetCompressionMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, compressionmode: super::super::super::Foundation::BOOLEAN) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetCompressionMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, compressionmode: super::super::super::Foundation::BOOLEAN) -> windows_core::HRESULT
+        where
+            Identity: ITraceRelogger_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceRelogger_Impl::SetCompressionMode(this, core::mem::transmute_copy(&compressionmode)).into()
         }
-        unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ITraceRelogger_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceRelogger_Impl::Cancel(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            AddLogfileTraceStream: AddLogfileTraceStream::<Identity, Impl, OFFSET>,
-            AddRealtimeTraceStream: AddRealtimeTraceStream::<Identity, Impl, OFFSET>,
-            RegisterCallback: RegisterCallback::<Identity, Impl, OFFSET>,
-            Inject: Inject::<Identity, Impl, OFFSET>,
-            CreateEventInstance: CreateEventInstance::<Identity, Impl, OFFSET>,
-            ProcessTrace: ProcessTrace::<Identity, Impl, OFFSET>,
-            SetOutputFilename: SetOutputFilename::<Identity, Impl, OFFSET>,
-            SetCompressionMode: SetCompressionMode::<Identity, Impl, OFFSET>,
-            Cancel: Cancel::<Identity, Impl, OFFSET>,
+            AddLogfileTraceStream: AddLogfileTraceStream::<Identity, OFFSET>,
+            AddRealtimeTraceStream: AddRealtimeTraceStream::<Identity, OFFSET>,
+            RegisterCallback: RegisterCallback::<Identity, OFFSET>,
+            Inject: Inject::<Identity, OFFSET>,
+            CreateEventInstance: CreateEventInstance::<Identity, OFFSET>,
+            ProcessTrace: ProcessTrace::<Identity, OFFSET>,
+            SetOutputFilename: SetOutputFilename::<Identity, OFFSET>,
+            SetCompressionMode: SetCompressionMode::<Identity, OFFSET>,
+            Cancel: Cancel::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
