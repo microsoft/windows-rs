@@ -10,8 +10,10 @@ description = "Import libs for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 
-[lints]
-workspace = true
+[lints.rust]
+rust_2018_idioms = { level = "warn", priority = -1 }
+missing_docs = "warn"
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib)'] }
 
 [target.'cfg(all(target_arch = "x86", target_env = "msvc", not(windows_raw_dylib)))'.dependencies]
 windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.52.5" }
