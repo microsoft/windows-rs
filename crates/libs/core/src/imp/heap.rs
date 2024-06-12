@@ -8,7 +8,17 @@ use core::ffi::c_void;
 /// This function will fail in OOM situations, if the heap is otherwise corrupt,
 /// or if getting a handle to the process heap fails.
 pub fn heap_alloc(bytes: usize) -> crate::Result<*mut c_void> {
-    let ptr = unsafe { HeapAlloc(GetProcessHeap(), 0, bytes) };
+    #[cfg(windows)]
+    let ptr: *mut c_void = unsafe { HeapAlloc(GetProcessHeap(), 0, bytes) };
+
+    #[cfg(not(windows))]
+    let ptr: *mut c_void = unsafe {
+        extern "C" {
+            fn malloc(bytes: usize) -> *mut c_void;
+        }
+
+        malloc(bytes)
+    };
 
     if ptr.is_null() {
         Err(E_OUTOFMEMORY.into())
@@ -32,5 +42,19 @@ pub fn heap_alloc(bytes: usize) -> crate::Result<*mut c_void> {
 ///
 /// `ptr` must be a valid pointer to memory allocated by `HeapAlloc` or `HeapReAlloc`
 pub unsafe fn heap_free(ptr: *mut c_void) {
-    HeapFree(GetProcessHeap(), 0, ptr);
+    #[cfg(windows)]
+    {
+        HeapFree(GetProcessHeap(), 0, ptr);
+    }
+
+    #[cfg(not(windows))]
+    {
+        extern "C" {
+            fn free(ptr: *mut c_void);
+        }
+
+        if !ptr.is_null() {
+            free(ptr);
+        }
+    }
 }
