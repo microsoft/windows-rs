@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        tool: [windows, sys, yml, license, metadata]
+        tool: [windows, sys, yml, license, metadata, standalone]
     steps:
       - name: Checkout
         uses: actions/checkout@v4

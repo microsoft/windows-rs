@@ -1,46 +1,72 @@
+//! Regenerates bindings sources for `crates/tests/standalone`
+
+use std::path::Path;
+
 fn main() {
+    if !Path::new("crates/tests/standalone/Cargo.toml").exists() {
+        println!("This tool must be run from the root of the repo.");
+        std::process::exit(1);
+    }
+
+    let src = Path::new("crates/tests/standalone/src");
+
     write_sys(
-        "src/b_none.rs",
+        &src.join("b_none.rs"),
         &["Windows.Win32.System.SystemInformation.GetTickCount"],
     );
 
     write_sys(
-        "src/b_hresult.rs",
+        &src.join("b_hresult.rs"),
         &["Windows.Win32.System.Com.CoInitialize"],
     );
 
     write_sys(
-        "src/b_hstring.rs",
+        &src.join("b_hstring.rs"),
         &["Windows.Win32.System.WinRT.WindowsGetStringLen"],
     );
 
     write_sys(
-        "src/b_unknown.rs",
+        &src.join("b_unknown.rs"),
         &["Windows.Win32.System.Com.CoIsHandlerConnected"],
     );
 
     write_sys(
-        "src/b_inspectable.rs",
+        &src.join("b_inspectable.rs"),
         &["Windows.Win32.System.WinRT.RoActivateInstance"],
     );
 
-    write_sys("src/b_pstr.rs", &["Windows.Win32.System.Ole.VarI1FromDate"]);
-
-    write_sys("src/b_pwstr.rs", &["Windows.Win32.System.Ole.CALPOLESTR"]);
-
-    write_sys("src/b_pcstr.rs", &["Windows.Win32.Globalization.lstrlenA"]);
-
-    write_sys("src/b_pcwstr.rs", &["Windows.Win32.Globalization.lstrlenW"]);
+    write_sys(
+        &src.join("b_pstr.rs"),
+        &["Windows.Win32.System.Ole.VarI1FromDate"],
+    );
 
     write_sys(
-        "src/b_bstr.rs",
+        &src.join("b_pwstr.rs"),
+        &["Windows.Win32.System.Ole.CALPOLESTR"],
+    );
+
+    write_sys(
+        &src.join("b_pcstr.rs"),
+        &["Windows.Win32.Globalization.lstrlenA"],
+    );
+
+    write_sys(
+        &src.join("b_pcwstr.rs"),
+        &["Windows.Win32.Globalization.lstrlenW"],
+    );
+
+    write_sys(
+        &src.join("b_bstr.rs"),
         &["Windows.Win32.Foundation.SysAllocString"],
     );
 
-    write_sys("src/b_guid.rs", &["Windows.Win32.System.Com.CoCreateGuid"]);
+    write_sys(
+        &src.join("b_guid.rs"),
+        &["Windows.Win32.System.Com.CoCreateGuid"],
+    );
 
     write_sys(
-        "src/b_arch.rs",
+        &src.join("b_arch.rs"),
         &[
             "Windows.Win32.Networking.WinSock.WSADATA",
             "Windows.Win32.UI.WindowsAndMessaging.GetWindowLongPtrW",
@@ -51,22 +77,22 @@ fn main() {
     // of the same name correctly collect all of those types rather than just
     // the first one
     write_sys(
-        "src/b_arch_dependencies.rs",
+        &src.join("b_arch_dependencies.rs"),
         &["Windows.Win32.System.Diagnostics.Debug.RtlCaptureContext"],
     );
 
     write_sys(
-        "src/b_depends.rs",
+        &src.join("b_depends.rs"),
         &["Windows.Win32.Networking.WinSock.WSASENDMSG"],
     );
 
     write_sys(
-        "src/b_enumeration.rs",
+        &src.join("b_enumeration.rs"),
         &["Windows.Win32.Foundation.WIN32_ERROR"],
     );
 
     write_sys(
-        "src/b_enumerator.rs",
+        &src.join("b_enumerator.rs"),
         &[
             "Windows.Win32.Foundation.WAIT_IO_COMPLETION",
             "Windows.Win32.Foundation.WAIT_TIMEOUT",
@@ -74,7 +100,7 @@ fn main() {
     );
 
     write_win(
-        "src/b_win_enumerator.rs",
+        &src.join("b_win_enumerator.rs"),
         &[
             "Windows.Win32.Foundation.WAIT_IO_COMPLETION",
             "Windows.Win32.Foundation.WAIT_TIMEOUT",
@@ -82,7 +108,7 @@ fn main() {
     );
 
     write_std(
-        "src/b_std.rs",
+        &src.join("b_std.rs"),
         &[
             "Windows.Win32.Foundation.CloseHandle",
             "Windows.Win32.Foundation.GetLastError",
@@ -94,12 +120,18 @@ fn main() {
         ],
     );
 
-    write_win("src/b_uri.rs", &["Windows.Foundation.Uri"]);
-    write_win("src/b_stringable.rs", &["Windows.Foundation.IStringable"]);
-    write_win("src/b_calendar.rs", &["Windows.Globalization.Calendar"]);
+    write_win(&src.join("b_uri.rs"), &["Windows.Foundation.Uri"]);
+    write_win(
+        &src.join("b_stringable.rs"),
+        &["Windows.Foundation.IStringable"],
+    );
+    write_win(
+        &src.join("b_calendar.rs"),
+        &["Windows.Globalization.Calendar"],
+    );
 
     write_sys(
-        "src/b_test.rs",
+        &src.join("b_test.rs"),
         &[
             "Windows.Win32.Foundation.CloseHandle",
             "Windows.Win32.System.Com.CoCreateInstance",
@@ -115,7 +147,7 @@ fn main() {
 
     // Ensures nested records write out all the types they depend on
     write_sys(
-        "src/b_nested.rs",
+        &src.join("b_nested.rs"),
         &[
             "Windows.Win32.System.Com.STGMEDIUM",
             "Windows.Win32.Graphics.Gdi.DEVMODEW",
@@ -123,13 +155,13 @@ fn main() {
     );
 
     write_sys(
-        "src/b_overloads.rs",
+        &src.join("b_overloads.rs"),
         &["Windows.Win32.NetworkManagement.NetManagement.AE_RESACCESS"],
     );
 
     // Ensures that constant types are properly collected
     write_sys(
-        "src/b_constant_types.rs",
+        &src.join("b_constant_types.rs"),
         &[
             "Windows.Win32.UI.WindowsAndMessaging.IDC_UPARROW",
             "Windows.Win32.Security.Cryptography.CMC_ADD_ATTRIBUTES",
@@ -141,33 +173,39 @@ fn main() {
     // Ensure that no-inner-attribute works, and the resulting
     // file can be `include!` inside a mod{} block.
     write_no_inner_attr(
-        "src/b_include_me.rs",
+        &src.join("b_include_me.rs"),
         &["Windows.Win32.System.SystemInformation.GetVersion"],
     );
 
     // Ensure that contained types behind pointers are resolved as dependencies.
     write_sys(
-        "src/b_variant.rs",
+        &src.join("b_variant.rs"),
         &["Windows.Win32.System.Variant.VARIANT"],
     );
 
     write_vtbl(
-        "src/b_vtbl_0.rs",
+        &src.join("b_vtbl_0.rs"),
         &["Windows.Win32.System.Com.IAgileObject"],
     );
-    write_vtbl("src/b_vtbl_1.rs", &["Windows.Win32.System.Com.IDispatch"]);
     write_vtbl(
-        "src/b_vtbl_2.rs",
+        &src.join("b_vtbl_1.rs"),
+        &["Windows.Win32.System.Com.IDispatch"],
+    );
+    write_vtbl(
+        &src.join("b_vtbl_2.rs"),
         &["Windows.Win32.System.WinRT.IActivationFactory"],
     );
-    write_vtbl("src/b_vtbl_3.rs", &["Windows.Foundation.IStringable"]);
     write_vtbl(
-        "src/b_vtbl_4.rs",
+        &src.join("b_vtbl_3.rs"),
+        &["Windows.Foundation.IStringable"],
+    );
+    write_vtbl(
+        &src.join("b_vtbl_4.rs"),
         &["Windows.Win32.System.Com.IPersistFile"],
     );
 
     riddle(
-        "src/b_prepend.rs",
+        &src.join("b_prepend.rs"),
         &["Windows.Foundation.DateTime"],
         &[
             "flatten",
@@ -177,19 +215,19 @@ fn main() {
     );
 }
 
-fn write_sys(output: &str, filter: &[&str]) {
+fn write_sys(output: &Path, filter: &[&str]) {
     riddle(output, filter, &["flatten", "sys", "minimal"]);
 }
 
-fn write_win(output: &str, filter: &[&str]) {
+fn write_win(output: &Path, filter: &[&str]) {
     riddle(output, filter, &["flatten", "minimal"]);
 }
 
-fn write_std(output: &str, filter: &[&str]) {
+fn write_std(output: &Path, filter: &[&str]) {
     riddle(output, filter, &["flatten", "std", "minimal"]);
 }
 
-fn write_no_inner_attr(output: &str, filter: &[&str]) {
+fn write_no_inner_attr(output: &Path, filter: &[&str]) {
     riddle(
         output,
         filter,
@@ -197,14 +235,16 @@ fn write_no_inner_attr(output: &str, filter: &[&str]) {
     );
 }
 
-fn write_vtbl(output: &str, filter: &[&str]) {
+fn write_vtbl(output: &Path, filter: &[&str]) {
     riddle(output, filter, &["flatten", "sys", "minimal", "vtbl"]);
 }
 
-fn riddle(output: &str, filter: &[&str], config: &[&str]) {
+fn riddle(output: &Path, filter: &[&str], config: &[&str]) {
+    let output: &str = output.as_os_str().to_str().unwrap();
     let mut args = vec!["--out", output, "--filter"];
     args.extend_from_slice(filter);
     args.extend_from_slice(&["--config", "no-bindgen-comment"]);
     args.extend_from_slice(config);
+    println!("running: riddle {}", args.join(" "));
     windows_bindgen::bindgen(args).unwrap();
 }

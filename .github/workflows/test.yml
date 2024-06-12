@@ -296,6 +296,8 @@ jobs:
         run:  cargo test -p tool_metadata --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_msvc
         run:  cargo test -p tool_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_standalone
+        run:  cargo test -p tool_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_sys
         run:  cargo test -p tool_sys --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_windows
