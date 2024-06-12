@@ -11,7 +11,7 @@ fn __break() {}
 #[implement(IErrorInfo)]
 struct Test;
 
-impl IErrorInfo_Impl for Test {
+impl IErrorInfo_Impl for Test_Impl {
     fn GetGUID(&self) -> Result<GUID> {
         Err(Error::new(E_OUTOFMEMORY, "Out of memory message"))
     }
