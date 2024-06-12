@@ -9,7 +9,7 @@ doc = false
 doctest = false
 
 [lints.rust]
-unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_debugger_visualizer)'] }
+unexpected_cfgs = { level = "warn" }
 
 [dependencies.windows]
 path = "../../libs/windows"

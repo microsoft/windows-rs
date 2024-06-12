@@ -16,4 +16,4 @@ exclude = [
 [workspace.lints.rust]
 rust_2018_idioms = { level = "warn", priority = -1 }
 missing_docs = "warn"
-unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_debugger_visualizer)'] }
+unexpected_cfgs = { level = "warn" }

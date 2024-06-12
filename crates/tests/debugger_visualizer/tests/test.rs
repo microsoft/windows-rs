@@ -1,4 +1,4 @@
-#![cfg(windows_debugger_visualizer)]
+#![cfg(windows)]
 
 use debugger_test::*;
 use windows::core::*;
