@@ -11,10 +11,15 @@ impl windows_core::RuntimeName for IMediaEncodingProperties {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IMediaEncodingProperties_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEncodingProperties_Impl, const OFFSET: isize>() -> IMediaEncodingProperties_Vtbl {
-        unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEncodingProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IMediaEncodingProperties_Vtbl
+    where
+        Identity: IMediaEncodingProperties_Impl,
+    {
+        unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaEncodingProperties_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaEncodingProperties_Impl::Properties(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -24,9 +29,11 @@ impl IMediaEncodingProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEncodingProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IMediaEncodingProperties_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaEncodingProperties_Impl::Type(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -36,14 +43,18 @@ impl IMediaEncodingProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubtype<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEncodingProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetSubtype<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IMediaEncodingProperties_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMediaEncodingProperties_Impl::SetSubtype(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Subtype<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEncodingProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Subtype<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IMediaEncodingProperties_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaEncodingProperties_Impl::Subtype(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -55,10 +66,10 @@ impl IMediaEncodingProperties_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaEncodingProperties, OFFSET>(),
-            Properties: Properties::<Identity, Impl, OFFSET>,
-            Type: Type::<Identity, Impl, OFFSET>,
-            SetSubtype: SetSubtype::<Identity, Impl, OFFSET>,
-            Subtype: Subtype::<Identity, Impl, OFFSET>,
+            Properties: Properties::<Identity, OFFSET>,
+            Type: Type::<Identity, OFFSET>,
+            SetSubtype: SetSubtype::<Identity, OFFSET>,
+            Subtype: Subtype::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

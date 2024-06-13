@@ -11,13 +11,13 @@ use windows::Win32::System::WinRT::Display::*;
 )]
 struct Mix;
 
-impl IStringable_Impl for Mix {
+impl IStringable_Impl for Mix_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         Ok("Mix".into())
     }
 }
 
-impl IDisplayPathInterop_Impl for Mix {
+impl IDisplayPathInterop_Impl for Mix_Impl {
     fn GetSourceId(&self) -> Result<u32> {
         Ok(123)
     }

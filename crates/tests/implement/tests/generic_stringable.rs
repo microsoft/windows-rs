@@ -8,7 +8,7 @@ use windows::Foundation::*;
 struct Thing(Vec<IStringable>);
 
 #[allow(non_snake_case)]
-impl IVectorView_Impl<IStringable> for Thing {
+impl IVectorView_Impl<IStringable> for Thing_Impl {
     fn GetAt(&self, index: u32) -> Result<IStringable> {
         self.0.get(index as usize).cloned().ok_or_else(|| panic!())
     }
@@ -26,7 +26,7 @@ impl IVectorView_Impl<IStringable> for Thing {
     }
 }
 
-impl IIterable_Impl<IStringable> for Thing {
+impl IIterable_Impl<IStringable> for Thing_Impl {
     fn First(&self) -> Result<IIterator<IStringable>> {
         unimplemented!()
     }

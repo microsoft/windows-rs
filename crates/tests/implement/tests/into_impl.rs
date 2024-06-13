@@ -11,7 +11,7 @@ where
     <T as Type<T>>::Default: PartialEq;
 
 #[allow(non_snake_case)]
-impl<T> IIterator_Impl<T> for Iterator<T>
+impl<T> IIterator_Impl<T> for Iterator_Impl<T>
 where
     T: RuntimeType + 'static + Clone,
     <T as Type<T>>::Default: PartialEq,
@@ -60,7 +60,7 @@ where
     <T as Type<T>>::Default: PartialEq;
 
 #[allow(non_snake_case)]
-impl<T> IIterable_Impl<T> for Iterable<T>
+impl<T> IIterable_Impl<T> for Iterable_Impl<T>
 where
     T: RuntimeType + 'static + Clone,
     <T as Type<T>>::Default: PartialEq,

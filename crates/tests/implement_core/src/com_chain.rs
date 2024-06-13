@@ -17,9 +17,9 @@ unsafe trait IFoo3: IFoo2 {}
 #[implement(IFoo3)]
 struct ObjectWithChains {}
 
-impl IFoo_Impl for ObjectWithChains {}
-impl IFoo2_Impl for ObjectWithChains {}
-impl IFoo3_Impl for ObjectWithChains {}
+impl IFoo_Impl for ObjectWithChains_Impl {}
+impl IFoo2_Impl for ObjectWithChains_Impl {}
+impl IFoo3_Impl for ObjectWithChains_Impl {}
 
 #[test]
 fn interface_chain_query() {
@@ -36,9 +36,9 @@ fn interface_chain_query() {
 #[implement(IFoo3, IFoo2, IFoo)]
 struct ObjectRedundantChains {}
 
-impl IFoo_Impl for ObjectRedundantChains {}
-impl IFoo2_Impl for ObjectRedundantChains {}
-impl IFoo3_Impl for ObjectRedundantChains {}
+impl IFoo_Impl for ObjectRedundantChains_Impl {}
+impl IFoo2_Impl for ObjectRedundantChains_Impl {}
+impl IFoo3_Impl for ObjectRedundantChains_Impl {}
 
 #[test]
 fn redundant_interface_chains() {

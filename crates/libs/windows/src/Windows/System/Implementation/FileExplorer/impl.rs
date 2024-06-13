@@ -6,10 +6,15 @@ impl windows_core::RuntimeName for ISysStorageProviderEventSource {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderEventSource";
 }
 impl ISysStorageProviderEventSource_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderEventSource_Impl, const OFFSET: isize>() -> ISysStorageProviderEventSource_Vtbl {
-        unsafe extern "system" fn EventReceived<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ISysStorageProviderEventSource_Vtbl
+    where
+        Identity: ISysStorageProviderEventSource_Impl,
+    {
+        unsafe extern "system" fn EventReceived<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
+        where
+            Identity: ISysStorageProviderEventSource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISysStorageProviderEventSource_Impl::EventReceived(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -18,15 +23,17 @@ impl ISysStorageProviderEventSource_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveEventReceived<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RemoveEventReceived<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
+        where
+            Identity: ISysStorageProviderEventSource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISysStorageProviderEventSource_Impl::RemoveEventReceived(this, core::mem::transmute(&token)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ISysStorageProviderEventSource, OFFSET>(),
-            EventReceived: EventReceived::<Identity, Impl, OFFSET>,
-            RemoveEventReceived: RemoveEventReceived::<Identity, Impl, OFFSET>,
+            EventReceived: EventReceived::<Identity, OFFSET>,
+            RemoveEventReceived: RemoveEventReceived::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -41,10 +48,15 @@ impl windows_core::RuntimeName for ISysStorageProviderHandlerFactory {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderHandlerFactory";
 }
 impl ISysStorageProviderHandlerFactory_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>() -> ISysStorageProviderHandlerFactory_Vtbl {
-        unsafe extern "system" fn GetHttpRequestProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ISysStorageProviderHandlerFactory_Vtbl
+    where
+        Identity: ISysStorageProviderHandlerFactory_Impl,
+    {
+        unsafe extern "system" fn GetHttpRequestProvider<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ISysStorageProviderHandlerFactory_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISysStorageProviderHandlerFactory_Impl::GetHttpRequestProvider(this, core::mem::transmute(&syncrootid)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -54,9 +66,11 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEventSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: core::mem::MaybeUninit<windows_core::HSTRING>, eventname: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetEventSource<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: core::mem::MaybeUninit<windows_core::HSTRING>, eventname: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ISysStorageProviderHandlerFactory_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISysStorageProviderHandlerFactory_Impl::GetEventSource(this, core::mem::transmute(&syncrootid), core::mem::transmute(&eventname)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -68,8 +82,8 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ISysStorageProviderHandlerFactory, OFFSET>(),
-            GetHttpRequestProvider: GetHttpRequestProvider::<Identity, Impl, OFFSET>,
-            GetEventSource: GetEventSource::<Identity, Impl, OFFSET>,
+            GetHttpRequestProvider: GetHttpRequestProvider::<Identity, OFFSET>,
+            GetEventSource: GetEventSource::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -86,10 +100,15 @@ impl windows_core::RuntimeName for ISysStorageProviderHttpRequestProvider {
 }
 #[cfg(feature = "Web_Http")]
 impl ISysStorageProviderHttpRequestProvider_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderHttpRequestProvider_Impl, const OFFSET: isize>() -> ISysStorageProviderHttpRequestProvider_Vtbl {
-        unsafe extern "system" fn SendRequestAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderHttpRequestProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ISysStorageProviderHttpRequestProvider_Vtbl
+    where
+        Identity: ISysStorageProviderHttpRequestProvider_Impl,
+    {
+        unsafe extern "system" fn SendRequestAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: ISysStorageProviderHttpRequestProvider_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISysStorageProviderHttpRequestProvider_Impl::SendRequestAsync(this, windows_core::from_raw_borrowed(&request)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -101,7 +120,7 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ISysStorageProviderHttpRequestProvider, OFFSET>(),
-            SendRequestAsync: SendRequestAsync::<Identity, Impl, OFFSET>,
+            SendRequestAsync: SendRequestAsync::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

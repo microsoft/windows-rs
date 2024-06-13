@@ -9,10 +9,15 @@ impl windows_core::RuntimeName for IIOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";
 }
 impl IIOControlCode_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>() -> IIOControlCode_Vtbl {
-        unsafe extern "system" fn AccessMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlAccessMode) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IIOControlCode_Vtbl
+    where
+        Identity: IIOControlCode_Impl,
+    {
+        unsafe extern "system" fn AccessMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlAccessMode) -> windows_core::HRESULT
+        where
+            Identity: IIOControlCode_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIOControlCode_Impl::AccessMode(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -21,9 +26,11 @@ impl IIOControlCode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BufferingMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlBufferingMethod) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BufferingMethod<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlBufferingMethod) -> windows_core::HRESULT
+        where
+            Identity: IIOControlCode_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIOControlCode_Impl::BufferingMethod(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -32,9 +39,11 @@ impl IIOControlCode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Function<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Function<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT
+        where
+            Identity: IIOControlCode_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIOControlCode_Impl::Function(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -43,9 +52,11 @@ impl IIOControlCode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DeviceType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT
+        where
+            Identity: IIOControlCode_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIOControlCode_Impl::DeviceType(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -54,9 +65,11 @@ impl IIOControlCode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ControlCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ControlCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IIOControlCode_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIOControlCode_Impl::ControlCode(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -67,11 +80,11 @@ impl IIOControlCode_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IIOControlCode, OFFSET>(),
-            AccessMode: AccessMode::<Identity, Impl, OFFSET>,
-            BufferingMethod: BufferingMethod::<Identity, Impl, OFFSET>,
-            Function: Function::<Identity, Impl, OFFSET>,
-            DeviceType: DeviceType::<Identity, Impl, OFFSET>,
-            ControlCode: ControlCode::<Identity, Impl, OFFSET>,
+            AccessMode: AccessMode::<Identity, OFFSET>,
+            BufferingMethod: BufferingMethod::<Identity, OFFSET>,
+            Function: Function::<Identity, OFFSET>,
+            DeviceType: DeviceType::<Identity, OFFSET>,
+            ControlCode: ControlCode::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

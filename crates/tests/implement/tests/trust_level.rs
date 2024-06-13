@@ -6,7 +6,7 @@ use windows::Foundation::*;
 #[implement(IStringable)]
 struct BaseTrust;
 
-impl IStringable_Impl for BaseTrust {
+impl IStringable_Impl for BaseTrust_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         Ok("BaseTrust".into())
     }
@@ -15,13 +15,13 @@ impl IStringable_Impl for BaseTrust {
 #[implement(IClosable, TrustLevel = Partial, IStringable)]
 struct PartialTrust;
 
-impl IStringable_Impl for PartialTrust {
+impl IStringable_Impl for PartialTrust_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         Ok("PartialTrust".into())
     }
 }
 
-impl IClosable_Impl for PartialTrust {
+impl IClosable_Impl for PartialTrust_Impl {
     fn Close(&self) -> Result<()> {
         Ok(())
     }
@@ -30,7 +30,7 @@ impl IClosable_Impl for PartialTrust {
 #[implement(IStringable, TrustLevel = Full)]
 struct FullTrust;
 
-impl IStringable_Impl for FullTrust {
+impl IStringable_Impl for FullTrust_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         Ok("FullTrust".into())
     }

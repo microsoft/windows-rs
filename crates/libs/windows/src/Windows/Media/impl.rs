@@ -8,13 +8,18 @@ impl windows_core::RuntimeName for IMediaExtension {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IMediaExtension_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaExtension_Impl, const OFFSET: isize>() -> IMediaExtension_Vtbl {
-        unsafe extern "system" fn SetProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, configuration: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IMediaExtension_Vtbl
+    where
+        Identity: IMediaExtension_Impl,
+    {
+        unsafe extern "system" fn SetProperties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, configuration: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaExtension_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMediaExtension_Impl::SetProperties(this, windows_core::from_raw_borrowed(&configuration)).into()
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaExtension, OFFSET>(), SetProperties: SetProperties::<Identity, Impl, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaExtension, OFFSET>(), SetProperties: SetProperties::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaExtension as windows_core::Interface>::IID
@@ -40,10 +45,15 @@ impl windows_core::RuntimeName for IMediaFrame {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IMediaFrame_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>() -> IMediaFrame_Vtbl {
-        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IMediaFrame_Vtbl
+    where
+        Identity: IMediaFrame_Impl,
+    {
+        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IMediaFrame_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaFrame_Impl::Type(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -53,9 +63,11 @@ impl IMediaFrame_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsReadOnly<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn IsReadOnly<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            Identity: IMediaFrame_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaFrame_Impl::IsReadOnly(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -64,14 +76,18 @@ impl IMediaFrame_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRelativeTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetRelativeTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaFrame_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMediaFrame_Impl::SetRelativeTime(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn RelativeTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RelativeTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaFrame_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaFrame_Impl::RelativeTime(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -81,14 +97,18 @@ impl IMediaFrame_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSystemRelativeTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetSystemRelativeTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaFrame_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMediaFrame_Impl::SetSystemRelativeTime(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn SystemRelativeTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SystemRelativeTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaFrame_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaFrame_Impl::SystemRelativeTime(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -98,14 +118,18 @@ impl IMediaFrame_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDuration<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetDuration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaFrame_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMediaFrame_Impl::SetDuration(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn Duration<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Duration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaFrame_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaFrame_Impl::Duration(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -115,14 +139,18 @@ impl IMediaFrame_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsDiscontinuous<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetIsDiscontinuous<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT
+        where
+            Identity: IMediaFrame_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMediaFrame_Impl::SetIsDiscontinuous(this, value).into()
         }
-        unsafe extern "system" fn IsDiscontinuous<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn IsDiscontinuous<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            Identity: IMediaFrame_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaFrame_Impl::IsDiscontinuous(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -131,9 +159,11 @@ impl IMediaFrame_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExtendedProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ExtendedProperties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaFrame_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaFrame_Impl::ExtendedProperties(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -145,17 +175,17 @@ impl IMediaFrame_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaFrame, OFFSET>(),
-            Type: Type::<Identity, Impl, OFFSET>,
-            IsReadOnly: IsReadOnly::<Identity, Impl, OFFSET>,
-            SetRelativeTime: SetRelativeTime::<Identity, Impl, OFFSET>,
-            RelativeTime: RelativeTime::<Identity, Impl, OFFSET>,
-            SetSystemRelativeTime: SetSystemRelativeTime::<Identity, Impl, OFFSET>,
-            SystemRelativeTime: SystemRelativeTime::<Identity, Impl, OFFSET>,
-            SetDuration: SetDuration::<Identity, Impl, OFFSET>,
-            Duration: Duration::<Identity, Impl, OFFSET>,
-            SetIsDiscontinuous: SetIsDiscontinuous::<Identity, Impl, OFFSET>,
-            IsDiscontinuous: IsDiscontinuous::<Identity, Impl, OFFSET>,
-            ExtendedProperties: ExtendedProperties::<Identity, Impl, OFFSET>,
+            Type: Type::<Identity, OFFSET>,
+            IsReadOnly: IsReadOnly::<Identity, OFFSET>,
+            SetRelativeTime: SetRelativeTime::<Identity, OFFSET>,
+            RelativeTime: RelativeTime::<Identity, OFFSET>,
+            SetSystemRelativeTime: SetSystemRelativeTime::<Identity, OFFSET>,
+            SystemRelativeTime: SystemRelativeTime::<Identity, OFFSET>,
+            SetDuration: SetDuration::<Identity, OFFSET>,
+            Duration: Duration::<Identity, OFFSET>,
+            SetIsDiscontinuous: SetIsDiscontinuous::<Identity, OFFSET>,
+            IsDiscontinuous: IsDiscontinuous::<Identity, OFFSET>,
+            ExtendedProperties: ExtendedProperties::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -171,10 +201,15 @@ impl windows_core::RuntimeName for IMediaMarker {
     const NAME: &'static str = "Windows.Media.IMediaMarker";
 }
 impl IMediaMarker_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>() -> IMediaMarker_Vtbl {
-        unsafe extern "system" fn Time<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IMediaMarker_Vtbl
+    where
+        Identity: IMediaMarker_Impl,
+    {
+        unsafe extern "system" fn Time<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> windows_core::HRESULT
+        where
+            Identity: IMediaMarker_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaMarker_Impl::Time(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -183,9 +218,11 @@ impl IMediaMarker_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaMarkerType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn MediaMarkerType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IMediaMarker_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaMarker_Impl::MediaMarkerType(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -195,9 +232,11 @@ impl IMediaMarker_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Text<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IMediaMarker_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaMarker_Impl::Text(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -209,9 +248,9 @@ impl IMediaMarker_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaMarker, OFFSET>(),
-            Time: Time::<Identity, Impl, OFFSET>,
-            MediaMarkerType: MediaMarkerType::<Identity, Impl, OFFSET>,
-            Text: Text::<Identity, Impl, OFFSET>,
+            Time: Time::<Identity, OFFSET>,
+            MediaMarkerType: MediaMarkerType::<Identity, OFFSET>,
+            Text: Text::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -228,10 +267,15 @@ impl windows_core::RuntimeName for IMediaMarkers {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IMediaMarkers_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarkers_Impl, const OFFSET: isize>() -> IMediaMarkers_Vtbl {
-        unsafe extern "system" fn Markers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarkers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IMediaMarkers_Vtbl
+    where
+        Identity: IMediaMarkers_Impl,
+    {
+        unsafe extern "system" fn Markers<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaMarkers_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaMarkers_Impl::Markers(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -241,7 +285,7 @@ impl IMediaMarkers_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaMarkers, OFFSET>(), Markers: Markers::<Identity, Impl, OFFSET> }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaMarkers, OFFSET>(), Markers: Markers::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaMarkers as windows_core::Interface>::IID

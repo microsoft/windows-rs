@@ -5,10 +5,15 @@ impl windows_core::RuntimeName for IControlChannelTriggerEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerEventDetails";
 }
 impl IControlChannelTriggerEventDetails_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IControlChannelTriggerEventDetails_Impl, const OFFSET: isize>() -> IControlChannelTriggerEventDetails_Vtbl {
-        unsafe extern "system" fn ControlChannelTrigger<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IControlChannelTriggerEventDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IControlChannelTriggerEventDetails_Vtbl
+    where
+        Identity: IControlChannelTriggerEventDetails_Impl,
+    {
+        unsafe extern "system" fn ControlChannelTrigger<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IControlChannelTriggerEventDetails_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IControlChannelTriggerEventDetails_Impl::ControlChannelTrigger(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -20,7 +25,7 @@ impl IControlChannelTriggerEventDetails_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IControlChannelTriggerEventDetails, OFFSET>(),
-            ControlChannelTrigger: ControlChannelTrigger::<Identity, Impl, OFFSET>,
+            ControlChannelTrigger: ControlChannelTrigger::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -36,10 +41,15 @@ impl windows_core::RuntimeName for IControlChannelTriggerResetEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerResetEventDetails";
 }
 impl IControlChannelTriggerResetEventDetails_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IControlChannelTriggerResetEventDetails_Impl, const OFFSET: isize>() -> IControlChannelTriggerResetEventDetails_Vtbl {
-        unsafe extern "system" fn ResetReason<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IControlChannelTriggerResetEventDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ControlChannelTriggerResetReason) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IControlChannelTriggerResetEventDetails_Vtbl
+    where
+        Identity: IControlChannelTriggerResetEventDetails_Impl,
+    {
+        unsafe extern "system" fn ResetReason<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ControlChannelTriggerResetReason) -> windows_core::HRESULT
+        where
+            Identity: IControlChannelTriggerResetEventDetails_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IControlChannelTriggerResetEventDetails_Impl::ResetReason(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -48,9 +58,11 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HardwareSlotReset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IControlChannelTriggerResetEventDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn HardwareSlotReset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            Identity: IControlChannelTriggerResetEventDetails_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IControlChannelTriggerResetEventDetails_Impl::HardwareSlotReset(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -59,9 +71,11 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SoftwareSlotReset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IControlChannelTriggerResetEventDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SoftwareSlotReset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            Identity: IControlChannelTriggerResetEventDetails_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IControlChannelTriggerResetEventDetails_Impl::SoftwareSlotReset(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -72,9 +86,9 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IControlChannelTriggerResetEventDetails, OFFSET>(),
-            ResetReason: ResetReason::<Identity, Impl, OFFSET>,
-            HardwareSlotReset: HardwareSlotReset::<Identity, Impl, OFFSET>,
-            SoftwareSlotReset: SoftwareSlotReset::<Identity, Impl, OFFSET>,
+            ResetReason: ResetReason::<Identity, OFFSET>,
+            HardwareSlotReset: HardwareSlotReset::<Identity, OFFSET>,
+            SoftwareSlotReset: SoftwareSlotReset::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -96,10 +110,15 @@ impl windows_core::RuntimeName for IWebSocket {
 }
 #[cfg(feature = "Storage_Streams")]
 impl IWebSocket_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>() -> IWebSocket_Vtbl {
-        unsafe extern "system" fn OutputStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IWebSocket_Vtbl
+    where
+        Identity: IWebSocket_Impl,
+    {
+        unsafe extern "system" fn OutputStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocket_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocket_Impl::OutputStream(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -109,9 +128,11 @@ impl IWebSocket_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ConnectAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocket_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocket_Impl::ConnectAsync(this, windows_core::from_raw_borrowed(&uri)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -121,14 +142,18 @@ impl IWebSocket_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequestHeader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, headername: core::mem::MaybeUninit<windows_core::HSTRING>, headervalue: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetRequestHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, headername: core::mem::MaybeUninit<windows_core::HSTRING>, headervalue: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IWebSocket_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWebSocket_Impl::SetRequestHeader(this, core::mem::transmute(&headername), core::mem::transmute(&headervalue)).into()
         }
-        unsafe extern "system" fn Closed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Closed<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
+        where
+            Identity: IWebSocket_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocket_Impl::Closed(this, windows_core::from_raw_borrowed(&eventhandler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -137,24 +162,28 @@ impl IWebSocket_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveClosed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RemoveClosed<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
+        where
+            Identity: IWebSocket_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWebSocket_Impl::RemoveClosed(this, core::mem::transmute(&eventcookie)).into()
         }
-        unsafe extern "system" fn CloseWithStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, code: u16, reason: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CloseWithStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, code: u16, reason: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IWebSocket_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWebSocket_Impl::CloseWithStatus(this, code, core::mem::transmute(&reason)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebSocket, OFFSET>(),
-            OutputStream: OutputStream::<Identity, Impl, OFFSET>,
-            ConnectAsync: ConnectAsync::<Identity, Impl, OFFSET>,
-            SetRequestHeader: SetRequestHeader::<Identity, Impl, OFFSET>,
-            Closed: Closed::<Identity, Impl, OFFSET>,
-            RemoveClosed: RemoveClosed::<Identity, Impl, OFFSET>,
-            CloseWithStatus: CloseWithStatus::<Identity, Impl, OFFSET>,
+            OutputStream: OutputStream::<Identity, OFFSET>,
+            ConnectAsync: ConnectAsync::<Identity, OFFSET>,
+            SetRequestHeader: SetRequestHeader::<Identity, OFFSET>,
+            Closed: Closed::<Identity, OFFSET>,
+            RemoveClosed: RemoveClosed::<Identity, OFFSET>,
+            CloseWithStatus: CloseWithStatus::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -177,10 +206,15 @@ impl windows_core::RuntimeName for IWebSocketControl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
 impl IWebSocketControl_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>() -> IWebSocketControl_Vtbl {
-        unsafe extern "system" fn OutboundBufferSizeInBytes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IWebSocketControl_Vtbl
+    where
+        Identity: IWebSocketControl_Impl,
+    {
+        unsafe extern "system" fn OutboundBufferSizeInBytes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketControl_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketControl_Impl::OutboundBufferSizeInBytes(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -189,14 +223,18 @@ impl IWebSocketControl_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOutboundBufferSizeInBytes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetOutboundBufferSizeInBytes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketControl_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWebSocketControl_Impl::SetOutboundBufferSizeInBytes(this, value).into()
         }
-        unsafe extern "system" fn ServerCredential<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ServerCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketControl_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketControl_Impl::ServerCredential(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -206,14 +244,18 @@ impl IWebSocketControl_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServerCredential<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetServerCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketControl_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWebSocketControl_Impl::SetServerCredential(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn ProxyCredential<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ProxyCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketControl_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketControl_Impl::ProxyCredential(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -223,14 +265,18 @@ impl IWebSocketControl_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxyCredential<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetProxyCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketControl_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWebSocketControl_Impl::SetProxyCredential(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn SupportedProtocols<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SupportedProtocols<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketControl_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketControl_Impl::SupportedProtocols(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -242,13 +288,13 @@ impl IWebSocketControl_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebSocketControl, OFFSET>(),
-            OutboundBufferSizeInBytes: OutboundBufferSizeInBytes::<Identity, Impl, OFFSET>,
-            SetOutboundBufferSizeInBytes: SetOutboundBufferSizeInBytes::<Identity, Impl, OFFSET>,
-            ServerCredential: ServerCredential::<Identity, Impl, OFFSET>,
-            SetServerCredential: SetServerCredential::<Identity, Impl, OFFSET>,
-            ProxyCredential: ProxyCredential::<Identity, Impl, OFFSET>,
-            SetProxyCredential: SetProxyCredential::<Identity, Impl, OFFSET>,
-            SupportedProtocols: SupportedProtocols::<Identity, Impl, OFFSET>,
+            OutboundBufferSizeInBytes: OutboundBufferSizeInBytes::<Identity, OFFSET>,
+            SetOutboundBufferSizeInBytes: SetOutboundBufferSizeInBytes::<Identity, OFFSET>,
+            ServerCredential: ServerCredential::<Identity, OFFSET>,
+            SetServerCredential: SetServerCredential::<Identity, OFFSET>,
+            ProxyCredential: ProxyCredential::<Identity, OFFSET>,
+            SetProxyCredential: SetProxyCredential::<Identity, OFFSET>,
+            SupportedProtocols: SupportedProtocols::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -265,10 +311,15 @@ impl windows_core::RuntimeName for IWebSocketControl2 {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 impl IWebSocketControl2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl2_Impl, const OFFSET: isize>() -> IWebSocketControl2_Vtbl {
-        unsafe extern "system" fn IgnorableServerCertificateErrors<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IWebSocketControl2_Vtbl
+    where
+        Identity: IWebSocketControl2_Impl,
+    {
+        unsafe extern "system" fn IgnorableServerCertificateErrors<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketControl2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketControl2_Impl::IgnorableServerCertificateErrors(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -280,7 +331,7 @@ impl IWebSocketControl2_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebSocketControl2, OFFSET>(),
-            IgnorableServerCertificateErrors: IgnorableServerCertificateErrors::<Identity, Impl, OFFSET>,
+            IgnorableServerCertificateErrors: IgnorableServerCertificateErrors::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -296,10 +347,15 @@ impl windows_core::RuntimeName for IWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketInformation";
 }
 impl IWebSocketInformation_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation_Impl, const OFFSET: isize>() -> IWebSocketInformation_Vtbl {
-        unsafe extern "system" fn LocalAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IWebSocketInformation_Vtbl
+    where
+        Identity: IWebSocketInformation_Impl,
+    {
+        unsafe extern "system" fn LocalAddress<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketInformation_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketInformation_Impl::LocalAddress(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -309,9 +365,11 @@ impl IWebSocketInformation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BandwidthStatistics<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BandwidthStatistics) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BandwidthStatistics<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BandwidthStatistics) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketInformation_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketInformation_Impl::BandwidthStatistics(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -320,9 +378,11 @@ impl IWebSocketInformation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Protocol<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Protocol<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketInformation_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketInformation_Impl::Protocol(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -334,9 +394,9 @@ impl IWebSocketInformation_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebSocketInformation, OFFSET>(),
-            LocalAddress: LocalAddress::<Identity, Impl, OFFSET>,
-            BandwidthStatistics: BandwidthStatistics::<Identity, Impl, OFFSET>,
-            Protocol: Protocol::<Identity, Impl, OFFSET>,
+            LocalAddress: LocalAddress::<Identity, OFFSET>,
+            BandwidthStatistics: BandwidthStatistics::<Identity, OFFSET>,
+            Protocol: Protocol::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -356,10 +416,15 @@ impl windows_core::RuntimeName for IWebSocketInformation2 {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
 impl IWebSocketInformation2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation2_Impl, const OFFSET: isize>() -> IWebSocketInformation2_Vtbl {
-        unsafe extern "system" fn ServerCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IWebSocketInformation2_Vtbl
+    where
+        Identity: IWebSocketInformation2_Impl,
+    {
+        unsafe extern "system" fn ServerCertificate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketInformation2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketInformation2_Impl::ServerCertificate(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -369,9 +434,11 @@ impl IWebSocketInformation2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCertificateErrorSeverity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut SocketSslErrorSeverity) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ServerCertificateErrorSeverity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut SocketSslErrorSeverity) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketInformation2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketInformation2_Impl::ServerCertificateErrorSeverity(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -380,9 +447,11 @@ impl IWebSocketInformation2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerCertificateErrors<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ServerCertificateErrors<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketInformation2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketInformation2_Impl::ServerCertificateErrors(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -392,9 +461,11 @@ impl IWebSocketInformation2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerIntermediateCertificates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ServerIntermediateCertificates<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWebSocketInformation2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebSocketInformation2_Impl::ServerIntermediateCertificates(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -406,10 +477,10 @@ impl IWebSocketInformation2_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebSocketInformation2, OFFSET>(),
-            ServerCertificate: ServerCertificate::<Identity, Impl, OFFSET>,
-            ServerCertificateErrorSeverity: ServerCertificateErrorSeverity::<Identity, Impl, OFFSET>,
-            ServerCertificateErrors: ServerCertificateErrors::<Identity, Impl, OFFSET>,
-            ServerIntermediateCertificates: ServerIntermediateCertificates::<Identity, Impl, OFFSET>,
+            ServerCertificate: ServerCertificate::<Identity, OFFSET>,
+            ServerCertificateErrorSeverity: ServerCertificateErrorSeverity::<Identity, OFFSET>,
+            ServerCertificateErrors: ServerCertificateErrors::<Identity, OFFSET>,
+            ServerIntermediateCertificates: ServerIntermediateCertificates::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

@@ -6,10 +6,15 @@ impl windows_core::RuntimeName for IGraphicsEffect {
     const NAME: &'static str = "Windows.Graphics.Effects.IGraphicsEffect";
 }
 impl IGraphicsEffect_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGraphicsEffect_Impl, const OFFSET: isize>() -> IGraphicsEffect_Vtbl {
-        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IGraphicsEffect_Vtbl
+    where
+        Identity: IGraphicsEffect_Impl,
+    {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IGraphicsEffect_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IGraphicsEffect_Impl::Name(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -19,15 +24,17 @@ impl IGraphicsEffect_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IGraphicsEffect_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGraphicsEffect_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IGraphicsEffect, OFFSET>(),
-            Name: Name::<Identity, Impl, OFFSET>,
-            SetName: SetName::<Identity, Impl, OFFSET>,
+            Name: Name::<Identity, OFFSET>,
+            SetName: SetName::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -39,7 +46,10 @@ impl windows_core::RuntimeName for IGraphicsEffectSource {
     const NAME: &'static str = "Windows.Graphics.Effects.IGraphicsEffectSource";
 }
 impl IGraphicsEffectSource_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGraphicsEffectSource_Impl, const OFFSET: isize>() -> IGraphicsEffectSource_Vtbl {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IGraphicsEffectSource_Vtbl
+    where
+        Identity: IGraphicsEffectSource_Impl,
+    {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGraphicsEffectSource, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

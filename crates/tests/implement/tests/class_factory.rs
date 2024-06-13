@@ -8,13 +8,13 @@ use windows::Win32::System::Com::*;
 #[implement(IClosable, IStringable)]
 struct Object();
 
-impl IStringable_Impl for Object {
+impl IStringable_Impl for Object_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         Ok("Object".into())
     }
 }
 
-impl IClosable_Impl for Object {
+impl IClosable_Impl for Object_Impl {
     fn Close(&self) -> Result<()> {
         Ok(())
     }
@@ -23,7 +23,7 @@ impl IClosable_Impl for Object {
 #[implement(IClassFactory)]
 struct Factory();
 
-impl IClassFactory_Impl for Factory {
+impl IClassFactory_Impl for Factory_Impl {
     fn CreateInstance(
         &self,
         outer: Option<&IUnknown>,

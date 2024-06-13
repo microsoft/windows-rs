@@ -10,7 +10,7 @@ use windows::Foundation::Collections::*;
 struct Thing();
 
 #[allow(non_snake_case)]
-impl IVectorView_Impl<i32> for Thing {
+impl IVectorView_Impl<i32> for Thing_Impl {
     fn GetAt(&self, index: u32) -> Result<i32> {
         Ok(index as i32)
     }
@@ -29,7 +29,7 @@ impl IVectorView_Impl<i32> for Thing {
     }
 }
 
-impl IIterable_Impl<i32> for Thing {
+impl IIterable_Impl<i32> for Thing_Impl {
     fn First(&self) -> Result<IIterator<i32>> {
         panic!();
     }

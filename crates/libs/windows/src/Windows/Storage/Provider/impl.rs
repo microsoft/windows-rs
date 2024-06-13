@@ -8,10 +8,15 @@ impl windows_core::RuntimeName for IStorageProviderItemPropertySource {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IStorageProviderItemPropertySource_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderItemPropertySource_Impl, const OFFSET: isize>() -> IStorageProviderItemPropertySource_Vtbl {
-        unsafe extern "system" fn GetItemProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderItemPropertySource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itempath: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IStorageProviderItemPropertySource_Vtbl
+    where
+        Identity: IStorageProviderItemPropertySource_Impl,
+    {
+        unsafe extern "system" fn GetItemProperties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, itempath: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderItemPropertySource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderItemPropertySource_Impl::GetItemProperties(this, core::mem::transmute(&itempath)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -23,7 +28,7 @@ impl IStorageProviderItemPropertySource_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderItemPropertySource, OFFSET>(),
-            GetItemProperties: GetItemProperties::<Identity, Impl, OFFSET>,
+            GetItemProperties: GetItemProperties::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -39,10 +44,15 @@ impl windows_core::RuntimeName for IStorageProviderKnownFolderSyncInfoSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderKnownFolderSyncInfoSource";
 }
 impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSource_Impl, const OFFSET: isize>() -> IStorageProviderKnownFolderSyncInfoSource_Vtbl {
-        unsafe extern "system" fn GetKnownFolderSyncInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IStorageProviderKnownFolderSyncInfoSource_Vtbl
+    where
+        Identity: IStorageProviderKnownFolderSyncInfoSource_Impl,
+    {
+        unsafe extern "system" fn GetKnownFolderSyncInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderKnownFolderSyncInfoSource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderKnownFolderSyncInfoSource_Impl::GetKnownFolderSyncInfo(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -52,9 +62,11 @@ impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KnownFolderSyncInfoChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn KnownFolderSyncInfoChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderKnownFolderSyncInfoSource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderKnownFolderSyncInfoSource_Impl::KnownFolderSyncInfoChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -63,16 +75,18 @@ impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveKnownFolderSyncInfoChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RemoveKnownFolderSyncInfoChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderKnownFolderSyncInfoSource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IStorageProviderKnownFolderSyncInfoSource_Impl::RemoveKnownFolderSyncInfoChanged(this, core::mem::transmute(&token)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderKnownFolderSyncInfoSource, OFFSET>(),
-            GetKnownFolderSyncInfo: GetKnownFolderSyncInfo::<Identity, Impl, OFFSET>,
-            KnownFolderSyncInfoChanged: KnownFolderSyncInfoChanged::<Identity, Impl, OFFSET>,
-            RemoveKnownFolderSyncInfoChanged: RemoveKnownFolderSyncInfoChanged::<Identity, Impl, OFFSET>,
+            GetKnownFolderSyncInfo: GetKnownFolderSyncInfo::<Identity, OFFSET>,
+            KnownFolderSyncInfoChanged: KnownFolderSyncInfoChanged::<Identity, OFFSET>,
+            RemoveKnownFolderSyncInfoChanged: RemoveKnownFolderSyncInfoChanged::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -86,10 +100,15 @@ impl windows_core::RuntimeName for IStorageProviderKnownFolderSyncInfoSourceFact
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderKnownFolderSyncInfoSourceFactory";
 }
 impl IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSourceFactory_Impl, const OFFSET: isize>() -> IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
-        unsafe extern "system" fn GetKnownFolderSyncInfoSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderKnownFolderSyncInfoSourceFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl
+    where
+        Identity: IStorageProviderKnownFolderSyncInfoSourceFactory_Impl,
+    {
+        unsafe extern "system" fn GetKnownFolderSyncInfoSource<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderKnownFolderSyncInfoSourceFactory_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderKnownFolderSyncInfoSourceFactory_Impl::GetKnownFolderSyncInfoSource(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -101,7 +120,7 @@ impl IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderKnownFolderSyncInfoSourceFactory, OFFSET>(),
-            GetKnownFolderSyncInfoSource: GetKnownFolderSyncInfoSource::<Identity, Impl, OFFSET>,
+            GetKnownFolderSyncInfoSource: GetKnownFolderSyncInfoSource::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -115,10 +134,15 @@ impl windows_core::RuntimeName for IStorageProviderPropertyCapabilities {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderPropertyCapabilities";
 }
 impl IStorageProviderPropertyCapabilities_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderPropertyCapabilities_Impl, const OFFSET: isize>() -> IStorageProviderPropertyCapabilities_Vtbl {
-        unsafe extern "system" fn IsPropertySupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderPropertyCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertycanonicalname: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut bool) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IStorageProviderPropertyCapabilities_Vtbl
+    where
+        Identity: IStorageProviderPropertyCapabilities_Impl,
+    {
+        unsafe extern "system" fn IsPropertySupported<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertycanonicalname: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut bool) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderPropertyCapabilities_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderPropertyCapabilities_Impl::IsPropertySupported(this, core::mem::transmute(&propertycanonicalname)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -129,7 +153,7 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderPropertyCapabilities, OFFSET>(),
-            IsPropertySupported: IsPropertySupported::<Identity, Impl, OFFSET>,
+            IsPropertySupported: IsPropertySupported::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -145,10 +169,15 @@ impl windows_core::RuntimeName for IStorageProviderStatusUISource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusUISource";
 }
 impl IStorageProviderStatusUISource_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISource_Impl, const OFFSET: isize>() -> IStorageProviderStatusUISource_Vtbl {
-        unsafe extern "system" fn GetStatusUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IStorageProviderStatusUISource_Vtbl
+    where
+        Identity: IStorageProviderStatusUISource_Impl,
+    {
+        unsafe extern "system" fn GetStatusUI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderStatusUISource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderStatusUISource_Impl::GetStatusUI(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -158,9 +187,11 @@ impl IStorageProviderStatusUISource_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusUIChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn StatusUIChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderStatusUISource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderStatusUISource_Impl::StatusUIChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -169,16 +200,18 @@ impl IStorageProviderStatusUISource_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveStatusUIChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RemoveStatusUIChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderStatusUISource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IStorageProviderStatusUISource_Impl::RemoveStatusUIChanged(this, core::mem::transmute(&token)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderStatusUISource, OFFSET>(),
-            GetStatusUI: GetStatusUI::<Identity, Impl, OFFSET>,
-            StatusUIChanged: StatusUIChanged::<Identity, Impl, OFFSET>,
-            RemoveStatusUIChanged: RemoveStatusUIChanged::<Identity, Impl, OFFSET>,
+            GetStatusUI: GetStatusUI::<Identity, OFFSET>,
+            StatusUIChanged: StatusUIChanged::<Identity, OFFSET>,
+            RemoveStatusUIChanged: RemoveStatusUIChanged::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -192,10 +225,15 @@ impl windows_core::RuntimeName for IStorageProviderStatusUISourceFactory {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusUISourceFactory";
 }
 impl IStorageProviderStatusUISourceFactory_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISourceFactory_Impl, const OFFSET: isize>() -> IStorageProviderStatusUISourceFactory_Vtbl {
-        unsafe extern "system" fn GetStatusUISource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISourceFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IStorageProviderStatusUISourceFactory_Vtbl
+    where
+        Identity: IStorageProviderStatusUISourceFactory_Impl,
+    {
+        unsafe extern "system" fn GetStatusUISource<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderStatusUISourceFactory_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderStatusUISourceFactory_Impl::GetStatusUISource(this, core::mem::transmute(&syncrootid)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -207,7 +245,7 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderStatusUISourceFactory, OFFSET>(),
-            GetStatusUISource: GetStatusUISource::<Identity, Impl, OFFSET>,
+            GetStatusUISource: GetStatusUISource::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -225,10 +263,15 @@ impl windows_core::RuntimeName for IStorageProviderUICommand {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUICommand";
 }
 impl IStorageProviderUICommand_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>() -> IStorageProviderUICommand_Vtbl {
-        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IStorageProviderUICommand_Vtbl
+    where
+        Identity: IStorageProviderUICommand_Impl,
+    {
+        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderUICommand_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderUICommand_Impl::Label(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -238,9 +281,11 @@ impl IStorageProviderUICommand_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderUICommand_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderUICommand_Impl::Description(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -250,9 +295,11 @@ impl IStorageProviderUICommand_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Icon<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Icon<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderUICommand_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderUICommand_Impl::Icon(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -262,9 +309,11 @@ impl IStorageProviderUICommand_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut StorageProviderUICommandState) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut StorageProviderUICommandState) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderUICommand_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageProviderUICommand_Impl::State(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -273,18 +322,20 @@ impl IStorageProviderUICommand_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Invoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Invoke<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderUICommand_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IStorageProviderUICommand_Impl::Invoke(this).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderUICommand, OFFSET>(),
-            Label: Label::<Identity, Impl, OFFSET>,
-            Description: Description::<Identity, Impl, OFFSET>,
-            Icon: Icon::<Identity, Impl, OFFSET>,
-            State: State::<Identity, Impl, OFFSET>,
-            Invoke: Invoke::<Identity, Impl, OFFSET>,
+            Label: Label::<Identity, OFFSET>,
+            Description: Description::<Identity, OFFSET>,
+            Icon: Icon::<Identity, OFFSET>,
+            State: State::<Identity, OFFSET>,
+            Invoke: Invoke::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -299,21 +350,28 @@ impl windows_core::RuntimeName for IStorageProviderUriSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUriSource";
 }
 impl IStorageProviderUriSource_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>() -> IStorageProviderUriSource_Vtbl {
-        unsafe extern "system" fn GetPathForContentUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contenturi: core::mem::MaybeUninit<windows_core::HSTRING>, result: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IStorageProviderUriSource_Vtbl
+    where
+        Identity: IStorageProviderUriSource_Impl,
+    {
+        unsafe extern "system" fn GetPathForContentUri<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, contenturi: core::mem::MaybeUninit<windows_core::HSTRING>, result: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderUriSource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IStorageProviderUriSource_Impl::GetPathForContentUri(this, core::mem::transmute(&contenturi), windows_core::from_raw_borrowed(&result)).into()
         }
-        unsafe extern "system" fn GetContentInfoForPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: core::mem::MaybeUninit<windows_core::HSTRING>, result: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetContentInfoForPath<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: core::mem::MaybeUninit<windows_core::HSTRING>, result: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IStorageProviderUriSource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IStorageProviderUriSource_Impl::GetContentInfoForPath(this, core::mem::transmute(&path), windows_core::from_raw_borrowed(&result)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderUriSource, OFFSET>(),
-            GetPathForContentUri: GetPathForContentUri::<Identity, Impl, OFFSET>,
-            GetContentInfoForPath: GetContentInfoForPath::<Identity, Impl, OFFSET>,
+            GetPathForContentUri: GetPathForContentUri::<Identity, OFFSET>,
+            GetContentInfoForPath: GetContentInfoForPath::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

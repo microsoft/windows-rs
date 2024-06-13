@@ -4,10 +4,15 @@ pub trait IWsbApplicationAsync_Impl: Sized {
 }
 impl windows_core::RuntimeName for IWsbApplicationAsync {}
 impl IWsbApplicationAsync_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationAsync_Impl, const OFFSET: isize>() -> IWsbApplicationAsync_Vtbl {
-        unsafe extern "system" fn QueryStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phrresult: *mut windows_core::HRESULT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IWsbApplicationAsync_Vtbl
+    where
+        Identity: IWsbApplicationAsync_Impl,
+    {
+        unsafe extern "system" fn QueryStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, phrresult: *mut windows_core::HRESULT) -> windows_core::HRESULT
+        where
+            Identity: IWsbApplicationAsync_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWsbApplicationAsync_Impl::QueryStatus(this) {
                 Ok(ok__) => {
                     phrresult.write(core::mem::transmute(ok__));
@@ -16,16 +21,14 @@ impl IWsbApplicationAsync_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Abort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Abort<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWsbApplicationAsync_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWsbApplicationAsync_Impl::Abort(this).into()
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryStatus: QueryStatus::<Identity, Impl, OFFSET>,
-            Abort: Abort::<Identity, Impl, OFFSET>,
-        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryStatus: QueryStatus::<Identity, OFFSET>, Abort: Abort::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWsbApplicationAsync as windows_core::Interface>::IID
@@ -36,10 +39,15 @@ pub trait IWsbApplicationBackupSupport_Impl: Sized {
 }
 impl windows_core::RuntimeName for IWsbApplicationBackupSupport {}
 impl IWsbApplicationBackupSupport_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationBackupSupport_Impl, const OFFSET: isize>() -> IWsbApplicationBackupSupport_Vtbl {
-        unsafe extern "system" fn CheckConsistency<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationBackupSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszwritermetadata: windows_core::PCWSTR, wszcomponentname: windows_core::PCWSTR, wszcomponentlogicalpath: windows_core::PCWSTR, cvolumes: u32, rgwszsourcevolumepath: *const windows_core::PCWSTR, rgwszsnapshotvolumepath: *const windows_core::PCWSTR, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IWsbApplicationBackupSupport_Vtbl
+    where
+        Identity: IWsbApplicationBackupSupport_Impl,
+    {
+        unsafe extern "system" fn CheckConsistency<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszwritermetadata: windows_core::PCWSTR, wszcomponentname: windows_core::PCWSTR, wszcomponentlogicalpath: windows_core::PCWSTR, cvolumes: u32, rgwszsourcevolumepath: *const windows_core::PCWSTR, rgwszsnapshotvolumepath: *const windows_core::PCWSTR, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IWsbApplicationBackupSupport_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWsbApplicationBackupSupport_Impl::CheckConsistency(this, core::mem::transmute(&wszwritermetadata), core::mem::transmute(&wszcomponentname), core::mem::transmute(&wszcomponentlogicalpath), core::mem::transmute_copy(&cvolumes), core::mem::transmute_copy(&rgwszsourcevolumepath), core::mem::transmute_copy(&rgwszsnapshotvolumepath)) {
                 Ok(ok__) => {
                     ppasync.write(core::mem::transmute(ok__));
@@ -48,7 +56,7 @@ impl IWsbApplicationBackupSupport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CheckConsistency: CheckConsistency::<Identity, Impl, OFFSET> }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CheckConsistency: CheckConsistency::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IWsbApplicationBackupSupport as windows_core::Interface>::IID
@@ -62,25 +70,36 @@ pub trait IWsbApplicationRestoreSupport_Impl: Sized {
 }
 impl windows_core::RuntimeName for IWsbApplicationRestoreSupport {}
 impl IWsbApplicationRestoreSupport_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>() -> IWsbApplicationRestoreSupport_Vtbl {
-        unsafe extern "system" fn PreRestore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszwritermetadata: windows_core::PCWSTR, wszcomponentname: windows_core::PCWSTR, wszcomponentlogicalpath: windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IWsbApplicationRestoreSupport_Vtbl
+    where
+        Identity: IWsbApplicationRestoreSupport_Impl,
+    {
+        unsafe extern "system" fn PreRestore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszwritermetadata: windows_core::PCWSTR, wszcomponentname: windows_core::PCWSTR, wszcomponentlogicalpath: windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> windows_core::HRESULT
+        where
+            Identity: IWsbApplicationRestoreSupport_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWsbApplicationRestoreSupport_Impl::PreRestore(this, core::mem::transmute(&wszwritermetadata), core::mem::transmute(&wszcomponentname), core::mem::transmute(&wszcomponentlogicalpath), core::mem::transmute_copy(&bnorollforward)).into()
         }
-        unsafe extern "system" fn PostRestore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszwritermetadata: windows_core::PCWSTR, wszcomponentname: windows_core::PCWSTR, wszcomponentlogicalpath: windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn PostRestore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszwritermetadata: windows_core::PCWSTR, wszcomponentname: windows_core::PCWSTR, wszcomponentlogicalpath: windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> windows_core::HRESULT
+        where
+            Identity: IWsbApplicationRestoreSupport_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWsbApplicationRestoreSupport_Impl::PostRestore(this, core::mem::transmute(&wszwritermetadata), core::mem::transmute(&wszcomponentname), core::mem::transmute(&wszcomponentlogicalpath), core::mem::transmute_copy(&bnorollforward)).into()
         }
-        unsafe extern "system" fn OrderComponents<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccomponents: u32, rgcomponentname: *const windows_core::PCWSTR, rgcomponentlogicalpaths: *const windows_core::PCWSTR, prgcomponentname: *mut *mut windows_core::PWSTR, prgcomponentlogicalpath: *mut *mut windows_core::PWSTR) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn OrderComponents<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccomponents: u32, rgcomponentname: *const windows_core::PCWSTR, rgcomponentlogicalpaths: *const windows_core::PCWSTR, prgcomponentname: *mut *mut windows_core::PWSTR, prgcomponentlogicalpath: *mut *mut windows_core::PWSTR) -> windows_core::HRESULT
+        where
+            Identity: IWsbApplicationRestoreSupport_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWsbApplicationRestoreSupport_Impl::OrderComponents(this, core::mem::transmute_copy(&ccomponents), core::mem::transmute_copy(&rgcomponentname), core::mem::transmute_copy(&rgcomponentlogicalpaths), core::mem::transmute_copy(&prgcomponentname), core::mem::transmute_copy(&prgcomponentlogicalpath)).into()
         }
-        unsafe extern "system" fn IsRollForwardSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbrollforwardsupported: *mut u8) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn IsRollForwardSupported<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbrollforwardsupported: *mut u8) -> windows_core::HRESULT
+        where
+            Identity: IWsbApplicationRestoreSupport_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWsbApplicationRestoreSupport_Impl::IsRollForwardSupported(this) {
                 Ok(ok__) => {
                     pbrollforwardsupported.write(core::mem::transmute(ok__));
@@ -91,10 +110,10 @@ impl IWsbApplicationRestoreSupport_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            PreRestore: PreRestore::<Identity, Impl, OFFSET>,
-            PostRestore: PostRestore::<Identity, Impl, OFFSET>,
-            OrderComponents: OrderComponents::<Identity, Impl, OFFSET>,
-            IsRollForwardSupported: IsRollForwardSupported::<Identity, Impl, OFFSET>,
+            PreRestore: PreRestore::<Identity, OFFSET>,
+            PostRestore: PostRestore::<Identity, OFFSET>,
+            OrderComponents: OrderComponents::<Identity, OFFSET>,
+            IsRollForwardSupported: IsRollForwardSupported::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

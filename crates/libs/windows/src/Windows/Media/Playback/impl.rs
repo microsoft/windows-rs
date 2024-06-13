@@ -9,10 +9,15 @@ impl windows_core::RuntimeName for IMediaEnginePlaybackSource {
 }
 #[cfg(feature = "deprecated")]
 impl IMediaEnginePlaybackSource_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>() -> IMediaEnginePlaybackSource_Vtbl {
-        unsafe extern "system" fn CurrentItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IMediaEnginePlaybackSource_Vtbl
+    where
+        Identity: IMediaEnginePlaybackSource_Impl,
+    {
+        unsafe extern "system" fn CurrentItem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaEnginePlaybackSource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaEnginePlaybackSource_Impl::CurrentItem(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -22,15 +27,17 @@ impl IMediaEnginePlaybackSource_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlaybackSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetPlaybackSource<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IMediaEnginePlaybackSource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMediaEnginePlaybackSource_Impl::SetPlaybackSource(this, windows_core::from_raw_borrowed(&source)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaEnginePlaybackSource, OFFSET>(),
-            CurrentItem: CurrentItem::<Identity, Impl, OFFSET>,
-            SetPlaybackSource: SetPlaybackSource::<Identity, Impl, OFFSET>,
+            CurrentItem: CurrentItem::<Identity, OFFSET>,
+            SetPlaybackSource: SetPlaybackSource::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -42,7 +49,10 @@ impl windows_core::RuntimeName for IMediaPlaybackSource {
     const NAME: &'static str = "Windows.Media.Playback.IMediaPlaybackSource";
 }
 impl IMediaPlaybackSource_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaPlaybackSource_Impl, const OFFSET: isize>() -> IMediaPlaybackSource_Vtbl {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IMediaPlaybackSource_Vtbl
+    where
+        Identity: IMediaPlaybackSource_Impl,
+    {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaPlaybackSource, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

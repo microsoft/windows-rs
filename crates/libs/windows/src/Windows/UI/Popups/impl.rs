@@ -10,10 +10,15 @@ impl windows_core::RuntimeName for IUICommand {
     const NAME: &'static str = "Windows.UI.Popups.IUICommand";
 }
 impl IUICommand_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>() -> IUICommand_Vtbl {
-        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IUICommand_Vtbl
+    where
+        Identity: IUICommand_Impl,
+    {
+        unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IUICommand_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUICommand_Impl::Label(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -23,14 +28,18 @@ impl IUICommand_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
+        where
+            Identity: IUICommand_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUICommand_Impl::SetLabel(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Invoked<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Invoked<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IUICommand_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUICommand_Impl::Invoked(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -40,14 +49,18 @@ impl IUICommand_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInvoked<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetInvoked<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IUICommand_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUICommand_Impl::SetInvoked(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IUICommand_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUICommand_Impl::Id(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -57,19 +70,21 @@ impl IUICommand_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IUICommand_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUICommand_Impl::SetId(this, windows_core::from_raw_borrowed(&value)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IUICommand, OFFSET>(),
-            Label: Label::<Identity, Impl, OFFSET>,
-            SetLabel: SetLabel::<Identity, Impl, OFFSET>,
-            Invoked: Invoked::<Identity, Impl, OFFSET>,
-            SetInvoked: SetInvoked::<Identity, Impl, OFFSET>,
-            Id: Id::<Identity, Impl, OFFSET>,
-            SetId: SetId::<Identity, Impl, OFFSET>,
+            Label: Label::<Identity, OFFSET>,
+            SetLabel: SetLabel::<Identity, OFFSET>,
+            Invoked: Invoked::<Identity, OFFSET>,
+            SetInvoked: SetInvoked::<Identity, OFFSET>,
+            Id: Id::<Identity, OFFSET>,
+            SetId: SetId::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

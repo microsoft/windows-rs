@@ -38,7 +38,7 @@ fn main() -> Result<()> {
 #[implement(IBackgroundCopyCallback)]
 struct Callback;
 
-impl IBackgroundCopyCallback_Impl for Callback {
+impl IBackgroundCopyCallback_Impl for Callback_Impl {
     fn JobTransferred(&self, job: Option<&IBackgroundCopyJob>) -> Result<()> {
         let job = job.unwrap();
         unsafe { job.Complete()? };

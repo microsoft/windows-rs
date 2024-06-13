@@ -11,13 +11,13 @@ unsafe trait IBorrowed: IUnknown {
 #[implement(IBackgroundTask, IBorrowed, IBackgroundTaskInstance)]
 struct Borrowed(RwLock<u32>);
 
-impl IBorrowed_Impl for Borrowed {
+impl IBorrowed_Impl for Borrowed_Impl {
     unsafe fn Call(&self) -> u32 {
         *self.0.read().unwrap()
     }
 }
 
-impl IBackgroundTask_Impl for Borrowed {
+impl IBackgroundTask_Impl for Borrowed_Impl {
     fn Run(&self, instance: Option<&IBackgroundTaskInstance>) -> Result<()> {
         if let Some(instance) = instance {
             assert_eq!(instance.SuspendedCount()?, *self.0.read().unwrap());
@@ -28,7 +28,7 @@ impl IBackgroundTask_Impl for Borrowed {
     }
 }
 
-impl IBackgroundTaskInstance_Impl for Borrowed {
+impl IBackgroundTaskInstance_Impl for Borrowed_Impl {
     fn InstanceId(&self) -> Result<GUID> {
         unimplemented!()
     }

@@ -24,13 +24,13 @@ impl Drop for Test {
     }
 }
 
-impl IStringable_Impl for Test {
+impl IStringable_Impl for Test_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         Ok(self.0.as_str().into())
     }
 }
 
-impl IClosable_Impl for Test {
+impl IClosable_Impl for Test_Impl {
     fn Close(&self) -> Result<()> {
         Ok(())
     }

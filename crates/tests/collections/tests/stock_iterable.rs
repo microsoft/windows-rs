@@ -166,7 +166,7 @@ fn hstring() -> Result<()> {
 #[implement(IStringable)]
 struct Stringable(HSTRING);
 
-impl IStringable_Impl for Stringable {
+impl IStringable_Impl for Stringable_Impl {
     fn ToString(&self) -> Result<HSTRING> {
         Ok(self.0.clone())
     }

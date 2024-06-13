@@ -8,10 +8,15 @@ impl windows_core::RuntimeName for IToastNotificationManagerStatics3 {
 }
 #[cfg(feature = "UI_Notifications")]
 impl IToastNotificationManagerStatics3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToastNotificationManagerStatics3_Impl, const OFFSET: isize>() -> IToastNotificationManagerStatics3_Vtbl {
-        unsafe extern "system" fn CreateToastNotifierForSecondaryTile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToastNotificationManagerStatics3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tileid: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IToastNotificationManagerStatics3_Vtbl
+    where
+        Identity: IToastNotificationManagerStatics3_Impl,
+    {
+        unsafe extern "system" fn CreateToastNotifierForSecondaryTile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, tileid: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IToastNotificationManagerStatics3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IToastNotificationManagerStatics3_Impl::CreateToastNotifierForSecondaryTile(this, core::mem::transmute(&tileid)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -23,7 +28,7 @@ impl IToastNotificationManagerStatics3_Vtbl {
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IToastNotificationManagerStatics3, OFFSET>(),
-            CreateToastNotifierForSecondaryTile: CreateToastNotifierForSecondaryTile::<Identity, Impl, OFFSET>,
+            CreateToastNotifierForSecondaryTile: CreateToastNotifierForSecondaryTile::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

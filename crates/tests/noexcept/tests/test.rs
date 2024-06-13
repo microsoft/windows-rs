@@ -6,7 +6,7 @@ use test_noexcept::*;
 #[derive(Default)]
 struct Test(std::sync::RwLock<(HSTRING, i32, Option<ITest>)>);
 
-impl ITest_Impl for Test {
+impl ITest_Impl for Test_Impl {
     fn MethodString(&self, test: &HSTRING) -> Result<()> {
         let mut this = self.0.write().unwrap();
         this.0 = test.clone();

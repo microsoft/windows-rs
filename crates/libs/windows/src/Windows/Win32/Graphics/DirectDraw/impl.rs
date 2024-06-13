@@ -6,33 +6,44 @@ pub trait IDDVideoPortContainer_Impl: Sized {
 }
 impl windows_core::RuntimeName for IDDVideoPortContainer {}
 impl IDDVideoPortContainer_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDDVideoPortContainer_Impl, const OFFSET: isize>() -> IDDVideoPortContainer_Vtbl {
-        unsafe extern "system" fn CreateVideoPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDDVideoPortContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDDVideoPortContainer_Vtbl
+    where
+        Identity: IDDVideoPortContainer_Impl,
+    {
+        unsafe extern "system" fn CreateVideoPort<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDDVideoPortContainer_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDDVideoPortContainer_Impl::CreateVideoPort(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), windows_core::from_raw_borrowed(&param3)).into()
         }
-        unsafe extern "system" fn EnumVideoPorts<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDDVideoPortContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumVideoPorts<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> windows_core::HRESULT
+        where
+            Identity: IDDVideoPortContainer_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDDVideoPortContainer_Impl::EnumVideoPorts(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn GetVideoPortConnectInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDDVideoPortContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, pcinfo: *mut u32, param2: *mut DDVIDEOPORTCONNECT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVideoPortConnectInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, pcinfo: *mut u32, param2: *mut DDVIDEOPORTCONNECT) -> windows_core::HRESULT
+        where
+            Identity: IDDVideoPortContainer_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDDVideoPortContainer_Impl::GetVideoPortConnectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&pcinfo), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn QueryVideoPortStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDDVideoPortContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn QueryVideoPortStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> windows_core::HRESULT
+        where
+            Identity: IDDVideoPortContainer_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDDVideoPortContainer_Impl::QueryVideoPortStatus(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            CreateVideoPort: CreateVideoPort::<Identity, Impl, OFFSET>,
-            EnumVideoPorts: EnumVideoPorts::<Identity, Impl, OFFSET>,
-            GetVideoPortConnectInfo: GetVideoPortConnectInfo::<Identity, Impl, OFFSET>,
-            QueryVideoPortStatus: QueryVideoPortStatus::<Identity, Impl, OFFSET>,
+            CreateVideoPort: CreateVideoPort::<Identity, OFFSET>,
+            EnumVideoPorts: EnumVideoPorts::<Identity, OFFSET>,
+            GetVideoPortConnectInfo: GetVideoPortConnectInfo::<Identity, OFFSET>,
+            QueryVideoPortStatus: QueryVideoPortStatus::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -66,30 +77,43 @@ pub trait IDirectDraw_Impl: Sized {
 impl windows_core::RuntimeName for IDirectDraw {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDraw_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>() -> IDirectDraw_Vtbl {
-        unsafe extern "system" fn Compact<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDraw_Vtbl
+    where
+        Identity: IDirectDraw_Impl,
+    {
+        unsafe extern "system" fn Compact<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::Compact(this).into()
         }
-        unsafe extern "system" fn CreateClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreateClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2)).into()
         }
-        unsafe extern "system" fn CreatePalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreatePalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), windows_core::from_raw_borrowed(&param3)).into()
         }
-        unsafe extern "system" fn CreateSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreateSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2)).into()
         }
-        unsafe extern "system" fn DuplicateSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DuplicateSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDraw_Impl::DuplicateSurface(this, windows_core::from_raw_borrowed(&param0)) {
                 Ok(ok__) => {
                     param1.write(core::mem::transmute(ok__));
@@ -98,39 +122,53 @@ impl IDirectDraw_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumDisplayModes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumDisplayModes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::EnumDisplayModes(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn EnumSurfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumSurfaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::EnumSurfaces(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn FlipToGDISurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn FlipToGDISurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::FlipToGDISurface(this).into()
         }
-        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::GetCaps(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::GetDisplayMode(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetFourCCCodes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFourCCCodes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::GetFourCCCodes(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetGDISurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetGDISurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDraw_Impl::GetGDISurface(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -139,68 +177,84 @@ impl IDirectDraw_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMonitorFrequency<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMonitorFrequency<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::GetMonitorFrequency(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetScanLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetScanLine<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::GetScanLine(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::GetVerticalBlankStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::GUID) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::Initialize(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn RestoreDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RestoreDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::RestoreDisplayMode(this).into()
         }
-        unsafe extern "system" fn SetCooperativeLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetCooperativeLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::SetDisplayMode(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn WaitForVerticalBlank<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn WaitForVerticalBlank<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw_Impl::WaitForVerticalBlank(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Compact: Compact::<Identity, Impl, OFFSET>,
-            CreateClipper: CreateClipper::<Identity, Impl, OFFSET>,
-            CreatePalette: CreatePalette::<Identity, Impl, OFFSET>,
-            CreateSurface: CreateSurface::<Identity, Impl, OFFSET>,
-            DuplicateSurface: DuplicateSurface::<Identity, Impl, OFFSET>,
-            EnumDisplayModes: EnumDisplayModes::<Identity, Impl, OFFSET>,
-            EnumSurfaces: EnumSurfaces::<Identity, Impl, OFFSET>,
-            FlipToGDISurface: FlipToGDISurface::<Identity, Impl, OFFSET>,
-            GetCaps: GetCaps::<Identity, Impl, OFFSET>,
-            GetDisplayMode: GetDisplayMode::<Identity, Impl, OFFSET>,
-            GetFourCCCodes: GetFourCCCodes::<Identity, Impl, OFFSET>,
-            GetGDISurface: GetGDISurface::<Identity, Impl, OFFSET>,
-            GetMonitorFrequency: GetMonitorFrequency::<Identity, Impl, OFFSET>,
-            GetScanLine: GetScanLine::<Identity, Impl, OFFSET>,
-            GetVerticalBlankStatus: GetVerticalBlankStatus::<Identity, Impl, OFFSET>,
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            RestoreDisplayMode: RestoreDisplayMode::<Identity, Impl, OFFSET>,
-            SetCooperativeLevel: SetCooperativeLevel::<Identity, Impl, OFFSET>,
-            SetDisplayMode: SetDisplayMode::<Identity, Impl, OFFSET>,
-            WaitForVerticalBlank: WaitForVerticalBlank::<Identity, Impl, OFFSET>,
+            Compact: Compact::<Identity, OFFSET>,
+            CreateClipper: CreateClipper::<Identity, OFFSET>,
+            CreatePalette: CreatePalette::<Identity, OFFSET>,
+            CreateSurface: CreateSurface::<Identity, OFFSET>,
+            DuplicateSurface: DuplicateSurface::<Identity, OFFSET>,
+            EnumDisplayModes: EnumDisplayModes::<Identity, OFFSET>,
+            EnumSurfaces: EnumSurfaces::<Identity, OFFSET>,
+            FlipToGDISurface: FlipToGDISurface::<Identity, OFFSET>,
+            GetCaps: GetCaps::<Identity, OFFSET>,
+            GetDisplayMode: GetDisplayMode::<Identity, OFFSET>,
+            GetFourCCCodes: GetFourCCCodes::<Identity, OFFSET>,
+            GetGDISurface: GetGDISurface::<Identity, OFFSET>,
+            GetMonitorFrequency: GetMonitorFrequency::<Identity, OFFSET>,
+            GetScanLine: GetScanLine::<Identity, OFFSET>,
+            GetVerticalBlankStatus: GetVerticalBlankStatus::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            RestoreDisplayMode: RestoreDisplayMode::<Identity, OFFSET>,
+            SetCooperativeLevel: SetCooperativeLevel::<Identity, OFFSET>,
+            SetDisplayMode: SetDisplayMode::<Identity, OFFSET>,
+            WaitForVerticalBlank: WaitForVerticalBlank::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -235,30 +289,43 @@ pub trait IDirectDraw2_Impl: Sized {
 impl windows_core::RuntimeName for IDirectDraw2 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDraw2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>() -> IDirectDraw2_Vtbl {
-        unsafe extern "system" fn Compact<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDraw2_Vtbl
+    where
+        Identity: IDirectDraw2_Impl,
+    {
+        unsafe extern "system" fn Compact<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::Compact(this).into()
         }
-        unsafe extern "system" fn CreateClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreateClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2)).into()
         }
-        unsafe extern "system" fn CreatePalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreatePalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), windows_core::from_raw_borrowed(&param3)).into()
         }
-        unsafe extern "system" fn CreateSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreateSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2)).into()
         }
-        unsafe extern "system" fn DuplicateSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DuplicateSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDraw2_Impl::DuplicateSurface(this, windows_core::from_raw_borrowed(&param0)) {
                 Ok(ok__) => {
                     param1.write(core::mem::transmute(ok__));
@@ -267,39 +334,53 @@ impl IDirectDraw2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumDisplayModes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumDisplayModes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::EnumDisplayModes(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn EnumSurfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumSurfaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::EnumSurfaces(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn FlipToGDISurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn FlipToGDISurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::FlipToGDISurface(this).into()
         }
-        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::GetCaps(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::GetDisplayMode(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetFourCCCodes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFourCCCodes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::GetFourCCCodes(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetGDISurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetGDISurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDraw2_Impl::GetGDISurface(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -308,74 +389,92 @@ impl IDirectDraw2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMonitorFrequency<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMonitorFrequency<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::GetMonitorFrequency(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetScanLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetScanLine<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::GetScanLine(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::GetVerticalBlankStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::GUID) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::Initialize(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn RestoreDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RestoreDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::RestoreDisplayMode(this).into()
         }
-        unsafe extern "system" fn SetCooperativeLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetCooperativeLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::SetDisplayMode(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn WaitForVerticalBlank<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn WaitForVerticalBlank<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::WaitForVerticalBlank(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetAvailableVidMem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAvailableVidMem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw2_Impl::GetAvailableVidMem(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Compact: Compact::<Identity, Impl, OFFSET>,
-            CreateClipper: CreateClipper::<Identity, Impl, OFFSET>,
-            CreatePalette: CreatePalette::<Identity, Impl, OFFSET>,
-            CreateSurface: CreateSurface::<Identity, Impl, OFFSET>,
-            DuplicateSurface: DuplicateSurface::<Identity, Impl, OFFSET>,
-            EnumDisplayModes: EnumDisplayModes::<Identity, Impl, OFFSET>,
-            EnumSurfaces: EnumSurfaces::<Identity, Impl, OFFSET>,
-            FlipToGDISurface: FlipToGDISurface::<Identity, Impl, OFFSET>,
-            GetCaps: GetCaps::<Identity, Impl, OFFSET>,
-            GetDisplayMode: GetDisplayMode::<Identity, Impl, OFFSET>,
-            GetFourCCCodes: GetFourCCCodes::<Identity, Impl, OFFSET>,
-            GetGDISurface: GetGDISurface::<Identity, Impl, OFFSET>,
-            GetMonitorFrequency: GetMonitorFrequency::<Identity, Impl, OFFSET>,
-            GetScanLine: GetScanLine::<Identity, Impl, OFFSET>,
-            GetVerticalBlankStatus: GetVerticalBlankStatus::<Identity, Impl, OFFSET>,
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            RestoreDisplayMode: RestoreDisplayMode::<Identity, Impl, OFFSET>,
-            SetCooperativeLevel: SetCooperativeLevel::<Identity, Impl, OFFSET>,
-            SetDisplayMode: SetDisplayMode::<Identity, Impl, OFFSET>,
-            WaitForVerticalBlank: WaitForVerticalBlank::<Identity, Impl, OFFSET>,
-            GetAvailableVidMem: GetAvailableVidMem::<Identity, Impl, OFFSET>,
+            Compact: Compact::<Identity, OFFSET>,
+            CreateClipper: CreateClipper::<Identity, OFFSET>,
+            CreatePalette: CreatePalette::<Identity, OFFSET>,
+            CreateSurface: CreateSurface::<Identity, OFFSET>,
+            DuplicateSurface: DuplicateSurface::<Identity, OFFSET>,
+            EnumDisplayModes: EnumDisplayModes::<Identity, OFFSET>,
+            EnumSurfaces: EnumSurfaces::<Identity, OFFSET>,
+            FlipToGDISurface: FlipToGDISurface::<Identity, OFFSET>,
+            GetCaps: GetCaps::<Identity, OFFSET>,
+            GetDisplayMode: GetDisplayMode::<Identity, OFFSET>,
+            GetFourCCCodes: GetFourCCCodes::<Identity, OFFSET>,
+            GetGDISurface: GetGDISurface::<Identity, OFFSET>,
+            GetMonitorFrequency: GetMonitorFrequency::<Identity, OFFSET>,
+            GetScanLine: GetScanLine::<Identity, OFFSET>,
+            GetVerticalBlankStatus: GetVerticalBlankStatus::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            RestoreDisplayMode: RestoreDisplayMode::<Identity, OFFSET>,
+            SetCooperativeLevel: SetCooperativeLevel::<Identity, OFFSET>,
+            SetDisplayMode: SetDisplayMode::<Identity, OFFSET>,
+            WaitForVerticalBlank: WaitForVerticalBlank::<Identity, OFFSET>,
+            GetAvailableVidMem: GetAvailableVidMem::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -414,30 +513,43 @@ pub trait IDirectDraw4_Impl: Sized {
 impl windows_core::RuntimeName for IDirectDraw4 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDraw4_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>() -> IDirectDraw4_Vtbl {
-        unsafe extern "system" fn Compact<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDraw4_Vtbl
+    where
+        Identity: IDirectDraw4_Impl,
+    {
+        unsafe extern "system" fn Compact<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::Compact(this).into()
         }
-        unsafe extern "system" fn CreateClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreateClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2)).into()
         }
-        unsafe extern "system" fn CreatePalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreatePalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), windows_core::from_raw_borrowed(&param3)).into()
         }
-        unsafe extern "system" fn CreateSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreateSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2)).into()
         }
-        unsafe extern "system" fn DuplicateSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DuplicateSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDraw4_Impl::DuplicateSurface(this, windows_core::from_raw_borrowed(&param0)) {
                 Ok(ok__) => {
                     param1.write(core::mem::transmute(ok__));
@@ -446,39 +558,53 @@ impl IDirectDraw4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumDisplayModes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumDisplayModes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::EnumDisplayModes(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn EnumSurfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumSurfaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::EnumSurfaces(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn FlipToGDISurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn FlipToGDISurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::FlipToGDISurface(this).into()
         }
-        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::GetCaps(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::GetDisplayMode(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetFourCCCodes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFourCCCodes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::GetFourCCCodes(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetGDISurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetGDISurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDraw4_Impl::GetGDISurface(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -487,54 +613,74 @@ impl IDirectDraw4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMonitorFrequency<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMonitorFrequency<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::GetMonitorFrequency(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetScanLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetScanLine<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::GetScanLine(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::GetVerticalBlankStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::GUID) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::Initialize(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn RestoreDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RestoreDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::RestoreDisplayMode(this).into()
         }
-        unsafe extern "system" fn SetCooperativeLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetCooperativeLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::SetDisplayMode(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn WaitForVerticalBlank<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn WaitForVerticalBlank<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::WaitForVerticalBlank(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetAvailableVidMem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAvailableVidMem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::GetAvailableVidMem(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn GetSurfaceFromDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetSurfaceFromDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDraw4_Impl::GetSurfaceFromDC(this, core::mem::transmute_copy(&param0)) {
                 Ok(ok__) => {
                     param1.write(core::mem::transmute(ok__));
@@ -543,48 +689,54 @@ impl IDirectDraw4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RestoreAllSurfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RestoreAllSurfaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::RestoreAllSurfaces(this).into()
         }
-        unsafe extern "system" fn TestCooperativeLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn TestCooperativeLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::TestCooperativeLevel(this).into()
         }
-        unsafe extern "system" fn GetDeviceIdentifier<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDeviceIdentifier<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw4_Impl::GetDeviceIdentifier(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Compact: Compact::<Identity, Impl, OFFSET>,
-            CreateClipper: CreateClipper::<Identity, Impl, OFFSET>,
-            CreatePalette: CreatePalette::<Identity, Impl, OFFSET>,
-            CreateSurface: CreateSurface::<Identity, Impl, OFFSET>,
-            DuplicateSurface: DuplicateSurface::<Identity, Impl, OFFSET>,
-            EnumDisplayModes: EnumDisplayModes::<Identity, Impl, OFFSET>,
-            EnumSurfaces: EnumSurfaces::<Identity, Impl, OFFSET>,
-            FlipToGDISurface: FlipToGDISurface::<Identity, Impl, OFFSET>,
-            GetCaps: GetCaps::<Identity, Impl, OFFSET>,
-            GetDisplayMode: GetDisplayMode::<Identity, Impl, OFFSET>,
-            GetFourCCCodes: GetFourCCCodes::<Identity, Impl, OFFSET>,
-            GetGDISurface: GetGDISurface::<Identity, Impl, OFFSET>,
-            GetMonitorFrequency: GetMonitorFrequency::<Identity, Impl, OFFSET>,
-            GetScanLine: GetScanLine::<Identity, Impl, OFFSET>,
-            GetVerticalBlankStatus: GetVerticalBlankStatus::<Identity, Impl, OFFSET>,
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            RestoreDisplayMode: RestoreDisplayMode::<Identity, Impl, OFFSET>,
-            SetCooperativeLevel: SetCooperativeLevel::<Identity, Impl, OFFSET>,
-            SetDisplayMode: SetDisplayMode::<Identity, Impl, OFFSET>,
-            WaitForVerticalBlank: WaitForVerticalBlank::<Identity, Impl, OFFSET>,
-            GetAvailableVidMem: GetAvailableVidMem::<Identity, Impl, OFFSET>,
-            GetSurfaceFromDC: GetSurfaceFromDC::<Identity, Impl, OFFSET>,
-            RestoreAllSurfaces: RestoreAllSurfaces::<Identity, Impl, OFFSET>,
-            TestCooperativeLevel: TestCooperativeLevel::<Identity, Impl, OFFSET>,
-            GetDeviceIdentifier: GetDeviceIdentifier::<Identity, Impl, OFFSET>,
+            Compact: Compact::<Identity, OFFSET>,
+            CreateClipper: CreateClipper::<Identity, OFFSET>,
+            CreatePalette: CreatePalette::<Identity, OFFSET>,
+            CreateSurface: CreateSurface::<Identity, OFFSET>,
+            DuplicateSurface: DuplicateSurface::<Identity, OFFSET>,
+            EnumDisplayModes: EnumDisplayModes::<Identity, OFFSET>,
+            EnumSurfaces: EnumSurfaces::<Identity, OFFSET>,
+            FlipToGDISurface: FlipToGDISurface::<Identity, OFFSET>,
+            GetCaps: GetCaps::<Identity, OFFSET>,
+            GetDisplayMode: GetDisplayMode::<Identity, OFFSET>,
+            GetFourCCCodes: GetFourCCCodes::<Identity, OFFSET>,
+            GetGDISurface: GetGDISurface::<Identity, OFFSET>,
+            GetMonitorFrequency: GetMonitorFrequency::<Identity, OFFSET>,
+            GetScanLine: GetScanLine::<Identity, OFFSET>,
+            GetVerticalBlankStatus: GetVerticalBlankStatus::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            RestoreDisplayMode: RestoreDisplayMode::<Identity, OFFSET>,
+            SetCooperativeLevel: SetCooperativeLevel::<Identity, OFFSET>,
+            SetDisplayMode: SetDisplayMode::<Identity, OFFSET>,
+            WaitForVerticalBlank: WaitForVerticalBlank::<Identity, OFFSET>,
+            GetAvailableVidMem: GetAvailableVidMem::<Identity, OFFSET>,
+            GetSurfaceFromDC: GetSurfaceFromDC::<Identity, OFFSET>,
+            RestoreAllSurfaces: RestoreAllSurfaces::<Identity, OFFSET>,
+            TestCooperativeLevel: TestCooperativeLevel::<Identity, OFFSET>,
+            GetDeviceIdentifier: GetDeviceIdentifier::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -625,30 +777,43 @@ pub trait IDirectDraw7_Impl: Sized {
 impl windows_core::RuntimeName for IDirectDraw7 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDraw7_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>() -> IDirectDraw7_Vtbl {
-        unsafe extern "system" fn Compact<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDraw7_Vtbl
+    where
+        Identity: IDirectDraw7_Impl,
+    {
+        unsafe extern "system" fn Compact<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::Compact(this).into()
         }
-        unsafe extern "system" fn CreateClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreateClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2)).into()
         }
-        unsafe extern "system" fn CreatePalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreatePalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), windows_core::from_raw_borrowed(&param3)).into()
         }
-        unsafe extern "system" fn CreateSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn CreateSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2)).into()
         }
-        unsafe extern "system" fn DuplicateSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DuplicateSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDraw7_Impl::DuplicateSurface(this, windows_core::from_raw_borrowed(&param0)) {
                 Ok(ok__) => {
                     param1.write(core::mem::transmute(ok__));
@@ -657,39 +822,53 @@ impl IDirectDraw7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumDisplayModes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumDisplayModes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::EnumDisplayModes(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn EnumSurfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumSurfaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::EnumSurfaces(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn FlipToGDISurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn FlipToGDISurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::FlipToGDISurface(this).into()
         }
-        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::GetCaps(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::GetDisplayMode(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetFourCCCodes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFourCCCodes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::GetFourCCCodes(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetGDISurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetGDISurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDraw7_Impl::GetGDISurface(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -698,54 +877,74 @@ impl IDirectDraw7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMonitorFrequency<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMonitorFrequency<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::GetMonitorFrequency(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetScanLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetScanLine<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::GetScanLine(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::GetVerticalBlankStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::GUID) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::Initialize(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn RestoreDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RestoreDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::RestoreDisplayMode(this).into()
         }
-        unsafe extern "system" fn SetCooperativeLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetCooperativeLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetDisplayMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetDisplayMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::SetDisplayMode(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn WaitForVerticalBlank<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn WaitForVerticalBlank<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::WaitForVerticalBlank(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetAvailableVidMem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAvailableVidMem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::GetAvailableVidMem(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn GetSurfaceFromDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetSurfaceFromDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDraw7_Impl::GetSurfaceFromDC(this, core::mem::transmute_copy(&param0)) {
                 Ok(ok__) => {
                     param1.write(core::mem::transmute(ok__));
@@ -754,60 +953,70 @@ impl IDirectDraw7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RestoreAllSurfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn RestoreAllSurfaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::RestoreAllSurfaces(this).into()
         }
-        unsafe extern "system" fn TestCooperativeLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn TestCooperativeLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::TestCooperativeLevel(this).into()
         }
-        unsafe extern "system" fn GetDeviceIdentifier<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDeviceIdentifier<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::GetDeviceIdentifier(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn StartModeTest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn StartModeTest<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::StartModeTest(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn EvaluateMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EvaluateMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDraw7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDraw7_Impl::EvaluateMode(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Compact: Compact::<Identity, Impl, OFFSET>,
-            CreateClipper: CreateClipper::<Identity, Impl, OFFSET>,
-            CreatePalette: CreatePalette::<Identity, Impl, OFFSET>,
-            CreateSurface: CreateSurface::<Identity, Impl, OFFSET>,
-            DuplicateSurface: DuplicateSurface::<Identity, Impl, OFFSET>,
-            EnumDisplayModes: EnumDisplayModes::<Identity, Impl, OFFSET>,
-            EnumSurfaces: EnumSurfaces::<Identity, Impl, OFFSET>,
-            FlipToGDISurface: FlipToGDISurface::<Identity, Impl, OFFSET>,
-            GetCaps: GetCaps::<Identity, Impl, OFFSET>,
-            GetDisplayMode: GetDisplayMode::<Identity, Impl, OFFSET>,
-            GetFourCCCodes: GetFourCCCodes::<Identity, Impl, OFFSET>,
-            GetGDISurface: GetGDISurface::<Identity, Impl, OFFSET>,
-            GetMonitorFrequency: GetMonitorFrequency::<Identity, Impl, OFFSET>,
-            GetScanLine: GetScanLine::<Identity, Impl, OFFSET>,
-            GetVerticalBlankStatus: GetVerticalBlankStatus::<Identity, Impl, OFFSET>,
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            RestoreDisplayMode: RestoreDisplayMode::<Identity, Impl, OFFSET>,
-            SetCooperativeLevel: SetCooperativeLevel::<Identity, Impl, OFFSET>,
-            SetDisplayMode: SetDisplayMode::<Identity, Impl, OFFSET>,
-            WaitForVerticalBlank: WaitForVerticalBlank::<Identity, Impl, OFFSET>,
-            GetAvailableVidMem: GetAvailableVidMem::<Identity, Impl, OFFSET>,
-            GetSurfaceFromDC: GetSurfaceFromDC::<Identity, Impl, OFFSET>,
-            RestoreAllSurfaces: RestoreAllSurfaces::<Identity, Impl, OFFSET>,
-            TestCooperativeLevel: TestCooperativeLevel::<Identity, Impl, OFFSET>,
-            GetDeviceIdentifier: GetDeviceIdentifier::<Identity, Impl, OFFSET>,
-            StartModeTest: StartModeTest::<Identity, Impl, OFFSET>,
-            EvaluateMode: EvaluateMode::<Identity, Impl, OFFSET>,
+            Compact: Compact::<Identity, OFFSET>,
+            CreateClipper: CreateClipper::<Identity, OFFSET>,
+            CreatePalette: CreatePalette::<Identity, OFFSET>,
+            CreateSurface: CreateSurface::<Identity, OFFSET>,
+            DuplicateSurface: DuplicateSurface::<Identity, OFFSET>,
+            EnumDisplayModes: EnumDisplayModes::<Identity, OFFSET>,
+            EnumSurfaces: EnumSurfaces::<Identity, OFFSET>,
+            FlipToGDISurface: FlipToGDISurface::<Identity, OFFSET>,
+            GetCaps: GetCaps::<Identity, OFFSET>,
+            GetDisplayMode: GetDisplayMode::<Identity, OFFSET>,
+            GetFourCCCodes: GetFourCCCodes::<Identity, OFFSET>,
+            GetGDISurface: GetGDISurface::<Identity, OFFSET>,
+            GetMonitorFrequency: GetMonitorFrequency::<Identity, OFFSET>,
+            GetScanLine: GetScanLine::<Identity, OFFSET>,
+            GetVerticalBlankStatus: GetVerticalBlankStatus::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            RestoreDisplayMode: RestoreDisplayMode::<Identity, OFFSET>,
+            SetCooperativeLevel: SetCooperativeLevel::<Identity, OFFSET>,
+            SetDisplayMode: SetDisplayMode::<Identity, OFFSET>,
+            WaitForVerticalBlank: WaitForVerticalBlank::<Identity, OFFSET>,
+            GetAvailableVidMem: GetAvailableVidMem::<Identity, OFFSET>,
+            GetSurfaceFromDC: GetSurfaceFromDC::<Identity, OFFSET>,
+            RestoreAllSurfaces: RestoreAllSurfaces::<Identity, OFFSET>,
+            TestCooperativeLevel: TestCooperativeLevel::<Identity, OFFSET>,
+            GetDeviceIdentifier: GetDeviceIdentifier::<Identity, OFFSET>,
+            StartModeTest: StartModeTest::<Identity, OFFSET>,
+            EvaluateMode: EvaluateMode::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -827,45 +1036,60 @@ pub trait IDirectDrawClipper_Impl: Sized {
 impl windows_core::RuntimeName for IDirectDrawClipper {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDrawClipper_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawClipper_Impl, const OFFSET: isize>() -> IDirectDrawClipper_Vtbl {
-        unsafe extern "system" fn GetClipList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawClipper_Vtbl
+    where
+        Identity: IDirectDrawClipper_Impl,
+    {
+        unsafe extern "system" fn GetClipList<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawClipper_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawClipper_Impl::GetClipList(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn GetHWnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::HWND) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetHWnd<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::HWND) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawClipper_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawClipper_Impl::GetHWnd(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawClipper_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawClipper_Impl::Initialize(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn IsClipListChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn IsClipListChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawClipper_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawClipper_Impl::IsClipListChanged(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn SetClipList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::RGNDATA, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetClipList<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::RGNDATA, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawClipper_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawClipper_Impl::SetClipList(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetHWnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: super::super::Foundation::HWND) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetHWnd<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: super::super::Foundation::HWND) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawClipper_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawClipper_Impl::SetHWnd(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            GetClipList: GetClipList::<Identity, Impl, OFFSET>,
-            GetHWnd: GetHWnd::<Identity, Impl, OFFSET>,
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            IsClipListChanged: IsClipListChanged::<Identity, Impl, OFFSET>,
-            SetClipList: SetClipList::<Identity, Impl, OFFSET>,
-            SetHWnd: SetHWnd::<Identity, Impl, OFFSET>,
+            GetClipList: GetClipList::<Identity, OFFSET>,
+            GetHWnd: GetHWnd::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            IsClipListChanged: IsClipListChanged::<Identity, OFFSET>,
+            SetClipList: SetClipList::<Identity, OFFSET>,
+            SetHWnd: SetHWnd::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -878,21 +1102,28 @@ pub trait IDirectDrawColorControl_Impl: Sized {
 }
 impl windows_core::RuntimeName for IDirectDrawColorControl {}
 impl IDirectDrawColorControl_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawColorControl_Impl, const OFFSET: isize>() -> IDirectDrawColorControl_Vtbl {
-        unsafe extern "system" fn GetColorControls<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawColorControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawColorControl_Vtbl
+    where
+        Identity: IDirectDrawColorControl_Impl,
+    {
+        unsafe extern "system" fn GetColorControls<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawColorControl_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawColorControl_Impl::GetColorControls(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn SetColorControls<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawColorControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetColorControls<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawColorControl_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawColorControl_Impl::SetColorControls(this, core::mem::transmute_copy(&param0)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            GetColorControls: GetColorControls::<Identity, Impl, OFFSET>,
-            SetColorControls: SetColorControls::<Identity, Impl, OFFSET>,
+            GetColorControls: GetColorControls::<Identity, OFFSET>,
+            SetColorControls: SetColorControls::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -905,21 +1136,28 @@ pub trait IDirectDrawGammaControl_Impl: Sized {
 }
 impl windows_core::RuntimeName for IDirectDrawGammaControl {}
 impl IDirectDrawGammaControl_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawGammaControl_Impl, const OFFSET: isize>() -> IDirectDrawGammaControl_Vtbl {
-        unsafe extern "system" fn GetGammaRamp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawGammaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawGammaControl_Vtbl
+    where
+        Identity: IDirectDrawGammaControl_Impl,
+    {
+        unsafe extern "system" fn GetGammaRamp<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawGammaControl_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawGammaControl_Impl::GetGammaRamp(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetGammaRamp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawGammaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetGammaRamp<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawGammaControl_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawGammaControl_Impl::SetGammaRamp(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            GetGammaRamp: GetGammaRamp::<Identity, Impl, OFFSET>,
-            SetGammaRamp: SetGammaRamp::<Identity, Impl, OFFSET>,
+            GetGammaRamp: GetGammaRamp::<Identity, OFFSET>,
+            SetGammaRamp: SetGammaRamp::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -933,27 +1171,36 @@ pub trait IDirectDrawKernel_Impl: Sized {
 }
 impl windows_core::RuntimeName for IDirectDrawKernel {}
 impl IDirectDrawKernel_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawKernel_Impl, const OFFSET: isize>() -> IDirectDrawKernel_Vtbl {
-        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawKernel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDKERNELCAPS) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawKernel_Vtbl
+    where
+        Identity: IDirectDrawKernel_Impl,
+    {
+        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDKERNELCAPS) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawKernel_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawKernel_Impl::GetCaps(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetKernelHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawKernel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut usize) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetKernelHandle<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut usize) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawKernel_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawKernel_Impl::GetKernelHandle(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn ReleaseKernelHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawKernel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ReleaseKernelHandle<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawKernel_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawKernel_Impl::ReleaseKernelHandle(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            GetCaps: GetCaps::<Identity, Impl, OFFSET>,
-            GetKernelHandle: GetKernelHandle::<Identity, Impl, OFFSET>,
-            ReleaseKernelHandle: ReleaseKernelHandle::<Identity, Impl, OFFSET>,
+            GetCaps: GetCaps::<Identity, OFFSET>,
+            GetKernelHandle: GetKernelHandle::<Identity, OFFSET>,
+            ReleaseKernelHandle: ReleaseKernelHandle::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -971,33 +1218,44 @@ pub trait IDirectDrawPalette_Impl: Sized {
 impl windows_core::RuntimeName for IDirectDrawPalette {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDrawPalette_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawPalette_Impl, const OFFSET: isize>() -> IDirectDrawPalette_Vtbl {
-        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawPalette_Vtbl
+    where
+        Identity: IDirectDrawPalette_Impl,
+    {
+        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawPalette_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawPalette_Impl::GetCaps(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetEntries<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetEntries<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawPalette_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawPalette_Impl::GetEntries(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawPalette_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawPalette_Impl::Initialize(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn SetEntries<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetEntries<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawPalette_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawPalette_Impl::SetEntries(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            GetCaps: GetCaps::<Identity, Impl, OFFSET>,
-            GetEntries: GetEntries::<Identity, Impl, OFFSET>,
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            SetEntries: SetEntries::<Identity, Impl, OFFSET>,
+            GetCaps: GetCaps::<Identity, OFFSET>,
+            GetEntries: GetEntries::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            SetEntries: SetEntries::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -1044,70 +1302,99 @@ pub trait IDirectDrawSurface_Impl: Sized {
 impl windows_core::RuntimeName for IDirectDrawSurface {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDrawSurface_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>() -> IDirectDrawSurface_Vtbl {
-        unsafe extern "system" fn AddAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawSurface_Vtbl
+    where
+        Identity: IDirectDrawSurface_Impl,
+    {
+        unsafe extern "system" fn AddAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::AddAttachedSurface(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn AddOverlayDirtyRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddOverlayDirtyRect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::AddOverlayDirtyRect(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Blt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Blt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::Blt(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn BltBatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BltBatch<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::BltBatch(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn BltFast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BltFast<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn DeleteAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DeleteAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1)).into()
         }
-        unsafe extern "system" fn EnumAttachedSurfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumAttachedSurfaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::EnumAttachedSurfaces(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn EnumOverlayZOrders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumOverlayZOrders<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::EnumOverlayZOrders(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::Flip(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::GetAttachedSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetBltStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBltStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::GetBltStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::GetCaps(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDrawSurface_Impl::GetClipper(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -1116,29 +1403,39 @@ impl IDirectDrawSurface_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetColorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetColorKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::GetColorKey(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::GetDC(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetFlipStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFlipStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::GetFlipStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetOverlayPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetOverlayPosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::GetOverlayPosition(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetPalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDrawSurface_Impl::GetPalette(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -1147,116 +1444,146 @@ impl IDirectDrawSurface_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::GetPixelFormat(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetSurfaceDesc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetSurfaceDesc<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::GetSurfaceDesc(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::Initialize(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn IsLost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn IsLost<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::IsLost(this).into()
         }
-        unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::Lock(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn ReleaseDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ReleaseDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::ReleaseDC(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Restore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Restore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::Restore(this).into()
         }
-        unsafe extern "system" fn SetClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::SetClipper(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn SetColorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetColorKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::SetColorKey(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetOverlayPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: i32, param1: i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetOverlayPosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: i32, param1: i32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::SetOverlayPosition(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetPalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetPalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::SetPalette(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::Unlock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn UpdateOverlay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn UpdateOverlayDisplay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlayDisplay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::UpdateOverlayDisplay(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn UpdateOverlayZOrder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlayZOrder<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            AddAttachedSurface: AddAttachedSurface::<Identity, Impl, OFFSET>,
-            AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, Impl, OFFSET>,
-            Blt: Blt::<Identity, Impl, OFFSET>,
-            BltBatch: BltBatch::<Identity, Impl, OFFSET>,
-            BltFast: BltFast::<Identity, Impl, OFFSET>,
-            DeleteAttachedSurface: DeleteAttachedSurface::<Identity, Impl, OFFSET>,
-            EnumAttachedSurfaces: EnumAttachedSurfaces::<Identity, Impl, OFFSET>,
-            EnumOverlayZOrders: EnumOverlayZOrders::<Identity, Impl, OFFSET>,
-            Flip: Flip::<Identity, Impl, OFFSET>,
-            GetAttachedSurface: GetAttachedSurface::<Identity, Impl, OFFSET>,
-            GetBltStatus: GetBltStatus::<Identity, Impl, OFFSET>,
-            GetCaps: GetCaps::<Identity, Impl, OFFSET>,
-            GetClipper: GetClipper::<Identity, Impl, OFFSET>,
-            GetColorKey: GetColorKey::<Identity, Impl, OFFSET>,
-            GetDC: GetDC::<Identity, Impl, OFFSET>,
-            GetFlipStatus: GetFlipStatus::<Identity, Impl, OFFSET>,
-            GetOverlayPosition: GetOverlayPosition::<Identity, Impl, OFFSET>,
-            GetPalette: GetPalette::<Identity, Impl, OFFSET>,
-            GetPixelFormat: GetPixelFormat::<Identity, Impl, OFFSET>,
-            GetSurfaceDesc: GetSurfaceDesc::<Identity, Impl, OFFSET>,
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            IsLost: IsLost::<Identity, Impl, OFFSET>,
-            Lock: Lock::<Identity, Impl, OFFSET>,
-            ReleaseDC: ReleaseDC::<Identity, Impl, OFFSET>,
-            Restore: Restore::<Identity, Impl, OFFSET>,
-            SetClipper: SetClipper::<Identity, Impl, OFFSET>,
-            SetColorKey: SetColorKey::<Identity, Impl, OFFSET>,
-            SetOverlayPosition: SetOverlayPosition::<Identity, Impl, OFFSET>,
-            SetPalette: SetPalette::<Identity, Impl, OFFSET>,
-            Unlock: Unlock::<Identity, Impl, OFFSET>,
-            UpdateOverlay: UpdateOverlay::<Identity, Impl, OFFSET>,
-            UpdateOverlayDisplay: UpdateOverlayDisplay::<Identity, Impl, OFFSET>,
-            UpdateOverlayZOrder: UpdateOverlayZOrder::<Identity, Impl, OFFSET>,
+            AddAttachedSurface: AddAttachedSurface::<Identity, OFFSET>,
+            AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, OFFSET>,
+            Blt: Blt::<Identity, OFFSET>,
+            BltBatch: BltBatch::<Identity, OFFSET>,
+            BltFast: BltFast::<Identity, OFFSET>,
+            DeleteAttachedSurface: DeleteAttachedSurface::<Identity, OFFSET>,
+            EnumAttachedSurfaces: EnumAttachedSurfaces::<Identity, OFFSET>,
+            EnumOverlayZOrders: EnumOverlayZOrders::<Identity, OFFSET>,
+            Flip: Flip::<Identity, OFFSET>,
+            GetAttachedSurface: GetAttachedSurface::<Identity, OFFSET>,
+            GetBltStatus: GetBltStatus::<Identity, OFFSET>,
+            GetCaps: GetCaps::<Identity, OFFSET>,
+            GetClipper: GetClipper::<Identity, OFFSET>,
+            GetColorKey: GetColorKey::<Identity, OFFSET>,
+            GetDC: GetDC::<Identity, OFFSET>,
+            GetFlipStatus: GetFlipStatus::<Identity, OFFSET>,
+            GetOverlayPosition: GetOverlayPosition::<Identity, OFFSET>,
+            GetPalette: GetPalette::<Identity, OFFSET>,
+            GetPixelFormat: GetPixelFormat::<Identity, OFFSET>,
+            GetSurfaceDesc: GetSurfaceDesc::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            IsLost: IsLost::<Identity, OFFSET>,
+            Lock: Lock::<Identity, OFFSET>,
+            ReleaseDC: ReleaseDC::<Identity, OFFSET>,
+            Restore: Restore::<Identity, OFFSET>,
+            SetClipper: SetClipper::<Identity, OFFSET>,
+            SetColorKey: SetColorKey::<Identity, OFFSET>,
+            SetOverlayPosition: SetOverlayPosition::<Identity, OFFSET>,
+            SetPalette: SetPalette::<Identity, OFFSET>,
+            Unlock: Unlock::<Identity, OFFSET>,
+            UpdateOverlay: UpdateOverlay::<Identity, OFFSET>,
+            UpdateOverlayDisplay: UpdateOverlayDisplay::<Identity, OFFSET>,
+            UpdateOverlayZOrder: UpdateOverlayZOrder::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -1306,70 +1633,99 @@ pub trait IDirectDrawSurface2_Impl: Sized {
 impl windows_core::RuntimeName for IDirectDrawSurface2 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDrawSurface2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>() -> IDirectDrawSurface2_Vtbl {
-        unsafe extern "system" fn AddAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawSurface2_Vtbl
+    where
+        Identity: IDirectDrawSurface2_Impl,
+    {
+        unsafe extern "system" fn AddAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::AddAttachedSurface(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn AddOverlayDirtyRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddOverlayDirtyRect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::AddOverlayDirtyRect(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Blt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Blt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::Blt(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn BltBatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BltBatch<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::BltBatch(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn BltFast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BltFast<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn DeleteAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DeleteAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1)).into()
         }
-        unsafe extern "system" fn EnumAttachedSurfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumAttachedSurfaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::EnumAttachedSurfaces(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn EnumOverlayZOrders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumOverlayZOrders<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::EnumOverlayZOrders(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::Flip(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::GetAttachedSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetBltStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBltStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::GetBltStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::GetCaps(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDrawSurface2_Impl::GetClipper(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -1378,29 +1734,39 @@ impl IDirectDrawSurface2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetColorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetColorKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::GetColorKey(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::GetDC(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetFlipStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFlipStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::GetFlipStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetOverlayPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetOverlayPosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::GetOverlayPosition(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetPalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDrawSurface2_Impl::GetPalette(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -1409,134 +1775,170 @@ impl IDirectDrawSurface2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::GetPixelFormat(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetSurfaceDesc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetSurfaceDesc<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::GetSurfaceDesc(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::Initialize(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn IsLost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn IsLost<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::IsLost(this).into()
         }
-        unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::Lock(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn ReleaseDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ReleaseDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::ReleaseDC(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Restore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Restore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::Restore(this).into()
         }
-        unsafe extern "system" fn SetClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::SetClipper(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn SetColorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetColorKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::SetColorKey(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetOverlayPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: i32, param1: i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetOverlayPosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: i32, param1: i32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::SetOverlayPosition(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetPalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetPalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::SetPalette(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::Unlock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn UpdateOverlay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn UpdateOverlayDisplay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlayDisplay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::UpdateOverlayDisplay(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn UpdateOverlayZOrder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlayZOrder<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1)).into()
         }
-        unsafe extern "system" fn GetDDInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDDInterface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::GetDDInterface(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn PageLock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn PageLock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::PageLock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn PageUnlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn PageUnlock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface2_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface2_Impl::PageUnlock(this, core::mem::transmute_copy(&param0)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            AddAttachedSurface: AddAttachedSurface::<Identity, Impl, OFFSET>,
-            AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, Impl, OFFSET>,
-            Blt: Blt::<Identity, Impl, OFFSET>,
-            BltBatch: BltBatch::<Identity, Impl, OFFSET>,
-            BltFast: BltFast::<Identity, Impl, OFFSET>,
-            DeleteAttachedSurface: DeleteAttachedSurface::<Identity, Impl, OFFSET>,
-            EnumAttachedSurfaces: EnumAttachedSurfaces::<Identity, Impl, OFFSET>,
-            EnumOverlayZOrders: EnumOverlayZOrders::<Identity, Impl, OFFSET>,
-            Flip: Flip::<Identity, Impl, OFFSET>,
-            GetAttachedSurface: GetAttachedSurface::<Identity, Impl, OFFSET>,
-            GetBltStatus: GetBltStatus::<Identity, Impl, OFFSET>,
-            GetCaps: GetCaps::<Identity, Impl, OFFSET>,
-            GetClipper: GetClipper::<Identity, Impl, OFFSET>,
-            GetColorKey: GetColorKey::<Identity, Impl, OFFSET>,
-            GetDC: GetDC::<Identity, Impl, OFFSET>,
-            GetFlipStatus: GetFlipStatus::<Identity, Impl, OFFSET>,
-            GetOverlayPosition: GetOverlayPosition::<Identity, Impl, OFFSET>,
-            GetPalette: GetPalette::<Identity, Impl, OFFSET>,
-            GetPixelFormat: GetPixelFormat::<Identity, Impl, OFFSET>,
-            GetSurfaceDesc: GetSurfaceDesc::<Identity, Impl, OFFSET>,
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            IsLost: IsLost::<Identity, Impl, OFFSET>,
-            Lock: Lock::<Identity, Impl, OFFSET>,
-            ReleaseDC: ReleaseDC::<Identity, Impl, OFFSET>,
-            Restore: Restore::<Identity, Impl, OFFSET>,
-            SetClipper: SetClipper::<Identity, Impl, OFFSET>,
-            SetColorKey: SetColorKey::<Identity, Impl, OFFSET>,
-            SetOverlayPosition: SetOverlayPosition::<Identity, Impl, OFFSET>,
-            SetPalette: SetPalette::<Identity, Impl, OFFSET>,
-            Unlock: Unlock::<Identity, Impl, OFFSET>,
-            UpdateOverlay: UpdateOverlay::<Identity, Impl, OFFSET>,
-            UpdateOverlayDisplay: UpdateOverlayDisplay::<Identity, Impl, OFFSET>,
-            UpdateOverlayZOrder: UpdateOverlayZOrder::<Identity, Impl, OFFSET>,
-            GetDDInterface: GetDDInterface::<Identity, Impl, OFFSET>,
-            PageLock: PageLock::<Identity, Impl, OFFSET>,
-            PageUnlock: PageUnlock::<Identity, Impl, OFFSET>,
+            AddAttachedSurface: AddAttachedSurface::<Identity, OFFSET>,
+            AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, OFFSET>,
+            Blt: Blt::<Identity, OFFSET>,
+            BltBatch: BltBatch::<Identity, OFFSET>,
+            BltFast: BltFast::<Identity, OFFSET>,
+            DeleteAttachedSurface: DeleteAttachedSurface::<Identity, OFFSET>,
+            EnumAttachedSurfaces: EnumAttachedSurfaces::<Identity, OFFSET>,
+            EnumOverlayZOrders: EnumOverlayZOrders::<Identity, OFFSET>,
+            Flip: Flip::<Identity, OFFSET>,
+            GetAttachedSurface: GetAttachedSurface::<Identity, OFFSET>,
+            GetBltStatus: GetBltStatus::<Identity, OFFSET>,
+            GetCaps: GetCaps::<Identity, OFFSET>,
+            GetClipper: GetClipper::<Identity, OFFSET>,
+            GetColorKey: GetColorKey::<Identity, OFFSET>,
+            GetDC: GetDC::<Identity, OFFSET>,
+            GetFlipStatus: GetFlipStatus::<Identity, OFFSET>,
+            GetOverlayPosition: GetOverlayPosition::<Identity, OFFSET>,
+            GetPalette: GetPalette::<Identity, OFFSET>,
+            GetPixelFormat: GetPixelFormat::<Identity, OFFSET>,
+            GetSurfaceDesc: GetSurfaceDesc::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            IsLost: IsLost::<Identity, OFFSET>,
+            Lock: Lock::<Identity, OFFSET>,
+            ReleaseDC: ReleaseDC::<Identity, OFFSET>,
+            Restore: Restore::<Identity, OFFSET>,
+            SetClipper: SetClipper::<Identity, OFFSET>,
+            SetColorKey: SetColorKey::<Identity, OFFSET>,
+            SetOverlayPosition: SetOverlayPosition::<Identity, OFFSET>,
+            SetPalette: SetPalette::<Identity, OFFSET>,
+            Unlock: Unlock::<Identity, OFFSET>,
+            UpdateOverlay: UpdateOverlay::<Identity, OFFSET>,
+            UpdateOverlayDisplay: UpdateOverlayDisplay::<Identity, OFFSET>,
+            UpdateOverlayZOrder: UpdateOverlayZOrder::<Identity, OFFSET>,
+            GetDDInterface: GetDDInterface::<Identity, OFFSET>,
+            PageLock: PageLock::<Identity, OFFSET>,
+            PageUnlock: PageUnlock::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -1587,70 +1989,99 @@ pub trait IDirectDrawSurface3_Impl: Sized {
 impl windows_core::RuntimeName for IDirectDrawSurface3 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDrawSurface3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>() -> IDirectDrawSurface3_Vtbl {
-        unsafe extern "system" fn AddAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawSurface3_Vtbl
+    where
+        Identity: IDirectDrawSurface3_Impl,
+    {
+        unsafe extern "system" fn AddAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::AddAttachedSurface(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn AddOverlayDirtyRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddOverlayDirtyRect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::AddOverlayDirtyRect(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Blt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Blt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::Blt(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn BltBatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BltBatch<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::BltBatch(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn BltFast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BltFast<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn DeleteAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DeleteAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1)).into()
         }
-        unsafe extern "system" fn EnumAttachedSurfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumAttachedSurfaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::EnumAttachedSurfaces(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn EnumOverlayZOrders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumOverlayZOrders<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::EnumOverlayZOrders(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::Flip(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::GetAttachedSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetBltStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBltStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::GetBltStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::GetCaps(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDrawSurface3_Impl::GetClipper(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -1659,29 +2090,39 @@ impl IDirectDrawSurface3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetColorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetColorKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::GetColorKey(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::GetDC(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetFlipStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFlipStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::GetFlipStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetOverlayPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetOverlayPosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::GetOverlayPosition(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetPalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDrawSurface3_Impl::GetPalette(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -1690,140 +2131,178 @@ impl IDirectDrawSurface3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::GetPixelFormat(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetSurfaceDesc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetSurfaceDesc<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::GetSurfaceDesc(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::Initialize(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn IsLost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn IsLost<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::IsLost(this).into()
         }
-        unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::Lock(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn ReleaseDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ReleaseDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::ReleaseDC(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Restore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Restore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::Restore(this).into()
         }
-        unsafe extern "system" fn SetClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::SetClipper(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn SetColorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetColorKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::SetColorKey(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetOverlayPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: i32, param1: i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetOverlayPosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: i32, param1: i32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::SetOverlayPosition(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetPalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetPalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::SetPalette(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::Unlock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn UpdateOverlay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn UpdateOverlayDisplay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlayDisplay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::UpdateOverlayDisplay(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn UpdateOverlayZOrder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlayZOrder<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1)).into()
         }
-        unsafe extern "system" fn GetDDInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDDInterface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::GetDDInterface(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn PageLock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn PageLock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::PageLock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn PageUnlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn PageUnlock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::PageUnlock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn SetSurfaceDesc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetSurfaceDesc<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface3_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface3_Impl::SetSurfaceDesc(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            AddAttachedSurface: AddAttachedSurface::<Identity, Impl, OFFSET>,
-            AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, Impl, OFFSET>,
-            Blt: Blt::<Identity, Impl, OFFSET>,
-            BltBatch: BltBatch::<Identity, Impl, OFFSET>,
-            BltFast: BltFast::<Identity, Impl, OFFSET>,
-            DeleteAttachedSurface: DeleteAttachedSurface::<Identity, Impl, OFFSET>,
-            EnumAttachedSurfaces: EnumAttachedSurfaces::<Identity, Impl, OFFSET>,
-            EnumOverlayZOrders: EnumOverlayZOrders::<Identity, Impl, OFFSET>,
-            Flip: Flip::<Identity, Impl, OFFSET>,
-            GetAttachedSurface: GetAttachedSurface::<Identity, Impl, OFFSET>,
-            GetBltStatus: GetBltStatus::<Identity, Impl, OFFSET>,
-            GetCaps: GetCaps::<Identity, Impl, OFFSET>,
-            GetClipper: GetClipper::<Identity, Impl, OFFSET>,
-            GetColorKey: GetColorKey::<Identity, Impl, OFFSET>,
-            GetDC: GetDC::<Identity, Impl, OFFSET>,
-            GetFlipStatus: GetFlipStatus::<Identity, Impl, OFFSET>,
-            GetOverlayPosition: GetOverlayPosition::<Identity, Impl, OFFSET>,
-            GetPalette: GetPalette::<Identity, Impl, OFFSET>,
-            GetPixelFormat: GetPixelFormat::<Identity, Impl, OFFSET>,
-            GetSurfaceDesc: GetSurfaceDesc::<Identity, Impl, OFFSET>,
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            IsLost: IsLost::<Identity, Impl, OFFSET>,
-            Lock: Lock::<Identity, Impl, OFFSET>,
-            ReleaseDC: ReleaseDC::<Identity, Impl, OFFSET>,
-            Restore: Restore::<Identity, Impl, OFFSET>,
-            SetClipper: SetClipper::<Identity, Impl, OFFSET>,
-            SetColorKey: SetColorKey::<Identity, Impl, OFFSET>,
-            SetOverlayPosition: SetOverlayPosition::<Identity, Impl, OFFSET>,
-            SetPalette: SetPalette::<Identity, Impl, OFFSET>,
-            Unlock: Unlock::<Identity, Impl, OFFSET>,
-            UpdateOverlay: UpdateOverlay::<Identity, Impl, OFFSET>,
-            UpdateOverlayDisplay: UpdateOverlayDisplay::<Identity, Impl, OFFSET>,
-            UpdateOverlayZOrder: UpdateOverlayZOrder::<Identity, Impl, OFFSET>,
-            GetDDInterface: GetDDInterface::<Identity, Impl, OFFSET>,
-            PageLock: PageLock::<Identity, Impl, OFFSET>,
-            PageUnlock: PageUnlock::<Identity, Impl, OFFSET>,
-            SetSurfaceDesc: SetSurfaceDesc::<Identity, Impl, OFFSET>,
+            AddAttachedSurface: AddAttachedSurface::<Identity, OFFSET>,
+            AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, OFFSET>,
+            Blt: Blt::<Identity, OFFSET>,
+            BltBatch: BltBatch::<Identity, OFFSET>,
+            BltFast: BltFast::<Identity, OFFSET>,
+            DeleteAttachedSurface: DeleteAttachedSurface::<Identity, OFFSET>,
+            EnumAttachedSurfaces: EnumAttachedSurfaces::<Identity, OFFSET>,
+            EnumOverlayZOrders: EnumOverlayZOrders::<Identity, OFFSET>,
+            Flip: Flip::<Identity, OFFSET>,
+            GetAttachedSurface: GetAttachedSurface::<Identity, OFFSET>,
+            GetBltStatus: GetBltStatus::<Identity, OFFSET>,
+            GetCaps: GetCaps::<Identity, OFFSET>,
+            GetClipper: GetClipper::<Identity, OFFSET>,
+            GetColorKey: GetColorKey::<Identity, OFFSET>,
+            GetDC: GetDC::<Identity, OFFSET>,
+            GetFlipStatus: GetFlipStatus::<Identity, OFFSET>,
+            GetOverlayPosition: GetOverlayPosition::<Identity, OFFSET>,
+            GetPalette: GetPalette::<Identity, OFFSET>,
+            GetPixelFormat: GetPixelFormat::<Identity, OFFSET>,
+            GetSurfaceDesc: GetSurfaceDesc::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            IsLost: IsLost::<Identity, OFFSET>,
+            Lock: Lock::<Identity, OFFSET>,
+            ReleaseDC: ReleaseDC::<Identity, OFFSET>,
+            Restore: Restore::<Identity, OFFSET>,
+            SetClipper: SetClipper::<Identity, OFFSET>,
+            SetColorKey: SetColorKey::<Identity, OFFSET>,
+            SetOverlayPosition: SetOverlayPosition::<Identity, OFFSET>,
+            SetPalette: SetPalette::<Identity, OFFSET>,
+            Unlock: Unlock::<Identity, OFFSET>,
+            UpdateOverlay: UpdateOverlay::<Identity, OFFSET>,
+            UpdateOverlayDisplay: UpdateOverlayDisplay::<Identity, OFFSET>,
+            UpdateOverlayZOrder: UpdateOverlayZOrder::<Identity, OFFSET>,
+            GetDDInterface: GetDDInterface::<Identity, OFFSET>,
+            PageLock: PageLock::<Identity, OFFSET>,
+            PageUnlock: PageUnlock::<Identity, OFFSET>,
+            SetSurfaceDesc: SetSurfaceDesc::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -1879,70 +2358,99 @@ pub trait IDirectDrawSurface4_Impl: Sized {
 impl windows_core::RuntimeName for IDirectDrawSurface4 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDrawSurface4_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>() -> IDirectDrawSurface4_Vtbl {
-        unsafe extern "system" fn AddAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawSurface4_Vtbl
+    where
+        Identity: IDirectDrawSurface4_Impl,
+    {
+        unsafe extern "system" fn AddAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::AddAttachedSurface(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn AddOverlayDirtyRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddOverlayDirtyRect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::AddOverlayDirtyRect(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Blt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Blt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::Blt(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn BltBatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BltBatch<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::BltBatch(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn BltFast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BltFast<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn DeleteAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DeleteAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1)).into()
         }
-        unsafe extern "system" fn EnumAttachedSurfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumAttachedSurfaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::EnumAttachedSurfaces(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn EnumOverlayZOrders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumOverlayZOrders<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::EnumOverlayZOrders(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::Flip(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetAttachedSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetBltStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBltStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetBltStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetCaps(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDrawSurface4_Impl::GetClipper(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -1951,29 +2459,39 @@ impl IDirectDrawSurface4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetColorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetColorKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetColorKey(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetDC(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetFlipStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFlipStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetFlipStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetOverlayPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetOverlayPosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetOverlayPosition(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetPalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDrawSurface4_Impl::GetPalette(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -1982,170 +2500,218 @@ impl IDirectDrawSurface4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetPixelFormat(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetSurfaceDesc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetSurfaceDesc<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetSurfaceDesc(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::Initialize(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn IsLost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn IsLost<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::IsLost(this).into()
         }
-        unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::Lock(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn ReleaseDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ReleaseDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::ReleaseDC(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Restore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Restore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::Restore(this).into()
         }
-        unsafe extern "system" fn SetClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::SetClipper(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn SetColorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetColorKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::SetColorKey(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetOverlayPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: i32, param1: i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetOverlayPosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: i32, param1: i32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::SetOverlayPosition(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetPalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetPalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::SetPalette(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::Unlock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn UpdateOverlay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn UpdateOverlayDisplay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlayDisplay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::UpdateOverlayDisplay(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn UpdateOverlayZOrder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlayZOrder<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1)).into()
         }
-        unsafe extern "system" fn GetDDInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDDInterface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetDDInterface(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn PageLock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn PageLock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::PageLock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn PageUnlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn PageUnlock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::PageUnlock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn SetSurfaceDesc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetSurfaceDesc<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::SetSurfaceDesc(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetPrivateData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: u32, param3: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetPrivateData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: u32, param3: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::SetPrivateData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn GetPrivateData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPrivateData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetPrivateData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn FreePrivateData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn FreePrivateData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::FreePrivateData(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetUniquenessValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetUniquenessValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::GetUniquenessValue(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn ChangeUniquenessValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ChangeUniquenessValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface4_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface4_Impl::ChangeUniquenessValue(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            AddAttachedSurface: AddAttachedSurface::<Identity, Impl, OFFSET>,
-            AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, Impl, OFFSET>,
-            Blt: Blt::<Identity, Impl, OFFSET>,
-            BltBatch: BltBatch::<Identity, Impl, OFFSET>,
-            BltFast: BltFast::<Identity, Impl, OFFSET>,
-            DeleteAttachedSurface: DeleteAttachedSurface::<Identity, Impl, OFFSET>,
-            EnumAttachedSurfaces: EnumAttachedSurfaces::<Identity, Impl, OFFSET>,
-            EnumOverlayZOrders: EnumOverlayZOrders::<Identity, Impl, OFFSET>,
-            Flip: Flip::<Identity, Impl, OFFSET>,
-            GetAttachedSurface: GetAttachedSurface::<Identity, Impl, OFFSET>,
-            GetBltStatus: GetBltStatus::<Identity, Impl, OFFSET>,
-            GetCaps: GetCaps::<Identity, Impl, OFFSET>,
-            GetClipper: GetClipper::<Identity, Impl, OFFSET>,
-            GetColorKey: GetColorKey::<Identity, Impl, OFFSET>,
-            GetDC: GetDC::<Identity, Impl, OFFSET>,
-            GetFlipStatus: GetFlipStatus::<Identity, Impl, OFFSET>,
-            GetOverlayPosition: GetOverlayPosition::<Identity, Impl, OFFSET>,
-            GetPalette: GetPalette::<Identity, Impl, OFFSET>,
-            GetPixelFormat: GetPixelFormat::<Identity, Impl, OFFSET>,
-            GetSurfaceDesc: GetSurfaceDesc::<Identity, Impl, OFFSET>,
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            IsLost: IsLost::<Identity, Impl, OFFSET>,
-            Lock: Lock::<Identity, Impl, OFFSET>,
-            ReleaseDC: ReleaseDC::<Identity, Impl, OFFSET>,
-            Restore: Restore::<Identity, Impl, OFFSET>,
-            SetClipper: SetClipper::<Identity, Impl, OFFSET>,
-            SetColorKey: SetColorKey::<Identity, Impl, OFFSET>,
-            SetOverlayPosition: SetOverlayPosition::<Identity, Impl, OFFSET>,
-            SetPalette: SetPalette::<Identity, Impl, OFFSET>,
-            Unlock: Unlock::<Identity, Impl, OFFSET>,
-            UpdateOverlay: UpdateOverlay::<Identity, Impl, OFFSET>,
-            UpdateOverlayDisplay: UpdateOverlayDisplay::<Identity, Impl, OFFSET>,
-            UpdateOverlayZOrder: UpdateOverlayZOrder::<Identity, Impl, OFFSET>,
-            GetDDInterface: GetDDInterface::<Identity, Impl, OFFSET>,
-            PageLock: PageLock::<Identity, Impl, OFFSET>,
-            PageUnlock: PageUnlock::<Identity, Impl, OFFSET>,
-            SetSurfaceDesc: SetSurfaceDesc::<Identity, Impl, OFFSET>,
-            SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
-            GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
-            FreePrivateData: FreePrivateData::<Identity, Impl, OFFSET>,
-            GetUniquenessValue: GetUniquenessValue::<Identity, Impl, OFFSET>,
-            ChangeUniquenessValue: ChangeUniquenessValue::<Identity, Impl, OFFSET>,
+            AddAttachedSurface: AddAttachedSurface::<Identity, OFFSET>,
+            AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, OFFSET>,
+            Blt: Blt::<Identity, OFFSET>,
+            BltBatch: BltBatch::<Identity, OFFSET>,
+            BltFast: BltFast::<Identity, OFFSET>,
+            DeleteAttachedSurface: DeleteAttachedSurface::<Identity, OFFSET>,
+            EnumAttachedSurfaces: EnumAttachedSurfaces::<Identity, OFFSET>,
+            EnumOverlayZOrders: EnumOverlayZOrders::<Identity, OFFSET>,
+            Flip: Flip::<Identity, OFFSET>,
+            GetAttachedSurface: GetAttachedSurface::<Identity, OFFSET>,
+            GetBltStatus: GetBltStatus::<Identity, OFFSET>,
+            GetCaps: GetCaps::<Identity, OFFSET>,
+            GetClipper: GetClipper::<Identity, OFFSET>,
+            GetColorKey: GetColorKey::<Identity, OFFSET>,
+            GetDC: GetDC::<Identity, OFFSET>,
+            GetFlipStatus: GetFlipStatus::<Identity, OFFSET>,
+            GetOverlayPosition: GetOverlayPosition::<Identity, OFFSET>,
+            GetPalette: GetPalette::<Identity, OFFSET>,
+            GetPixelFormat: GetPixelFormat::<Identity, OFFSET>,
+            GetSurfaceDesc: GetSurfaceDesc::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            IsLost: IsLost::<Identity, OFFSET>,
+            Lock: Lock::<Identity, OFFSET>,
+            ReleaseDC: ReleaseDC::<Identity, OFFSET>,
+            Restore: Restore::<Identity, OFFSET>,
+            SetClipper: SetClipper::<Identity, OFFSET>,
+            SetColorKey: SetColorKey::<Identity, OFFSET>,
+            SetOverlayPosition: SetOverlayPosition::<Identity, OFFSET>,
+            SetPalette: SetPalette::<Identity, OFFSET>,
+            Unlock: Unlock::<Identity, OFFSET>,
+            UpdateOverlay: UpdateOverlay::<Identity, OFFSET>,
+            UpdateOverlayDisplay: UpdateOverlayDisplay::<Identity, OFFSET>,
+            UpdateOverlayZOrder: UpdateOverlayZOrder::<Identity, OFFSET>,
+            GetDDInterface: GetDDInterface::<Identity, OFFSET>,
+            PageLock: PageLock::<Identity, OFFSET>,
+            PageUnlock: PageUnlock::<Identity, OFFSET>,
+            SetSurfaceDesc: SetSurfaceDesc::<Identity, OFFSET>,
+            SetPrivateData: SetPrivateData::<Identity, OFFSET>,
+            GetPrivateData: GetPrivateData::<Identity, OFFSET>,
+            FreePrivateData: FreePrivateData::<Identity, OFFSET>,
+            GetUniquenessValue: GetUniquenessValue::<Identity, OFFSET>,
+            ChangeUniquenessValue: ChangeUniquenessValue::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -2205,70 +2771,99 @@ pub trait IDirectDrawSurface7_Impl: Sized {
 impl windows_core::RuntimeName for IDirectDrawSurface7 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDrawSurface7_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>() -> IDirectDrawSurface7_Vtbl {
-        unsafe extern "system" fn AddAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawSurface7_Vtbl
+    where
+        Identity: IDirectDrawSurface7_Impl,
+    {
+        unsafe extern "system" fn AddAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::AddAttachedSurface(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn AddOverlayDirtyRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddOverlayDirtyRect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::AddOverlayDirtyRect(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Blt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Blt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::Blt(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn BltBatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BltBatch<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::BltBatch(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn BltFast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn BltFast<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::from_raw_borrowed(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn DeleteAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DeleteAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1)).into()
         }
-        unsafe extern "system" fn EnumAttachedSurfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumAttachedSurfaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::EnumAttachedSurfaces(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn EnumOverlayZOrders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnumOverlayZOrders<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::EnumOverlayZOrders(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::Flip(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetAttachedSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAttachedSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetAttachedSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetBltStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBltStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetBltStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetCaps(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDrawSurface7_Impl::GetClipper(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -2277,29 +2872,39 @@ impl IDirectDrawSurface7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetColorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetColorKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetColorKey(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::Gdi::HDC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetDC(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetFlipStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFlipStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetFlipStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetOverlayPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetOverlayPosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetOverlayPosition(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetPalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectDrawSurface7_Impl::GetPalette(this) {
                 Ok(ok__) => {
                     param0.write(core::mem::transmute(ok__));
@@ -2308,194 +2913,250 @@ impl IDirectDrawSurface7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetPixelFormat(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetSurfaceDesc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetSurfaceDesc<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetSurfaceDesc(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC2) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::Initialize(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn IsLost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn IsLost<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::IsLost(this).into()
         }
-        unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::Lock(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn ReleaseDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ReleaseDC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::Gdi::HDC) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::ReleaseDC(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn Restore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Restore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::Restore(this).into()
         }
-        unsafe extern "system" fn SetClipper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetClipper<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::SetClipper(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn SetColorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetColorKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::SetColorKey(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetOverlayPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: i32, param1: i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetOverlayPosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: i32, param1: i32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::SetOverlayPosition(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetPalette<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetPalette<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::SetPalette(this, windows_core::from_raw_borrowed(&param0)).into()
         }
-        unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::Unlock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn UpdateOverlay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn UpdateOverlayDisplay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlayDisplay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::UpdateOverlayDisplay(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn UpdateOverlayZOrder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateOverlayZOrder<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), windows_core::from_raw_borrowed(&param1)).into()
         }
-        unsafe extern "system" fn GetDDInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDDInterface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetDDInterface(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn PageLock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn PageLock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::PageLock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn PageUnlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn PageUnlock<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::PageUnlock(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn SetSurfaceDesc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetSurfaceDesc<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::SetSurfaceDesc(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn SetPrivateData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: u32, param3: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetPrivateData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: u32, param3: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::SetPrivateData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn GetPrivateData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPrivateData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut core::ffi::c_void, param2: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetPrivateData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn FreePrivateData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn FreePrivateData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::FreePrivateData(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetUniquenessValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetUniquenessValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetUniquenessValue(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn ChangeUniquenessValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ChangeUniquenessValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::ChangeUniquenessValue(this).into()
         }
-        unsafe extern "system" fn SetPriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetPriority<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::SetPriority(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetPriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPriority<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetPriority(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn SetLOD<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetLOD<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::SetLOD(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetLOD<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetLOD<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurface7_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurface7_Impl::GetLOD(this, core::mem::transmute_copy(&param0)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            AddAttachedSurface: AddAttachedSurface::<Identity, Impl, OFFSET>,
-            AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, Impl, OFFSET>,
-            Blt: Blt::<Identity, Impl, OFFSET>,
-            BltBatch: BltBatch::<Identity, Impl, OFFSET>,
-            BltFast: BltFast::<Identity, Impl, OFFSET>,
-            DeleteAttachedSurface: DeleteAttachedSurface::<Identity, Impl, OFFSET>,
-            EnumAttachedSurfaces: EnumAttachedSurfaces::<Identity, Impl, OFFSET>,
-            EnumOverlayZOrders: EnumOverlayZOrders::<Identity, Impl, OFFSET>,
-            Flip: Flip::<Identity, Impl, OFFSET>,
-            GetAttachedSurface: GetAttachedSurface::<Identity, Impl, OFFSET>,
-            GetBltStatus: GetBltStatus::<Identity, Impl, OFFSET>,
-            GetCaps: GetCaps::<Identity, Impl, OFFSET>,
-            GetClipper: GetClipper::<Identity, Impl, OFFSET>,
-            GetColorKey: GetColorKey::<Identity, Impl, OFFSET>,
-            GetDC: GetDC::<Identity, Impl, OFFSET>,
-            GetFlipStatus: GetFlipStatus::<Identity, Impl, OFFSET>,
-            GetOverlayPosition: GetOverlayPosition::<Identity, Impl, OFFSET>,
-            GetPalette: GetPalette::<Identity, Impl, OFFSET>,
-            GetPixelFormat: GetPixelFormat::<Identity, Impl, OFFSET>,
-            GetSurfaceDesc: GetSurfaceDesc::<Identity, Impl, OFFSET>,
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            IsLost: IsLost::<Identity, Impl, OFFSET>,
-            Lock: Lock::<Identity, Impl, OFFSET>,
-            ReleaseDC: ReleaseDC::<Identity, Impl, OFFSET>,
-            Restore: Restore::<Identity, Impl, OFFSET>,
-            SetClipper: SetClipper::<Identity, Impl, OFFSET>,
-            SetColorKey: SetColorKey::<Identity, Impl, OFFSET>,
-            SetOverlayPosition: SetOverlayPosition::<Identity, Impl, OFFSET>,
-            SetPalette: SetPalette::<Identity, Impl, OFFSET>,
-            Unlock: Unlock::<Identity, Impl, OFFSET>,
-            UpdateOverlay: UpdateOverlay::<Identity, Impl, OFFSET>,
-            UpdateOverlayDisplay: UpdateOverlayDisplay::<Identity, Impl, OFFSET>,
-            UpdateOverlayZOrder: UpdateOverlayZOrder::<Identity, Impl, OFFSET>,
-            GetDDInterface: GetDDInterface::<Identity, Impl, OFFSET>,
-            PageLock: PageLock::<Identity, Impl, OFFSET>,
-            PageUnlock: PageUnlock::<Identity, Impl, OFFSET>,
-            SetSurfaceDesc: SetSurfaceDesc::<Identity, Impl, OFFSET>,
-            SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
-            GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
-            FreePrivateData: FreePrivateData::<Identity, Impl, OFFSET>,
-            GetUniquenessValue: GetUniquenessValue::<Identity, Impl, OFFSET>,
-            ChangeUniquenessValue: ChangeUniquenessValue::<Identity, Impl, OFFSET>,
-            SetPriority: SetPriority::<Identity, Impl, OFFSET>,
-            GetPriority: GetPriority::<Identity, Impl, OFFSET>,
-            SetLOD: SetLOD::<Identity, Impl, OFFSET>,
-            GetLOD: GetLOD::<Identity, Impl, OFFSET>,
+            AddAttachedSurface: AddAttachedSurface::<Identity, OFFSET>,
+            AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, OFFSET>,
+            Blt: Blt::<Identity, OFFSET>,
+            BltBatch: BltBatch::<Identity, OFFSET>,
+            BltFast: BltFast::<Identity, OFFSET>,
+            DeleteAttachedSurface: DeleteAttachedSurface::<Identity, OFFSET>,
+            EnumAttachedSurfaces: EnumAttachedSurfaces::<Identity, OFFSET>,
+            EnumOverlayZOrders: EnumOverlayZOrders::<Identity, OFFSET>,
+            Flip: Flip::<Identity, OFFSET>,
+            GetAttachedSurface: GetAttachedSurface::<Identity, OFFSET>,
+            GetBltStatus: GetBltStatus::<Identity, OFFSET>,
+            GetCaps: GetCaps::<Identity, OFFSET>,
+            GetClipper: GetClipper::<Identity, OFFSET>,
+            GetColorKey: GetColorKey::<Identity, OFFSET>,
+            GetDC: GetDC::<Identity, OFFSET>,
+            GetFlipStatus: GetFlipStatus::<Identity, OFFSET>,
+            GetOverlayPosition: GetOverlayPosition::<Identity, OFFSET>,
+            GetPalette: GetPalette::<Identity, OFFSET>,
+            GetPixelFormat: GetPixelFormat::<Identity, OFFSET>,
+            GetSurfaceDesc: GetSurfaceDesc::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            IsLost: IsLost::<Identity, OFFSET>,
+            Lock: Lock::<Identity, OFFSET>,
+            ReleaseDC: ReleaseDC::<Identity, OFFSET>,
+            Restore: Restore::<Identity, OFFSET>,
+            SetClipper: SetClipper::<Identity, OFFSET>,
+            SetColorKey: SetColorKey::<Identity, OFFSET>,
+            SetOverlayPosition: SetOverlayPosition::<Identity, OFFSET>,
+            SetPalette: SetPalette::<Identity, OFFSET>,
+            Unlock: Unlock::<Identity, OFFSET>,
+            UpdateOverlay: UpdateOverlay::<Identity, OFFSET>,
+            UpdateOverlayDisplay: UpdateOverlayDisplay::<Identity, OFFSET>,
+            UpdateOverlayZOrder: UpdateOverlayZOrder::<Identity, OFFSET>,
+            GetDDInterface: GetDDInterface::<Identity, OFFSET>,
+            PageLock: PageLock::<Identity, OFFSET>,
+            PageUnlock: PageUnlock::<Identity, OFFSET>,
+            SetSurfaceDesc: SetSurfaceDesc::<Identity, OFFSET>,
+            SetPrivateData: SetPrivateData::<Identity, OFFSET>,
+            GetPrivateData: GetPrivateData::<Identity, OFFSET>,
+            FreePrivateData: FreePrivateData::<Identity, OFFSET>,
+            GetUniquenessValue: GetUniquenessValue::<Identity, OFFSET>,
+            ChangeUniquenessValue: ChangeUniquenessValue::<Identity, OFFSET>,
+            SetPriority: SetPriority::<Identity, OFFSET>,
+            GetPriority: GetPriority::<Identity, OFFSET>,
+            SetLOD: SetLOD::<Identity, OFFSET>,
+            GetLOD: GetLOD::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -2508,21 +3169,28 @@ pub trait IDirectDrawSurfaceKernel_Impl: Sized {
 }
 impl windows_core::RuntimeName for IDirectDrawSurfaceKernel {}
 impl IDirectDrawSurfaceKernel_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurfaceKernel_Impl, const OFFSET: isize>() -> IDirectDrawSurfaceKernel_Vtbl {
-        unsafe extern "system" fn GetKernelHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurfaceKernel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut usize) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawSurfaceKernel_Vtbl
+    where
+        Identity: IDirectDrawSurfaceKernel_Impl,
+    {
+        unsafe extern "system" fn GetKernelHandle<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut usize) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurfaceKernel_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurfaceKernel_Impl::GetKernelHandle(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn ReleaseKernelHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawSurfaceKernel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ReleaseKernelHandle<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawSurfaceKernel_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawSurfaceKernel_Impl::ReleaseKernelHandle(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            GetKernelHandle: GetKernelHandle::<Identity, Impl, OFFSET>,
-            ReleaseKernelHandle: ReleaseKernelHandle::<Identity, Impl, OFFSET>,
+            GetKernelHandle: GetKernelHandle::<Identity, OFFSET>,
+            ReleaseKernelHandle: ReleaseKernelHandle::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -2547,93 +3215,124 @@ pub trait IDirectDrawVideoPort_Impl: Sized {
 }
 impl windows_core::RuntimeName for IDirectDrawVideoPort {}
 impl IDirectDrawVideoPort_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>() -> IDirectDrawVideoPort_Vtbl {
-        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawVideoPort_Vtbl
+    where
+        Identity: IDirectDrawVideoPort_Impl,
+    {
+        unsafe extern "system" fn Flip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::Flip(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn GetBandwidthInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBandwidthInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::GetBandwidthInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn GetColorControls<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetColorControls<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::GetColorControls(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetInputFormats<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpnumformats: *mut u32, param1: *mut DDPIXELFORMAT, param2: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetInputFormats<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpnumformats: *mut u32, param1: *mut DDPIXELFORMAT, param2: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::GetInputFormats(this, core::mem::transmute_copy(&lpnumformats), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn GetOutputFormats<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: *mut DDPIXELFORMAT, param3: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetOutputFormats<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: *mut DDPIXELFORMAT, param3: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::GetOutputFormats(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&lpnumformats), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn GetFieldPolarity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFieldPolarity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::GetFieldPolarity(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetVideoLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVideoLine<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::GetVideoLine(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetVideoSignalStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVideoSignalStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::GetVideoSignalStatus(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn SetColorControls<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetColorControls<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::SetColorControls(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn SetTargetSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetTargetSurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::SetTargetSurface(this, windows_core::from_raw_borrowed(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn StartVideo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDVIDEOPORTINFO) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn StartVideo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDVIDEOPORTINFO) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::StartVideo(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn StopVideo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn StopVideo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::StopVideo(this).into()
         }
-        unsafe extern "system" fn UpdateVideo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDVIDEOPORTINFO) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn UpdateVideo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDVIDEOPORTINFO) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::UpdateVideo(this, core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn WaitForSync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn WaitForSync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPort_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPort_Impl::WaitForSync(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Flip: Flip::<Identity, Impl, OFFSET>,
-            GetBandwidthInfo: GetBandwidthInfo::<Identity, Impl, OFFSET>,
-            GetColorControls: GetColorControls::<Identity, Impl, OFFSET>,
-            GetInputFormats: GetInputFormats::<Identity, Impl, OFFSET>,
-            GetOutputFormats: GetOutputFormats::<Identity, Impl, OFFSET>,
-            GetFieldPolarity: GetFieldPolarity::<Identity, Impl, OFFSET>,
-            GetVideoLine: GetVideoLine::<Identity, Impl, OFFSET>,
-            GetVideoSignalStatus: GetVideoSignalStatus::<Identity, Impl, OFFSET>,
-            SetColorControls: SetColorControls::<Identity, Impl, OFFSET>,
-            SetTargetSurface: SetTargetSurface::<Identity, Impl, OFFSET>,
-            StartVideo: StartVideo::<Identity, Impl, OFFSET>,
-            StopVideo: StopVideo::<Identity, Impl, OFFSET>,
-            UpdateVideo: UpdateVideo::<Identity, Impl, OFFSET>,
-            WaitForSync: WaitForSync::<Identity, Impl, OFFSET>,
+            Flip: Flip::<Identity, OFFSET>,
+            GetBandwidthInfo: GetBandwidthInfo::<Identity, OFFSET>,
+            GetColorControls: GetColorControls::<Identity, OFFSET>,
+            GetInputFormats: GetInputFormats::<Identity, OFFSET>,
+            GetOutputFormats: GetOutputFormats::<Identity, OFFSET>,
+            GetFieldPolarity: GetFieldPolarity::<Identity, OFFSET>,
+            GetVideoLine: GetVideoLine::<Identity, OFFSET>,
+            GetVideoSignalStatus: GetVideoSignalStatus::<Identity, OFFSET>,
+            SetColorControls: SetColorControls::<Identity, OFFSET>,
+            SetTargetSurface: SetTargetSurface::<Identity, OFFSET>,
+            StartVideo: StartVideo::<Identity, OFFSET>,
+            StopVideo: StopVideo::<Identity, OFFSET>,
+            UpdateVideo: UpdateVideo::<Identity, OFFSET>,
+            WaitForSync: WaitForSync::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -2646,21 +3345,28 @@ pub trait IDirectDrawVideoPortNotify_Impl: Sized {
 }
 impl windows_core::RuntimeName for IDirectDrawVideoPortNotify {}
 impl IDirectDrawVideoPortNotify_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPortNotify_Impl, const OFFSET: isize>() -> IDirectDrawVideoPortNotify_Vtbl {
-        unsafe extern "system" fn AcquireNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPortNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDirectDrawVideoPortNotify_Vtbl
+    where
+        Identity: IDirectDrawVideoPortNotify_Impl,
+    {
+        unsafe extern "system" fn AcquireNotification<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPortNotify_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPortNotify_Impl::AcquireNotification(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
         }
-        unsafe extern "system" fn ReleaseNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPortNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ReleaseNotification<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> windows_core::HRESULT
+        where
+            Identity: IDirectDrawVideoPortNotify_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectDrawVideoPortNotify_Impl::ReleaseNotification(this, core::mem::transmute_copy(&param0)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            AcquireNotification: AcquireNotification::<Identity, Impl, OFFSET>,
-            ReleaseNotification: ReleaseNotification::<Identity, Impl, OFFSET>,
+            AcquireNotification: AcquireNotification::<Identity, OFFSET>,
+            ReleaseNotification: ReleaseNotification::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

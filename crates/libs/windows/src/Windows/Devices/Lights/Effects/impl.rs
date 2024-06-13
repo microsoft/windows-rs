@@ -6,10 +6,15 @@ impl windows_core::RuntimeName for ILampArrayEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayEffect";
 }
 impl ILampArrayEffect_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILampArrayEffect_Impl, const OFFSET: isize>() -> ILampArrayEffect_Vtbl {
-        unsafe extern "system" fn ZIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ILampArrayEffect_Vtbl
+    where
+        Identity: ILampArrayEffect_Impl,
+    {
+        unsafe extern "system" fn ZIndex<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT
+        where
+            Identity: ILampArrayEffect_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILampArrayEffect_Impl::ZIndex(this) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
@@ -18,15 +23,17 @@ impl ILampArrayEffect_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetZIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetZIndex<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT
+        where
+            Identity: ILampArrayEffect_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILampArrayEffect_Impl::SetZIndex(this, value).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ILampArrayEffect, OFFSET>(),
-            ZIndex: ZIndex::<Identity, Impl, OFFSET>,
-            SetZIndex: SetZIndex::<Identity, Impl, OFFSET>,
+            ZIndex: ZIndex::<Identity, OFFSET>,
+            SetZIndex: SetZIndex::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

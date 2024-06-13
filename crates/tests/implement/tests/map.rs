@@ -7,7 +7,7 @@ use windows::Foundation::Collections::*;
 struct KeyValuePair();
 
 #[allow(non_snake_case)]
-impl IKeyValuePair_Impl<i32, f32> for KeyValuePair {
+impl IKeyValuePair_Impl<i32, f32> for KeyValuePair_Impl {
     fn Key(&self) -> Result<i32> {
         Ok(0)
     }
@@ -22,7 +22,7 @@ impl IKeyValuePair_Impl<i32, f32> for KeyValuePair {
 struct Iterator();
 
 #[allow(non_snake_case)]
-impl IIterator_Impl<IKeyValuePair<i32, f32>> for Iterator {
+impl IIterator_Impl<IKeyValuePair<i32, f32>> for Iterator_Impl {
     fn GetMany(&self, _items: &mut [Option<IKeyValuePair<i32, f32>>]) -> Result<u32> {
         Ok(0)
     }
@@ -44,7 +44,7 @@ impl IIterator_Impl<IKeyValuePair<i32, f32>> for Iterator {
 struct MapView();
 
 #[allow(non_snake_case)]
-impl IMapView_Impl<i32, f32> for MapView {
+impl IMapView_Impl<i32, f32> for MapView_Impl {
     // TODO: shouldn't require & for primtiive
     fn HasKey(&self, _key: &i32) -> Result<bool> {
         Ok(true)
@@ -65,7 +65,7 @@ impl IMapView_Impl<i32, f32> for MapView {
 }
 
 #[allow(non_snake_case)]
-impl IIterable_Impl<IKeyValuePair<i32, f32>> for MapView {
+impl IIterable_Impl<IKeyValuePair<i32, f32>> for MapView_Impl {
     fn First(&self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
         Ok(Iterator().into())
     }
@@ -78,7 +78,7 @@ impl IIterable_Impl<IKeyValuePair<i32, f32>> for MapView {
 struct Map();
 
 #[allow(non_snake_case)]
-impl IMap_Impl<i32, f32> for Map {
+impl IMap_Impl<i32, f32> for Map_Impl {
     fn Clear(&self) -> Result<()> {
         Ok(())
     }
@@ -102,7 +102,7 @@ impl IMap_Impl<i32, f32> for Map {
     }
 }
 
-impl IIterable_Impl<IKeyValuePair<i32, f32>> for Map {
+impl IIterable_Impl<IKeyValuePair<i32, f32>> for Map_Impl {
     fn First(&self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
         Ok(Iterator().into())
     }
