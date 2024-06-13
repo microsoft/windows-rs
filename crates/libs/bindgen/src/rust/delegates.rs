@@ -92,7 +92,7 @@ fn gen_win_delegate(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         quote! {
             #features
             #[repr(transparent)]
-            #[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+            #[derive(PartialEq, Eq, Debug, Clone)]
             pub struct #ident(windows_core::IUnknown, #phantoms) where #constraints;
         }
     };

@@ -63,7 +63,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             tokens.combine(&quote! {
                 #features
                 #[repr(transparent)]
-                #[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+                #[derive(PartialEq, Eq, Debug, Clone)]
                 pub struct #ident(windows_core::IUnknown, #phantoms) where #constraints;
             });
         }
