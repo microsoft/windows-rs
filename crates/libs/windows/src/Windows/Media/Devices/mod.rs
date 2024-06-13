@@ -1025,7 +1025,7 @@ pub struct IZoomSettings_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdvancedPhotoCaptureSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdvancedPhotoCaptureSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl AdvancedPhotoCaptureSettings {
@@ -1061,7 +1061,7 @@ impl windows_core::RuntimeName for AdvancedPhotoCaptureSettings {
 unsafe impl Send for AdvancedPhotoCaptureSettings {}
 unsafe impl Sync for AdvancedPhotoCaptureSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdvancedPhotoControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdvancedPhotoControl, windows_core::IUnknown, windows_core::IInspectable);
 impl AdvancedPhotoControl {
@@ -1108,7 +1108,7 @@ impl windows_core::RuntimeName for AdvancedPhotoControl {
 unsafe impl Send for AdvancedPhotoControl {}
 unsafe impl Sync for AdvancedPhotoControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioDeviceController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioDeviceController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioDeviceController, IMediaDeviceController);
@@ -1174,7 +1174,7 @@ impl windows_core::RuntimeName for AudioDeviceController {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceController";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioDeviceModule(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioDeviceModule, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioDeviceModule {
@@ -1236,7 +1236,7 @@ impl windows_core::RuntimeName for AudioDeviceModule {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModule";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioDeviceModuleNotificationEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioDeviceModuleNotificationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioDeviceModuleNotificationEventArgs {
@@ -1269,7 +1269,7 @@ impl windows_core::RuntimeName for AudioDeviceModuleNotificationEventArgs {
 unsafe impl Send for AudioDeviceModuleNotificationEventArgs {}
 unsafe impl Sync for AudioDeviceModuleNotificationEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioDeviceModulesManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioDeviceModulesManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioDeviceModulesManager {
@@ -1328,7 +1328,7 @@ impl windows_core::RuntimeName for AudioDeviceModulesManager {
 unsafe impl Send for AudioDeviceModulesManager {}
 unsafe impl Sync for AudioDeviceModulesManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CallControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CallControl, windows_core::IUnknown, windows_core::IInspectable);
 impl CallControl {
@@ -1476,7 +1476,7 @@ impl windows_core::RuntimeName for CallControl {
 unsafe impl Send for CallControl {}
 unsafe impl Sync for CallControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraOcclusionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraOcclusionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl CameraOcclusionInfo {
@@ -1522,7 +1522,7 @@ impl windows_core::RuntimeName for CameraOcclusionInfo {
 unsafe impl Send for CameraOcclusionInfo {}
 unsafe impl Sync for CameraOcclusionInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraOcclusionState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraOcclusionState, windows_core::IUnknown, windows_core::IInspectable);
 impl CameraOcclusionState {
@@ -1554,7 +1554,7 @@ impl windows_core::RuntimeName for CameraOcclusionState {
 unsafe impl Send for CameraOcclusionState {}
 unsafe impl Sync for CameraOcclusionState {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraOcclusionStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraOcclusionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CameraOcclusionStateChangedEventArgs {
@@ -1579,7 +1579,7 @@ impl windows_core::RuntimeName for CameraOcclusionStateChangedEventArgs {
 unsafe impl Send for CameraOcclusionStateChangedEventArgs {}
 unsafe impl Sync for CameraOcclusionStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DefaultAudioCaptureDeviceChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DefaultAudioCaptureDeviceChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DefaultAudioCaptureDeviceChangedEventArgs, IDefaultAudioDeviceChangedEventArgs);
@@ -1612,7 +1612,7 @@ impl windows_core::RuntimeName for DefaultAudioCaptureDeviceChangedEventArgs {
 unsafe impl Send for DefaultAudioCaptureDeviceChangedEventArgs {}
 unsafe impl Sync for DefaultAudioCaptureDeviceChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DefaultAudioRenderDeviceChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DefaultAudioRenderDeviceChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DefaultAudioRenderDeviceChangedEventArgs, IDefaultAudioDeviceChangedEventArgs);
@@ -1645,7 +1645,7 @@ impl windows_core::RuntimeName for DefaultAudioRenderDeviceChangedEventArgs {
 unsafe impl Send for DefaultAudioRenderDeviceChangedEventArgs {}
 unsafe impl Sync for DefaultAudioRenderDeviceChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DialRequestedEventArgs {
@@ -1674,7 +1674,7 @@ impl windows_core::RuntimeName for DialRequestedEventArgs {
 unsafe impl Send for DialRequestedEventArgs {}
 unsafe impl Sync for DialRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DigitalWindowBounds(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DigitalWindowBounds, windows_core::IUnknown, windows_core::IInspectable);
 impl DigitalWindowBounds {
@@ -1732,7 +1732,7 @@ impl windows_core::RuntimeName for DigitalWindowBounds {
 unsafe impl Send for DigitalWindowBounds {}
 unsafe impl Sync for DigitalWindowBounds {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DigitalWindowCapability(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DigitalWindowCapability, windows_core::IUnknown, windows_core::IInspectable);
 impl DigitalWindowCapability {
@@ -1792,7 +1792,7 @@ impl windows_core::RuntimeName for DigitalWindowCapability {
 unsafe impl Send for DigitalWindowCapability {}
 unsafe impl Sync for DigitalWindowCapability {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DigitalWindowControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DigitalWindowControl, windows_core::IUnknown, windows_core::IInspectable);
 impl DigitalWindowControl {
@@ -1864,7 +1864,7 @@ impl windows_core::RuntimeName for DigitalWindowControl {
 unsafe impl Send for DigitalWindowControl {}
 unsafe impl Sync for DigitalWindowControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExposureCompensationControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExposureCompensationControl, windows_core::IUnknown, windows_core::IInspectable);
 impl ExposureCompensationControl {
@@ -1922,7 +1922,7 @@ impl windows_core::RuntimeName for ExposureCompensationControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposureCompensationControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExposureControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExposureControl, windows_core::IUnknown, windows_core::IInspectable);
 impl ExposureControl {
@@ -1994,7 +1994,7 @@ impl windows_core::RuntimeName for ExposureControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposureControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExposurePriorityVideoControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExposurePriorityVideoControl, windows_core::IUnknown, windows_core::IInspectable);
 impl ExposurePriorityVideoControl {
@@ -2030,7 +2030,7 @@ impl windows_core::RuntimeName for ExposurePriorityVideoControl {
 unsafe impl Send for ExposurePriorityVideoControl {}
 unsafe impl Sync for ExposurePriorityVideoControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FlashControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FlashControl, windows_core::IUnknown, windows_core::IInspectable);
 impl FlashControl {
@@ -2129,7 +2129,7 @@ impl windows_core::RuntimeName for FlashControl {
     const NAME: &'static str = "Windows.Media.Devices.FlashControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FocusControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FocusControl, windows_core::IUnknown, windows_core::IInspectable);
 impl FocusControl {
@@ -2296,7 +2296,7 @@ impl windows_core::RuntimeName for FocusControl {
     const NAME: &'static str = "Windows.Media.Devices.FocusControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FocusSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FocusSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl FocusSettings {
@@ -2393,7 +2393,7 @@ impl windows_core::RuntimeName for FocusSettings {
 unsafe impl Send for FocusSettings {}
 unsafe impl Sync for FocusSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HdrVideoControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HdrVideoControl, windows_core::IUnknown, windows_core::IInspectable);
 impl HdrVideoControl {
@@ -2437,7 +2437,7 @@ impl windows_core::RuntimeName for HdrVideoControl {
 unsafe impl Send for HdrVideoControl {}
 unsafe impl Sync for HdrVideoControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InfraredTorchControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InfraredTorchControl, windows_core::IUnknown, windows_core::IInspectable);
 impl InfraredTorchControl {
@@ -2513,7 +2513,7 @@ impl windows_core::RuntimeName for InfraredTorchControl {
 unsafe impl Send for InfraredTorchControl {}
 unsafe impl Sync for InfraredTorchControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsoSpeedControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsoSpeedControl, windows_core::IUnknown, windows_core::IInspectable);
 impl IsoSpeedControl {
@@ -2609,7 +2609,7 @@ impl windows_core::RuntimeName for IsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.IsoSpeedControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeypadPressedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeypadPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl KeypadPressedEventArgs {
@@ -2634,7 +2634,7 @@ impl windows_core::RuntimeName for KeypadPressedEventArgs {
 unsafe impl Send for KeypadPressedEventArgs {}
 unsafe impl Sync for KeypadPressedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LowLagPhotoControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLagPhotoControl, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLagPhotoControl {
@@ -2711,7 +2711,7 @@ impl windows_core::RuntimeName for LowLagPhotoControl {
     const NAME: &'static str = "Windows.Media.Devices.LowLagPhotoControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LowLagPhotoSequenceControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLagPhotoSequenceControl, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLagPhotoSequenceControl {
@@ -2896,7 +2896,7 @@ impl windows_core::RuntimeName for MediaDevice {
     const NAME: &'static str = "Windows.Media.Devices.MediaDevice";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaDeviceControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaDeviceControl, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaDeviceControl {
@@ -2947,7 +2947,7 @@ impl windows_core::RuntimeName for MediaDeviceControl {
     const NAME: &'static str = "Windows.Media.Devices.MediaDeviceControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaDeviceControlCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaDeviceControlCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaDeviceControlCapabilities {
@@ -3005,7 +3005,7 @@ impl windows_core::RuntimeName for MediaDeviceControlCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.MediaDeviceControlCapabilities";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ModuleCommandResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ModuleCommandResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ModuleCommandResult {
@@ -3036,7 +3036,7 @@ impl windows_core::RuntimeName for ModuleCommandResult {
     const NAME: &'static str = "Windows.Media.Devices.ModuleCommandResult";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OpticalImageStabilizationControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OpticalImageStabilizationControl, windows_core::IUnknown, windows_core::IInspectable);
 impl OpticalImageStabilizationControl {
@@ -3080,7 +3080,7 @@ impl windows_core::RuntimeName for OpticalImageStabilizationControl {
 unsafe impl Send for OpticalImageStabilizationControl {}
 unsafe impl Sync for OpticalImageStabilizationControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PanelBasedOptimizationControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PanelBasedOptimizationControl, windows_core::IUnknown, windows_core::IInspectable);
 impl PanelBasedOptimizationControl {
@@ -3118,7 +3118,7 @@ impl windows_core::RuntimeName for PanelBasedOptimizationControl {
 unsafe impl Send for PanelBasedOptimizationControl {}
 unsafe impl Sync for PanelBasedOptimizationControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoConfirmationControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoConfirmationControl, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoConfirmationControl {
@@ -3165,7 +3165,7 @@ impl windows_core::RuntimeName for PhotoConfirmationControl {
     const NAME: &'static str = "Windows.Media.Devices.PhotoConfirmationControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RedialRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RedialRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RedialRequestedEventArgs {
@@ -3187,7 +3187,7 @@ impl windows_core::RuntimeName for RedialRequestedEventArgs {
 unsafe impl Send for RedialRequestedEventArgs {}
 unsafe impl Sync for RedialRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RegionOfInterest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RegionOfInterest, windows_core::IUnknown, windows_core::IInspectable);
 impl RegionOfInterest {
@@ -3289,7 +3289,7 @@ impl windows_core::RuntimeName for RegionOfInterest {
 unsafe impl Send for RegionOfInterest {}
 unsafe impl Sync for RegionOfInterest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RegionsOfInterestControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RegionsOfInterestControl, windows_core::IUnknown, windows_core::IInspectable);
 impl RegionsOfInterestControl {
@@ -3362,7 +3362,7 @@ impl windows_core::RuntimeName for RegionsOfInterestControl {
     const NAME: &'static str = "Windows.Media.Devices.RegionsOfInterestControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneModeControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneModeControl, windows_core::IUnknown, windows_core::IInspectable);
 impl SceneModeControl {
@@ -3400,7 +3400,7 @@ impl windows_core::RuntimeName for SceneModeControl {
     const NAME: &'static str = "Windows.Media.Devices.SceneModeControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TorchControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TorchControl, windows_core::IUnknown, windows_core::IInspectable);
 impl TorchControl {
@@ -3452,7 +3452,7 @@ impl windows_core::RuntimeName for TorchControl {
     const NAME: &'static str = "Windows.Media.Devices.TorchControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoDeviceController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoDeviceController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoDeviceController, IMediaDeviceController);
@@ -3839,7 +3839,7 @@ impl windows_core::RuntimeName for VideoDeviceController {
     const NAME: &'static str = "Windows.Media.Devices.VideoDeviceController";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoDeviceControllerGetDevicePropertyResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoDeviceControllerGetDevicePropertyResult, windows_core::IUnknown, windows_core::IInspectable);
 impl VideoDeviceControllerGetDevicePropertyResult {
@@ -3871,7 +3871,7 @@ impl windows_core::RuntimeName for VideoDeviceControllerGetDevicePropertyResult 
 unsafe impl Send for VideoDeviceControllerGetDevicePropertyResult {}
 unsafe impl Sync for VideoDeviceControllerGetDevicePropertyResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoTemporalDenoisingControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoTemporalDenoisingControl, windows_core::IUnknown, windows_core::IInspectable);
 impl VideoTemporalDenoisingControl {
@@ -3915,7 +3915,7 @@ impl windows_core::RuntimeName for VideoTemporalDenoisingControl {
 unsafe impl Send for VideoTemporalDenoisingControl {}
 unsafe impl Sync for VideoTemporalDenoisingControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WhiteBalanceControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WhiteBalanceControl, windows_core::IUnknown, windows_core::IInspectable);
 impl WhiteBalanceControl {
@@ -3987,7 +3987,7 @@ impl windows_core::RuntimeName for WhiteBalanceControl {
     const NAME: &'static str = "Windows.Media.Devices.WhiteBalanceControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ZoomControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ZoomControl, windows_core::IUnknown, windows_core::IInspectable);
 impl ZoomControl {
@@ -4064,7 +4064,7 @@ impl windows_core::RuntimeName for ZoomControl {
     const NAME: &'static str = "Windows.Media.Devices.ZoomControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ZoomSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ZoomSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl ZoomSettings {

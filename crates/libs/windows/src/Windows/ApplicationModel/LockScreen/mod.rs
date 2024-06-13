@@ -89,7 +89,7 @@ pub struct ILockScreenUnlockingEventArgs_Vtbl {
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockApplicationHost(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockApplicationHost, windows_core::IUnknown, windows_core::IInspectable);
 impl LockApplicationHost {
@@ -136,7 +136,7 @@ impl windows_core::RuntimeName for LockApplicationHost {
 unsafe impl Send for LockApplicationHost {}
 unsafe impl Sync for LockApplicationHost {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenBadge(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenBadge, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenBadge {
@@ -188,7 +188,7 @@ impl windows_core::RuntimeName for LockScreenBadge {
 unsafe impl Send for LockScreenBadge {}
 unsafe impl Sync for LockScreenBadge {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenInfo {
@@ -294,7 +294,7 @@ impl windows_core::RuntimeName for LockScreenInfo {
 unsafe impl Send for LockScreenInfo {}
 unsafe impl Sync for LockScreenInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenUnlockingDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenUnlockingDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenUnlockingDeferral {
@@ -316,7 +316,7 @@ impl windows_core::RuntimeName for LockScreenUnlockingDeferral {
 unsafe impl Send for LockScreenUnlockingDeferral {}
 unsafe impl Sync for LockScreenUnlockingDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenUnlockingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenUnlockingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenUnlockingEventArgs {

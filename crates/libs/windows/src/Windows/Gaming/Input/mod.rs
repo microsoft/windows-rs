@@ -380,7 +380,7 @@ pub struct IUINavigationControllerStatics2_Vtbl {
     pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ArcadeStick(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ArcadeStick, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ArcadeStick, IGameController, IGameControllerBatteryInfo);
@@ -536,7 +536,7 @@ impl windows_core::RuntimeName for ArcadeStick {
 unsafe impl Send for ArcadeStick {}
 unsafe impl Sync for ArcadeStick {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FlightStick(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FlightStick, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FlightStick, IGameController, IGameControllerBatteryInfo);
@@ -694,7 +694,7 @@ impl windows_core::RuntimeName for FlightStick {
 unsafe impl Send for FlightStick {}
 unsafe impl Sync for FlightStick {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Gamepad(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Gamepad, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Gamepad, IGameController, IGameControllerBatteryInfo);
@@ -861,7 +861,7 @@ impl windows_core::RuntimeName for Gamepad {
 unsafe impl Send for Gamepad {}
 unsafe impl Sync for Gamepad {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Headset(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Headset, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Headset, IGameControllerBatteryInfo);
@@ -902,7 +902,7 @@ impl windows_core::RuntimeName for Headset {
 unsafe impl Send for Headset {}
 unsafe impl Sync for Headset {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RacingWheel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RacingWheel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RacingWheel, IGameController, IGameControllerBatteryInfo);
@@ -1101,7 +1101,7 @@ impl windows_core::RuntimeName for RacingWheel {
 unsafe impl Send for RacingWheel {}
 unsafe impl Sync for RacingWheel {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RawGameController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RawGameController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RawGameController, IGameController, IGameControllerBatteryInfo);
@@ -1324,7 +1324,7 @@ impl windows_core::RuntimeName for RawGameController {
 unsafe impl Send for RawGameController {}
 unsafe impl Sync for RawGameController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UINavigationController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UINavigationController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UINavigationController, IGameController, IGameControllerBatteryInfo);

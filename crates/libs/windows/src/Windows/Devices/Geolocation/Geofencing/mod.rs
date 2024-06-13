@@ -69,7 +69,7 @@ pub struct IGeofenceStateChangeReport_Vtbl {
     pub RemovalReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GeofenceRemovalReason) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geofence(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geofence, windows_core::IUnknown, windows_core::IInspectable);
 impl Geofence {
@@ -177,7 +177,7 @@ impl windows_core::RuntimeName for Geofence {
 unsafe impl Send for Geofence {}
 unsafe impl Sync for Geofence {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeofenceMonitor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeofenceMonitor, windows_core::IUnknown, windows_core::IInspectable);
 impl GeofenceMonitor {
@@ -264,7 +264,7 @@ impl windows_core::RuntimeName for GeofenceMonitor {
 unsafe impl Send for GeofenceMonitor {}
 unsafe impl Sync for GeofenceMonitor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeofenceStateChangeReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeofenceStateChangeReport, windows_core::IUnknown, windows_core::IInspectable);
 impl GeofenceStateChangeReport {

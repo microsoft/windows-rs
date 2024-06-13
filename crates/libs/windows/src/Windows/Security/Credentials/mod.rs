@@ -250,7 +250,7 @@ pub struct IWebAccountProviderFactory_Vtbl {
     pub CreateWebAccountProvider: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyCredential(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyCredential, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyCredential {
@@ -309,7 +309,7 @@ impl windows_core::RuntimeName for KeyCredential {
 unsafe impl Send for KeyCredential {}
 unsafe impl Sync for KeyCredential {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyCredentialAttestationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyCredentialAttestationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyCredentialAttestationResult {
@@ -391,7 +391,7 @@ impl windows_core::RuntimeName for KeyCredentialManager {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyCredentialOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyCredentialOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyCredentialOperationResult {
@@ -424,7 +424,7 @@ impl windows_core::RuntimeName for KeyCredentialOperationResult {
 unsafe impl Send for KeyCredentialOperationResult {}
 unsafe impl Sync for KeyCredentialOperationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyCredentialRetrievalResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyCredentialRetrievalResult, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyCredentialRetrievalResult {
@@ -456,7 +456,7 @@ impl windows_core::RuntimeName for KeyCredentialRetrievalResult {
 unsafe impl Send for KeyCredentialRetrievalResult {}
 unsafe impl Sync for KeyCredentialRetrievalResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PasswordCredential(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PasswordCredential, windows_core::IUnknown, windows_core::IInspectable);
 impl PasswordCredential {
@@ -538,7 +538,7 @@ unsafe impl Send for PasswordCredential {}
 unsafe impl Sync for PasswordCredential {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PasswordCredentialPropertyStore(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PasswordCredentialPropertyStore, windows_core::IUnknown, windows_core::IInspectable);
@@ -665,7 +665,7 @@ unsafe impl Send for PasswordCredentialPropertyStore {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for PasswordCredentialPropertyStore {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PasswordVault(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PasswordVault, windows_core::IUnknown, windows_core::IInspectable);
 impl PasswordVault {
@@ -735,7 +735,7 @@ impl windows_core::RuntimeName for PasswordVault {
 unsafe impl Send for PasswordVault {}
 unsafe impl Sync for PasswordVault {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccount(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccount, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccount, IWebAccount);
@@ -826,7 +826,7 @@ impl windows_core::RuntimeName for WebAccount {
 unsafe impl Send for WebAccount {}
 unsafe impl Sync for WebAccount {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAccountProvider {

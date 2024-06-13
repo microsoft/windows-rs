@@ -105,7 +105,7 @@ pub struct IVoiceInformation_Vtbl {
     pub Gender: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VoiceGender) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechSynthesisStream(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechSynthesisStream, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
@@ -249,7 +249,7 @@ impl windows_core::RuntimeName for SpeechSynthesisStream {
 unsafe impl Send for SpeechSynthesisStream {}
 unsafe impl Sync for SpeechSynthesisStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechSynthesizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechSynthesizer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechSynthesizer, super::super::Foundation::IClosable);
@@ -346,7 +346,7 @@ impl windows_core::RuntimeName for SpeechSynthesizer {
 unsafe impl Send for SpeechSynthesizer {}
 unsafe impl Sync for SpeechSynthesizer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechSynthesizerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechSynthesizerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechSynthesizerOptions {
@@ -441,7 +441,7 @@ impl windows_core::RuntimeName for SpeechSynthesizerOptions {
 unsafe impl Send for SpeechSynthesizerOptions {}
 unsafe impl Sync for SpeechSynthesizerOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceInformation {

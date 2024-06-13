@@ -76,7 +76,7 @@ pub struct ISerialDeviceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ErrorReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ErrorReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ErrorReceivedEventArgs {
@@ -101,7 +101,7 @@ impl windows_core::RuntimeName for ErrorReceivedEventArgs {
 unsafe impl Send for ErrorReceivedEventArgs {}
 unsafe impl Sync for ErrorReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PinChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PinChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PinChangedEventArgs {
@@ -126,7 +126,7 @@ impl windows_core::RuntimeName for PinChangedEventArgs {
 unsafe impl Send for PinChangedEventArgs {}
 unsafe impl Sync for PinChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SerialDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SerialDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SerialDevice, super::super::Foundation::IClosable);

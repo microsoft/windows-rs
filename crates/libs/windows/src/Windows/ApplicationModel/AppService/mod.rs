@@ -190,7 +190,7 @@ impl windows_core::RuntimeName for AppServiceCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceCatalog";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppServiceClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppServiceClosedEventArgs {
@@ -215,7 +215,7 @@ impl windows_core::RuntimeName for AppServiceClosedEventArgs {
 unsafe impl Send for AppServiceClosedEventArgs {}
 unsafe impl Sync for AppServiceClosedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppServiceConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppServiceConnection, super::super::Foundation::IClosable);
@@ -357,7 +357,7 @@ impl windows_core::RuntimeName for AppServiceConnection {
 unsafe impl Send for AppServiceConnection {}
 unsafe impl Sync for AppServiceConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppServiceDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl AppServiceDeferral {
@@ -379,7 +379,7 @@ impl windows_core::RuntimeName for AppServiceDeferral {
 unsafe impl Send for AppServiceDeferral {}
 unsafe impl Sync for AppServiceDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppServiceRequest {
@@ -416,7 +416,7 @@ impl windows_core::RuntimeName for AppServiceRequest {
 unsafe impl Send for AppServiceRequest {}
 unsafe impl Sync for AppServiceRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceRequestReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppServiceRequestReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppServiceRequestReceivedEventArgs {
@@ -448,7 +448,7 @@ impl windows_core::RuntimeName for AppServiceRequestReceivedEventArgs {
 unsafe impl Send for AppServiceRequestReceivedEventArgs {}
 unsafe impl Sync for AppServiceRequestReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceResponse(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppServiceResponse, windows_core::IUnknown, windows_core::IInspectable);
 impl AppServiceResponse {
@@ -481,7 +481,7 @@ impl windows_core::RuntimeName for AppServiceResponse {
 unsafe impl Send for AppServiceResponse {}
 unsafe impl Sync for AppServiceResponse {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppServiceTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl AppServiceTriggerDetails {
@@ -541,7 +541,7 @@ impl windows_core::RuntimeName for AppServiceTriggerDetails {
 unsafe impl Send for AppServiceTriggerDetails {}
 unsafe impl Sync for AppServiceTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StatelessAppServiceResponse(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StatelessAppServiceResponse, windows_core::IUnknown, windows_core::IInspectable);
 impl StatelessAppServiceResponse {

@@ -336,7 +336,7 @@ impl windows_core::RuntimeName for GameControllerFactoryManager {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GameControllerFactoryManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GipFirmwareUpdateResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GipFirmwareUpdateResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GipFirmwareUpdateResult {
@@ -375,7 +375,7 @@ impl windows_core::RuntimeName for GipFirmwareUpdateResult {
 unsafe impl Send for GipFirmwareUpdateResult {}
 unsafe impl Sync for GipFirmwareUpdateResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GipGameControllerProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GipGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GipGameControllerProvider, IGameControllerProvider);
@@ -448,7 +448,7 @@ impl windows_core::RuntimeName for GipGameControllerProvider {
 unsafe impl Send for GipGameControllerProvider {}
 unsafe impl Sync for GipGameControllerProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidGameControllerProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HidGameControllerProvider, IGameControllerProvider);
@@ -528,7 +528,7 @@ impl windows_core::RuntimeName for HidGameControllerProvider {
 unsafe impl Send for HidGameControllerProvider {}
 unsafe impl Sync for HidGameControllerProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XusbGameControllerProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XusbGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XusbGameControllerProvider, IGameControllerProvider);

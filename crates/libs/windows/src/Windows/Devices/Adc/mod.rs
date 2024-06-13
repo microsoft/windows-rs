@@ -49,7 +49,7 @@ pub struct IAdcControllerStatics2_Vtbl {
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdcChannel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdcChannel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AdcChannel, super::super::Foundation::IClosable);
@@ -93,7 +93,7 @@ impl windows_core::RuntimeName for AdcChannel {
 unsafe impl Send for AdcChannel {}
 unsafe impl Sync for AdcChannel {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdcController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdcController, windows_core::IUnknown, windows_core::IInspectable);
 impl AdcController {

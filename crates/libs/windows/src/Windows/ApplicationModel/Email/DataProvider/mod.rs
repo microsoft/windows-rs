@@ -412,7 +412,7 @@ pub struct IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailDataProviderConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailDataProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailDataProviderConnection {
@@ -644,7 +644,7 @@ impl windows_core::RuntimeName for EmailDataProviderConnection {
 unsafe impl Send for EmailDataProviderConnection {}
 unsafe impl Sync for EmailDataProviderConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailDataProviderTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailDataProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailDataProviderTriggerDetails {
@@ -669,7 +669,7 @@ impl windows_core::RuntimeName for EmailDataProviderTriggerDetails {
 unsafe impl Send for EmailDataProviderTriggerDetails {}
 unsafe impl Sync for EmailDataProviderTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxCreateFolderRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxCreateFolderRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxCreateFolderRequest {
@@ -725,7 +725,7 @@ impl windows_core::RuntimeName for EmailMailboxCreateFolderRequest {
 unsafe impl Send for EmailMailboxCreateFolderRequest {}
 unsafe impl Sync for EmailMailboxCreateFolderRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxCreateFolderRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxCreateFolderRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxCreateFolderRequestEventArgs {
@@ -757,7 +757,7 @@ impl windows_core::RuntimeName for EmailMailboxCreateFolderRequestEventArgs {
 unsafe impl Send for EmailMailboxCreateFolderRequestEventArgs {}
 unsafe impl Sync for EmailMailboxCreateFolderRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDeleteFolderRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxDeleteFolderRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxDeleteFolderRequest {
@@ -803,7 +803,7 @@ impl windows_core::RuntimeName for EmailMailboxDeleteFolderRequest {
 unsafe impl Send for EmailMailboxDeleteFolderRequest {}
 unsafe impl Sync for EmailMailboxDeleteFolderRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDeleteFolderRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxDeleteFolderRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxDeleteFolderRequestEventArgs {
@@ -835,7 +835,7 @@ impl windows_core::RuntimeName for EmailMailboxDeleteFolderRequestEventArgs {
 unsafe impl Send for EmailMailboxDeleteFolderRequestEventArgs {}
 unsafe impl Sync for EmailMailboxDeleteFolderRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDownloadAttachmentRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxDownloadAttachmentRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxDownloadAttachmentRequest {
@@ -888,7 +888,7 @@ impl windows_core::RuntimeName for EmailMailboxDownloadAttachmentRequest {
 unsafe impl Send for EmailMailboxDownloadAttachmentRequest {}
 unsafe impl Sync for EmailMailboxDownloadAttachmentRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDownloadAttachmentRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxDownloadAttachmentRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxDownloadAttachmentRequestEventArgs {
@@ -920,7 +920,7 @@ impl windows_core::RuntimeName for EmailMailboxDownloadAttachmentRequestEventArg
 unsafe impl Send for EmailMailboxDownloadAttachmentRequestEventArgs {}
 unsafe impl Sync for EmailMailboxDownloadAttachmentRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDownloadMessageRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxDownloadMessageRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxDownloadMessageRequest {
@@ -966,7 +966,7 @@ impl windows_core::RuntimeName for EmailMailboxDownloadMessageRequest {
 unsafe impl Send for EmailMailboxDownloadMessageRequest {}
 unsafe impl Sync for EmailMailboxDownloadMessageRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDownloadMessageRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxDownloadMessageRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxDownloadMessageRequestEventArgs {
@@ -998,7 +998,7 @@ impl windows_core::RuntimeName for EmailMailboxDownloadMessageRequestEventArgs {
 unsafe impl Send for EmailMailboxDownloadMessageRequestEventArgs {}
 unsafe impl Sync for EmailMailboxDownloadMessageRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxEmptyFolderRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxEmptyFolderRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxEmptyFolderRequest {
@@ -1044,7 +1044,7 @@ impl windows_core::RuntimeName for EmailMailboxEmptyFolderRequest {
 unsafe impl Send for EmailMailboxEmptyFolderRequest {}
 unsafe impl Sync for EmailMailboxEmptyFolderRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxEmptyFolderRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxEmptyFolderRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxEmptyFolderRequestEventArgs {
@@ -1076,7 +1076,7 @@ impl windows_core::RuntimeName for EmailMailboxEmptyFolderRequestEventArgs {
 unsafe impl Send for EmailMailboxEmptyFolderRequestEventArgs {}
 unsafe impl Sync for EmailMailboxEmptyFolderRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxForwardMeetingRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxForwardMeetingRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxForwardMeetingRequest {
@@ -1158,7 +1158,7 @@ impl windows_core::RuntimeName for EmailMailboxForwardMeetingRequest {
 unsafe impl Send for EmailMailboxForwardMeetingRequest {}
 unsafe impl Sync for EmailMailboxForwardMeetingRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxForwardMeetingRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxForwardMeetingRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxForwardMeetingRequestEventArgs {
@@ -1190,7 +1190,7 @@ impl windows_core::RuntimeName for EmailMailboxForwardMeetingRequestEventArgs {
 unsafe impl Send for EmailMailboxForwardMeetingRequestEventArgs {}
 unsafe impl Sync for EmailMailboxForwardMeetingRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxGetAutoReplySettingsRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxGetAutoReplySettingsRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxGetAutoReplySettingsRequest {
@@ -1239,7 +1239,7 @@ impl windows_core::RuntimeName for EmailMailboxGetAutoReplySettingsRequest {
 unsafe impl Send for EmailMailboxGetAutoReplySettingsRequest {}
 unsafe impl Sync for EmailMailboxGetAutoReplySettingsRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxGetAutoReplySettingsRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxGetAutoReplySettingsRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxGetAutoReplySettingsRequestEventArgs {
@@ -1271,7 +1271,7 @@ impl windows_core::RuntimeName for EmailMailboxGetAutoReplySettingsRequestEventA
 unsafe impl Send for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
 unsafe impl Sync for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxMoveFolderRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxMoveFolderRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxMoveFolderRequest {
@@ -1331,7 +1331,7 @@ impl windows_core::RuntimeName for EmailMailboxMoveFolderRequest {
 unsafe impl Send for EmailMailboxMoveFolderRequest {}
 unsafe impl Sync for EmailMailboxMoveFolderRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxMoveFolderRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxMoveFolderRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxMoveFolderRequestEventArgs {
@@ -1363,7 +1363,7 @@ impl windows_core::RuntimeName for EmailMailboxMoveFolderRequestEventArgs {
 unsafe impl Send for EmailMailboxMoveFolderRequestEventArgs {}
 unsafe impl Sync for EmailMailboxMoveFolderRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxProposeNewTimeForMeetingRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxProposeNewTimeForMeetingRequest {
@@ -1437,7 +1437,7 @@ impl windows_core::RuntimeName for EmailMailboxProposeNewTimeForMeetingRequest {
 unsafe impl Send for EmailMailboxProposeNewTimeForMeetingRequest {}
 unsafe impl Sync for EmailMailboxProposeNewTimeForMeetingRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxProposeNewTimeForMeetingRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
@@ -1469,7 +1469,7 @@ impl windows_core::RuntimeName for EmailMailboxProposeNewTimeForMeetingRequestEv
 unsafe impl Send for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
 unsafe impl Sync for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxResolveRecipientsRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxResolveRecipientsRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxResolveRecipientsRequest {
@@ -1520,7 +1520,7 @@ impl windows_core::RuntimeName for EmailMailboxResolveRecipientsRequest {
 unsafe impl Send for EmailMailboxResolveRecipientsRequest {}
 unsafe impl Sync for EmailMailboxResolveRecipientsRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxResolveRecipientsRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxResolveRecipientsRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxResolveRecipientsRequestEventArgs {
@@ -1552,7 +1552,7 @@ impl windows_core::RuntimeName for EmailMailboxResolveRecipientsRequestEventArgs
 unsafe impl Send for EmailMailboxResolveRecipientsRequestEventArgs {}
 unsafe impl Sync for EmailMailboxResolveRecipientsRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxServerSearchReadBatchRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxServerSearchReadBatchRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxServerSearchReadBatchRequest {
@@ -1629,7 +1629,7 @@ impl windows_core::RuntimeName for EmailMailboxServerSearchReadBatchRequest {
 unsafe impl Send for EmailMailboxServerSearchReadBatchRequest {}
 unsafe impl Sync for EmailMailboxServerSearchReadBatchRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxServerSearchReadBatchRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxServerSearchReadBatchRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxServerSearchReadBatchRequestEventArgs {
@@ -1661,7 +1661,7 @@ impl windows_core::RuntimeName for EmailMailboxServerSearchReadBatchRequestEvent
 unsafe impl Send for EmailMailboxServerSearchReadBatchRequestEventArgs {}
 unsafe impl Sync for EmailMailboxServerSearchReadBatchRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxSetAutoReplySettingsRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxSetAutoReplySettingsRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxSetAutoReplySettingsRequest {
@@ -1707,7 +1707,7 @@ impl windows_core::RuntimeName for EmailMailboxSetAutoReplySettingsRequest {
 unsafe impl Send for EmailMailboxSetAutoReplySettingsRequest {}
 unsafe impl Sync for EmailMailboxSetAutoReplySettingsRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxSetAutoReplySettingsRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxSetAutoReplySettingsRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxSetAutoReplySettingsRequestEventArgs {
@@ -1739,7 +1739,7 @@ impl windows_core::RuntimeName for EmailMailboxSetAutoReplySettingsRequestEventA
 unsafe impl Send for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
 unsafe impl Sync for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxSyncManagerSyncRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxSyncManagerSyncRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxSyncManagerSyncRequest {
@@ -1778,7 +1778,7 @@ impl windows_core::RuntimeName for EmailMailboxSyncManagerSyncRequest {
 unsafe impl Send for EmailMailboxSyncManagerSyncRequest {}
 unsafe impl Sync for EmailMailboxSyncManagerSyncRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxSyncManagerSyncRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxSyncManagerSyncRequestEventArgs {
@@ -1810,7 +1810,7 @@ impl windows_core::RuntimeName for EmailMailboxSyncManagerSyncRequestEventArgs {
 unsafe impl Send for EmailMailboxSyncManagerSyncRequestEventArgs {}
 unsafe impl Sync for EmailMailboxSyncManagerSyncRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxUpdateMeetingResponseRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxUpdateMeetingResponseRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxUpdateMeetingResponseRequest {
@@ -1884,7 +1884,7 @@ impl windows_core::RuntimeName for EmailMailboxUpdateMeetingResponseRequest {
 unsafe impl Send for EmailMailboxUpdateMeetingResponseRequest {}
 unsafe impl Sync for EmailMailboxUpdateMeetingResponseRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxUpdateMeetingResponseRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxUpdateMeetingResponseRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxUpdateMeetingResponseRequestEventArgs {
@@ -1916,7 +1916,7 @@ impl windows_core::RuntimeName for EmailMailboxUpdateMeetingResponseRequestEvent
 unsafe impl Send for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
 unsafe impl Sync for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxValidateCertificatesRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxValidateCertificatesRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxValidateCertificatesRequest {
@@ -1967,7 +1967,7 @@ impl windows_core::RuntimeName for EmailMailboxValidateCertificatesRequest {
 unsafe impl Send for EmailMailboxValidateCertificatesRequest {}
 unsafe impl Sync for EmailMailboxValidateCertificatesRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxValidateCertificatesRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxValidateCertificatesRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxValidateCertificatesRequestEventArgs {

@@ -56,7 +56,7 @@ impl windows_core::RuntimeName for PlatformTelemetryClient {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryClient";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformTelemetryRegistrationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlatformTelemetryRegistrationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PlatformTelemetryRegistrationResult {
@@ -81,7 +81,7 @@ impl windows_core::RuntimeName for PlatformTelemetryRegistrationResult {
 unsafe impl Send for PlatformTelemetryRegistrationResult {}
 unsafe impl Sync for PlatformTelemetryRegistrationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformTelemetryRegistrationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlatformTelemetryRegistrationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl PlatformTelemetryRegistrationSettings {

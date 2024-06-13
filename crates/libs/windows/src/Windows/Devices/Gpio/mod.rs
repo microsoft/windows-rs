@@ -122,7 +122,7 @@ pub struct IGpioPinValueChangedEventArgs_Vtbl {
     pub Edge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GpioPinEdge) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioChangeCounter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioChangeCounter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioChangeCounter, super::super::Foundation::IClosable);
@@ -199,7 +199,7 @@ impl windows_core::RuntimeName for GpioChangeCounter {
 unsafe impl Send for GpioChangeCounter {}
 unsafe impl Sync for GpioChangeCounter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioChangeReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioChangeReader, super::super::Foundation::IClosable);
@@ -332,7 +332,7 @@ impl windows_core::RuntimeName for GpioChangeReader {
 unsafe impl Send for GpioChangeReader {}
 unsafe impl Sync for GpioChangeReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioController, windows_core::IUnknown, windows_core::IInspectable);
 impl GpioController {
@@ -410,7 +410,7 @@ impl windows_core::RuntimeName for GpioController {
 unsafe impl Send for GpioController {}
 unsafe impl Sync for GpioController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioPin(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioPin, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioPin, super::super::Foundation::IClosable);
@@ -501,7 +501,7 @@ impl windows_core::RuntimeName for GpioPin {
 unsafe impl Send for GpioPin {}
 unsafe impl Sync for GpioPin {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioPinValueChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioPinValueChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GpioPinValueChangedEventArgs {

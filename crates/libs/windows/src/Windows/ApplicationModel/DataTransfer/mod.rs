@@ -794,7 +794,7 @@ impl windows_core::RuntimeName for Clipboard {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.Clipboard";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClipboardContentOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClipboardContentOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl ClipboardContentOptions {
@@ -857,7 +857,7 @@ impl windows_core::RuntimeName for ClipboardContentOptions {
 unsafe impl Send for ClipboardContentOptions {}
 unsafe impl Sync for ClipboardContentOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClipboardHistoryChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClipboardHistoryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ClipboardHistoryChangedEventArgs {}
@@ -874,7 +874,7 @@ impl windows_core::RuntimeName for ClipboardHistoryChangedEventArgs {
 unsafe impl Send for ClipboardHistoryChangedEventArgs {}
 unsafe impl Sync for ClipboardHistoryChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClipboardHistoryItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClipboardHistoryItem, windows_core::IUnknown, windows_core::IInspectable);
 impl ClipboardHistoryItem {
@@ -913,7 +913,7 @@ impl windows_core::RuntimeName for ClipboardHistoryItem {
 unsafe impl Send for ClipboardHistoryItem {}
 unsafe impl Sync for ClipboardHistoryItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClipboardHistoryItemsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClipboardHistoryItemsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ClipboardHistoryItemsResult {
@@ -946,7 +946,7 @@ impl windows_core::RuntimeName for ClipboardHistoryItemsResult {
 unsafe impl Send for ClipboardHistoryItemsResult {}
 unsafe impl Sync for ClipboardHistoryItemsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataPackage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPackage, windows_core::IUnknown, windows_core::IInspectable);
 impl DataPackage {
@@ -1132,7 +1132,7 @@ impl windows_core::RuntimeName for DataPackage {
 unsafe impl Send for DataPackage {}
 unsafe impl Sync for DataPackage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataPackagePropertySet(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPackagePropertySet, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1390,7 +1390,7 @@ impl IntoIterator for &DataPackagePropertySet {
 unsafe impl Send for DataPackagePropertySet {}
 unsafe impl Sync for DataPackagePropertySet {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataPackagePropertySetView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPackagePropertySetView, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1565,7 +1565,7 @@ impl IntoIterator for &DataPackagePropertySetView {
 unsafe impl Send for DataPackagePropertySetView {}
 unsafe impl Sync for DataPackagePropertySetView {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataPackageView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPackageView, windows_core::IUnknown, windows_core::IInspectable);
 impl DataPackageView {
@@ -1725,7 +1725,7 @@ impl windows_core::RuntimeName for DataPackageView {
 unsafe impl Send for DataPackageView {}
 unsafe impl Sync for DataPackageView {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataProviderDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataProviderDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl DataProviderDeferral {
@@ -1747,7 +1747,7 @@ impl windows_core::RuntimeName for DataProviderDeferral {
 unsafe impl Send for DataProviderDeferral {}
 unsafe impl Sync for DataProviderDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataProviderRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataProviderRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl DataProviderRequest {
@@ -1793,7 +1793,7 @@ impl windows_core::RuntimeName for DataProviderRequest {
 unsafe impl Send for DataProviderRequest {}
 unsafe impl Sync for DataProviderRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl DataRequest {
@@ -1843,7 +1843,7 @@ impl windows_core::RuntimeName for DataRequest {
 unsafe impl Send for DataRequest {}
 unsafe impl Sync for DataRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataRequestDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl DataRequestDeferral {
@@ -1865,7 +1865,7 @@ impl windows_core::RuntimeName for DataRequestDeferral {
 unsafe impl Send for DataRequestDeferral {}
 unsafe impl Sync for DataRequestDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DataRequestedEventArgs {
@@ -1890,7 +1890,7 @@ impl windows_core::RuntimeName for DataRequestedEventArgs {
 unsafe impl Send for DataRequestedEventArgs {}
 unsafe impl Sync for DataRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataTransferManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataTransferManager, windows_core::IUnknown, windows_core::IInspectable);
 impl DataTransferManager {
@@ -2007,7 +2007,7 @@ impl windows_core::RuntimeName for HtmlFormatHelper {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.HtmlFormatHelper";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OperationCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OperationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl OperationCompletedEventArgs {
@@ -2039,7 +2039,7 @@ impl windows_core::RuntimeName for OperationCompletedEventArgs {
 unsafe impl Send for OperationCompletedEventArgs {}
 unsafe impl Sync for OperationCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareCompletedEventArgs {
@@ -2064,7 +2064,7 @@ impl windows_core::RuntimeName for ShareCompletedEventArgs {
 unsafe impl Send for ShareCompletedEventArgs {}
 unsafe impl Sync for ShareCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareProvider {
@@ -2135,7 +2135,7 @@ impl windows_core::RuntimeName for ShareProvider {
 unsafe impl Send for ShareProvider {}
 unsafe impl Sync for ShareProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareProviderOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareProviderOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareProviderOperation {
@@ -2171,7 +2171,7 @@ impl windows_core::RuntimeName for ShareProviderOperation {
 unsafe impl Send for ShareProviderOperation {}
 unsafe impl Sync for ShareProviderOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareProvidersRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareProvidersRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareProvidersRequestedEventArgs {
@@ -2211,7 +2211,7 @@ impl windows_core::RuntimeName for ShareProvidersRequestedEventArgs {
 unsafe impl Send for ShareProvidersRequestedEventArgs {}
 unsafe impl Sync for ShareProvidersRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareTargetInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareTargetInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareTargetInfo {
@@ -2243,7 +2243,7 @@ impl windows_core::RuntimeName for ShareTargetInfo {
 unsafe impl Send for ShareTargetInfo {}
 unsafe impl Sync for ShareTargetInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareUIOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareUIOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareUIOptions {
@@ -2400,7 +2400,7 @@ impl windows_core::RuntimeName for StandardDataFormats {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.StandardDataFormats";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetApplicationChosenEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetApplicationChosenEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetApplicationChosenEventArgs {

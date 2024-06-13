@@ -564,7 +564,7 @@ pub struct ISoftwareBitmapStatics_Vtbl {
     CreateCopyWithAlphaFromSurfaceAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapBuffer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapBuffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapBuffer, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -608,7 +608,7 @@ impl windows_core::RuntimeName for BitmapBuffer {
 unsafe impl Send for BitmapBuffer {}
 unsafe impl Sync for BitmapBuffer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapCodecInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapCodecInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl BitmapCodecInformation {
@@ -656,7 +656,7 @@ impl windows_core::RuntimeName for BitmapCodecInformation {
 unsafe impl Send for BitmapCodecInformation {}
 unsafe impl Sync for BitmapCodecInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapDecoder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapDecoder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapDecoder, IBitmapFrame, IBitmapFrameWithSoftwareBitmap);
@@ -914,7 +914,7 @@ impl windows_core::RuntimeName for BitmapDecoder {
 unsafe impl Send for BitmapDecoder {}
 unsafe impl Sync for BitmapDecoder {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapEncoder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapEncoder, windows_core::IUnknown, windows_core::IInspectable);
 impl BitmapEncoder {
@@ -1129,7 +1129,7 @@ impl windows_core::RuntimeName for BitmapEncoder {
 unsafe impl Send for BitmapEncoder {}
 unsafe impl Sync for BitmapEncoder {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapFrame, IBitmapFrame, IBitmapFrameWithSoftwareBitmap);
@@ -1260,7 +1260,7 @@ impl windows_core::RuntimeName for BitmapFrame {
 unsafe impl Send for BitmapFrame {}
 unsafe impl Sync for BitmapFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapProperties, IBitmapPropertiesView);
@@ -1301,7 +1301,7 @@ impl windows_core::RuntimeName for BitmapProperties {
 unsafe impl Send for BitmapProperties {}
 unsafe impl Sync for BitmapProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapPropertiesView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapPropertiesView, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapPropertiesView, IBitmapPropertiesView);
@@ -1332,7 +1332,7 @@ unsafe impl Send for BitmapPropertiesView {}
 unsafe impl Sync for BitmapPropertiesView {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapPropertySet(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(BitmapPropertySet, windows_core::IUnknown, windows_core::IInspectable);
@@ -1443,7 +1443,7 @@ unsafe impl Send for BitmapPropertySet {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for BitmapPropertySet {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapTransform(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapTransform, windows_core::IUnknown, windows_core::IInspectable);
 impl BitmapTransform {
@@ -1534,7 +1534,7 @@ impl windows_core::RuntimeName for BitmapTransform {
 unsafe impl Send for BitmapTransform {}
 unsafe impl Sync for BitmapTransform {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapTypedValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapTypedValue, windows_core::IUnknown, windows_core::IInspectable);
 impl BitmapTypedValue {
@@ -1581,7 +1581,7 @@ unsafe impl Send for BitmapTypedValue {}
 unsafe impl Sync for BitmapTypedValue {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageStream(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(ImageStream, windows_core::IUnknown, windows_core::IInspectable);
@@ -1716,7 +1716,7 @@ unsafe impl Send for ImageStream {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl Sync for ImageStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PixelDataProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PixelDataProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl PixelDataProvider {
@@ -1741,7 +1741,7 @@ impl windows_core::RuntimeName for PixelDataProvider {
 unsafe impl Send for PixelDataProvider {}
 unsafe impl Sync for PixelDataProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SoftwareBitmap(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SoftwareBitmap, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SoftwareBitmap, super::super::Foundation::IClosable);

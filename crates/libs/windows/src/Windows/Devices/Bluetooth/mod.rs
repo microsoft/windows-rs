@@ -528,7 +528,7 @@ pub struct IBluetoothUuidHelperStatics_Vtbl {
     pub TryGetShortId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothAdapter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothAdapter, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothAdapter {
@@ -654,7 +654,7 @@ impl windows_core::RuntimeName for BluetoothAdapter {
 unsafe impl Send for BluetoothAdapter {}
 unsafe impl Sync for BluetoothAdapter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothClassOfDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothClassOfDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothClassOfDevice {
@@ -717,7 +717,7 @@ impl windows_core::RuntimeName for BluetoothClassOfDevice {
 unsafe impl Send for BluetoothClassOfDevice {}
 unsafe impl Sync for BluetoothClassOfDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothDevice, super::super::Foundation::IClosable);
@@ -988,7 +988,7 @@ impl windows_core::RuntimeName for BluetoothDevice {
 unsafe impl Send for BluetoothDevice {}
 unsafe impl Sync for BluetoothDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothDeviceId(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothDeviceId, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothDeviceId {
@@ -1038,7 +1038,7 @@ impl windows_core::RuntimeName for BluetoothDeviceId {
 unsafe impl Send for BluetoothDeviceId {}
 unsafe impl Sync for BluetoothDeviceId {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAppearance(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAppearance, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAppearance {
@@ -1416,7 +1416,7 @@ impl windows_core::RuntimeName for BluetoothLEAppearanceSubcategories {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearanceSubcategories";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEConnectionParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEConnectionParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEConnectionParameters {
@@ -1455,7 +1455,7 @@ impl windows_core::RuntimeName for BluetoothLEConnectionParameters {
 unsafe impl Send for BluetoothLEConnectionParameters {}
 unsafe impl Sync for BluetoothLEConnectionParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEConnectionPhy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEConnectionPhy, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEConnectionPhy {
@@ -1487,7 +1487,7 @@ impl windows_core::RuntimeName for BluetoothLEConnectionPhy {
 unsafe impl Send for BluetoothLEConnectionPhy {}
 unsafe impl Sync for BluetoothLEConnectionPhy {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEConnectionPhyInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEConnectionPhyInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEConnectionPhyInfo {
@@ -1526,7 +1526,7 @@ impl windows_core::RuntimeName for BluetoothLEConnectionPhyInfo {
 unsafe impl Send for BluetoothLEConnectionPhyInfo {}
 unsafe impl Sync for BluetoothLEConnectionPhyInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEDevice, super::super::Foundation::IClosable);
@@ -1844,7 +1844,7 @@ impl windows_core::RuntimeName for BluetoothLEDevice {
 unsafe impl Send for BluetoothLEDevice {}
 unsafe impl Sync for BluetoothLEDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEPreferredConnectionParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEPreferredConnectionParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEPreferredConnectionParameters {
@@ -1913,7 +1913,7 @@ impl windows_core::RuntimeName for BluetoothLEPreferredConnectionParameters {
 unsafe impl Send for BluetoothLEPreferredConnectionParameters {}
 unsafe impl Sync for BluetoothLEPreferredConnectionParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEPreferredConnectionParametersRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEPreferredConnectionParametersRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEPreferredConnectionParametersRequest, super::super::Foundation::IClosable);
@@ -1943,7 +1943,7 @@ impl windows_core::RuntimeName for BluetoothLEPreferredConnectionParametersReque
 unsafe impl Send for BluetoothLEPreferredConnectionParametersRequest {}
 unsafe impl Sync for BluetoothLEPreferredConnectionParametersRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothSignalStrengthFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothSignalStrengthFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothSignalStrengthFilter {

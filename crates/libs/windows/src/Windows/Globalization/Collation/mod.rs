@@ -27,7 +27,7 @@ pub struct ICharacterGroupingsFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CharacterGrouping(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CharacterGrouping, windows_core::IUnknown, windows_core::IInspectable);
 impl CharacterGrouping {
@@ -59,7 +59,7 @@ impl windows_core::RuntimeName for CharacterGrouping {
 unsafe impl Send for CharacterGrouping {}
 unsafe impl Sync for CharacterGrouping {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CharacterGroupings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CharacterGroupings, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]

@@ -104,7 +104,7 @@ impl windows_core::RuntimeName for CredentialPicker {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPicker";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CredentialPickerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CredentialPickerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl CredentialPickerOptions {
@@ -242,7 +242,7 @@ impl windows_core::RuntimeName for CredentialPickerOptions {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerOptions";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CredentialPickerResults(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CredentialPickerResults, windows_core::IUnknown, windows_core::IInspectable);
 impl CredentialPickerResults {

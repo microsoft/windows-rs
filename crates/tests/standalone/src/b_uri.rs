@@ -6,7 +6,7 @@
     clippy::all
 )]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IIterable<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -79,7 +79,7 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IIterator<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -383,7 +383,7 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     ) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IVectorView<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -646,7 +646,7 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Uri(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Uri, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Uri, IStringable);
@@ -964,7 +964,7 @@ impl windows_core::RuntimeName for Uri {
 unsafe impl Send for Uri {}
 unsafe impl Sync for Uri {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WwwFormUrlDecoder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     WwwFormUrlDecoder,

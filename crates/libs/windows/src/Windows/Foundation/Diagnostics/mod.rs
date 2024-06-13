@@ -722,7 +722,7 @@ impl windows_core::RuntimeName for AsyncCausalityTracer {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.AsyncCausalityTracer";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ErrorDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ErrorDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl ErrorDetails {
@@ -772,7 +772,7 @@ impl windows_core::RuntimeName for ErrorDetails {
 unsafe impl Send for ErrorDetails {}
 unsafe impl Sync for ErrorDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileLoggingSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileLoggingSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileLoggingSession, super::IClosable, IFileLoggingSession);
@@ -856,7 +856,7 @@ impl windows_core::RuntimeName for FileLoggingSession {
 unsafe impl Send for FileLoggingSession {}
 unsafe impl Sync for FileLoggingSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LogFileGeneratedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LogFileGeneratedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LogFileGeneratedEventArgs {
@@ -882,7 +882,7 @@ impl windows_core::RuntimeName for LogFileGeneratedEventArgs {
 unsafe impl Send for LogFileGeneratedEventArgs {}
 unsafe impl Sync for LogFileGeneratedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingActivity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LoggingActivity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LoggingActivity, super::IClosable, ILoggingTarget);
@@ -1053,7 +1053,7 @@ impl windows_core::RuntimeName for LoggingActivity {
 unsafe impl Send for LoggingActivity {}
 unsafe impl Sync for LoggingActivity {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingChannel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LoggingChannel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LoggingChannel, super::IClosable, ILoggingChannel, ILoggingTarget);
@@ -1254,7 +1254,7 @@ impl windows_core::RuntimeName for LoggingChannel {
 unsafe impl Send for LoggingChannel {}
 unsafe impl Sync for LoggingChannel {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingChannelOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LoggingChannelOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl LoggingChannelOptions {
@@ -1301,7 +1301,7 @@ impl windows_core::RuntimeName for LoggingChannelOptions {
 unsafe impl Send for LoggingChannelOptions {}
 unsafe impl Sync for LoggingChannelOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingFields(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LoggingFields, windows_core::IUnknown, windows_core::IInspectable);
 impl LoggingFields {
@@ -1786,7 +1786,7 @@ impl windows_core::RuntimeName for LoggingFields {
 unsafe impl Send for LoggingFields {}
 unsafe impl Sync for LoggingFields {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LoggingOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl LoggingOptions {
@@ -1888,7 +1888,7 @@ impl windows_core::RuntimeName for LoggingOptions {
 unsafe impl Send for LoggingOptions {}
 unsafe impl Sync for LoggingOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LoggingSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LoggingSession, super::IClosable, ILoggingSession);
@@ -1961,7 +1961,7 @@ impl windows_core::RuntimeName for LoggingSession {
 unsafe impl Send for LoggingSession {}
 unsafe impl Sync for LoggingSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RuntimeBrokerErrorSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RuntimeBrokerErrorSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RuntimeBrokerErrorSettings, IErrorReportingSettings);
@@ -1998,7 +1998,7 @@ impl windows_core::RuntimeName for RuntimeBrokerErrorSettings {
 unsafe impl Send for RuntimeBrokerErrorSettings {}
 unsafe impl Sync for RuntimeBrokerErrorSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TracingStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TracingStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TracingStatusChangedEventArgs {

@@ -55,7 +55,7 @@ pub struct IHdmiDisplayMode2_Vtbl {
     pub IsDolbyVisionLowLatencySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HdmiDisplayInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HdmiDisplayInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl HdmiDisplayInformation {
@@ -150,7 +150,7 @@ impl windows_core::RuntimeName for HdmiDisplayInformation {
 unsafe impl Send for HdmiDisplayInformation {}
 unsafe impl Sync for HdmiDisplayInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HdmiDisplayMode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HdmiDisplayMode, windows_core::IUnknown, windows_core::IInspectable);
 impl HdmiDisplayMode {

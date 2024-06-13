@@ -63,7 +63,7 @@ pub struct ISearchSuggestionsRequestedEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RequestingFocusOnKeyboardInputEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RequestingFocusOnKeyboardInputEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RequestingFocusOnKeyboardInputEventArgs {}
@@ -80,7 +80,7 @@ impl windows_core::RuntimeName for RequestingFocusOnKeyboardInputEventArgs {
 unsafe impl Send for RequestingFocusOnKeyboardInputEventArgs {}
 unsafe impl Sync for RequestingFocusOnKeyboardInputEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestion, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestion {
@@ -139,7 +139,7 @@ impl windows_core::RuntimeName for SearchSuggestion {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestion";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestionManager {
@@ -254,7 +254,7 @@ impl windows_core::RuntimeName for SearchSuggestionManager {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestionManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionsRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestionsRequestedEventArgs {

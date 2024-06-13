@@ -1800,7 +1800,7 @@ pub struct ITextSelection_Vtbl {
     pub TypeText: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContentLinkInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContentLinkInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl ContentLinkInfo {
@@ -1883,7 +1883,7 @@ impl windows_core::RuntimeName for ContentLinkInfo {
 unsafe impl Send for ContentLinkInfo {}
 unsafe impl Sync for ContentLinkInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FontWeights(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FontWeights, windows_core::IUnknown, windows_core::IInspectable);
 impl FontWeights {
@@ -1972,7 +1972,7 @@ impl windows_core::RuntimeName for FontWeights {
 unsafe impl Send for FontWeights {}
 unsafe impl Sync for FontWeights {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RichEditTextDocument(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RichEditTextDocument, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RichEditTextDocument, ITextDocument);
@@ -2193,7 +2193,7 @@ impl windows_core::RuntimeName for RichEditTextDocument {
 unsafe impl Send for RichEditTextDocument {}
 unsafe impl Sync for RichEditTextDocument {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RichEditTextRange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RichEditTextRange, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RichEditTextRange, ITextRange);

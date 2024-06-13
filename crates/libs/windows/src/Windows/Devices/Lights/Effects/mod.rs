@@ -256,7 +256,7 @@ pub struct ILampArrayUpdateRequestedEventArgs_Vtbl {
     SetColorsForIndices: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayBitmapEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayBitmapEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayBitmapEffect, ILampArrayEffect);
@@ -354,7 +354,7 @@ impl windows_core::RuntimeName for LampArrayBitmapEffect {
 unsafe impl Send for LampArrayBitmapEffect {}
 unsafe impl Sync for LampArrayBitmapEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayBitmapRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayBitmapRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LampArrayBitmapRequestedEventArgs {
@@ -387,7 +387,7 @@ impl windows_core::RuntimeName for LampArrayBitmapRequestedEventArgs {
 unsafe impl Send for LampArrayBitmapRequestedEventArgs {}
 unsafe impl Sync for LampArrayBitmapRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayBlinkEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayBlinkEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayBlinkEffect, ILampArrayEffect);
@@ -521,7 +521,7 @@ impl windows_core::RuntimeName for LampArrayBlinkEffect {
 unsafe impl Send for LampArrayBlinkEffect {}
 unsafe impl Sync for LampArrayBlinkEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayColorRampEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayColorRampEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayColorRampEffect, ILampArrayEffect);
@@ -611,7 +611,7 @@ impl windows_core::RuntimeName for LampArrayColorRampEffect {
 unsafe impl Send for LampArrayColorRampEffect {}
 unsafe impl Sync for LampArrayColorRampEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayCustomEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayCustomEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayCustomEffect, ILampArrayEffect);
@@ -691,7 +691,7 @@ impl windows_core::RuntimeName for LampArrayCustomEffect {
 unsafe impl Send for LampArrayCustomEffect {}
 unsafe impl Sync for LampArrayCustomEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayEffectPlaylist(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayEffectPlaylist, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -859,7 +859,7 @@ impl IntoIterator for &LampArrayEffectPlaylist {
 unsafe impl Send for LampArrayEffectPlaylist {}
 unsafe impl Sync for LampArrayEffectPlaylist {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArraySolidEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArraySolidEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArraySolidEffect, ILampArrayEffect);
@@ -949,7 +949,7 @@ impl windows_core::RuntimeName for LampArraySolidEffect {
 unsafe impl Send for LampArraySolidEffect {}
 unsafe impl Sync for LampArraySolidEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayUpdateRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayUpdateRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LampArrayUpdateRequestedEventArgs {

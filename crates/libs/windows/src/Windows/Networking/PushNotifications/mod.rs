@@ -151,7 +151,7 @@ pub struct IRawNotification3_Vtbl {
     ContentBytes: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationChannel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PushNotificationChannel, windows_core::IUnknown, windows_core::IInspectable);
 impl PushNotificationChannel {
@@ -273,7 +273,7 @@ impl windows_core::RuntimeName for PushNotificationChannelManager {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationChannelManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PushNotificationChannelManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl PushNotificationChannelManagerForUser {
@@ -342,7 +342,7 @@ impl windows_core::RuntimeName for PushNotificationChannelManagerForUser {
 unsafe impl Send for PushNotificationChannelManagerForUser {}
 unsafe impl Sync for PushNotificationChannelManagerForUser {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationChannelsRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PushNotificationChannelsRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PushNotificationChannelsRevokedEventArgs {}
@@ -359,7 +359,7 @@ impl windows_core::RuntimeName for PushNotificationChannelsRevokedEventArgs {
 unsafe impl Send for PushNotificationChannelsRevokedEventArgs {}
 unsafe impl Sync for PushNotificationChannelsRevokedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PushNotificationReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PushNotificationReceivedEventArgs {
@@ -426,7 +426,7 @@ impl windows_core::RuntimeName for PushNotificationReceivedEventArgs {
 unsafe impl Send for PushNotificationReceivedEventArgs {}
 unsafe impl Sync for PushNotificationReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RawNotification(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RawNotification, windows_core::IUnknown, windows_core::IInspectable);
 impl RawNotification {

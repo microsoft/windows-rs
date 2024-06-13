@@ -206,7 +206,7 @@ pub struct IUserDataTaskStore_Vtbl {
     pub GetListAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTask(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTask, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTask {
@@ -402,7 +402,7 @@ impl windows_core::RuntimeName for UserDataTask {
 unsafe impl Send for UserDataTask {}
 unsafe impl Sync for UserDataTask {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskBatch, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskBatch {
@@ -428,7 +428,7 @@ impl windows_core::RuntimeName for UserDataTaskBatch {
 unsafe impl Send for UserDataTaskBatch {}
 unsafe impl Sync for UserDataTaskBatch {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskList(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskList, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskList {
@@ -576,7 +576,7 @@ impl windows_core::RuntimeName for UserDataTaskList {
 unsafe impl Send for UserDataTaskList {}
 unsafe impl Sync for UserDataTaskList {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListLimitedWriteOperations(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListLimitedWriteOperations, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListLimitedWriteOperations {
@@ -625,7 +625,7 @@ impl windows_core::RuntimeName for UserDataTaskListLimitedWriteOperations {
 unsafe impl Send for UserDataTaskListLimitedWriteOperations {}
 unsafe impl Sync for UserDataTaskListLimitedWriteOperations {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSyncManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListSyncManager, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListSyncManager {
@@ -697,7 +697,7 @@ impl windows_core::RuntimeName for UserDataTaskListSyncManager {
 unsafe impl Send for UserDataTaskListSyncManager {}
 unsafe impl Sync for UserDataTaskListSyncManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskManager, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskManager {
@@ -751,7 +751,7 @@ impl windows_core::RuntimeName for UserDataTaskManager {
 unsafe impl Send for UserDataTaskManager {}
 unsafe impl Sync for UserDataTaskManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskQueryOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskQueryOptions {
@@ -798,7 +798,7 @@ impl windows_core::RuntimeName for UserDataTaskQueryOptions {
 unsafe impl Send for UserDataTaskQueryOptions {}
 unsafe impl Sync for UserDataTaskQueryOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskReader, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskReader {
@@ -823,7 +823,7 @@ impl windows_core::RuntimeName for UserDataTaskReader {
 unsafe impl Send for UserDataTaskReader {}
 unsafe impl Sync for UserDataTaskReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskRecurrenceProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskRecurrenceProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskRecurrenceProperties {
@@ -954,7 +954,7 @@ impl windows_core::RuntimeName for UserDataTaskRecurrenceProperties {
 unsafe impl Send for UserDataTaskRecurrenceProperties {}
 unsafe impl Sync for UserDataTaskRecurrenceProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskRegenerationProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskRegenerationProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskRegenerationProperties {
@@ -1029,7 +1029,7 @@ impl windows_core::RuntimeName for UserDataTaskRegenerationProperties {
 unsafe impl Send for UserDataTaskRegenerationProperties {}
 unsafe impl Sync for UserDataTaskRegenerationProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskStore, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskStore {

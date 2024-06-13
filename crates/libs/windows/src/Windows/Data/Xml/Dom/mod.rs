@@ -1173,7 +1173,7 @@ pub struct IXmlText_Vtbl {
     pub SplitText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DtdEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DtdEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DtdEntity, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -1437,7 +1437,7 @@ impl windows_core::RuntimeName for DtdEntity {
 unsafe impl Send for DtdEntity {}
 unsafe impl Sync for DtdEntity {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DtdNotation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DtdNotation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DtdNotation, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -1694,7 +1694,7 @@ impl windows_core::RuntimeName for DtdNotation {
 unsafe impl Send for DtdNotation {}
 unsafe impl Sync for DtdNotation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlAttribute(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlAttribute, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlAttribute, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -1962,7 +1962,7 @@ impl windows_core::RuntimeName for XmlAttribute {
 unsafe impl Send for XmlAttribute {}
 unsafe impl Sync for XmlAttribute {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlCDataSection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlCDataSection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlCDataSection, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer, IXmlText);
@@ -2253,7 +2253,7 @@ impl windows_core::RuntimeName for XmlCDataSection {
 unsafe impl Send for XmlCDataSection {}
 unsafe impl Sync for XmlCDataSection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlComment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlComment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlComment, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -2537,7 +2537,7 @@ impl windows_core::RuntimeName for XmlComment {
 unsafe impl Send for XmlComment {}
 unsafe impl Sync for XmlComment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDocument(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlDocument, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlDocument, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -2999,7 +2999,7 @@ impl windows_core::RuntimeName for XmlDocument {
 unsafe impl Send for XmlDocument {}
 unsafe impl Sync for XmlDocument {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDocumentFragment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlDocumentFragment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlDocumentFragment, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -3242,7 +3242,7 @@ impl windows_core::RuntimeName for XmlDocumentFragment {
 unsafe impl Send for XmlDocumentFragment {}
 unsafe impl Sync for XmlDocumentFragment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDocumentType(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlDocumentType, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlDocumentType, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -3506,7 +3506,7 @@ impl windows_core::RuntimeName for XmlDocumentType {
 unsafe impl Send for XmlDocumentType {}
 unsafe impl Sync for XmlDocumentType {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDomImplementation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlDomImplementation, windows_core::IUnknown, windows_core::IInspectable);
 impl XmlDomImplementation {
@@ -3534,7 +3534,7 @@ impl windows_core::RuntimeName for XmlDomImplementation {
 unsafe impl Send for XmlDomImplementation {}
 unsafe impl Sync for XmlDomImplementation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlElement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlElement, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlElement, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -3877,7 +3877,7 @@ impl windows_core::RuntimeName for XmlElement {
 unsafe impl Send for XmlElement {}
 unsafe impl Sync for XmlElement {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlEntityReference(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlEntityReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlEntityReference, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -4120,7 +4120,7 @@ impl windows_core::RuntimeName for XmlEntityReference {
 unsafe impl Send for XmlEntityReference {}
 unsafe impl Sync for XmlEntityReference {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlLoadSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlLoadSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl XmlLoadSettings {
@@ -4200,7 +4200,7 @@ impl windows_core::RuntimeName for XmlLoadSettings {
 unsafe impl Send for XmlLoadSettings {}
 unsafe impl Sync for XmlLoadSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlNamedNodeMap(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlNamedNodeMap, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -4347,7 +4347,7 @@ impl IntoIterator for &XmlNamedNodeMap {
 unsafe impl Send for XmlNamedNodeMap {}
 unsafe impl Sync for XmlNamedNodeMap {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlNodeList(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlNodeList, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -4440,7 +4440,7 @@ impl IntoIterator for &XmlNodeList {
 unsafe impl Send for XmlNodeList {}
 unsafe impl Sync for XmlNodeList {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlProcessingInstruction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlProcessingInstruction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlProcessingInstruction, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -4701,7 +4701,7 @@ impl windows_core::RuntimeName for XmlProcessingInstruction {
 unsafe impl Send for XmlProcessingInstruction {}
 unsafe impl Sync for XmlProcessingInstruction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlText(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlText, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlText, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer, IXmlText);

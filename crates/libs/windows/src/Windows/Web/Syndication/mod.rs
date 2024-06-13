@@ -697,7 +697,7 @@ pub struct ISyndicationTextFactory_Vtbl {
     pub CreateSyndicationTextEx: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, SyndicationTextType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationAttribute(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationAttribute, windows_core::IUnknown, windows_core::IInspectable);
 impl SyndicationAttribute {
@@ -766,7 +766,7 @@ impl windows_core::RuntimeName for SyndicationAttribute {
 unsafe impl Send for SyndicationAttribute {}
 unsafe impl Sync for SyndicationAttribute {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationCategory(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationCategory, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationCategory, ISyndicationNode);
@@ -924,7 +924,7 @@ impl windows_core::RuntimeName for SyndicationCategory {
 unsafe impl Send for SyndicationCategory {}
 unsafe impl Sync for SyndicationCategory {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationClient(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationClient, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationClient, ISyndicationClient);
@@ -1044,7 +1044,7 @@ impl windows_core::RuntimeName for SyndicationClient {
 unsafe impl Send for SyndicationClient {}
 unsafe impl Sync for SyndicationClient {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationContent, ISyndicationNode, ISyndicationText);
@@ -1241,7 +1241,7 @@ impl windows_core::RuntimeName for SyndicationError {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationError";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationFeed(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationFeed, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationFeed, ISyndicationNode);
@@ -1556,7 +1556,7 @@ impl windows_core::RuntimeName for SyndicationFeed {
 unsafe impl Send for SyndicationFeed {}
 unsafe impl Sync for SyndicationFeed {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationGenerator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationGenerator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationGenerator, ISyndicationNode);
@@ -1711,7 +1711,7 @@ impl windows_core::RuntimeName for SyndicationGenerator {
 unsafe impl Send for SyndicationGenerator {}
 unsafe impl Sync for SyndicationGenerator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationItem, ISyndicationNode);
@@ -2023,7 +2023,7 @@ impl windows_core::RuntimeName for SyndicationItem {
 unsafe impl Send for SyndicationItem {}
 unsafe impl Sync for SyndicationItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationLink(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationLink, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationLink, ISyndicationNode);
@@ -2223,7 +2223,7 @@ impl windows_core::RuntimeName for SyndicationLink {
 unsafe impl Send for SyndicationLink {}
 unsafe impl Sync for SyndicationLink {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationNode, ISyndicationNode);
@@ -2342,7 +2342,7 @@ impl windows_core::RuntimeName for SyndicationNode {
 unsafe impl Send for SyndicationNode {}
 unsafe impl Sync for SyndicationNode {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationPerson(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationPerson, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationPerson, ISyndicationNode);
@@ -2506,7 +2506,7 @@ impl windows_core::RuntimeName for SyndicationPerson {
 unsafe impl Send for SyndicationPerson {}
 unsafe impl Sync for SyndicationPerson {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationText(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationText, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationText, ISyndicationNode, ISyndicationText);

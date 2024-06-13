@@ -59,7 +59,7 @@ impl windows_core::RuntimeName for DeviceLockdownProfile {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfile";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceLockdownProfileInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceLockdownProfileInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceLockdownProfileInformation {

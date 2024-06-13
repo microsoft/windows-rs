@@ -21,7 +21,7 @@ pub struct IRemoteTextConnectionFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteTextConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteTextConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteTextConnection, super::super::super::Foundation::IClosable);

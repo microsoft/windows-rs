@@ -259,7 +259,7 @@ pub struct ICoreTextTextUpdatingEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextCompositionCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextCompositionCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextCompositionCompletedEventArgs {
@@ -299,7 +299,7 @@ impl windows_core::RuntimeName for CoreTextCompositionCompletedEventArgs {
 unsafe impl Send for CoreTextCompositionCompletedEventArgs {}
 unsafe impl Sync for CoreTextCompositionCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextCompositionSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextCompositionSegment, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextCompositionSegment {
@@ -331,7 +331,7 @@ impl windows_core::RuntimeName for CoreTextCompositionSegment {
 unsafe impl Send for CoreTextCompositionSegment {}
 unsafe impl Sync for CoreTextCompositionSegment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextCompositionStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextCompositionStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextCompositionStartedEventArgs {
@@ -363,7 +363,7 @@ impl windows_core::RuntimeName for CoreTextCompositionStartedEventArgs {
 unsafe impl Send for CoreTextCompositionStartedEventArgs {}
 unsafe impl Sync for CoreTextCompositionStartedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextEditContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextEditContext, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextEditContext {
@@ -585,7 +585,7 @@ impl windows_core::RuntimeName for CoreTextEditContext {
 unsafe impl Send for CoreTextEditContext {}
 unsafe impl Sync for CoreTextEditContext {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextFormatUpdatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextFormatUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextFormatUpdatingEventArgs {
@@ -673,7 +673,7 @@ impl windows_core::RuntimeName for CoreTextFormatUpdatingEventArgs {
 unsafe impl Send for CoreTextFormatUpdatingEventArgs {}
 unsafe impl Sync for CoreTextFormatUpdatingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextLayoutBounds(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextLayoutBounds, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextLayoutBounds {
@@ -713,7 +713,7 @@ impl windows_core::RuntimeName for CoreTextLayoutBounds {
 unsafe impl Send for CoreTextLayoutBounds {}
 unsafe impl Sync for CoreTextLayoutBounds {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextLayoutRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextLayoutRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextLayoutRequest {
@@ -766,7 +766,7 @@ impl windows_core::RuntimeName for CoreTextLayoutRequest {
 unsafe impl Send for CoreTextLayoutRequest {}
 unsafe impl Sync for CoreTextLayoutRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextLayoutRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextLayoutRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextLayoutRequestedEventArgs {
@@ -791,7 +791,7 @@ impl windows_core::RuntimeName for CoreTextLayoutRequestedEventArgs {
 unsafe impl Send for CoreTextLayoutRequestedEventArgs {}
 unsafe impl Sync for CoreTextLayoutRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextSelectionRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextSelectionRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextSelectionRequest {
@@ -834,7 +834,7 @@ impl windows_core::RuntimeName for CoreTextSelectionRequest {
 unsafe impl Send for CoreTextSelectionRequest {}
 unsafe impl Sync for CoreTextSelectionRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextSelectionRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextSelectionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextSelectionRequestedEventArgs {
@@ -859,7 +859,7 @@ impl windows_core::RuntimeName for CoreTextSelectionRequestedEventArgs {
 unsafe impl Send for CoreTextSelectionRequestedEventArgs {}
 unsafe impl Sync for CoreTextSelectionRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextSelectionUpdatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextSelectionUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextSelectionUpdatingEventArgs {
@@ -926,7 +926,7 @@ impl windows_core::RuntimeName for CoreTextServicesConstants {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextServicesConstants";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextServicesManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextServicesManager, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextServicesManager {
@@ -984,7 +984,7 @@ impl windows_core::RuntimeName for CoreTextServicesManager {
 unsafe impl Send for CoreTextServicesManager {}
 unsafe impl Sync for CoreTextServicesManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextTextRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextTextRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextTextRequest {
@@ -1034,7 +1034,7 @@ impl windows_core::RuntimeName for CoreTextTextRequest {
 unsafe impl Send for CoreTextTextRequest {}
 unsafe impl Sync for CoreTextTextRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextTextRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextTextRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextTextRequestedEventArgs {
@@ -1059,7 +1059,7 @@ impl windows_core::RuntimeName for CoreTextTextRequestedEventArgs {
 unsafe impl Send for CoreTextTextRequestedEventArgs {}
 unsafe impl Sync for CoreTextTextRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextTextUpdatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextTextUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreTextTextUpdatingEventArgs {

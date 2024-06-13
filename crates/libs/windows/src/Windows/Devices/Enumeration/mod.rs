@@ -481,7 +481,7 @@ pub struct IEnclosureLocation2_Vtbl {
     pub RotationAngleInDegreesClockwise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceAccessChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceAccessChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceAccessChangedEventArgs {
@@ -513,7 +513,7 @@ impl windows_core::RuntimeName for DeviceAccessChangedEventArgs {
 unsafe impl Send for DeviceAccessChangedEventArgs {}
 unsafe impl Sync for DeviceAccessChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceAccessInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceAccessInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceAccessInformation {
@@ -575,7 +575,7 @@ impl windows_core::RuntimeName for DeviceAccessInformation {
 unsafe impl Send for DeviceAccessInformation {}
 unsafe impl Sync for DeviceAccessInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceConnectionChangeTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceConnectionChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceConnectionChangeTriggerDetails {
@@ -600,7 +600,7 @@ impl windows_core::RuntimeName for DeviceConnectionChangeTriggerDetails {
 unsafe impl Send for DeviceConnectionChangeTriggerDetails {}
 unsafe impl Sync for DeviceConnectionChangeTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceDisconnectButtonClickedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceDisconnectButtonClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceDisconnectButtonClickedEventArgs {
@@ -625,7 +625,7 @@ impl windows_core::RuntimeName for DeviceDisconnectButtonClickedEventArgs {
 unsafe impl Send for DeviceDisconnectButtonClickedEventArgs {}
 unsafe impl Sync for DeviceDisconnectButtonClickedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceInformation {
@@ -845,7 +845,7 @@ unsafe impl Send for DeviceInformation {}
 unsafe impl Sync for DeviceInformation {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceInformationCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(DeviceInformationCollection, windows_core::IUnknown, windows_core::IInspectable);
@@ -931,7 +931,7 @@ unsafe impl Send for DeviceInformationCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for DeviceInformationCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceInformationCustomPairing(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceInformationCustomPairing, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceInformationCustomPairing {
@@ -987,7 +987,7 @@ impl windows_core::RuntimeName for DeviceInformationCustomPairing {
 unsafe impl Send for DeviceInformationCustomPairing {}
 unsafe impl Sync for DeviceInformationCustomPairing {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceInformationPairing(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceInformationPairing, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceInformationPairing {
@@ -1086,7 +1086,7 @@ impl windows_core::RuntimeName for DeviceInformationPairing {
 unsafe impl Send for DeviceInformationPairing {}
 unsafe impl Sync for DeviceInformationPairing {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceInformationUpdate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceInformationUpdate, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceInformationUpdate {
@@ -1126,7 +1126,7 @@ impl windows_core::RuntimeName for DeviceInformationUpdate {
 unsafe impl Send for DeviceInformationUpdate {}
 unsafe impl Sync for DeviceInformationUpdate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePairingRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePairingRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DevicePairingRequestedEventArgs {
@@ -1188,7 +1188,7 @@ impl windows_core::RuntimeName for DevicePairingRequestedEventArgs {
 unsafe impl Send for DevicePairingRequestedEventArgs {}
 unsafe impl Sync for DevicePairingRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePairingResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePairingResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DevicePairingResult {
@@ -1220,7 +1220,7 @@ impl windows_core::RuntimeName for DevicePairingResult {
 unsafe impl Send for DevicePairingResult {}
 unsafe impl Sync for DevicePairingResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePicker, windows_core::IUnknown, windows_core::IInspectable);
 impl DevicePicker {
@@ -1344,7 +1344,7 @@ impl windows_core::RuntimeName for DevicePicker {
 unsafe impl Send for DevicePicker {}
 unsafe impl Sync for DevicePicker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePickerAppearance(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePickerAppearance, windows_core::IUnknown, windows_core::IInspectable);
 impl DevicePickerAppearance {
@@ -1451,7 +1451,7 @@ impl windows_core::RuntimeName for DevicePickerAppearance {
 unsafe impl Send for DevicePickerAppearance {}
 unsafe impl Sync for DevicePickerAppearance {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePickerFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePickerFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl DevicePickerFilter {
@@ -1485,7 +1485,7 @@ impl windows_core::RuntimeName for DevicePickerFilter {
 unsafe impl Send for DevicePickerFilter {}
 unsafe impl Sync for DevicePickerFilter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceSelectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceSelectedEventArgs {
@@ -1511,7 +1511,7 @@ unsafe impl Send for DeviceSelectedEventArgs {}
 unsafe impl Sync for DeviceSelectedEventArgs {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceThumbnail(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(DeviceThumbnail, windows_core::IUnknown, windows_core::IInspectable);
@@ -1646,7 +1646,7 @@ unsafe impl Send for DeviceThumbnail {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl Sync for DeviceThumbnail {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceUnpairingResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceUnpairingResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceUnpairingResult {
@@ -1671,7 +1671,7 @@ impl windows_core::RuntimeName for DeviceUnpairingResult {
 unsafe impl Send for DeviceUnpairingResult {}
 unsafe impl Sync for DeviceUnpairingResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceWatcher {
@@ -1785,7 +1785,7 @@ impl windows_core::RuntimeName for DeviceWatcher {
 unsafe impl Send for DeviceWatcher {}
 unsafe impl Sync for DeviceWatcher {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceWatcherEvent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceWatcherEvent, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceWatcherEvent {
@@ -1824,7 +1824,7 @@ impl windows_core::RuntimeName for DeviceWatcherEvent {
 unsafe impl Send for DeviceWatcherEvent {}
 unsafe impl Sync for DeviceWatcherEvent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceWatcherTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceWatcherTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceWatcherTriggerDetails {
@@ -1850,7 +1850,7 @@ impl windows_core::RuntimeName for DeviceWatcherTriggerDetails {
 unsafe impl Send for DeviceWatcherTriggerDetails {}
 unsafe impl Sync for DeviceWatcherTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnclosureLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnclosureLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl EnclosureLocation {

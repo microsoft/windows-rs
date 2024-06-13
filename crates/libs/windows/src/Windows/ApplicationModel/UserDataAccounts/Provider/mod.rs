@@ -69,7 +69,7 @@ pub struct IUserDataAccountProviderSettingsOperation_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountPartnerAccountInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountPartnerAccountInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAccountPartnerAccountInfo {
@@ -108,7 +108,7 @@ impl windows_core::RuntimeName for UserDataAccountPartnerAccountInfo {
 unsafe impl Send for UserDataAccountPartnerAccountInfo {}
 unsafe impl Sync for UserDataAccountPartnerAccountInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderAddAccountOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderAddAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderAddAccountOperation, IUserDataAccountProviderOperation);
@@ -153,7 +153,7 @@ impl windows_core::RuntimeName for UserDataAccountProviderAddAccountOperation {
 unsafe impl Send for UserDataAccountProviderAddAccountOperation {}
 unsafe impl Sync for UserDataAccountProviderAddAccountOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderResolveErrorsOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderResolveErrorsOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderResolveErrorsOperation, IUserDataAccountProviderOperation);
@@ -190,7 +190,7 @@ impl windows_core::RuntimeName for UserDataAccountProviderResolveErrorsOperation
 unsafe impl Send for UserDataAccountProviderResolveErrorsOperation {}
 unsafe impl Sync for UserDataAccountProviderResolveErrorsOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderSettingsOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderSettingsOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderSettingsOperation, IUserDataAccountProviderOperation);

@@ -218,7 +218,7 @@ pub struct IWiFiDirectServiceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectService(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectService, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiDirectService {
@@ -348,7 +348,7 @@ impl windows_core::RuntimeName for WiFiDirectService {
 unsafe impl Send for WiFiDirectService {}
 unsafe impl Sync for WiFiDirectService {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceAdvertiser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceAdvertiser, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiDirectServiceAdvertiser {
@@ -562,7 +562,7 @@ impl windows_core::RuntimeName for WiFiDirectServiceAdvertiser {
 unsafe impl Send for WiFiDirectServiceAdvertiser {}
 unsafe impl Sync for WiFiDirectServiceAdvertiser {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceAutoAcceptSessionConnectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceAutoAcceptSessionConnectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
@@ -595,7 +595,7 @@ impl windows_core::RuntimeName for WiFiDirectServiceAutoAcceptSessionConnectedEv
 unsafe impl Send for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
 unsafe impl Sync for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceProvisioningInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceProvisioningInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiDirectServiceProvisioningInfo {
@@ -627,7 +627,7 @@ impl windows_core::RuntimeName for WiFiDirectServiceProvisioningInfo {
 unsafe impl Send for WiFiDirectServiceProvisioningInfo {}
 unsafe impl Sync for WiFiDirectServiceProvisioningInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceRemotePortAddedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceRemotePortAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiDirectServiceRemotePortAddedEventArgs {
@@ -660,7 +660,7 @@ impl windows_core::RuntimeName for WiFiDirectServiceRemotePortAddedEventArgs {
 unsafe impl Send for WiFiDirectServiceRemotePortAddedEventArgs {}
 unsafe impl Sync for WiFiDirectServiceRemotePortAddedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiDirectServiceSession, super::super::super::Foundation::IClosable);
@@ -790,7 +790,7 @@ impl windows_core::RuntimeName for WiFiDirectServiceSession {
 unsafe impl Send for WiFiDirectServiceSession {}
 unsafe impl Sync for WiFiDirectServiceSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSessionDeferredEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceSessionDeferredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiDirectServiceSessionDeferredEventArgs {
@@ -816,7 +816,7 @@ impl windows_core::RuntimeName for WiFiDirectServiceSessionDeferredEventArgs {
 unsafe impl Send for WiFiDirectServiceSessionDeferredEventArgs {}
 unsafe impl Sync for WiFiDirectServiceSessionDeferredEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSessionRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceSessionRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiDirectServiceSessionRequest, super::super::super::Foundation::IClosable);
@@ -862,7 +862,7 @@ impl windows_core::RuntimeName for WiFiDirectServiceSessionRequest {
 unsafe impl Send for WiFiDirectServiceSessionRequest {}
 unsafe impl Sync for WiFiDirectServiceSessionRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSessionRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceSessionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiDirectServiceSessionRequestedEventArgs {

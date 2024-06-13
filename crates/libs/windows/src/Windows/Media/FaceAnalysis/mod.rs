@@ -107,7 +107,7 @@ pub struct IFaceTrackerStatics_Vtbl {
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DetectedFace(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DetectedFace, windows_core::IUnknown, windows_core::IInspectable);
 impl DetectedFace {
@@ -133,7 +133,7 @@ impl windows_core::RuntimeName for DetectedFace {
 unsafe impl Send for DetectedFace {}
 unsafe impl Sync for DetectedFace {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FaceDetector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FaceDetector, windows_core::IUnknown, windows_core::IInspectable);
 impl FaceDetector {
@@ -230,7 +230,7 @@ impl windows_core::RuntimeName for FaceDetector {
 unsafe impl Send for FaceDetector {}
 unsafe impl Sync for FaceDetector {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FaceTracker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FaceTracker, windows_core::IUnknown, windows_core::IInspectable);
 impl FaceTracker {

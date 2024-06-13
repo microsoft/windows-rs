@@ -269,7 +269,7 @@ pub struct IWebTokenResponseFactory_Vtbl {
     CreateWithTokenAccountAndError: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FindAllAccountsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FindAllAccountsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl FindAllAccountsResult {
@@ -309,7 +309,7 @@ impl windows_core::RuntimeName for FindAllAccountsResult {
 unsafe impl Send for FindAllAccountsResult {}
 unsafe impl Sync for FindAllAccountsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAccountEventArgs {
@@ -335,7 +335,7 @@ impl windows_core::RuntimeName for WebAccountEventArgs {
 unsafe impl Send for WebAccountEventArgs {}
 unsafe impl Sync for WebAccountEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountMonitor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountMonitor, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAccountMonitor {
@@ -563,7 +563,7 @@ impl windows_core::RuntimeName for WebAuthenticationCoreManager {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebProviderError(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebProviderError, windows_core::IUnknown, windows_core::IInspectable);
 impl WebProviderError {
@@ -614,7 +614,7 @@ impl windows_core::RuntimeName for WebProviderError {
 unsafe impl Send for WebProviderError {}
 unsafe impl Sync for WebProviderError {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebTokenRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebTokenRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl WebTokenRequest {
@@ -733,7 +733,7 @@ impl windows_core::RuntimeName for WebTokenRequest {
 unsafe impl Send for WebTokenRequest {}
 unsafe impl Sync for WebTokenRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebTokenRequestResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebTokenRequestResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WebTokenRequestResult {
@@ -780,7 +780,7 @@ impl windows_core::RuntimeName for WebTokenRequestResult {
 unsafe impl Send for WebTokenRequestResult {}
 unsafe impl Sync for WebTokenRequestResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebTokenResponse(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebTokenResponse, windows_core::IUnknown, windows_core::IInspectable);
 impl WebTokenResponse {

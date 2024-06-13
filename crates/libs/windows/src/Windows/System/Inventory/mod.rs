@@ -23,7 +23,7 @@ pub struct IInstalledDesktopAppStatics_Vtbl {
     GetInventoryAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InstalledDesktopApp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InstalledDesktopApp, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InstalledDesktopApp, super::super::Foundation::IStringable);

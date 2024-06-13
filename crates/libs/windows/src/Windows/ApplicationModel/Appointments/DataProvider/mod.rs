@@ -187,7 +187,7 @@ pub struct IAppointmentDataProviderTriggerDetails_Vtbl {
     pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarCancelMeetingRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarCancelMeetingRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarCancelMeetingRequest {
@@ -261,7 +261,7 @@ impl windows_core::RuntimeName for AppointmentCalendarCancelMeetingRequest {
 unsafe impl Send for AppointmentCalendarCancelMeetingRequest {}
 unsafe impl Sync for AppointmentCalendarCancelMeetingRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarCancelMeetingRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarCancelMeetingRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarCancelMeetingRequestEventArgs {
@@ -293,7 +293,7 @@ impl windows_core::RuntimeName for AppointmentCalendarCancelMeetingRequestEventA
 unsafe impl Send for AppointmentCalendarCancelMeetingRequestEventArgs {}
 unsafe impl Sync for AppointmentCalendarCancelMeetingRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
@@ -357,7 +357,7 @@ impl windows_core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentR
 unsafe impl Send for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
 unsafe impl Sync for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
@@ -389,7 +389,7 @@ impl windows_core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentR
 unsafe impl Send for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
 unsafe impl Sync for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarForwardMeetingRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarForwardMeetingRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarForwardMeetingRequest {
@@ -471,7 +471,7 @@ impl windows_core::RuntimeName for AppointmentCalendarForwardMeetingRequest {
 unsafe impl Send for AppointmentCalendarForwardMeetingRequest {}
 unsafe impl Sync for AppointmentCalendarForwardMeetingRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarForwardMeetingRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarForwardMeetingRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarForwardMeetingRequestEventArgs {
@@ -503,7 +503,7 @@ impl windows_core::RuntimeName for AppointmentCalendarForwardMeetingRequestEvent
 unsafe impl Send for AppointmentCalendarForwardMeetingRequestEventArgs {}
 unsafe impl Sync for AppointmentCalendarForwardMeetingRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarProposeNewTimeForMeetingRequest {
@@ -584,7 +584,7 @@ impl windows_core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRe
 unsafe impl Send for AppointmentCalendarProposeNewTimeForMeetingRequest {}
 unsafe impl Sync for AppointmentCalendarProposeNewTimeForMeetingRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
@@ -616,7 +616,7 @@ impl windows_core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRe
 unsafe impl Send for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
 unsafe impl Sync for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarSyncManagerSyncRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarSyncManagerSyncRequest {
@@ -655,7 +655,7 @@ impl windows_core::RuntimeName for AppointmentCalendarSyncManagerSyncRequest {
 unsafe impl Send for AppointmentCalendarSyncManagerSyncRequest {}
 unsafe impl Sync for AppointmentCalendarSyncManagerSyncRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarSyncManagerSyncRequestEventArgs {
@@ -687,7 +687,7 @@ impl windows_core::RuntimeName for AppointmentCalendarSyncManagerSyncRequestEven
 unsafe impl Send for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
 unsafe impl Sync for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarUpdateMeetingResponseRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarUpdateMeetingResponseRequest {
@@ -768,7 +768,7 @@ impl windows_core::RuntimeName for AppointmentCalendarUpdateMeetingResponseReque
 unsafe impl Send for AppointmentCalendarUpdateMeetingResponseRequest {}
 unsafe impl Sync for AppointmentCalendarUpdateMeetingResponseRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarUpdateMeetingResponseRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
@@ -800,7 +800,7 @@ impl windows_core::RuntimeName for AppointmentCalendarUpdateMeetingResponseReque
 unsafe impl Send for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
 unsafe impl Sync for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentDataProviderConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentDataProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentDataProviderConnection {
@@ -906,7 +906,7 @@ impl windows_core::RuntimeName for AppointmentDataProviderConnection {
 unsafe impl Send for AppointmentDataProviderConnection {}
 unsafe impl Sync for AppointmentDataProviderConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentDataProviderTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentDataProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentDataProviderTriggerDetails {

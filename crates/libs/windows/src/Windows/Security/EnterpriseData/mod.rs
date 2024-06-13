@@ -420,7 +420,7 @@ pub struct IThreadNetworkContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BufferProtectUnprotectResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BufferProtectUnprotectResult, windows_core::IUnknown, windows_core::IInspectable);
 impl BufferProtectUnprotectResult {
@@ -453,7 +453,7 @@ impl windows_core::RuntimeName for BufferProtectUnprotectResult {
 unsafe impl Send for BufferProtectUnprotectResult {}
 unsafe impl Sync for BufferProtectUnprotectResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataProtectionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataProtectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl DataProtectionInfo {
@@ -558,7 +558,7 @@ impl windows_core::RuntimeName for DataProtectionManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.DataProtectionManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileProtectionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileProtectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl FileProtectionInfo {
@@ -800,7 +800,7 @@ impl windows_core::RuntimeName for FileRevocationManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileRevocationManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileUnprotectOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileUnprotectOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl FileUnprotectOptions {
@@ -840,7 +840,7 @@ impl windows_core::RuntimeName for FileUnprotectOptions {
 unsafe impl Send for FileUnprotectOptions {}
 unsafe impl Sync for FileUnprotectOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedAccessResumedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedAccessResumedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedAccessResumedEventArgs {
@@ -866,7 +866,7 @@ impl windows_core::RuntimeName for ProtectedAccessResumedEventArgs {
 unsafe impl Send for ProtectedAccessResumedEventArgs {}
 unsafe impl Sync for ProtectedAccessResumedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedAccessSuspendingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedAccessSuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedAccessSuspendingEventArgs {
@@ -906,7 +906,7 @@ impl windows_core::RuntimeName for ProtectedAccessSuspendingEventArgs {
 unsafe impl Send for ProtectedAccessSuspendingEventArgs {}
 unsafe impl Sync for ProtectedAccessSuspendingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedContainerExportResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedContainerExportResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedContainerExportResult {
@@ -939,7 +939,7 @@ impl windows_core::RuntimeName for ProtectedContainerExportResult {
 unsafe impl Send for ProtectedContainerExportResult {}
 unsafe impl Sync for ProtectedContainerExportResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedContainerImportResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedContainerImportResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedContainerImportResult {
@@ -972,7 +972,7 @@ impl windows_core::RuntimeName for ProtectedContainerImportResult {
 unsafe impl Send for ProtectedContainerImportResult {}
 unsafe impl Sync for ProtectedContainerImportResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedContentRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedContentRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedContentRevokedEventArgs {
@@ -998,7 +998,7 @@ impl windows_core::RuntimeName for ProtectedContentRevokedEventArgs {
 unsafe impl Send for ProtectedContentRevokedEventArgs {}
 unsafe impl Sync for ProtectedContentRevokedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedFileCreateResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectedFileCreateResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectedFileCreateResult {
@@ -1039,7 +1039,7 @@ impl windows_core::RuntimeName for ProtectedFileCreateResult {
 unsafe impl Send for ProtectedFileCreateResult {}
 unsafe impl Sync for ProtectedFileCreateResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectionPolicyAuditInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectionPolicyAuditInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectionPolicyAuditInfo {
@@ -1118,7 +1118,7 @@ impl windows_core::RuntimeName for ProtectionPolicyAuditInfo {
 unsafe impl Send for ProtectionPolicyAuditInfo {}
 unsafe impl Sync for ProtectionPolicyAuditInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectionPolicyManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectionPolicyManager, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectionPolicyManager {
@@ -1462,7 +1462,7 @@ impl windows_core::RuntimeName for ProtectionPolicyManager {
 unsafe impl Send for ProtectionPolicyManager {}
 unsafe impl Sync for ProtectionPolicyManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ThreadNetworkContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ThreadNetworkContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ThreadNetworkContext, super::super::Foundation::IClosable);

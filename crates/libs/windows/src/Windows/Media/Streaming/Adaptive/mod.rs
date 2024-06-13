@@ -377,7 +377,7 @@ pub struct IAdaptiveMediaSourceStatics_Vtbl {
     CreateFromStreamWithDownloaderAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSource, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Media_Core")]
@@ -678,7 +678,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSource {
 unsafe impl Send for AdaptiveMediaSource {}
 unsafe impl Sync for AdaptiveMediaSource {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceAdvancedSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceAdvancedSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceAdvancedSettings {
@@ -735,7 +735,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceAdvancedSettings {
 unsafe impl Send for AdaptiveMediaSourceAdvancedSettings {}
 unsafe impl Sync for AdaptiveMediaSourceAdvancedSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceCorrelatedTimes(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceCorrelatedTimes, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceCorrelatedTimes {
@@ -774,7 +774,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceCorrelatedTimes {
 unsafe impl Send for AdaptiveMediaSourceCorrelatedTimes {}
 unsafe impl Sync for AdaptiveMediaSourceCorrelatedTimes {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceCreationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceCreationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceCreationResult {
@@ -821,7 +821,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceCreationResult {
 unsafe impl Send for AdaptiveMediaSourceCreationResult {}
 unsafe impl Sync for AdaptiveMediaSourceCreationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceDiagnosticAvailableEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDiagnosticAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
@@ -923,7 +923,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceDiagnosticAvailableEventAr
 unsafe impl Send for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 unsafe impl Sync for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceDiagnostics(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDiagnostics, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceDiagnostics {
@@ -955,7 +955,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceDiagnostics {
 unsafe impl Send for AdaptiveMediaSourceDiagnostics {}
 unsafe impl Sync for AdaptiveMediaSourceDiagnostics {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadBitrateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
@@ -994,7 +994,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceDownloadBitrateChangedEven
 unsafe impl Send for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 unsafe impl Sync for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceDownloadCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceDownloadCompletedEventArgs {
@@ -1083,7 +1083,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceDownloadCompletedEventArgs
 unsafe impl Send for AdaptiveMediaSourceDownloadCompletedEventArgs {}
 unsafe impl Sync for AdaptiveMediaSourceDownloadCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceDownloadFailedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadFailedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceDownloadFailedEventArgs {
@@ -1179,7 +1179,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceDownloadFailedEventArgs {
 unsafe impl Send for AdaptiveMediaSourceDownloadFailedEventArgs {}
 unsafe impl Sync for AdaptiveMediaSourceDownloadFailedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceDownloadRequestedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadRequestedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceDownloadRequestedDeferral {
@@ -1201,7 +1201,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceDownloadRequestedDeferral 
 unsafe impl Send for AdaptiveMediaSourceDownloadRequestedDeferral {}
 unsafe impl Sync for AdaptiveMediaSourceDownloadRequestedDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceDownloadRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceDownloadRequestedEventArgs {
@@ -1289,7 +1289,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceDownloadRequestedEventArgs
 unsafe impl Send for AdaptiveMediaSourceDownloadRequestedEventArgs {}
 unsafe impl Sync for AdaptiveMediaSourceDownloadRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceDownloadResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadResult, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceDownloadResult {
@@ -1403,7 +1403,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceDownloadResult {
 unsafe impl Send for AdaptiveMediaSourceDownloadResult {}
 unsafe impl Sync for AdaptiveMediaSourceDownloadResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourceDownloadStatistics(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDownloadStatistics, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceDownloadStatistics {
@@ -1449,7 +1449,7 @@ impl windows_core::RuntimeName for AdaptiveMediaSourceDownloadStatistics {
 unsafe impl Send for AdaptiveMediaSourceDownloadStatistics {}
 unsafe impl Sync for AdaptiveMediaSourceDownloadStatistics {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveMediaSourcePlaybackBitrateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourcePlaybackBitrateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {

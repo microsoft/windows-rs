@@ -612,7 +612,7 @@ pub struct ISpatialTappedEventArgs_Vtbl {
     pub TapCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialGestureRecognizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialGestureRecognizer, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialGestureRecognizer {
@@ -862,7 +862,7 @@ impl windows_core::RuntimeName for SpatialGestureRecognizer {
 unsafe impl Send for SpatialGestureRecognizer {}
 unsafe impl Sync for SpatialGestureRecognizer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialHoldCanceledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialHoldCanceledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialHoldCanceledEventArgs {
@@ -887,7 +887,7 @@ impl windows_core::RuntimeName for SpatialHoldCanceledEventArgs {
 unsafe impl Send for SpatialHoldCanceledEventArgs {}
 unsafe impl Sync for SpatialHoldCanceledEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialHoldCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialHoldCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialHoldCompletedEventArgs {
@@ -912,7 +912,7 @@ impl windows_core::RuntimeName for SpatialHoldCompletedEventArgs {
 unsafe impl Send for SpatialHoldCompletedEventArgs {}
 unsafe impl Sync for SpatialHoldCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialHoldStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialHoldStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialHoldStartedEventArgs {
@@ -948,7 +948,7 @@ impl windows_core::RuntimeName for SpatialHoldStartedEventArgs {
 unsafe impl Send for SpatialHoldStartedEventArgs {}
 unsafe impl Sync for SpatialHoldStartedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteraction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteraction, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteraction {
@@ -973,7 +973,7 @@ impl windows_core::RuntimeName for SpatialInteraction {
 unsafe impl Send for SpatialInteraction {}
 unsafe impl Sync for SpatialInteraction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionController, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionController {
@@ -1050,7 +1050,7 @@ impl windows_core::RuntimeName for SpatialInteractionController {
 unsafe impl Send for SpatialInteractionController {}
 unsafe impl Sync for SpatialInteractionController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionControllerProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionControllerProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionControllerProperties {
@@ -1117,7 +1117,7 @@ impl windows_core::RuntimeName for SpatialInteractionControllerProperties {
 unsafe impl Send for SpatialInteractionControllerProperties {}
 unsafe impl Sync for SpatialInteractionControllerProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionDetectedEventArgs {
@@ -1167,7 +1167,7 @@ impl windows_core::RuntimeName for SpatialInteractionDetectedEventArgs {
 unsafe impl Send for SpatialInteractionDetectedEventArgs {}
 unsafe impl Sync for SpatialInteractionDetectedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionManager {
@@ -1302,7 +1302,7 @@ impl windows_core::RuntimeName for SpatialInteractionManager {
 unsafe impl Send for SpatialInteractionManager {}
 unsafe impl Sync for SpatialInteractionManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSource, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSource {
@@ -1396,7 +1396,7 @@ impl windows_core::RuntimeName for SpatialInteractionSource {
 unsafe impl Send for SpatialInteractionSource {}
 unsafe impl Sync for SpatialInteractionSource {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSourceEventArgs {
@@ -1428,7 +1428,7 @@ impl windows_core::RuntimeName for SpatialInteractionSourceEventArgs {
 unsafe impl Send for SpatialInteractionSourceEventArgs {}
 unsafe impl Sync for SpatialInteractionSourceEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSourceLocation {
@@ -1492,7 +1492,7 @@ impl windows_core::RuntimeName for SpatialInteractionSourceLocation {
 unsafe impl Send for SpatialInteractionSourceLocation {}
 unsafe impl Sync for SpatialInteractionSourceLocation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSourceProperties {
@@ -1539,7 +1539,7 @@ impl windows_core::RuntimeName for SpatialInteractionSourceProperties {
 unsafe impl Send for SpatialInteractionSourceProperties {}
 unsafe impl Sync for SpatialInteractionSourceProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceState, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSourceState {
@@ -1640,7 +1640,7 @@ impl windows_core::RuntimeName for SpatialInteractionSourceState {
 unsafe impl Send for SpatialInteractionSourceState {}
 unsafe impl Sync for SpatialInteractionSourceState {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationCanceledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialManipulationCanceledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialManipulationCanceledEventArgs {
@@ -1665,7 +1665,7 @@ impl windows_core::RuntimeName for SpatialManipulationCanceledEventArgs {
 unsafe impl Send for SpatialManipulationCanceledEventArgs {}
 unsafe impl Sync for SpatialManipulationCanceledEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialManipulationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialManipulationCompletedEventArgs {
@@ -1701,7 +1701,7 @@ impl windows_core::RuntimeName for SpatialManipulationCompletedEventArgs {
 unsafe impl Send for SpatialManipulationCompletedEventArgs {}
 unsafe impl Sync for SpatialManipulationCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationDelta(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialManipulationDelta, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialManipulationDelta {
@@ -1727,7 +1727,7 @@ impl windows_core::RuntimeName for SpatialManipulationDelta {
 unsafe impl Send for SpatialManipulationDelta {}
 unsafe impl Sync for SpatialManipulationDelta {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialManipulationStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialManipulationStartedEventArgs {
@@ -1763,7 +1763,7 @@ impl windows_core::RuntimeName for SpatialManipulationStartedEventArgs {
 unsafe impl Send for SpatialManipulationStartedEventArgs {}
 unsafe impl Sync for SpatialManipulationStartedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialManipulationUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialManipulationUpdatedEventArgs {
@@ -1799,7 +1799,7 @@ impl windows_core::RuntimeName for SpatialManipulationUpdatedEventArgs {
 unsafe impl Send for SpatialManipulationUpdatedEventArgs {}
 unsafe impl Sync for SpatialManipulationUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationCanceledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialNavigationCanceledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialNavigationCanceledEventArgs {
@@ -1824,7 +1824,7 @@ impl windows_core::RuntimeName for SpatialNavigationCanceledEventArgs {
 unsafe impl Send for SpatialNavigationCanceledEventArgs {}
 unsafe impl Sync for SpatialNavigationCanceledEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialNavigationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialNavigationCompletedEventArgs {
@@ -1857,7 +1857,7 @@ impl windows_core::RuntimeName for SpatialNavigationCompletedEventArgs {
 unsafe impl Send for SpatialNavigationCompletedEventArgs {}
 unsafe impl Sync for SpatialNavigationCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialNavigationStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialNavigationStartedEventArgs {
@@ -1914,7 +1914,7 @@ impl windows_core::RuntimeName for SpatialNavigationStartedEventArgs {
 unsafe impl Send for SpatialNavigationStartedEventArgs {}
 unsafe impl Sync for SpatialNavigationStartedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialNavigationUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialNavigationUpdatedEventArgs {
@@ -1947,7 +1947,7 @@ impl windows_core::RuntimeName for SpatialNavigationUpdatedEventArgs {
 unsafe impl Send for SpatialNavigationUpdatedEventArgs {}
 unsafe impl Sync for SpatialNavigationUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialPointerInteractionSourcePose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialPointerInteractionSourcePose, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialPointerInteractionSourcePose {
@@ -2004,7 +2004,7 @@ impl windows_core::RuntimeName for SpatialPointerInteractionSourcePose {
 unsafe impl Send for SpatialPointerInteractionSourcePose {}
 unsafe impl Sync for SpatialPointerInteractionSourcePose {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialPointerPose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialPointerPose, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialPointerPose {
@@ -2079,7 +2079,7 @@ impl windows_core::RuntimeName for SpatialPointerPose {
 unsafe impl Send for SpatialPointerPose {}
 unsafe impl Sync for SpatialPointerPose {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialRecognitionEndedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialRecognitionEndedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialRecognitionEndedEventArgs {
@@ -2104,7 +2104,7 @@ impl windows_core::RuntimeName for SpatialRecognitionEndedEventArgs {
 unsafe impl Send for SpatialRecognitionEndedEventArgs {}
 unsafe impl Sync for SpatialRecognitionEndedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialRecognitionStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialRecognitionStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialRecognitionStartedEventArgs {
@@ -2147,7 +2147,7 @@ impl windows_core::RuntimeName for SpatialRecognitionStartedEventArgs {
 unsafe impl Send for SpatialRecognitionStartedEventArgs {}
 unsafe impl Sync for SpatialRecognitionStartedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialTappedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialTappedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialTappedEventArgs {

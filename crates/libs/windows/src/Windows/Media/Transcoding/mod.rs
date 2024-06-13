@@ -59,7 +59,7 @@ pub struct IPrepareTranscodeResult_Vtbl {
     pub TranscodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaTranscoder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaTranscoder, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaTranscoder {
@@ -206,7 +206,7 @@ impl windows_core::RuntimeName for MediaTranscoder {
 unsafe impl Send for MediaTranscoder {}
 unsafe impl Sync for MediaTranscoder {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrepareTranscodeResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrepareTranscodeResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PrepareTranscodeResult {

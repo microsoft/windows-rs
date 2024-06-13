@@ -933,7 +933,7 @@ pub struct ISuspendingOperation_Vtbl {
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppDisplayInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppDisplayInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppDisplayInfo {
@@ -973,7 +973,7 @@ impl windows_core::RuntimeName for AppDisplayInfo {
 unsafe impl Send for AppDisplayInfo {}
 unsafe impl Sync for AppDisplayInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppInfo {
@@ -1067,7 +1067,7 @@ impl windows_core::RuntimeName for AppInfo {
 unsafe impl Send for AppInfo {}
 unsafe impl Sync for AppInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInstallerInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppInstallerInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppInstallerInfo {
@@ -1201,7 +1201,7 @@ impl windows_core::RuntimeName for AppInstallerInfo {
 unsafe impl Send for AppInstallerInfo {}
 unsafe impl Sync for AppInstallerInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInstance(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppInstance, windows_core::IUnknown, windows_core::IInspectable);
 impl AppInstance {
@@ -1313,7 +1313,7 @@ impl windows_core::RuntimeName for DesignMode {
     const NAME: &'static str = "Windows.ApplicationModel.DesignMode";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnteredBackgroundEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EnteredBackgroundEventArgs, IEnteredBackgroundEventArgs);
@@ -1339,7 +1339,7 @@ impl windows_core::RuntimeName for EnteredBackgroundEventArgs {
 unsafe impl Send for EnteredBackgroundEventArgs {}
 unsafe impl Sync for EnteredBackgroundEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FindRelatedPackagesOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FindRelatedPackagesOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl FindRelatedPackagesOptions {
@@ -1423,7 +1423,7 @@ impl windows_core::RuntimeName for FindRelatedPackagesOptions {
 unsafe impl Send for FindRelatedPackagesOptions {}
 unsafe impl Sync for FindRelatedPackagesOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FullTrustProcessLaunchResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FullTrustProcessLaunchResult, windows_core::IUnknown, windows_core::IInspectable);
 impl FullTrustProcessLaunchResult {
@@ -1507,7 +1507,7 @@ impl windows_core::RuntimeName for FullTrustProcessLauncher {
     const NAME: &'static str = "Windows.ApplicationModel.FullTrustProcessLauncher";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LeavingBackgroundEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LeavingBackgroundEventArgs, ILeavingBackgroundEventArgs);
@@ -1533,7 +1533,7 @@ impl windows_core::RuntimeName for LeavingBackgroundEventArgs {
 unsafe impl Send for LeavingBackgroundEventArgs {}
 unsafe impl Sync for LeavingBackgroundEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LimitedAccessFeatureRequestResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LimitedAccessFeatureRequestResult, windows_core::IUnknown, windows_core::IInspectable);
 impl LimitedAccessFeatureRequestResult {
@@ -1589,7 +1589,7 @@ impl windows_core::RuntimeName for LimitedAccessFeatures {
     const NAME: &'static str = "Windows.ApplicationModel.LimitedAccessFeatures";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Package(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Package, windows_core::IUnknown, windows_core::IInspectable);
 impl Package {
@@ -1940,7 +1940,7 @@ impl windows_core::RuntimeName for Package {
 unsafe impl Send for Package {}
 unsafe impl Sync for Package {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalog(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalog, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageCatalog {
@@ -2107,7 +2107,7 @@ impl windows_core::RuntimeName for PackageCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalog";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalogAddOptionalPackageResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalogAddOptionalPackageResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageCatalogAddOptionalPackageResult {
@@ -2137,7 +2137,7 @@ impl windows_core::RuntimeName for PackageCatalogAddOptionalPackageResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalogAddResourcePackageResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalogAddResourcePackageResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageCatalogAddResourcePackageResult {
@@ -2176,7 +2176,7 @@ impl windows_core::RuntimeName for PackageCatalogAddResourcePackageResult {
 unsafe impl Send for PackageCatalogAddResourcePackageResult {}
 unsafe impl Sync for PackageCatalogAddResourcePackageResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalogRemoveOptionalPackagesResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalogRemoveOptionalPackagesResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageCatalogRemoveOptionalPackagesResult {
@@ -2207,7 +2207,7 @@ impl windows_core::RuntimeName for PackageCatalogRemoveOptionalPackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalogRemoveResourcePackagesResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalogRemoveResourcePackagesResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageCatalogRemoveResourcePackagesResult {
@@ -2240,7 +2240,7 @@ impl windows_core::RuntimeName for PackageCatalogRemoveResourcePackagesResult {
 unsafe impl Send for PackageCatalogRemoveResourcePackagesResult {}
 unsafe impl Sync for PackageCatalogRemoveResourcePackagesResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageContentGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageContentGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageContentGroup {
@@ -2297,7 +2297,7 @@ impl windows_core::RuntimeName for PackageContentGroup {
 unsafe impl Send for PackageContentGroup {}
 unsafe impl Sync for PackageContentGroup {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageContentGroupStagingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageContentGroupStagingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageContentGroupStagingEventArgs {
@@ -2364,7 +2364,7 @@ impl windows_core::RuntimeName for PackageContentGroupStagingEventArgs {
 unsafe impl Send for PackageContentGroupStagingEventArgs {}
 unsafe impl Sync for PackageContentGroupStagingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageId(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageId, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageId {
@@ -2453,7 +2453,7 @@ impl windows_core::RuntimeName for PackageId {
 unsafe impl Send for PackageId {}
 unsafe impl Sync for PackageId {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageInstallingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageInstallingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageInstallingEventArgs {
@@ -2506,7 +2506,7 @@ impl windows_core::RuntimeName for PackageInstallingEventArgs {
 unsafe impl Send for PackageInstallingEventArgs {}
 unsafe impl Sync for PackageInstallingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStagingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageStagingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageStagingEventArgs {
@@ -2559,7 +2559,7 @@ impl windows_core::RuntimeName for PackageStagingEventArgs {
 unsafe impl Send for PackageStagingEventArgs {}
 unsafe impl Sync for PackageStagingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStatus(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageStatus, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageStatus {
@@ -2668,7 +2668,7 @@ impl windows_core::RuntimeName for PackageStatus {
 unsafe impl Send for PackageStatus {}
 unsafe impl Sync for PackageStatus {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageStatusChangedEventArgs {
@@ -2693,7 +2693,7 @@ impl windows_core::RuntimeName for PackageStatusChangedEventArgs {
 unsafe impl Send for PackageStatusChangedEventArgs {}
 unsafe impl Sync for PackageStatusChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUninstallingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageUninstallingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageUninstallingEventArgs {
@@ -2746,7 +2746,7 @@ impl windows_core::RuntimeName for PackageUninstallingEventArgs {
 unsafe impl Send for PackageUninstallingEventArgs {}
 unsafe impl Sync for PackageUninstallingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUpdateAvailabilityResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageUpdateAvailabilityResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageUpdateAvailabilityResult {
@@ -2778,7 +2778,7 @@ impl windows_core::RuntimeName for PackageUpdateAvailabilityResult {
 unsafe impl Send for PackageUpdateAvailabilityResult {}
 unsafe impl Sync for PackageUpdateAvailabilityResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUpdatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageUpdatingEventArgs {
@@ -2838,7 +2838,7 @@ impl windows_core::RuntimeName for PackageUpdatingEventArgs {
 unsafe impl Send for PackageUpdatingEventArgs {}
 unsafe impl Sync for PackageUpdatingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StartupTask(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StartupTask, windows_core::IUnknown, windows_core::IInspectable);
 impl StartupTask {
@@ -2899,7 +2899,7 @@ impl windows_core::RuntimeName for StartupTask {
 unsafe impl Send for StartupTask {}
 unsafe impl Sync for StartupTask {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SuspendingDeferral, ISuspendingDeferral);
@@ -2922,7 +2922,7 @@ impl windows_core::RuntimeName for SuspendingDeferral {
 unsafe impl Send for SuspendingDeferral {}
 unsafe impl Sync for SuspendingDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SuspendingEventArgs, ISuspendingEventArgs);
@@ -2948,7 +2948,7 @@ impl windows_core::RuntimeName for SuspendingEventArgs {
 unsafe impl Send for SuspendingEventArgs {}
 unsafe impl Sync for SuspendingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SuspendingOperation, ISuspendingOperation);

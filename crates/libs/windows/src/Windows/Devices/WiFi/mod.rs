@@ -179,7 +179,7 @@ pub struct IWiFiWpsConfigurationResult_Vtbl {
     SupportedWpsKinds: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiAdapter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiAdapter, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiAdapter {
@@ -323,7 +323,7 @@ impl windows_core::RuntimeName for WiFiAdapter {
 unsafe impl Send for WiFiAdapter {}
 unsafe impl Sync for WiFiAdapter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiAvailableNetwork(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiAvailableNetwork, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiAvailableNetwork {
@@ -419,7 +419,7 @@ impl windows_core::RuntimeName for WiFiAvailableNetwork {
 unsafe impl Send for WiFiAvailableNetwork {}
 unsafe impl Sync for WiFiAvailableNetwork {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiConnectionResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiConnectionResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiConnectionResult {
@@ -444,7 +444,7 @@ impl windows_core::RuntimeName for WiFiConnectionResult {
 unsafe impl Send for WiFiConnectionResult {}
 unsafe impl Sync for WiFiConnectionResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiNetworkReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiNetworkReport, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiNetworkReport {
@@ -477,7 +477,7 @@ impl windows_core::RuntimeName for WiFiNetworkReport {
 unsafe impl Send for WiFiNetworkReport {}
 unsafe impl Sync for WiFiNetworkReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotConnectTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiOnDemandHotspotConnectTriggerDetails {
@@ -520,7 +520,7 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectTriggerDetails {
 unsafe impl Send for WiFiOnDemandHotspotConnectTriggerDetails {}
 unsafe impl Sync for WiFiOnDemandHotspotConnectTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotConnectionResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectionResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiOnDemandHotspotConnectionResult {
@@ -545,7 +545,7 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectionResult {
 unsafe impl Send for WiFiOnDemandHotspotConnectionResult {}
 unsafe impl Sync for WiFiOnDemandHotspotConnectionResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotNetwork(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotNetwork, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiOnDemandHotspotNetwork {
@@ -595,7 +595,7 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotNetwork {
 unsafe impl Send for WiFiOnDemandHotspotNetwork {}
 unsafe impl Sync for WiFiOnDemandHotspotNetwork {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotNetworkProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotNetworkProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiOnDemandHotspotNetworkProperties {
@@ -701,7 +701,7 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotNetworkProperties {
 unsafe impl Send for WiFiOnDemandHotspotNetworkProperties {}
 unsafe impl Sync for WiFiOnDemandHotspotNetworkProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiWpsConfigurationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiWpsConfigurationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiWpsConfigurationResult {

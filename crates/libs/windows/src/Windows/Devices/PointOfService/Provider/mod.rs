@@ -369,7 +369,7 @@ pub struct IBarcodeSymbologyAttributesBuilder_Vtbl {
     pub CreateAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerDisableScannerRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerDisableScannerRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerDisableScannerRequest {
@@ -415,7 +415,7 @@ impl windows_core::RuntimeName for BarcodeScannerDisableScannerRequest {
 unsafe impl Send for BarcodeScannerDisableScannerRequest {}
 unsafe impl Sync for BarcodeScannerDisableScannerRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerDisableScannerRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerDisableScannerRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerDisableScannerRequestEventArgs {
@@ -447,7 +447,7 @@ impl windows_core::RuntimeName for BarcodeScannerDisableScannerRequestEventArgs 
 unsafe impl Send for BarcodeScannerDisableScannerRequestEventArgs {}
 unsafe impl Sync for BarcodeScannerDisableScannerRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerEnableScannerRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerEnableScannerRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerEnableScannerRequest {
@@ -493,7 +493,7 @@ impl windows_core::RuntimeName for BarcodeScannerEnableScannerRequest {
 unsafe impl Send for BarcodeScannerEnableScannerRequest {}
 unsafe impl Sync for BarcodeScannerEnableScannerRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerEnableScannerRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerEnableScannerRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerEnableScannerRequestEventArgs {
@@ -525,7 +525,7 @@ impl windows_core::RuntimeName for BarcodeScannerEnableScannerRequestEventArgs {
 unsafe impl Send for BarcodeScannerEnableScannerRequestEventArgs {}
 unsafe impl Sync for BarcodeScannerEnableScannerRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerFrameReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerFrameReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScannerFrameReader, super::super::super::Foundation::IClosable);
@@ -590,7 +590,7 @@ impl windows_core::RuntimeName for BarcodeScannerFrameReader {
 unsafe impl Send for BarcodeScannerFrameReader {}
 unsafe impl Sync for BarcodeScannerFrameReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerFrameReaderFrameArrivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerFrameReaderFrameArrivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerFrameReaderFrameArrivedEventArgs {
@@ -615,7 +615,7 @@ impl windows_core::RuntimeName for BarcodeScannerFrameReaderFrameArrivedEventArg
 unsafe impl Send for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 unsafe impl Sync for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerGetSymbologyAttributesRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerGetSymbologyAttributesRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerGetSymbologyAttributesRequest {
@@ -671,7 +671,7 @@ impl windows_core::RuntimeName for BarcodeScannerGetSymbologyAttributesRequest {
 unsafe impl Send for BarcodeScannerGetSymbologyAttributesRequest {}
 unsafe impl Sync for BarcodeScannerGetSymbologyAttributesRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerGetSymbologyAttributesRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerGetSymbologyAttributesRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
@@ -703,7 +703,7 @@ impl windows_core::RuntimeName for BarcodeScannerGetSymbologyAttributesRequestEv
 unsafe impl Send for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 unsafe impl Sync for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerHideVideoPreviewRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerHideVideoPreviewRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerHideVideoPreviewRequest {
@@ -749,7 +749,7 @@ impl windows_core::RuntimeName for BarcodeScannerHideVideoPreviewRequest {
 unsafe impl Send for BarcodeScannerHideVideoPreviewRequest {}
 unsafe impl Sync for BarcodeScannerHideVideoPreviewRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerHideVideoPreviewRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerHideVideoPreviewRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerHideVideoPreviewRequestEventArgs {
@@ -781,7 +781,7 @@ impl windows_core::RuntimeName for BarcodeScannerHideVideoPreviewRequestEventArg
 unsafe impl Send for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 unsafe impl Sync for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerProviderConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScannerProviderConnection, super::super::super::Foundation::IClosable);
@@ -1036,7 +1036,7 @@ impl windows_core::RuntimeName for BarcodeScannerProviderConnection {
 unsafe impl Send for BarcodeScannerProviderConnection {}
 unsafe impl Sync for BarcodeScannerProviderConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerProviderTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerProviderTriggerDetails {
@@ -1061,7 +1061,7 @@ impl windows_core::RuntimeName for BarcodeScannerProviderTriggerDetails {
 unsafe impl Send for BarcodeScannerProviderTriggerDetails {}
 unsafe impl Sync for BarcodeScannerProviderTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerSetActiveSymbologiesRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerSetActiveSymbologiesRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerSetActiveSymbologiesRequest {
@@ -1115,7 +1115,7 @@ impl windows_core::RuntimeName for BarcodeScannerSetActiveSymbologiesRequest {
 unsafe impl Send for BarcodeScannerSetActiveSymbologiesRequest {}
 unsafe impl Sync for BarcodeScannerSetActiveSymbologiesRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerSetActiveSymbologiesRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerSetActiveSymbologiesRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
@@ -1147,7 +1147,7 @@ impl windows_core::RuntimeName for BarcodeScannerSetActiveSymbologiesRequestEven
 unsafe impl Send for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 unsafe impl Sync for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerSetSymbologyAttributesRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerSetSymbologyAttributesRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerSetSymbologyAttributesRequest {
@@ -1207,7 +1207,7 @@ impl windows_core::RuntimeName for BarcodeScannerSetSymbologyAttributesRequest {
 unsafe impl Send for BarcodeScannerSetSymbologyAttributesRequest {}
 unsafe impl Sync for BarcodeScannerSetSymbologyAttributesRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerSetSymbologyAttributesRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerSetSymbologyAttributesRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
@@ -1239,7 +1239,7 @@ impl windows_core::RuntimeName for BarcodeScannerSetSymbologyAttributesRequestEv
 unsafe impl Send for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 unsafe impl Sync for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerStartSoftwareTriggerRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerStartSoftwareTriggerRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerStartSoftwareTriggerRequest {
@@ -1285,7 +1285,7 @@ impl windows_core::RuntimeName for BarcodeScannerStartSoftwareTriggerRequest {
 unsafe impl Send for BarcodeScannerStartSoftwareTriggerRequest {}
 unsafe impl Sync for BarcodeScannerStartSoftwareTriggerRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerStartSoftwareTriggerRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerStartSoftwareTriggerRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
@@ -1317,7 +1317,7 @@ impl windows_core::RuntimeName for BarcodeScannerStartSoftwareTriggerRequestEven
 unsafe impl Send for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 unsafe impl Sync for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerStopSoftwareTriggerRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerStopSoftwareTriggerRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerStopSoftwareTriggerRequest {
@@ -1363,7 +1363,7 @@ impl windows_core::RuntimeName for BarcodeScannerStopSoftwareTriggerRequest {
 unsafe impl Send for BarcodeScannerStopSoftwareTriggerRequest {}
 unsafe impl Sync for BarcodeScannerStopSoftwareTriggerRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerStopSoftwareTriggerRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerStopSoftwareTriggerRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
@@ -1395,7 +1395,7 @@ impl windows_core::RuntimeName for BarcodeScannerStopSoftwareTriggerRequestEvent
 unsafe impl Send for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 unsafe impl Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerVideoFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerVideoFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScannerVideoFrame, super::super::super::Foundation::IClosable);
@@ -1448,7 +1448,7 @@ impl windows_core::RuntimeName for BarcodeScannerVideoFrame {
 unsafe impl Send for BarcodeScannerVideoFrame {}
 unsafe impl Sync for BarcodeScannerVideoFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeSymbologyAttributesBuilder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeSymbologyAttributesBuilder, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeSymbologyAttributesBuilder {

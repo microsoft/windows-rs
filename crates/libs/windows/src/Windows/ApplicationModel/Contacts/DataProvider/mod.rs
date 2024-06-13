@@ -123,7 +123,7 @@ pub struct IContactListSyncManagerSyncRequestEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactDataProviderConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactDataProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactDataProviderConnection {
@@ -201,7 +201,7 @@ impl windows_core::RuntimeName for ContactDataProviderConnection {
 unsafe impl Send for ContactDataProviderConnection {}
 unsafe impl Sync for ContactDataProviderConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactDataProviderTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactDataProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactDataProviderTriggerDetails {
@@ -226,7 +226,7 @@ impl windows_core::RuntimeName for ContactDataProviderTriggerDetails {
 unsafe impl Send for ContactDataProviderTriggerDetails {}
 unsafe impl Sync for ContactDataProviderTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListCreateOrUpdateContactRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListCreateOrUpdateContactRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListCreateOrUpdateContactRequest {
@@ -275,7 +275,7 @@ impl windows_core::RuntimeName for ContactListCreateOrUpdateContactRequest {
 unsafe impl Send for ContactListCreateOrUpdateContactRequest {}
 unsafe impl Sync for ContactListCreateOrUpdateContactRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListCreateOrUpdateContactRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListCreateOrUpdateContactRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListCreateOrUpdateContactRequestEventArgs {
@@ -307,7 +307,7 @@ impl windows_core::RuntimeName for ContactListCreateOrUpdateContactRequestEventA
 unsafe impl Send for ContactListCreateOrUpdateContactRequestEventArgs {}
 unsafe impl Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListDeleteContactRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListDeleteContactRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListDeleteContactRequest {
@@ -353,7 +353,7 @@ impl windows_core::RuntimeName for ContactListDeleteContactRequest {
 unsafe impl Send for ContactListDeleteContactRequest {}
 unsafe impl Sync for ContactListDeleteContactRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListDeleteContactRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListDeleteContactRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListDeleteContactRequestEventArgs {
@@ -385,7 +385,7 @@ impl windows_core::RuntimeName for ContactListDeleteContactRequestEventArgs {
 unsafe impl Send for ContactListDeleteContactRequestEventArgs {}
 unsafe impl Sync for ContactListDeleteContactRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListServerSearchReadBatchRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListServerSearchReadBatchRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListServerSearchReadBatchRequest {
@@ -455,7 +455,7 @@ impl windows_core::RuntimeName for ContactListServerSearchReadBatchRequest {
 unsafe impl Send for ContactListServerSearchReadBatchRequest {}
 unsafe impl Sync for ContactListServerSearchReadBatchRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListServerSearchReadBatchRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListServerSearchReadBatchRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListServerSearchReadBatchRequestEventArgs {
@@ -487,7 +487,7 @@ impl windows_core::RuntimeName for ContactListServerSearchReadBatchRequestEventA
 unsafe impl Send for ContactListServerSearchReadBatchRequestEventArgs {}
 unsafe impl Sync for ContactListServerSearchReadBatchRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListSyncManagerSyncRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListSyncManagerSyncRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListSyncManagerSyncRequest {
@@ -526,7 +526,7 @@ impl windows_core::RuntimeName for ContactListSyncManagerSyncRequest {
 unsafe impl Send for ContactListSyncManagerSyncRequest {}
 unsafe impl Sync for ContactListSyncManagerSyncRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListSyncManagerSyncRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListSyncManagerSyncRequestEventArgs {

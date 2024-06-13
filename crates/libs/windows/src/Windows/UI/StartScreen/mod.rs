@@ -381,7 +381,7 @@ pub struct IVisualElementsRequestedEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JumpList(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JumpList, windows_core::IUnknown, windows_core::IInspectable);
 impl JumpList {
@@ -442,7 +442,7 @@ impl windows_core::RuntimeName for JumpList {
 unsafe impl Send for JumpList {}
 unsafe impl Sync for JumpList {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JumpListItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JumpListItem, windows_core::IUnknown, windows_core::IInspectable);
 impl JumpListItem {
@@ -545,7 +545,7 @@ impl windows_core::RuntimeName for JumpListItem {
 unsafe impl Send for JumpListItem {}
 unsafe impl Sync for JumpListItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SecondaryTile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SecondaryTile, windows_core::IUnknown, windows_core::IInspectable);
 impl SecondaryTile {
@@ -914,7 +914,7 @@ impl windows_core::RuntimeName for SecondaryTile {
 unsafe impl Send for SecondaryTile {}
 unsafe impl Sync for SecondaryTile {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SecondaryTileVisualElements(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SecondaryTileVisualElements, windows_core::IUnknown, windows_core::IInspectable);
 impl SecondaryTileVisualElements {
@@ -1096,7 +1096,7 @@ impl windows_core::RuntimeName for SecondaryTileVisualElements {
 unsafe impl Send for SecondaryTileVisualElements {}
 unsafe impl Sync for SecondaryTileVisualElements {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StartScreenManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StartScreenManager, windows_core::IUnknown, windows_core::IInspectable);
 impl StartScreenManager {
@@ -1190,7 +1190,7 @@ impl windows_core::RuntimeName for StartScreenManager {
 unsafe impl Send for StartScreenManager {}
 unsafe impl Sync for StartScreenManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileMixedRealityModel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TileMixedRealityModel, windows_core::IUnknown, windows_core::IInspectable);
 impl TileMixedRealityModel {
@@ -1249,7 +1249,7 @@ impl windows_core::RuntimeName for TileMixedRealityModel {
 unsafe impl Send for TileMixedRealityModel {}
 unsafe impl Sync for TileMixedRealityModel {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualElementsRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VisualElementsRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl VisualElementsRequest {
@@ -1296,7 +1296,7 @@ impl windows_core::RuntimeName for VisualElementsRequest {
 unsafe impl Send for VisualElementsRequest {}
 unsafe impl Sync for VisualElementsRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualElementsRequestDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VisualElementsRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl VisualElementsRequestDeferral {
@@ -1318,7 +1318,7 @@ impl windows_core::RuntimeName for VisualElementsRequestDeferral {
 unsafe impl Send for VisualElementsRequestDeferral {}
 unsafe impl Sync for VisualElementsRequestDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualElementsRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VisualElementsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl VisualElementsRequestedEventArgs {

@@ -396,7 +396,7 @@ pub struct IVideoMediaFrameFormat_Vtbl {
     pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioMediaFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioMediaFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioMediaFrame {
@@ -436,7 +436,7 @@ impl windows_core::RuntimeName for AudioMediaFrame {
 unsafe impl Send for AudioMediaFrame {}
 unsafe impl Sync for AudioMediaFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BufferMediaFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BufferMediaFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl BufferMediaFrame {
@@ -469,7 +469,7 @@ impl windows_core::RuntimeName for BufferMediaFrame {
 unsafe impl Send for BufferMediaFrame {}
 unsafe impl Sync for BufferMediaFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DepthMediaFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DepthMediaFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl DepthMediaFrame {
@@ -534,7 +534,7 @@ impl windows_core::RuntimeName for DepthMediaFrame {
 unsafe impl Send for DepthMediaFrame {}
 unsafe impl Sync for DepthMediaFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DepthMediaFrameFormat(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DepthMediaFrameFormat, windows_core::IUnknown, windows_core::IInspectable);
 impl DepthMediaFrameFormat {
@@ -566,7 +566,7 @@ impl windows_core::RuntimeName for DepthMediaFrameFormat {
 unsafe impl Send for DepthMediaFrameFormat {}
 unsafe impl Sync for DepthMediaFrameFormat {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InfraredMediaFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InfraredMediaFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl InfraredMediaFrame {
@@ -605,7 +605,7 @@ impl windows_core::RuntimeName for InfraredMediaFrame {
 unsafe impl Send for InfraredMediaFrame {}
 unsafe impl Sync for InfraredMediaFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameArrivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaFrameArrivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaFrameArrivedEventArgs {}
@@ -622,7 +622,7 @@ impl windows_core::RuntimeName for MediaFrameArrivedEventArgs {
 unsafe impl Send for MediaFrameArrivedEventArgs {}
 unsafe impl Sync for MediaFrameArrivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameFormat(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaFrameFormat, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaFrameFormat {
@@ -685,7 +685,7 @@ impl windows_core::RuntimeName for MediaFrameFormat {
 unsafe impl Send for MediaFrameFormat {}
 unsafe impl Sync for MediaFrameFormat {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaFrameReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaFrameReader, super::super::super::Foundation::IClosable);
@@ -754,7 +754,7 @@ impl windows_core::RuntimeName for MediaFrameReader {
 unsafe impl Send for MediaFrameReader {}
 unsafe impl Sync for MediaFrameReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameReference(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaFrameReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaFrameReference, super::super::super::Foundation::IClosable);
@@ -842,7 +842,7 @@ impl windows_core::RuntimeName for MediaFrameReference {
 unsafe impl Send for MediaFrameReference {}
 unsafe impl Sync for MediaFrameReference {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaFrameSource, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaFrameSource {
@@ -924,7 +924,7 @@ impl windows_core::RuntimeName for MediaFrameSource {
 unsafe impl Send for MediaFrameSource {}
 unsafe impl Sync for MediaFrameSource {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaFrameSourceController, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaFrameSourceController {
@@ -992,7 +992,7 @@ impl windows_core::RuntimeName for MediaFrameSourceController {
 unsafe impl Send for MediaFrameSourceController {}
 unsafe impl Sync for MediaFrameSourceController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceGetPropertyResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaFrameSourceGetPropertyResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaFrameSourceGetPropertyResult {
@@ -1024,7 +1024,7 @@ impl windows_core::RuntimeName for MediaFrameSourceGetPropertyResult {
 unsafe impl Send for MediaFrameSourceGetPropertyResult {}
 unsafe impl Sync for MediaFrameSourceGetPropertyResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaFrameSourceGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaFrameSourceGroup {
@@ -1088,7 +1088,7 @@ impl windows_core::RuntimeName for MediaFrameSourceGroup {
 unsafe impl Send for MediaFrameSourceGroup {}
 unsafe impl Sync for MediaFrameSourceGroup {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaFrameSourceInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaFrameSourceInfo {
@@ -1191,7 +1191,7 @@ impl windows_core::RuntimeName for MediaFrameSourceInfo {
 unsafe impl Send for MediaFrameSourceInfo {}
 unsafe impl Sync for MediaFrameSourceInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MultiSourceMediaFrameArrivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MultiSourceMediaFrameArrivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MultiSourceMediaFrameArrivedEventArgs {}
@@ -1208,7 +1208,7 @@ impl windows_core::RuntimeName for MultiSourceMediaFrameArrivedEventArgs {
 unsafe impl Send for MultiSourceMediaFrameArrivedEventArgs {}
 unsafe impl Sync for MultiSourceMediaFrameArrivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MultiSourceMediaFrameReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MultiSourceMediaFrameReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MultiSourceMediaFrameReader, super::super::super::Foundation::IClosable);
@@ -1277,7 +1277,7 @@ impl windows_core::RuntimeName for MultiSourceMediaFrameReader {
 unsafe impl Send for MultiSourceMediaFrameReader {}
 unsafe impl Sync for MultiSourceMediaFrameReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MultiSourceMediaFrameReference(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MultiSourceMediaFrameReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MultiSourceMediaFrameReference, super::super::super::Foundation::IClosable);
@@ -1307,7 +1307,7 @@ impl windows_core::RuntimeName for MultiSourceMediaFrameReference {
 unsafe impl Send for MultiSourceMediaFrameReference {}
 unsafe impl Sync for MultiSourceMediaFrameReference {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoMediaFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoMediaFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl VideoMediaFrame {
@@ -1384,7 +1384,7 @@ impl windows_core::RuntimeName for VideoMediaFrame {
 unsafe impl Send for VideoMediaFrame {}
 unsafe impl Sync for VideoMediaFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoMediaFrameFormat(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoMediaFrameFormat, windows_core::IUnknown, windows_core::IInspectable);
 impl VideoMediaFrameFormat {

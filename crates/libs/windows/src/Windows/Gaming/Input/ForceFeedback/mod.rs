@@ -148,7 +148,7 @@ pub struct IRampForceEffect_Vtbl {
     SetParametersWithEnvelope: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConditionForceEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConditionForceEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConditionForceEffect, IForceFeedbackEffect);
@@ -216,7 +216,7 @@ impl windows_core::RuntimeName for ConditionForceEffect {
 unsafe impl Send for ConditionForceEffect {}
 unsafe impl Sync for ConditionForceEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConstantForceEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConstantForceEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConstantForceEffect, IForceFeedbackEffect);
@@ -278,7 +278,7 @@ impl windows_core::RuntimeName for ConstantForceEffect {
 unsafe impl Send for ConstantForceEffect {}
 unsafe impl Sync for ConstantForceEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ForceFeedbackMotor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ForceFeedbackMotor, windows_core::IUnknown, windows_core::IInspectable);
 impl ForceFeedbackMotor {
@@ -381,7 +381,7 @@ impl windows_core::RuntimeName for ForceFeedbackMotor {
 unsafe impl Send for ForceFeedbackMotor {}
 unsafe impl Sync for ForceFeedbackMotor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PeriodicForceEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PeriodicForceEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PeriodicForceEffect, IForceFeedbackEffect);
@@ -454,7 +454,7 @@ impl windows_core::RuntimeName for PeriodicForceEffect {
 unsafe impl Send for PeriodicForceEffect {}
 unsafe impl Sync for PeriodicForceEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RampForceEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RampForceEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RampForceEffect, IForceFeedbackEffect);

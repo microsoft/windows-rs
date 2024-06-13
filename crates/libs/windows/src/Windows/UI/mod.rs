@@ -227,7 +227,7 @@ pub struct IUIContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ColorHelper(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ColorHelper, windows_core::IUnknown, windows_core::IInspectable);
 impl ColorHelper {
@@ -267,7 +267,7 @@ impl windows_core::RuntimeName for ColorHelper {
 unsafe impl Send for ColorHelper {}
 unsafe impl Sync for ColorHelper {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Colors(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Colors, windows_core::IUnknown, windows_core::IInspectable);
 impl Colors {
@@ -1136,7 +1136,7 @@ impl windows_core::RuntimeName for Colors {
 unsafe impl Send for Colors {}
 unsafe impl Sync for Colors {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UIContentRoot(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UIContentRoot, windows_core::IUnknown, windows_core::IInspectable);
 impl UIContentRoot {
@@ -1161,7 +1161,7 @@ impl windows_core::RuntimeName for UIContentRoot {
 unsafe impl Send for UIContentRoot {}
 unsafe impl Sync for UIContentRoot {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UIContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UIContext, windows_core::IUnknown, windows_core::IInspectable);
 impl UIContext {}

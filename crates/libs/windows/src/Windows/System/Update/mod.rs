@@ -64,7 +64,7 @@ pub struct ISystemUpdateManagerStatics_Vtbl {
     pub StartCancelUpdates: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemUpdateItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemUpdateItem, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemUpdateItem {
@@ -138,7 +138,7 @@ impl windows_core::RuntimeName for SystemUpdateItem {
 unsafe impl Send for SystemUpdateItem {}
 unsafe impl Sync for SystemUpdateItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemUpdateLastErrorInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemUpdateLastErrorInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemUpdateLastErrorInfo {

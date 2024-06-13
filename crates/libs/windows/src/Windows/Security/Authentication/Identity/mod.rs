@@ -35,7 +35,7 @@ pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnterpriseKeyCredentialRegistrationInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl EnterpriseKeyCredentialRegistrationInfo {
@@ -88,7 +88,7 @@ impl windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
 unsafe impl Send for EnterpriseKeyCredentialRegistrationInfo {}
 unsafe impl Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnterpriseKeyCredentialRegistrationManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationManager, windows_core::IUnknown, windows_core::IInspectable);
 impl EnterpriseKeyCredentialRegistrationManager {

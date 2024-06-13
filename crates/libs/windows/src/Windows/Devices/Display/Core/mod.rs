@@ -572,7 +572,7 @@ pub struct IDisplayWireFormatStatics_Vtbl {
     CreateWithProperties: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayAdapter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayAdapter, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayAdapter {
@@ -660,7 +660,7 @@ impl windows_core::RuntimeName for DisplayAdapter {
 unsafe impl Send for DisplayAdapter {}
 unsafe impl Sync for DisplayAdapter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayDevice {
@@ -754,7 +754,7 @@ impl windows_core::RuntimeName for DisplayDevice {
 unsafe impl Send for DisplayDevice {}
 unsafe impl Sync for DisplayDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayFence(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayFence, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayFence {}
@@ -771,7 +771,7 @@ impl windows_core::RuntimeName for DisplayFence {
 unsafe impl Send for DisplayFence {}
 unsafe impl Sync for DisplayFence {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayManager, super::super::super::Foundation::IClosable);
@@ -953,7 +953,7 @@ impl windows_core::RuntimeName for DisplayManager {
 unsafe impl Send for DisplayManager {}
 unsafe impl Sync for DisplayManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManagerChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayManagerChangedEventArgs {
@@ -989,7 +989,7 @@ impl windows_core::RuntimeName for DisplayManagerChangedEventArgs {
 unsafe impl Send for DisplayManagerChangedEventArgs {}
 unsafe impl Sync for DisplayManagerChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerDisabledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManagerDisabledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayManagerDisabledEventArgs {
@@ -1025,7 +1025,7 @@ impl windows_core::RuntimeName for DisplayManagerDisabledEventArgs {
 unsafe impl Send for DisplayManagerDisabledEventArgs {}
 unsafe impl Sync for DisplayManagerDisabledEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerEnabledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManagerEnabledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayManagerEnabledEventArgs {
@@ -1061,7 +1061,7 @@ impl windows_core::RuntimeName for DisplayManagerEnabledEventArgs {
 unsafe impl Send for DisplayManagerEnabledEventArgs {}
 unsafe impl Sync for DisplayManagerEnabledEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerPathsFailedOrInvalidatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManagerPathsFailedOrInvalidatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
@@ -1097,7 +1097,7 @@ impl windows_core::RuntimeName for DisplayManagerPathsFailedOrInvalidatedEventAr
 unsafe impl Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 unsafe impl Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerResultWithState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManagerResultWithState, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayManagerResultWithState {
@@ -1136,7 +1136,7 @@ impl windows_core::RuntimeName for DisplayManagerResultWithState {
 unsafe impl Send for DisplayManagerResultWithState {}
 unsafe impl Sync for DisplayManagerResultWithState {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayModeInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayModeInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayModeInfo {
@@ -1233,7 +1233,7 @@ impl windows_core::RuntimeName for DisplayModeInfo {
 unsafe impl Send for DisplayModeInfo {}
 unsafe impl Sync for DisplayModeInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayPath(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayPath, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayPath {
@@ -1433,7 +1433,7 @@ impl windows_core::RuntimeName for DisplayPath {
 unsafe impl Send for DisplayPath {}
 unsafe impl Sync for DisplayPath {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayPrimaryDescription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayPrimaryDescription, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayPrimaryDescription {
@@ -1531,7 +1531,7 @@ impl windows_core::RuntimeName for DisplayPrimaryDescription {
 unsafe impl Send for DisplayPrimaryDescription {}
 unsafe impl Sync for DisplayPrimaryDescription {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayScanout(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayScanout, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayScanout {}
@@ -1548,7 +1548,7 @@ impl windows_core::RuntimeName for DisplayScanout {
 unsafe impl Send for DisplayScanout {}
 unsafe impl Sync for DisplayScanout {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplaySource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplaySource, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplaySource {
@@ -1610,7 +1610,7 @@ impl windows_core::RuntimeName for DisplaySource {
 unsafe impl Send for DisplaySource {}
 unsafe impl Sync for DisplaySource {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayState, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayState {
@@ -1746,7 +1746,7 @@ impl windows_core::RuntimeName for DisplayState {
 unsafe impl Send for DisplayState {}
 unsafe impl Sync for DisplayState {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayStateOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayStateOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayStateOperationResult {
@@ -1778,7 +1778,7 @@ impl windows_core::RuntimeName for DisplayStateOperationResult {
 unsafe impl Send for DisplayStateOperationResult {}
 unsafe impl Sync for DisplayStateOperationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplaySurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplaySurface, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplaySurface {}
@@ -1795,7 +1795,7 @@ impl windows_core::RuntimeName for DisplaySurface {
 unsafe impl Send for DisplaySurface {}
 unsafe impl Sync for DisplaySurface {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayTarget, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayTarget {
@@ -1918,7 +1918,7 @@ impl windows_core::RuntimeName for DisplayTarget {
 unsafe impl Send for DisplayTarget {}
 unsafe impl Sync for DisplayTarget {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTask(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayTask, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayTask {
@@ -1957,7 +1957,7 @@ impl windows_core::RuntimeName for DisplayTask {
 unsafe impl Send for DisplayTask {}
 unsafe impl Sync for DisplayTask {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTaskPool(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayTaskPool, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayTaskPool {
@@ -2000,7 +2000,7 @@ impl windows_core::RuntimeName for DisplayTaskPool {
 unsafe impl Send for DisplayTaskPool {}
 unsafe impl Sync for DisplayTaskPool {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTaskResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayTaskResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayTaskResult {
@@ -2039,7 +2039,7 @@ impl windows_core::RuntimeName for DisplayTaskResult {
 unsafe impl Send for DisplayTaskResult {}
 unsafe impl Sync for DisplayTaskResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayView, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayView {
@@ -2096,7 +2096,7 @@ impl windows_core::RuntimeName for DisplayView {
 unsafe impl Send for DisplayView {}
 unsafe impl Sync for DisplayView {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayWireFormat(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayWireFormat, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayWireFormat {

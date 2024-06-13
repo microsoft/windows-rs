@@ -164,7 +164,7 @@ pub struct ILowLevelDevicesControllerStatics_Vtbl {
     pub SetDefaultProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LowLevelDevicesAggregateProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLevelDevicesAggregateProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProvider);
@@ -242,7 +242,7 @@ impl windows_core::RuntimeName for LowLevelDevicesAggregateProvider {
 unsafe impl Send for LowLevelDevicesAggregateProvider {}
 unsafe impl Sync for LowLevelDevicesAggregateProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LowLevelDevicesController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLevelDevicesController, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLevelDevicesController {

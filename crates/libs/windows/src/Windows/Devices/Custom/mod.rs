@@ -108,7 +108,7 @@ pub struct IKnownDeviceTypesStatics_Vtbl {
     pub Unknown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CustomDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CustomDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl CustomDevice {
@@ -185,7 +185,7 @@ impl windows_core::RuntimeName for CustomDevice {
 unsafe impl Send for CustomDevice {}
 unsafe impl Sync for CustomDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IOControlCode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IOControlCode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IOControlCode, IIOControlCode);

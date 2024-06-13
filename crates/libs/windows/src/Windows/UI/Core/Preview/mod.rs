@@ -49,7 +49,7 @@ pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreAppWindowPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreAppWindowPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreAppWindowPreview {
@@ -82,7 +82,7 @@ impl windows_core::RuntimeName for CoreAppWindowPreview {
 unsafe impl Send for CoreAppWindowPreview {}
 unsafe impl Sync for CoreAppWindowPreview {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemNavigationCloseRequestedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemNavigationCloseRequestedPreviewEventArgs {
@@ -118,7 +118,7 @@ impl windows_core::RuntimeName for SystemNavigationCloseRequestedPreviewEventArg
 unsafe impl Send for SystemNavigationCloseRequestedPreviewEventArgs {}
 unsafe impl Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemNavigationManagerPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemNavigationManagerPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemNavigationManagerPreview {

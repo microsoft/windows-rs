@@ -511,7 +511,7 @@ pub struct IStandardPrintTaskOptionsStatic3_Vtbl {
     pub CustomPageRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintManager, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintManager {
@@ -571,7 +571,7 @@ impl windows_core::RuntimeName for PrintManager {
 unsafe impl Send for PrintManager {}
 unsafe impl Sync for PrintManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintPageInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintPageInfo {
@@ -651,7 +651,7 @@ impl windows_core::RuntimeName for PrintPageInfo {
 unsafe impl Send for PrintPageInfo {}
 unsafe impl Sync for PrintPageInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageRange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintPageRange, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintPageRange {
@@ -700,7 +700,7 @@ impl windows_core::RuntimeName for PrintPageRange {
 unsafe impl Send for PrintPageRange {}
 unsafe impl Sync for PrintPageRange {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageRangeOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintPageRangeOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintPageRangeOptions {
@@ -751,7 +751,7 @@ impl windows_core::RuntimeName for PrintPageRangeOptions {
 unsafe impl Send for PrintPageRangeOptions {}
 unsafe impl Sync for PrintPageRangeOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTask(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTask, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTask {
@@ -880,7 +880,7 @@ impl windows_core::RuntimeName for PrintTask {
 unsafe impl Send for PrintTask {}
 unsafe impl Sync for PrintTask {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskCompletedEventArgs {
@@ -905,7 +905,7 @@ impl windows_core::RuntimeName for PrintTaskCompletedEventArgs {
 unsafe impl Send for PrintTaskCompletedEventArgs {}
 unsafe impl Sync for PrintTaskCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskOptions, IPrintTaskOptionsCore, IPrintTaskOptionsCoreProperties, IPrintTaskOptionsCoreUIConfiguration);
@@ -1111,7 +1111,7 @@ impl windows_core::RuntimeName for PrintTaskOptions {
 unsafe impl Send for PrintTaskOptions {}
 unsafe impl Sync for PrintTaskOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskProgressingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskProgressingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskProgressingEventArgs {
@@ -1136,7 +1136,7 @@ impl windows_core::RuntimeName for PrintTaskProgressingEventArgs {
 unsafe impl Send for PrintTaskProgressingEventArgs {}
 unsafe impl Sync for PrintTaskProgressingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskRequest {
@@ -1178,7 +1178,7 @@ impl windows_core::RuntimeName for PrintTaskRequest {
 unsafe impl Send for PrintTaskRequest {}
 unsafe impl Sync for PrintTaskRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskRequestedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskRequestedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskRequestedDeferral {
@@ -1200,7 +1200,7 @@ impl windows_core::RuntimeName for PrintTaskRequestedDeferral {
 unsafe impl Send for PrintTaskRequestedDeferral {}
 unsafe impl Sync for PrintTaskRequestedDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskRequestedEventArgs {
@@ -1225,7 +1225,7 @@ impl windows_core::RuntimeName for PrintTaskRequestedEventArgs {
 unsafe impl Send for PrintTaskRequestedEventArgs {}
 unsafe impl Sync for PrintTaskRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskSourceRequestedArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskSourceRequestedArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskSourceRequestedArgs {
@@ -1264,7 +1264,7 @@ impl windows_core::RuntimeName for PrintTaskSourceRequestedArgs {
 unsafe impl Send for PrintTaskSourceRequestedArgs {}
 unsafe impl Sync for PrintTaskSourceRequestedArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskSourceRequestedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskSourceRequestedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskSourceRequestedDeferral {

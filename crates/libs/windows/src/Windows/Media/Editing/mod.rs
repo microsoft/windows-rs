@@ -271,7 +271,7 @@ pub struct IMediaOverlayLayerFactory_Vtbl {
     CreateWithCompositorDefinition: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundAudioTrack(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundAudioTrack, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundAudioTrack {
@@ -402,7 +402,7 @@ impl windows_core::RuntimeName for BackgroundAudioTrack {
 unsafe impl Send for BackgroundAudioTrack {}
 unsafe impl Sync for BackgroundAudioTrack {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmbeddedAudioTrack(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmbeddedAudioTrack, windows_core::IUnknown, windows_core::IInspectable);
 impl EmbeddedAudioTrack {
@@ -428,7 +428,7 @@ impl windows_core::RuntimeName for EmbeddedAudioTrack {
 unsafe impl Send for EmbeddedAudioTrack {}
 unsafe impl Sync for EmbeddedAudioTrack {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaClip(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaClip, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaClip {
@@ -612,7 +612,7 @@ impl windows_core::RuntimeName for MediaClip {
 unsafe impl Send for MediaClip {}
 unsafe impl Sync for MediaClip {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaComposition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaComposition, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaComposition {
@@ -797,7 +797,7 @@ impl windows_core::RuntimeName for MediaComposition {
 unsafe impl Send for MediaComposition {}
 unsafe impl Sync for MediaComposition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaOverlay(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaOverlay, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaOverlay {
@@ -896,7 +896,7 @@ impl windows_core::RuntimeName for MediaOverlay {
 unsafe impl Send for MediaOverlay {}
 unsafe impl Sync for MediaOverlay {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaOverlayLayer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaOverlayLayer, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaOverlayLayer {

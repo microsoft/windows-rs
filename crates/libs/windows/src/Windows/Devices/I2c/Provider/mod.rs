@@ -139,7 +139,7 @@ pub struct IProviderI2cConnectionSettings_Vtbl {
     pub SetSharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderI2cSharingMode) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProviderI2cConnectionSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProviderI2cConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl ProviderI2cConnectionSettings {

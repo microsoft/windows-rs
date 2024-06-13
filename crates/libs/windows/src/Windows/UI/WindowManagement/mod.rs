@@ -322,7 +322,7 @@ pub struct IWindowingEnvironmentStatics_Vtbl {
     FindAllWithKind: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindow(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindow, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindow {
@@ -547,7 +547,7 @@ impl windows_core::RuntimeName for AppWindow {
 unsafe impl Send for AppWindow {}
 unsafe impl Sync for AppWindow {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowChangedEventArgs {
@@ -621,7 +621,7 @@ impl windows_core::RuntimeName for AppWindowChangedEventArgs {
 unsafe impl Send for AppWindowChangedEventArgs {}
 unsafe impl Sync for AppWindowChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowCloseRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowCloseRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowCloseRequestedEventArgs {
@@ -657,7 +657,7 @@ impl windows_core::RuntimeName for AppWindowCloseRequestedEventArgs {
 unsafe impl Send for AppWindowCloseRequestedEventArgs {}
 unsafe impl Sync for AppWindowCloseRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowClosedEventArgs {
@@ -682,7 +682,7 @@ impl windows_core::RuntimeName for AppWindowClosedEventArgs {
 unsafe impl Send for AppWindowClosedEventArgs {}
 unsafe impl Sync for AppWindowClosedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowFrame {
@@ -719,7 +719,7 @@ impl windows_core::RuntimeName for AppWindowFrame {
 unsafe impl Send for AppWindowFrame {}
 unsafe impl Sync for AppWindowFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowPlacement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowPlacement, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowPlacement {
@@ -758,7 +758,7 @@ impl windows_core::RuntimeName for AppWindowPlacement {
 unsafe impl Send for AppWindowPlacement {}
 unsafe impl Sync for AppWindowPlacement {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowPresentationConfiguration {
@@ -783,7 +783,7 @@ impl windows_core::RuntimeName for AppWindowPresentationConfiguration {
 unsafe impl Send for AppWindowPresentationConfiguration {}
 unsafe impl Sync for AppWindowPresentationConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowPresenter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowPresenter, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowPresenter {
@@ -832,7 +832,7 @@ impl windows_core::RuntimeName for AppWindowPresenter {
 unsafe impl Send for AppWindowPresenter {}
 unsafe impl Sync for AppWindowPresenter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowTitleBar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowTitleBar, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowTitleBar {
@@ -1055,7 +1055,7 @@ impl windows_core::RuntimeName for AppWindowTitleBar {
 unsafe impl Send for AppWindowTitleBar {}
 unsafe impl Sync for AppWindowTitleBar {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowTitleBarOcclusion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowTitleBarOcclusion, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowTitleBarOcclusion {
@@ -1080,7 +1080,7 @@ impl windows_core::RuntimeName for AppWindowTitleBarOcclusion {
 unsafe impl Send for AppWindowTitleBarOcclusion {}
 unsafe impl Sync for AppWindowTitleBarOcclusion {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompactOverlayPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompactOverlayPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompactOverlayPresentationConfiguration, AppWindowPresentationConfiguration);
@@ -1113,7 +1113,7 @@ impl windows_core::RuntimeName for CompactOverlayPresentationConfiguration {
 unsafe impl Send for CompactOverlayPresentationConfiguration {}
 unsafe impl Sync for CompactOverlayPresentationConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DefaultPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DefaultPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DefaultPresentationConfiguration, AppWindowPresentationConfiguration);
@@ -1146,7 +1146,7 @@ impl windows_core::RuntimeName for DefaultPresentationConfiguration {
 unsafe impl Send for DefaultPresentationConfiguration {}
 unsafe impl Sync for DefaultPresentationConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayRegion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayRegion, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayRegion {
@@ -1213,7 +1213,7 @@ impl windows_core::RuntimeName for DisplayRegion {
 unsafe impl Send for DisplayRegion {}
 unsafe impl Sync for DisplayRegion {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FullScreenPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FullScreenPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FullScreenPresentationConfiguration, AppWindowPresentationConfiguration);
@@ -1275,7 +1275,7 @@ impl windows_core::RuntimeName for WindowServices {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowServices";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowingEnvironment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowingEnvironment, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowingEnvironment {
@@ -1348,7 +1348,7 @@ impl windows_core::RuntimeName for WindowingEnvironment {
 unsafe impl Send for WindowingEnvironment {}
 unsafe impl Sync for WindowingEnvironment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowingEnvironmentAddedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowingEnvironmentAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowingEnvironmentAddedEventArgs {
@@ -1373,7 +1373,7 @@ impl windows_core::RuntimeName for WindowingEnvironmentAddedEventArgs {
 unsafe impl Send for WindowingEnvironmentAddedEventArgs {}
 unsafe impl Sync for WindowingEnvironmentAddedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowingEnvironmentChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowingEnvironmentChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowingEnvironmentChangedEventArgs {}
@@ -1390,7 +1390,7 @@ impl windows_core::RuntimeName for WindowingEnvironmentChangedEventArgs {
 unsafe impl Send for WindowingEnvironmentChangedEventArgs {}
 unsafe impl Sync for WindowingEnvironmentChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowingEnvironmentRemovedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowingEnvironmentRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowingEnvironmentRemovedEventArgs {

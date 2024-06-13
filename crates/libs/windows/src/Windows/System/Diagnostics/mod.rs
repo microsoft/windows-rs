@@ -240,7 +240,7 @@ pub struct ISystemMemoryUsageReport_Vtbl {
     pub CommittedSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DiagnosticActionResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DiagnosticActionResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DiagnosticActionResult {
@@ -273,7 +273,7 @@ impl windows_core::RuntimeName for DiagnosticActionResult {
 unsafe impl Send for DiagnosticActionResult {}
 unsafe impl Sync for DiagnosticActionResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DiagnosticInvoker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DiagnosticInvoker, windows_core::IUnknown, windows_core::IInspectable);
 impl DiagnosticInvoker {
@@ -335,7 +335,7 @@ impl windows_core::RuntimeName for DiagnosticInvoker {
 unsafe impl Send for DiagnosticInvoker {}
 unsafe impl Sync for DiagnosticInvoker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessCpuUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessCpuUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessCpuUsage {
@@ -360,7 +360,7 @@ impl windows_core::RuntimeName for ProcessCpuUsage {
 unsafe impl Send for ProcessCpuUsage {}
 unsafe impl Sync for ProcessCpuUsage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessCpuUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessCpuUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessCpuUsageReport {
@@ -392,7 +392,7 @@ impl windows_core::RuntimeName for ProcessCpuUsageReport {
 unsafe impl Send for ProcessCpuUsageReport {}
 unsafe impl Sync for ProcessCpuUsageReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessDiagnosticInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessDiagnosticInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessDiagnosticInfo {
@@ -503,7 +503,7 @@ impl windows_core::RuntimeName for ProcessDiagnosticInfo {
 unsafe impl Send for ProcessDiagnosticInfo {}
 unsafe impl Sync for ProcessDiagnosticInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessDiskUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessDiskUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessDiskUsage {
@@ -528,7 +528,7 @@ impl windows_core::RuntimeName for ProcessDiskUsage {
 unsafe impl Send for ProcessDiskUsage {}
 unsafe impl Sync for ProcessDiskUsage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessDiskUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessDiskUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessDiskUsageReport {
@@ -588,7 +588,7 @@ impl windows_core::RuntimeName for ProcessDiskUsageReport {
 unsafe impl Send for ProcessDiskUsageReport {}
 unsafe impl Sync for ProcessDiskUsageReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessMemoryUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessMemoryUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessMemoryUsage {
@@ -613,7 +613,7 @@ impl windows_core::RuntimeName for ProcessMemoryUsage {
 unsafe impl Send for ProcessMemoryUsage {}
 unsafe impl Sync for ProcessMemoryUsage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessMemoryUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessMemoryUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessMemoryUsageReport {
@@ -715,7 +715,7 @@ impl windows_core::RuntimeName for ProcessMemoryUsageReport {
 unsafe impl Send for ProcessMemoryUsageReport {}
 unsafe impl Sync for ProcessMemoryUsageReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemCpuUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemCpuUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemCpuUsage {
@@ -740,7 +740,7 @@ impl windows_core::RuntimeName for SystemCpuUsage {
 unsafe impl Send for SystemCpuUsage {}
 unsafe impl Sync for SystemCpuUsage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemCpuUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemCpuUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemCpuUsageReport {
@@ -779,7 +779,7 @@ impl windows_core::RuntimeName for SystemCpuUsageReport {
 unsafe impl Send for SystemCpuUsageReport {}
 unsafe impl Sync for SystemCpuUsageReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemDiagnosticInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemDiagnosticInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemDiagnosticInfo {
@@ -839,7 +839,7 @@ impl windows_core::RuntimeName for SystemDiagnosticInfo {
 unsafe impl Send for SystemDiagnosticInfo {}
 unsafe impl Sync for SystemDiagnosticInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMemoryUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemMemoryUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemMemoryUsage {
@@ -864,7 +864,7 @@ impl windows_core::RuntimeName for SystemMemoryUsage {
 unsafe impl Send for SystemMemoryUsage {}
 unsafe impl Sync for SystemMemoryUsage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMemoryUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemMemoryUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemMemoryUsageReport {

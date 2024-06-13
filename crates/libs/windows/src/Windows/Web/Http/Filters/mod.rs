@@ -174,7 +174,7 @@ pub struct IHttpServerCustomValidationRequestedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpBaseProtocolFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpBaseProtocolFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpBaseProtocolFilter, super::super::super::Foundation::IClosable, IHttpFilter);
@@ -402,7 +402,7 @@ impl windows_core::RuntimeName for HttpBaseProtocolFilter {
 unsafe impl Send for HttpBaseProtocolFilter {}
 unsafe impl Sync for HttpBaseProtocolFilter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCacheControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCacheControl, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpCacheControl {
@@ -442,7 +442,7 @@ impl windows_core::RuntimeName for HttpCacheControl {
 unsafe impl Send for HttpCacheControl {}
 unsafe impl Sync for HttpCacheControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpServerCustomValidationRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpServerCustomValidationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpServerCustomValidationRequestedEventArgs {

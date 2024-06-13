@@ -55,7 +55,7 @@ pub struct IAppCapabilityStatics_Vtbl {
     CreateWithProcessIdForUser: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCapability(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCapability, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCapability {
@@ -169,7 +169,7 @@ impl windows_core::RuntimeName for AppCapability {
 unsafe impl Send for AppCapability {}
 unsafe impl Sync for AppCapability {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCapabilityAccessChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCapabilityAccessChangedEventArgs {}

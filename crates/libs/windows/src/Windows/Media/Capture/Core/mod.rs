@@ -35,7 +35,7 @@ pub struct IVariablePhotoSequenceCapture2_Vtbl {
     pub UpdateSettingsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VariablePhotoCapturedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VariablePhotoCapturedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl VariablePhotoCapturedEventArgs {
@@ -81,7 +81,7 @@ impl windows_core::RuntimeName for VariablePhotoCapturedEventArgs {
 unsafe impl Send for VariablePhotoCapturedEventArgs {}
 unsafe impl Sync for VariablePhotoCapturedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VariablePhotoSequenceCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VariablePhotoSequenceCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl VariablePhotoSequenceCapture {

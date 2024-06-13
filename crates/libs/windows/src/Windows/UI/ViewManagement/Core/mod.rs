@@ -224,7 +224,7 @@ pub struct IUISettingsControllerStatics_Vtbl {
     pub RequestDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreFrameworkInputView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreFrameworkInputView, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreFrameworkInputView {
@@ -290,7 +290,7 @@ impl windows_core::RuntimeName for CoreFrameworkInputView {
 unsafe impl Send for CoreFrameworkInputView {}
 unsafe impl Sync for CoreFrameworkInputView {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreFrameworkInputViewAnimationStartingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreFrameworkInputViewAnimationStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreFrameworkInputViewAnimationStartingEventArgs {
@@ -330,7 +330,7 @@ impl windows_core::RuntimeName for CoreFrameworkInputViewAnimationStartingEventA
 unsafe impl Send for CoreFrameworkInputViewAnimationStartingEventArgs {}
 unsafe impl Sync for CoreFrameworkInputViewAnimationStartingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreFrameworkInputViewOcclusionsChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreFrameworkInputViewOcclusionsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
@@ -363,7 +363,7 @@ impl windows_core::RuntimeName for CoreFrameworkInputViewOcclusionsChangedEventA
 unsafe impl Send for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 unsafe impl Sync for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInputView, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreInputView {
@@ -561,7 +561,7 @@ impl windows_core::RuntimeName for CoreInputView {
 unsafe impl Send for CoreInputView {}
 unsafe impl Sync for CoreInputView {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewAnimationStartingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInputViewAnimationStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreInputViewAnimationStartingEventArgs {
@@ -605,7 +605,7 @@ impl windows_core::RuntimeName for CoreInputViewAnimationStartingEventArgs {
 unsafe impl Send for CoreInputViewAnimationStartingEventArgs {}
 unsafe impl Sync for CoreInputViewAnimationStartingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewHidingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInputViewHidingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreInputViewHidingEventArgs {
@@ -630,7 +630,7 @@ impl windows_core::RuntimeName for CoreInputViewHidingEventArgs {
 unsafe impl Send for CoreInputViewHidingEventArgs {}
 unsafe impl Sync for CoreInputViewHidingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewOcclusion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInputViewOcclusion, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreInputViewOcclusion {
@@ -662,7 +662,7 @@ impl windows_core::RuntimeName for CoreInputViewOcclusion {
 unsafe impl Send for CoreInputViewOcclusion {}
 unsafe impl Sync for CoreInputViewOcclusion {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewOcclusionsChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInputViewOcclusionsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreInputViewOcclusionsChangedEventArgs {
@@ -699,7 +699,7 @@ impl windows_core::RuntimeName for CoreInputViewOcclusionsChangedEventArgs {
 unsafe impl Send for CoreInputViewOcclusionsChangedEventArgs {}
 unsafe impl Sync for CoreInputViewOcclusionsChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewShowingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInputViewShowingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreInputViewShowingEventArgs {
@@ -724,7 +724,7 @@ impl windows_core::RuntimeName for CoreInputViewShowingEventArgs {
 unsafe impl Send for CoreInputViewShowingEventArgs {}
 unsafe impl Sync for CoreInputViewShowingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewTransferringXYFocusEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInputViewTransferringXYFocusEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreInputViewTransferringXYFocusEventArgs {
@@ -778,7 +778,7 @@ impl windows_core::RuntimeName for CoreInputViewTransferringXYFocusEventArgs {
 unsafe impl Send for CoreInputViewTransferringXYFocusEventArgs {}
 unsafe impl Sync for CoreInputViewTransferringXYFocusEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UISettingsController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UISettingsController, windows_core::IUnknown, windows_core::IInspectable);
 impl UISettingsController {

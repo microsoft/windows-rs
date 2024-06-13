@@ -172,7 +172,7 @@ pub struct IUserDataAccountStoreChangedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccount(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccount, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAccount {
@@ -424,7 +424,7 @@ impl windows_core::RuntimeName for UserDataAccountManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAccountManagerForUser {
@@ -457,7 +457,7 @@ impl windows_core::RuntimeName for UserDataAccountManagerForUser {
 unsafe impl Send for UserDataAccountManagerForUser {}
 unsafe impl Sync for UserDataAccountManagerForUser {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountStore, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAccountStore {
@@ -525,7 +525,7 @@ impl windows_core::RuntimeName for UserDataAccountStore {
 unsafe impl Send for UserDataAccountStore {}
 unsafe impl Sync for UserDataAccountStore {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountStoreChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountStoreChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAccountStoreChangedEventArgs {

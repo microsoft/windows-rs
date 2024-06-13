@@ -59,7 +59,7 @@ pub struct IPhoneNumberInfoStatics_Vtbl {
     pub TryParseWithRegion: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void, *mut PhoneNumberParseResult) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneNumberFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneNumberFormatter, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneNumberFormatter {
@@ -151,7 +151,7 @@ impl windows_core::RuntimeName for PhoneNumberFormatter {
 unsafe impl Send for PhoneNumberFormatter {}
 unsafe impl Sync for PhoneNumberFormatter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneNumberInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneNumberInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhoneNumberInfo, super::super::Foundation::IStringable);

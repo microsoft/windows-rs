@@ -779,7 +779,7 @@ pub struct IHttpTransferCodingHeaderValueStatics_Vtbl {
     pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCacheDirectiveHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCacheDirectiveHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -984,7 +984,7 @@ impl IntoIterator for &HttpCacheDirectiveHeaderValueCollection {
 unsafe impl Send for HttpCacheDirectiveHeaderValueCollection {}
 unsafe impl Sync for HttpCacheDirectiveHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpChallengeHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpChallengeHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpChallengeHeaderValue, super::super::super::Foundation::IStringable);
@@ -1066,7 +1066,7 @@ impl windows_core::RuntimeName for HttpChallengeHeaderValue {
 unsafe impl Send for HttpChallengeHeaderValue {}
 unsafe impl Sync for HttpChallengeHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpChallengeHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpChallengeHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1215,7 +1215,7 @@ impl IntoIterator for &HttpChallengeHeaderValueCollection {
 unsafe impl Send for HttpChallengeHeaderValueCollection {}
 unsafe impl Sync for HttpChallengeHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpConnectionOptionHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpConnectionOptionHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpConnectionOptionHeaderValue, super::super::super::Foundation::IStringable);
@@ -1276,7 +1276,7 @@ impl windows_core::RuntimeName for HttpConnectionOptionHeaderValue {
 unsafe impl Send for HttpConnectionOptionHeaderValue {}
 unsafe impl Sync for HttpConnectionOptionHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpConnectionOptionHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpConnectionOptionHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1425,7 +1425,7 @@ impl IntoIterator for &HttpConnectionOptionHeaderValueCollection {
 unsafe impl Send for HttpConnectionOptionHeaderValueCollection {}
 unsafe impl Sync for HttpConnectionOptionHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpContentCodingHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpContentCodingHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpContentCodingHeaderValue, super::super::super::Foundation::IStringable);
@@ -1486,7 +1486,7 @@ impl windows_core::RuntimeName for HttpContentCodingHeaderValue {
 unsafe impl Send for HttpContentCodingHeaderValue {}
 unsafe impl Sync for HttpContentCodingHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpContentCodingHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpContentCodingHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1635,7 +1635,7 @@ impl IntoIterator for &HttpContentCodingHeaderValueCollection {
 unsafe impl Send for HttpContentCodingHeaderValueCollection {}
 unsafe impl Sync for HttpContentCodingHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpContentCodingWithQualityHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpContentCodingWithQualityHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpContentCodingWithQualityHeaderValue, super::super::super::Foundation::IStringable);
@@ -1709,7 +1709,7 @@ impl windows_core::RuntimeName for HttpContentCodingWithQualityHeaderValue {
 unsafe impl Send for HttpContentCodingWithQualityHeaderValue {}
 unsafe impl Sync for HttpContentCodingWithQualityHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpContentCodingWithQualityHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpContentCodingWithQualityHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1858,7 +1858,7 @@ impl IntoIterator for &HttpContentCodingWithQualityHeaderValueCollection {
 unsafe impl Send for HttpContentCodingWithQualityHeaderValueCollection {}
 unsafe impl Sync for HttpContentCodingWithQualityHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpContentDispositionHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpContentDispositionHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpContentDispositionHeaderValue, super::super::super::Foundation::IStringable);
@@ -1978,7 +1978,7 @@ impl windows_core::RuntimeName for HttpContentDispositionHeaderValue {
 unsafe impl Send for HttpContentDispositionHeaderValue {}
 unsafe impl Sync for HttpContentDispositionHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpContentHeaderCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpContentHeaderCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -2225,7 +2225,7 @@ impl IntoIterator for &HttpContentHeaderCollection {
 unsafe impl Send for HttpContentHeaderCollection {}
 unsafe impl Sync for HttpContentHeaderCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpContentRangeHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpContentRangeHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpContentRangeHeaderValue, super::super::super::Foundation::IStringable);
@@ -2323,7 +2323,7 @@ impl windows_core::RuntimeName for HttpContentRangeHeaderValue {
 unsafe impl Send for HttpContentRangeHeaderValue {}
 unsafe impl Sync for HttpContentRangeHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCookiePairHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCookiePairHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpCookiePairHeaderValue, super::super::super::Foundation::IStringable);
@@ -2401,7 +2401,7 @@ impl windows_core::RuntimeName for HttpCookiePairHeaderValue {
 unsafe impl Send for HttpCookiePairHeaderValue {}
 unsafe impl Sync for HttpCookiePairHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCookiePairHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCookiePairHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -2550,7 +2550,7 @@ impl IntoIterator for &HttpCookiePairHeaderValueCollection {
 unsafe impl Send for HttpCookiePairHeaderValueCollection {}
 unsafe impl Sync for HttpCookiePairHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCredentialsHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCredentialsHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpCredentialsHeaderValue, super::super::super::Foundation::IStringable);
@@ -2632,7 +2632,7 @@ impl windows_core::RuntimeName for HttpCredentialsHeaderValue {
 unsafe impl Send for HttpCredentialsHeaderValue {}
 unsafe impl Sync for HttpCredentialsHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDateOrDeltaHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDateOrDeltaHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpDateOrDeltaHeaderValue, super::super::super::Foundation::IStringable);
@@ -2689,7 +2689,7 @@ impl windows_core::RuntimeName for HttpDateOrDeltaHeaderValue {
 unsafe impl Send for HttpDateOrDeltaHeaderValue {}
 unsafe impl Sync for HttpDateOrDeltaHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpExpectationHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpExpectationHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpExpectationHeaderValue, super::super::super::Foundation::IStringable);
@@ -2775,7 +2775,7 @@ impl windows_core::RuntimeName for HttpExpectationHeaderValue {
 unsafe impl Send for HttpExpectationHeaderValue {}
 unsafe impl Sync for HttpExpectationHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpExpectationHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpExpectationHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -2924,7 +2924,7 @@ impl IntoIterator for &HttpExpectationHeaderValueCollection {
 unsafe impl Send for HttpExpectationHeaderValueCollection {}
 unsafe impl Sync for HttpExpectationHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpLanguageHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpLanguageHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
@@ -3073,7 +3073,7 @@ impl IntoIterator for &HttpLanguageHeaderValueCollection {
 unsafe impl Send for HttpLanguageHeaderValueCollection {}
 unsafe impl Sync for HttpLanguageHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpLanguageRangeWithQualityHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpLanguageRangeWithQualityHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpLanguageRangeWithQualityHeaderValue, super::super::super::Foundation::IStringable);
@@ -3147,7 +3147,7 @@ impl windows_core::RuntimeName for HttpLanguageRangeWithQualityHeaderValue {
 unsafe impl Send for HttpLanguageRangeWithQualityHeaderValue {}
 unsafe impl Sync for HttpLanguageRangeWithQualityHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpLanguageRangeWithQualityHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpLanguageRangeWithQualityHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -3296,7 +3296,7 @@ impl IntoIterator for &HttpLanguageRangeWithQualityHeaderValueCollection {
 unsafe impl Send for HttpLanguageRangeWithQualityHeaderValueCollection {}
 unsafe impl Sync for HttpLanguageRangeWithQualityHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpMediaTypeHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpMediaTypeHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpMediaTypeHeaderValue, super::super::super::Foundation::IStringable);
@@ -3380,7 +3380,7 @@ impl windows_core::RuntimeName for HttpMediaTypeHeaderValue {
 unsafe impl Send for HttpMediaTypeHeaderValue {}
 unsafe impl Sync for HttpMediaTypeHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpMediaTypeWithQualityHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpMediaTypeWithQualityHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpMediaTypeWithQualityHeaderValue, super::super::super::Foundation::IStringable);
@@ -3484,7 +3484,7 @@ impl windows_core::RuntimeName for HttpMediaTypeWithQualityHeaderValue {
 unsafe impl Send for HttpMediaTypeWithQualityHeaderValue {}
 unsafe impl Sync for HttpMediaTypeWithQualityHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpMediaTypeWithQualityHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpMediaTypeWithQualityHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -3633,7 +3633,7 @@ impl IntoIterator for &HttpMediaTypeWithQualityHeaderValueCollection {
 unsafe impl Send for HttpMediaTypeWithQualityHeaderValueCollection {}
 unsafe impl Sync for HttpMediaTypeWithQualityHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpMethodHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpMethodHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -3782,7 +3782,7 @@ impl IntoIterator for &HttpMethodHeaderValueCollection {
 unsafe impl Send for HttpMethodHeaderValueCollection {}
 unsafe impl Sync for HttpMethodHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpNameValueHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpNameValueHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpNameValueHeaderValue, super::super::super::Foundation::IStringable);
@@ -3860,7 +3860,7 @@ impl windows_core::RuntimeName for HttpNameValueHeaderValue {
 unsafe impl Send for HttpNameValueHeaderValue {}
 unsafe impl Sync for HttpNameValueHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpProductHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpProductHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpProductHeaderValue, super::super::super::Foundation::IStringable);
@@ -3934,7 +3934,7 @@ impl windows_core::RuntimeName for HttpProductHeaderValue {
 unsafe impl Send for HttpProductHeaderValue {}
 unsafe impl Sync for HttpProductHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpProductInfoHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpProductInfoHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpProductInfoHeaderValue, super::super::super::Foundation::IStringable);
@@ -4008,7 +4008,7 @@ impl windows_core::RuntimeName for HttpProductInfoHeaderValue {
 unsafe impl Send for HttpProductInfoHeaderValue {}
 unsafe impl Sync for HttpProductInfoHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpProductInfoHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpProductInfoHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -4157,7 +4157,7 @@ impl IntoIterator for &HttpProductInfoHeaderValueCollection {
 unsafe impl Send for HttpProductInfoHeaderValueCollection {}
 unsafe impl Sync for HttpProductInfoHeaderValueCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpRequestHeaderCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpRequestHeaderCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -4457,7 +4457,7 @@ impl IntoIterator for &HttpRequestHeaderCollection {
 unsafe impl Send for HttpRequestHeaderCollection {}
 unsafe impl Sync for HttpRequestHeaderCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpResponseHeaderCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpResponseHeaderCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -4667,7 +4667,7 @@ impl IntoIterator for &HttpResponseHeaderCollection {
 unsafe impl Send for HttpResponseHeaderCollection {}
 unsafe impl Sync for HttpResponseHeaderCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpTransferCodingHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpTransferCodingHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpTransferCodingHeaderValue, super::super::super::Foundation::IStringable);
@@ -4736,7 +4736,7 @@ impl windows_core::RuntimeName for HttpTransferCodingHeaderValue {
 unsafe impl Send for HttpTransferCodingHeaderValue {}
 unsafe impl Sync for HttpTransferCodingHeaderValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpTransferCodingHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpTransferCodingHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]

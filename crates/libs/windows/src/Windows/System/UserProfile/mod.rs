@@ -325,7 +325,7 @@ impl windows_core::RuntimeName for AdvertisingManager {
     const NAME: &'static str = "Windows.System.UserProfile.AdvertisingManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdvertisingManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdvertisingManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl AdvertisingManagerForUser {
@@ -357,7 +357,7 @@ impl windows_core::RuntimeName for AdvertisingManagerForUser {
 unsafe impl Send for AdvertisingManagerForUser {}
 unsafe impl Sync for AdvertisingManagerForUser {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AssignedAccessSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AssignedAccessSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl AssignedAccessSettings {
@@ -416,7 +416,7 @@ impl windows_core::RuntimeName for AssignedAccessSettings {
 unsafe impl Send for AssignedAccessSettings {}
 unsafe impl Sync for AssignedAccessSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DiagnosticsSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DiagnosticsSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl DiagnosticsSettings {
@@ -468,7 +468,7 @@ impl windows_core::RuntimeName for DiagnosticsSettings {
 unsafe impl Send for DiagnosticsSettings {}
 unsafe impl Sync for DiagnosticsSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FirstSignInSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FirstSignInSettings, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -639,7 +639,7 @@ impl windows_core::RuntimeName for GlobalizationPreferences {
     const NAME: &'static str = "Windows.System.UserProfile.GlobalizationPreferences";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalizationPreferencesForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalizationPreferencesForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalizationPreferencesForUser {
@@ -911,7 +911,7 @@ impl windows_core::RuntimeName for UserInformation {
     const NAME: &'static str = "Windows.System.UserProfile.UserInformation";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserProfilePersonalizationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserProfilePersonalizationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl UserProfilePersonalizationSettings {

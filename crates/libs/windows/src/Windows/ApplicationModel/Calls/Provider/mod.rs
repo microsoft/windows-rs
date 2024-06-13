@@ -126,7 +126,7 @@ pub struct IPhoneCallOriginManagerStatics3_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallOrigin(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PhoneCallOrigin, windows_core::IUnknown, windows_core::IInspectable);

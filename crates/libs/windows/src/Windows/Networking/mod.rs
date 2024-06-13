@@ -77,7 +77,7 @@ pub struct IHostNameStatics_Vtbl {
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut i32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EndpointPair(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EndpointPair, windows_core::IUnknown, windows_core::IInspectable);
 impl EndpointPair {
@@ -160,7 +160,7 @@ impl windows_core::RuntimeName for EndpointPair {
 unsafe impl Send for EndpointPair {}
 unsafe impl Sync for EndpointPair {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HostName(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HostName, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HostName, super::Foundation::IStringable);

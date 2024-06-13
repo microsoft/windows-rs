@@ -876,7 +876,7 @@ pub struct IVideoFrameStatics_Vtbl {
     CreateWithDirect3D11Surface: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioBuffer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioBuffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioBuffer, super::Foundation::IClosable, super::Foundation::IMemoryBuffer);
@@ -924,7 +924,7 @@ impl windows_core::RuntimeName for AudioBuffer {
 unsafe impl Send for AudioBuffer {}
 unsafe impl Sync for AudioBuffer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioFrame, super::Foundation::IClosable, IMediaFrame);
@@ -1040,7 +1040,7 @@ impl windows_core::RuntimeName for AudioFrame {
 unsafe impl Send for AudioFrame {}
 unsafe impl Sync for AudioFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutoRepeatModeChangeRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutoRepeatModeChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AutoRepeatModeChangeRequestedEventArgs {
@@ -1065,7 +1065,7 @@ impl windows_core::RuntimeName for AutoRepeatModeChangeRequestedEventArgs {
 unsafe impl Send for AutoRepeatModeChangeRequestedEventArgs {}
 unsafe impl Sync for AutoRepeatModeChangeRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageDisplayProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageDisplayProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl ImageDisplayProperties {
@@ -1342,7 +1342,7 @@ impl windows_core::RuntimeName for MediaControl {
     const NAME: &'static str = "Windows.Media.MediaControl";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaExtensionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaExtensionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaExtensionManager {
@@ -1465,7 +1465,7 @@ impl windows_core::RuntimeName for MediaMarkerTypes {
     const NAME: &'static str = "Windows.Media.MediaMarkerTypes";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProcessingTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaProcessingTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaProcessingTriggerDetails {
@@ -1491,7 +1491,7 @@ impl windows_core::RuntimeName for MediaProcessingTriggerDetails {
 unsafe impl Send for MediaProcessingTriggerDetails {}
 unsafe impl Sync for MediaProcessingTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaTimelineController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaTimelineController, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaTimelineController {
@@ -1638,7 +1638,7 @@ impl windows_core::RuntimeName for MediaTimelineController {
 unsafe impl Send for MediaTimelineController {}
 unsafe impl Sync for MediaTimelineController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaTimelineControllerFailedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaTimelineControllerFailedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaTimelineControllerFailedEventArgs {
@@ -1663,7 +1663,7 @@ impl windows_core::RuntimeName for MediaTimelineControllerFailedEventArgs {
 unsafe impl Send for MediaTimelineControllerFailedEventArgs {}
 unsafe impl Sync for MediaTimelineControllerFailedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MusicDisplayProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MusicDisplayProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl MusicDisplayProperties {
@@ -1755,7 +1755,7 @@ impl windows_core::RuntimeName for MusicDisplayProperties {
 unsafe impl Send for MusicDisplayProperties {}
 unsafe impl Sync for MusicDisplayProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackPositionChangeRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlaybackPositionChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PlaybackPositionChangeRequestedEventArgs {
@@ -1780,7 +1780,7 @@ impl windows_core::RuntimeName for PlaybackPositionChangeRequestedEventArgs {
 unsafe impl Send for PlaybackPositionChangeRequestedEventArgs {}
 unsafe impl Sync for PlaybackPositionChangeRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackRateChangeRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlaybackRateChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PlaybackRateChangeRequestedEventArgs {
@@ -1805,7 +1805,7 @@ impl windows_core::RuntimeName for PlaybackRateChangeRequestedEventArgs {
 unsafe impl Send for PlaybackRateChangeRequestedEventArgs {}
 unsafe impl Sync for PlaybackRateChangeRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShuffleEnabledChangeRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShuffleEnabledChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ShuffleEnabledChangeRequestedEventArgs {
@@ -1830,7 +1830,7 @@ impl windows_core::RuntimeName for ShuffleEnabledChangeRequestedEventArgs {
 unsafe impl Send for ShuffleEnabledChangeRequestedEventArgs {}
 unsafe impl Sync for ShuffleEnabledChangeRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControls(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemMediaTransportControls, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemMediaTransportControls {
@@ -2129,7 +2129,7 @@ impl windows_core::RuntimeName for SystemMediaTransportControls {
 unsafe impl Send for SystemMediaTransportControls {}
 unsafe impl Sync for SystemMediaTransportControls {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsButtonPressedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemMediaTransportControlsButtonPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemMediaTransportControlsButtonPressedEventArgs {
@@ -2154,7 +2154,7 @@ impl windows_core::RuntimeName for SystemMediaTransportControlsButtonPressedEven
 unsafe impl Send for SystemMediaTransportControlsButtonPressedEventArgs {}
 unsafe impl Sync for SystemMediaTransportControlsButtonPressedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsDisplayUpdater(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemMediaTransportControlsDisplayUpdater, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemMediaTransportControlsDisplayUpdater {
@@ -2250,7 +2250,7 @@ impl windows_core::RuntimeName for SystemMediaTransportControlsDisplayUpdater {
 unsafe impl Send for SystemMediaTransportControlsDisplayUpdater {}
 unsafe impl Sync for SystemMediaTransportControlsDisplayUpdater {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsPropertyChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemMediaTransportControlsPropertyChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemMediaTransportControlsPropertyChangedEventArgs {
@@ -2275,7 +2275,7 @@ impl windows_core::RuntimeName for SystemMediaTransportControlsPropertyChangedEv
 unsafe impl Send for SystemMediaTransportControlsPropertyChangedEventArgs {}
 unsafe impl Sync for SystemMediaTransportControlsPropertyChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsTimelineProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemMediaTransportControlsTimelineProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemMediaTransportControlsTimelineProperties {
@@ -2355,7 +2355,7 @@ impl windows_core::RuntimeName for SystemMediaTransportControlsTimelinePropertie
 unsafe impl Send for SystemMediaTransportControlsTimelineProperties {}
 unsafe impl Sync for SystemMediaTransportControlsTimelineProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoDisplayProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoDisplayProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl VideoDisplayProperties {
@@ -2420,7 +2420,7 @@ impl windows_core::RuntimeName for VideoEffects {
     const NAME: &'static str = "Windows.Media.VideoEffects";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoFrame, super::Foundation::IClosable, IMediaFrame);

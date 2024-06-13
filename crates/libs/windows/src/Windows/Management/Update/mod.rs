@@ -295,7 +295,7 @@ pub struct IWindowsUpdateScanCompletedEventArgs_Vtbl {
     Updates: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PreviewBuildsManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PreviewBuildsManager, windows_core::IUnknown, windows_core::IInspectable);
 impl PreviewBuildsManager {
@@ -355,7 +355,7 @@ impl windows_core::RuntimeName for PreviewBuildsManager {
 unsafe impl Send for PreviewBuildsManager {}
 unsafe impl Sync for PreviewBuildsManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PreviewBuildsState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PreviewBuildsState, windows_core::IUnknown, windows_core::IInspectable);
 impl PreviewBuildsState {
@@ -381,7 +381,7 @@ impl windows_core::RuntimeName for PreviewBuildsState {
 unsafe impl Send for PreviewBuildsState {}
 unsafe impl Sync for PreviewBuildsState {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdate, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdate {
@@ -564,7 +564,7 @@ impl windows_core::RuntimeName for WindowsUpdate {
 unsafe impl Send for WindowsUpdate {}
 unsafe impl Sync for WindowsUpdate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateActionCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateActionCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateActionCompletedEventArgs {
@@ -610,7 +610,7 @@ impl windows_core::RuntimeName for WindowsUpdateActionCompletedEventArgs {
 unsafe impl Send for WindowsUpdateActionCompletedEventArgs {}
 unsafe impl Sync for WindowsUpdateActionCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateActionProgress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateActionProgress, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateActionProgress {
@@ -642,7 +642,7 @@ impl windows_core::RuntimeName for WindowsUpdateActionProgress {
 unsafe impl Send for WindowsUpdateActionProgress {}
 unsafe impl Sync for WindowsUpdateActionProgress {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateActionResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateActionResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateActionResult {
@@ -688,7 +688,7 @@ impl windows_core::RuntimeName for WindowsUpdateActionResult {
 unsafe impl Send for WindowsUpdateActionResult {}
 unsafe impl Sync for WindowsUpdateActionResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateAdministrator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateAdministrator, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateAdministrator {
@@ -778,7 +778,7 @@ impl windows_core::RuntimeName for WindowsUpdateAdministrator {
 unsafe impl Send for WindowsUpdateAdministrator {}
 unsafe impl Sync for WindowsUpdateAdministrator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateApprovalData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateApprovalData, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateApprovalData {
@@ -873,7 +873,7 @@ impl windows_core::RuntimeName for WindowsUpdateApprovalData {
 unsafe impl Send for WindowsUpdateApprovalData {}
 unsafe impl Sync for WindowsUpdateApprovalData {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateAttentionRequiredInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateAttentionRequiredInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateAttentionRequiredInfo {
@@ -905,7 +905,7 @@ impl windows_core::RuntimeName for WindowsUpdateAttentionRequiredInfo {
 unsafe impl Send for WindowsUpdateAttentionRequiredInfo {}
 unsafe impl Sync for WindowsUpdateAttentionRequiredInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateAttentionRequiredReasonChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateAttentionRequiredReasonChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateAttentionRequiredReasonChangedEventArgs {
@@ -937,7 +937,7 @@ impl windows_core::RuntimeName for WindowsUpdateAttentionRequiredReasonChangedEv
 unsafe impl Send for WindowsUpdateAttentionRequiredReasonChangedEventArgs {}
 unsafe impl Sync for WindowsUpdateAttentionRequiredReasonChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateGetAdministratorResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateGetAdministratorResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateGetAdministratorResult {
@@ -969,7 +969,7 @@ impl windows_core::RuntimeName for WindowsUpdateGetAdministratorResult {
 unsafe impl Send for WindowsUpdateGetAdministratorResult {}
 unsafe impl Sync for WindowsUpdateGetAdministratorResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateItem, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateItem {
@@ -1043,7 +1043,7 @@ impl windows_core::RuntimeName for WindowsUpdateItem {
 unsafe impl Send for WindowsUpdateItem {}
 unsafe impl Sync for WindowsUpdateItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateManager, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateManager {
@@ -1205,7 +1205,7 @@ impl windows_core::RuntimeName for WindowsUpdateManager {
 unsafe impl Send for WindowsUpdateManager {}
 unsafe impl Sync for WindowsUpdateManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateProgressChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateProgressChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateProgressChangedEventArgs {
@@ -1237,7 +1237,7 @@ impl windows_core::RuntimeName for WindowsUpdateProgressChangedEventArgs {
 unsafe impl Send for WindowsUpdateProgressChangedEventArgs {}
 unsafe impl Sync for WindowsUpdateProgressChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateRestartRequestOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateRestartRequestOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateRestartRequestOptions {
@@ -1356,7 +1356,7 @@ impl windows_core::RuntimeName for WindowsUpdateRestartRequestOptions {
 unsafe impl Send for WindowsUpdateRestartRequestOptions {}
 unsafe impl Sync for WindowsUpdateRestartRequestOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateScanCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowsUpdateScanCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowsUpdateScanCompletedEventArgs {

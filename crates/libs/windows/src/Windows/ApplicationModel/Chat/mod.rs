@@ -765,7 +765,7 @@ pub struct IRemoteParticipantComposingChangedEventArgs_Vtbl {
     pub IsComposing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatCapabilities {
@@ -858,7 +858,7 @@ impl windows_core::RuntimeName for ChatCapabilitiesManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatCapabilitiesManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatConversation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatConversation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatConversation, IChatItem);
@@ -1010,7 +1010,7 @@ impl windows_core::RuntimeName for ChatConversation {
 unsafe impl Send for ChatConversation {}
 unsafe impl Sync for ChatConversation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatConversationReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatConversationReader, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatConversationReader {
@@ -1044,7 +1044,7 @@ impl windows_core::RuntimeName for ChatConversationReader {
 unsafe impl Send for ChatConversationReader {}
 unsafe impl Sync for ChatConversationReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatConversationThreadingInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatConversationThreadingInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatConversationThreadingInfo {
@@ -1121,7 +1121,7 @@ impl windows_core::RuntimeName for ChatConversationThreadingInfo {
 unsafe impl Send for ChatConversationThreadingInfo {}
 unsafe impl Sync for ChatConversationThreadingInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessage, IChatItem);
@@ -1437,7 +1437,7 @@ impl windows_core::RuntimeName for ChatMessage {
 unsafe impl Send for ChatMessage {}
 unsafe impl Sync for ChatMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageAttachment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageAttachment, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageAttachment {
@@ -1574,7 +1574,7 @@ impl windows_core::RuntimeName for ChatMessageBlocking {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageBlocking";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageChange, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageChange {
@@ -1606,7 +1606,7 @@ impl windows_core::RuntimeName for ChatMessageChange {
 unsafe impl Send for ChatMessageChange {}
 unsafe impl Sync for ChatMessageChange {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangeReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageChangeReader {
@@ -1643,7 +1643,7 @@ impl windows_core::RuntimeName for ChatMessageChangeReader {
 unsafe impl Send for ChatMessageChangeReader {}
 unsafe impl Sync for ChatMessageChangeReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangeTracker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageChangeTracker {
@@ -1676,7 +1676,7 @@ impl windows_core::RuntimeName for ChatMessageChangeTracker {
 unsafe impl Send for ChatMessageChangeTracker {}
 unsafe impl Sync for ChatMessageChangeTracker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageChangedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageChangedDeferral {
@@ -1698,7 +1698,7 @@ impl windows_core::RuntimeName for ChatMessageChangedDeferral {
 unsafe impl Send for ChatMessageChangedDeferral {}
 unsafe impl Sync for ChatMessageChangedDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageChangedEventArgs {
@@ -1787,7 +1787,7 @@ impl windows_core::RuntimeName for ChatMessageManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageNotificationTriggerDetails {
@@ -1840,7 +1840,7 @@ impl windows_core::RuntimeName for ChatMessageNotificationTriggerDetails {
 unsafe impl Send for ChatMessageNotificationTriggerDetails {}
 unsafe impl Sync for ChatMessageNotificationTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageReader, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageReader {
@@ -1874,7 +1874,7 @@ impl windows_core::RuntimeName for ChatMessageReader {
 unsafe impl Send for ChatMessageReader {}
 unsafe impl Sync for ChatMessageReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageStore, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageStore {
@@ -2137,7 +2137,7 @@ impl windows_core::RuntimeName for ChatMessageStore {
 unsafe impl Send for ChatMessageStore {}
 unsafe impl Sync for ChatMessageStore {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageStoreChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageStoreChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageStoreChangedEventArgs {
@@ -2169,7 +2169,7 @@ impl windows_core::RuntimeName for ChatMessageStoreChangedEventArgs {
 unsafe impl Send for ChatMessageStoreChangedEventArgs {}
 unsafe impl Sync for ChatMessageStoreChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageTransport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageTransport, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageTransport {
@@ -2236,7 +2236,7 @@ impl windows_core::RuntimeName for ChatMessageTransport {
 unsafe impl Send for ChatMessageTransport {}
 unsafe impl Sync for ChatMessageTransport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageTransportConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageTransportConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageTransportConfiguration {
@@ -2291,7 +2291,7 @@ impl windows_core::RuntimeName for ChatMessageTransportConfiguration {
 unsafe impl Send for ChatMessageTransportConfiguration {}
 unsafe impl Sync for ChatMessageTransportConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageValidationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageValidationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageValidationResult {
@@ -2337,7 +2337,7 @@ impl windows_core::RuntimeName for ChatMessageValidationResult {
 unsafe impl Send for ChatMessageValidationResult {}
 unsafe impl Sync for ChatMessageValidationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatQueryOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatQueryOptions {
@@ -2373,7 +2373,7 @@ impl windows_core::RuntimeName for ChatQueryOptions {
 unsafe impl Send for ChatQueryOptions {}
 unsafe impl Sync for ChatQueryOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatRecipientDeliveryInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatRecipientDeliveryInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatRecipientDeliveryInfo {
@@ -2472,7 +2472,7 @@ impl windows_core::RuntimeName for ChatRecipientDeliveryInfo {
 unsafe impl Send for ChatRecipientDeliveryInfo {}
 unsafe impl Sync for ChatRecipientDeliveryInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatSearchReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatSearchReader, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatSearchReader {
@@ -2506,7 +2506,7 @@ impl windows_core::RuntimeName for ChatSearchReader {
 unsafe impl Send for ChatSearchReader {}
 unsafe impl Sync for ChatSearchReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatSyncConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatSyncConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatSyncConfiguration {
@@ -2546,7 +2546,7 @@ impl windows_core::RuntimeName for ChatSyncConfiguration {
 unsafe impl Send for ChatSyncConfiguration {}
 unsafe impl Sync for ChatSyncConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatSyncManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatSyncManager, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatSyncManager {
@@ -2614,7 +2614,7 @@ impl windows_core::RuntimeName for ChatSyncManager {
 unsafe impl Send for ChatSyncManager {}
 unsafe impl Sync for ChatSyncManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RcsEndUserMessage, windows_core::IUnknown, windows_core::IInspectable);
 impl RcsEndUserMessage {
@@ -2688,7 +2688,7 @@ impl windows_core::RuntimeName for RcsEndUserMessage {
 unsafe impl Send for RcsEndUserMessage {}
 unsafe impl Sync for RcsEndUserMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageAction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RcsEndUserMessageAction, windows_core::IUnknown, windows_core::IInspectable);
 impl RcsEndUserMessageAction {
@@ -2713,7 +2713,7 @@ impl windows_core::RuntimeName for RcsEndUserMessageAction {
 unsafe impl Send for RcsEndUserMessageAction {}
 unsafe impl Sync for RcsEndUserMessageAction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageAvailableEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RcsEndUserMessageAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RcsEndUserMessageAvailableEventArgs {
@@ -2745,7 +2745,7 @@ impl windows_core::RuntimeName for RcsEndUserMessageAvailableEventArgs {
 unsafe impl Send for RcsEndUserMessageAvailableEventArgs {}
 unsafe impl Sync for RcsEndUserMessageAvailableEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageAvailableTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RcsEndUserMessageAvailableTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl RcsEndUserMessageAvailableTriggerDetails {
@@ -2777,7 +2777,7 @@ impl windows_core::RuntimeName for RcsEndUserMessageAvailableTriggerDetails {
 unsafe impl Send for RcsEndUserMessageAvailableTriggerDetails {}
 unsafe impl Sync for RcsEndUserMessageAvailableTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RcsEndUserMessageManager, windows_core::IUnknown, windows_core::IInspectable);
 impl RcsEndUserMessageManager {
@@ -2865,7 +2865,7 @@ impl windows_core::RuntimeName for RcsManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsServiceKindSupportedChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RcsServiceKindSupportedChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RcsServiceKindSupportedChangedEventArgs {
@@ -2890,7 +2890,7 @@ impl windows_core::RuntimeName for RcsServiceKindSupportedChangedEventArgs {
 unsafe impl Send for RcsServiceKindSupportedChangedEventArgs {}
 unsafe impl Sync for RcsServiceKindSupportedChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsTransport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RcsTransport, windows_core::IUnknown, windows_core::IInspectable);
 impl RcsTransport {
@@ -2972,7 +2972,7 @@ impl windows_core::RuntimeName for RcsTransport {
 unsafe impl Send for RcsTransport {}
 unsafe impl Sync for RcsTransport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsTransportConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RcsTransportConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl RcsTransportConfiguration {
@@ -3032,7 +3032,7 @@ impl windows_core::RuntimeName for RcsTransportConfiguration {
 unsafe impl Send for RcsTransportConfiguration {}
 unsafe impl Sync for RcsTransportConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteParticipantComposingChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteParticipantComposingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RemoteParticipantComposingChangedEventArgs {

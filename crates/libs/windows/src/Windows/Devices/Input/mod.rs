@@ -220,7 +220,7 @@ pub struct ITouchCapabilities_Vtbl {
     pub Contacts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyboardCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyboardCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyboardCapabilities {
@@ -252,7 +252,7 @@ impl windows_core::RuntimeName for KeyboardCapabilities {
 unsafe impl Send for KeyboardCapabilities {}
 unsafe impl Sync for KeyboardCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MouseCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MouseCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl MouseCapabilities {
@@ -312,7 +312,7 @@ impl windows_core::RuntimeName for MouseCapabilities {
 unsafe impl Send for MouseCapabilities {}
 unsafe impl Sync for MouseCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MouseDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MouseDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl MouseDevice {
@@ -353,7 +353,7 @@ impl windows_core::RuntimeName for MouseDevice {
     const NAME: &'static str = "Windows.Devices.Input.MouseDevice";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MouseEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MouseEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MouseEventArgs {
@@ -376,7 +376,7 @@ impl windows_core::RuntimeName for MouseEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.MouseEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenButtonListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenButtonListener, windows_core::IUnknown, windows_core::IInspectable);
 impl PenButtonListener {
@@ -468,7 +468,7 @@ impl windows_core::RuntimeName for PenButtonListener {
 unsafe impl Send for PenButtonListener {}
 unsafe impl Sync for PenButtonListener {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl PenDevice {
@@ -512,7 +512,7 @@ impl windows_core::RuntimeName for PenDevice {
 unsafe impl Send for PenDevice {}
 unsafe impl Sync for PenDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenDockListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenDockListener, windows_core::IUnknown, windows_core::IInspectable);
 impl PenDockListener {
@@ -590,7 +590,7 @@ impl windows_core::RuntimeName for PenDockListener {
 unsafe impl Send for PenDockListener {}
 unsafe impl Sync for PenDockListener {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenDockedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenDockedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PenDockedEventArgs {}
@@ -607,7 +607,7 @@ impl windows_core::RuntimeName for PenDockedEventArgs {
 unsafe impl Send for PenDockedEventArgs {}
 unsafe impl Sync for PenDockedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenTailButtonClickedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenTailButtonClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PenTailButtonClickedEventArgs {}
@@ -624,7 +624,7 @@ impl windows_core::RuntimeName for PenTailButtonClickedEventArgs {
 unsafe impl Send for PenTailButtonClickedEventArgs {}
 unsafe impl Sync for PenTailButtonClickedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenTailButtonDoubleClickedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenTailButtonDoubleClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PenTailButtonDoubleClickedEventArgs {}
@@ -641,7 +641,7 @@ impl windows_core::RuntimeName for PenTailButtonDoubleClickedEventArgs {
 unsafe impl Send for PenTailButtonDoubleClickedEventArgs {}
 unsafe impl Sync for PenTailButtonDoubleClickedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenTailButtonLongPressedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenTailButtonLongPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PenTailButtonLongPressedEventArgs {}
@@ -658,7 +658,7 @@ impl windows_core::RuntimeName for PenTailButtonLongPressedEventArgs {
 unsafe impl Send for PenTailButtonLongPressedEventArgs {}
 unsafe impl Sync for PenTailButtonLongPressedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenUndockedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenUndockedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PenUndockedEventArgs {}
@@ -675,7 +675,7 @@ impl windows_core::RuntimeName for PenUndockedEventArgs {
 unsafe impl Send for PenUndockedEventArgs {}
 unsafe impl Sync for PenUndockedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PointerDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointerDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl PointerDevice {
@@ -759,7 +759,7 @@ impl windows_core::RuntimeName for PointerDevice {
     const NAME: &'static str = "Windows.Devices.Input.PointerDevice";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TouchCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TouchCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl TouchCapabilities {

@@ -1372,7 +1372,7 @@ pub struct ISpatialAudioFormatSubtypeStatics2_Vtbl {
     pub DTSXForHomeTheater: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioDeviceInputNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioDeviceInputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioDeviceInputNode, IAudioInputNode, IAudioInputNode2, IAudioNode, super::super::Foundation::IClosable);
@@ -1505,7 +1505,7 @@ impl windows_core::RuntimeName for AudioDeviceInputNode {
 unsafe impl Send for AudioDeviceInputNode {}
 unsafe impl Sync for AudioDeviceInputNode {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioDeviceOutputNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioDeviceOutputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioDeviceOutputNode, IAudioNode, IAudioNodeWithListener, super::super::Foundation::IClosable);
@@ -1616,7 +1616,7 @@ impl windows_core::RuntimeName for AudioDeviceOutputNode {
 unsafe impl Send for AudioDeviceOutputNode {}
 unsafe impl Sync for AudioDeviceOutputNode {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFileInputNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioFileInputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioFileInputNode, IAudioInputNode, IAudioInputNode2, IAudioNode, super::super::Foundation::IClosable);
@@ -1834,7 +1834,7 @@ impl windows_core::RuntimeName for AudioFileInputNode {
 unsafe impl Send for AudioFileInputNode {}
 unsafe impl Sync for AudioFileInputNode {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFileOutputNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioFileOutputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioFileOutputNode, IAudioNode, super::super::Foundation::IClosable);
@@ -1947,7 +1947,7 @@ impl windows_core::RuntimeName for AudioFileOutputNode {
 unsafe impl Send for AudioFileOutputNode {}
 unsafe impl Sync for AudioFileOutputNode {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrameCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioFrameCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioFrameCompletedEventArgs {
@@ -1972,7 +1972,7 @@ impl windows_core::RuntimeName for AudioFrameCompletedEventArgs {
 unsafe impl Send for AudioFrameCompletedEventArgs {}
 unsafe impl Sync for AudioFrameCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrameInputNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioFrameInputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioFrameInputNode, IAudioInputNode, IAudioInputNode2, IAudioNode, super::super::Foundation::IClosable);
@@ -2154,7 +2154,7 @@ impl windows_core::RuntimeName for AudioFrameInputNode {
 unsafe impl Send for AudioFrameInputNode {}
 unsafe impl Sync for AudioFrameInputNode {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrameOutputNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioFrameOutputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioFrameOutputNode, IAudioNode, super::super::Foundation::IClosable);
@@ -2250,7 +2250,7 @@ impl windows_core::RuntimeName for AudioFrameOutputNode {
 unsafe impl Send for AudioFrameOutputNode {}
 unsafe impl Sync for AudioFrameOutputNode {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraph(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioGraph, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioGraph, super::super::Foundation::IClosable);
@@ -2590,7 +2590,7 @@ impl windows_core::RuntimeName for AudioGraph {
 unsafe impl Send for AudioGraph {}
 unsafe impl Sync for AudioGraph {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphBatchUpdater(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioGraphBatchUpdater, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioGraphBatchUpdater, super::super::Foundation::IClosable);
@@ -2613,7 +2613,7 @@ impl windows_core::RuntimeName for AudioGraphBatchUpdater {
 unsafe impl Send for AudioGraphBatchUpdater {}
 unsafe impl Sync for AudioGraphBatchUpdater {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioGraphConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioGraphConnection {
@@ -2649,7 +2649,7 @@ impl windows_core::RuntimeName for AudioGraphConnection {
 unsafe impl Send for AudioGraphConnection {}
 unsafe impl Sync for AudioGraphConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioGraphSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioGraphSettings {
@@ -2768,7 +2768,7 @@ impl windows_core::RuntimeName for AudioGraphSettings {
 unsafe impl Send for AudioGraphSettings {}
 unsafe impl Sync for AudioGraphSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphUnrecoverableErrorOccurredEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioGraphUnrecoverableErrorOccurredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioGraphUnrecoverableErrorOccurredEventArgs {
@@ -2793,7 +2793,7 @@ impl windows_core::RuntimeName for AudioGraphUnrecoverableErrorOccurredEventArgs
 unsafe impl Send for AudioGraphUnrecoverableErrorOccurredEventArgs {}
 unsafe impl Sync for AudioGraphUnrecoverableErrorOccurredEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioNodeEmitter, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioNodeEmitter {
@@ -2937,7 +2937,7 @@ impl windows_core::RuntimeName for AudioNodeEmitter {
 unsafe impl Send for AudioNodeEmitter {}
 unsafe impl Sync for AudioNodeEmitter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterConeProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioNodeEmitterConeProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioNodeEmitterConeProperties {
@@ -2976,7 +2976,7 @@ impl windows_core::RuntimeName for AudioNodeEmitterConeProperties {
 unsafe impl Send for AudioNodeEmitterConeProperties {}
 unsafe impl Sync for AudioNodeEmitterConeProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterDecayModel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioNodeEmitterDecayModel, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioNodeEmitterDecayModel {
@@ -3039,7 +3039,7 @@ impl windows_core::RuntimeName for AudioNodeEmitterDecayModel {
 unsafe impl Send for AudioNodeEmitterDecayModel {}
 unsafe impl Sync for AudioNodeEmitterDecayModel {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterNaturalDecayModelProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioNodeEmitterNaturalDecayModelProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioNodeEmitterNaturalDecayModelProperties {
@@ -3071,7 +3071,7 @@ impl windows_core::RuntimeName for AudioNodeEmitterNaturalDecayModelProperties {
 unsafe impl Send for AudioNodeEmitterNaturalDecayModelProperties {}
 unsafe impl Sync for AudioNodeEmitterNaturalDecayModelProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterShape(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioNodeEmitterShape, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioNodeEmitterShape {
@@ -3120,7 +3120,7 @@ impl windows_core::RuntimeName for AudioNodeEmitterShape {
 unsafe impl Send for AudioNodeEmitterShape {}
 unsafe impl Sync for AudioNodeEmitterShape {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioNodeListener, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioNodeListener {
@@ -3195,7 +3195,7 @@ impl windows_core::RuntimeName for AudioNodeListener {
 unsafe impl Send for AudioNodeListener {}
 unsafe impl Sync for AudioNodeListener {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioPlaybackConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioPlaybackConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioPlaybackConnection, super::super::Foundation::IClosable);
@@ -3288,7 +3288,7 @@ impl windows_core::RuntimeName for AudioPlaybackConnection {
 unsafe impl Send for AudioPlaybackConnection {}
 unsafe impl Sync for AudioPlaybackConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioPlaybackConnectionOpenResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioPlaybackConnectionOpenResult, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioPlaybackConnectionOpenResult {
@@ -3320,7 +3320,7 @@ impl windows_core::RuntimeName for AudioPlaybackConnectionOpenResult {
 unsafe impl Send for AudioPlaybackConnectionOpenResult {}
 unsafe impl Sync for AudioPlaybackConnectionOpenResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioStateMonitor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioStateMonitor, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioStateMonitor {
@@ -3418,7 +3418,7 @@ impl windows_core::RuntimeName for AudioStateMonitor {
 unsafe impl Send for AudioStateMonitor {}
 unsafe impl Sync for AudioStateMonitor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioSubmixNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioSubmixNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioSubmixNode, IAudioInputNode, IAudioInputNode2, IAudioNode, super::super::Foundation::IClosable);
@@ -3543,7 +3543,7 @@ impl windows_core::RuntimeName for AudioSubmixNode {
 unsafe impl Send for AudioSubmixNode {}
 unsafe impl Sync for AudioSubmixNode {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioDeviceInputNodeResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CreateAudioDeviceInputNodeResult, windows_core::IUnknown, windows_core::IInspectable);
 impl CreateAudioDeviceInputNodeResult {
@@ -3582,7 +3582,7 @@ impl windows_core::RuntimeName for CreateAudioDeviceInputNodeResult {
 unsafe impl Send for CreateAudioDeviceInputNodeResult {}
 unsafe impl Sync for CreateAudioDeviceInputNodeResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioDeviceOutputNodeResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CreateAudioDeviceOutputNodeResult, windows_core::IUnknown, windows_core::IInspectable);
 impl CreateAudioDeviceOutputNodeResult {
@@ -3621,7 +3621,7 @@ impl windows_core::RuntimeName for CreateAudioDeviceOutputNodeResult {
 unsafe impl Send for CreateAudioDeviceOutputNodeResult {}
 unsafe impl Sync for CreateAudioDeviceOutputNodeResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioFileInputNodeResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CreateAudioFileInputNodeResult, windows_core::IUnknown, windows_core::IInspectable);
 impl CreateAudioFileInputNodeResult {
@@ -3660,7 +3660,7 @@ impl windows_core::RuntimeName for CreateAudioFileInputNodeResult {
 unsafe impl Send for CreateAudioFileInputNodeResult {}
 unsafe impl Sync for CreateAudioFileInputNodeResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioFileOutputNodeResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CreateAudioFileOutputNodeResult, windows_core::IUnknown, windows_core::IInspectable);
 impl CreateAudioFileOutputNodeResult {
@@ -3699,7 +3699,7 @@ impl windows_core::RuntimeName for CreateAudioFileOutputNodeResult {
 unsafe impl Send for CreateAudioFileOutputNodeResult {}
 unsafe impl Sync for CreateAudioFileOutputNodeResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioGraphResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CreateAudioGraphResult, windows_core::IUnknown, windows_core::IInspectable);
 impl CreateAudioGraphResult {
@@ -3738,7 +3738,7 @@ impl windows_core::RuntimeName for CreateAudioGraphResult {
 unsafe impl Send for CreateAudioGraphResult {}
 unsafe impl Sync for CreateAudioGraphResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateMediaSourceAudioInputNodeResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CreateMediaSourceAudioInputNodeResult, windows_core::IUnknown, windows_core::IInspectable);
 impl CreateMediaSourceAudioInputNodeResult {
@@ -3777,7 +3777,7 @@ impl windows_core::RuntimeName for CreateMediaSourceAudioInputNodeResult {
 unsafe impl Send for CreateMediaSourceAudioInputNodeResult {}
 unsafe impl Sync for CreateMediaSourceAudioInputNodeResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EchoEffectDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EchoEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Media_Effects")]
@@ -3860,7 +3860,7 @@ impl windows_core::RuntimeName for EchoEffectDefinition {
 unsafe impl Send for EchoEffectDefinition {}
 unsafe impl Sync for EchoEffectDefinition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EqualizerBand(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EqualizerBand, windows_core::IUnknown, windows_core::IInspectable);
 impl EqualizerBand {
@@ -3911,7 +3911,7 @@ impl windows_core::RuntimeName for EqualizerBand {
 unsafe impl Send for EqualizerBand {}
 unsafe impl Sync for EqualizerBand {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EqualizerEffectDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EqualizerEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Media_Effects")]
@@ -3969,7 +3969,7 @@ impl windows_core::RuntimeName for EqualizerEffectDefinition {
 unsafe impl Send for EqualizerEffectDefinition {}
 unsafe impl Sync for EqualizerEffectDefinition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameInputNodeQuantumStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FrameInputNodeQuantumStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl FrameInputNodeQuantumStartedEventArgs {
@@ -3994,7 +3994,7 @@ impl windows_core::RuntimeName for FrameInputNodeQuantumStartedEventArgs {
 unsafe impl Send for FrameInputNodeQuantumStartedEventArgs {}
 unsafe impl Sync for FrameInputNodeQuantumStartedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LimiterEffectDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LimiterEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Media_Effects")]
@@ -4066,7 +4066,7 @@ impl windows_core::RuntimeName for LimiterEffectDefinition {
 unsafe impl Send for LimiterEffectDefinition {}
 unsafe impl Sync for LimiterEffectDefinition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaSourceAudioInputNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaSourceAudioInputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaSourceAudioInputNode, IAudioInputNode, IAudioInputNode2, IAudioNode, super::super::Foundation::IClosable);
@@ -4284,7 +4284,7 @@ impl windows_core::RuntimeName for MediaSourceAudioInputNode {
 unsafe impl Send for MediaSourceAudioInputNode {}
 unsafe impl Sync for MediaSourceAudioInputNode {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReverbEffectDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ReverbEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Media_Effects")]
@@ -4587,7 +4587,7 @@ impl windows_core::RuntimeName for ReverbEffectDefinition {
 unsafe impl Send for ReverbEffectDefinition {}
 unsafe impl Sync for ReverbEffectDefinition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SetDefaultSpatialAudioFormatResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SetDefaultSpatialAudioFormatResult, windows_core::IUnknown, windows_core::IInspectable);
 impl SetDefaultSpatialAudioFormatResult {
@@ -4612,7 +4612,7 @@ impl windows_core::RuntimeName for SetDefaultSpatialAudioFormatResult {
 unsafe impl Send for SetDefaultSpatialAudioFormatResult {}
 unsafe impl Sync for SetDefaultSpatialAudioFormatResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAudioDeviceConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAudioDeviceConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAudioDeviceConfiguration {
@@ -4697,7 +4697,7 @@ impl windows_core::RuntimeName for SpatialAudioDeviceConfiguration {
 unsafe impl Send for SpatialAudioDeviceConfiguration {}
 unsafe impl Sync for SpatialAudioDeviceConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAudioFormatConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAudioFormatConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAudioFormatConfiguration {

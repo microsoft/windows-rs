@@ -59,7 +59,7 @@ pub struct IAppBroadcastingUIStatics_Vtbl {
     GetForUser: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastingMonitor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastingMonitor, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastingMonitor {
@@ -105,7 +105,7 @@ impl windows_core::RuntimeName for AppBroadcastingMonitor {
 unsafe impl Send for AppBroadcastingMonitor {}
 unsafe impl Sync for AppBroadcastingMonitor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastingStatus(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastingStatus, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastingStatus {
@@ -137,7 +137,7 @@ impl windows_core::RuntimeName for AppBroadcastingStatus {
 unsafe impl Send for AppBroadcastingStatus {}
 unsafe impl Sync for AppBroadcastingStatus {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastingStatusDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastingStatusDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastingStatusDetails {
@@ -211,7 +211,7 @@ impl windows_core::RuntimeName for AppBroadcastingStatusDetails {
 unsafe impl Send for AppBroadcastingStatusDetails {}
 unsafe impl Sync for AppBroadcastingStatusDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastingUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastingUI, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastingUI {

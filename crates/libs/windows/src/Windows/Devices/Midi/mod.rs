@@ -369,7 +369,7 @@ pub struct IMidiTimeCodeMessageFactory_Vtbl {
     pub CreateMidiTimeCodeMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiActiveSensingMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiActiveSensingMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiActiveSensingMessage, IMidiMessage);
@@ -417,7 +417,7 @@ impl windows_core::RuntimeName for MidiActiveSensingMessage {
 unsafe impl Send for MidiActiveSensingMessage {}
 unsafe impl Sync for MidiActiveSensingMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiChannelPressureMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiChannelPressureMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiChannelPressureMessage, IMidiMessage);
@@ -483,7 +483,7 @@ impl windows_core::RuntimeName for MidiChannelPressureMessage {
 unsafe impl Send for MidiChannelPressureMessage {}
 unsafe impl Sync for MidiChannelPressureMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiContinueMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiContinueMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiContinueMessage, IMidiMessage);
@@ -531,7 +531,7 @@ impl windows_core::RuntimeName for MidiContinueMessage {
 unsafe impl Send for MidiContinueMessage {}
 unsafe impl Sync for MidiContinueMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiControlChangeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiControlChangeMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiControlChangeMessage, IMidiMessage);
@@ -604,7 +604,7 @@ impl windows_core::RuntimeName for MidiControlChangeMessage {
 unsafe impl Send for MidiControlChangeMessage {}
 unsafe impl Sync for MidiControlChangeMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiInPort(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiInPort, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiInPort, super::super::Foundation::IClosable);
@@ -665,7 +665,7 @@ impl windows_core::RuntimeName for MidiInPort {
 unsafe impl Send for MidiInPort {}
 unsafe impl Sync for MidiInPort {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiMessageReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MidiMessageReceivedEventArgs {
@@ -690,7 +690,7 @@ impl windows_core::RuntimeName for MidiMessageReceivedEventArgs {
 unsafe impl Send for MidiMessageReceivedEventArgs {}
 unsafe impl Sync for MidiMessageReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiNoteOffMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiNoteOffMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiNoteOffMessage, IMidiMessage);
@@ -763,7 +763,7 @@ impl windows_core::RuntimeName for MidiNoteOffMessage {
 unsafe impl Send for MidiNoteOffMessage {}
 unsafe impl Sync for MidiNoteOffMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiNoteOnMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiNoteOnMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiNoteOnMessage, IMidiMessage);
@@ -836,7 +836,7 @@ impl windows_core::RuntimeName for MidiNoteOnMessage {
 unsafe impl Send for MidiNoteOnMessage {}
 unsafe impl Sync for MidiNoteOnMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiOutPort(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiOutPort, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiOutPort, super::super::Foundation::IClosable, IMidiOutPort);
@@ -898,7 +898,7 @@ impl windows_core::RuntimeName for MidiOutPort {
 unsafe impl Send for MidiOutPort {}
 unsafe impl Sync for MidiOutPort {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiPitchBendChangeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiPitchBendChangeMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiPitchBendChangeMessage, IMidiMessage);
@@ -964,7 +964,7 @@ impl windows_core::RuntimeName for MidiPitchBendChangeMessage {
 unsafe impl Send for MidiPitchBendChangeMessage {}
 unsafe impl Sync for MidiPitchBendChangeMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiPolyphonicKeyPressureMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiPolyphonicKeyPressureMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiPolyphonicKeyPressureMessage, IMidiMessage);
@@ -1037,7 +1037,7 @@ impl windows_core::RuntimeName for MidiPolyphonicKeyPressureMessage {
 unsafe impl Send for MidiPolyphonicKeyPressureMessage {}
 unsafe impl Sync for MidiPolyphonicKeyPressureMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiProgramChangeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiProgramChangeMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiProgramChangeMessage, IMidiMessage);
@@ -1103,7 +1103,7 @@ impl windows_core::RuntimeName for MidiProgramChangeMessage {
 unsafe impl Send for MidiProgramChangeMessage {}
 unsafe impl Sync for MidiProgramChangeMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSongPositionPointerMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSongPositionPointerMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiSongPositionPointerMessage, IMidiMessage);
@@ -1162,7 +1162,7 @@ impl windows_core::RuntimeName for MidiSongPositionPointerMessage {
 unsafe impl Send for MidiSongPositionPointerMessage {}
 unsafe impl Sync for MidiSongPositionPointerMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSongSelectMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSongSelectMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiSongSelectMessage, IMidiMessage);
@@ -1221,7 +1221,7 @@ impl windows_core::RuntimeName for MidiSongSelectMessage {
 unsafe impl Send for MidiSongSelectMessage {}
 unsafe impl Sync for MidiSongSelectMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiStartMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiStartMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiStartMessage, IMidiMessage);
@@ -1269,7 +1269,7 @@ impl windows_core::RuntimeName for MidiStartMessage {
 unsafe impl Send for MidiStartMessage {}
 unsafe impl Sync for MidiStartMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiStopMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiStopMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiStopMessage, IMidiMessage);
@@ -1317,7 +1317,7 @@ impl windows_core::RuntimeName for MidiStopMessage {
 unsafe impl Send for MidiStopMessage {}
 unsafe impl Sync for MidiStopMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSynthesizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSynthesizer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiSynthesizer, super::super::Foundation::IClosable, IMidiOutPort);
@@ -1412,7 +1412,7 @@ impl windows_core::RuntimeName for MidiSynthesizer {
 unsafe impl Send for MidiSynthesizer {}
 unsafe impl Sync for MidiSynthesizer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSystemExclusiveMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSystemExclusiveMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiSystemExclusiveMessage, IMidiMessage);
@@ -1468,7 +1468,7 @@ impl windows_core::RuntimeName for MidiSystemExclusiveMessage {
 unsafe impl Send for MidiSystemExclusiveMessage {}
 unsafe impl Sync for MidiSystemExclusiveMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSystemResetMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSystemResetMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiSystemResetMessage, IMidiMessage);
@@ -1516,7 +1516,7 @@ impl windows_core::RuntimeName for MidiSystemResetMessage {
 unsafe impl Send for MidiSystemResetMessage {}
 unsafe impl Sync for MidiSystemResetMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiTimeCodeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiTimeCodeMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiTimeCodeMessage, IMidiMessage);
@@ -1582,7 +1582,7 @@ impl windows_core::RuntimeName for MidiTimeCodeMessage {
 unsafe impl Send for MidiTimeCodeMessage {}
 unsafe impl Sync for MidiTimeCodeMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiTimingClockMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiTimingClockMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiTimingClockMessage, IMidiMessage);
@@ -1630,7 +1630,7 @@ impl windows_core::RuntimeName for MidiTimingClockMessage {
 unsafe impl Send for MidiTimingClockMessage {}
 unsafe impl Sync for MidiTimingClockMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiTuneRequestMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiTuneRequestMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiTuneRequestMessage, IMidiMessage);

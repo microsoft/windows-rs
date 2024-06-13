@@ -56,7 +56,7 @@ pub struct IOfflineMapPackageStatics_Vtbl {
     FindPackagesInGeocircleAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OfflineMapPackage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OfflineMapPackage, windows_core::IUnknown, windows_core::IInspectable);
 impl OfflineMapPackage {
@@ -158,7 +158,7 @@ impl windows_core::RuntimeName for OfflineMapPackage {
 unsafe impl Send for OfflineMapPackage {}
 unsafe impl Sync for OfflineMapPackage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OfflineMapPackageQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OfflineMapPackageQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 impl OfflineMapPackageQueryResult {
@@ -191,7 +191,7 @@ impl windows_core::RuntimeName for OfflineMapPackageQueryResult {
 unsafe impl Send for OfflineMapPackageQueryResult {}
 unsafe impl Sync for OfflineMapPackageQueryResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OfflineMapPackageStartDownloadResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OfflineMapPackageStartDownloadResult, windows_core::IUnknown, windows_core::IInspectable);
 impl OfflineMapPackageStartDownloadResult {

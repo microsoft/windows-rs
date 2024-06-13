@@ -173,7 +173,7 @@ pub struct IServiceRequestedEventArgs2_Vtbl {
     MediaPlaybackItem: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ComponentLoadFailedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ComponentLoadFailedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ComponentLoadFailedEventArgs {
@@ -225,7 +225,7 @@ impl windows_core::RuntimeName for ComponentRenewal {
     const NAME: &'static str = "Windows.Media.Protection.ComponentRenewal";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HdcpSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HdcpSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HdcpSession, super::super::Foundation::IClosable);
@@ -290,7 +290,7 @@ impl windows_core::RuntimeName for HdcpSession {
 unsafe impl Send for HdcpSession {}
 unsafe impl Sync for HdcpSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProtectionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaProtectionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaProtectionManager {
@@ -365,7 +365,7 @@ impl windows_core::RuntimeName for MediaProtectionManager {
 unsafe impl Send for MediaProtectionManager {}
 unsafe impl Sync for MediaProtectionManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProtectionPMPServer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaProtectionPMPServer, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaProtectionPMPServer {
@@ -406,7 +406,7 @@ impl windows_core::RuntimeName for MediaProtectionPMPServer {
 unsafe impl Send for MediaProtectionPMPServer {}
 unsafe impl Sync for MediaProtectionPMPServer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProtectionServiceCompletion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaProtectionServiceCompletion, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaProtectionServiceCompletion {
@@ -428,7 +428,7 @@ impl windows_core::RuntimeName for MediaProtectionServiceCompletion {
 unsafe impl Send for MediaProtectionServiceCompletion {}
 unsafe impl Sync for MediaProtectionServiceCompletion {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectionCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtectionCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtectionCapabilities {
@@ -460,7 +460,7 @@ impl windows_core::RuntimeName for ProtectionCapabilities {
 unsafe impl Send for ProtectionCapabilities {}
 unsafe impl Sync for ProtectionCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RevocationAndRenewalInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RevocationAndRenewalInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl RevocationAndRenewalInformation {
@@ -486,7 +486,7 @@ impl windows_core::RuntimeName for RevocationAndRenewalInformation {
 unsafe impl Send for RevocationAndRenewalInformation {}
 unsafe impl Sync for RevocationAndRenewalInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RevocationAndRenewalItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RevocationAndRenewalItem, windows_core::IUnknown, windows_core::IInspectable);
 impl RevocationAndRenewalItem {
@@ -539,7 +539,7 @@ impl windows_core::RuntimeName for RevocationAndRenewalItem {
 unsafe impl Send for RevocationAndRenewalItem {}
 unsafe impl Sync for RevocationAndRenewalItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServiceRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ServiceRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ServiceRequestedEventArgs {

@@ -36,7 +36,7 @@ pub struct IRadialControllerIndependentInputSourceStatics_Vtbl {
     CreateForView: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerIndependentInputSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerIndependentInputSource, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerIndependentInputSource {

@@ -70,7 +70,7 @@ pub struct IUserDataStorageItemProtectionInfo_Vtbl {
     pub Availability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserDataAvailability) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAvailabilityStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAvailabilityStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAvailabilityStateChangedEventArgs {
@@ -95,7 +95,7 @@ impl windows_core::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
 unsafe impl Send for UserDataAvailabilityStateChangedEventArgs {}
 unsafe impl Sync for UserDataAvailabilityStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataBufferUnprotectResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataBufferUnprotectResult, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataBufferUnprotectResult {
@@ -128,7 +128,7 @@ impl windows_core::RuntimeName for UserDataBufferUnprotectResult {
 unsafe impl Send for UserDataBufferUnprotectResult {}
 unsafe impl Sync for UserDataBufferUnprotectResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataProtectionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataProtectionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataProtectionManager {
@@ -232,7 +232,7 @@ impl windows_core::RuntimeName for UserDataProtectionManager {
 unsafe impl Send for UserDataProtectionManager {}
 unsafe impl Sync for UserDataProtectionManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataStorageItemProtectionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataStorageItemProtectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataStorageItemProtectionInfo {

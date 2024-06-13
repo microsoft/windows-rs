@@ -249,7 +249,7 @@ pub struct IVideoProperties_Vtbl {
     pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VideoOrientation) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BasicProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BasicProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BasicProperties, IStorageItemExtraProperties);
@@ -316,7 +316,7 @@ impl windows_core::RuntimeName for BasicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.BasicProperties";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DocumentProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DocumentProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DocumentProperties, IStorageItemExtraProperties);
@@ -443,7 +443,7 @@ impl windows_core::RuntimeName for GeotagHelper {
     const NAME: &'static str = "Windows.Storage.FileProperties.GeotagHelper";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageProperties, IStorageItemExtraProperties);
@@ -595,7 +595,7 @@ impl windows_core::RuntimeName for ImageProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.ImageProperties";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MusicProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MusicProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MusicProperties, IStorageItemExtraProperties);
@@ -794,7 +794,7 @@ impl windows_core::RuntimeName for MusicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.MusicProperties";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageItemContentProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageItemContentProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageItemContentProperties, IStorageItemExtraProperties);
@@ -869,7 +869,7 @@ impl windows_core::RuntimeName for StorageItemContentProperties {
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageItemThumbnail(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(StorageItemThumbnail, windows_core::IUnknown, windows_core::IInspectable);
@@ -1028,7 +1028,7 @@ impl windows_core::RuntimeName for StorageItemThumbnail {
     const NAME: &'static str = "Windows.Storage.FileProperties.StorageItemThumbnail";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoProperties, IStorageItemExtraProperties);

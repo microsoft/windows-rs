@@ -267,7 +267,7 @@ pub struct IWebUIViewStatics_Vtbl {
     pub CreateWithUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivatedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivatedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl ActivatedDeferral {
@@ -287,7 +287,7 @@ impl windows_core::RuntimeName for ActivatedDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.ActivatedDeferral";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivatedOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivatedOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl ActivatedOperation {
@@ -311,7 +311,7 @@ impl windows_core::RuntimeName for ActivatedOperation {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(BackgroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -347,7 +347,7 @@ unsafe impl Send for BackgroundActivatedEventArgs {}
 unsafe impl Sync for BackgroundActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnteredBackgroundEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -382,7 +382,7 @@ unsafe impl Send for EnteredBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl Sync for EnteredBackgroundEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HtmlPrintDocumentSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HtmlPrintDocumentSource, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Graphics_Printing")]
@@ -509,7 +509,7 @@ unsafe impl Send for HtmlPrintDocumentSource {}
 unsafe impl Sync for HtmlPrintDocumentSource {}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LeavingBackgroundEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -544,7 +544,7 @@ unsafe impl Send for LeavingBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl Sync for LeavingBackgroundEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NewWebUIViewCreatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NewWebUIViewCreatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl NewWebUIViewCreatedEventArgs {
@@ -590,7 +590,7 @@ impl windows_core::RuntimeName for NewWebUIViewCreatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingDeferral(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable);
@@ -619,7 +619,7 @@ impl windows_core::RuntimeName for SuspendingDeferral {
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -651,7 +651,7 @@ impl windows_core::RuntimeName for SuspendingEventArgs {
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingOperation(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -838,7 +838,7 @@ impl windows_core::RuntimeName for WebUIApplication {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderAddAppointmentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -917,7 +917,7 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderAddAppointmentActiva
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -996,7 +996,7 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderRemoveAppointmentAct
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1075,7 +1075,7 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderReplaceAppointmentAc
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1170,7 +1170,7 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderShowAppointmentDetai
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1273,7 +1273,7 @@ impl windows_core::RuntimeName for WebUIBackgroundTaskInstance {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBackgroundTaskInstance";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIBackgroundTaskInstanceRuntimeClass(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Background")]
@@ -1372,7 +1372,7 @@ impl windows_core::RuntimeName for WebUIBackgroundTaskInstanceRuntimeClass {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIBarcodeScannerPreviewActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1447,7 +1447,7 @@ unsafe impl Send for WebUIBarcodeScannerPreviewActivatedEventArgs {}
 unsafe impl Sync for WebUIBarcodeScannerPreviewActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICachedFileUpdaterActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1518,7 +1518,7 @@ impl windows_core::RuntimeName for WebUICachedFileUpdaterActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICameraSettingsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUICameraSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1589,7 +1589,7 @@ impl windows_core::RuntimeName for WebUICameraSettingsActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandLineActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUICommandLineActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1664,7 +1664,7 @@ unsafe impl Send for WebUICommandLineActivatedEventArgs {}
 unsafe impl Sync for WebUICommandLineActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1751,7 +1751,7 @@ impl windows_core::RuntimeName for WebUIContactCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactMapActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactMapActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1830,7 +1830,7 @@ impl windows_core::RuntimeName for WebUIContactMapActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactMessageActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactMessageActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1917,7 +1917,7 @@ impl windows_core::RuntimeName for WebUIContactMessageActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactPanelActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactPanelActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2000,7 +2000,7 @@ unsafe impl Send for WebUIContactPanelActivatedEventArgs {}
 unsafe impl Sync for WebUIContactPanelActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactPickerActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2063,7 +2063,7 @@ impl windows_core::RuntimeName for WebUIContactPickerActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactPostActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactPostActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2150,7 +2150,7 @@ impl windows_core::RuntimeName for WebUIContactPostActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactVideoCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactVideoCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2237,7 +2237,7 @@ impl windows_core::RuntimeName for WebUIContactVideoCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIDeviceActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIDeviceActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2324,7 +2324,7 @@ impl windows_core::RuntimeName for WebUIDeviceActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIDevicePairingActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIDevicePairingActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2395,7 +2395,7 @@ impl windows_core::RuntimeName for WebUIDevicePairingActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIDialReceiverActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIDialReceiverActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2490,7 +2490,7 @@ impl windows_core::RuntimeName for WebUIDialReceiverActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIFileActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2585,7 +2585,7 @@ impl windows_core::RuntimeName for WebUIFileActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileOpenPickerActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2664,7 +2664,7 @@ impl windows_core::RuntimeName for WebUIFileOpenPickerActivatedEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileOpenPickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2743,7 +2743,7 @@ impl windows_core::RuntimeName for WebUIFileOpenPickerContinuationEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileSavePickerActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIFileSavePickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2830,7 +2830,7 @@ impl windows_core::RuntimeName for WebUIFileSavePickerActivatedEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileSavePickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 windows_core::imp::interface_hierarchy!(WebUIFileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2909,7 +2909,7 @@ impl windows_core::RuntimeName for WebUIFileSavePickerContinuationEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFolderPickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 windows_core::imp::interface_hierarchy!(WebUIFolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2988,7 +2988,7 @@ impl windows_core::RuntimeName for WebUIFolderPickerContinuationEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILaunchActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUILaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3100,7 +3100,7 @@ impl windows_core::RuntimeName for WebUILaunchActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILockScreenActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUILockScreenActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3179,7 +3179,7 @@ impl windows_core::RuntimeName for WebUILockScreenActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILockScreenCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUILockScreenCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3266,7 +3266,7 @@ impl windows_core::RuntimeName for WebUILockScreenCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILockScreenComponentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUILockScreenComponentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3320,7 +3320,7 @@ impl windows_core::RuntimeName for WebUILockScreenComponentActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUILockScreenComponentActivatedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUINavigatedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUINavigatedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl WebUINavigatedDeferral {
@@ -3340,7 +3340,7 @@ impl windows_core::RuntimeName for WebUINavigatedDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedDeferral";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUINavigatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUINavigatedEventArgs, IWebUINavigatedEventArgs);
@@ -3364,7 +3364,7 @@ impl windows_core::RuntimeName for WebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUINavigatedOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUINavigatedOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl WebUINavigatedOperation {
@@ -3388,7 +3388,7 @@ impl windows_core::RuntimeName for WebUINavigatedOperation {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPhoneCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIPhoneCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3463,7 +3463,7 @@ unsafe impl Send for WebUIPhoneCallActivatedEventArgs {}
 unsafe impl Sync for WebUIPhoneCallActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPrint3DWorkflowActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3526,7 +3526,7 @@ impl windows_core::RuntimeName for WebUIPrint3DWorkflowActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPrintTaskSettingsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3589,7 +3589,7 @@ impl windows_core::RuntimeName for WebUIPrintTaskSettingsActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPrintWorkflowForegroundTaskActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3644,7 +3644,7 @@ impl windows_core::RuntimeName for WebUIPrintWorkflowForegroundTaskActivatedEven
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIProtocolActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIProtocolActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3739,7 +3739,7 @@ impl windows_core::RuntimeName for WebUIProtocolActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIProtocolForResultsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIProtocolForResultsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3851,7 +3851,7 @@ impl windows_core::RuntimeName for WebUIProtocolForResultsActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIRestrictedLaunchActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -3922,7 +3922,7 @@ impl windows_core::RuntimeName for WebUIRestrictedLaunchActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUISearchActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUISearchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -4009,7 +4009,7 @@ impl windows_core::RuntimeName for WebUISearchActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIShareTargetActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIShareTargetActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -4080,7 +4080,7 @@ impl windows_core::RuntimeName for WebUIShareTargetActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIStartupTaskActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIStartupTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -4155,7 +4155,7 @@ unsafe impl Send for WebUIStartupTaskActivatedEventArgs {}
 unsafe impl Sync for WebUIStartupTaskActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIToastNotificationActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIToastNotificationActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -4234,7 +4234,7 @@ impl windows_core::RuntimeName for WebUIToastNotificationActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIUserDataAccountProviderActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -4296,7 +4296,7 @@ impl windows_core::RuntimeName for WebUIUserDataAccountProviderActivatedEventArg
     const NAME: &'static str = "Windows.UI.WebUI.WebUIUserDataAccountProviderActivatedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUIView, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Web_UI")]
@@ -4829,7 +4829,7 @@ impl windows_core::RuntimeName for WebUIView {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIVoiceCommandActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIVoiceCommandActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -4900,7 +4900,7 @@ impl windows_core::RuntimeName for WebUIVoiceCommandActivatedEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIWalletActionActivatedEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 windows_core::imp::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -4979,7 +4979,7 @@ impl windows_core::RuntimeName for WebUIWalletActionActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIWebAccountProviderActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -5050,7 +5050,7 @@ impl windows_core::RuntimeName for WebUIWebAccountProviderActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIWebAuthenticationBrokerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
