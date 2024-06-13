@@ -397,7 +397,7 @@ pub struct IImageScannerStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScanner(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageScanner, windows_core::IUnknown, windows_core::IInspectable);
 impl ImageScanner {
@@ -503,7 +503,7 @@ impl windows_core::RuntimeName for ImageScanner {
 unsafe impl Send for ImageScanner {}
 unsafe impl Sync for ImageScanner {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerAutoConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageScannerAutoConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageScannerAutoConfiguration, IImageScannerFormatConfiguration);
@@ -547,7 +547,7 @@ impl windows_core::RuntimeName for ImageScannerAutoConfiguration {
 unsafe impl Send for ImageScannerAutoConfiguration {}
 unsafe impl Sync for ImageScannerAutoConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerFeederConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageScannerFeederConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageScannerFeederConfiguration, IImageScannerFormatConfiguration, IImageScannerSourceConfiguration);
@@ -882,7 +882,7 @@ impl windows_core::RuntimeName for ImageScannerFeederConfiguration {
 unsafe impl Send for ImageScannerFeederConfiguration {}
 unsafe impl Sync for ImageScannerFeederConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerFlatbedConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageScannerFlatbedConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageScannerFlatbedConfiguration, IImageScannerFormatConfiguration, IImageScannerSourceConfiguration);
@@ -1111,7 +1111,7 @@ impl windows_core::RuntimeName for ImageScannerFlatbedConfiguration {
 unsafe impl Send for ImageScannerFlatbedConfiguration {}
 unsafe impl Sync for ImageScannerFlatbedConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerPreviewResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageScannerPreviewResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ImageScannerPreviewResult {
@@ -1143,7 +1143,7 @@ impl windows_core::RuntimeName for ImageScannerPreviewResult {
 unsafe impl Send for ImageScannerPreviewResult {}
 unsafe impl Sync for ImageScannerPreviewResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerScanResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageScannerScanResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ImageScannerScanResult {

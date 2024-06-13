@@ -88,7 +88,7 @@ pub struct IClass_Vtbl {
     ) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Class(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Class, windows_core::IUnknown, windows_core::IInspectable);
 impl Class {

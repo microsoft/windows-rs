@@ -756,7 +756,7 @@ impl windows_core::RuntimeName for AccessoryManager {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AccessoryManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AlarmNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AlarmNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AlarmNotificationTriggerDetails, IAccessoryNotificationTriggerDetails);
@@ -847,7 +847,7 @@ impl windows_core::RuntimeName for AlarmNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AlarmNotificationTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppNotificationInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppNotificationInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppNotificationInfo {
@@ -877,7 +877,7 @@ impl windows_core::RuntimeName for AppNotificationInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AppNotificationInfo";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BinaryId(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BinaryId, windows_core::IUnknown, windows_core::IInspectable);
 impl BinaryId {
@@ -907,7 +907,7 @@ impl windows_core::RuntimeName for BinaryId {
     const NAME: &'static str = "Windows.Phone.Notification.Management.BinaryId";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CalendarChangedNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CalendarChangedNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CalendarChangedNotificationTriggerDetails, IAccessoryNotificationTriggerDetails);
@@ -977,7 +977,7 @@ impl windows_core::RuntimeName for CalendarChangedNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.CalendarChangedNotificationTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CortanaTileNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CortanaTileNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CortanaTileNotificationTriggerDetails, IAccessoryNotificationTriggerDetails);
@@ -1103,7 +1103,7 @@ impl windows_core::RuntimeName for CortanaTileNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.CortanaTileNotificationTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailAccountInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailAccountInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailAccountInfo {
@@ -1133,7 +1133,7 @@ impl windows_core::RuntimeName for EmailAccountInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailAccountInfo";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailFolderInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailFolderInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailFolderInfo {
@@ -1163,7 +1163,7 @@ impl windows_core::RuntimeName for EmailFolderInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailFolderInfo";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailNotificationTriggerDetails, IAccessoryNotificationTriggerDetails);
@@ -1269,7 +1269,7 @@ impl windows_core::RuntimeName for EmailNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailNotificationTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailReadNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailReadNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailReadNotificationTriggerDetails, IAccessoryNotificationTriggerDetails);
@@ -1353,7 +1353,7 @@ impl windows_core::RuntimeName for EmailReadNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailReadNotificationTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaControlsTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaControlsTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaControlsTriggerDetails, IAccessoryNotificationTriggerDetails);
@@ -1423,7 +1423,7 @@ impl windows_core::RuntimeName for MediaControlsTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.MediaControlsTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaMetadata(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaMetadata, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaMetadata {
@@ -1489,7 +1489,7 @@ impl windows_core::RuntimeName for MediaMetadata {
     const NAME: &'static str = "Windows.Phone.Notification.Management.MediaMetadata";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallDetails {
@@ -1590,7 +1590,7 @@ impl windows_core::RuntimeName for PhoneCallDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneCallDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneLineDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneLineDetails {
@@ -1655,7 +1655,7 @@ impl windows_core::RuntimeName for PhoneLineDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneLineDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhoneNotificationTriggerDetails, IAccessoryNotificationTriggerDetails);
@@ -1732,7 +1732,7 @@ impl windows_core::RuntimeName for PhoneNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneNotificationTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReminderNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ReminderNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ReminderNotificationTriggerDetails, IAccessoryNotificationTriggerDetails);
@@ -1845,7 +1845,7 @@ impl windows_core::RuntimeName for ReminderNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ReminderNotificationTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeedDialEntry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeedDialEntry, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeedDialEntry {
@@ -1882,7 +1882,7 @@ impl windows_core::RuntimeName for SpeedDialEntry {
     const NAME: &'static str = "Windows.Phone.Notification.Management.SpeedDialEntry";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TextResponse(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextResponse, windows_core::IUnknown, windows_core::IInspectable);
 impl TextResponse {
@@ -1912,7 +1912,7 @@ impl windows_core::RuntimeName for TextResponse {
     const NAME: &'static str = "Windows.Phone.Notification.Management.TextResponse";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ToastNotificationTriggerDetails, IAccessoryNotificationTriggerDetails);
@@ -2010,7 +2010,7 @@ impl windows_core::RuntimeName for ToastNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ToastNotificationTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VolumeInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VolumeInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl VolumeInfo {

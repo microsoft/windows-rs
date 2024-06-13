@@ -65,7 +65,7 @@ pub struct IShareOperation3_Vtbl {
     Contacts: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct QuickLink(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(QuickLink, windows_core::IUnknown, windows_core::IInspectable);
 impl QuickLink {
@@ -142,7 +142,7 @@ impl windows_core::RuntimeName for QuickLink {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareOperation {

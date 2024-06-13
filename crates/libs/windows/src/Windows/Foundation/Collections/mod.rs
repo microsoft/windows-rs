@@ -1,5 +1,5 @@
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IIterable<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -51,7 +51,7 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IIterator<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -123,7 +123,7 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IKeyValuePair<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core::marker::PhantomData<V>)
 where
     K: windows_core::RuntimeType + 'static,
@@ -172,7 +172,7 @@ where
     pub V: core::marker::PhantomData<V>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IMap<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core::marker::PhantomData<V>)
 where
     K: windows_core::RuntimeType + 'static,
@@ -292,7 +292,7 @@ where
     pub V: core::marker::PhantomData<V>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IMapChangedEventArgs<K>(windows_core::IUnknown, core::marker::PhantomData<K>)
 where
     K: windows_core::RuntimeType + 'static;
@@ -338,7 +338,7 @@ where
     pub K: core::marker::PhantomData<K>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IMapView<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core::marker::PhantomData<V>)
 where
     K: windows_core::RuntimeType + 'static,
@@ -430,7 +430,7 @@ where
     pub V: core::marker::PhantomData<V>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IObservableMap<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core::marker::PhantomData<V>)
 where
     K: windows_core::RuntimeType + 'static,
@@ -562,7 +562,7 @@ where
     pub V: core::marker::PhantomData<V>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IObservableVector<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -809,7 +809,7 @@ pub struct IPropertySet_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IVector<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -1001,7 +1001,7 @@ pub struct IVectorChangedEventArgs_Vtbl {
     pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IVectorView<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -1108,7 +1108,7 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PropertySet(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PropertySet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PropertySet, IIterable < IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > >, IMap < windows_core::HSTRING , windows_core::IInspectable >, IObservableMap < windows_core::HSTRING , windows_core::IInspectable >, IPropertySet);
@@ -1215,7 +1215,7 @@ impl IntoIterator for &PropertySet {
 unsafe impl Send for PropertySet {}
 unsafe impl Sync for PropertySet {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StringMap(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StringMap, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StringMap, IIterable < IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > >, IMap < windows_core::HSTRING , windows_core::HSTRING >, IObservableMap < windows_core::HSTRING , windows_core::HSTRING >);
@@ -1319,7 +1319,7 @@ impl IntoIterator for &StringMap {
 unsafe impl Send for StringMap {}
 unsafe impl Sync for StringMap {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ValueSet(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ValueSet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ValueSet, IIterable < IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > >, IMap < windows_core::HSTRING , windows_core::IInspectable >, IObservableMap < windows_core::HSTRING , windows_core::IInspectable >, IPropertySet);
@@ -1446,7 +1446,7 @@ impl windows_core::RuntimeType for CollectionChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Collections.CollectionChange;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapChangedEventHandler<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core::marker::PhantomData<V>)
 where
     K: windows_core::RuntimeType + 'static,
@@ -1531,7 +1531,7 @@ where
     pub V: core::marker::PhantomData<V>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VectorChangedEventHandler<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;

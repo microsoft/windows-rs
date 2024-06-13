@@ -280,7 +280,7 @@ pub struct IGuidanceUpdatedEventArgs_Vtbl {
     LaneInfo: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceAudioNotificationRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceAudioNotificationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceAudioNotificationRequestedEventArgs {
@@ -320,7 +320,7 @@ impl windows_core::RuntimeName for GuidanceAudioNotificationRequestedEventArgs {
 unsafe impl Send for GuidanceAudioNotificationRequestedEventArgs {}
 unsafe impl Sync for GuidanceAudioNotificationRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceLaneInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceLaneInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceLaneInfo {
@@ -352,7 +352,7 @@ impl windows_core::RuntimeName for GuidanceLaneInfo {
 unsafe impl Send for GuidanceLaneInfo {}
 unsafe impl Sync for GuidanceLaneInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceManeuver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceManeuver, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceManeuver {
@@ -455,7 +455,7 @@ impl windows_core::RuntimeName for GuidanceManeuver {
 unsafe impl Send for GuidanceManeuver {}
 unsafe impl Sync for GuidanceManeuver {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceMapMatchedCoordinate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceMapMatchedCoordinate, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceMapMatchedCoordinate {
@@ -509,7 +509,7 @@ impl windows_core::RuntimeName for GuidanceMapMatchedCoordinate {
 unsafe impl Send for GuidanceMapMatchedCoordinate {}
 unsafe impl Sync for GuidanceMapMatchedCoordinate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceNavigator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceNavigator, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceNavigator {
@@ -748,7 +748,7 @@ impl windows_core::RuntimeName for GuidanceNavigator {
 unsafe impl Send for GuidanceNavigator {}
 unsafe impl Sync for GuidanceNavigator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceReroutedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceReroutedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceReroutedEventArgs {
@@ -773,7 +773,7 @@ impl windows_core::RuntimeName for GuidanceReroutedEventArgs {
 unsafe impl Send for GuidanceReroutedEventArgs {}
 unsafe impl Sync for GuidanceReroutedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoadSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceRoadSegment, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceRoadSegment {
@@ -862,7 +862,7 @@ impl windows_core::RuntimeName for GuidanceRoadSegment {
 unsafe impl Send for GuidanceRoadSegment {}
 unsafe impl Sync for GuidanceRoadSegment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoadSignpost(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceRoadSignpost, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceRoadSignpost {
@@ -918,7 +918,7 @@ impl windows_core::RuntimeName for GuidanceRoadSignpost {
 unsafe impl Send for GuidanceRoadSignpost {}
 unsafe impl Sync for GuidanceRoadSignpost {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoute(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceRoute, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceRoute {
@@ -1012,7 +1012,7 @@ impl windows_core::RuntimeName for GuidanceRoute {
 unsafe impl Send for GuidanceRoute {}
 unsafe impl Sync for GuidanceRoute {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceTelemetryCollector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceTelemetryCollector, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceTelemetryCollector {
@@ -1078,7 +1078,7 @@ impl windows_core::RuntimeName for GuidanceTelemetryCollector {
 unsafe impl Send for GuidanceTelemetryCollector {}
 unsafe impl Sync for GuidanceTelemetryCollector {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GuidanceUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GuidanceUpdatedEventArgs {

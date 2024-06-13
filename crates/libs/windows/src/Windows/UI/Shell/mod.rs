@@ -342,7 +342,7 @@ impl windows_core::RuntimeName for AdaptiveCardBuilder {
     const NAME: &'static str = "Windows.UI.Shell.AdaptiveCardBuilder";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FocusSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FocusSession, windows_core::IUnknown, windows_core::IInspectable);
 impl FocusSession {
@@ -371,7 +371,7 @@ impl windows_core::RuntimeName for FocusSession {
 unsafe impl Send for FocusSession {}
 unsafe impl Sync for FocusSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FocusSessionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FocusSessionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl FocusSessionManager {
@@ -452,7 +452,7 @@ impl windows_core::RuntimeName for FocusSessionManager {
 unsafe impl Send for FocusSessionManager {}
 unsafe impl Sync for FocusSessionManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SecurityAppManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SecurityAppManager, windows_core::IUnknown, windows_core::IInspectable);
 impl SecurityAppManager {
@@ -498,7 +498,7 @@ impl windows_core::RuntimeName for SecurityAppManager {
 unsafe impl Send for SecurityAppManager {}
 unsafe impl Sync for SecurityAppManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareWindowCommandEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareWindowCommandEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareWindowCommandEventArgs {
@@ -534,7 +534,7 @@ impl windows_core::RuntimeName for ShareWindowCommandEventArgs {
 unsafe impl Send for ShareWindowCommandEventArgs {}
 unsafe impl Sync for ShareWindowCommandEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareWindowCommandSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareWindowCommandSource, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareWindowCommandSource {
@@ -603,7 +603,7 @@ impl windows_core::RuntimeName for ShareWindowCommandSource {
 unsafe impl Send for ShareWindowCommandSource {}
 unsafe impl Sync for ShareWindowCommandSource {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TaskbarManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TaskbarManager, windows_core::IUnknown, windows_core::IInspectable);
 impl TaskbarManager {
@@ -707,7 +707,7 @@ impl windows_core::RuntimeName for TaskbarManager {
 unsafe impl Send for TaskbarManager {}
 unsafe impl Sync for TaskbarManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTab(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTab, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTab {
@@ -800,7 +800,7 @@ impl windows_core::RuntimeName for WindowTab {
 unsafe impl Send for WindowTab {}
 unsafe impl Sync for WindowTab {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabCloseRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabCloseRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabCloseRequestedEventArgs {
@@ -825,7 +825,7 @@ impl windows_core::RuntimeName for WindowTabCloseRequestedEventArgs {
 unsafe impl Send for WindowTabCloseRequestedEventArgs {}
 unsafe impl Sync for WindowTabCloseRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -963,7 +963,7 @@ impl IntoIterator for &WindowTabCollection {
 unsafe impl Send for WindowTabCollection {}
 unsafe impl Sync for WindowTabCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabGroup {
@@ -1013,7 +1013,7 @@ impl windows_core::RuntimeName for WindowTabGroup {
 unsafe impl Send for WindowTabGroup {}
 unsafe impl Sync for WindowTabGroup {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabIcon(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabIcon, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabIcon {
@@ -1061,7 +1061,7 @@ impl windows_core::RuntimeName for WindowTabIcon {
 unsafe impl Send for WindowTabIcon {}
 unsafe impl Sync for WindowTabIcon {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabManager, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabManager {
@@ -1172,7 +1172,7 @@ impl windows_core::RuntimeName for WindowTabManager {
 unsafe impl Send for WindowTabManager {}
 unsafe impl Sync for WindowTabManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabSwitchRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabSwitchRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabSwitchRequestedEventArgs {
@@ -1197,7 +1197,7 @@ impl windows_core::RuntimeName for WindowTabSwitchRequestedEventArgs {
 unsafe impl Send for WindowTabSwitchRequestedEventArgs {}
 unsafe impl Sync for WindowTabSwitchRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabTearOutRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabTearOutRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabTearOutRequestedEventArgs {
@@ -1240,7 +1240,7 @@ impl windows_core::RuntimeName for WindowTabTearOutRequestedEventArgs {
 unsafe impl Send for WindowTabTearOutRequestedEventArgs {}
 unsafe impl Sync for WindowTabTearOutRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabThumbnailRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabThumbnailRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabThumbnailRequestedEventArgs {

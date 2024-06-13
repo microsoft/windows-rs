@@ -409,7 +409,7 @@ pub struct IPrintSchema_Vtbl {
     MergeAndValidateWithDefaultPrintTicketAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppAttributeError(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppAttributeError, windows_core::IUnknown, windows_core::IInspectable);
 impl IppAttributeError {
@@ -449,7 +449,7 @@ impl windows_core::RuntimeName for IppAttributeError {
 unsafe impl Send for IppAttributeError {}
 unsafe impl Sync for IppAttributeError {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppAttributeValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppAttributeValue, windows_core::IUnknown, windows_core::IInspectable);
 impl IppAttributeValue {
@@ -952,7 +952,7 @@ impl windows_core::RuntimeName for IppAttributeValue {
 unsafe impl Send for IppAttributeValue {}
 unsafe impl Sync for IppAttributeValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppIntegerRange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppIntegerRange, windows_core::IUnknown, windows_core::IInspectable);
 impl IppIntegerRange {
@@ -995,7 +995,7 @@ impl windows_core::RuntimeName for IppIntegerRange {
 unsafe impl Send for IppIntegerRange {}
 unsafe impl Sync for IppIntegerRange {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppPrintDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppPrintDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl IppPrintDevice {
@@ -1128,7 +1128,7 @@ impl windows_core::RuntimeName for IppPrintDevice {
 unsafe impl Send for IppPrintDevice {}
 unsafe impl Sync for IppPrintDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppResolution(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppResolution, windows_core::IUnknown, windows_core::IInspectable);
 impl IppResolution {
@@ -1178,7 +1178,7 @@ impl windows_core::RuntimeName for IppResolution {
 unsafe impl Send for IppResolution {}
 unsafe impl Sync for IppResolution {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppSetAttributesResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppSetAttributesResult, windows_core::IUnknown, windows_core::IInspectable);
 impl IppSetAttributesResult {
@@ -1211,7 +1211,7 @@ impl windows_core::RuntimeName for IppSetAttributesResult {
 unsafe impl Send for IppSetAttributesResult {}
 unsafe impl Sync for IppSetAttributesResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppTextWithLanguage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppTextWithLanguage, windows_core::IUnknown, windows_core::IInspectable);
 impl IppTextWithLanguage {
@@ -1254,7 +1254,7 @@ impl windows_core::RuntimeName for IppTextWithLanguage {
 unsafe impl Send for IppTextWithLanguage {}
 unsafe impl Sync for IppTextWithLanguage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PageConfigurationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PageConfigurationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl PageConfigurationSettings {
@@ -1301,7 +1301,7 @@ impl windows_core::RuntimeName for PageConfigurationSettings {
 unsafe impl Send for PageConfigurationSettings {}
 unsafe impl Sync for PageConfigurationSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdlPassthroughProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PdlPassthroughProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl PdlPassthroughProvider {
@@ -1351,7 +1351,7 @@ impl windows_core::RuntimeName for PdlPassthroughProvider {
 unsafe impl Send for PdlPassthroughProvider {}
 unsafe impl Sync for PdlPassthroughProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdlPassthroughTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PdlPassthroughTarget, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PdlPassthroughTarget, super::super::Foundation::IClosable);
@@ -1393,7 +1393,7 @@ impl windows_core::RuntimeName for PdlPassthroughTarget {
 unsafe impl Send for PdlPassthroughTarget {}
 unsafe impl Sync for PdlPassthroughTarget {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Print3DDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl Print3DDevice {
@@ -1435,7 +1435,7 @@ impl windows_core::RuntimeName for Print3DDevice {
 unsafe impl Send for Print3DDevice {}
 unsafe impl Sync for Print3DDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSchema(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSchema, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSchema {

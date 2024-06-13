@@ -446,7 +446,7 @@ pub struct ISpatialStationaryFrameOfReference_Vtbl {
     pub CoordinateSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAnchor, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAnchor {
@@ -533,7 +533,7 @@ impl windows_core::RuntimeName for SpatialAnchor {
 unsafe impl Send for SpatialAnchor {}
 unsafe impl Sync for SpatialAnchor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchorExportSufficiency(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAnchorExportSufficiency, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAnchorExportSufficiency {
@@ -572,7 +572,7 @@ impl windows_core::RuntimeName for SpatialAnchorExportSufficiency {
 unsafe impl Send for SpatialAnchorExportSufficiency {}
 unsafe impl Sync for SpatialAnchorExportSufficiency {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchorExporter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAnchorExporter, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAnchorExporter {
@@ -646,7 +646,7 @@ impl windows_core::RuntimeName for SpatialAnchorManager {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAnchorRawCoordinateSystemAdjustedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
@@ -672,7 +672,7 @@ impl windows_core::RuntimeName for SpatialAnchorRawCoordinateSystemAdjustedEvent
 unsafe impl Send for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
 unsafe impl Sync for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchorStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAnchorStore, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAnchorStore {
@@ -759,7 +759,7 @@ impl windows_core::RuntimeName for SpatialAnchorTransferManager {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorTransferManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialBoundingVolume(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialBoundingVolume, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialBoundingVolume {
@@ -822,7 +822,7 @@ impl windows_core::RuntimeName for SpatialBoundingVolume {
 unsafe impl Send for SpatialBoundingVolume {}
 unsafe impl Sync for SpatialBoundingVolume {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialCoordinateSystem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialCoordinateSystem, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialCoordinateSystem {
@@ -851,7 +851,7 @@ impl windows_core::RuntimeName for SpatialCoordinateSystem {
 unsafe impl Send for SpatialCoordinateSystem {}
 unsafe impl Sync for SpatialCoordinateSystem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntity, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntity {
@@ -916,7 +916,7 @@ impl windows_core::RuntimeName for SpatialEntity {
 unsafe impl Send for SpatialEntity {}
 unsafe impl Sync for SpatialEntity {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityAddedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntityAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntityAddedEventArgs {
@@ -941,7 +941,7 @@ impl windows_core::RuntimeName for SpatialEntityAddedEventArgs {
 unsafe impl Send for SpatialEntityAddedEventArgs {}
 unsafe impl Sync for SpatialEntityAddedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityRemovedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntityRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntityRemovedEventArgs {
@@ -966,7 +966,7 @@ impl windows_core::RuntimeName for SpatialEntityRemovedEventArgs {
 unsafe impl Send for SpatialEntityRemovedEventArgs {}
 unsafe impl Sync for SpatialEntityRemovedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntityStore, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntityStore {
@@ -1032,7 +1032,7 @@ impl windows_core::RuntimeName for SpatialEntityStore {
 unsafe impl Send for SpatialEntityStore {}
 unsafe impl Sync for SpatialEntityStore {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntityUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntityUpdatedEventArgs {
@@ -1057,7 +1057,7 @@ impl windows_core::RuntimeName for SpatialEntityUpdatedEventArgs {
 unsafe impl Send for SpatialEntityUpdatedEventArgs {}
 unsafe impl Sync for SpatialEntityUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntityWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntityWatcher {
@@ -1146,7 +1146,7 @@ impl windows_core::RuntimeName for SpatialEntityWatcher {
 unsafe impl Send for SpatialEntityWatcher {}
 unsafe impl Sync for SpatialEntityWatcher {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialLocation {
@@ -1228,7 +1228,7 @@ impl windows_core::RuntimeName for SpatialLocation {
 unsafe impl Send for SpatialLocation {}
 unsafe impl Sync for SpatialLocation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialLocator, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialLocator {
@@ -1365,7 +1365,7 @@ impl windows_core::RuntimeName for SpatialLocator {
 unsafe impl Send for SpatialLocator {}
 unsafe impl Sync for SpatialLocator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocatorAttachedFrameOfReference(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialLocatorAttachedFrameOfReference, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialLocatorAttachedFrameOfReference {
@@ -1433,7 +1433,7 @@ impl windows_core::RuntimeName for SpatialLocatorAttachedFrameOfReference {
 unsafe impl Send for SpatialLocatorAttachedFrameOfReference {}
 unsafe impl Sync for SpatialLocatorAttachedFrameOfReference {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialLocatorPositionalTrackingDeactivatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialLocatorPositionalTrackingDeactivatingEventArgs {
@@ -1462,7 +1462,7 @@ impl windows_core::RuntimeName for SpatialLocatorPositionalTrackingDeactivatingE
 unsafe impl Send for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 unsafe impl Sync for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialStageFrameOfReference(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialStageFrameOfReference, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialStageFrameOfReference {
@@ -1551,7 +1551,7 @@ impl windows_core::RuntimeName for SpatialStageFrameOfReference {
 unsafe impl Send for SpatialStageFrameOfReference {}
 unsafe impl Sync for SpatialStageFrameOfReference {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialStationaryFrameOfReference(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialStationaryFrameOfReference, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialStationaryFrameOfReference {

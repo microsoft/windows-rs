@@ -957,7 +957,7 @@ pub struct IPenAndInkSettingsStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkDrawingAttributes(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkDrawingAttributes, windows_core::IUnknown, windows_core::IInspectable);
 impl InkDrawingAttributes {
@@ -1104,7 +1104,7 @@ impl windows_core::RuntimeName for InkDrawingAttributes {
 unsafe impl Send for InkDrawingAttributes {}
 unsafe impl Sync for InkDrawingAttributes {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkDrawingAttributesPencilProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkDrawingAttributesPencilProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl InkDrawingAttributesPencilProperties {
@@ -1133,7 +1133,7 @@ impl windows_core::RuntimeName for InkDrawingAttributesPencilProperties {
 unsafe impl Send for InkDrawingAttributesPencilProperties {}
 unsafe impl Sync for InkDrawingAttributesPencilProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkInputConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkInputConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl InkInputConfiguration {
@@ -1184,7 +1184,7 @@ impl windows_core::RuntimeName for InkInputConfiguration {
 unsafe impl Send for InkInputConfiguration {}
 unsafe impl Sync for InkInputConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkInputProcessingConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkInputProcessingConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl InkInputProcessingConfiguration {
@@ -1224,7 +1224,7 @@ impl windows_core::RuntimeName for InkInputProcessingConfiguration {
 unsafe impl Send for InkInputProcessingConfiguration {}
 unsafe impl Sync for InkInputProcessingConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkManager, IInkRecognizerContainer, IInkStrokeContainer);
@@ -1437,7 +1437,7 @@ impl windows_core::RuntimeName for InkManager {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkModelerAttributes(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkModelerAttributes, windows_core::IUnknown, windows_core::IInspectable);
 impl InkModelerAttributes {
@@ -1488,7 +1488,7 @@ impl windows_core::RuntimeName for InkModelerAttributes {
 unsafe impl Send for InkModelerAttributes {}
 unsafe impl Sync for InkModelerAttributes {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPoint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkPoint, windows_core::IUnknown, windows_core::IInspectable);
 impl InkPoint {
@@ -1563,7 +1563,7 @@ impl windows_core::RuntimeName for InkPoint {
 unsafe impl Send for InkPoint {}
 unsafe impl Sync for InkPoint {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPresenter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkPresenter, windows_core::IUnknown, windows_core::IInspectable);
 impl InkPresenter {
@@ -1711,7 +1711,7 @@ impl windows_core::RuntimeName for InkPresenter {
 unsafe impl Send for InkPresenter {}
 unsafe impl Sync for InkPresenter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPresenterProtractor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkPresenterProtractor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkPresenterProtractor, IInkPresenterStencil);
@@ -1874,7 +1874,7 @@ impl windows_core::RuntimeName for InkPresenterProtractor {
 unsafe impl Send for InkPresenterProtractor {}
 unsafe impl Sync for InkPresenterProtractor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPresenterRuler(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkPresenterRuler, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkPresenterRuler, IInkPresenterStencil);
@@ -2004,7 +2004,7 @@ impl windows_core::RuntimeName for InkPresenterRuler {
 unsafe impl Send for InkPresenterRuler {}
 unsafe impl Sync for InkPresenterRuler {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkRecognitionResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkRecognitionResult, windows_core::IUnknown, windows_core::IInspectable);
 impl InkRecognitionResult {
@@ -2045,7 +2045,7 @@ impl windows_core::RuntimeName for InkRecognitionResult {
 unsafe impl Send for InkRecognitionResult {}
 unsafe impl Sync for InkRecognitionResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkRecognizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkRecognizer, windows_core::IUnknown, windows_core::IInspectable);
 impl InkRecognizer {
@@ -2068,7 +2068,7 @@ impl windows_core::RuntimeName for InkRecognizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizer";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkRecognizerContainer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkRecognizerContainer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkRecognizerContainer, IInkRecognizerContainer);
@@ -2118,7 +2118,7 @@ impl windows_core::RuntimeName for InkRecognizerContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizerContainer";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStroke(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkStroke, windows_core::IUnknown, windows_core::IInspectable);
 impl InkStroke {
@@ -2253,7 +2253,7 @@ impl windows_core::RuntimeName for InkStroke {
 unsafe impl Send for InkStroke {}
 unsafe impl Sync for InkStroke {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokeBuilder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkStrokeBuilder, windows_core::IUnknown, windows_core::IInspectable);
 impl InkStrokeBuilder {
@@ -2345,7 +2345,7 @@ impl windows_core::RuntimeName for InkStrokeBuilder {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeBuilder";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokeContainer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkStrokeContainer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkStrokeContainer, IInkStrokeContainer);
@@ -2509,7 +2509,7 @@ impl windows_core::RuntimeName for InkStrokeContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeContainer";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokeInput(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkStrokeInput, windows_core::IUnknown, windows_core::IInspectable);
 impl InkStrokeInput {
@@ -2594,7 +2594,7 @@ impl windows_core::RuntimeName for InkStrokeInput {
 unsafe impl Send for InkStrokeInput {}
 unsafe impl Sync for InkStrokeInput {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokeRenderingSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkStrokeRenderingSegment, windows_core::IUnknown, windows_core::IInspectable);
 impl InkStrokeRenderingSegment {
@@ -2661,7 +2661,7 @@ impl windows_core::RuntimeName for InkStrokeRenderingSegment {
 unsafe impl Send for InkStrokeRenderingSegment {}
 unsafe impl Sync for InkStrokeRenderingSegment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokesCollectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkStrokesCollectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InkStrokesCollectedEventArgs {
@@ -2685,7 +2685,7 @@ impl windows_core::RuntimeName for InkStrokesCollectedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesCollectedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokesErasedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkStrokesErasedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InkStrokesErasedEventArgs {
@@ -2709,7 +2709,7 @@ impl windows_core::RuntimeName for InkStrokesErasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesErasedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkSynchronizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkSynchronizer, windows_core::IUnknown, windows_core::IInspectable);
 impl InkSynchronizer {
@@ -2737,7 +2737,7 @@ impl windows_core::RuntimeName for InkSynchronizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkSynchronizer";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkUnprocessedInput(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkUnprocessedInput, windows_core::IUnknown, windows_core::IInspectable);
 impl InkUnprocessedInput {
@@ -2867,7 +2867,7 @@ impl windows_core::RuntimeName for InkUnprocessedInput {
 unsafe impl Send for InkUnprocessedInput {}
 unsafe impl Sync for InkUnprocessedInput {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenAndInkSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenAndInkSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl PenAndInkSettings {

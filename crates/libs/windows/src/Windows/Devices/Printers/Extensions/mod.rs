@@ -105,7 +105,7 @@ pub struct IPrintTaskConfigurationSaveRequestedEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflow(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Print3DWorkflow, windows_core::IUnknown, windows_core::IInspectable);
 impl Print3DWorkflow {
@@ -176,7 +176,7 @@ impl windows_core::RuntimeName for Print3DWorkflow {
 unsafe impl Send for Print3DWorkflow {}
 unsafe impl Sync for Print3DWorkflow {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflowPrintRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Print3DWorkflowPrintRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl Print3DWorkflowPrintRequestedEventArgs {
@@ -216,7 +216,7 @@ impl windows_core::RuntimeName for Print3DWorkflowPrintRequestedEventArgs {
 unsafe impl Send for Print3DWorkflowPrintRequestedEventArgs {}
 unsafe impl Sync for Print3DWorkflowPrintRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflowPrinterChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Print3DWorkflowPrinterChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl Print3DWorkflowPrinterChangedEventArgs {
@@ -258,7 +258,7 @@ impl windows_core::RuntimeName for PrintExtensionContext {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintExtensionContext";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintNotificationEventDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintNotificationEventDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintNotificationEventDetails {
@@ -294,7 +294,7 @@ impl windows_core::RuntimeName for PrintNotificationEventDetails {
 unsafe impl Send for PrintNotificationEventDetails {}
 unsafe impl Sync for PrintNotificationEventDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskConfiguration {
@@ -331,7 +331,7 @@ impl windows_core::RuntimeName for PrintTaskConfiguration {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfiguration";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskConfigurationSaveRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskConfigurationSaveRequest {
@@ -372,7 +372,7 @@ impl windows_core::RuntimeName for PrintTaskConfigurationSaveRequest {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequest";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskConfigurationSaveRequestedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequestedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskConfigurationSaveRequestedDeferral {
@@ -392,7 +392,7 @@ impl windows_core::RuntimeName for PrintTaskConfigurationSaveRequestedDeferral {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedDeferral";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskConfigurationSaveRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskConfigurationSaveRequestedEventArgs {

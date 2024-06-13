@@ -166,7 +166,7 @@ pub struct IGameSaveProviderStatics_Vtbl {
     GetSyncOnDemandForUserAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobGetResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveBlobGetResult {
@@ -199,7 +199,7 @@ impl windows_core::RuntimeName for GameSaveBlobGetResult {
 unsafe impl Send for GameSaveBlobGetResult {}
 unsafe impl Sync for GameSaveBlobGetResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveBlobInfo {
@@ -231,7 +231,7 @@ impl windows_core::RuntimeName for GameSaveBlobInfo {
 unsafe impl Send for GameSaveBlobInfo {}
 unsafe impl Sync for GameSaveBlobInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfoGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobInfoGetResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveBlobInfoGetResult {
@@ -264,7 +264,7 @@ impl windows_core::RuntimeName for GameSaveBlobInfoGetResult {
 unsafe impl Send for GameSaveBlobInfoGetResult {}
 unsafe impl Sync for GameSaveBlobInfoGetResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfoQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobInfoQuery, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveBlobInfoQuery {
@@ -303,7 +303,7 @@ impl windows_core::RuntimeName for GameSaveBlobInfoQuery {
 unsafe impl Send for GameSaveBlobInfoQuery {}
 unsafe impl Sync for GameSaveBlobInfoQuery {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainer, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveContainer {
@@ -388,7 +388,7 @@ impl windows_core::RuntimeName for GameSaveContainer {
 unsafe impl Send for GameSaveContainer {}
 unsafe impl Sync for GameSaveContainer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainerInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveContainerInfo {
@@ -441,7 +441,7 @@ impl windows_core::RuntimeName for GameSaveContainerInfo {
 unsafe impl Send for GameSaveContainerInfo {}
 unsafe impl Sync for GameSaveContainerInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfoGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainerInfoGetResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveContainerInfoGetResult {
@@ -474,7 +474,7 @@ impl windows_core::RuntimeName for GameSaveContainerInfoGetResult {
 unsafe impl Send for GameSaveContainerInfoGetResult {}
 unsafe impl Sync for GameSaveContainerInfoGetResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfoQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainerInfoQuery, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveContainerInfoQuery {
@@ -513,7 +513,7 @@ impl windows_core::RuntimeName for GameSaveContainerInfoQuery {
 unsafe impl Send for GameSaveContainerInfoQuery {}
 unsafe impl Sync for GameSaveContainerInfoQuery {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveOperationResult {
@@ -538,7 +538,7 @@ impl windows_core::RuntimeName for GameSaveOperationResult {
 unsafe impl Send for GameSaveOperationResult {}
 unsafe impl Sync for GameSaveOperationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveProvider {
@@ -632,7 +632,7 @@ impl windows_core::RuntimeName for GameSaveProvider {
 unsafe impl Send for GameSaveProvider {}
 unsafe impl Sync for GameSaveProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveProviderGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveProviderGetResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveProviderGetResult {

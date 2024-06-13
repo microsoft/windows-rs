@@ -35,7 +35,7 @@ impl windows_core::RuntimeName for ClassicAppManager {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.ClassicAppManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InstalledClassicAppInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InstalledClassicAppInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl InstalledClassicAppInfo {

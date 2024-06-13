@@ -27,7 +27,7 @@ pub struct IExtendedExecutionSession_Vtbl {
     pub RequestExtensionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExtendedExecutionRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ExtendedExecutionRevokedEventArgs {
@@ -52,7 +52,7 @@ impl windows_core::RuntimeName for ExtendedExecutionRevokedEventArgs {
 unsafe impl Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl Sync for ExtendedExecutionRevokedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExtendedExecutionSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ExtendedExecutionSession, super::super::Foundation::IClosable);

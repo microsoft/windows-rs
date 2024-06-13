@@ -131,7 +131,7 @@ pub struct ISpiDeviceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpiBusInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpiBusInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl SpiBusInfo {
@@ -178,7 +178,7 @@ impl windows_core::RuntimeName for SpiBusInfo {
 unsafe impl Send for SpiBusInfo {}
 unsafe impl Sync for SpiBusInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpiConnectionSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpiConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl SpiConnectionSettings {
@@ -262,7 +262,7 @@ impl windows_core::RuntimeName for SpiConnectionSettings {
 unsafe impl Send for SpiConnectionSettings {}
 unsafe impl Sync for SpiConnectionSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpiController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpiController, windows_core::IUnknown, windows_core::IInspectable);
 impl SpiController {
@@ -311,7 +311,7 @@ impl windows_core::RuntimeName for SpiController {
 unsafe impl Send for SpiController {}
 unsafe impl Sync for SpiController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpiDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpiDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpiDevice, super::super::Foundation::IClosable);

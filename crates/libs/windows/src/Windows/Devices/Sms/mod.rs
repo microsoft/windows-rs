@@ -951,7 +951,7 @@ pub struct ISmsWapMessage_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSmsMessageOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(DeleteSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1053,7 +1053,7 @@ impl std::future::Future for DeleteSmsMessageOperation {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSmsMessagesOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(DeleteSmsMessagesOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1155,7 +1155,7 @@ impl std::future::Future for DeleteSmsMessagesOperation {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GetSmsDeviceOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(GetSmsDeviceOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1260,7 +1260,7 @@ impl std::future::Future for GetSmsDeviceOperation {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GetSmsMessageOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(GetSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1365,7 +1365,7 @@ impl std::future::Future for GetSmsMessageOperation {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GetSmsMessagesOperation(windows_core::IUnknown);
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 windows_core::imp::interface_hierarchy!(GetSmsMessagesOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1489,7 +1489,7 @@ impl std::future::Future for GetSmsMessagesOperation {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SendSmsMessageOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SendSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1590,7 +1590,7 @@ impl std::future::Future for SendSmsMessageOperation {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsAppMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsAppMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsAppMessage, ISmsMessageBase);
@@ -1781,7 +1781,7 @@ unsafe impl Send for SmsAppMessage {}
 unsafe impl Sync for SmsAppMessage {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsBinaryMessage(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsBinaryMessage, windows_core::IUnknown, windows_core::IInspectable);
@@ -1855,7 +1855,7 @@ unsafe impl Send for SmsBinaryMessage {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for SmsBinaryMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsBroadcastMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsBroadcastMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsBroadcastMessage, ISmsMessageBase);
@@ -1980,7 +1980,7 @@ unsafe impl Send for SmsBroadcastMessage {}
 unsafe impl Sync for SmsBroadcastMessage {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsDevice(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsDevice, windows_core::IUnknown, windows_core::IInspectable);
@@ -2129,7 +2129,7 @@ impl windows_core::RuntimeName for SmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDevice";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsDevice2(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsDevice2, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsDevice2 {
@@ -2255,7 +2255,7 @@ impl windows_core::RuntimeName for SmsDevice2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsDeviceMessageStore(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsDeviceMessageStore, windows_core::IUnknown, windows_core::IInspectable);
@@ -2316,7 +2316,7 @@ impl windows_core::RuntimeName for SmsDeviceMessageStore {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDeviceMessageStore";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsFilterRule(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsFilterRule, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsFilterRule {
@@ -2451,7 +2451,7 @@ impl windows_core::RuntimeName for SmsFilterRule {
 unsafe impl Send for SmsFilterRule {}
 unsafe impl Sync for SmsFilterRule {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsFilterRules(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsFilterRules, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsFilterRules {
@@ -2496,7 +2496,7 @@ unsafe impl Send for SmsFilterRules {}
 unsafe impl Sync for SmsFilterRules {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsMessageReceivedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2533,7 +2533,7 @@ impl windows_core::RuntimeName for SmsMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageReceivedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsMessageReceivedTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsMessageReceivedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsMessageReceivedTriggerDetails {
@@ -2608,7 +2608,7 @@ impl windows_core::RuntimeName for SmsMessageReceivedTriggerDetails {
 unsafe impl Send for SmsMessageReceivedTriggerDetails {}
 unsafe impl Sync for SmsMessageReceivedTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsMessageRegistration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsMessageRegistration, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsMessageRegistration {
@@ -2671,7 +2671,7 @@ impl windows_core::RuntimeName for SmsMessageRegistration {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsReceivedEventDetails(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsReceivedEventDetails, windows_core::IUnknown, windows_core::IInspectable);
@@ -2728,7 +2728,7 @@ unsafe impl Send for SmsReceivedEventDetails {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for SmsReceivedEventDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsSendMessageResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsSendMessageResult, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsSendMessageResult {
@@ -2796,7 +2796,7 @@ impl windows_core::RuntimeName for SmsSendMessageResult {
 unsafe impl Send for SmsSendMessageResult {}
 unsafe impl Sync for SmsSendMessageResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsStatusMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsStatusMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsStatusMessage, ISmsMessageBase);
@@ -2900,7 +2900,7 @@ unsafe impl Send for SmsStatusMessage {}
 unsafe impl Sync for SmsStatusMessage {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsTextMessage(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsTextMessage, windows_core::IUnknown, windows_core::IInspectable);
@@ -3063,7 +3063,7 @@ unsafe impl Send for SmsTextMessage {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for SmsTextMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsTextMessage2(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsTextMessage2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsTextMessage2, ISmsMessageBase);
@@ -3218,7 +3218,7 @@ impl windows_core::RuntimeName for SmsTextMessage2 {
 unsafe impl Send for SmsTextMessage2 {}
 unsafe impl Sync for SmsTextMessage2 {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsVoicemailMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsVoicemailMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsVoicemailMessage, ISmsMessageBase);
@@ -3300,7 +3300,7 @@ impl windows_core::RuntimeName for SmsVoicemailMessage {
 unsafe impl Send for SmsVoicemailMessage {}
 unsafe impl Sync for SmsVoicemailMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsWapMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsWapMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsWapMessage, ISmsMessageBase);

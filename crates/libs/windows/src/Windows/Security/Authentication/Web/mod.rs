@@ -122,7 +122,7 @@ impl windows_core::RuntimeName for WebAuthenticationBroker {
     const NAME: &'static str = "Windows.Security.Authentication.Web.WebAuthenticationBroker";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAuthenticationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAuthenticationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAuthenticationResult {

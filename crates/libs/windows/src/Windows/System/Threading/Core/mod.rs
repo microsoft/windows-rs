@@ -41,7 +41,7 @@ pub struct ISignalNotifierStatics_Vtbl {
     pub AttachToSemaphoreWithTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, super::super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PreallocatedWorkItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PreallocatedWorkItem, windows_core::IUnknown, windows_core::IInspectable);
 impl PreallocatedWorkItem {
@@ -98,7 +98,7 @@ impl windows_core::RuntimeName for PreallocatedWorkItem {
 unsafe impl Send for PreallocatedWorkItem {}
 unsafe impl Sync for PreallocatedWorkItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SignalNotifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SignalNotifier, windows_core::IUnknown, windows_core::IInspectable);
 impl SignalNotifier {

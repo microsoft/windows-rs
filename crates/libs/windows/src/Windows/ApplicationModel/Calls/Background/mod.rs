@@ -96,7 +96,7 @@ pub struct IPhoneNewVoicemailMessageTriggerDetails_Vtbl {
     pub OperatorMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallBlockedTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallBlockedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallBlockedTriggerDetails {
@@ -136,7 +136,7 @@ unsafe impl Send for PhoneCallBlockedTriggerDetails {}
 unsafe impl Sync for PhoneCallBlockedTriggerDetails {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallOriginDataRequestTriggerDetails(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PhoneCallOriginDataRequestTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
@@ -178,7 +178,7 @@ unsafe impl Send for PhoneCallOriginDataRequestTriggerDetails {}
 unsafe impl Sync for PhoneCallOriginDataRequestTriggerDetails {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneIncomingCallDismissedTriggerDetails(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PhoneIncomingCallDismissedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
@@ -251,7 +251,7 @@ unsafe impl Send for PhoneIncomingCallDismissedTriggerDetails {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for PhoneIncomingCallDismissedTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneIncomingCallNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneIncomingCallNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneIncomingCallNotificationTriggerDetails {
@@ -283,7 +283,7 @@ impl windows_core::RuntimeName for PhoneIncomingCallNotificationTriggerDetails {
 unsafe impl Send for PhoneIncomingCallNotificationTriggerDetails {}
 unsafe impl Sync for PhoneIncomingCallNotificationTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineChangedTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneLineChangedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneLineChangedTriggerDetails {
@@ -322,7 +322,7 @@ impl windows_core::RuntimeName for PhoneLineChangedTriggerDetails {
 unsafe impl Send for PhoneLineChangedTriggerDetails {}
 unsafe impl Sync for PhoneLineChangedTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneNewVoicemailMessageTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneNewVoicemailMessageTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneNewVoicemailMessageTriggerDetails {

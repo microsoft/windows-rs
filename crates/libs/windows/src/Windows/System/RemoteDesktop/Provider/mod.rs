@@ -85,7 +85,7 @@ pub struct IRemoteDesktopRegistrarStatics_Vtbl {
     pub IsSwitchToLocalSessionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PerformLocalActionRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PerformLocalActionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PerformLocalActionRequestedEventArgs {
@@ -110,7 +110,7 @@ impl windows_core::RuntimeName for PerformLocalActionRequestedEventArgs {
 unsafe impl Send for PerformLocalActionRequestedEventArgs {}
 unsafe impl Sync for PerformLocalActionRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopConnectionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteDesktopConnectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl RemoteDesktopConnectionInfo {
@@ -151,7 +151,7 @@ impl windows_core::RuntimeName for RemoteDesktopConnectionInfo {
 unsafe impl Send for RemoteDesktopConnectionInfo {}
 unsafe impl Sync for RemoteDesktopConnectionInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopConnectionRemoteInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteDesktopConnectionRemoteInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteDesktopConnectionRemoteInfo, super::super::super::Foundation::IClosable);
@@ -226,7 +226,7 @@ impl windows_core::RuntimeName for RemoteDesktopConnectionRemoteInfo {
 unsafe impl Send for RemoteDesktopConnectionRemoteInfo {}
 unsafe impl Sync for RemoteDesktopConnectionRemoteInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteDesktopInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl RemoteDesktopInfo {

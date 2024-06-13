@@ -3317,7 +3317,7 @@ pub struct IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
     WebAuthenticationResult: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderAddAppointmentActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentsProviderAddAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentsProviderAddAppointmentActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderAddAppointmentActivatedEventArgs);
@@ -3380,7 +3380,7 @@ impl windows_core::RuntimeName for AppointmentsProviderAddAppointmentActivatedEv
 unsafe impl Send for AppointmentsProviderAddAppointmentActivatedEventArgs {}
 unsafe impl Sync for AppointmentsProviderAddAppointmentActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderRemoveAppointmentActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentsProviderRemoveAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentsProviderRemoveAppointmentActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderRemoveAppointmentActivatedEventArgs);
@@ -3443,7 +3443,7 @@ impl windows_core::RuntimeName for AppointmentsProviderRemoveAppointmentActivate
 unsafe impl Send for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 unsafe impl Sync for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderReplaceAppointmentActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentsProviderReplaceAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentsProviderReplaceAppointmentActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderReplaceAppointmentActivatedEventArgs);
@@ -3506,7 +3506,7 @@ impl windows_core::RuntimeName for AppointmentsProviderReplaceAppointmentActivat
 unsafe impl Send for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
 unsafe impl Sync for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderShowAppointmentDetailsActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentsProviderShowAppointmentDetailsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs);
@@ -3582,7 +3582,7 @@ impl windows_core::RuntimeName for AppointmentsProviderShowAppointmentDetailsAct
 unsafe impl Send for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 unsafe impl Sync for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderShowTimeFrameActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentsProviderShowTimeFrameActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentsProviderShowTimeFrameActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderShowTimeFrameActivatedEventArgs);
@@ -3651,7 +3651,7 @@ impl windows_core::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEve
 unsafe impl Send for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
 unsafe impl Sync for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundActivatedEventArgs, IBackgroundActivatedEventArgs);
@@ -3678,7 +3678,7 @@ impl windows_core::RuntimeName for BackgroundActivatedEventArgs {
 unsafe impl Send for BackgroundActivatedEventArgs {}
 unsafe impl Sync for BackgroundActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerPreviewActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerPreviewActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScannerPreviewActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IBarcodeScannerPreviewActivatedEventArgs);
@@ -3733,7 +3733,7 @@ impl windows_core::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
 unsafe impl Send for BarcodeScannerPreviewActivatedEventArgs {}
 unsafe impl Sync for BarcodeScannerPreviewActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CachedFileUpdaterActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CachedFileUpdaterActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CachedFileUpdaterActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, ICachedFileUpdaterActivatedEventArgs);
@@ -3789,7 +3789,7 @@ impl windows_core::RuntimeName for CachedFileUpdaterActivatedEventArgs {
 unsafe impl Send for CachedFileUpdaterActivatedEventArgs {}
 unsafe impl Sync for CachedFileUpdaterActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraSettingsActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CameraSettingsActivatedEventArgs, IActivatedEventArgs, ICameraSettingsActivatedEventArgs);
@@ -3843,7 +3843,7 @@ impl windows_core::RuntimeName for CameraSettingsActivatedEventArgs {
 unsafe impl Send for CameraSettingsActivatedEventArgs {}
 unsafe impl Sync for CameraSettingsActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CommandLineActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CommandLineActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CommandLineActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, ICommandLineActivatedEventArgs);
@@ -3898,7 +3898,7 @@ impl windows_core::RuntimeName for CommandLineActivatedEventArgs {
 unsafe impl Send for CommandLineActivatedEventArgs {}
 unsafe impl Sync for CommandLineActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CommandLineActivationOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CommandLineActivationOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl CommandLineActivationOperation {
@@ -3948,7 +3948,7 @@ impl windows_core::RuntimeName for CommandLineActivationOperation {
 unsafe impl Send for CommandLineActivationOperation {}
 unsafe impl Sync for CommandLineActivationOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactCallActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactCallActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactCallActivatedEventArgs);
@@ -4017,7 +4017,7 @@ impl windows_core::RuntimeName for ContactCallActivatedEventArgs {
 unsafe impl Send for ContactCallActivatedEventArgs {}
 unsafe impl Sync for ContactCallActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactMapActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactMapActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactMapActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactMapActivatedEventArgs);
@@ -4080,7 +4080,7 @@ impl windows_core::RuntimeName for ContactMapActivatedEventArgs {
 unsafe impl Send for ContactMapActivatedEventArgs {}
 unsafe impl Sync for ContactMapActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactMessageActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactMessageActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactMessageActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactMessageActivatedEventArgs);
@@ -4149,7 +4149,7 @@ impl windows_core::RuntimeName for ContactMessageActivatedEventArgs {
 unsafe impl Send for ContactMessageActivatedEventArgs {}
 unsafe impl Sync for ContactMessageActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPanelActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPanelActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactPanelActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContactPanelActivatedEventArgs);
@@ -4213,7 +4213,7 @@ impl windows_core::RuntimeName for ContactPanelActivatedEventArgs {
 unsafe impl Send for ContactPanelActivatedEventArgs {}
 unsafe impl Sync for ContactPanelActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPickerActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactPickerActivatedEventArgs, IActivatedEventArgs, IContactPickerActivatedEventArgs);
@@ -4261,7 +4261,7 @@ impl windows_core::RuntimeName for ContactPickerActivatedEventArgs {
 unsafe impl Send for ContactPickerActivatedEventArgs {}
 unsafe impl Sync for ContactPickerActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPostActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPostActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactPostActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactPostActivatedEventArgs);
@@ -4330,7 +4330,7 @@ impl windows_core::RuntimeName for ContactPostActivatedEventArgs {
 unsafe impl Send for ContactPostActivatedEventArgs {}
 unsafe impl Sync for ContactPostActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactVideoCallActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactVideoCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactVideoCallActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactVideoCallActivatedEventArgs);
@@ -4399,7 +4399,7 @@ impl windows_core::RuntimeName for ContactVideoCallActivatedEventArgs {
 unsafe impl Send for ContactVideoCallActivatedEventArgs {}
 unsafe impl Sync for ContactVideoCallActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IDeviceActivatedEventArgs, IViewSwitcherProvider);
@@ -4476,7 +4476,7 @@ impl windows_core::RuntimeName for DeviceActivatedEventArgs {
 unsafe impl Send for DeviceActivatedEventArgs {}
 unsafe impl Sync for DeviceActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePairingActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePairingActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DevicePairingActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IDevicePairingActivatedEventArgs);
@@ -4532,7 +4532,7 @@ impl windows_core::RuntimeName for DevicePairingActivatedEventArgs {
 unsafe impl Send for DevicePairingActivatedEventArgs {}
 unsafe impl Sync for DevicePairingActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialReceiverActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialReceiverActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DialReceiverActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IDialReceiverActivatedEventArgs, ILaunchActivatedEventArgs, IViewSwitcherProvider);
@@ -4616,7 +4616,7 @@ impl windows_core::RuntimeName for DialReceiverActivatedEventArgs {
 unsafe impl Send for DialReceiverActivatedEventArgs {}
 unsafe impl Sync for DialReceiverActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IFileActivatedEventArgs, IFileActivatedEventArgsWithCallerPackageFamilyName, IFileActivatedEventArgsWithNeighboringFiles, IViewSwitcherProvider);
@@ -4709,7 +4709,7 @@ impl windows_core::RuntimeName for FileActivatedEventArgs {
 unsafe impl Send for FileActivatedEventArgs {}
 unsafe impl Sync for FileActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileOpenPickerActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileOpenPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileOpenPickerActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IFileOpenPickerActivatedEventArgs, IFileOpenPickerActivatedEventArgs2);
@@ -4773,7 +4773,7 @@ unsafe impl Send for FileOpenPickerActivatedEventArgs {}
 unsafe impl Sync for FileOpenPickerActivatedEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileOpenPickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(FileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -4845,7 +4845,7 @@ unsafe impl Send for FileOpenPickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for FileOpenPickerContinuationEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileSavePickerActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileSavePickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileSavePickerActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IFileSavePickerActivatedEventArgs, IFileSavePickerActivatedEventArgs2);
@@ -4916,7 +4916,7 @@ unsafe impl Send for FileSavePickerActivatedEventArgs {}
 unsafe impl Sync for FileSavePickerActivatedEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileSavePickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(FileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -4989,7 +4989,7 @@ unsafe impl Send for FileSavePickerContinuationEventArgs {}
 unsafe impl Sync for FileSavePickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FolderPickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(FolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -5061,7 +5061,7 @@ unsafe impl Send for FolderPickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for FolderPickerContinuationEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LaunchActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LaunchActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, ILaunchActivatedEventArgs, ILaunchActivatedEventArgs2, IPrelaunchActivatedEventArgs, IViewSwitcherProvider);
@@ -5152,7 +5152,7 @@ impl windows_core::RuntimeName for LaunchActivatedEventArgs {
 unsafe impl Send for LaunchActivatedEventArgs {}
 unsafe impl Sync for LaunchActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockScreenActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, ILockScreenActivatedEventArgs);
@@ -5207,7 +5207,7 @@ impl windows_core::RuntimeName for LockScreenActivatedEventArgs {
 unsafe impl Send for LockScreenActivatedEventArgs {}
 unsafe impl Sync for LockScreenActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockScreenCallActivatedEventArgs, IActivatedEventArgs, IApplicationViewActivatedEventArgs, ILaunchActivatedEventArgs, ILockScreenCallActivatedEventArgs, IViewSwitcherProvider);
@@ -5284,7 +5284,7 @@ impl windows_core::RuntimeName for LockScreenCallActivatedEventArgs {
 unsafe impl Send for LockScreenCallActivatedEventArgs {}
 unsafe impl Sync for LockScreenCallActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenComponentActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenComponentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockScreenComponentActivatedEventArgs, IActivatedEventArgs);
@@ -5324,7 +5324,7 @@ impl windows_core::RuntimeName for LockScreenComponentActivatedEventArgs {
 unsafe impl Send for LockScreenComponentActivatedEventArgs {}
 unsafe impl Sync for LockScreenComponentActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhoneCallActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IPhoneCallActivatedEventArgs);
@@ -5379,7 +5379,7 @@ impl windows_core::RuntimeName for PhoneCallActivatedEventArgs {
 unsafe impl Send for PhoneCallActivatedEventArgs {}
 unsafe impl Sync for PhoneCallActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PickerReturnedActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PickerReturnedActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PickerReturnedActivatedEventArgs, IActivatedEventArgs, IPickerReturnedActivatedEventArgs);
@@ -5426,7 +5426,7 @@ impl windows_core::RuntimeName for PickerReturnedActivatedEventArgs {
 unsafe impl Send for PickerReturnedActivatedEventArgs {}
 unsafe impl Sync for PickerReturnedActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflowActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Print3DWorkflowActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Print3DWorkflowActivatedEventArgs, IActivatedEventArgs, IPrint3DWorkflowActivatedEventArgs);
@@ -5474,7 +5474,7 @@ impl windows_core::RuntimeName for Print3DWorkflowActivatedEventArgs {
 unsafe impl Send for Print3DWorkflowActivatedEventArgs {}
 unsafe impl Sync for Print3DWorkflowActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskSettingsActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskSettingsActivatedEventArgs, IActivatedEventArgs, IPrintTaskSettingsActivatedEventArgs);
@@ -5522,7 +5522,7 @@ impl windows_core::RuntimeName for PrintTaskSettingsActivatedEventArgs {
 unsafe impl Send for PrintTaskSettingsActivatedEventArgs {}
 unsafe impl Sync for PrintTaskSettingsActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtocolActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtocolActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtocolActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IProtocolActivatedEventArgs, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IViewSwitcherProvider);
@@ -5607,7 +5607,7 @@ impl windows_core::RuntimeName for ProtocolActivatedEventArgs {
 unsafe impl Send for ProtocolActivatedEventArgs {}
 unsafe impl Sync for ProtocolActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtocolForResultsActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtocolForResultsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtocolForResultsActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IProtocolActivatedEventArgs, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IProtocolForResultsActivatedEventArgs, IViewSwitcherProvider);
@@ -5700,7 +5700,7 @@ impl windows_core::RuntimeName for ProtocolForResultsActivatedEventArgs {
 unsafe impl Send for ProtocolForResultsActivatedEventArgs {}
 unsafe impl Sync for ProtocolForResultsActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RestrictedLaunchActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RestrictedLaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RestrictedLaunchActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IRestrictedLaunchActivatedEventArgs);
@@ -5755,7 +5755,7 @@ impl windows_core::RuntimeName for RestrictedLaunchActivatedEventArgs {
 unsafe impl Send for RestrictedLaunchActivatedEventArgs {}
 unsafe impl Sync for RestrictedLaunchActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SearchActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, ISearchActivatedEventArgs, ISearchActivatedEventArgsWithLinguisticDetails, IViewSwitcherProvider);
@@ -5840,7 +5840,7 @@ impl windows_core::RuntimeName for SearchActivatedEventArgs {
 unsafe impl Send for SearchActivatedEventArgs {}
 unsafe impl Sync for SearchActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareTargetActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareTargetActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ShareTargetActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IShareTargetActivatedEventArgs);
@@ -5896,7 +5896,7 @@ impl windows_core::RuntimeName for ShareTargetActivatedEventArgs {
 unsafe impl Send for ShareTargetActivatedEventArgs {}
 unsafe impl Sync for ShareTargetActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SplashScreen(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SplashScreen, windows_core::IUnknown, windows_core::IInspectable);
 impl SplashScreen {
@@ -5933,7 +5933,7 @@ impl windows_core::RuntimeName for SplashScreen {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SplashScreen";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StartupTaskActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StartupTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StartupTaskActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IStartupTaskActivatedEventArgs);
@@ -5988,7 +5988,7 @@ impl windows_core::RuntimeName for StartupTaskActivatedEventArgs {
 unsafe impl Send for StartupTaskActivatedEventArgs {}
 unsafe impl Sync for StartupTaskActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileActivatedInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TileActivatedInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl TileActivatedInfo {
@@ -6014,7 +6014,7 @@ impl windows_core::RuntimeName for TileActivatedInfo {
 unsafe impl Send for TileActivatedInfo {}
 unsafe impl Sync for TileActivatedInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastNotificationActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ToastNotificationActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IToastNotificationActivatedEventArgs);
@@ -6084,7 +6084,7 @@ impl windows_core::RuntimeName for ToastNotificationActivatedEventArgs {
 unsafe impl Send for ToastNotificationActivatedEventArgs {}
 unsafe impl Sync for ToastNotificationActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderActivatedEventArgs, IActivatedEventArgs, IUserDataAccountProviderActivatedEventArgs);
@@ -6132,7 +6132,7 @@ impl windows_core::RuntimeName for UserDataAccountProviderActivatedEventArgs {
 unsafe impl Send for UserDataAccountProviderActivatedEventArgs {}
 unsafe impl Sync for UserDataAccountProviderActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommandActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VoiceCommandActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IVoiceCommandActivatedEventArgs);
@@ -6189,7 +6189,7 @@ unsafe impl Send for VoiceCommandActivatedEventArgs {}
 unsafe impl Sync for VoiceCommandActivatedEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WalletActionActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(WalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -6261,7 +6261,7 @@ unsafe impl Send for WalletActionActivatedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for WalletActionActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProviderActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IWebAccountProviderActivatedEventArgs);
@@ -6317,7 +6317,7 @@ impl windows_core::RuntimeName for WebAccountProviderActivatedEventArgs {
 unsafe impl Send for WebAccountProviderActivatedEventArgs {}
 unsafe impl Sync for WebAccountProviderActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAuthenticationBrokerContinuationEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAuthenticationBrokerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAuthenticationBrokerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs, IWebAuthenticationBrokerContinuationEventArgs);

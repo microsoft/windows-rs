@@ -700,7 +700,7 @@ pub struct IVoipPhoneCall3_Vtbl {
     pub NotifyCallAccepted: unsafe extern "system" fn(*mut core::ffi::c_void, VoipPhoneCallMedia) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CallAnswerEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CallAnswerEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CallAnswerEventArgs {
@@ -725,7 +725,7 @@ impl windows_core::RuntimeName for CallAnswerEventArgs {
 unsafe impl Send for CallAnswerEventArgs {}
 unsafe impl Sync for CallAnswerEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CallRejectEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CallRejectEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CallRejectEventArgs {
@@ -750,7 +750,7 @@ impl windows_core::RuntimeName for CallRejectEventArgs {
 unsafe impl Send for CallRejectEventArgs {}
 unsafe impl Sync for CallRejectEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CallStateChangeEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CallStateChangeEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CallStateChangeEventArgs {
@@ -775,7 +775,7 @@ impl windows_core::RuntimeName for CallStateChangeEventArgs {
 unsafe impl Send for CallStateChangeEventArgs {}
 unsafe impl Sync for CallStateChangeEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallEndCallDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenCallEndCallDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenCallEndCallDeferral {
@@ -797,7 +797,7 @@ impl windows_core::RuntimeName for LockScreenCallEndCallDeferral {
 unsafe impl Send for LockScreenCallEndCallDeferral {}
 unsafe impl Sync for LockScreenCallEndCallDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallEndRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenCallEndRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenCallEndRequestedEventArgs {
@@ -829,7 +829,7 @@ impl windows_core::RuntimeName for LockScreenCallEndRequestedEventArgs {
 unsafe impl Send for LockScreenCallEndRequestedEventArgs {}
 unsafe impl Sync for LockScreenCallEndRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LockScreenCallUI, windows_core::IUnknown, windows_core::IInspectable);
 impl LockScreenCallUI {
@@ -890,7 +890,7 @@ impl windows_core::RuntimeName for LockScreenCallUI {
 unsafe impl Send for LockScreenCallUI {}
 unsafe impl Sync for LockScreenCallUI {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MuteChangeEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MuteChangeEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MuteChangeEventArgs {
@@ -915,7 +915,7 @@ impl windows_core::RuntimeName for MuteChangeEventArgs {
 unsafe impl Send for MuteChangeEventArgs {}
 unsafe impl Sync for MuteChangeEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCall(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCall, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCall {
@@ -1193,7 +1193,7 @@ impl windows_core::RuntimeName for PhoneCallBlocking {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallBlocking";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryEntry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntry, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallHistoryEntry {
@@ -1414,7 +1414,7 @@ impl windows_core::RuntimeName for PhoneCallHistoryEntry {
 unsafe impl Send for PhoneCallHistoryEntry {}
 unsafe impl Sync for PhoneCallHistoryEntry {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryEntryAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryAddress, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallHistoryEntryAddress {
@@ -1494,7 +1494,7 @@ impl windows_core::RuntimeName for PhoneCallHistoryEntryAddress {
 unsafe impl Send for PhoneCallHistoryEntryAddress {}
 unsafe impl Sync for PhoneCallHistoryEntryAddress {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryEntryQueryOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallHistoryEntryQueryOptions {
@@ -1538,7 +1538,7 @@ impl windows_core::RuntimeName for PhoneCallHistoryEntryQueryOptions {
 unsafe impl Send for PhoneCallHistoryEntryQueryOptions {}
 unsafe impl Sync for PhoneCallHistoryEntryQueryOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryEntryReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryReader, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallHistoryEntryReader {
@@ -1596,7 +1596,7 @@ impl windows_core::RuntimeName for PhoneCallHistoryManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallHistoryManagerForUser {
@@ -1629,7 +1629,7 @@ impl windows_core::RuntimeName for PhoneCallHistoryManagerForUser {
 unsafe impl Send for PhoneCallHistoryManagerForUser {}
 unsafe impl Sync for PhoneCallHistoryManagerForUser {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryStore, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallHistoryStore {
@@ -1759,7 +1759,7 @@ impl windows_core::RuntimeName for PhoneCallHistoryStore {
 unsafe impl Send for PhoneCallHistoryStore {}
 unsafe impl Sync for PhoneCallHistoryStore {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallInfo {
@@ -1871,7 +1871,7 @@ impl windows_core::RuntimeName for PhoneCallManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallStore, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallStore {
@@ -1910,7 +1910,7 @@ impl windows_core::RuntimeName for PhoneCallStore {
 unsafe impl Send for PhoneCallStore {}
 unsafe impl Sync for PhoneCallStore {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallVideoCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallVideoCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallVideoCapabilities {
@@ -1952,7 +1952,7 @@ impl windows_core::RuntimeName for PhoneCallVideoCapabilitiesManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilitiesManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallsResult {
@@ -1985,7 +1985,7 @@ impl windows_core::RuntimeName for PhoneCallsResult {
 unsafe impl Send for PhoneCallsResult {}
 unsafe impl Sync for PhoneCallsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneDialOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneDialOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneDialOptions {
@@ -2086,7 +2086,7 @@ impl windows_core::RuntimeName for PhoneDialOptions {
 unsafe impl Send for PhoneDialOptions {}
 unsafe impl Sync for PhoneDialOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLine(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneLine, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneLine {
@@ -2272,7 +2272,7 @@ impl windows_core::RuntimeName for PhoneLine {
 unsafe impl Send for PhoneLine {}
 unsafe impl Sync for PhoneLine {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineCellularDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneLineCellularDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneLineCellularDetails {
@@ -2325,7 +2325,7 @@ impl windows_core::RuntimeName for PhoneLineCellularDetails {
 unsafe impl Send for PhoneLineCellularDetails {}
 unsafe impl Sync for PhoneLineCellularDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneLineConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneLineConfiguration {
@@ -2358,7 +2358,7 @@ impl windows_core::RuntimeName for PhoneLineConfiguration {
 unsafe impl Send for PhoneLineConfiguration {}
 unsafe impl Sync for PhoneLineConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineDialResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneLineDialResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneLineDialResult {
@@ -2390,7 +2390,7 @@ impl windows_core::RuntimeName for PhoneLineDialResult {
 unsafe impl Send for PhoneLineDialResult {}
 unsafe impl Sync for PhoneLineDialResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineTransportDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneLineTransportDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneLineTransportDevice {
@@ -2540,7 +2540,7 @@ impl windows_core::RuntimeName for PhoneLineTransportDevice {
 unsafe impl Send for PhoneLineTransportDevice {}
 unsafe impl Sync for PhoneLineTransportDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneLineWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneLineWatcher {
@@ -2643,7 +2643,7 @@ impl windows_core::RuntimeName for PhoneLineWatcher {
 unsafe impl Send for PhoneLineWatcher {}
 unsafe impl Sync for PhoneLineWatcher {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineWatcherEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneLineWatcherEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneLineWatcherEventArgs {
@@ -2668,7 +2668,7 @@ impl windows_core::RuntimeName for PhoneLineWatcherEventArgs {
 unsafe impl Send for PhoneLineWatcherEventArgs {}
 unsafe impl Sync for PhoneLineWatcherEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneVoicemail(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneVoicemail, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneVoicemail {
@@ -2714,7 +2714,7 @@ impl windows_core::RuntimeName for PhoneVoicemail {
 unsafe impl Send for PhoneVoicemail {}
 unsafe impl Sync for PhoneVoicemail {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoipCallCoordinator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoipCallCoordinator, windows_core::IUnknown, windows_core::IInspectable);
 impl VoipCallCoordinator {
@@ -2851,7 +2851,7 @@ impl windows_core::RuntimeName for VoipCallCoordinator {
 unsafe impl Send for VoipCallCoordinator {}
 unsafe impl Sync for VoipCallCoordinator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoipPhoneCall(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoipPhoneCall, windows_core::IUnknown, windows_core::IInspectable);
 impl VoipPhoneCall {

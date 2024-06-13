@@ -52,7 +52,7 @@ pub struct IDecompressorFactory_Vtbl {
     CreateDecompressor: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Compressor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Compressor, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
@@ -135,7 +135,7 @@ impl windows_core::RuntimeName for Compressor {
 unsafe impl Send for Compressor {}
 unsafe impl Sync for Compressor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Decompressor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Decompressor, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]

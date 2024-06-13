@@ -661,7 +661,7 @@ pub struct IStoreVideo_Vtbl {
     pub PreviewImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreAcquireLicenseResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreAcquireLicenseResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreAcquireLicenseResult {
@@ -693,7 +693,7 @@ impl windows_core::RuntimeName for StoreAcquireLicenseResult {
 unsafe impl Send for StoreAcquireLicenseResult {}
 unsafe impl Sync for StoreAcquireLicenseResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreAppLicense(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreAppLicense, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreAppLicense {
@@ -782,7 +782,7 @@ impl windows_core::RuntimeName for StoreAppLicense {
 unsafe impl Send for StoreAppLicense {}
 unsafe impl Sync for StoreAppLicense {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreAvailability(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreAvailability, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreAvailability {
@@ -845,7 +845,7 @@ impl windows_core::RuntimeName for StoreAvailability {
 unsafe impl Send for StoreAvailability {}
 unsafe impl Sync for StoreAvailability {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreCanAcquireLicenseResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreCanAcquireLicenseResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreCanAcquireLicenseResult {
@@ -884,7 +884,7 @@ impl windows_core::RuntimeName for StoreCanAcquireLicenseResult {
 unsafe impl Send for StoreCanAcquireLicenseResult {}
 unsafe impl Sync for StoreCanAcquireLicenseResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreCollectionData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreCollectionData, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreCollectionData {
@@ -958,7 +958,7 @@ impl windows_core::RuntimeName for StoreCollectionData {
 unsafe impl Send for StoreCollectionData {}
 unsafe impl Sync for StoreCollectionData {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreConsumableResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreConsumableResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreConsumableResult {
@@ -1004,7 +1004,7 @@ impl windows_core::RuntimeName for StoreConsumableResult {
 unsafe impl Send for StoreConsumableResult {}
 unsafe impl Sync for StoreConsumableResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreContext, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreContext {
@@ -1429,7 +1429,7 @@ impl windows_core::RuntimeName for StoreContext {
 unsafe impl Send for StoreContext {}
 unsafe impl Sync for StoreContext {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreImage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreImage, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreImage {
@@ -1482,7 +1482,7 @@ impl windows_core::RuntimeName for StoreImage {
 unsafe impl Send for StoreImage {}
 unsafe impl Sync for StoreImage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreLicense(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreLicense, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreLicense {
@@ -1535,7 +1535,7 @@ impl windows_core::RuntimeName for StoreLicense {
 unsafe impl Send for StoreLicense {}
 unsafe impl Sync for StoreLicense {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageInstallOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorePackageInstallOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl StorePackageInstallOptions {
@@ -1571,7 +1571,7 @@ impl windows_core::RuntimeName for StorePackageInstallOptions {
 unsafe impl Send for StorePackageInstallOptions {}
 unsafe impl Sync for StorePackageInstallOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageLicense(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorePackageLicense, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorePackageLicense, super::super::Foundation::IClosable);
@@ -1627,7 +1627,7 @@ impl windows_core::RuntimeName for StorePackageLicense {
 unsafe impl Send for StorePackageLicense {}
 unsafe impl Sync for StorePackageLicense {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageUpdate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorePackageUpdate, windows_core::IUnknown, windows_core::IInspectable);
 impl StorePackageUpdate {
@@ -1660,7 +1660,7 @@ impl windows_core::RuntimeName for StorePackageUpdate {
 unsafe impl Send for StorePackageUpdate {}
 unsafe impl Sync for StorePackageUpdate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageUpdateResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorePackageUpdateResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StorePackageUpdateResult {
@@ -1701,7 +1701,7 @@ impl windows_core::RuntimeName for StorePackageUpdateResult {
 unsafe impl Send for StorePackageUpdateResult {}
 unsafe impl Sync for StorePackageUpdateResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePrice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorePrice, windows_core::IUnknown, windows_core::IInspectable);
 impl StorePrice {
@@ -1782,7 +1782,7 @@ impl windows_core::RuntimeName for StorePrice {
 unsafe impl Send for StorePrice {}
 unsafe impl Sync for StorePrice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProduct(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreProduct, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreProduct {
@@ -1933,7 +1933,7 @@ impl windows_core::RuntimeName for StoreProduct {
 unsafe impl Send for StoreProduct {}
 unsafe impl Sync for StoreProduct {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreProductOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreProductOptions {
@@ -1966,7 +1966,7 @@ impl windows_core::RuntimeName for StoreProductOptions {
 unsafe impl Send for StoreProductOptions {}
 unsafe impl Sync for StoreProductOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductPagedQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreProductPagedQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreProductPagedQueryResult {
@@ -2013,7 +2013,7 @@ impl windows_core::RuntimeName for StoreProductPagedQueryResult {
 unsafe impl Send for StoreProductPagedQueryResult {}
 unsafe impl Sync for StoreProductPagedQueryResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreProductQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreProductQueryResult {
@@ -2046,7 +2046,7 @@ impl windows_core::RuntimeName for StoreProductQueryResult {
 unsafe impl Send for StoreProductQueryResult {}
 unsafe impl Sync for StoreProductQueryResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreProductResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreProductResult {
@@ -2078,7 +2078,7 @@ impl windows_core::RuntimeName for StoreProductResult {
 unsafe impl Send for StoreProductResult {}
 unsafe impl Sync for StoreProductResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePurchaseProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorePurchaseProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl StorePurchaseProperties {
@@ -2136,7 +2136,7 @@ impl windows_core::RuntimeName for StorePurchaseProperties {
 unsafe impl Send for StorePurchaseProperties {}
 unsafe impl Sync for StorePurchaseProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePurchaseResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorePurchaseResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StorePurchaseResult {
@@ -2168,7 +2168,7 @@ impl windows_core::RuntimeName for StorePurchaseResult {
 unsafe impl Send for StorePurchaseResult {}
 unsafe impl Sync for StorePurchaseResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreQueueItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreQueueItem, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreQueueItem {
@@ -2263,7 +2263,7 @@ impl windows_core::RuntimeName for StoreQueueItem {
 unsafe impl Send for StoreQueueItem {}
 unsafe impl Sync for StoreQueueItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreQueueItemCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreQueueItemCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreQueueItemCompletedEventArgs {
@@ -2288,7 +2288,7 @@ impl windows_core::RuntimeName for StoreQueueItemCompletedEventArgs {
 unsafe impl Send for StoreQueueItemCompletedEventArgs {}
 unsafe impl Sync for StoreQueueItemCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreQueueItemStatus(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreQueueItemStatus, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreQueueItemStatus {
@@ -2334,7 +2334,7 @@ impl windows_core::RuntimeName for StoreQueueItemStatus {
 unsafe impl Send for StoreQueueItemStatus {}
 unsafe impl Sync for StoreQueueItemStatus {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreRateAndReviewResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreRateAndReviewResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreRateAndReviewResult {
@@ -2400,7 +2400,7 @@ impl windows_core::RuntimeName for StoreRequestHelper {
     const NAME: &'static str = "Windows.Services.Store.StoreRequestHelper";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreSendRequestResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreSendRequestResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreSendRequestResult {
@@ -2440,7 +2440,7 @@ impl windows_core::RuntimeName for StoreSendRequestResult {
 unsafe impl Send for StoreSendRequestResult {}
 unsafe impl Sync for StoreSendRequestResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreSku(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreSku, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreSku {
@@ -2598,7 +2598,7 @@ impl windows_core::RuntimeName for StoreSku {
 unsafe impl Send for StoreSku {}
 unsafe impl Sync for StoreSku {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreSubscriptionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreSubscriptionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreSubscriptionInfo {
@@ -2651,7 +2651,7 @@ impl windows_core::RuntimeName for StoreSubscriptionInfo {
 unsafe impl Send for StoreSubscriptionInfo {}
 unsafe impl Sync for StoreSubscriptionInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreUninstallStorePackageResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreUninstallStorePackageResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreUninstallStorePackageResult {
@@ -2683,7 +2683,7 @@ impl windows_core::RuntimeName for StoreUninstallStorePackageResult {
 unsafe impl Send for StoreUninstallStorePackageResult {}
 unsafe impl Sync for StoreUninstallStorePackageResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreVideo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoreVideo, windows_core::IUnknown, windows_core::IInspectable);
 impl StoreVideo {

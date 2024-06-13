@@ -33,7 +33,7 @@ pub struct ISceneLightingEffect2_Vtbl {
     pub SetReflectanceModel: unsafe extern "system" fn(*mut core::ffi::c_void, SceneLightingEffectReflectanceModel) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneLightingEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneLightingEffect, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Graphics_Effects")]

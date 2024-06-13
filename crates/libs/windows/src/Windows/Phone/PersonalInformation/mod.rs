@@ -379,7 +379,7 @@ pub struct IStoredContactFactory_Vtbl {
     pub CreateStoredContactFromInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactAddress, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactAddress {
@@ -459,7 +459,7 @@ impl windows_core::RuntimeName for ContactAddress {
 unsafe impl Send for ContactAddress {}
 unsafe impl Sync for ContactAddress {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChangeRecord(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactChangeRecord, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactChangeRecord {
@@ -505,7 +505,7 @@ impl windows_core::RuntimeName for ContactChangeRecord {
 unsafe impl Send for ContactChangeRecord {}
 unsafe impl Sync for ContactChangeRecord {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactInformation, IContactInformation);
@@ -652,7 +652,7 @@ impl windows_core::RuntimeName for ContactInformation {
 unsafe impl Send for ContactInformation {}
 unsafe impl Sync for ContactInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactQueryOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactQueryOptions {
@@ -696,7 +696,7 @@ impl windows_core::RuntimeName for ContactQueryOptions {
 unsafe impl Send for ContactQueryOptions {}
 unsafe impl Sync for ContactQueryOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactQueryResult {
@@ -744,7 +744,7 @@ impl windows_core::RuntimeName for ContactQueryResult {
 unsafe impl Send for ContactQueryResult {}
 unsafe impl Sync for ContactQueryResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactStore, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactStore {
@@ -1086,7 +1086,7 @@ impl windows_core::RuntimeName for KnownContactProperties {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.KnownContactProperties";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoredContact(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StoredContact, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoredContact, IContactInformation, IContactInformation2);

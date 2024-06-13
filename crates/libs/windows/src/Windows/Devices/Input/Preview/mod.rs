@@ -142,7 +142,7 @@ pub struct IGazePointPreview_Vtbl {
     HidInputReport: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeDevicePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDevicePreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDevicePreview {
@@ -211,7 +211,7 @@ impl windows_core::RuntimeName for GazeDevicePreview {
 unsafe impl Send for GazeDevicePreview {}
 unsafe impl Sync for GazeDevicePreview {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeDeviceWatcherAddedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherAddedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherAddedPreviewEventArgs {
@@ -236,7 +236,7 @@ impl windows_core::RuntimeName for GazeDeviceWatcherAddedPreviewEventArgs {
 unsafe impl Send for GazeDeviceWatcherAddedPreviewEventArgs {}
 unsafe impl Sync for GazeDeviceWatcherAddedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeDeviceWatcherPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherPreview {
@@ -318,7 +318,7 @@ impl windows_core::RuntimeName for GazeDeviceWatcherPreview {
 unsafe impl Send for GazeDeviceWatcherPreview {}
 unsafe impl Sync for GazeDeviceWatcherPreview {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeDeviceWatcherRemovedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherRemovedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherRemovedPreviewEventArgs {
@@ -343,7 +343,7 @@ impl windows_core::RuntimeName for GazeDeviceWatcherRemovedPreviewEventArgs {
 unsafe impl Send for GazeDeviceWatcherRemovedPreviewEventArgs {}
 unsafe impl Sync for GazeDeviceWatcherRemovedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeDeviceWatcherUpdatedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherUpdatedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherUpdatedPreviewEventArgs {
@@ -368,7 +368,7 @@ impl windows_core::RuntimeName for GazeDeviceWatcherUpdatedPreviewEventArgs {
 unsafe impl Send for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 unsafe impl Sync for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeEnteredPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeEnteredPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeEnteredPreviewEventArgs {
@@ -404,7 +404,7 @@ impl windows_core::RuntimeName for GazeEnteredPreviewEventArgs {
 unsafe impl Send for GazeEnteredPreviewEventArgs {}
 unsafe impl Sync for GazeEnteredPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeExitedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeExitedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeExitedPreviewEventArgs {
@@ -440,7 +440,7 @@ impl windows_core::RuntimeName for GazeExitedPreviewEventArgs {
 unsafe impl Send for GazeExitedPreviewEventArgs {}
 unsafe impl Sync for GazeExitedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeInputSourcePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeInputSourcePreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeInputSourcePreview {
@@ -517,7 +517,7 @@ impl windows_core::RuntimeName for GazeInputSourcePreview {
 unsafe impl Send for GazeInputSourcePreview {}
 unsafe impl Sync for GazeInputSourcePreview {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeMovedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeMovedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeMovedPreviewEventArgs {
@@ -561,7 +561,7 @@ impl windows_core::RuntimeName for GazeMovedPreviewEventArgs {
 unsafe impl Send for GazeMovedPreviewEventArgs {}
 unsafe impl Sync for GazeMovedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazePointPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazePointPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazePointPreview {

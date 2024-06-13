@@ -141,7 +141,7 @@ pub struct ISpiProvider_Vtbl {
     GetControllersAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProviderSpiConnectionSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProviderSpiConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl ProviderSpiConnectionSettings {

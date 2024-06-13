@@ -785,7 +785,7 @@ pub struct IUpdateSharedPackageContainerResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AddPackageOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AddPackageOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl AddPackageOptions {
@@ -1010,7 +1010,7 @@ impl windows_core::RuntimeName for AddPackageOptions {
 unsafe impl Send for AddPackageOptions {}
 unsafe impl Sync for AddPackageOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInstallerManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppInstallerManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AppInstallerManager {
@@ -1060,7 +1060,7 @@ impl windows_core::RuntimeName for AppInstallerManager {
 unsafe impl Send for AppInstallerManager {}
 unsafe impl Sync for AppInstallerManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutoUpdateSettingsOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutoUpdateSettingsOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl AutoUpdateSettingsOptions {
@@ -1236,7 +1236,7 @@ impl windows_core::RuntimeName for AutoUpdateSettingsOptions {
 unsafe impl Send for AutoUpdateSettingsOptions {}
 unsafe impl Sync for AutoUpdateSettingsOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateSharedPackageContainerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CreateSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl CreateSharedPackageContainerOptions {
@@ -1291,7 +1291,7 @@ impl windows_core::RuntimeName for CreateSharedPackageContainerOptions {
 unsafe impl Send for CreateSharedPackageContainerOptions {}
 unsafe impl Sync for CreateSharedPackageContainerOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateSharedPackageContainerResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CreateSharedPackageContainerResult, windows_core::IUnknown, windows_core::IInspectable);
 impl CreateSharedPackageContainerResult {
@@ -1330,7 +1330,7 @@ impl windows_core::RuntimeName for CreateSharedPackageContainerResult {
 unsafe impl Send for CreateSharedPackageContainerResult {}
 unsafe impl Sync for CreateSharedPackageContainerResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSharedPackageContainerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeleteSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl DeleteSharedPackageContainerOptions {
@@ -1377,7 +1377,7 @@ impl windows_core::RuntimeName for DeleteSharedPackageContainerOptions {
 unsafe impl Send for DeleteSharedPackageContainerOptions {}
 unsafe impl Sync for DeleteSharedPackageContainerOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSharedPackageContainerResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeleteSharedPackageContainerResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DeleteSharedPackageContainerResult {
@@ -1409,7 +1409,7 @@ impl windows_core::RuntimeName for DeleteSharedPackageContainerResult {
 unsafe impl Send for DeleteSharedPackageContainerResult {}
 unsafe impl Sync for DeleteSharedPackageContainerResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeploymentResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeploymentResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DeploymentResult {
@@ -1455,7 +1455,7 @@ impl windows_core::RuntimeName for DeploymentResult {
 unsafe impl Send for DeploymentResult {}
 unsafe impl Sync for DeploymentResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FindSharedPackageContainerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FindSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl FindSharedPackageContainerOptions {
@@ -1502,7 +1502,7 @@ impl windows_core::RuntimeName for FindSharedPackageContainerOptions {
 unsafe impl Send for FindSharedPackageContainerOptions {}
 unsafe impl Sync for FindSharedPackageContainerOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageAllUserProvisioningOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageAllUserProvisioningOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageAllUserProvisioningOptions {
@@ -1543,7 +1543,7 @@ impl windows_core::RuntimeName for PackageAllUserProvisioningOptions {
 unsafe impl Send for PackageAllUserProvisioningOptions {}
 unsafe impl Sync for PackageAllUserProvisioningOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageManager, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageManager {
@@ -2152,7 +2152,7 @@ impl windows_core::RuntimeName for PackageManager {
 unsafe impl Send for PackageManager {}
 unsafe impl Sync for PackageManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageManagerDebugSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageManagerDebugSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageManagerDebugSettings {
@@ -2192,7 +2192,7 @@ impl windows_core::RuntimeName for PackageManagerDebugSettings {
 unsafe impl Send for PackageManagerDebugSettings {}
 unsafe impl Sync for PackageManagerDebugSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUserInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageUserInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageUserInformation {
@@ -2224,7 +2224,7 @@ impl windows_core::RuntimeName for PackageUserInformation {
 unsafe impl Send for PackageUserInformation {}
 unsafe impl Sync for PackageUserInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageVolume(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageVolume, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageVolume {
@@ -2417,7 +2417,7 @@ impl windows_core::RuntimeName for PackageVolume {
 unsafe impl Send for PackageVolume {}
 unsafe impl Sync for PackageVolume {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RegisterPackageOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RegisterPackageOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl RegisterPackageOptions {
@@ -2582,7 +2582,7 @@ impl windows_core::RuntimeName for RegisterPackageOptions {
 unsafe impl Send for RegisterPackageOptions {}
 unsafe impl Sync for RegisterPackageOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SharedPackageContainer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SharedPackageContainer, windows_core::IUnknown, windows_core::IInspectable);
 impl SharedPackageContainer {
@@ -2639,7 +2639,7 @@ impl windows_core::RuntimeName for SharedPackageContainer {
 unsafe impl Send for SharedPackageContainer {}
 unsafe impl Sync for SharedPackageContainer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SharedPackageContainerManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SharedPackageContainerManager, windows_core::IUnknown, windows_core::IInspectable);
 impl SharedPackageContainerManager {
@@ -2726,7 +2726,7 @@ impl windows_core::RuntimeName for SharedPackageContainerManager {
 unsafe impl Send for SharedPackageContainerManager {}
 unsafe impl Sync for SharedPackageContainerManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SharedPackageContainerMember(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SharedPackageContainerMember, windows_core::IUnknown, windows_core::IInspectable);
 impl SharedPackageContainerMember {
@@ -2762,7 +2762,7 @@ impl windows_core::RuntimeName for SharedPackageContainerMember {
 unsafe impl Send for SharedPackageContainerMember {}
 unsafe impl Sync for SharedPackageContainerMember {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StagePackageOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StagePackageOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl StagePackageOptions {
@@ -2932,7 +2932,7 @@ impl windows_core::RuntimeName for StagePackageOptions {
 unsafe impl Send for StagePackageOptions {}
 unsafe impl Sync for StagePackageOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UpdateSharedPackageContainerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UpdateSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl UpdateSharedPackageContainerOptions {
@@ -2979,7 +2979,7 @@ impl windows_core::RuntimeName for UpdateSharedPackageContainerOptions {
 unsafe impl Send for UpdateSharedPackageContainerOptions {}
 unsafe impl Sync for UpdateSharedPackageContainerOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UpdateSharedPackageContainerResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UpdateSharedPackageContainerResult, windows_core::IUnknown, windows_core::IInspectable);
 impl UpdateSharedPackageContainerResult {

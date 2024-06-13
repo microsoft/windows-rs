@@ -100,7 +100,7 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         let mut tokens = quote! {
             #features
             #[repr(transparent)]
-            #[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+            #[derive(PartialEq, Eq, Debug, Clone)]
             pub struct #name(windows_core::IUnknown);
         };
 

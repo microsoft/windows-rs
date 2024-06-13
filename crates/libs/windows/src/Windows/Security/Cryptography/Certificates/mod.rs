@@ -662,7 +662,7 @@ pub struct IUserCertificateStore_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Certificate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Certificate, windows_core::IUnknown, windows_core::IInspectable);
 impl Certificate {
@@ -871,7 +871,7 @@ impl windows_core::RuntimeName for Certificate {
 unsafe impl Send for Certificate {}
 unsafe impl Sync for Certificate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateChain(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateChain, windows_core::IUnknown, windows_core::IInspectable);
 impl CertificateChain {
@@ -977,7 +977,7 @@ impl windows_core::RuntimeName for CertificateEnrollmentManager {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateExtension(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateExtension, windows_core::IUnknown, windows_core::IInspectable);
 impl CertificateExtension {
@@ -1039,7 +1039,7 @@ impl windows_core::RuntimeName for CertificateExtension {
 unsafe impl Send for CertificateExtension {}
 unsafe impl Sync for CertificateExtension {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateKeyUsages(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateKeyUsages, windows_core::IUnknown, windows_core::IInspectable);
 impl CertificateKeyUsages {
@@ -1152,7 +1152,7 @@ impl windows_core::RuntimeName for CertificateKeyUsages {
 unsafe impl Send for CertificateKeyUsages {}
 unsafe impl Sync for CertificateKeyUsages {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateQuery, windows_core::IUnknown, windows_core::IInspectable);
 impl CertificateQuery {
@@ -1262,7 +1262,7 @@ impl windows_core::RuntimeName for CertificateQuery {
 unsafe impl Send for CertificateQuery {}
 unsafe impl Sync for CertificateQuery {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateRequestProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateRequestProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl CertificateRequestProperties {
@@ -1503,7 +1503,7 @@ impl windows_core::RuntimeName for CertificateRequestProperties {
 unsafe impl Send for CertificateRequestProperties {}
 unsafe impl Sync for CertificateRequestProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateStore, windows_core::IUnknown, windows_core::IInspectable);
 impl CertificateStore {
@@ -1599,7 +1599,7 @@ impl windows_core::RuntimeName for CertificateStores {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateStores";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChainBuildingParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChainBuildingParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl ChainBuildingParameters {
@@ -1695,7 +1695,7 @@ impl windows_core::RuntimeName for ChainBuildingParameters {
 unsafe impl Send for ChainBuildingParameters {}
 unsafe impl Sync for ChainBuildingParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChainValidationParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChainValidationParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl ChainValidationParameters {
@@ -1747,7 +1747,7 @@ impl windows_core::RuntimeName for ChainValidationParameters {
 unsafe impl Send for ChainValidationParameters {}
 unsafe impl Sync for ChainValidationParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsAttachedSignature(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CmsAttachedSignature, windows_core::IUnknown, windows_core::IInspectable);
 impl CmsAttachedSignature {
@@ -1827,7 +1827,7 @@ impl windows_core::RuntimeName for CmsAttachedSignature {
 unsafe impl Send for CmsAttachedSignature {}
 unsafe impl Sync for CmsAttachedSignature {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsDetachedSignature(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CmsDetachedSignature, windows_core::IUnknown, windows_core::IInspectable);
 impl CmsDetachedSignature {
@@ -1904,7 +1904,7 @@ impl windows_core::RuntimeName for CmsDetachedSignature {
 unsafe impl Send for CmsDetachedSignature {}
 unsafe impl Sync for CmsDetachedSignature {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsSignerInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CmsSignerInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl CmsSignerInfo {
@@ -1961,7 +1961,7 @@ impl windows_core::RuntimeName for CmsSignerInfo {
 unsafe impl Send for CmsSignerInfo {}
 unsafe impl Sync for CmsSignerInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsTimestampInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CmsTimestampInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl CmsTimestampInfo {
@@ -2151,7 +2151,7 @@ impl windows_core::RuntimeName for KeyStorageProviderNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.KeyStorageProviderNames";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PfxImportParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PfxImportParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl PfxImportParameters {
@@ -2282,7 +2282,7 @@ impl windows_core::RuntimeName for StandardCertificateStoreNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SubjectAlternativeNameInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SubjectAlternativeNameInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl SubjectAlternativeNameInfo {
@@ -2410,7 +2410,7 @@ impl windows_core::RuntimeName for SubjectAlternativeNameInfo {
 unsafe impl Send for SubjectAlternativeNameInfo {}
 unsafe impl Sync for SubjectAlternativeNameInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserCertificateEnrollmentManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserCertificateEnrollmentManager, windows_core::IUnknown, windows_core::IInspectable);
 impl UserCertificateEnrollmentManager {
@@ -2469,7 +2469,7 @@ impl windows_core::RuntimeName for UserCertificateEnrollmentManager {
 unsafe impl Send for UserCertificateEnrollmentManager {}
 unsafe impl Sync for UserCertificateEnrollmentManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserCertificateStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserCertificateStore, windows_core::IUnknown, windows_core::IInspectable);
 impl UserCertificateStore {

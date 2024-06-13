@@ -420,7 +420,7 @@ pub struct IUsbSetupPacketFactory_Vtbl {
     CreateWithEightByteBuffer: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbBulkInEndpointDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbBulkInEndpointDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbBulkInEndpointDescriptor {
@@ -459,7 +459,7 @@ impl windows_core::RuntimeName for UsbBulkInEndpointDescriptor {
 unsafe impl Send for UsbBulkInEndpointDescriptor {}
 unsafe impl Sync for UsbBulkInEndpointDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbBulkInPipe(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbBulkInPipe, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbBulkInPipe {
@@ -521,7 +521,7 @@ impl windows_core::RuntimeName for UsbBulkInPipe {
 unsafe impl Send for UsbBulkInPipe {}
 unsafe impl Sync for UsbBulkInPipe {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbBulkOutEndpointDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbBulkOutEndpointDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbBulkOutEndpointDescriptor {
@@ -560,7 +560,7 @@ impl windows_core::RuntimeName for UsbBulkOutEndpointDescriptor {
 unsafe impl Send for UsbBulkOutEndpointDescriptor {}
 unsafe impl Sync for UsbBulkOutEndpointDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbBulkOutPipe(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbBulkOutPipe, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbBulkOutPipe {
@@ -611,7 +611,7 @@ impl windows_core::RuntimeName for UsbBulkOutPipe {
 unsafe impl Send for UsbBulkOutPipe {}
 unsafe impl Sync for UsbBulkOutPipe {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbConfiguration {
@@ -652,7 +652,7 @@ impl windows_core::RuntimeName for UsbConfiguration {
 unsafe impl Send for UsbConfiguration {}
 unsafe impl Sync for UsbConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbConfigurationDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbConfigurationDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbConfigurationDescriptor {
@@ -721,7 +721,7 @@ impl windows_core::RuntimeName for UsbConfigurationDescriptor {
 unsafe impl Send for UsbConfigurationDescriptor {}
 unsafe impl Sync for UsbConfigurationDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbControlRequestType(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbControlRequestType, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbControlRequestType {
@@ -790,7 +790,7 @@ impl windows_core::RuntimeName for UsbControlRequestType {
 unsafe impl Send for UsbControlRequestType {}
 unsafe impl Sync for UsbControlRequestType {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbDescriptor {
@@ -830,7 +830,7 @@ impl windows_core::RuntimeName for UsbDescriptor {
 unsafe impl Send for UsbDescriptor {}
 unsafe impl Sync for UsbDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UsbDevice, super::super::Foundation::IClosable);
@@ -957,7 +957,7 @@ impl windows_core::RuntimeName for UsbDevice {
 unsafe impl Send for UsbDevice {}
 unsafe impl Sync for UsbDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDeviceClass(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbDeviceClass, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbDeviceClass {
@@ -1021,7 +1021,7 @@ impl windows_core::RuntimeName for UsbDeviceClass {
 unsafe impl Send for UsbDeviceClass {}
 unsafe impl Sync for UsbDeviceClass {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDeviceClasses(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbDeviceClasses, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbDeviceClasses {
@@ -1098,7 +1098,7 @@ impl windows_core::RuntimeName for UsbDeviceClasses {
 unsafe impl Send for UsbDeviceClasses {}
 unsafe impl Sync for UsbDeviceClasses {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDeviceDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbDeviceDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbDeviceDescriptor {
@@ -1158,7 +1158,7 @@ impl windows_core::RuntimeName for UsbDeviceDescriptor {
 unsafe impl Send for UsbDeviceDescriptor {}
 unsafe impl Sync for UsbDeviceDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbEndpointDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbEndpointDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbEndpointDescriptor {
@@ -1248,7 +1248,7 @@ impl windows_core::RuntimeName for UsbEndpointDescriptor {
 unsafe impl Send for UsbEndpointDescriptor {}
 unsafe impl Sync for UsbEndpointDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterface, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbInterface {
@@ -1321,7 +1321,7 @@ impl windows_core::RuntimeName for UsbInterface {
 unsafe impl Send for UsbInterface {}
 unsafe impl Sync for UsbInterface {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterfaceDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterfaceDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbInterfaceDescriptor {
@@ -1397,7 +1397,7 @@ impl windows_core::RuntimeName for UsbInterfaceDescriptor {
 unsafe impl Send for UsbInterfaceDescriptor {}
 unsafe impl Sync for UsbInterfaceDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterfaceSetting(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterfaceSetting, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbInterfaceSetting {
@@ -1476,7 +1476,7 @@ impl windows_core::RuntimeName for UsbInterfaceSetting {
 unsafe impl Send for UsbInterfaceSetting {}
 unsafe impl Sync for UsbInterfaceSetting {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptInEndpointDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterruptInEndpointDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbInterruptInEndpointDescriptor {
@@ -1522,7 +1522,7 @@ impl windows_core::RuntimeName for UsbInterruptInEndpointDescriptor {
 unsafe impl Send for UsbInterruptInEndpointDescriptor {}
 unsafe impl Sync for UsbInterruptInEndpointDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptInEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterruptInEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbInterruptInEventArgs {
@@ -1548,7 +1548,7 @@ impl windows_core::RuntimeName for UsbInterruptInEventArgs {
 unsafe impl Send for UsbInterruptInEventArgs {}
 unsafe impl Sync for UsbInterruptInEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptInPipe(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterruptInPipe, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbInterruptInPipe {
@@ -1594,7 +1594,7 @@ impl windows_core::RuntimeName for UsbInterruptInPipe {
 unsafe impl Send for UsbInterruptInPipe {}
 unsafe impl Sync for UsbInterruptInPipe {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptOutEndpointDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterruptOutEndpointDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbInterruptOutEndpointDescriptor {
@@ -1640,7 +1640,7 @@ impl windows_core::RuntimeName for UsbInterruptOutEndpointDescriptor {
 unsafe impl Send for UsbInterruptOutEndpointDescriptor {}
 unsafe impl Sync for UsbInterruptOutEndpointDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptOutPipe(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterruptOutPipe, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbInterruptOutPipe {
@@ -1691,7 +1691,7 @@ impl windows_core::RuntimeName for UsbInterruptOutPipe {
 unsafe impl Send for UsbInterruptOutPipe {}
 unsafe impl Sync for UsbInterruptOutPipe {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbSetupPacket(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbSetupPacket, windows_core::IUnknown, windows_core::IInspectable);
 impl UsbSetupPacket {

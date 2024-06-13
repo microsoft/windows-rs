@@ -106,7 +106,7 @@ pub struct IHeadPose_Vtbl {
     UpDirection: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EyesPose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EyesPose, windows_core::IUnknown, windows_core::IInspectable);
 impl EyesPose {
@@ -164,7 +164,7 @@ impl windows_core::RuntimeName for EyesPose {
 unsafe impl Send for EyesPose {}
 unsafe impl Sync for EyesPose {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandMeshObserver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HandMeshObserver, windows_core::IUnknown, windows_core::IInspectable);
 impl HandMeshObserver {
@@ -239,7 +239,7 @@ impl windows_core::RuntimeName for HandMeshObserver {
 unsafe impl Send for HandMeshObserver {}
 unsafe impl Sync for HandMeshObserver {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandMeshVertexState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HandMeshVertexState, windows_core::IUnknown, windows_core::IInspectable);
 impl HandMeshVertexState {
@@ -277,7 +277,7 @@ impl windows_core::RuntimeName for HandMeshVertexState {
 unsafe impl Send for HandMeshVertexState {}
 unsafe impl Sync for HandMeshVertexState {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandPose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HandPose, windows_core::IUnknown, windows_core::IInspectable);
 impl HandPose {
@@ -330,7 +330,7 @@ impl windows_core::RuntimeName for HandPose {
 unsafe impl Send for HandPose {}
 unsafe impl Sync for HandPose {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HeadPose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HeadPose, windows_core::IUnknown, windows_core::IInspectable);
 impl HeadPose {

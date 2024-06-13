@@ -106,7 +106,7 @@ pub struct II2cDeviceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct I2cConnectionSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(I2cConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl I2cConnectionSettings {
@@ -168,7 +168,7 @@ impl windows_core::RuntimeName for I2cConnectionSettings {
 unsafe impl Send for I2cConnectionSettings {}
 unsafe impl Sync for I2cConnectionSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct I2cController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(I2cController, windows_core::IUnknown, windows_core::IInspectable);
 impl I2cController {
@@ -217,7 +217,7 @@ impl windows_core::RuntimeName for I2cController {
 unsafe impl Send for I2cController {}
 unsafe impl Sync for I2cController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct I2cDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(I2cDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(I2cDevice, super::super::Foundation::IClosable);

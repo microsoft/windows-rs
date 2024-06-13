@@ -89,7 +89,7 @@ pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl {
     pub ServiceResponse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MicrosoftAccountMultiFactorServiceResponse) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorAuthenticationManager, windows_core::IUnknown, windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorAuthenticationManager {
@@ -202,7 +202,7 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorAuthenticationMana
 unsafe impl Send for MicrosoftAccountMultiFactorAuthenticationManager {}
 unsafe impl Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorGetSessionsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorGetSessionsResult {
@@ -235,7 +235,7 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorGetSessionsResult 
 unsafe impl Send for MicrosoftAccountMultiFactorGetSessionsResult {}
 unsafe impl Sync for MicrosoftAccountMultiFactorGetSessionsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorOneTimeCodedInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
@@ -281,7 +281,7 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorOneTimeCodedInfo {
 unsafe impl Send for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 unsafe impl Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorSessionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorSessionInfo {
@@ -348,7 +348,7 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorSessionInfo {
 unsafe impl Send for MicrosoftAccountMultiFactorSessionInfo {}
 unsafe impl Sync for MicrosoftAccountMultiFactorSessionInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {

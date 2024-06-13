@@ -20,7 +20,7 @@ pub struct IDeviceUseDetails_Vtbl {
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceServicingDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceServicingDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceServicingDetails {
@@ -59,7 +59,7 @@ impl windows_core::RuntimeName for DeviceServicingDetails {
 unsafe impl Send for DeviceServicingDetails {}
 unsafe impl Sync for DeviceServicingDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceUseDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceUseDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceUseDetails {

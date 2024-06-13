@@ -160,7 +160,7 @@ pub struct ILampStatics_Vtbl {
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Lamp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Lamp, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Lamp, super::super::Foundation::IClosable);
@@ -269,7 +269,7 @@ impl windows_core::RuntimeName for Lamp {
 unsafe impl Send for Lamp {}
 unsafe impl Sync for Lamp {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArray(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArray, windows_core::IUnknown, windows_core::IInspectable);
 impl LampArray {
@@ -494,7 +494,7 @@ impl windows_core::RuntimeName for LampArray {
 unsafe impl Send for LampArray {}
 unsafe impl Sync for LampArray {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampAvailabilityChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampAvailabilityChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LampAvailabilityChangedEventArgs {
@@ -519,7 +519,7 @@ impl windows_core::RuntimeName for LampAvailabilityChangedEventArgs {
 unsafe impl Send for LampAvailabilityChangedEventArgs {}
 unsafe impl Sync for LampAvailabilityChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl LampInfo {

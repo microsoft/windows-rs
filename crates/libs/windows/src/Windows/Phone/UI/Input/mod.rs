@@ -41,7 +41,7 @@ pub struct IHardwareButtonsStatics2_Vtbl {
     pub RemoveCameraReleased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackPressedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BackPressedEventArgs {
@@ -70,7 +70,7 @@ impl windows_core::RuntimeName for BackPressedEventArgs {
 unsafe impl Send for BackPressedEventArgs {}
 unsafe impl Sync for BackPressedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CameraEventArgs {}

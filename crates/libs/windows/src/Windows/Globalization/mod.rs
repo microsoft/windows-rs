@@ -700,7 +700,7 @@ impl windows_core::RuntimeName for ApplicationLanguages {
     const NAME: &'static str = "Windows.Globalization.ApplicationLanguages";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Calendar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Calendar, windows_core::IUnknown, windows_core::IInspectable);
 impl Calendar {
@@ -1536,7 +1536,7 @@ impl windows_core::RuntimeName for ClockIdentifiers {
     const NAME: &'static str = "Windows.Globalization.ClockIdentifiers";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CurrencyAmount(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CurrencyAmount, windows_core::IUnknown, windows_core::IInspectable);
 impl CurrencyAmount {
@@ -2572,7 +2572,7 @@ impl windows_core::RuntimeName for CurrencyIdentifiers {
     const NAME: &'static str = "Windows.Globalization.CurrencyIdentifiers";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeographicRegion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeographicRegion, windows_core::IUnknown, windows_core::IInspectable);
 impl GeographicRegion {
@@ -2669,7 +2669,7 @@ impl windows_core::RuntimeName for GeographicRegion {
 unsafe impl Send for GeographicRegion {}
 unsafe impl Sync for GeographicRegion {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JapanesePhoneme(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JapanesePhoneme, windows_core::IUnknown, windows_core::IInspectable);
 impl JapanesePhoneme {
@@ -2731,7 +2731,7 @@ impl windows_core::RuntimeName for JapanesePhoneticAnalyzer {
     const NAME: &'static str = "Windows.Globalization.JapanesePhoneticAnalyzer";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Language(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Language, windows_core::IUnknown, windows_core::IInspectable);
 impl Language {

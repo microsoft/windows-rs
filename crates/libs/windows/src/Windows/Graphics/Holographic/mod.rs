@@ -579,7 +579,7 @@ pub struct IHolographicViewConfiguration2_Vtbl {
     SupportedDepthReprojectionMethods: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicCamera(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicCamera, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicCamera {
@@ -716,7 +716,7 @@ impl windows_core::RuntimeName for HolographicCamera {
 unsafe impl Send for HolographicCamera {}
 unsafe impl Sync for HolographicCamera {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicCameraPose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicCameraPose, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicCameraPose {
@@ -820,7 +820,7 @@ impl windows_core::RuntimeName for HolographicCameraPose {
 unsafe impl Send for HolographicCameraPose {}
 unsafe impl Sync for HolographicCameraPose {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicCameraRenderingParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicCameraRenderingParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicCameraRenderingParameters {
@@ -919,7 +919,7 @@ impl windows_core::RuntimeName for HolographicCameraRenderingParameters {
 unsafe impl Send for HolographicCameraRenderingParameters {}
 unsafe impl Sync for HolographicCameraRenderingParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicCameraViewportParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicCameraViewportParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicCameraViewportParameters {
@@ -953,7 +953,7 @@ impl windows_core::RuntimeName for HolographicCameraViewportParameters {
 unsafe impl Send for HolographicCameraViewportParameters {}
 unsafe impl Sync for HolographicCameraViewportParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicDisplay(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicDisplay, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicDisplay {
@@ -1039,7 +1039,7 @@ impl windows_core::RuntimeName for HolographicDisplay {
 unsafe impl Send for HolographicDisplay {}
 unsafe impl Sync for HolographicDisplay {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicFrame {
@@ -1136,7 +1136,7 @@ impl windows_core::RuntimeName for HolographicFrame {
 unsafe impl Send for HolographicFrame {}
 unsafe impl Sync for HolographicFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFramePrediction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicFramePrediction, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicFramePrediction {
@@ -1171,7 +1171,7 @@ unsafe impl Send for HolographicFramePrediction {}
 unsafe impl Sync for HolographicFramePrediction {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFramePresentationMonitor(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(HolographicFramePresentationMonitor, windows_core::IUnknown, windows_core::IInspectable);
@@ -1211,7 +1211,7 @@ unsafe impl Send for HolographicFramePresentationMonitor {}
 unsafe impl Sync for HolographicFramePresentationMonitor {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFramePresentationReport(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(HolographicFramePresentationReport, windows_core::IUnknown, windows_core::IInspectable);
@@ -1276,7 +1276,7 @@ unsafe impl Send for HolographicFramePresentationReport {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for HolographicFramePresentationReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrameRenderingReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicFrameRenderingReport, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicFrameRenderingReport {
@@ -1329,7 +1329,7 @@ impl windows_core::RuntimeName for HolographicFrameRenderingReport {
 unsafe impl Send for HolographicFrameRenderingReport {}
 unsafe impl Sync for HolographicFrameRenderingReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrameScanoutMonitor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicFrameScanoutMonitor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicFrameScanoutMonitor, super::super::Foundation::IClosable);
@@ -1360,7 +1360,7 @@ impl windows_core::RuntimeName for HolographicFrameScanoutMonitor {
 unsafe impl Send for HolographicFrameScanoutMonitor {}
 unsafe impl Sync for HolographicFrameScanoutMonitor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrameScanoutReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicFrameScanoutReport, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicFrameScanoutReport {
@@ -1413,7 +1413,7 @@ impl windows_core::RuntimeName for HolographicFrameScanoutReport {
 unsafe impl Send for HolographicFrameScanoutReport {}
 unsafe impl Sync for HolographicFrameScanoutReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicQuadLayer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicQuadLayer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicQuadLayer, super::super::Foundation::IClosable);
@@ -1469,7 +1469,7 @@ impl windows_core::RuntimeName for HolographicQuadLayer {
 unsafe impl Send for HolographicQuadLayer {}
 unsafe impl Sync for HolographicQuadLayer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicQuadLayerUpdateParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicQuadLayerUpdateParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicQuadLayerUpdateParameters {
@@ -1536,7 +1536,7 @@ impl windows_core::RuntimeName for HolographicQuadLayerUpdateParameters {
 unsafe impl Send for HolographicQuadLayerUpdateParameters {}
 unsafe impl Sync for HolographicQuadLayerUpdateParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicSpace(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicSpace, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicSpace {
@@ -1703,7 +1703,7 @@ impl windows_core::RuntimeName for HolographicSpace {
 unsafe impl Send for HolographicSpace {}
 unsafe impl Sync for HolographicSpace {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicSpaceCameraAddedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicSpaceCameraAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicSpaceCameraAddedEventArgs {
@@ -1735,7 +1735,7 @@ impl windows_core::RuntimeName for HolographicSpaceCameraAddedEventArgs {
 unsafe impl Send for HolographicSpaceCameraAddedEventArgs {}
 unsafe impl Sync for HolographicSpaceCameraAddedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicSpaceCameraRemovedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicSpaceCameraRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicSpaceCameraRemovedEventArgs {
@@ -1760,7 +1760,7 @@ impl windows_core::RuntimeName for HolographicSpaceCameraRemovedEventArgs {
 unsafe impl Send for HolographicSpaceCameraRemovedEventArgs {}
 unsafe impl Sync for HolographicSpaceCameraRemovedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicViewConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicViewConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicViewConfiguration {

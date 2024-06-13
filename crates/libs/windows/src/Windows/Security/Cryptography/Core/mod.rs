@@ -667,7 +667,7 @@ impl windows_core::RuntimeName for AsymmetricAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AsymmetricKeyAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AsymmetricKeyAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl AsymmetricKeyAlgorithmProvider {
@@ -926,7 +926,7 @@ impl windows_core::RuntimeName for CryptographicEngine {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicEngine";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CryptographicHash(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CryptographicHash, windows_core::IUnknown, windows_core::IInspectable);
 impl CryptographicHash {
@@ -960,7 +960,7 @@ impl windows_core::RuntimeName for CryptographicHash {
 unsafe impl Send for CryptographicHash {}
 unsafe impl Sync for CryptographicHash {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CryptographicKey(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CryptographicKey, windows_core::IUnknown, windows_core::IInspectable);
 impl CryptographicKey {
@@ -1305,7 +1305,7 @@ impl windows_core::RuntimeName for EccCurveNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.EccCurveNames";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EncryptedAndAuthenticatedData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EncryptedAndAuthenticatedData, windows_core::IUnknown, windows_core::IInspectable);
 impl EncryptedAndAuthenticatedData {
@@ -1380,7 +1380,7 @@ impl windows_core::RuntimeName for HashAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.HashAlgorithmNames";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HashAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HashAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl HashAlgorithmProvider {
@@ -1577,7 +1577,7 @@ impl windows_core::RuntimeName for KeyDerivationAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyDerivationAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyDerivationAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyDerivationAlgorithmProvider {
@@ -1624,7 +1624,7 @@ impl windows_core::RuntimeName for KeyDerivationAlgorithmProvider {
 unsafe impl Send for KeyDerivationAlgorithmProvider {}
 unsafe impl Sync for KeyDerivationAlgorithmProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyDerivationParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyDerivationParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyDerivationParameters {
@@ -1774,7 +1774,7 @@ impl windows_core::RuntimeName for MacAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.MacAlgorithmNames";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MacAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MacAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl MacAlgorithmProvider {
@@ -1995,7 +1995,7 @@ impl windows_core::RuntimeName for SymmetricAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.SymmetricAlgorithmNames";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SymmetricKeyAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SymmetricKeyAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl SymmetricKeyAlgorithmProvider {

@@ -73,7 +73,7 @@ impl windows_core::RuntimeName for ThreadPool {
     const NAME: &'static str = "Windows.System.Threading.ThreadPool";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ThreadPoolTimer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ThreadPoolTimer, windows_core::IUnknown, windows_core::IInspectable);
 impl ThreadPoolTimer {

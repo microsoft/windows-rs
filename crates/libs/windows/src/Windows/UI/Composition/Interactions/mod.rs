@@ -649,7 +649,7 @@ pub struct IVisualInteractionSourceStatics2_Vtbl {
     pub CreateFromIVisualElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionConditionalValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionConditionalValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionConditionalValue, super::IAnimationObject, super::super::super::Foundation::IClosable, super::CompositionObject);
@@ -816,7 +816,7 @@ impl windows_core::RuntimeName for CompositionConditionalValue {
 unsafe impl Send for CompositionConditionalValue {}
 unsafe impl Sync for CompositionConditionalValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionInteractionSourceCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionInteractionSourceCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -991,7 +991,7 @@ impl IntoIterator for &CompositionInteractionSourceCollection {
 unsafe impl Send for CompositionInteractionSourceCollection {}
 unsafe impl Sync for CompositionInteractionSourceCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionSourceConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionSourceConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionSourceConfiguration, super::IAnimationObject, super::super::super::Foundation::IClosable, super::CompositionObject);
@@ -1149,7 +1149,7 @@ impl windows_core::RuntimeName for InteractionSourceConfiguration {
 unsafe impl Send for InteractionSourceConfiguration {}
 unsafe impl Sync for InteractionSourceConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTracker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTracker, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTracker, super::IAnimationObject, super::super::super::Foundation::IClosable, super::CompositionObject);
@@ -1612,7 +1612,7 @@ impl windows_core::RuntimeName for InteractionTracker {
 unsafe impl Send for InteractionTracker {}
 unsafe impl Sync for InteractionTracker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerCustomAnimationStateEnteredArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerCustomAnimationStateEnteredArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InteractionTrackerCustomAnimationStateEnteredArgs {
@@ -1644,7 +1644,7 @@ impl windows_core::RuntimeName for InteractionTrackerCustomAnimationStateEntered
 unsafe impl Send for InteractionTrackerCustomAnimationStateEnteredArgs {}
 unsafe impl Sync for InteractionTrackerCustomAnimationStateEnteredArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerIdleStateEnteredArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerIdleStateEnteredArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InteractionTrackerIdleStateEnteredArgs {
@@ -1676,7 +1676,7 @@ impl windows_core::RuntimeName for InteractionTrackerIdleStateEnteredArgs {
 unsafe impl Send for InteractionTrackerIdleStateEnteredArgs {}
 unsafe impl Sync for InteractionTrackerIdleStateEnteredArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaModifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaModifier, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerInertiaModifier, super::IAnimationObject, super::super::super::Foundation::IClosable, super::CompositionObject);
@@ -1801,7 +1801,7 @@ impl windows_core::RuntimeName for InteractionTrackerInertiaModifier {
 unsafe impl Send for InteractionTrackerInertiaModifier {}
 unsafe impl Sync for InteractionTrackerInertiaModifier {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaMotion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaMotion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerInertiaMotion, super::IAnimationObject, super::super::super::Foundation::IClosable, InteractionTrackerInertiaModifier, super::CompositionObject);
@@ -1968,7 +1968,7 @@ impl windows_core::RuntimeName for InteractionTrackerInertiaMotion {
 unsafe impl Send for InteractionTrackerInertiaMotion {}
 unsafe impl Sync for InteractionTrackerInertiaMotion {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaNaturalMotion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaNaturalMotion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerInertiaNaturalMotion, super::IAnimationObject, super::super::super::Foundation::IClosable, InteractionTrackerInertiaModifier, super::CompositionObject);
@@ -2135,7 +2135,7 @@ impl windows_core::RuntimeName for InteractionTrackerInertiaNaturalMotion {
 unsafe impl Send for InteractionTrackerInertiaNaturalMotion {}
 unsafe impl Sync for InteractionTrackerInertiaNaturalMotion {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaRestingValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaRestingValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerInertiaRestingValue, super::IAnimationObject, super::super::super::Foundation::IClosable, InteractionTrackerInertiaModifier, super::CompositionObject);
@@ -2302,7 +2302,7 @@ impl windows_core::RuntimeName for InteractionTrackerInertiaRestingValue {
 unsafe impl Send for InteractionTrackerInertiaRestingValue {}
 unsafe impl Sync for InteractionTrackerInertiaRestingValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaStateEnteredArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaStateEnteredArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InteractionTrackerInertiaStateEnteredArgs {
@@ -2386,7 +2386,7 @@ impl windows_core::RuntimeName for InteractionTrackerInertiaStateEnteredArgs {
 unsafe impl Send for InteractionTrackerInertiaStateEnteredArgs {}
 unsafe impl Sync for InteractionTrackerInertiaStateEnteredArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInteractingStateEnteredArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerInteractingStateEnteredArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InteractionTrackerInteractingStateEnteredArgs {
@@ -2418,7 +2418,7 @@ impl windows_core::RuntimeName for InteractionTrackerInteractingStateEnteredArgs
 unsafe impl Send for InteractionTrackerInteractingStateEnteredArgs {}
 unsafe impl Sync for InteractionTrackerInteractingStateEnteredArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerRequestIgnoredArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerRequestIgnoredArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InteractionTrackerRequestIgnoredArgs {
@@ -2443,7 +2443,7 @@ impl windows_core::RuntimeName for InteractionTrackerRequestIgnoredArgs {
 unsafe impl Send for InteractionTrackerRequestIgnoredArgs {}
 unsafe impl Sync for InteractionTrackerRequestIgnoredArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerValuesChangedArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerValuesChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InteractionTrackerValuesChangedArgs {
@@ -2483,7 +2483,7 @@ impl windows_core::RuntimeName for InteractionTrackerValuesChangedArgs {
 unsafe impl Send for InteractionTrackerValuesChangedArgs {}
 unsafe impl Sync for InteractionTrackerValuesChangedArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerVector2InertiaModifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerVector2InertiaModifier, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerVector2InertiaModifier, super::IAnimationObject, super::super::super::Foundation::IClosable, super::CompositionObject);
@@ -2608,7 +2608,7 @@ impl windows_core::RuntimeName for InteractionTrackerVector2InertiaModifier {
 unsafe impl Send for InteractionTrackerVector2InertiaModifier {}
 unsafe impl Sync for InteractionTrackerVector2InertiaModifier {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerVector2InertiaNaturalMotion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerVector2InertiaNaturalMotion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerVector2InertiaNaturalMotion, super::IAnimationObject, super::super::super::Foundation::IClosable, InteractionTrackerVector2InertiaModifier, super::CompositionObject);
@@ -2775,7 +2775,7 @@ impl windows_core::RuntimeName for InteractionTrackerVector2InertiaNaturalMotion
 unsafe impl Send for InteractionTrackerVector2InertiaNaturalMotion {}
 unsafe impl Sync for InteractionTrackerVector2InertiaNaturalMotion {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualInteractionSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VisualInteractionSource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VisualInteractionSource, super::IAnimationObject, super::super::super::Foundation::IClosable, ICompositionInteractionSource, super::CompositionObject);

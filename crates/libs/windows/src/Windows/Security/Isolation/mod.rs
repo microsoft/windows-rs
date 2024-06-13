@@ -361,7 +361,7 @@ pub struct IIsolatedWindowsHostMessengerStatics2_Vtbl {
     pub UnregisterHostMessageReceiver: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironment, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironment {
@@ -562,7 +562,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironment {
 unsafe impl Send for IsolatedWindowsEnvironment {}
 unsafe impl Sync for IsolatedWindowsEnvironment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentCreateResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentCreateResult, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentCreateResult {
@@ -605,7 +605,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentCreateResult {
 unsafe impl Send for IsolatedWindowsEnvironmentCreateResult {}
 unsafe impl Sync for IsolatedWindowsEnvironmentCreateResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentFile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentFile, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentFile {
@@ -679,7 +679,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentHost {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentHost";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentLaunchFileResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentLaunchFileResult, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentLaunchFileResult {
@@ -718,7 +718,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentLaunchFileResult {
 unsafe impl Send for IsolatedWindowsEnvironmentLaunchFileResult {}
 unsafe impl Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentOptions {
@@ -905,7 +905,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistration {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistration";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationData, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentOwnerRegistrationData {
@@ -962,7 +962,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationDa
 unsafe impl Send for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 unsafe impl Sync for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentOwnerRegistrationResult {
@@ -994,7 +994,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationRe
 unsafe impl Send for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 unsafe impl Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentPostMessageResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentPostMessageResult, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentPostMessageResult {
@@ -1026,7 +1026,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentPostMessageResult {
 unsafe impl Send for IsolatedWindowsEnvironmentPostMessageResult {}
 unsafe impl Sync for IsolatedWindowsEnvironmentPostMessageResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentProcess(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentProcess, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentProcess {
@@ -1073,7 +1073,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentProcess {
 unsafe impl Send for IsolatedWindowsEnvironmentProcess {}
 unsafe impl Sync for IsolatedWindowsEnvironmentProcess {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentShareFileRequestOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileRequestOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentShareFileRequestOptions {
@@ -1109,7 +1109,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileRequestOpt
 unsafe impl Send for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 unsafe impl Sync for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentShareFileResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileResult, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentShareFileResult {
@@ -1148,7 +1148,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileResult {
 unsafe impl Send for IsolatedWindowsEnvironmentShareFileResult {}
 unsafe impl Sync for IsolatedWindowsEnvironmentShareFileResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentShareFolderRequestOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderRequestOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentShareFolderRequestOptions {
@@ -1184,7 +1184,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderRequestO
 unsafe impl Send for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 unsafe impl Sync for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentShareFolderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderResult, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentShareFolderResult {
@@ -1216,7 +1216,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderResult {
 unsafe impl Send for IsolatedWindowsEnvironmentShareFolderResult {}
 unsafe impl Sync for IsolatedWindowsEnvironmentShareFolderResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentStartProcessResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentStartProcessResult, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentStartProcessResult {
@@ -1255,7 +1255,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentStartProcessResult 
 unsafe impl Send for IsolatedWindowsEnvironmentStartProcessResult {}
 unsafe impl Sync for IsolatedWindowsEnvironmentStartProcessResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentTelemetryParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentTelemetryParameters {
@@ -1291,7 +1291,7 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentTelemetryParameters
 unsafe impl Send for IsolatedWindowsEnvironmentTelemetryParameters {}
 unsafe impl Sync for IsolatedWindowsEnvironmentTelemetryParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentUserInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentUserInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentUserInfo {

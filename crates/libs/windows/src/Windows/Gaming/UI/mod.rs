@@ -120,7 +120,7 @@ impl windows_core::RuntimeName for GameBar {
     const NAME: &'static str = "Windows.Gaming.UI.GameBar";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameChatMessageReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GameChatMessageReceivedEventArgs {
@@ -173,7 +173,7 @@ impl windows_core::RuntimeName for GameChatMessageReceivedEventArgs {
 unsafe impl Send for GameChatMessageReceivedEventArgs {}
 unsafe impl Sync for GameChatMessageReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameChatOverlay(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatOverlay, windows_core::IUnknown, windows_core::IInspectable);
 impl GameChatOverlay {
@@ -217,7 +217,7 @@ impl windows_core::RuntimeName for GameChatOverlay {
 unsafe impl Send for GameChatOverlay {}
 unsafe impl Sync for GameChatOverlay {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameChatOverlayMessageSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatOverlayMessageSource, windows_core::IUnknown, windows_core::IInspectable);
 impl GameChatOverlayMessageSource {
@@ -260,7 +260,7 @@ impl windows_core::RuntimeName for GameChatOverlayMessageSource {
 unsafe impl Send for GameChatOverlayMessageSource {}
 unsafe impl Sync for GameChatOverlayMessageSource {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameUIProviderActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameUIProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]

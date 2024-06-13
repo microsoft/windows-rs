@@ -115,7 +115,7 @@ pub struct ISysStorageProviderHttpRequestProvider_Vtbl {
     SendRequestAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SysStorageProviderEventReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SysStorageProviderEventReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SysStorageProviderEventReceivedEventArgs {

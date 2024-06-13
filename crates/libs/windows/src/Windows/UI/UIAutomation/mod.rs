@@ -40,7 +40,7 @@ pub struct IAutomationTextRange_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl AutomationConnection {
@@ -81,7 +81,7 @@ impl windows_core::RuntimeName for AutomationConnection {
 unsafe impl Send for AutomationConnection {}
 unsafe impl Sync for AutomationConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationConnectionBoundObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationConnectionBoundObject, windows_core::IUnknown, windows_core::IInspectable);
 impl AutomationConnectionBoundObject {
@@ -106,7 +106,7 @@ impl windows_core::RuntimeName for AutomationConnectionBoundObject {
 unsafe impl Send for AutomationConnectionBoundObject {}
 unsafe impl Sync for AutomationConnectionBoundObject {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationElement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationElement, windows_core::IUnknown, windows_core::IInspectable);
 impl AutomationElement {
@@ -147,7 +147,7 @@ impl windows_core::RuntimeName for AutomationElement {
 unsafe impl Send for AutomationElement {}
 unsafe impl Sync for AutomationElement {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationTextRange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationTextRange, windows_core::IUnknown, windows_core::IInspectable);
 impl AutomationTextRange {}

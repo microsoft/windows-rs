@@ -35,7 +35,7 @@ pub struct IXsltProcessorFactory_Vtbl {
     CreateInstance: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XsltProcessor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XsltProcessor, windows_core::IUnknown, windows_core::IInspectable);
 impl XsltProcessor {

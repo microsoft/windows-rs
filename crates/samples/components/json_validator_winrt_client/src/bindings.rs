@@ -44,7 +44,7 @@ pub struct IJsonValidatorFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JsonValidator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     JsonValidator,

@@ -426,7 +426,7 @@ pub struct IPrintWorkflowXpsDataAvailableEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowBackgroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowBackgroundSession {
@@ -483,7 +483,7 @@ impl windows_core::RuntimeName for PrintWorkflowBackgroundSession {
 unsafe impl Send for PrintWorkflowBackgroundSession {}
 unsafe impl Sync for PrintWorkflowBackgroundSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSetupRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowBackgroundSetupRequestedEventArgs {
@@ -527,7 +527,7 @@ impl windows_core::RuntimeName for PrintWorkflowBackgroundSetupRequestedEventArg
 unsafe impl Send for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 unsafe impl Sync for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowConfiguration {
@@ -570,7 +570,7 @@ impl windows_core::RuntimeName for PrintWorkflowConfiguration {
 unsafe impl Send for PrintWorkflowConfiguration {}
 unsafe impl Sync for PrintWorkflowConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowForegroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowForegroundSession {
@@ -627,7 +627,7 @@ impl windows_core::RuntimeName for PrintWorkflowForegroundSession {
 unsafe impl Send for PrintWorkflowForegroundSession {}
 unsafe impl Sync for PrintWorkflowForegroundSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSetupRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowForegroundSetupRequestedEventArgs {
@@ -667,7 +667,7 @@ impl windows_core::RuntimeName for PrintWorkflowForegroundSetupRequestedEventArg
 unsafe impl Send for PrintWorkflowForegroundSetupRequestedEventArgs {}
 unsafe impl Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -726,7 +726,7 @@ impl windows_core::RuntimeName for PrintWorkflowJobActivatedEventArgs {
 unsafe impl Send for PrintWorkflowJobActivatedEventArgs {}
 unsafe impl Sync for PrintWorkflowJobActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobBackgroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobBackgroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowJobBackgroundSession {
@@ -783,7 +783,7 @@ impl windows_core::RuntimeName for PrintWorkflowJobBackgroundSession {
 unsafe impl Send for PrintWorkflowJobBackgroundSession {}
 unsafe impl Sync for PrintWorkflowJobBackgroundSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobNotificationEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobNotificationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowJobNotificationEventArgs {
@@ -822,7 +822,7 @@ impl windows_core::RuntimeName for PrintWorkflowJobNotificationEventArgs {
 unsafe impl Send for PrintWorkflowJobNotificationEventArgs {}
 unsafe impl Sync for PrintWorkflowJobNotificationEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobStartingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowJobStartingEventArgs {
@@ -866,7 +866,7 @@ impl windows_core::RuntimeName for PrintWorkflowJobStartingEventArgs {
 unsafe impl Send for PrintWorkflowJobStartingEventArgs {}
 unsafe impl Sync for PrintWorkflowJobStartingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowJobTriggerDetails {
@@ -891,7 +891,7 @@ impl windows_core::RuntimeName for PrintWorkflowJobTriggerDetails {
 unsafe impl Send for PrintWorkflowJobTriggerDetails {}
 unsafe impl Sync for PrintWorkflowJobTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobUISession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobUISession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowJobUISession {
@@ -948,7 +948,7 @@ impl windows_core::RuntimeName for PrintWorkflowJobUISession {
 unsafe impl Send for PrintWorkflowJobUISession {}
 unsafe impl Sync for PrintWorkflowJobUISession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowObjectModelSourceFileContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowObjectModelSourceFileContent, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowObjectModelSourceFileContent {
@@ -981,7 +981,7 @@ impl windows_core::RuntimeName for PrintWorkflowObjectModelSourceFileContent {
 unsafe impl Send for PrintWorkflowObjectModelSourceFileContent {}
 unsafe impl Sync for PrintWorkflowObjectModelSourceFileContent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowObjectModelTargetPackage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowObjectModelTargetPackage, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowObjectModelTargetPackage {}
@@ -998,7 +998,7 @@ impl windows_core::RuntimeName for PrintWorkflowObjectModelTargetPackage {
 unsafe impl Send for PrintWorkflowObjectModelTargetPackage {}
 unsafe impl Sync for PrintWorkflowObjectModelTargetPackage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlConverter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlConverter, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlConverter {
@@ -1042,7 +1042,7 @@ impl windows_core::RuntimeName for PrintWorkflowPdlConverter {
 unsafe impl Send for PrintWorkflowPdlConverter {}
 unsafe impl Sync for PrintWorkflowPdlConverter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlDataAvailableEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlDataAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlDataAvailableEventArgs {
@@ -1088,7 +1088,7 @@ impl windows_core::RuntimeName for PrintWorkflowPdlDataAvailableEventArgs {
 unsafe impl Send for PrintWorkflowPdlDataAvailableEventArgs {}
 unsafe impl Sync for PrintWorkflowPdlDataAvailableEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlModificationRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlModificationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlModificationRequestedEventArgs {
@@ -1201,7 +1201,7 @@ impl windows_core::RuntimeName for PrintWorkflowPdlModificationRequestedEventArg
 unsafe impl Send for PrintWorkflowPdlModificationRequestedEventArgs {}
 unsafe impl Sync for PrintWorkflowPdlModificationRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlSourceContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlSourceContent, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlSourceContent {
@@ -1242,7 +1242,7 @@ impl windows_core::RuntimeName for PrintWorkflowPdlSourceContent {
 unsafe impl Send for PrintWorkflowPdlSourceContent {}
 unsafe impl Sync for PrintWorkflowPdlSourceContent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlTargetStream(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlTargetStream, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlTargetStream {
@@ -1272,7 +1272,7 @@ impl windows_core::RuntimeName for PrintWorkflowPdlTargetStream {
 unsafe impl Send for PrintWorkflowPdlTargetStream {}
 unsafe impl Sync for PrintWorkflowPdlTargetStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPrinterJob(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPrinterJob, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPrinterJob {
@@ -1364,7 +1364,7 @@ impl windows_core::RuntimeName for PrintWorkflowPrinterJob {
 unsafe impl Send for PrintWorkflowPrinterJob {}
 unsafe impl Sync for PrintWorkflowPrinterJob {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSourceContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowSourceContent, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowSourceContent {
@@ -1404,7 +1404,7 @@ impl windows_core::RuntimeName for PrintWorkflowSourceContent {
 unsafe impl Send for PrintWorkflowSourceContent {}
 unsafe impl Sync for PrintWorkflowSourceContent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSpoolStreamContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowSpoolStreamContent, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowSpoolStreamContent {
@@ -1430,7 +1430,7 @@ impl windows_core::RuntimeName for PrintWorkflowSpoolStreamContent {
 unsafe impl Send for PrintWorkflowSpoolStreamContent {}
 unsafe impl Sync for PrintWorkflowSpoolStreamContent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowStreamTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowStreamTarget, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowStreamTarget {
@@ -1456,7 +1456,7 @@ impl windows_core::RuntimeName for PrintWorkflowStreamTarget {
 unsafe impl Send for PrintWorkflowStreamTarget {}
 unsafe impl Sync for PrintWorkflowStreamTarget {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSubmittedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowSubmittedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowSubmittedEventArgs {
@@ -1499,7 +1499,7 @@ impl windows_core::RuntimeName for PrintWorkflowSubmittedEventArgs {
 unsafe impl Send for PrintWorkflowSubmittedEventArgs {}
 unsafe impl Sync for PrintWorkflowSubmittedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSubmittedOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowSubmittedOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowSubmittedOperation {
@@ -1535,7 +1535,7 @@ impl windows_core::RuntimeName for PrintWorkflowSubmittedOperation {
 unsafe impl Send for PrintWorkflowSubmittedOperation {}
 unsafe impl Sync for PrintWorkflowSubmittedOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowTarget, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowTarget {
@@ -1567,7 +1567,7 @@ impl windows_core::RuntimeName for PrintWorkflowTarget {
 unsafe impl Send for PrintWorkflowTarget {}
 unsafe impl Sync for PrintWorkflowTarget {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowTriggerDetails {
@@ -1592,7 +1592,7 @@ impl windows_core::RuntimeName for PrintWorkflowTriggerDetails {
 unsafe impl Send for PrintWorkflowTriggerDetails {}
 unsafe impl Sync for PrintWorkflowTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowUIActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowUIActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1651,7 +1651,7 @@ impl windows_core::RuntimeName for PrintWorkflowUIActivatedEventArgs {
 unsafe impl Send for PrintWorkflowUIActivatedEventArgs {}
 unsafe impl Sync for PrintWorkflowUIActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowUILauncher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowUILauncher, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowUILauncher {
@@ -1683,7 +1683,7 @@ impl windows_core::RuntimeName for PrintWorkflowUILauncher {
 unsafe impl Send for PrintWorkflowUILauncher {}
 unsafe impl Sync for PrintWorkflowUILauncher {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowXpsDataAvailableEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowXpsDataAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowXpsDataAvailableEventArgs {

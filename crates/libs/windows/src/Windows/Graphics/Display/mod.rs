@@ -326,7 +326,7 @@ pub struct IDisplayServicesStatics_Vtbl {
     pub FindAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut super::DisplayId) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdvancedColorInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdvancedColorInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AdvancedColorInfo {
@@ -421,7 +421,7 @@ impl windows_core::RuntimeName for AdvancedColorInfo {
 unsafe impl Send for AdvancedColorInfo {}
 unsafe impl Sync for AdvancedColorInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BrightnessOverride(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BrightnessOverride, windows_core::IUnknown, windows_core::IInspectable);
 impl BrightnessOverride {
@@ -551,7 +551,7 @@ impl windows_core::RuntimeName for BrightnessOverride {
 unsafe impl Send for BrightnessOverride {}
 unsafe impl Sync for BrightnessOverride {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BrightnessOverrideSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BrightnessOverrideSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl BrightnessOverrideSettings {
@@ -606,7 +606,7 @@ impl windows_core::RuntimeName for BrightnessOverrideSettings {
 unsafe impl Send for BrightnessOverrideSettings {}
 unsafe impl Sync for BrightnessOverrideSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ColorOverrideSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ColorOverrideSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl ColorOverrideSettings {
@@ -642,7 +642,7 @@ impl windows_core::RuntimeName for ColorOverrideSettings {
 unsafe impl Send for ColorOverrideSettings {}
 unsafe impl Sync for ColorOverrideSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayEnhancementOverride(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayEnhancementOverride, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayEnhancementOverride {
@@ -770,7 +770,7 @@ impl windows_core::RuntimeName for DisplayEnhancementOverride {
 unsafe impl Send for DisplayEnhancementOverride {}
 unsafe impl Sync for DisplayEnhancementOverride {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayEnhancementOverrideCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayEnhancementOverrideCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayEnhancementOverrideCapabilities {
@@ -810,7 +810,7 @@ impl windows_core::RuntimeName for DisplayEnhancementOverrideCapabilities {
 unsafe impl Send for DisplayEnhancementOverrideCapabilities {}
 unsafe impl Sync for DisplayEnhancementOverrideCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayEnhancementOverrideCapabilitiesChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
@@ -835,7 +835,7 @@ impl windows_core::RuntimeName for DisplayEnhancementOverrideCapabilitiesChanged
 unsafe impl Send for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 unsafe impl Sync for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayInformation {
@@ -1185,7 +1185,7 @@ impl windows_core::RuntimeName for DisplayProperties {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayProperties";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayServices(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayServices, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayServices {

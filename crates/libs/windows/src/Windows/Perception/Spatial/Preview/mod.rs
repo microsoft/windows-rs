@@ -48,7 +48,7 @@ pub struct ISpatialGraphInteropPreviewStatics2_Vtbl {
     TryCreateFrameOfReferenceWithPositionAndOrientation: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialGraphInteropFrameOfReferencePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialGraphInteropFrameOfReferencePreview, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialGraphInteropFrameOfReferencePreview {

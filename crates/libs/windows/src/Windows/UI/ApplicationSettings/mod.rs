@@ -278,7 +278,7 @@ pub struct IWebAccountProviderCommandFactory_Vtbl {
     CreateWebAccountProviderCommand: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccountsSettingsPane(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AccountsSettingsPane, windows_core::IUnknown, windows_core::IInspectable);
 impl AccountsSettingsPane {
@@ -364,7 +364,7 @@ impl windows_core::RuntimeName for AccountsSettingsPane {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPane";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccountsSettingsPaneCommandsRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AccountsSettingsPaneCommandsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AccountsSettingsPaneCommandsRequestedEventArgs {
@@ -438,7 +438,7 @@ impl windows_core::RuntimeName for AccountsSettingsPaneCommandsRequestedEventArg
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPaneCommandsRequestedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccountsSettingsPaneEventDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AccountsSettingsPaneEventDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl AccountsSettingsPaneEventDeferral {
@@ -458,7 +458,7 @@ impl windows_core::RuntimeName for AccountsSettingsPaneEventDeferral {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPaneEventDeferral";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CredentialCommand(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CredentialCommand, windows_core::IUnknown, windows_core::IInspectable);
 impl CredentialCommand {
@@ -516,7 +516,7 @@ impl windows_core::RuntimeName for CredentialCommand {
 }
 #[cfg(feature = "UI_Popups")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SettingsCommand(windows_core::IUnknown);
 #[cfg(feature = "UI_Popups")]
 windows_core::imp::interface_hierarchy!(SettingsCommand, windows_core::IUnknown, windows_core::IInspectable);
@@ -613,7 +613,7 @@ impl windows_core::RuntimeName for SettingsCommand {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SettingsPane(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SettingsPane, windows_core::IUnknown, windows_core::IInspectable);
@@ -675,7 +675,7 @@ impl windows_core::RuntimeName for SettingsPane {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SettingsPaneCommandsRequest(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SettingsPaneCommandsRequest, windows_core::IUnknown, windows_core::IInspectable);
@@ -705,7 +705,7 @@ impl windows_core::RuntimeName for SettingsPaneCommandsRequest {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SettingsPaneCommandsRequestedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SettingsPaneCommandsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -734,7 +734,7 @@ impl windows_core::RuntimeName for SettingsPaneCommandsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPaneCommandsRequestedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountCommand(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountCommand, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAccountCommand {
@@ -788,7 +788,7 @@ impl windows_core::RuntimeName for WebAccountCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountCommand";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountInvokedArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountInvokedArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAccountInvokedArgs {
@@ -811,7 +811,7 @@ impl windows_core::RuntimeName for WebAccountInvokedArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountInvokedArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderCommand(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderCommand, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAccountProviderCommand {

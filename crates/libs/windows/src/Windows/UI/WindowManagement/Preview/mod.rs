@@ -16,7 +16,7 @@ pub struct IWindowManagementPreviewStatics_Vtbl {
     pub SetPreferredMinSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::Size) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowManagementPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowManagementPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowManagementPreview {

@@ -2866,7 +2866,7 @@ pub struct IVisualUnorderedCollection_Vtbl {
     pub RemoveAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AmbientLight(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AmbientLight, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AmbientLight, IAnimationObject, super::super::Foundation::IClosable, CompositionLight, CompositionObject);
@@ -3038,7 +3038,7 @@ impl windows_core::RuntimeName for AmbientLight {
 unsafe impl Send for AmbientLight {}
 unsafe impl Sync for AmbientLight {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AnimationController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AnimationController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AnimationController, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -3221,7 +3221,7 @@ impl windows_core::RuntimeName for AnimationController {
 unsafe impl Send for AnimationController {}
 unsafe impl Sync for AnimationController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AnimationPropertyInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AnimationPropertyInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AnimationPropertyInfo, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -3371,7 +3371,7 @@ impl windows_core::RuntimeName for AnimationPropertyInfo {
 unsafe impl Send for AnimationPropertyInfo {}
 unsafe impl Sync for AnimationPropertyInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
@@ -3510,7 +3510,7 @@ impl windows_core::RuntimeName for BackEasingFunction {
 unsafe impl Send for BackEasingFunction {}
 unsafe impl Sync for BackEasingFunction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BooleanKeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BooleanKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BooleanKeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
@@ -3817,7 +3817,7 @@ impl windows_core::RuntimeName for BooleanKeyFrameAnimation {
 unsafe impl Send for BooleanKeyFrameAnimation {}
 unsafe impl Sync for BooleanKeyFrameAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BounceEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BounceEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
@@ -3963,7 +3963,7 @@ impl windows_core::RuntimeName for BounceEasingFunction {
 unsafe impl Send for BounceEasingFunction {}
 unsafe impl Sync for BounceEasingFunction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceScalarNaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BounceScalarNaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BounceScalarNaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, ScalarNaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
@@ -4265,7 +4265,7 @@ impl windows_core::RuntimeName for BounceScalarNaturalMotionAnimation {
 unsafe impl Send for BounceScalarNaturalMotionAnimation {}
 unsafe impl Sync for BounceScalarNaturalMotionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceVector2NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BounceVector2NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BounceVector2NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, Vector2NaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
@@ -4573,7 +4573,7 @@ impl windows_core::RuntimeName for BounceVector2NaturalMotionAnimation {
 unsafe impl Send for BounceVector2NaturalMotionAnimation {}
 unsafe impl Sync for BounceVector2NaturalMotionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceVector3NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BounceVector3NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BounceVector3NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, Vector3NaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
@@ -4881,7 +4881,7 @@ impl windows_core::RuntimeName for BounceVector3NaturalMotionAnimation {
 unsafe impl Send for BounceVector3NaturalMotionAnimation {}
 unsafe impl Sync for BounceVector3NaturalMotionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CircleEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CircleEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CircleEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
@@ -5013,7 +5013,7 @@ impl windows_core::RuntimeName for CircleEasingFunction {
 unsafe impl Send for CircleEasingFunction {}
 unsafe impl Sync for CircleEasingFunction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ColorKeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ColorKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ColorKeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
@@ -5338,7 +5338,7 @@ impl windows_core::RuntimeName for ColorKeyFrameAnimation {
 unsafe impl Send for ColorKeyFrameAnimation {}
 unsafe impl Sync for ColorKeyFrameAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, CompositionObject);
@@ -5546,7 +5546,7 @@ impl windows_core::RuntimeName for CompositionAnimation {
 unsafe impl Send for CompositionAnimation {}
 unsafe impl Sync for CompositionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionAnimationGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionAnimationGroup, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -5721,7 +5721,7 @@ impl IntoIterator for &CompositionAnimationGroup {
 unsafe impl Send for CompositionAnimationGroup {}
 unsafe impl Sync for CompositionAnimationGroup {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionBackdropBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionBackdropBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionBackdropBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
@@ -5846,7 +5846,7 @@ impl windows_core::RuntimeName for CompositionBackdropBrush {
 unsafe impl Send for CompositionBackdropBrush {}
 unsafe impl Sync for CompositionBackdropBrush {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionBatchCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionBatchCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionBatchCompletedEventArgs, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -5971,7 +5971,7 @@ impl windows_core::RuntimeName for CompositionBatchCompletedEventArgs {
 unsafe impl Send for CompositionBatchCompletedEventArgs {}
 unsafe impl Sync for CompositionBatchCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -6096,7 +6096,7 @@ impl windows_core::RuntimeName for CompositionBrush {
 unsafe impl Send for CompositionBrush {}
 unsafe impl Sync for CompositionBrush {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl CompositionCapabilities {
@@ -6153,7 +6153,7 @@ impl windows_core::RuntimeName for CompositionCapabilities {
 unsafe impl Send for CompositionCapabilities {}
 unsafe impl Sync for CompositionCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionClip(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionClip, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionClip, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -6365,7 +6365,7 @@ impl windows_core::RuntimeName for CompositionClip {
 unsafe impl Send for CompositionClip {}
 unsafe impl Sync for CompositionClip {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionColorBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionColorBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionColorBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
@@ -6501,7 +6501,7 @@ impl windows_core::RuntimeName for CompositionColorBrush {
 unsafe impl Send for CompositionColorBrush {}
 unsafe impl Sync for CompositionColorBrush {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionColorGradientStop(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionColorGradientStop, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionColorGradientStop, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -6648,7 +6648,7 @@ impl windows_core::RuntimeName for CompositionColorGradientStop {
 unsafe impl Send for CompositionColorGradientStop {}
 unsafe impl Sync for CompositionColorGradientStop {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionColorGradientStopCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionColorGradientStopCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -6779,7 +6779,7 @@ impl IntoIterator for &CompositionColorGradientStopCollection {
 unsafe impl Send for CompositionColorGradientStopCollection {}
 unsafe impl Sync for CompositionColorGradientStopCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionCommitBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionCommitBatch, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionCommitBatch, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -6932,7 +6932,7 @@ impl windows_core::RuntimeName for CompositionCommitBatch {
 unsafe impl Send for CompositionCommitBatch {}
 unsafe impl Sync for CompositionCommitBatch {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionContainerShape(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionContainerShape, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionContainerShape, IAnimationObject, super::super::Foundation::IClosable, CompositionShape, CompositionObject);
@@ -7139,7 +7139,7 @@ impl windows_core::RuntimeName for CompositionContainerShape {
 unsafe impl Send for CompositionContainerShape {}
 unsafe impl Sync for CompositionContainerShape {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionDrawingSurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionDrawingSurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionDrawingSurface, IAnimationObject, super::super::Foundation::IClosable, ICompositionSurface, CompositionObject);
@@ -7320,7 +7320,7 @@ impl windows_core::RuntimeName for CompositionDrawingSurface {
 unsafe impl Send for CompositionDrawingSurface {}
 unsafe impl Sync for CompositionDrawingSurface {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -7550,7 +7550,7 @@ impl windows_core::RuntimeName for CompositionEasingFunction {
 unsafe impl Send for CompositionEasingFunction {}
 unsafe impl Sync for CompositionEasingFunction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEffectBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionEffectBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionEffectBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
@@ -7689,7 +7689,7 @@ impl windows_core::RuntimeName for CompositionEffectBrush {
 unsafe impl Send for CompositionEffectBrush {}
 unsafe impl Sync for CompositionEffectBrush {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEffectFactory(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionEffectFactory, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionEffectFactory, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -7835,7 +7835,7 @@ impl windows_core::RuntimeName for CompositionEffectFactory {
 unsafe impl Send for CompositionEffectFactory {}
 unsafe impl Sync for CompositionEffectFactory {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEffectSourceParameter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionEffectSourceParameter, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Graphics_Effects")]
@@ -7873,7 +7873,7 @@ impl windows_core::RuntimeName for CompositionEffectSourceParameter {
 unsafe impl Send for CompositionEffectSourceParameter {}
 unsafe impl Sync for CompositionEffectSourceParameter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEllipseGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionEllipseGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionEllipseGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionGeometry, CompositionObject);
@@ -8057,7 +8057,7 @@ impl windows_core::RuntimeName for CompositionEllipseGeometry {
 unsafe impl Send for CompositionEllipseGeometry {}
 unsafe impl Sync for CompositionEllipseGeometry {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGeometricClip(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionGeometricClip, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionGeometricClip, IAnimationObject, super::super::Foundation::IClosable, CompositionClip, CompositionObject);
@@ -8297,7 +8297,7 @@ impl windows_core::RuntimeName for CompositionGeometricClip {
 unsafe impl Send for CompositionGeometricClip {}
 unsafe impl Sync for CompositionGeometricClip {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -8455,7 +8455,7 @@ impl windows_core::RuntimeName for CompositionGeometry {
 unsafe impl Send for CompositionGeometry {}
 unsafe impl Sync for CompositionGeometry {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGradientBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionGradientBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionGradientBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
@@ -8707,7 +8707,7 @@ impl windows_core::RuntimeName for CompositionGradientBrush {
 unsafe impl Send for CompositionGradientBrush {}
 unsafe impl Sync for CompositionGradientBrush {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGraphicsDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionGraphicsDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionGraphicsDevice, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -8893,7 +8893,7 @@ impl windows_core::RuntimeName for CompositionGraphicsDevice {
 unsafe impl Send for CompositionGraphicsDevice {}
 unsafe impl Sync for CompositionGraphicsDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionLight(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionLight, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionLight, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -9043,7 +9043,7 @@ impl windows_core::RuntimeName for CompositionLight {
 unsafe impl Send for CompositionLight {}
 unsafe impl Sync for CompositionLight {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionLineGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionLineGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionLineGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionGeometry, CompositionObject);
@@ -9227,7 +9227,7 @@ impl windows_core::RuntimeName for CompositionLineGeometry {
 unsafe impl Send for CompositionLineGeometry {}
 unsafe impl Sync for CompositionLineGeometry {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionLinearGradientBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionLinearGradientBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionLinearGradientBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionGradientBrush, CompositionBrush, CompositionObject);
@@ -9505,7 +9505,7 @@ impl windows_core::RuntimeName for CompositionLinearGradientBrush {
 unsafe impl Send for CompositionLinearGradientBrush {}
 unsafe impl Sync for CompositionLinearGradientBrush {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionMaskBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionMaskBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionMaskBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
@@ -9658,7 +9658,7 @@ impl windows_core::RuntimeName for CompositionMaskBrush {
 unsafe impl Send for CompositionMaskBrush {}
 unsafe impl Sync for CompositionMaskBrush {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionMipmapSurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionMipmapSurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionMipmapSurface, IAnimationObject, super::super::Foundation::IClosable, ICompositionSurface, CompositionObject);
@@ -9821,7 +9821,7 @@ impl windows_core::RuntimeName for CompositionMipmapSurface {
 unsafe impl Send for CompositionMipmapSurface {}
 unsafe impl Sync for CompositionMipmapSurface {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionNineGridBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionNineGridBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionNineGridBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
@@ -10075,7 +10075,7 @@ impl windows_core::RuntimeName for CompositionNineGridBrush {
 unsafe impl Send for CompositionNineGridBrush {}
 unsafe impl Sync for CompositionNineGridBrush {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionObject, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionObject, IAnimationObject, super::super::Foundation::IClosable);
@@ -10219,7 +10219,7 @@ impl windows_core::RuntimeName for CompositionObject {
 unsafe impl Send for CompositionObject {}
 unsafe impl Sync for CompositionObject {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionPath(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionPath, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Graphics")]
@@ -10254,7 +10254,7 @@ impl windows_core::RuntimeName for CompositionPath {
 unsafe impl Send for CompositionPath {}
 unsafe impl Sync for CompositionPath {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionPathGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionPathGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionPathGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionGeometry, CompositionObject);
@@ -10426,7 +10426,7 @@ impl windows_core::RuntimeName for CompositionPathGeometry {
 unsafe impl Send for CompositionPathGeometry {}
 unsafe impl Sync for CompositionPathGeometry {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadow(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadow, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionProjectedShadow, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -10612,7 +10612,7 @@ impl windows_core::RuntimeName for CompositionProjectedShadow {
 unsafe impl Send for CompositionProjectedShadow {}
 unsafe impl Sync for CompositionProjectedShadow {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadowCaster(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowCaster, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionProjectedShadowCaster, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -10765,7 +10765,7 @@ impl windows_core::RuntimeName for CompositionProjectedShadowCaster {
 unsafe impl Send for CompositionProjectedShadowCaster {}
 unsafe impl Sync for CompositionProjectedShadowCaster {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadowCasterCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowCasterCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -10974,7 +10974,7 @@ impl IntoIterator for &CompositionProjectedShadowCasterCollection {
 unsafe impl Send for CompositionProjectedShadowCasterCollection {}
 unsafe impl Sync for CompositionProjectedShadowCasterCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadowReceiver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowReceiver, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionProjectedShadowReceiver, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -11113,7 +11113,7 @@ impl windows_core::RuntimeName for CompositionProjectedShadowReceiver {
 unsafe impl Send for CompositionProjectedShadowReceiver {}
 unsafe impl Sync for CompositionProjectedShadowReceiver {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadowReceiverUnorderedCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowReceiverUnorderedCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -11288,7 +11288,7 @@ impl IntoIterator for &CompositionProjectedShadowReceiverUnorderedCollection {
 unsafe impl Send for CompositionProjectedShadowReceiverUnorderedCollection {}
 unsafe impl Sync for CompositionProjectedShadowReceiverUnorderedCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionPropertySet(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionPropertySet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionPropertySet, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -11524,7 +11524,7 @@ impl windows_core::RuntimeName for CompositionPropertySet {
 unsafe impl Send for CompositionPropertySet {}
 unsafe impl Sync for CompositionPropertySet {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionRadialGradientBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionRadialGradientBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionRadialGradientBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionGradientBrush, CompositionBrush, CompositionObject);
@@ -11815,7 +11815,7 @@ impl windows_core::RuntimeName for CompositionRadialGradientBrush {
 unsafe impl Send for CompositionRadialGradientBrush {}
 unsafe impl Sync for CompositionRadialGradientBrush {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionRectangleGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionRectangleGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionRectangleGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionGeometry, CompositionObject);
@@ -11999,7 +11999,7 @@ impl windows_core::RuntimeName for CompositionRectangleGeometry {
 unsafe impl Send for CompositionRectangleGeometry {}
 unsafe impl Sync for CompositionRectangleGeometry {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionRoundedRectangleGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionRoundedRectangleGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionRoundedRectangleGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionGeometry, CompositionObject);
@@ -12196,7 +12196,7 @@ impl windows_core::RuntimeName for CompositionRoundedRectangleGeometry {
 unsafe impl Send for CompositionRoundedRectangleGeometry {}
 unsafe impl Sync for CompositionRoundedRectangleGeometry {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionScopedBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionScopedBatch, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionScopedBatch, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -12361,7 +12361,7 @@ impl windows_core::RuntimeName for CompositionScopedBatch {
 unsafe impl Send for CompositionScopedBatch {}
 unsafe impl Sync for CompositionScopedBatch {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionShadow(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionShadow, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionShadow, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -12486,7 +12486,7 @@ impl windows_core::RuntimeName for CompositionShadow {
 unsafe impl Send for CompositionShadow {}
 unsafe impl Sync for CompositionShadow {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionShape(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionShape, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionShape, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -12686,7 +12686,7 @@ unsafe impl Send for CompositionShape {}
 unsafe impl Sync for CompositionShape {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionShapeCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionShapeCollection, windows_core::IUnknown, windows_core::IInspectable);
@@ -12930,7 +12930,7 @@ unsafe impl Send for CompositionShapeCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionShapeCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionSpriteShape(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionSpriteShape, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionSpriteShape, IAnimationObject, super::super::Foundation::IClosable, CompositionShape, CompositionObject);
@@ -13268,7 +13268,7 @@ unsafe impl Send for CompositionSpriteShape {}
 unsafe impl Sync for CompositionSpriteShape {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionStrokeDashArray(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionStrokeDashArray, windows_core::IUnknown, windows_core::IInspectable);
@@ -13500,7 +13500,7 @@ unsafe impl Send for CompositionStrokeDashArray {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionStrokeDashArray {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionSurfaceBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionSurfaceBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionSurfaceBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
@@ -13781,7 +13781,7 @@ impl windows_core::RuntimeName for CompositionSurfaceBrush {
 unsafe impl Send for CompositionSurfaceBrush {}
 unsafe impl Sync for CompositionSurfaceBrush {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionTarget, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionTarget, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -13920,7 +13920,7 @@ impl windows_core::RuntimeName for CompositionTarget {
 unsafe impl Send for CompositionTarget {}
 unsafe impl Sync for CompositionTarget {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionTexture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionTexture, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionTexture, IAnimationObject, super::super::Foundation::IClosable, ICompositionSurface, CompositionObject);
@@ -14084,7 +14084,7 @@ impl windows_core::RuntimeName for CompositionTexture {
 unsafe impl Send for CompositionTexture {}
 unsafe impl Sync for CompositionTexture {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionTransform(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionTransform, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionTransform, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -14209,7 +14209,7 @@ impl windows_core::RuntimeName for CompositionTransform {
 unsafe impl Send for CompositionTransform {}
 unsafe impl Sync for CompositionTransform {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionViewBox(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionViewBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionViewBox, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -14393,7 +14393,7 @@ impl windows_core::RuntimeName for CompositionViewBox {
 unsafe impl Send for CompositionViewBox {}
 unsafe impl Sync for CompositionViewBox {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionVirtualDrawingSurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionVirtualDrawingSurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionVirtualDrawingSurface, IAnimationObject, super::super::Foundation::IClosable, ICompositionSurface, CompositionDrawingSurface, CompositionObject);
@@ -14579,7 +14579,7 @@ impl windows_core::RuntimeName for CompositionVirtualDrawingSurface {
 unsafe impl Send for CompositionVirtualDrawingSurface {}
 unsafe impl Sync for CompositionVirtualDrawingSurface {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionVisualSurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionVisualSurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionVisualSurface, IAnimationObject, super::super::Foundation::IClosable, ICompositionSurface, CompositionObject);
@@ -14744,7 +14744,7 @@ impl windows_core::RuntimeName for CompositionVisualSurface {
 unsafe impl Send for CompositionVisualSurface {}
 unsafe impl Sync for CompositionVisualSurface {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Compositor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Compositor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Compositor, super::super::Foundation::IClosable);
@@ -15379,7 +15379,7 @@ impl windows_core::RuntimeName for Compositor {
 unsafe impl Send for Compositor {}
 unsafe impl Sync for Compositor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContainerVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContainerVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContainerVisual, IAnimationObject, super::super::Foundation::IClosable, Visual, CompositionObject);
@@ -15775,7 +15775,7 @@ impl windows_core::RuntimeName for ContainerVisual {
 unsafe impl Send for ContainerVisual {}
 unsafe impl Sync for ContainerVisual {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CubicBezierEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CubicBezierEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CubicBezierEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
@@ -15916,7 +15916,7 @@ impl windows_core::RuntimeName for CubicBezierEasingFunction {
 unsafe impl Send for CubicBezierEasingFunction {}
 unsafe impl Sync for CubicBezierEasingFunction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DelegatedInkTrailVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DelegatedInkTrailVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DelegatedInkTrailVisual, IAnimationObject, super::super::Foundation::IClosable, Visual, CompositionObject);
@@ -16351,7 +16351,7 @@ impl windows_core::RuntimeName for DelegatedInkTrailVisual {
 unsafe impl Send for DelegatedInkTrailVisual {}
 unsafe impl Sync for DelegatedInkTrailVisual {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DistantLight(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DistantLight, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DistantLight, IAnimationObject, super::super::Foundation::IClosable, CompositionLight, CompositionObject);
@@ -16550,7 +16550,7 @@ impl windows_core::RuntimeName for DistantLight {
 unsafe impl Send for DistantLight {}
 unsafe impl Sync for DistantLight {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DropShadow(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DropShadow, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DropShadow, IAnimationObject, super::super::Foundation::IClosable, CompositionShadow, CompositionObject);
@@ -16746,7 +16746,7 @@ impl windows_core::RuntimeName for DropShadow {
 unsafe impl Send for DropShadow {}
 unsafe impl Sync for DropShadow {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ElasticEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ElasticEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ElasticEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
@@ -16892,7 +16892,7 @@ impl windows_core::RuntimeName for ElasticEasingFunction {
 unsafe impl Send for ElasticEasingFunction {}
 unsafe impl Sync for ElasticEasingFunction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExponentialEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExponentialEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ExponentialEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
@@ -17031,7 +17031,7 @@ impl windows_core::RuntimeName for ExponentialEasingFunction {
 unsafe impl Send for ExponentialEasingFunction {}
 unsafe impl Sync for ExponentialEasingFunction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExpressionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExpressionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ExpressionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, CompositionAnimation, CompositionObject);
@@ -17250,7 +17250,7 @@ impl windows_core::RuntimeName for ExpressionAnimation {
 unsafe impl Send for ExpressionAnimation {}
 unsafe impl Sync for ExpressionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImplicitAnimationCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImplicitAnimationCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -17454,7 +17454,7 @@ unsafe impl Send for ImplicitAnimationCollection {}
 unsafe impl Sync for ImplicitAnimationCollection {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InitialValueExpressionCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(InitialValueExpressionCollection, windows_core::IUnknown, windows_core::IInspectable);
@@ -17661,7 +17661,7 @@ unsafe impl Send for InitialValueExpressionCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for InitialValueExpressionCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InsetClip(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InsetClip, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InsetClip, IAnimationObject, super::super::Foundation::IClosable, CompositionClip, CompositionObject);
@@ -17917,7 +17917,7 @@ impl windows_core::RuntimeName for InsetClip {
 unsafe impl Send for InsetClip {}
 unsafe impl Sync for InsetClip {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(KeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, CompositionAnimation, CompositionObject);
@@ -18220,7 +18220,7 @@ impl windows_core::RuntimeName for KeyFrameAnimation {
 unsafe impl Send for KeyFrameAnimation {}
 unsafe impl Sync for KeyFrameAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LayerVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LayerVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LayerVisual, IAnimationObject, super::super::Foundation::IClosable, ContainerVisual, Visual, CompositionObject);
@@ -18644,7 +18644,7 @@ impl windows_core::RuntimeName for LayerVisual {
 unsafe impl Send for LayerVisual {}
 unsafe impl Sync for LayerVisual {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LinearEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LinearEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LinearEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
@@ -18769,7 +18769,7 @@ impl windows_core::RuntimeName for LinearEasingFunction {
 unsafe impl Send for LinearEasingFunction {}
 unsafe impl Sync for LinearEasingFunction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, CompositionAnimation, CompositionObject);
@@ -19010,7 +19010,7 @@ impl windows_core::RuntimeName for NaturalMotionAnimation {
 unsafe impl Send for NaturalMotionAnimation {}
 unsafe impl Sync for NaturalMotionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PathKeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PathKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PathKeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
@@ -19328,7 +19328,7 @@ impl windows_core::RuntimeName for PathKeyFrameAnimation {
 unsafe impl Send for PathKeyFrameAnimation {}
 unsafe impl Sync for PathKeyFrameAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PointLight(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointLight, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PointLight, IAnimationObject, super::super::Foundation::IClosable, CompositionLight, CompositionObject);
@@ -19582,7 +19582,7 @@ impl windows_core::RuntimeName for PointLight {
 unsafe impl Send for PointLight {}
 unsafe impl Sync for PointLight {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PowerEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PowerEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PowerEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
@@ -19721,7 +19721,7 @@ impl windows_core::RuntimeName for PowerEasingFunction {
 unsafe impl Send for PowerEasingFunction {}
 unsafe impl Sync for PowerEasingFunction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct QuaternionKeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(QuaternionKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(QuaternionKeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
@@ -20037,7 +20037,7 @@ impl windows_core::RuntimeName for QuaternionKeyFrameAnimation {
 unsafe impl Send for QuaternionKeyFrameAnimation {}
 unsafe impl Sync for QuaternionKeyFrameAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RectangleClip(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RectangleClip, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RectangleClip, IAnimationObject, super::super::Foundation::IClosable, CompositionClip, CompositionObject);
@@ -20345,7 +20345,7 @@ impl windows_core::RuntimeName for RectangleClip {
 unsafe impl Send for RectangleClip {}
 unsafe impl Sync for RectangleClip {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RedirectVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RedirectVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RedirectVisual, IAnimationObject, super::super::Foundation::IClosable, ContainerVisual, Visual, CompositionObject);
@@ -20755,7 +20755,7 @@ impl windows_core::RuntimeName for RedirectVisual {
 unsafe impl Send for RedirectVisual {}
 unsafe impl Sync for RedirectVisual {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RenderingDeviceReplacedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RenderingDeviceReplacedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RenderingDeviceReplacedEventArgs, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -20887,7 +20887,7 @@ impl windows_core::RuntimeName for RenderingDeviceReplacedEventArgs {
 unsafe impl Send for RenderingDeviceReplacedEventArgs {}
 unsafe impl Sync for RenderingDeviceReplacedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScalarKeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScalarKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ScalarKeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
@@ -21201,7 +21201,7 @@ impl windows_core::RuntimeName for ScalarKeyFrameAnimation {
 unsafe impl Send for ScalarKeyFrameAnimation {}
 unsafe impl Sync for ScalarKeyFrameAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScalarNaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScalarNaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ScalarNaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
@@ -21481,7 +21481,7 @@ impl windows_core::RuntimeName for ScalarNaturalMotionAnimation {
 unsafe impl Send for ScalarNaturalMotionAnimation {}
 unsafe impl Sync for ScalarNaturalMotionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShapeVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShapeVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ShapeVisual, IAnimationObject, super::super::Foundation::IClosable, ContainerVisual, Visual, CompositionObject);
@@ -21899,7 +21899,7 @@ impl windows_core::RuntimeName for ShapeVisual {
 unsafe impl Send for ShapeVisual {}
 unsafe impl Sync for ShapeVisual {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SineEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SineEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SineEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
@@ -22031,7 +22031,7 @@ impl windows_core::RuntimeName for SineEasingFunction {
 unsafe impl Send for SineEasingFunction {}
 unsafe impl Sync for SineEasingFunction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpotLight(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpotLight, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpotLight, IAnimationObject, super::super::Foundation::IClosable, CompositionLight, CompositionObject);
@@ -22364,7 +22364,7 @@ impl windows_core::RuntimeName for SpotLight {
 unsafe impl Send for SpotLight {}
 unsafe impl Sync for SpotLight {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpringScalarNaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpringScalarNaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpringScalarNaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, ScalarNaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
@@ -22666,7 +22666,7 @@ impl windows_core::RuntimeName for SpringScalarNaturalMotionAnimation {
 unsafe impl Send for SpringScalarNaturalMotionAnimation {}
 unsafe impl Sync for SpringScalarNaturalMotionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpringVector2NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpringVector2NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpringVector2NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, Vector2NaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
@@ -22974,7 +22974,7 @@ impl windows_core::RuntimeName for SpringVector2NaturalMotionAnimation {
 unsafe impl Send for SpringVector2NaturalMotionAnimation {}
 unsafe impl Sync for SpringVector2NaturalMotionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpringVector3NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpringVector3NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpringVector3NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, Vector3NaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
@@ -23282,7 +23282,7 @@ impl windows_core::RuntimeName for SpringVector3NaturalMotionAnimation {
 unsafe impl Send for SpringVector3NaturalMotionAnimation {}
 unsafe impl Sync for SpringVector3NaturalMotionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpriteVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpriteVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpriteVisual, IAnimationObject, super::super::Foundation::IClosable, ContainerVisual, Visual, CompositionObject);
@@ -23706,7 +23706,7 @@ impl windows_core::RuntimeName for SpriteVisual {
 unsafe impl Send for SpriteVisual {}
 unsafe impl Sync for SpriteVisual {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StepEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StepEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StepEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
@@ -23886,7 +23886,7 @@ impl windows_core::RuntimeName for StepEasingFunction {
 unsafe impl Send for StepEasingFunction {}
 unsafe impl Sync for StepEasingFunction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector2KeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Vector2KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Vector2KeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
@@ -24202,7 +24202,7 @@ impl windows_core::RuntimeName for Vector2KeyFrameAnimation {
 unsafe impl Send for Vector2KeyFrameAnimation {}
 unsafe impl Sync for Vector2KeyFrameAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector2NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Vector2NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Vector2NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
@@ -24488,7 +24488,7 @@ impl windows_core::RuntimeName for Vector2NaturalMotionAnimation {
 unsafe impl Send for Vector2NaturalMotionAnimation {}
 unsafe impl Sync for Vector2NaturalMotionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector3KeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Vector3KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Vector3KeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
@@ -24804,7 +24804,7 @@ impl windows_core::RuntimeName for Vector3KeyFrameAnimation {
 unsafe impl Send for Vector3KeyFrameAnimation {}
 unsafe impl Sync for Vector3KeyFrameAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector3NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Vector3NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Vector3NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
@@ -25090,7 +25090,7 @@ impl windows_core::RuntimeName for Vector3NaturalMotionAnimation {
 unsafe impl Send for Vector3NaturalMotionAnimation {}
 unsafe impl Sync for Vector3NaturalMotionAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector4KeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Vector4KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Vector4KeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
@@ -25406,7 +25406,7 @@ impl windows_core::RuntimeName for Vector4KeyFrameAnimation {
 unsafe impl Send for Vector4KeyFrameAnimation {}
 unsafe impl Sync for Vector4KeyFrameAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Visual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Visual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Visual, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
@@ -25795,7 +25795,7 @@ impl windows_core::RuntimeName for Visual {
 unsafe impl Send for Visual {}
 unsafe impl Sync for Visual {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VisualCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -25993,7 +25993,7 @@ impl IntoIterator for &VisualCollection {
 unsafe impl Send for VisualCollection {}
 unsafe impl Sync for VisualCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualUnorderedCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VisualUnorderedCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]

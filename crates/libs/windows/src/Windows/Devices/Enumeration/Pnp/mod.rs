@@ -77,7 +77,7 @@ pub struct IPnpObjectWatcher_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PnpObject, windows_core::IUnknown, windows_core::IInspectable);
 impl PnpObject {
@@ -180,7 +180,7 @@ unsafe impl Send for PnpObject {}
 unsafe impl Sync for PnpObject {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PnpObjectCollection, windows_core::IUnknown, windows_core::IInspectable);
@@ -266,7 +266,7 @@ unsafe impl Send for PnpObjectCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for PnpObjectCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectUpdate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PnpObjectUpdate, windows_core::IUnknown, windows_core::IInspectable);
 impl PnpObjectUpdate {
@@ -306,7 +306,7 @@ impl windows_core::RuntimeName for PnpObjectUpdate {
 unsafe impl Send for PnpObjectUpdate {}
 unsafe impl Sync for PnpObjectUpdate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PnpObjectWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl PnpObjectWatcher {

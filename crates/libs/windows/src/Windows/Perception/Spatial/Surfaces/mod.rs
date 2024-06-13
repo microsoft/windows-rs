@@ -141,7 +141,7 @@ pub struct ISpatialSurfaceObserverStatics2_Vtbl {
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialSurfaceInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialSurfaceInfo {
@@ -201,7 +201,7 @@ impl windows_core::RuntimeName for SpatialSurfaceInfo {
 unsafe impl Send for SpatialSurfaceInfo {}
 unsafe impl Sync for SpatialSurfaceInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceMesh(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialSurfaceMesh, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialSurfaceMesh {
@@ -262,7 +262,7 @@ impl windows_core::RuntimeName for SpatialSurfaceMesh {
 unsafe impl Send for SpatialSurfaceMesh {}
 unsafe impl Sync for SpatialSurfaceMesh {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceMeshBuffer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialSurfaceMeshBuffer, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialSurfaceMeshBuffer {
@@ -310,7 +310,7 @@ impl windows_core::RuntimeName for SpatialSurfaceMeshBuffer {
 unsafe impl Send for SpatialSurfaceMeshBuffer {}
 unsafe impl Sync for SpatialSurfaceMeshBuffer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceMeshOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialSurfaceMeshOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialSurfaceMeshOptions {
@@ -411,7 +411,7 @@ impl windows_core::RuntimeName for SpatialSurfaceMeshOptions {
 unsafe impl Send for SpatialSurfaceMeshOptions {}
 unsafe impl Sync for SpatialSurfaceMeshOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceObserver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialSurfaceObserver, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialSurfaceObserver {

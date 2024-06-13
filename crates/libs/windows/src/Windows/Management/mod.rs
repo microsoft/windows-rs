@@ -67,7 +67,7 @@ pub struct IMdmSessionManagerStatics_Vtbl {
     pub GetSessionById: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MdmAlert(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MdmAlert, windows_core::IUnknown, windows_core::IInspectable);
 impl MdmAlert {
@@ -163,7 +163,7 @@ impl windows_core::RuntimeName for MdmAlert {
     const NAME: &'static str = "Windows.Management.MdmAlert";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MdmSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MdmSession, windows_core::IUnknown, windows_core::IInspectable);
 impl MdmSession {

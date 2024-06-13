@@ -493,7 +493,7 @@ pub struct IPlaceInfoStatics2_Vtbl {
     pub CreateFromAddressWithName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnhancedWaypoint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnhancedWaypoint, windows_core::IUnknown, windows_core::IInspectable);
 impl EnhancedWaypoint {
@@ -541,7 +541,7 @@ impl windows_core::RuntimeName for EnhancedWaypoint {
 unsafe impl Send for EnhancedWaypoint {}
 unsafe impl Sync for EnhancedWaypoint {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ManeuverWarning(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManeuverWarning, windows_core::IUnknown, windows_core::IInspectable);
 impl ManeuverWarning {
@@ -573,7 +573,7 @@ impl windows_core::RuntimeName for ManeuverWarning {
 unsafe impl Send for ManeuverWarning {}
 unsafe impl Sync for ManeuverWarning {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapAddress, windows_core::IUnknown, windows_core::IInspectable);
 impl MapAddress {
@@ -703,7 +703,7 @@ impl windows_core::RuntimeName for MapAddress {
 unsafe impl Send for MapAddress {}
 unsafe impl Sync for MapAddress {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl MapLocation {
@@ -806,7 +806,7 @@ impl windows_core::RuntimeName for MapLocationFinder {
     const NAME: &'static str = "Windows.Services.Maps.MapLocationFinder";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapLocationFinderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapLocationFinderResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MapLocationFinderResult {
@@ -856,7 +856,7 @@ impl windows_core::RuntimeName for MapManager {
     const NAME: &'static str = "Windows.Services.Maps.MapManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRoute(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRoute, windows_core::IUnknown, windows_core::IInspectable);
 impl MapRoute {
@@ -954,7 +954,7 @@ impl windows_core::RuntimeName for MapRoute {
 unsafe impl Send for MapRoute {}
 unsafe impl Sync for MapRoute {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteDrivingOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteDrivingOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl MapRouteDrivingOptions {
@@ -1199,7 +1199,7 @@ impl windows_core::RuntimeName for MapRouteFinder {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteFinder";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteFinderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteFinderResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MapRouteFinderResult {
@@ -1239,7 +1239,7 @@ impl windows_core::RuntimeName for MapRouteFinderResult {
 unsafe impl Send for MapRouteFinderResult {}
 unsafe impl Sync for MapRouteFinderResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteLeg(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteLeg, windows_core::IUnknown, windows_core::IInspectable);
 impl MapRouteLeg {
@@ -1309,7 +1309,7 @@ impl windows_core::RuntimeName for MapRouteLeg {
 unsafe impl Send for MapRouteLeg {}
 unsafe impl Sync for MapRouteLeg {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteManeuver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteManeuver, windows_core::IUnknown, windows_core::IInspectable);
 impl MapRouteManeuver {
@@ -1455,7 +1455,7 @@ impl windows_core::RuntimeName for MapService {
     const NAME: &'static str = "Windows.Services.Maps.MapService";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlaceInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl PlaceInfo {
@@ -1586,7 +1586,7 @@ impl windows_core::RuntimeName for PlaceInfo {
 unsafe impl Send for PlaceInfo {}
 unsafe impl Sync for PlaceInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaceInfoCreateOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlaceInfoCreateOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl PlaceInfoCreateOptions {

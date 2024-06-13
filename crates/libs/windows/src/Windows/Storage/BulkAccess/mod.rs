@@ -179,7 +179,7 @@ pub struct IStorageItemInformation_Vtbl {
     pub RemovePropertiesUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileInformation, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
@@ -568,7 +568,7 @@ impl windows_core::RuntimeName for FileInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FileInformation";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileInformationFactory(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileInformationFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl FileInformationFactory {
@@ -700,7 +700,7 @@ impl windows_core::RuntimeName for FileInformationFactory {
 unsafe impl Send for FileInformationFactory {}
 unsafe impl Sync for FileInformationFactory {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FolderInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FolderInformation, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Search")]

@@ -104,7 +104,7 @@ pub struct IScaleAnimation_Vtbl {
     pub NormalizedOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AnimationDescription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AnimationDescription, windows_core::IUnknown, windows_core::IInspectable);
 impl AnimationDescription {
@@ -169,7 +169,7 @@ impl windows_core::RuntimeName for AnimationDescription {
 unsafe impl Send for AnimationDescription {}
 unsafe impl Sync for AnimationDescription {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OpacityAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OpacityAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OpacityAnimation, IPropertyAnimation);
@@ -237,7 +237,7 @@ impl windows_core::RuntimeName for OpacityAnimation {
 unsafe impl Send for OpacityAnimation {}
 unsafe impl Sync for OpacityAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PropertyAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PropertyAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PropertyAnimation, IPropertyAnimation);
@@ -291,7 +291,7 @@ impl windows_core::RuntimeName for PropertyAnimation {
 unsafe impl Send for PropertyAnimation {}
 unsafe impl Sync for PropertyAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScaleAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScaleAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ScaleAnimation, IPropertyAnimation);
@@ -380,7 +380,7 @@ impl windows_core::RuntimeName for ScaleAnimation {
 unsafe impl Send for ScaleAnimation {}
 unsafe impl Sync for ScaleAnimation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TranslationAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TranslationAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TranslationAnimation, IPropertyAnimation);

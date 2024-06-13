@@ -261,7 +261,7 @@ impl windows_core::RuntimeName for GameList {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameList";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameListEntry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameListEntry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GameListEntry, IGameListEntry);
@@ -382,7 +382,7 @@ impl windows_core::RuntimeName for GameListEntry {
 unsafe impl Send for GameListEntry {}
 unsafe impl Sync for GameListEntry {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameModeConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameModeConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl GameModeConfiguration {
@@ -521,7 +521,7 @@ impl windows_core::RuntimeName for GameModeConfiguration {
 unsafe impl Send for GameModeConfiguration {}
 unsafe impl Sync for GameModeConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameModeUserConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameModeUserConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl GameModeUserConfiguration {

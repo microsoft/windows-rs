@@ -113,7 +113,7 @@ impl windows_core::RuntimeName for PlatformDiagnosticActions {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActions";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformDiagnosticTraceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlatformDiagnosticTraceInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl PlatformDiagnosticTraceInfo {
@@ -173,7 +173,7 @@ impl windows_core::RuntimeName for PlatformDiagnosticTraceInfo {
 unsafe impl Send for PlatformDiagnosticTraceInfo {}
 unsafe impl Sync for PlatformDiagnosticTraceInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformDiagnosticTraceRuntimeInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlatformDiagnosticTraceRuntimeInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl PlatformDiagnosticTraceRuntimeInfo {

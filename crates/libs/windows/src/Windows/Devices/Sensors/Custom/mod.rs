@@ -66,7 +66,7 @@ pub struct ICustomSensorStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CustomSensor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CustomSensor, windows_core::IUnknown, windows_core::IInspectable);
 impl CustomSensor {
@@ -165,7 +165,7 @@ impl windows_core::RuntimeName for CustomSensor {
 unsafe impl Send for CustomSensor {}
 unsafe impl Sync for CustomSensor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CustomSensorReading(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CustomSensorReading, windows_core::IUnknown, windows_core::IInspectable);
 impl CustomSensorReading {
@@ -205,7 +205,7 @@ impl windows_core::RuntimeName for CustomSensorReading {
 unsafe impl Send for CustomSensorReading {}
 unsafe impl Sync for CustomSensorReading {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CustomSensorReadingChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CustomSensorReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CustomSensorReadingChangedEventArgs {

@@ -2234,7 +2234,7 @@ pub struct IUnifiedPosErrorDataFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, UnifiedPosErrorSeverity, UnifiedPosErrorReason, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScanner(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScanner, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScanner, super::super::Foundation::IClosable);
@@ -2381,7 +2381,7 @@ impl windows_core::RuntimeName for BarcodeScanner {
 unsafe impl Send for BarcodeScanner {}
 unsafe impl Sync for BarcodeScanner {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerCapabilities {
@@ -2441,7 +2441,7 @@ impl windows_core::RuntimeName for BarcodeScannerCapabilities {
 unsafe impl Send for BarcodeScannerCapabilities {}
 unsafe impl Sync for BarcodeScannerCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerDataReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerDataReceivedEventArgs {
@@ -2466,7 +2466,7 @@ impl windows_core::RuntimeName for BarcodeScannerDataReceivedEventArgs {
 unsafe impl Send for BarcodeScannerDataReceivedEventArgs {}
 unsafe impl Sync for BarcodeScannerDataReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerErrorOccurredEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerErrorOccurredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerErrorOccurredEventArgs {
@@ -2505,7 +2505,7 @@ impl windows_core::RuntimeName for BarcodeScannerErrorOccurredEventArgs {
 unsafe impl Send for BarcodeScannerErrorOccurredEventArgs {}
 unsafe impl Sync for BarcodeScannerErrorOccurredEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerImagePreviewReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerImagePreviewReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerImagePreviewReceivedEventArgs {
@@ -2531,7 +2531,7 @@ impl windows_core::RuntimeName for BarcodeScannerImagePreviewReceivedEventArgs {
 unsafe impl Send for BarcodeScannerImagePreviewReceivedEventArgs {}
 unsafe impl Sync for BarcodeScannerImagePreviewReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerReport, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerReport {
@@ -2588,7 +2588,7 @@ impl windows_core::RuntimeName for BarcodeScannerReport {
 unsafe impl Send for BarcodeScannerReport {}
 unsafe impl Sync for BarcodeScannerReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerStatusUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeScannerStatusUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeScannerStatusUpdatedEventArgs {
@@ -3206,7 +3206,7 @@ impl windows_core::RuntimeName for BarcodeSymbologies {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeSymbologies";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeSymbologyAttributes(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BarcodeSymbologyAttributes, windows_core::IUnknown, windows_core::IInspectable);
 impl BarcodeSymbologyAttributes {
@@ -3300,7 +3300,7 @@ impl windows_core::RuntimeName for BarcodeSymbologyAttributes {
 unsafe impl Send for BarcodeSymbologyAttributes {}
 unsafe impl Sync for BarcodeSymbologyAttributes {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CashDrawer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CashDrawer, super::super::Foundation::IClosable);
@@ -3431,7 +3431,7 @@ impl windows_core::RuntimeName for CashDrawer {
 unsafe impl Send for CashDrawer {}
 unsafe impl Sync for CashDrawer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CashDrawerCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl CashDrawerCapabilities {
@@ -3491,7 +3491,7 @@ impl windows_core::RuntimeName for CashDrawerCapabilities {
 unsafe impl Send for CashDrawerCapabilities {}
 unsafe impl Sync for CashDrawerCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerCloseAlarm(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CashDrawerCloseAlarm, windows_core::IUnknown, windows_core::IInspectable);
 impl CashDrawerCloseAlarm {
@@ -3574,7 +3574,7 @@ impl windows_core::RuntimeName for CashDrawerCloseAlarm {
 unsafe impl Send for CashDrawerCloseAlarm {}
 unsafe impl Sync for CashDrawerCloseAlarm {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CashDrawerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CashDrawerClosedEventArgs, ICashDrawerEventSourceEventArgs);
@@ -3600,7 +3600,7 @@ impl windows_core::RuntimeName for CashDrawerClosedEventArgs {
 unsafe impl Send for CashDrawerClosedEventArgs {}
 unsafe impl Sync for CashDrawerClosedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerEventSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CashDrawerEventSource, windows_core::IUnknown, windows_core::IInspectable);
 impl CashDrawerEventSource {
@@ -3646,7 +3646,7 @@ impl windows_core::RuntimeName for CashDrawerEventSource {
 unsafe impl Send for CashDrawerEventSource {}
 unsafe impl Sync for CashDrawerEventSource {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerOpenedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CashDrawerOpenedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CashDrawerOpenedEventArgs, ICashDrawerEventSourceEventArgs);
@@ -3672,7 +3672,7 @@ impl windows_core::RuntimeName for CashDrawerOpenedEventArgs {
 unsafe impl Send for CashDrawerOpenedEventArgs {}
 unsafe impl Sync for CashDrawerOpenedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerStatus(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CashDrawerStatus, windows_core::IUnknown, windows_core::IInspectable);
 impl CashDrawerStatus {
@@ -3704,7 +3704,7 @@ impl windows_core::RuntimeName for CashDrawerStatus {
 unsafe impl Send for CashDrawerStatus {}
 unsafe impl Sync for CashDrawerStatus {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerStatusUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CashDrawerStatusUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CashDrawerStatusUpdatedEventArgs {
@@ -3729,7 +3729,7 @@ impl windows_core::RuntimeName for CashDrawerStatusUpdatedEventArgs {
 unsafe impl Send for CashDrawerStatusUpdatedEventArgs {}
 unsafe impl Sync for CashDrawerStatusUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedBarcodeScanner(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedBarcodeScanner, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedBarcodeScanner, super::super::Foundation::IClosable);
@@ -3997,7 +3997,7 @@ impl windows_core::RuntimeName for ClaimedBarcodeScanner {
 unsafe impl Send for ClaimedBarcodeScanner {}
 unsafe impl Sync for ClaimedBarcodeScanner {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedBarcodeScannerClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedBarcodeScannerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ClaimedBarcodeScannerClosedEventArgs {}
@@ -4014,7 +4014,7 @@ impl windows_core::RuntimeName for ClaimedBarcodeScannerClosedEventArgs {
 unsafe impl Send for ClaimedBarcodeScannerClosedEventArgs {}
 unsafe impl Sync for ClaimedBarcodeScannerClosedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedCashDrawer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedCashDrawer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedCashDrawer, super::super::Foundation::IClosable);
@@ -4143,7 +4143,7 @@ impl windows_core::RuntimeName for ClaimedCashDrawer {
 unsafe impl Send for ClaimedCashDrawer {}
 unsafe impl Sync for ClaimedCashDrawer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedCashDrawerClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedCashDrawerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ClaimedCashDrawerClosedEventArgs {}
@@ -4160,7 +4160,7 @@ impl windows_core::RuntimeName for ClaimedCashDrawerClosedEventArgs {
 unsafe impl Send for ClaimedCashDrawerClosedEventArgs {}
 unsafe impl Sync for ClaimedCashDrawerClosedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedJournalPrinter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedJournalPrinter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedJournalPrinter, ICommonClaimedPosPrinterStation);
@@ -4304,7 +4304,7 @@ impl windows_core::RuntimeName for ClaimedJournalPrinter {
 unsafe impl Send for ClaimedJournalPrinter {}
 unsafe impl Sync for ClaimedJournalPrinter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedLineDisplay(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedLineDisplay, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedLineDisplay, super::super::Foundation::IClosable);
@@ -4578,7 +4578,7 @@ impl windows_core::RuntimeName for ClaimedLineDisplay {
 unsafe impl Send for ClaimedLineDisplay {}
 unsafe impl Sync for ClaimedLineDisplay {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedLineDisplayClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedLineDisplayClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ClaimedLineDisplayClosedEventArgs {}
@@ -4595,7 +4595,7 @@ impl windows_core::RuntimeName for ClaimedLineDisplayClosedEventArgs {
 unsafe impl Send for ClaimedLineDisplayClosedEventArgs {}
 unsafe impl Sync for ClaimedLineDisplayClosedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedMagneticStripeReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedMagneticStripeReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedMagneticStripeReader, super::super::Foundation::IClosable);
@@ -4851,7 +4851,7 @@ impl windows_core::RuntimeName for ClaimedMagneticStripeReader {
 unsafe impl Send for ClaimedMagneticStripeReader {}
 unsafe impl Sync for ClaimedMagneticStripeReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedMagneticStripeReaderClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedMagneticStripeReaderClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ClaimedMagneticStripeReaderClosedEventArgs {}
@@ -4868,7 +4868,7 @@ impl windows_core::RuntimeName for ClaimedMagneticStripeReaderClosedEventArgs {
 unsafe impl Send for ClaimedMagneticStripeReaderClosedEventArgs {}
 unsafe impl Sync for ClaimedMagneticStripeReaderClosedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedPosPrinter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedPosPrinter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedPosPrinter, super::super::Foundation::IClosable);
@@ -5037,7 +5037,7 @@ impl windows_core::RuntimeName for ClaimedPosPrinter {
 unsafe impl Send for ClaimedPosPrinter {}
 unsafe impl Sync for ClaimedPosPrinter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedPosPrinterClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedPosPrinterClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ClaimedPosPrinterClosedEventArgs {}
@@ -5054,7 +5054,7 @@ impl windows_core::RuntimeName for ClaimedPosPrinterClosedEventArgs {
 unsafe impl Send for ClaimedPosPrinterClosedEventArgs {}
 unsafe impl Sync for ClaimedPosPrinterClosedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedReceiptPrinter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedReceiptPrinter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedReceiptPrinter, ICommonClaimedPosPrinterStation);
@@ -5233,7 +5233,7 @@ impl windows_core::RuntimeName for ClaimedReceiptPrinter {
 unsafe impl Send for ClaimedReceiptPrinter {}
 unsafe impl Sync for ClaimedReceiptPrinter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedSlipPrinter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClaimedSlipPrinter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedSlipPrinter, ICommonClaimedPosPrinterStation);
@@ -5452,7 +5452,7 @@ impl windows_core::RuntimeName for ClaimedSlipPrinter {
 unsafe impl Send for ClaimedSlipPrinter {}
 unsafe impl Sync for ClaimedSlipPrinter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JournalPrintJob(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JournalPrintJob, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(JournalPrintJob, IPosPrinterJob);
@@ -5505,7 +5505,7 @@ impl windows_core::RuntimeName for JournalPrintJob {
 unsafe impl Send for JournalPrintJob {}
 unsafe impl Sync for JournalPrintJob {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JournalPrinterCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JournalPrinterCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(JournalPrinterCapabilities, ICommonPosPrintStationCapabilities);
@@ -5658,7 +5658,7 @@ impl windows_core::RuntimeName for JournalPrinterCapabilities {
 unsafe impl Send for JournalPrinterCapabilities {}
 unsafe impl Sync for JournalPrinterCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplay(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LineDisplay, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplay, super::super::Foundation::IClosable);
@@ -5784,7 +5784,7 @@ impl windows_core::RuntimeName for LineDisplay {
 unsafe impl Send for LineDisplay {}
 unsafe impl Sync for LineDisplay {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayAttributes(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LineDisplayAttributes, windows_core::IUnknown, windows_core::IInspectable);
 impl LineDisplayAttributes {
@@ -5882,7 +5882,7 @@ impl windows_core::RuntimeName for LineDisplayAttributes {
 unsafe impl Send for LineDisplayAttributes {}
 unsafe impl Sync for LineDisplayAttributes {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LineDisplayCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl LineDisplayCapabilities {
@@ -6026,7 +6026,7 @@ impl windows_core::RuntimeName for LineDisplayCapabilities {
 unsafe impl Send for LineDisplayCapabilities {}
 unsafe impl Sync for LineDisplayCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCursor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LineDisplayCursor, windows_core::IUnknown, windows_core::IInspectable);
 impl LineDisplayCursor {
@@ -6110,7 +6110,7 @@ impl windows_core::RuntimeName for LineDisplayCursor {
 unsafe impl Send for LineDisplayCursor {}
 unsafe impl Sync for LineDisplayCursor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCursorAttributes(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LineDisplayCursorAttributes, windows_core::IUnknown, windows_core::IInspectable);
 impl LineDisplayCursorAttributes {
@@ -6172,7 +6172,7 @@ impl windows_core::RuntimeName for LineDisplayCursorAttributes {
 unsafe impl Send for LineDisplayCursorAttributes {}
 unsafe impl Sync for LineDisplayCursorAttributes {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCustomGlyphs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LineDisplayCustomGlyphs, windows_core::IUnknown, windows_core::IInspectable);
 impl LineDisplayCustomGlyphs {
@@ -6216,7 +6216,7 @@ impl windows_core::RuntimeName for LineDisplayCustomGlyphs {
 unsafe impl Send for LineDisplayCustomGlyphs {}
 unsafe impl Sync for LineDisplayCustomGlyphs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayMarquee(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LineDisplayMarquee, windows_core::IUnknown, windows_core::IInspectable);
 impl LineDisplayMarquee {
@@ -6281,7 +6281,7 @@ impl windows_core::RuntimeName for LineDisplayMarquee {
 unsafe impl Send for LineDisplayMarquee {}
 unsafe impl Sync for LineDisplayMarquee {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayStatisticsCategorySelector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LineDisplayStatisticsCategorySelector, windows_core::IUnknown, windows_core::IInspectable);
 impl LineDisplayStatisticsCategorySelector {
@@ -6320,7 +6320,7 @@ impl windows_core::RuntimeName for LineDisplayStatisticsCategorySelector {
 unsafe impl Send for LineDisplayStatisticsCategorySelector {}
 unsafe impl Sync for LineDisplayStatisticsCategorySelector {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayStatusUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LineDisplayStatusUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LineDisplayStatusUpdatedEventArgs {
@@ -6345,7 +6345,7 @@ impl windows_core::RuntimeName for LineDisplayStatusUpdatedEventArgs {
 unsafe impl Send for LineDisplayStatusUpdatedEventArgs {}
 unsafe impl Sync for LineDisplayStatusUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayStoredBitmap(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LineDisplayStoredBitmap, windows_core::IUnknown, windows_core::IInspectable);
 impl LineDisplayStoredBitmap {
@@ -6377,7 +6377,7 @@ impl windows_core::RuntimeName for LineDisplayStoredBitmap {
 unsafe impl Send for LineDisplayStoredBitmap {}
 unsafe impl Sync for LineDisplayStoredBitmap {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayWindow(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LineDisplayWindow, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplayWindow, super::super::Foundation::IClosable);
@@ -6546,7 +6546,7 @@ impl windows_core::RuntimeName for LineDisplayWindow {
 unsafe impl Send for LineDisplayWindow {}
 unsafe impl Sync for LineDisplayWindow {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MagneticStripeReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagneticStripeReader, super::super::Foundation::IClosable);
@@ -6677,7 +6677,7 @@ impl windows_core::RuntimeName for MagneticStripeReader {
 unsafe impl Send for MagneticStripeReader {}
 unsafe impl Sync for MagneticStripeReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderAamvaCardDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
@@ -6828,7 +6828,7 @@ impl windows_core::RuntimeName for MagneticStripeReaderAamvaCardDataReceivedEven
 unsafe impl Send for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 unsafe impl Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderBankCardDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MagneticStripeReaderBankCardDataReceivedEventArgs {
@@ -6909,7 +6909,7 @@ impl windows_core::RuntimeName for MagneticStripeReaderBankCardDataReceivedEvent
 unsafe impl Send for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 unsafe impl Sync for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl MagneticStripeReaderCapabilities {
@@ -7068,7 +7068,7 @@ impl windows_core::RuntimeName for MagneticStripeReaderEncryptionAlgorithms {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderErrorOccurredEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderErrorOccurredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MagneticStripeReaderErrorOccurredEventArgs {
@@ -7128,7 +7128,7 @@ impl windows_core::RuntimeName for MagneticStripeReaderErrorOccurredEventArgs {
 unsafe impl Send for MagneticStripeReaderErrorOccurredEventArgs {}
 unsafe impl Sync for MagneticStripeReaderErrorOccurredEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderReport, windows_core::IUnknown, windows_core::IInspectable);
 impl MagneticStripeReaderReport {
@@ -7212,7 +7212,7 @@ impl windows_core::RuntimeName for MagneticStripeReaderReport {
 unsafe impl Send for MagneticStripeReaderReport {}
 unsafe impl Sync for MagneticStripeReaderReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderStatusUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderStatusUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MagneticStripeReaderStatusUpdatedEventArgs {
@@ -7244,7 +7244,7 @@ impl windows_core::RuntimeName for MagneticStripeReaderStatusUpdatedEventArgs {
 unsafe impl Send for MagneticStripeReaderStatusUpdatedEventArgs {}
 unsafe impl Sync for MagneticStripeReaderStatusUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderTrackData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderTrackData, windows_core::IUnknown, windows_core::IInspectable);
 impl MagneticStripeReaderTrackData {
@@ -7286,7 +7286,7 @@ impl windows_core::RuntimeName for MagneticStripeReaderTrackData {
 unsafe impl Send for MagneticStripeReaderTrackData {}
 unsafe impl Sync for MagneticStripeReaderTrackData {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
@@ -7311,7 +7311,7 @@ impl windows_core::RuntimeName for MagneticStripeReaderVendorSpecificCardDataRec
 unsafe impl Send for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 unsafe impl Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PosPrinter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PosPrinter, super::super::Foundation::IClosable);
@@ -7459,7 +7459,7 @@ impl windows_core::RuntimeName for PosPrinter {
 unsafe impl Send for PosPrinter {}
 unsafe impl Sync for PosPrinter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PosPrinterCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl PosPrinterCapabilities {
@@ -7576,7 +7576,7 @@ impl windows_core::RuntimeName for PosPrinterCharacterSetIds {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterCharacterSetIds";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterFontProperty(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PosPrinterFontProperty, windows_core::IUnknown, windows_core::IInspectable);
 impl PosPrinterFontProperty {
@@ -7616,7 +7616,7 @@ impl windows_core::RuntimeName for PosPrinterFontProperty {
 unsafe impl Send for PosPrinterFontProperty {}
 unsafe impl Sync for PosPrinterFontProperty {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterPrintOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PosPrinterPrintOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl PosPrinterPrintOptions {
@@ -7784,7 +7784,7 @@ impl windows_core::RuntimeName for PosPrinterPrintOptions {
 unsafe impl Send for PosPrinterPrintOptions {}
 unsafe impl Sync for PosPrinterPrintOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PosPrinterReleaseDeviceRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PosPrinterReleaseDeviceRequestedEventArgs {}
@@ -7801,7 +7801,7 @@ impl windows_core::RuntimeName for PosPrinterReleaseDeviceRequestedEventArgs {
 unsafe impl Send for PosPrinterReleaseDeviceRequestedEventArgs {}
 unsafe impl Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterStatus(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PosPrinterStatus, windows_core::IUnknown, windows_core::IInspectable);
 impl PosPrinterStatus {
@@ -7833,7 +7833,7 @@ impl windows_core::RuntimeName for PosPrinterStatus {
 unsafe impl Send for PosPrinterStatus {}
 unsafe impl Sync for PosPrinterStatus {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterStatusUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PosPrinterStatusUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PosPrinterStatusUpdatedEventArgs {
@@ -7858,7 +7858,7 @@ impl windows_core::RuntimeName for PosPrinterStatusUpdatedEventArgs {
 unsafe impl Send for PosPrinterStatusUpdatedEventArgs {}
 unsafe impl Sync for PosPrinterStatusUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReceiptPrintJob(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ReceiptPrintJob, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ReceiptPrintJob, IPosPrinterJob, IReceiptOrSlipJob);
@@ -8019,7 +8019,7 @@ impl windows_core::RuntimeName for ReceiptPrintJob {
 unsafe impl Send for ReceiptPrintJob {}
 unsafe impl Sync for ReceiptPrintJob {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReceiptPrinterCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ReceiptPrinterCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ReceiptPrinterCapabilities, ICommonPosPrintStationCapabilities, ICommonReceiptSlipCapabilities);
@@ -8258,7 +8258,7 @@ impl windows_core::RuntimeName for ReceiptPrinterCapabilities {
 unsafe impl Send for ReceiptPrinterCapabilities {}
 unsafe impl Sync for ReceiptPrinterCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SlipPrintJob(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SlipPrintJob, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SlipPrintJob, IPosPrinterJob, IReceiptOrSlipJob);
@@ -8403,7 +8403,7 @@ impl windows_core::RuntimeName for SlipPrintJob {
 unsafe impl Send for SlipPrintJob {}
 unsafe impl Sync for SlipPrintJob {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SlipPrinterCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SlipPrinterCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SlipPrinterCapabilities, ICommonPosPrintStationCapabilities, ICommonReceiptSlipCapabilities);
@@ -8635,7 +8635,7 @@ impl windows_core::RuntimeName for SlipPrinterCapabilities {
 unsafe impl Send for SlipPrinterCapabilities {}
 unsafe impl Sync for SlipPrinterCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UnifiedPosErrorData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UnifiedPosErrorData, windows_core::IUnknown, windows_core::IInspectable);
 impl UnifiedPosErrorData {

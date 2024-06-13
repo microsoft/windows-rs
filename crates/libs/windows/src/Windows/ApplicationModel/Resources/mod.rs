@@ -72,7 +72,7 @@ pub struct IResourceLoaderStatics4_Vtbl {
     pub GetDefaultPriPath: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceLoader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceLoader, windows_core::IUnknown, windows_core::IInspectable);
 impl ResourceLoader {

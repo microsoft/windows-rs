@@ -12,7 +12,7 @@ pub struct ICompositorController_Vtbl {
     pub RemoveCommitNeeded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositorController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositorController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositorController, super::super::super::Foundation::IClosable);

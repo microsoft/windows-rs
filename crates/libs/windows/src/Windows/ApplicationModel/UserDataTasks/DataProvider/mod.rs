@@ -136,7 +136,7 @@ pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskDataProviderConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskDataProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskDataProviderConnection {
@@ -228,7 +228,7 @@ impl windows_core::RuntimeName for UserDataTaskDataProviderConnection {
 unsafe impl Send for UserDataTaskDataProviderConnection {}
 unsafe impl Sync for UserDataTaskDataProviderConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskDataProviderTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskDataProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskDataProviderTriggerDetails {
@@ -253,7 +253,7 @@ impl windows_core::RuntimeName for UserDataTaskDataProviderTriggerDetails {
 unsafe impl Send for UserDataTaskDataProviderTriggerDetails {}
 unsafe impl Sync for UserDataTaskDataProviderTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCompleteTaskRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListCompleteTaskRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListCompleteTaskRequest {
@@ -299,7 +299,7 @@ impl windows_core::RuntimeName for UserDataTaskListCompleteTaskRequest {
 unsafe impl Send for UserDataTaskListCompleteTaskRequest {}
 unsafe impl Sync for UserDataTaskListCompleteTaskRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCompleteTaskRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListCompleteTaskRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListCompleteTaskRequestEventArgs {
@@ -331,7 +331,7 @@ impl windows_core::RuntimeName for UserDataTaskListCompleteTaskRequestEventArgs 
 unsafe impl Send for UserDataTaskListCompleteTaskRequestEventArgs {}
 unsafe impl Sync for UserDataTaskListCompleteTaskRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCreateOrUpdateTaskRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListCreateOrUpdateTaskRequest {
@@ -380,7 +380,7 @@ impl windows_core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequest {
 unsafe impl Send for UserDataTaskListCreateOrUpdateTaskRequest {}
 unsafe impl Sync for UserDataTaskListCreateOrUpdateTaskRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCreateOrUpdateTaskRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
@@ -412,7 +412,7 @@ impl windows_core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequestEven
 unsafe impl Send for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
 unsafe impl Sync for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListDeleteTaskRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListDeleteTaskRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListDeleteTaskRequest {
@@ -458,7 +458,7 @@ impl windows_core::RuntimeName for UserDataTaskListDeleteTaskRequest {
 unsafe impl Send for UserDataTaskListDeleteTaskRequest {}
 unsafe impl Sync for UserDataTaskListDeleteTaskRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListDeleteTaskRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListDeleteTaskRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListDeleteTaskRequestEventArgs {
@@ -490,7 +490,7 @@ impl windows_core::RuntimeName for UserDataTaskListDeleteTaskRequestEventArgs {
 unsafe impl Send for UserDataTaskListDeleteTaskRequestEventArgs {}
 unsafe impl Sync for UserDataTaskListDeleteTaskRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSkipOccurrenceRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListSkipOccurrenceRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListSkipOccurrenceRequest {
@@ -536,7 +536,7 @@ impl windows_core::RuntimeName for UserDataTaskListSkipOccurrenceRequest {
 unsafe impl Send for UserDataTaskListSkipOccurrenceRequest {}
 unsafe impl Sync for UserDataTaskListSkipOccurrenceRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSkipOccurrenceRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListSkipOccurrenceRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListSkipOccurrenceRequestEventArgs {
@@ -568,7 +568,7 @@ impl windows_core::RuntimeName for UserDataTaskListSkipOccurrenceRequestEventArg
 unsafe impl Send for UserDataTaskListSkipOccurrenceRequestEventArgs {}
 unsafe impl Sync for UserDataTaskListSkipOccurrenceRequestEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSyncManagerSyncRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListSyncManagerSyncRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListSyncManagerSyncRequest {
@@ -607,7 +607,7 @@ impl windows_core::RuntimeName for UserDataTaskListSyncManagerSyncRequest {
 unsafe impl Send for UserDataTaskListSyncManagerSyncRequest {}
 unsafe impl Sync for UserDataTaskListSyncManagerSyncRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListSyncManagerSyncRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataTaskListSyncManagerSyncRequestEventArgs {

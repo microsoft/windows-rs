@@ -120,7 +120,7 @@ pub struct IUICommandFactory_Vtbl {
     pub CreateWithHandlerAndId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageDialog(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MessageDialog, windows_core::IUnknown, windows_core::IInspectable);
 impl MessageDialog {
@@ -223,7 +223,7 @@ impl windows_core::RuntimeName for MessageDialog {
     const NAME: &'static str = "Windows.UI.Popups.MessageDialog";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PopupMenu(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PopupMenu, windows_core::IUnknown, windows_core::IInspectable);
 impl PopupMenu {
@@ -275,7 +275,7 @@ impl windows_core::RuntimeName for PopupMenu {
     const NAME: &'static str = "Windows.UI.Popups.PopupMenu";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UICommand(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UICommand, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UICommand, IUICommand);
@@ -370,7 +370,7 @@ impl windows_core::RuntimeName for UICommand {
 unsafe impl Send for UICommand {}
 unsafe impl Sync for UICommand {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UICommandSeparator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UICommandSeparator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UICommandSeparator, IUICommand);

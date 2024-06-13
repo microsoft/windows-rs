@@ -953,7 +953,7 @@ pub struct ITappedEventArgs2_Vtbl {
     pub ContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AttachableInputObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AttachableInputObject, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AttachableInputObject, super::super::Foundation::IClosable);
@@ -976,7 +976,7 @@ impl windows_core::RuntimeName for AttachableInputObject {
 unsafe impl Send for AttachableInputObject {}
 unsafe impl Sync for AttachableInputObject {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CrossSlidingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CrossSlidingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CrossSlidingEventArgs {
@@ -1021,7 +1021,7 @@ impl windows_core::RuntimeName for CrossSlidingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.CrossSlidingEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DraggingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DraggingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DraggingEventArgs {
@@ -1066,7 +1066,7 @@ impl windows_core::RuntimeName for DraggingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.DraggingEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EdgeGesture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EdgeGesture, windows_core::IUnknown, windows_core::IInspectable);
 impl EdgeGesture {
@@ -1135,7 +1135,7 @@ impl windows_core::RuntimeName for EdgeGesture {
     const NAME: &'static str = "Windows.UI.Input.EdgeGesture";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EdgeGestureEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EdgeGestureEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EdgeGestureEventArgs {
@@ -1158,7 +1158,7 @@ impl windows_core::RuntimeName for EdgeGestureEventArgs {
     const NAME: &'static str = "Windows.UI.Input.EdgeGestureEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GestureRecognizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GestureRecognizer, windows_core::IUnknown, windows_core::IInspectable);
 impl GestureRecognizer {
@@ -1628,7 +1628,7 @@ impl windows_core::RuntimeName for GestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.GestureRecognizer";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HoldingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HoldingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HoldingEventArgs {
@@ -1680,7 +1680,7 @@ impl windows_core::RuntimeName for HoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.HoldingEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InputActivationListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputActivationListener, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InputActivationListener, super::super::Foundation::IClosable, AttachableInputObject);
@@ -1724,7 +1724,7 @@ impl windows_core::RuntimeName for InputActivationListener {
 unsafe impl Send for InputActivationListener {}
 unsafe impl Sync for InputActivationListener {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InputActivationListenerActivationChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputActivationListenerActivationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InputActivationListenerActivationChangedEventArgs {
@@ -1749,7 +1749,7 @@ impl windows_core::RuntimeName for InputActivationListenerActivationChangedEvent
 unsafe impl Send for InputActivationListenerActivationChangedEventArgs {}
 unsafe impl Sync for InputActivationListenerActivationChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyboardDeliveryInterceptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyboardDeliveryInterceptor, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyboardDeliveryInterceptor {
@@ -1819,7 +1819,7 @@ impl windows_core::RuntimeName for KeyboardDeliveryInterceptor {
 unsafe impl Send for KeyboardDeliveryInterceptor {}
 unsafe impl Sync for KeyboardDeliveryInterceptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ManipulationCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationCompletedEventArgs {
@@ -1878,7 +1878,7 @@ impl windows_core::RuntimeName for ManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationCompletedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ManipulationInertiaStartingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationInertiaStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationInertiaStartingEventArgs {
@@ -1937,7 +1937,7 @@ impl windows_core::RuntimeName for ManipulationInertiaStartingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationInertiaStartingEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ManipulationStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationStartedEventArgs {
@@ -1982,7 +1982,7 @@ impl windows_core::RuntimeName for ManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationStartedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ManipulationUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationUpdatedEventArgs {
@@ -2048,7 +2048,7 @@ impl windows_core::RuntimeName for ManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationUpdatedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MouseWheelParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MouseWheelParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl MouseWheelParameters {
@@ -2108,7 +2108,7 @@ impl windows_core::RuntimeName for MouseWheelParameters {
     const NAME: &'static str = "Windows.UI.Input.MouseWheelParameters";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PointerPoint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointerPoint, windows_core::IUnknown, windows_core::IInspectable);
 impl PointerPoint {
@@ -2218,7 +2218,7 @@ impl windows_core::RuntimeName for PointerPoint {
     const NAME: &'static str = "Windows.UI.Input.PointerPoint";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PointerPointProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointerPointProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl PointerPointProperties {
@@ -2409,7 +2409,7 @@ impl windows_core::RuntimeName for PointerPointProperties {
     const NAME: &'static str = "Windows.UI.Input.PointerPointProperties";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PointerVisualizationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointerVisualizationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl PointerVisualizationSettings {
@@ -2460,7 +2460,7 @@ impl windows_core::RuntimeName for PointerVisualizationSettings {
 unsafe impl Send for PointerVisualizationSettings {}
 unsafe impl Sync for PointerVisualizationSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialController, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialController {
@@ -2664,7 +2664,7 @@ impl windows_core::RuntimeName for RadialController {
 unsafe impl Send for RadialController {}
 unsafe impl Sync for RadialController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerButtonClickedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonClickedEventArgs {
@@ -2697,7 +2697,7 @@ impl windows_core::RuntimeName for RadialControllerButtonClickedEventArgs {
 unsafe impl Send for RadialControllerButtonClickedEventArgs {}
 unsafe impl Sync for RadialControllerButtonClickedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerButtonHoldingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonHoldingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonHoldingEventArgs {
@@ -2730,7 +2730,7 @@ impl windows_core::RuntimeName for RadialControllerButtonHoldingEventArgs {
 unsafe impl Send for RadialControllerButtonHoldingEventArgs {}
 unsafe impl Sync for RadialControllerButtonHoldingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerButtonPressedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonPressedEventArgs {
@@ -2763,7 +2763,7 @@ impl windows_core::RuntimeName for RadialControllerButtonPressedEventArgs {
 unsafe impl Send for RadialControllerButtonPressedEventArgs {}
 unsafe impl Sync for RadialControllerButtonPressedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerButtonReleasedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonReleasedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonReleasedEventArgs {
@@ -2796,7 +2796,7 @@ impl windows_core::RuntimeName for RadialControllerButtonReleasedEventArgs {
 unsafe impl Send for RadialControllerButtonReleasedEventArgs {}
 unsafe impl Sync for RadialControllerButtonReleasedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerConfiguration {
@@ -2895,7 +2895,7 @@ impl windows_core::RuntimeName for RadialControllerConfiguration {
 unsafe impl Send for RadialControllerConfiguration {}
 unsafe impl Sync for RadialControllerConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerControlAcquiredEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerControlAcquiredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerControlAcquiredEventArgs {
@@ -2935,7 +2935,7 @@ impl windows_core::RuntimeName for RadialControllerControlAcquiredEventArgs {
 unsafe impl Send for RadialControllerControlAcquiredEventArgs {}
 unsafe impl Sync for RadialControllerControlAcquiredEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerMenu(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerMenu, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerMenu {
@@ -2993,7 +2993,7 @@ impl windows_core::RuntimeName for RadialControllerMenu {
 unsafe impl Send for RadialControllerMenu {}
 unsafe impl Sync for RadialControllerMenu {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerMenuItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerMenuItem, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerMenuItem {
@@ -3087,7 +3087,7 @@ impl windows_core::RuntimeName for RadialControllerMenuItem {
 unsafe impl Send for RadialControllerMenuItem {}
 unsafe impl Sync for RadialControllerMenuItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerRotationChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerRotationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerRotationChangedEventArgs {
@@ -3134,7 +3134,7 @@ impl windows_core::RuntimeName for RadialControllerRotationChangedEventArgs {
 unsafe impl Send for RadialControllerRotationChangedEventArgs {}
 unsafe impl Sync for RadialControllerRotationChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerScreenContact(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContact, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContact {
@@ -3166,7 +3166,7 @@ impl windows_core::RuntimeName for RadialControllerScreenContact {
 unsafe impl Send for RadialControllerScreenContact {}
 unsafe impl Sync for RadialControllerScreenContact {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerScreenContactContinuedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContactContinuedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContactContinuedEventArgs {
@@ -3206,7 +3206,7 @@ impl windows_core::RuntimeName for RadialControllerScreenContactContinuedEventAr
 unsafe impl Send for RadialControllerScreenContactContinuedEventArgs {}
 unsafe impl Sync for RadialControllerScreenContactContinuedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerScreenContactEndedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContactEndedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContactEndedEventArgs {
@@ -3239,7 +3239,7 @@ impl windows_core::RuntimeName for RadialControllerScreenContactEndedEventArgs {
 unsafe impl Send for RadialControllerScreenContactEndedEventArgs {}
 unsafe impl Sync for RadialControllerScreenContactEndedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerScreenContactStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContactStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContactStartedEventArgs {
@@ -3279,7 +3279,7 @@ impl windows_core::RuntimeName for RadialControllerScreenContactStartedEventArgs
 unsafe impl Send for RadialControllerScreenContactStartedEventArgs {}
 unsafe impl Sync for RadialControllerScreenContactStartedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RightTappedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RightTappedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RightTappedEventArgs {
@@ -3317,7 +3317,7 @@ impl windows_core::RuntimeName for RightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RightTappedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemButtonEventController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemButtonEventController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemButtonEventController, super::super::Foundation::IClosable, AttachableInputObject);
@@ -3411,7 +3411,7 @@ impl windows_core::RuntimeName for SystemButtonEventController {
 unsafe impl Send for SystemButtonEventController {}
 unsafe impl Sync for SystemButtonEventController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemFunctionButtonEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemFunctionButtonEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemFunctionButtonEventArgs {
@@ -3447,7 +3447,7 @@ impl windows_core::RuntimeName for SystemFunctionButtonEventArgs {
 unsafe impl Send for SystemFunctionButtonEventArgs {}
 unsafe impl Sync for SystemFunctionButtonEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemFunctionLockChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemFunctionLockChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemFunctionLockChangedEventArgs {
@@ -3490,7 +3490,7 @@ impl windows_core::RuntimeName for SystemFunctionLockChangedEventArgs {
 unsafe impl Send for SystemFunctionLockChangedEventArgs {}
 unsafe impl Sync for SystemFunctionLockChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemFunctionLockIndicatorChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemFunctionLockIndicatorChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemFunctionLockIndicatorChangedEventArgs {
@@ -3533,7 +3533,7 @@ impl windows_core::RuntimeName for SystemFunctionLockIndicatorChangedEventArgs {
 unsafe impl Send for SystemFunctionLockIndicatorChangedEventArgs {}
 unsafe impl Sync for SystemFunctionLockIndicatorChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TappedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TappedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TappedEventArgs {

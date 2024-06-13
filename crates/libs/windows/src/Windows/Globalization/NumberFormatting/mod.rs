@@ -523,7 +523,7 @@ pub struct ISignificantDigitsOption_Vtbl {
     pub SetSignificantDigits: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CurrencyFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CurrencyFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CurrencyFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
@@ -773,7 +773,7 @@ impl windows_core::RuntimeName for CurrencyFormatter {
 unsafe impl Send for CurrencyFormatter {}
 unsafe impl Sync for CurrencyFormatter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DecimalFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DecimalFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DecimalFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
@@ -997,7 +997,7 @@ impl windows_core::RuntimeName for DecimalFormatter {
 unsafe impl Send for DecimalFormatter {}
 unsafe impl Sync for DecimalFormatter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IncrementNumberRounder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IncrementNumberRounder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IncrementNumberRounder, INumberRounder);
@@ -1087,7 +1087,7 @@ impl windows_core::RuntimeName for IncrementNumberRounder {
 unsafe impl Send for IncrementNumberRounder {}
 unsafe impl Sync for IncrementNumberRounder {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NumeralSystemTranslator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NumeralSystemTranslator, windows_core::IUnknown, windows_core::IInspectable);
 impl NumeralSystemTranslator {
@@ -1160,7 +1160,7 @@ impl windows_core::RuntimeName for NumeralSystemTranslator {
 unsafe impl Send for NumeralSystemTranslator {}
 unsafe impl Sync for NumeralSystemTranslator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PercentFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PercentFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PercentFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
@@ -1384,7 +1384,7 @@ impl windows_core::RuntimeName for PercentFormatter {
 unsafe impl Send for PercentFormatter {}
 unsafe impl Sync for PercentFormatter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PermilleFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PermilleFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PermilleFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
@@ -1608,7 +1608,7 @@ impl windows_core::RuntimeName for PermilleFormatter {
 unsafe impl Send for PermilleFormatter {}
 unsafe impl Sync for PermilleFormatter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SignificantDigitsNumberRounder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SignificantDigitsNumberRounder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SignificantDigitsNumberRounder, INumberRounder);

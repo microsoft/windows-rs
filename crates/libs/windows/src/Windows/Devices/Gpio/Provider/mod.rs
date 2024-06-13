@@ -175,7 +175,7 @@ pub struct IGpioProvider_Vtbl {
     GetControllers: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioPinProviderValueChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioPinProviderValueChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GpioPinProviderValueChangedEventArgs {

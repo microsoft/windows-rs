@@ -444,7 +444,7 @@ pub struct IPaymentTokenFactory_Vtbl {
     pub CreateWithJsonDetails: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentAddress, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentAddress {
@@ -603,7 +603,7 @@ impl windows_core::RuntimeName for PaymentAddress {
 unsafe impl Send for PaymentAddress {}
 unsafe impl Sync for PaymentAddress {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentCanMakePaymentResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentCanMakePaymentResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentCanMakePaymentResult {
@@ -639,7 +639,7 @@ impl windows_core::RuntimeName for PaymentCanMakePaymentResult {
 unsafe impl Send for PaymentCanMakePaymentResult {}
 unsafe impl Sync for PaymentCanMakePaymentResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentCurrencyAmount(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentCurrencyAmount, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentCurrencyAmount {
@@ -707,7 +707,7 @@ impl windows_core::RuntimeName for PaymentCurrencyAmount {
 unsafe impl Send for PaymentCurrencyAmount {}
 unsafe impl Sync for PaymentCurrencyAmount {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentDetails {
@@ -819,7 +819,7 @@ impl windows_core::RuntimeName for PaymentDetails {
 unsafe impl Send for PaymentDetails {}
 unsafe impl Sync for PaymentDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentDetailsModifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentDetailsModifier, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentDetailsModifier {
@@ -907,7 +907,7 @@ impl windows_core::RuntimeName for PaymentDetailsModifier {
 unsafe impl Send for PaymentDetailsModifier {}
 unsafe impl Sync for PaymentDetailsModifier {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentItem, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentItem {
@@ -975,7 +975,7 @@ impl windows_core::RuntimeName for PaymentItem {
 unsafe impl Send for PaymentItem {}
 unsafe impl Sync for PaymentItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMediator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentMediator, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentMediator {
@@ -1039,7 +1039,7 @@ impl windows_core::RuntimeName for PaymentMediator {
 unsafe impl Send for PaymentMediator {}
 unsafe impl Sync for PaymentMediator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMerchantInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentMerchantInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentMerchantInfo {
@@ -1092,7 +1092,7 @@ impl windows_core::RuntimeName for PaymentMerchantInfo {
 unsafe impl Send for PaymentMerchantInfo {}
 unsafe impl Sync for PaymentMerchantInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMethodData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentMethodData, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentMethodData {
@@ -1150,7 +1150,7 @@ impl windows_core::RuntimeName for PaymentMethodData {
 unsafe impl Send for PaymentMethodData {}
 unsafe impl Sync for PaymentMethodData {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentOptions {
@@ -1230,7 +1230,7 @@ impl windows_core::RuntimeName for PaymentOptions {
 unsafe impl Send for PaymentOptions {}
 unsafe impl Sync for PaymentOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentRequest {
@@ -1343,7 +1343,7 @@ impl windows_core::RuntimeName for PaymentRequest {
 unsafe impl Send for PaymentRequest {}
 unsafe impl Sync for PaymentRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestChangedArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentRequestChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentRequestChangedArgs {
@@ -1389,7 +1389,7 @@ impl windows_core::RuntimeName for PaymentRequestChangedArgs {
 unsafe impl Send for PaymentRequestChangedArgs {}
 unsafe impl Sync for PaymentRequestChangedArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestChangedResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentRequestChangedResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentRequestChangedResult {
@@ -1463,7 +1463,7 @@ impl windows_core::RuntimeName for PaymentRequestChangedResult {
 unsafe impl Send for PaymentRequestChangedResult {}
 unsafe impl Sync for PaymentRequestChangedResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestSubmitResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentRequestSubmitResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentRequestSubmitResult {
@@ -1495,7 +1495,7 @@ impl windows_core::RuntimeName for PaymentRequestSubmitResult {
 unsafe impl Send for PaymentRequestSubmitResult {}
 unsafe impl Sync for PaymentRequestSubmitResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentResponse(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentResponse, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentResponse {
@@ -1562,7 +1562,7 @@ impl windows_core::RuntimeName for PaymentResponse {
 unsafe impl Send for PaymentResponse {}
 unsafe impl Sync for PaymentResponse {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentShippingOption(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentShippingOption, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentShippingOption {
@@ -1659,7 +1659,7 @@ impl windows_core::RuntimeName for PaymentShippingOption {
 unsafe impl Send for PaymentShippingOption {}
 unsafe impl Sync for PaymentShippingOption {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentToken(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentToken, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentToken {

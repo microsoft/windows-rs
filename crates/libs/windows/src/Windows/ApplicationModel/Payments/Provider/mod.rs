@@ -68,7 +68,7 @@ pub struct IPaymentTransactionStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentAppCanMakePaymentTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentAppCanMakePaymentTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentAppCanMakePaymentTriggerDetails {
@@ -100,7 +100,7 @@ impl windows_core::RuntimeName for PaymentAppCanMakePaymentTriggerDetails {
 unsafe impl Send for PaymentAppCanMakePaymentTriggerDetails {}
 unsafe impl Sync for PaymentAppCanMakePaymentTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentAppManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentAppManager, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentAppManager {
@@ -147,7 +147,7 @@ impl windows_core::RuntimeName for PaymentAppManager {
 unsafe impl Send for PaymentAppManager {}
 unsafe impl Sync for PaymentAppManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentTransaction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentTransaction, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentTransaction {
@@ -250,7 +250,7 @@ impl windows_core::RuntimeName for PaymentTransaction {
 unsafe impl Send for PaymentTransaction {}
 unsafe impl Sync for PaymentTransaction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentTransactionAcceptResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentTransactionAcceptResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentTransactionAcceptResult {

@@ -6,7 +6,7 @@
     clippy::all
 )]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IIterable<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -65,7 +65,7 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IIterator<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -150,7 +150,7 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IKeyValuePair<K, V>(
     windows_core::IUnknown,
     core::marker::PhantomData<K>,
@@ -241,7 +241,7 @@ where
     pub V: core::marker::PhantomData<V>,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IMapView<K, V>(
     windows_core::IUnknown,
     core::marker::PhantomData<K>,

@@ -118,7 +118,7 @@ pub struct ICastingSource_Vtbl {
     pub SetPreferredSourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CastingConnection, super::super::Foundation::IClosable);
@@ -214,7 +214,7 @@ impl windows_core::RuntimeName for CastingConnection {
 unsafe impl Send for CastingConnection {}
 unsafe impl Sync for CastingConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingConnectionErrorOccurredEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingConnectionErrorOccurredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingConnectionErrorOccurredEventArgs {
@@ -246,7 +246,7 @@ impl windows_core::RuntimeName for CastingConnectionErrorOccurredEventArgs {
 unsafe impl Send for CastingConnectionErrorOccurredEventArgs {}
 unsafe impl Sync for CastingConnectionErrorOccurredEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDevice {
@@ -336,7 +336,7 @@ impl windows_core::RuntimeName for CastingDevice {
 unsafe impl Send for CastingDevice {}
 unsafe impl Sync for CastingDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDevicePicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDevicePicker, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDevicePicker {
@@ -417,7 +417,7 @@ impl windows_core::RuntimeName for CastingDevicePicker {
 unsafe impl Send for CastingDevicePicker {}
 unsafe impl Sync for CastingDevicePicker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDevicePickerFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDevicePickerFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDevicePickerFilter {
@@ -476,7 +476,7 @@ impl windows_core::RuntimeName for CastingDevicePickerFilter {
 unsafe impl Send for CastingDevicePickerFilter {}
 unsafe impl Sync for CastingDevicePickerFilter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDeviceSelectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDeviceSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDeviceSelectedEventArgs {
@@ -501,7 +501,7 @@ impl windows_core::RuntimeName for CastingDeviceSelectedEventArgs {
 unsafe impl Send for CastingDeviceSelectedEventArgs {}
 unsafe impl Sync for CastingDeviceSelectedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingSource, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingSource {

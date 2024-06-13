@@ -779,7 +779,7 @@ pub struct IUploadOperation4_Vtbl {
     pub RemoveRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundDownloader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundDownloader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundDownloader, IBackgroundTransferBase);
@@ -1063,7 +1063,7 @@ impl windows_core::RuntimeName for BackgroundDownloader {
 unsafe impl Send for BackgroundDownloader {}
 unsafe impl Sync for BackgroundDownloader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferCompletionGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTransferCompletionGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundTransferCompletionGroup {
@@ -1107,7 +1107,7 @@ impl windows_core::RuntimeName for BackgroundTransferCompletionGroup {
 unsafe impl Send for BackgroundTransferCompletionGroup {}
 unsafe impl Sync for BackgroundTransferCompletionGroup {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferCompletionGroupTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTransferCompletionGroupTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundTransferCompletionGroupTriggerDetails {
@@ -1141,7 +1141,7 @@ impl windows_core::RuntimeName for BackgroundTransferCompletionGroupTriggerDetai
 unsafe impl Send for BackgroundTransferCompletionGroupTriggerDetails {}
 unsafe impl Sync for BackgroundTransferCompletionGroupTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferContentPart(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTransferContentPart, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundTransferContentPart {
@@ -1217,7 +1217,7 @@ impl windows_core::RuntimeName for BackgroundTransferError {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferError";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTransferGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundTransferGroup {
@@ -1264,7 +1264,7 @@ impl windows_core::RuntimeName for BackgroundTransferGroup {
 unsafe impl Send for BackgroundTransferGroup {}
 unsafe impl Sync for BackgroundTransferGroup {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferRangesDownloadedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTransferRangesDownloadedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundTransferRangesDownloadedEventArgs {
@@ -1304,7 +1304,7 @@ impl windows_core::RuntimeName for BackgroundTransferRangesDownloadedEventArgs {
 unsafe impl Send for BackgroundTransferRangesDownloadedEventArgs {}
 unsafe impl Sync for BackgroundTransferRangesDownloadedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundUploader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundUploader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundUploader, IBackgroundTransferBase);
@@ -1651,7 +1651,7 @@ impl windows_core::RuntimeName for ContentPrefetcher {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.ContentPrefetcher";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DownloadOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DownloadOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DownloadOperation, IBackgroundTransferOperation, IBackgroundTransferOperationPriority);
@@ -1856,7 +1856,7 @@ impl windows_core::RuntimeName for DownloadOperation {
 unsafe impl Send for DownloadOperation {}
 unsafe impl Sync for DownloadOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResponseInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResponseInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl ResponseInformation {
@@ -1904,7 +1904,7 @@ unsafe impl Send for ResponseInformation {}
 unsafe impl Sync for ResponseInformation {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UnconstrainedTransferRequestResult(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(UnconstrainedTransferRequestResult, windows_core::IUnknown, windows_core::IInspectable);
@@ -1937,7 +1937,7 @@ unsafe impl Send for UnconstrainedTransferRequestResult {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for UnconstrainedTransferRequestResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UploadOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UploadOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UploadOperation, IBackgroundTransferOperation, IBackgroundTransferOperationPriority);

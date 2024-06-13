@@ -808,7 +808,7 @@ pub struct ISmartCardTriggerDetails3_Vtbl {
     pub SmartCard: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CardAddedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CardAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CardAddedEventArgs {
@@ -833,7 +833,7 @@ impl windows_core::RuntimeName for CardAddedEventArgs {
 unsafe impl Send for CardAddedEventArgs {}
 unsafe impl Sync for CardAddedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CardRemovedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CardRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CardRemovedEventArgs {
@@ -883,7 +883,7 @@ impl windows_core::RuntimeName for KnownSmartCardAppletIds {
     const NAME: &'static str = "Windows.Devices.SmartCards.KnownSmartCardAppletIds";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCard(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCard, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCard {
@@ -930,7 +930,7 @@ impl windows_core::RuntimeName for SmartCard {
 unsafe impl Send for SmartCard {}
 unsafe impl Sync for SmartCard {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardAppletIdGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardAppletIdGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardAppletIdGroup {
@@ -1079,7 +1079,7 @@ impl windows_core::RuntimeName for SmartCardAppletIdGroup {
 unsafe impl Send for SmartCardAppletIdGroup {}
 unsafe impl Sync for SmartCardAppletIdGroup {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardAppletIdGroupRegistration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardAppletIdGroupRegistration, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardAppletIdGroupRegistration {
@@ -1154,7 +1154,7 @@ impl windows_core::RuntimeName for SmartCardAppletIdGroupRegistration {
 unsafe impl Send for SmartCardAppletIdGroupRegistration {}
 unsafe impl Sync for SmartCardAppletIdGroupRegistration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardAutomaticResponseApdu(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardAutomaticResponseApdu, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardAutomaticResponseApdu {
@@ -1302,7 +1302,7 @@ impl windows_core::RuntimeName for SmartCardAutomaticResponseApdu {
 unsafe impl Send for SmartCardAutomaticResponseApdu {}
 unsafe impl Sync for SmartCardAutomaticResponseApdu {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardChallengeContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardChallengeContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardChallengeContext, super::super::Foundation::IClosable);
@@ -1378,7 +1378,7 @@ impl windows_core::RuntimeName for SmartCardChallengeContext {
 unsafe impl Send for SmartCardChallengeContext {}
 unsafe impl Sync for SmartCardChallengeContext {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardConnection, super::super::Foundation::IClosable);
@@ -1412,7 +1412,7 @@ impl windows_core::RuntimeName for SmartCardConnection {
 unsafe impl Send for SmartCardConnection {}
 unsafe impl Sync for SmartCardConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGenerator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramGenerator, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardCryptogramGenerator {
@@ -1590,7 +1590,7 @@ impl windows_core::RuntimeName for SmartCardCryptogramGenerator {
 unsafe impl Send for SmartCardCryptogramGenerator {}
 unsafe impl Sync for SmartCardCryptogramGenerator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
@@ -1630,7 +1630,7 @@ impl windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialCh
 unsafe impl Send for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 unsafe impl Sync for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
@@ -1670,7 +1670,7 @@ impl windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialPa
 unsafe impl Send for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 unsafe impl Sync for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
@@ -1710,7 +1710,7 @@ impl windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramStorageKey
 unsafe impl Send for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 unsafe impl Sync for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramMaterialCharacteristics(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialCharacteristics, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardCryptogramMaterialCharacteristics {
@@ -1794,7 +1794,7 @@ impl windows_core::RuntimeName for SmartCardCryptogramMaterialCharacteristics {
 unsafe impl Send for SmartCardCryptogramMaterialCharacteristics {}
 unsafe impl Sync for SmartCardCryptogramMaterialCharacteristics {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramMaterialPackageCharacteristics(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialPackageCharacteristics, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardCryptogramMaterialPackageCharacteristics {
@@ -1847,7 +1847,7 @@ impl windows_core::RuntimeName for SmartCardCryptogramMaterialPackageCharacteris
 unsafe impl Send for SmartCardCryptogramMaterialPackageCharacteristics {}
 unsafe impl Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramMaterialPossessionProof(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialPossessionProof, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardCryptogramMaterialPossessionProof {
@@ -1880,7 +1880,7 @@ impl windows_core::RuntimeName for SmartCardCryptogramMaterialPossessionProof {
 unsafe impl Send for SmartCardCryptogramMaterialPossessionProof {}
 unsafe impl Sync for SmartCardCryptogramMaterialPossessionProof {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramPlacementStep(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramPlacementStep, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardCryptogramPlacementStep {
@@ -2012,7 +2012,7 @@ impl windows_core::RuntimeName for SmartCardCryptogramPlacementStep {
 unsafe impl Send for SmartCardCryptogramPlacementStep {}
 unsafe impl Sync for SmartCardCryptogramPlacementStep {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyCharacteristics, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardCryptogramStorageKeyCharacteristics {
@@ -2065,7 +2065,7 @@ impl windows_core::RuntimeName for SmartCardCryptogramStorageKeyCharacteristics 
 unsafe impl Send for SmartCardCryptogramStorageKeyCharacteristics {}
 unsafe impl Sync for SmartCardCryptogramStorageKeyCharacteristics {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramStorageKeyInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardCryptogramStorageKeyInfo {
@@ -2143,7 +2143,7 @@ impl windows_core::RuntimeName for SmartCardCryptogramStorageKeyInfo {
 unsafe impl Send for SmartCardCryptogramStorageKeyInfo {}
 unsafe impl Sync for SmartCardCryptogramStorageKeyInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardEmulator, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardEmulator {
@@ -2265,7 +2265,7 @@ impl windows_core::RuntimeName for SmartCardEmulator {
 unsafe impl Send for SmartCardEmulator {}
 unsafe impl Sync for SmartCardEmulator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulatorApduReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardEmulatorApduReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardEmulatorApduReceivedEventArgs {
@@ -2360,7 +2360,7 @@ impl windows_core::RuntimeName for SmartCardEmulatorApduReceivedEventArgs {
 unsafe impl Send for SmartCardEmulatorApduReceivedEventArgs {}
 unsafe impl Sync for SmartCardEmulatorApduReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulatorConnectionDeactivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardEmulatorConnectionDeactivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardEmulatorConnectionDeactivatedEventArgs {
@@ -2392,7 +2392,7 @@ impl windows_core::RuntimeName for SmartCardEmulatorConnectionDeactivatedEventAr
 unsafe impl Send for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 unsafe impl Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulatorConnectionProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardEmulatorConnectionProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardEmulatorConnectionProperties {
@@ -2424,7 +2424,7 @@ impl windows_core::RuntimeName for SmartCardEmulatorConnectionProperties {
 unsafe impl Send for SmartCardEmulatorConnectionProperties {}
 unsafe impl Sync for SmartCardEmulatorConnectionProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardPinPolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardPinPolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardPinPolicy {
@@ -2515,7 +2515,7 @@ impl windows_core::RuntimeName for SmartCardPinPolicy {
 unsafe impl Send for SmartCardPinPolicy {}
 unsafe impl Sync for SmartCardPinPolicy {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardPinResetDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardPinResetDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardPinResetDeferral {
@@ -2537,7 +2537,7 @@ impl windows_core::RuntimeName for SmartCardPinResetDeferral {
 unsafe impl Send for SmartCardPinResetDeferral {}
 unsafe impl Sync for SmartCardPinResetDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardPinResetRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardPinResetRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardPinResetRequest {
@@ -2585,7 +2585,7 @@ impl windows_core::RuntimeName for SmartCardPinResetRequest {
 unsafe impl Send for SmartCardPinResetRequest {}
 unsafe impl Sync for SmartCardPinResetRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardProvisioning(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardProvisioning, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardProvisioning {
@@ -2727,7 +2727,7 @@ impl windows_core::RuntimeName for SmartCardProvisioning {
 unsafe impl Send for SmartCardProvisioning {}
 unsafe impl Sync for SmartCardProvisioning {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardReader, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardReader {
@@ -2832,7 +2832,7 @@ impl windows_core::RuntimeName for SmartCardReader {
 unsafe impl Send for SmartCardReader {}
 unsafe impl Sync for SmartCardReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl SmartCardTriggerDetails {

@@ -359,7 +359,7 @@ pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
     UnavailableSystemResources: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivationSignalDetectionConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivationSignalDetectionConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivationSignalDetectionConfiguration, super::super::Foundation::IClosable);
@@ -599,7 +599,7 @@ impl windows_core::RuntimeName for ActivationSignalDetectionConfiguration {
 unsafe impl Send for ActivationSignalDetectionConfiguration {}
 unsafe impl Sync for ActivationSignalDetectionConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivationSignalDetectionConfigurationCreationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivationSignalDetectionConfigurationCreationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ActivationSignalDetectionConfigurationCreationResult {
@@ -631,7 +631,7 @@ impl windows_core::RuntimeName for ActivationSignalDetectionConfigurationCreatio
 unsafe impl Send for ActivationSignalDetectionConfigurationCreationResult {}
 unsafe impl Sync for ActivationSignalDetectionConfigurationCreationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivationSignalDetector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivationSignalDetector, windows_core::IUnknown, windows_core::IInspectable);
 impl ActivationSignalDetector {
@@ -813,7 +813,7 @@ impl windows_core::RuntimeName for ActivationSignalDetector {
 unsafe impl Send for ActivationSignalDetector {}
 unsafe impl Sync for ActivationSignalDetector {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentDetectorManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentDetectorManager, windows_core::IUnknown, windows_core::IInspectable);
 impl ConversationalAgentDetectorManager {
@@ -888,7 +888,7 @@ impl windows_core::RuntimeName for ConversationalAgentDetectorManager {
 unsafe impl Send for ConversationalAgentDetectorManager {}
 unsafe impl Sync for ConversationalAgentDetectorManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConversationalAgentSession, super::super::Foundation::IClosable);
@@ -1217,7 +1217,7 @@ impl windows_core::RuntimeName for ConversationalAgentSession {
 unsafe impl Send for ConversationalAgentSession {}
 unsafe impl Sync for ConversationalAgentSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSessionInterruptedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSessionInterruptedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ConversationalAgentSessionInterruptedEventArgs {}
@@ -1234,7 +1234,7 @@ impl windows_core::RuntimeName for ConversationalAgentSessionInterruptedEventArg
 unsafe impl Send for ConversationalAgentSessionInterruptedEventArgs {}
 unsafe impl Sync for ConversationalAgentSessionInterruptedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSignal(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSignal, windows_core::IUnknown, windows_core::IInspectable);
 impl ConversationalAgentSignal {
@@ -1335,7 +1335,7 @@ impl windows_core::RuntimeName for ConversationalAgentSignal {
 unsafe impl Send for ConversationalAgentSignal {}
 unsafe impl Sync for ConversationalAgentSignal {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSignalDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSignalDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ConversationalAgentSignalDetectedEventArgs {}
@@ -1352,7 +1352,7 @@ impl windows_core::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
 unsafe impl Send for ConversationalAgentSignalDetectedEventArgs {}
 unsafe impl Sync for ConversationalAgentSignalDetectedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSystemStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentSystemStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ConversationalAgentSystemStateChangedEventArgs {
@@ -1377,7 +1377,7 @@ impl windows_core::RuntimeName for ConversationalAgentSystemStateChangedEventArg
 unsafe impl Send for ConversationalAgentSystemStateChangedEventArgs {}
 unsafe impl Sync for ConversationalAgentSystemStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DetectionConfigurationAvailabilityChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DetectionConfigurationAvailabilityChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DetectionConfigurationAvailabilityChangedEventArgs {
@@ -1402,7 +1402,7 @@ impl windows_core::RuntimeName for DetectionConfigurationAvailabilityChangedEven
 unsafe impl Send for DetectionConfigurationAvailabilityChangedEventArgs {}
 unsafe impl Sync for DetectionConfigurationAvailabilityChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DetectionConfigurationAvailabilityInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DetectionConfigurationAvailabilityInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl DetectionConfigurationAvailabilityInfo {

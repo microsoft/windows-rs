@@ -23,7 +23,7 @@ pub struct IExtendedExecutionForegroundSession_Vtbl {
     pub SetReason: unsafe extern "system" fn(*mut core::ffi::c_void, ExtendedExecutionForegroundReason) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExtendedExecutionForegroundRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionForegroundRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ExtendedExecutionForegroundRevokedEventArgs {
@@ -48,7 +48,7 @@ impl windows_core::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
 unsafe impl Send for ExtendedExecutionForegroundRevokedEventArgs {}
 unsafe impl Sync for ExtendedExecutionForegroundRevokedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExtendedExecutionForegroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionForegroundSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ExtendedExecutionForegroundSession, super::super::super::Foundation::IClosable);

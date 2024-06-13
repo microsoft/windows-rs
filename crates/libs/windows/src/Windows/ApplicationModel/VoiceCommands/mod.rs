@@ -185,7 +185,7 @@ pub struct IVoiceCommandUserMessage_Vtbl {
     pub SetSpokenMessage: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommand(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommand, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceCommand {
@@ -226,7 +226,7 @@ impl windows_core::RuntimeName for VoiceCommand {
 unsafe impl Send for VoiceCommand {}
 unsafe impl Sync for VoiceCommand {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommandCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceCommandCompletedEventArgs {
@@ -251,7 +251,7 @@ impl windows_core::RuntimeName for VoiceCommandCompletedEventArgs {
 unsafe impl Send for VoiceCommandCompletedEventArgs {}
 unsafe impl Sync for VoiceCommandCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandConfirmationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommandConfirmationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceCommandConfirmationResult {
@@ -276,7 +276,7 @@ impl windows_core::RuntimeName for VoiceCommandConfirmationResult {
 unsafe impl Send for VoiceCommandConfirmationResult {}
 unsafe impl Sync for VoiceCommandConfirmationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandContentTile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommandContentTile, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceCommandContentTile {
@@ -397,7 +397,7 @@ impl windows_core::RuntimeName for VoiceCommandContentTile {
 unsafe impl Send for VoiceCommandContentTile {}
 unsafe impl Sync for VoiceCommandContentTile {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommandDefinition, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceCommandDefinition {
@@ -468,7 +468,7 @@ impl windows_core::RuntimeName for VoiceCommandDefinitionManager {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandDisambiguationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommandDisambiguationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceCommandDisambiguationResult {
@@ -493,7 +493,7 @@ impl windows_core::RuntimeName for VoiceCommandDisambiguationResult {
 unsafe impl Send for VoiceCommandDisambiguationResult {}
 unsafe impl Sync for VoiceCommandDisambiguationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandResponse(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommandResponse, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceCommandResponse {
@@ -611,7 +611,7 @@ impl windows_core::RuntimeName for VoiceCommandResponse {
 unsafe impl Send for VoiceCommandResponse {}
 unsafe impl Sync for VoiceCommandResponse {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandServiceConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommandServiceConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceCommandServiceConnection {
@@ -733,7 +733,7 @@ impl windows_core::RuntimeName for VoiceCommandServiceConnection {
 unsafe impl Send for VoiceCommandServiceConnection {}
 unsafe impl Sync for VoiceCommandServiceConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandUserMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommandUserMessage, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceCommandUserMessage {

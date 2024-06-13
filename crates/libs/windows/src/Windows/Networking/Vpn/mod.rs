@@ -1207,7 +1207,7 @@ pub struct IVpnTrafficFilterFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnAppId(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnAppId, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnAppId {
@@ -1258,7 +1258,7 @@ impl windows_core::RuntimeName for VpnAppId {
 unsafe impl Send for VpnAppId {}
 unsafe impl Sync for VpnAppId {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnChannel, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnChannel {
@@ -1598,7 +1598,7 @@ impl windows_core::RuntimeName for VpnChannel {
 unsafe impl Send for VpnChannel {}
 unsafe impl Sync for VpnChannel {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannelActivityEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnChannelActivityEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnChannelActivityEventArgs {
@@ -1623,7 +1623,7 @@ impl windows_core::RuntimeName for VpnChannelActivityEventArgs {
 unsafe impl Send for VpnChannelActivityEventArgs {}
 unsafe impl Sync for VpnChannelActivityEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannelActivityStateChangedArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnChannelActivityStateChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnChannelActivityStateChangedArgs {
@@ -1648,7 +1648,7 @@ impl windows_core::RuntimeName for VpnChannelActivityStateChangedArgs {
 unsafe impl Send for VpnChannelActivityStateChangedArgs {}
 unsafe impl Sync for VpnChannelActivityStateChangedArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannelConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnChannelConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnChannelConfiguration {
@@ -1696,7 +1696,7 @@ impl windows_core::RuntimeName for VpnChannelConfiguration {
 unsafe impl Send for VpnChannelConfiguration {}
 unsafe impl Sync for VpnChannelConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCredential(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnCredential, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCredential, IVpnCredential);
@@ -1746,7 +1746,7 @@ impl windows_core::RuntimeName for VpnCredential {
 unsafe impl Send for VpnCredential {}
 unsafe impl Sync for VpnCredential {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomCheckBox(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnCustomCheckBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomCheckBox, IVpnCustomPrompt);
@@ -1823,7 +1823,7 @@ impl windows_core::RuntimeName for VpnCustomCheckBox {
 unsafe impl Send for VpnCustomCheckBox {}
 unsafe impl Sync for VpnCustomCheckBox {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomComboBox(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnCustomComboBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomComboBox, IVpnCustomPrompt);
@@ -1905,7 +1905,7 @@ impl windows_core::RuntimeName for VpnCustomComboBox {
 unsafe impl Send for VpnCustomComboBox {}
 unsafe impl Sync for VpnCustomComboBox {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomEditBox(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnCustomEditBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomEditBox, IVpnCustomPrompt);
@@ -1993,7 +1993,7 @@ impl windows_core::RuntimeName for VpnCustomEditBox {
 unsafe impl Send for VpnCustomEditBox {}
 unsafe impl Sync for VpnCustomEditBox {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomErrorBox(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnCustomErrorBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomErrorBox, IVpnCustomPrompt);
@@ -2052,7 +2052,7 @@ impl windows_core::RuntimeName for VpnCustomErrorBox {
 unsafe impl Send for VpnCustomErrorBox {}
 unsafe impl Sync for VpnCustomErrorBox {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptBooleanInput(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnCustomPromptBooleanInput, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomPromptBooleanInput, IVpnCustomPromptElement);
@@ -2129,7 +2129,7 @@ impl windows_core::RuntimeName for VpnCustomPromptBooleanInput {
 unsafe impl Send for VpnCustomPromptBooleanInput {}
 unsafe impl Sync for VpnCustomPromptBooleanInput {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptOptionSelector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnCustomPromptOptionSelector, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomPromptOptionSelector, IVpnCustomPromptElement);
@@ -2203,7 +2203,7 @@ impl windows_core::RuntimeName for VpnCustomPromptOptionSelector {
 unsafe impl Send for VpnCustomPromptOptionSelector {}
 unsafe impl Sync for VpnCustomPromptOptionSelector {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptText(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnCustomPromptText, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomPromptText, IVpnCustomPromptElement);
@@ -2273,7 +2273,7 @@ impl windows_core::RuntimeName for VpnCustomPromptText {
 unsafe impl Send for VpnCustomPromptText {}
 unsafe impl Sync for VpnCustomPromptText {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptTextInput(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnCustomPromptTextInput, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomPromptTextInput, IVpnCustomPromptElement);
@@ -2361,7 +2361,7 @@ impl windows_core::RuntimeName for VpnCustomPromptTextInput {
 unsafe impl Send for VpnCustomPromptTextInput {}
 unsafe impl Sync for VpnCustomPromptTextInput {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomTextBox(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnCustomTextBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomTextBox, IVpnCustomPrompt);
@@ -2431,7 +2431,7 @@ impl windows_core::RuntimeName for VpnCustomTextBox {
 unsafe impl Send for VpnCustomTextBox {}
 unsafe impl Sync for VpnCustomTextBox {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnDomainNameAssignment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnDomainNameAssignment, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnDomainNameAssignment {
@@ -2478,7 +2478,7 @@ impl windows_core::RuntimeName for VpnDomainNameAssignment {
 unsafe impl Send for VpnDomainNameAssignment {}
 unsafe impl Sync for VpnDomainNameAssignment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnDomainNameInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnDomainNameInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnDomainNameInfo {
@@ -2561,7 +2561,7 @@ impl windows_core::RuntimeName for VpnDomainNameInfo {
 unsafe impl Send for VpnDomainNameInfo {}
 unsafe impl Sync for VpnDomainNameInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnForegroundActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnForegroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2635,7 +2635,7 @@ impl windows_core::RuntimeName for VpnForegroundActivatedEventArgs {
 unsafe impl Send for VpnForegroundActivatedEventArgs {}
 unsafe impl Sync for VpnForegroundActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnForegroundActivationOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnForegroundActivationOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnForegroundActivationOperation {
@@ -2661,7 +2661,7 @@ impl windows_core::RuntimeName for VpnForegroundActivationOperation {
 unsafe impl Send for VpnForegroundActivationOperation {}
 unsafe impl Sync for VpnForegroundActivationOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnInterfaceId(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnInterfaceId, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnInterfaceId {
@@ -2694,7 +2694,7 @@ impl windows_core::RuntimeName for VpnInterfaceId {
 unsafe impl Send for VpnInterfaceId {}
 unsafe impl Sync for VpnInterfaceId {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnManagementAgent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnManagementAgent, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnManagementAgent {
@@ -2803,7 +2803,7 @@ impl windows_core::RuntimeName for VpnManagementAgent {
 unsafe impl Send for VpnManagementAgent {}
 unsafe impl Sync for VpnManagementAgent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnNamespaceAssignment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnNamespaceAssignment, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnNamespaceAssignment {
@@ -2858,7 +2858,7 @@ impl windows_core::RuntimeName for VpnNamespaceAssignment {
 unsafe impl Send for VpnNamespaceAssignment {}
 unsafe impl Sync for VpnNamespaceAssignment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnNamespaceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnNamespaceInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnNamespaceInfo {
@@ -2935,7 +2935,7 @@ impl windows_core::RuntimeName for VpnNamespaceInfo {
 unsafe impl Send for VpnNamespaceInfo {}
 unsafe impl Sync for VpnNamespaceInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnNativeProfile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnNativeProfile, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnNativeProfile, IVpnProfile);
@@ -3107,7 +3107,7 @@ impl windows_core::RuntimeName for VpnNativeProfile {
 unsafe impl Send for VpnNativeProfile {}
 unsafe impl Sync for VpnNativeProfile {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnPacketBuffer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnPacketBuffer, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnPacketBuffer {
@@ -3190,7 +3190,7 @@ impl windows_core::RuntimeName for VpnPacketBuffer {
 unsafe impl Send for VpnPacketBuffer {}
 unsafe impl Sync for VpnPacketBuffer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnPacketBufferList(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnPacketBufferList, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -3284,7 +3284,7 @@ impl IntoIterator for &VpnPacketBufferList {
 unsafe impl Send for VpnPacketBufferList {}
 unsafe impl Sync for VpnPacketBufferList {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnPickedCredential(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnPickedCredential, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnPickedCredential {
@@ -3325,7 +3325,7 @@ impl windows_core::RuntimeName for VpnPickedCredential {
 unsafe impl Send for VpnPickedCredential {}
 unsafe impl Sync for VpnPickedCredential {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnPlugInProfile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnPlugInProfile, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnPlugInProfile, IVpnProfile);
@@ -3464,7 +3464,7 @@ impl windows_core::RuntimeName for VpnPlugInProfile {
 unsafe impl Send for VpnPlugInProfile {}
 unsafe impl Sync for VpnPlugInProfile {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnRoute(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnRoute, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnRoute {
@@ -3521,7 +3521,7 @@ impl windows_core::RuntimeName for VpnRoute {
 unsafe impl Send for VpnRoute {}
 unsafe impl Sync for VpnRoute {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnRouteAssignment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnRouteAssignment, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnRouteAssignment {
@@ -3621,7 +3621,7 @@ impl windows_core::RuntimeName for VpnRouteAssignment {
 unsafe impl Send for VpnRouteAssignment {}
 unsafe impl Sync for VpnRouteAssignment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnSystemHealth(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnSystemHealth, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnSystemHealth {
@@ -3647,7 +3647,7 @@ impl windows_core::RuntimeName for VpnSystemHealth {
 unsafe impl Send for VpnSystemHealth {}
 unsafe impl Sync for VpnSystemHealth {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnTrafficFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnTrafficFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnTrafficFilter {
@@ -3755,7 +3755,7 @@ impl windows_core::RuntimeName for VpnTrafficFilter {
 unsafe impl Send for VpnTrafficFilter {}
 unsafe impl Sync for VpnTrafficFilter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnTrafficFilterAssignment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnTrafficFilterAssignment, windows_core::IUnknown, windows_core::IInspectable);
 impl VpnTrafficFilterAssignment {

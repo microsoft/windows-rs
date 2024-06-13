@@ -1196,7 +1196,7 @@ pub struct IWebSocketServerCustomValidationRequestedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ControlChannelTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ControlChannelTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ControlChannelTrigger, super::super::Foundation::IClosable);
@@ -1313,7 +1313,7 @@ impl windows_core::RuntimeName for ControlChannelTrigger {
 unsafe impl Send for ControlChannelTrigger {}
 unsafe impl Sync for ControlChannelTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocket(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DatagramSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DatagramSocket, super::super::Foundation::IClosable);
@@ -1514,7 +1514,7 @@ impl windows_core::RuntimeName for DatagramSocket {
 unsafe impl Send for DatagramSocket {}
 unsafe impl Sync for DatagramSocket {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocketControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DatagramSocketControl, windows_core::IUnknown, windows_core::IInspectable);
 impl DatagramSocketControl {
@@ -1587,7 +1587,7 @@ impl windows_core::RuntimeName for DatagramSocketControl {
 unsafe impl Send for DatagramSocketControl {}
 unsafe impl Sync for DatagramSocketControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocketInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DatagramSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl DatagramSocketInformation {
@@ -1633,7 +1633,7 @@ impl windows_core::RuntimeName for DatagramSocketInformation {
 unsafe impl Send for DatagramSocketInformation {}
 unsafe impl Sync for DatagramSocketInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocketMessageReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DatagramSocketMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DatagramSocketMessageReceivedEventArgs {
@@ -1688,7 +1688,7 @@ impl windows_core::RuntimeName for DatagramSocketMessageReceivedEventArgs {
 unsafe impl Send for DatagramSocketMessageReceivedEventArgs {}
 unsafe impl Sync for DatagramSocketMessageReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocket(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MessageWebSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MessageWebSocket, super::super::Foundation::IClosable, IWebSocket);
@@ -1822,7 +1822,7 @@ impl windows_core::RuntimeName for MessageWebSocket {
 unsafe impl Send for MessageWebSocket {}
 unsafe impl Sync for MessageWebSocket {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocketControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MessageWebSocketControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MessageWebSocketControl, IWebSocketControl, IWebSocketControl2);
@@ -1967,7 +1967,7 @@ impl windows_core::RuntimeName for MessageWebSocketControl {
 unsafe impl Send for MessageWebSocketControl {}
 unsafe impl Sync for MessageWebSocketControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocketInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MessageWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MessageWebSocketInformation, IWebSocketInformation, IWebSocketInformation2);
@@ -2038,7 +2038,7 @@ impl windows_core::RuntimeName for MessageWebSocketInformation {
 unsafe impl Send for MessageWebSocketInformation {}
 unsafe impl Sync for MessageWebSocketInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocketMessageReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MessageWebSocketMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MessageWebSocketMessageReceivedEventArgs {
@@ -2086,7 +2086,7 @@ impl windows_core::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
 unsafe impl Send for MessageWebSocketMessageReceivedEventArgs {}
 unsafe impl Sync for MessageWebSocketMessageReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerMessageWebSocket(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ServerMessageWebSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ServerMessageWebSocket, super::super::Foundation::IClosable);
@@ -2163,7 +2163,7 @@ impl windows_core::RuntimeName for ServerMessageWebSocket {
 unsafe impl Send for ServerMessageWebSocket {}
 unsafe impl Sync for ServerMessageWebSocket {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerMessageWebSocketControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ServerMessageWebSocketControl, windows_core::IUnknown, windows_core::IInspectable);
 impl ServerMessageWebSocketControl {
@@ -2192,7 +2192,7 @@ impl windows_core::RuntimeName for ServerMessageWebSocketControl {
 unsafe impl Send for ServerMessageWebSocketControl {}
 unsafe impl Sync for ServerMessageWebSocketControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerMessageWebSocketInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ServerMessageWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl ServerMessageWebSocketInformation {
@@ -2231,7 +2231,7 @@ impl windows_core::RuntimeName for ServerMessageWebSocketInformation {
 unsafe impl Send for ServerMessageWebSocketInformation {}
 unsafe impl Sync for ServerMessageWebSocketInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerStreamWebSocket(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ServerStreamWebSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ServerStreamWebSocket, super::super::Foundation::IClosable);
@@ -2295,7 +2295,7 @@ impl windows_core::RuntimeName for ServerStreamWebSocket {
 unsafe impl Send for ServerStreamWebSocket {}
 unsafe impl Sync for ServerStreamWebSocket {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerStreamWebSocketInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ServerStreamWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl ServerStreamWebSocketInformation {
@@ -2334,7 +2334,7 @@ impl windows_core::RuntimeName for ServerStreamWebSocketInformation {
 unsafe impl Send for ServerStreamWebSocketInformation {}
 unsafe impl Sync for ServerStreamWebSocketInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SocketActivityContext, windows_core::IUnknown, windows_core::IInspectable);
 impl SocketActivityContext {
@@ -2375,7 +2375,7 @@ impl windows_core::RuntimeName for SocketActivityContext {
 unsafe impl Send for SocketActivityContext {}
 unsafe impl Sync for SocketActivityContext {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SocketActivityInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl SocketActivityInformation {
@@ -2454,7 +2454,7 @@ impl windows_core::RuntimeName for SocketActivityInformation {
 unsafe impl Send for SocketActivityInformation {}
 unsafe impl Sync for SocketActivityInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SocketActivityTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl SocketActivityTriggerDetails {
@@ -2503,7 +2503,7 @@ impl windows_core::RuntimeName for SocketError {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketError";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocket(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamSocket, super::super::Foundation::IClosable);
@@ -2683,7 +2683,7 @@ impl windows_core::RuntimeName for StreamSocket {
 unsafe impl Send for StreamSocket {}
 unsafe impl Sync for StreamSocket {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamSocketControl, windows_core::IUnknown, windows_core::IInspectable);
 impl StreamSocketControl {
@@ -2802,7 +2802,7 @@ impl windows_core::RuntimeName for StreamSocketControl {
 unsafe impl Send for StreamSocketControl {}
 unsafe impl Sync for StreamSocketControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl StreamSocketInformation {
@@ -2922,7 +2922,7 @@ impl windows_core::RuntimeName for StreamSocketInformation {
 unsafe impl Send for StreamSocketInformation {}
 unsafe impl Sync for StreamSocketInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamSocketListener, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamSocketListener, super::super::Foundation::IClosable);
@@ -3041,7 +3041,7 @@ impl windows_core::RuntimeName for StreamSocketListener {
 unsafe impl Send for StreamSocketListener {}
 unsafe impl Sync for StreamSocketListener {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListenerConnectionReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamSocketListenerConnectionReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl StreamSocketListenerConnectionReceivedEventArgs {
@@ -3066,7 +3066,7 @@ impl windows_core::RuntimeName for StreamSocketListenerConnectionReceivedEventAr
 unsafe impl Send for StreamSocketListenerConnectionReceivedEventArgs {}
 unsafe impl Sync for StreamSocketListenerConnectionReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListenerControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamSocketListenerControl, windows_core::IUnknown, windows_core::IInspectable);
 impl StreamSocketListenerControl {
@@ -3139,7 +3139,7 @@ impl windows_core::RuntimeName for StreamSocketListenerControl {
 unsafe impl Send for StreamSocketListenerControl {}
 unsafe impl Sync for StreamSocketListenerControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListenerInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamSocketListenerInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl StreamSocketListenerInformation {
@@ -3164,7 +3164,7 @@ impl windows_core::RuntimeName for StreamSocketListenerInformation {
 unsafe impl Send for StreamSocketListenerInformation {}
 unsafe impl Sync for StreamSocketListenerInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamWebSocket(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamWebSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamWebSocket, super::super::Foundation::IClosable, IWebSocket);
@@ -3270,7 +3270,7 @@ impl windows_core::RuntimeName for StreamWebSocket {
 unsafe impl Send for StreamWebSocket {}
 unsafe impl Sync for StreamWebSocket {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamWebSocketControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamWebSocketControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamWebSocketControl, IWebSocketControl, IWebSocketControl2);
@@ -3393,7 +3393,7 @@ impl windows_core::RuntimeName for StreamWebSocketControl {
 unsafe impl Send for StreamWebSocketControl {}
 unsafe impl Sync for StreamWebSocketControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamWebSocketInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamWebSocketInformation, IWebSocketInformation, IWebSocketInformation2);
@@ -3464,7 +3464,7 @@ impl windows_core::RuntimeName for StreamWebSocketInformation {
 unsafe impl Send for StreamWebSocketInformation {}
 unsafe impl Sync for StreamWebSocketInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebSocketClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebSocketClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebSocketClosedEventArgs {
@@ -3515,7 +3515,7 @@ impl windows_core::RuntimeName for WebSocketError {
 }
 #[cfg(feature = "ApplicationModel_Background")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebSocketKeepAlive(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Background")]
 windows_core::imp::interface_hierarchy!(WebSocketKeepAlive, windows_core::IUnknown, windows_core::IInspectable);
@@ -3557,7 +3557,7 @@ unsafe impl Send for WebSocketKeepAlive {}
 #[cfg(feature = "ApplicationModel_Background")]
 unsafe impl Sync for WebSocketKeepAlive {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebSocketServerCustomValidationRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebSocketServerCustomValidationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebSocketServerCustomValidationRequestedEventArgs {

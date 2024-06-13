@@ -165,7 +165,7 @@ impl windows_core::RuntimeName for LocalCategories {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalCategories";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalLocation {
@@ -276,7 +276,7 @@ impl windows_core::RuntimeName for LocalLocationFinder {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinder";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocationFinderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocationFinderResult, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalLocationFinderResult {
@@ -309,7 +309,7 @@ impl windows_core::RuntimeName for LocalLocationFinderResult {
 unsafe impl Send for LocalLocationFinderResult {}
 unsafe impl Sync for LocalLocationFinderResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocationHoursOfOperationItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocationHoursOfOperationItem, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalLocationHoursOfOperationItem {
@@ -349,7 +349,7 @@ impl windows_core::RuntimeName for LocalLocationHoursOfOperationItem {
 unsafe impl Send for LocalLocationHoursOfOperationItem {}
 unsafe impl Sync for LocalLocationHoursOfOperationItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocationRatingInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocationRatingInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalLocationRatingInfo {

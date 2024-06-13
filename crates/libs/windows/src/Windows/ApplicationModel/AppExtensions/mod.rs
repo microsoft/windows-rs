@@ -119,7 +119,7 @@ pub struct IAppExtensionPackageUpdatingEventArgs_Vtbl {
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtension(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppExtension, windows_core::IUnknown, windows_core::IInspectable);
 impl AppExtension {
@@ -195,7 +195,7 @@ impl windows_core::RuntimeName for AppExtension {
 unsafe impl Send for AppExtension {}
 unsafe impl Sync for AppExtension {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionCatalog(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppExtensionCatalog, windows_core::IUnknown, windows_core::IInspectable);
 impl AppExtensionCatalog {
@@ -307,7 +307,7 @@ impl windows_core::RuntimeName for AppExtensionCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionCatalog";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageInstalledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppExtensionPackageInstalledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppExtensionPackageInstalledEventArgs {
@@ -347,7 +347,7 @@ impl windows_core::RuntimeName for AppExtensionPackageInstalledEventArgs {
 unsafe impl Send for AppExtensionPackageInstalledEventArgs {}
 unsafe impl Sync for AppExtensionPackageInstalledEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppExtensionPackageStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppExtensionPackageStatusChangedEventArgs {
@@ -379,7 +379,7 @@ impl windows_core::RuntimeName for AppExtensionPackageStatusChangedEventArgs {
 unsafe impl Send for AppExtensionPackageStatusChangedEventArgs {}
 unsafe impl Sync for AppExtensionPackageStatusChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageUninstallingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppExtensionPackageUninstallingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppExtensionPackageUninstallingEventArgs {
@@ -411,7 +411,7 @@ impl windows_core::RuntimeName for AppExtensionPackageUninstallingEventArgs {
 unsafe impl Send for AppExtensionPackageUninstallingEventArgs {}
 unsafe impl Sync for AppExtensionPackageUninstallingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppExtensionPackageUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppExtensionPackageUpdatedEventArgs {
@@ -451,7 +451,7 @@ impl windows_core::RuntimeName for AppExtensionPackageUpdatedEventArgs {
 unsafe impl Send for AppExtensionPackageUpdatedEventArgs {}
 unsafe impl Sync for AppExtensionPackageUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageUpdatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppExtensionPackageUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppExtensionPackageUpdatingEventArgs {

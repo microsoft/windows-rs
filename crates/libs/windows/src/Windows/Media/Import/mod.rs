@@ -318,7 +318,7 @@ pub struct IPhotoImportVideoSegment_Vtbl {
     Sidecars: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportDeleteImportedItemsFromSourceResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportDeleteImportedItemsFromSourceResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportDeleteImportedItemsFromSourceResult {
@@ -428,7 +428,7 @@ impl windows_core::RuntimeName for PhotoImportDeleteImportedItemsFromSourceResul
 unsafe impl Send for PhotoImportDeleteImportedItemsFromSourceResult {}
 unsafe impl Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportFindItemsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportFindItemsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportFindItemsResult {
@@ -673,7 +673,7 @@ impl windows_core::RuntimeName for PhotoImportFindItemsResult {
 unsafe impl Send for PhotoImportFindItemsResult {}
 unsafe impl Sync for PhotoImportFindItemsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportImportItemsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportImportItemsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportImportItemsResult {
@@ -790,7 +790,7 @@ impl windows_core::RuntimeName for PhotoImportImportItemsResult {
 unsafe impl Send for PhotoImportImportItemsResult {}
 unsafe impl Sync for PhotoImportImportItemsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportItem, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportItem {
@@ -908,7 +908,7 @@ impl windows_core::RuntimeName for PhotoImportItem {
 unsafe impl Send for PhotoImportItem {}
 unsafe impl Sync for PhotoImportItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportItemImportedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportItemImportedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportItemImportedEventArgs {
@@ -964,7 +964,7 @@ impl windows_core::RuntimeName for PhotoImportManager {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportOperation {
@@ -1017,7 +1017,7 @@ impl windows_core::RuntimeName for PhotoImportOperation {
 unsafe impl Send for PhotoImportOperation {}
 unsafe impl Sync for PhotoImportOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSelectionChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSelectionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportSelectionChangedEventArgs {
@@ -1042,7 +1042,7 @@ impl windows_core::RuntimeName for PhotoImportSelectionChangedEventArgs {
 unsafe impl Send for PhotoImportSelectionChangedEventArgs {}
 unsafe impl Sync for PhotoImportSelectionChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportSession, super::super::Foundation::IClosable);
@@ -1157,7 +1157,7 @@ impl windows_core::RuntimeName for PhotoImportSession {
 unsafe impl Send for PhotoImportSession {}
 unsafe impl Sync for PhotoImportSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSidecar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSidecar, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportSidecar {
@@ -1196,7 +1196,7 @@ impl windows_core::RuntimeName for PhotoImportSidecar {
 unsafe impl Send for PhotoImportSidecar {}
 unsafe impl Sync for PhotoImportSidecar {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSource, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportSource {
@@ -1356,7 +1356,7 @@ impl windows_core::RuntimeName for PhotoImportSource {
 unsafe impl Send for PhotoImportSource {}
 unsafe impl Sync for PhotoImportSource {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportStorageMedium(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportStorageMedium, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportStorageMedium {
@@ -1427,7 +1427,7 @@ impl windows_core::RuntimeName for PhotoImportStorageMedium {
 unsafe impl Send for PhotoImportStorageMedium {}
 unsafe impl Sync for PhotoImportStorageMedium {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportVideoSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportVideoSegment, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportVideoSegment {

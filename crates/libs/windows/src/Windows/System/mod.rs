@@ -1117,7 +1117,7 @@ pub struct IUserWatcher_Vtbl {
     pub RemoveStopped: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppActivationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppActivationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl AppActivationResult {
@@ -1149,7 +1149,7 @@ impl windows_core::RuntimeName for AppActivationResult {
 unsafe impl Send for AppActivationResult {}
 unsafe impl Sync for AppActivationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppDiagnosticInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppDiagnosticInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppDiagnosticInfo {
@@ -1247,7 +1247,7 @@ impl windows_core::RuntimeName for AppDiagnosticInfo {
 unsafe impl Send for AppDiagnosticInfo {}
 unsafe impl Sync for AppDiagnosticInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppDiagnosticInfoWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppDiagnosticInfoWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl AppDiagnosticInfoWatcher {
@@ -1336,7 +1336,7 @@ impl windows_core::RuntimeName for AppDiagnosticInfoWatcher {
 unsafe impl Send for AppDiagnosticInfoWatcher {}
 unsafe impl Sync for AppDiagnosticInfoWatcher {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppDiagnosticInfoWatcherEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppDiagnosticInfoWatcherEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppDiagnosticInfoWatcherEventArgs {
@@ -1361,7 +1361,7 @@ impl windows_core::RuntimeName for AppDiagnosticInfoWatcherEventArgs {
 unsafe impl Send for AppDiagnosticInfoWatcherEventArgs {}
 unsafe impl Sync for AppDiagnosticInfoWatcherEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExecutionStateChangeResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppExecutionStateChangeResult, windows_core::IUnknown, windows_core::IInspectable);
 impl AppExecutionStateChangeResult {
@@ -1386,7 +1386,7 @@ impl windows_core::RuntimeName for AppExecutionStateChangeResult {
 unsafe impl Send for AppExecutionStateChangeResult {}
 unsafe impl Sync for AppExecutionStateChangeResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppMemoryReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppMemoryReport, windows_core::IUnknown, windows_core::IInspectable);
 impl AppMemoryReport {
@@ -1439,7 +1439,7 @@ impl windows_core::RuntimeName for AppMemoryReport {
 unsafe impl Send for AppMemoryReport {}
 unsafe impl Sync for AppMemoryReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppMemoryUsageLimitChangingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppMemoryUsageLimitChangingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppMemoryUsageLimitChangingEventArgs {
@@ -1471,7 +1471,7 @@ impl windows_core::RuntimeName for AppMemoryUsageLimitChangingEventArgs {
 unsafe impl Send for AppMemoryUsageLimitChangingEventArgs {}
 unsafe impl Sync for AppMemoryUsageLimitChangingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupBackgroundTaskReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppResourceGroupBackgroundTaskReport, windows_core::IUnknown, windows_core::IInspectable);
 impl AppResourceGroupBackgroundTaskReport {
@@ -1517,7 +1517,7 @@ impl windows_core::RuntimeName for AppResourceGroupBackgroundTaskReport {
 unsafe impl Send for AppResourceGroupBackgroundTaskReport {}
 unsafe impl Sync for AppResourceGroupBackgroundTaskReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppResourceGroupInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppResourceGroupInfo {
@@ -1600,7 +1600,7 @@ impl windows_core::RuntimeName for AppResourceGroupInfo {
 unsafe impl Send for AppResourceGroupInfo {}
 unsafe impl Sync for AppResourceGroupInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfoWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl AppResourceGroupInfoWatcher {
@@ -1703,7 +1703,7 @@ impl windows_core::RuntimeName for AppResourceGroupInfoWatcher {
 unsafe impl Send for AppResourceGroupInfoWatcher {}
 unsafe impl Sync for AppResourceGroupInfoWatcher {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfoWatcherEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcherEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppResourceGroupInfoWatcherEventArgs {
@@ -1736,7 +1736,7 @@ impl windows_core::RuntimeName for AppResourceGroupInfoWatcherEventArgs {
 unsafe impl Send for AppResourceGroupInfoWatcherEventArgs {}
 unsafe impl Sync for AppResourceGroupInfoWatcherEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcherExecutionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
@@ -1769,7 +1769,7 @@ impl windows_core::RuntimeName for AppResourceGroupInfoWatcherExecutionStateChan
 unsafe impl Send for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 unsafe impl Sync for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupMemoryReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppResourceGroupMemoryReport, windows_core::IUnknown, windows_core::IInspectable);
 impl AppResourceGroupMemoryReport {
@@ -1815,7 +1815,7 @@ impl windows_core::RuntimeName for AppResourceGroupMemoryReport {
 unsafe impl Send for AppResourceGroupMemoryReport {}
 unsafe impl Sync for AppResourceGroupMemoryReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupStateReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppResourceGroupStateReport, windows_core::IUnknown, windows_core::IInspectable);
 impl AppResourceGroupStateReport {
@@ -1847,7 +1847,7 @@ impl windows_core::RuntimeName for AppResourceGroupStateReport {
 unsafe impl Send for AppResourceGroupStateReport {}
 unsafe impl Sync for AppResourceGroupStateReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppUriHandlerHost(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppUriHandlerHost, windows_core::IUnknown, windows_core::IInspectable);
 impl AppUriHandlerHost {
@@ -1905,7 +1905,7 @@ impl windows_core::RuntimeName for AppUriHandlerHost {
 unsafe impl Send for AppUriHandlerHost {}
 unsafe impl Sync for AppUriHandlerHost {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppUriHandlerRegistration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppUriHandlerRegistration, windows_core::IUnknown, windows_core::IInspectable);
 impl AppUriHandlerRegistration {
@@ -1979,7 +1979,7 @@ impl windows_core::RuntimeName for AppUriHandlerRegistration {
 unsafe impl Send for AppUriHandlerRegistration {}
 unsafe impl Sync for AppUriHandlerRegistration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppUriHandlerRegistrationManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppUriHandlerRegistrationManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AppUriHandlerRegistrationManager {
@@ -2072,7 +2072,7 @@ impl windows_core::RuntimeName for DateTimeSettings {
     const NAME: &'static str = "Windows.System.DateTimeSettings";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DispatcherQueue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DispatcherQueue, windows_core::IUnknown, windows_core::IInspectable);
 impl DispatcherQueue {
@@ -2163,7 +2163,7 @@ impl windows_core::RuntimeName for DispatcherQueue {
 unsafe impl Send for DispatcherQueue {}
 unsafe impl Sync for DispatcherQueue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DispatcherQueueController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DispatcherQueueController, windows_core::IUnknown, windows_core::IInspectable);
 impl DispatcherQueueController {
@@ -2206,7 +2206,7 @@ impl windows_core::RuntimeName for DispatcherQueueController {
 unsafe impl Send for DispatcherQueueController {}
 unsafe impl Sync for DispatcherQueueController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DispatcherQueueShutdownStartingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DispatcherQueueShutdownStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DispatcherQueueShutdownStartingEventArgs {
@@ -2231,7 +2231,7 @@ impl windows_core::RuntimeName for DispatcherQueueShutdownStartingEventArgs {
 unsafe impl Send for DispatcherQueueShutdownStartingEventArgs {}
 unsafe impl Sync for DispatcherQueueShutdownStartingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DispatcherQueueTimer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DispatcherQueueTimer, windows_core::IUnknown, windows_core::IInspectable);
 impl DispatcherQueueTimer {
@@ -2300,7 +2300,7 @@ impl windows_core::RuntimeName for DispatcherQueueTimer {
 unsafe impl Send for DispatcherQueueTimer {}
 unsafe impl Sync for DispatcherQueueTimer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FolderLauncherOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FolderLauncherOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FolderLauncherOptions, ILauncherViewOptions);
@@ -2423,7 +2423,7 @@ impl windows_core::RuntimeName for KnownUserProperties {
     const NAME: &'static str = "Windows.System.KnownUserProperties";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LaunchUriResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LaunchUriResult, windows_core::IUnknown, windows_core::IInspectable);
 impl LaunchUriResult {
@@ -2761,7 +2761,7 @@ impl windows_core::RuntimeName for Launcher {
     const NAME: &'static str = "Windows.System.Launcher";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LauncherOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LauncherOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LauncherOptions, ILauncherViewOptions);
@@ -2925,7 +2925,7 @@ impl windows_core::RuntimeName for LauncherOptions {
 unsafe impl Send for LauncherOptions {}
 unsafe impl Sync for LauncherOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LauncherUIOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LauncherUIOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl LauncherUIOptions {
@@ -3114,7 +3114,7 @@ impl windows_core::RuntimeName for ProcessLauncher {
     const NAME: &'static str = "Windows.System.ProcessLauncher";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessLauncherOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessLauncherOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessLauncherOptions {
@@ -3198,7 +3198,7 @@ impl windows_core::RuntimeName for ProcessLauncherOptions {
 unsafe impl Send for ProcessLauncherOptions {}
 unsafe impl Sync for ProcessLauncherOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessLauncherResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessLauncherResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessLauncherResult {
@@ -3223,7 +3223,7 @@ impl windows_core::RuntimeName for ProcessLauncherResult {
 unsafe impl Send for ProcessLauncherResult {}
 unsafe impl Sync for ProcessLauncherResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessMemoryReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessMemoryReport, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessMemoryReport {
@@ -3255,7 +3255,7 @@ impl windows_core::RuntimeName for ProcessMemoryReport {
 unsafe impl Send for ProcessMemoryReport {}
 unsafe impl Sync for ProcessMemoryReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtocolForResultsOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProtocolForResultsOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl ProtocolForResultsOperation {
@@ -3328,7 +3328,7 @@ impl windows_core::RuntimeName for RemoteLauncher {
     const NAME: &'static str = "Windows.System.RemoteLauncher";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteLauncherOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteLauncherOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl RemoteLauncherOptions {
@@ -3453,7 +3453,7 @@ impl windows_core::RuntimeName for TimeZoneSettings {
     const NAME: &'static str = "Windows.System.TimeZoneSettings";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct User(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(User, windows_core::IUnknown, windows_core::IInspectable);
 impl User {
@@ -3574,7 +3574,7 @@ impl windows_core::RuntimeName for User {
 unsafe impl Send for User {}
 unsafe impl Sync for User {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserAuthenticationStatusChangeDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserAuthenticationStatusChangeDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl UserAuthenticationStatusChangeDeferral {
@@ -3596,7 +3596,7 @@ impl windows_core::RuntimeName for UserAuthenticationStatusChangeDeferral {
 unsafe impl Send for UserAuthenticationStatusChangeDeferral {}
 unsafe impl Sync for UserAuthenticationStatusChangeDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserAuthenticationStatusChangingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserAuthenticationStatusChangingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserAuthenticationStatusChangingEventArgs {
@@ -3642,7 +3642,7 @@ impl windows_core::RuntimeName for UserAuthenticationStatusChangingEventArgs {
 unsafe impl Send for UserAuthenticationStatusChangingEventArgs {}
 unsafe impl Sync for UserAuthenticationStatusChangingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserChangedEventArgs {
@@ -3704,7 +3704,7 @@ impl windows_core::RuntimeName for UserDeviceAssociation {
     const NAME: &'static str = "Windows.System.UserDeviceAssociation";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDeviceAssociationChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDeviceAssociationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDeviceAssociationChangedEventArgs {
@@ -3743,7 +3743,7 @@ impl windows_core::RuntimeName for UserDeviceAssociationChangedEventArgs {
 unsafe impl Send for UserDeviceAssociationChangedEventArgs {}
 unsafe impl Sync for UserDeviceAssociationChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserPicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserPicker, windows_core::IUnknown, windows_core::IInspectable);
 impl UserPicker {
@@ -3811,7 +3811,7 @@ impl windows_core::RuntimeName for UserPicker {
 unsafe impl Send for UserPicker {}
 unsafe impl Sync for UserPicker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl UserWatcher {

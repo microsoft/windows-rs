@@ -71,7 +71,7 @@ pub struct IRatedContentRestrictionsFactory_Vtbl {
     pub CreateWithMaxAgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContentRestrictionsBrowsePolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContentRestrictionsBrowsePolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl ContentRestrictionsBrowsePolicy {
@@ -110,7 +110,7 @@ impl windows_core::RuntimeName for ContentRestrictionsBrowsePolicy {
 unsafe impl Send for ContentRestrictionsBrowsePolicy {}
 unsafe impl Sync for ContentRestrictionsBrowsePolicy {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RatedContentDescription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RatedContentDescription, windows_core::IUnknown, windows_core::IInspectable);
 impl RatedContentDescription {
@@ -204,7 +204,7 @@ impl windows_core::RuntimeName for RatedContentDescription {
 unsafe impl Send for RatedContentDescription {}
 unsafe impl Sync for RatedContentDescription {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, core::fmt::Debug, Clone)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RatedContentRestrictions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RatedContentRestrictions, windows_core::IUnknown, windows_core::IInspectable);
 impl RatedContentRestrictions {
