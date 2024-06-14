@@ -1,24 +1,19 @@
 use windows_bindgen::*;
 
 fn main() -> Result<()> {
-    for path in &bindings() {
-        println!("bindings: {path}");
-        bindgen(["--etc", path])?;
-    }
+    run("crates/tools/bindings/src/core_com.txt")?;
+    run("crates/tools/bindings/src/core.txt")?;
+    run("crates/tools/bindings/src/metadata.txt")?;
+    run("crates/tools/bindings/src/registry.txt")?;
+    run("crates/tools/bindings/src/result.txt")?;
+    run("crates/tools/bindings/src/sys.txt")?;
+    run("crates/tools/bindings/src/version.txt")?;
+    run("crates/tools/bindings/src/windows.txt")?;
     Ok(())
 }
 
-fn bindings() -> Vec<String> {
-    let mut paths = vec![];
-
-    if let Ok(files) = std::fs::read_dir("crates\\tools\\bindings\\src") {
-        for file in files.filter_map(|file| file.ok()) {
-            let path = file.path();
-            if path.to_string_lossy().ends_with(".txt") {
-                paths.push(path.to_string_lossy().into_owned());
-            }
-        }
-    }
-
-    paths
+fn run(path: &str) -> Result<()> {
+    println!("{path}");
+    bindgen(["--etc", path])?;
+    Ok(())
 }
