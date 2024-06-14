@@ -1,14 +1,6 @@
-fn main() {
-    let mut command = std::process::Command::new("cargo");
+use windows_bindgen::*;
 
-    command.args([
-        "run",
-        "-p",
-        "riddle",
-        "--",
-        "--etc",
-        "crates/tools/sys/bindings.txt",
-    ]);
-
-    assert!(command.status().unwrap().success());
+fn main() -> Result<()> {
+    bindgen(["--etc", "crates/tools/sys/src/bindings.txt"])?;
+    Ok(())
 }
