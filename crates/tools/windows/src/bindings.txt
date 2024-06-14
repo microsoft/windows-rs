@@ -1,4 +1,3 @@
---in crates/libs/bindgen/default
 --out crates/libs/windows/src/lib.rs
 --config package no-bindgen-comment
 --config prepend:Windows.Win32.Foundation.WIN32_ERROR=#[must_use]
