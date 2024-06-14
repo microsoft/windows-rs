@@ -1,0 +1,7 @@
+--out crates/libs/version/src/bindings.rs
+--config flatten sys no-bindgen-comment
+
+--filter
+    Windows.Wdk.System.SystemServices.RtlGetVersion
+    Windows.Win32.System.SystemInformation.OSVERSIONINFOEXW
+    Windows.Win32.System.SystemServices.VER_NT_WORKSTATION

@@ -1,4 +1,3 @@
---in crates/libs/bindgen/default
 --out crates/libs/sys/src/lib.rs
 --config package sys no-bindgen-comment
 --config rustfmt-config=max_width=800,newline_style=Unix
