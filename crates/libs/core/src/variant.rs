@@ -1,3 +1,5 @@
+#![cfg_attr(not(windows), allow(unused_variables))]
+
 use super::*;
 use core::mem::transmute;
 
@@ -23,30 +25,40 @@ impl Default for PROPVARIANT {
 
 impl Clone for VARIANT {
     fn clone(&self) -> Self {
+        #[cfg(windows)]
         unsafe {
             let mut value = Self::new();
             imp::VariantCopy(&mut value.0, &self.0);
             value
         }
+
+        #[cfg(not(windows))]
+        unimplemented!();
     }
 }
 
 impl Clone for PROPVARIANT {
     fn clone(&self) -> Self {
+        #[cfg(windows)]
         unsafe {
             let mut value = Self::new();
             imp::PropVariantCopy(&mut value.0, &self.0);
             value
         }
+
+        #[cfg(not(windows))]
+        unimplemented!();
     }
 }
 
+#[cfg(windows)]
 impl Drop for VARIANT {
     fn drop(&mut self) {
         unsafe { imp::VariantClear(&mut self.0) };
     }
 }
 
+#[cfg(windows)]
 impl Drop for PROPVARIANT {
     fn drop(&mut self) {
         unsafe { imp::PropVariantClear(&mut self.0) };
@@ -66,6 +78,7 @@ impl core::fmt::Debug for VARIANT {
         let mut debug = f.debug_struct("VARIANT");
         debug.field("type", &unsafe { self.0.Anonymous.Anonymous.vt });
 
+        #[cfg(windows)]
         if let Ok(value) = BSTR::try_from(self) {
             debug.field("value", &value);
         }
@@ -79,6 +92,7 @@ impl core::fmt::Debug for PROPVARIANT {
         let mut debug = f.debug_struct("PROPVARIANT");
         debug.field("type", &unsafe { self.0.Anonymous.Anonymous.vt });
 
+        #[cfg(windows)]
         if let Ok(value) = BSTR::try_from(self) {
             debug.field("value", &value);
         }
@@ -87,12 +101,14 @@ impl core::fmt::Debug for PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl core::fmt::Display for VARIANT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         core::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
     }
 }
 
+#[cfg(windows)]
 impl core::fmt::Display for PROPVARIANT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         core::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
@@ -101,6 +117,7 @@ impl core::fmt::Display for PROPVARIANT {
 
 impl PartialEq for VARIANT {
     fn eq(&self, other: &Self) -> bool {
+        #[cfg(windows)]
         unsafe {
             if self.0.Anonymous.Anonymous.vt != other.0.Anonymous.Anonymous.vt {
                 return false;
@@ -114,11 +131,15 @@ impl PartialEq for VARIANT {
                 false
             }
         }
+
+        #[cfg(not(windows))]
+        unimplemented!();
     }
 }
 
 impl PartialEq for PROPVARIANT {
     fn eq(&self, other: &Self) -> bool {
+        #[cfg(windows)]
         unsafe {
             if self.0.Anonymous.Anonymous.vt != other.0.Anonymous.Anonymous.vt {
                 return false;
@@ -126,6 +147,9 @@ impl PartialEq for PROPVARIANT {
 
             imp::PropVariantCompareEx(&self.0, &other.0, 0, 0) == 0
         }
+
+        #[cfg(not(windows))]
+        unimplemented!();
     }
 }
 
@@ -188,6 +212,7 @@ impl PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&VARIANT> for PROPVARIANT {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
@@ -198,6 +223,7 @@ impl TryFrom<&VARIANT> for PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&PROPVARIANT> for VARIANT {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
@@ -316,18 +342,21 @@ impl From<BSTR> for PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl From<&str> for VARIANT {
     fn from(value: &str) -> Self {
         BSTR::from(value).into()
     }
 }
 
+#[cfg(windows)]
 impl From<&str> for PROPVARIANT {
     fn from(value: &str) -> Self {
         BSTR::from(value).into()
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&VARIANT> for BSTR {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
@@ -336,6 +365,7 @@ impl TryFrom<&VARIANT> for BSTR {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&PROPVARIANT> for BSTR {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
@@ -383,6 +413,7 @@ impl From<bool> for PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&VARIANT> for bool {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
@@ -391,6 +422,7 @@ impl TryFrom<&VARIANT> for bool {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&PROPVARIANT> for bool {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
@@ -501,6 +533,7 @@ impl From<u16> for PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&VARIANT> for u16 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
@@ -509,6 +542,7 @@ impl TryFrom<&VARIANT> for u16 {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&PROPVARIANT> for u16 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
@@ -551,6 +585,7 @@ impl From<i16> for PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&VARIANT> for i16 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
@@ -559,6 +594,7 @@ impl TryFrom<&VARIANT> for i16 {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&PROPVARIANT> for i16 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
@@ -601,6 +637,7 @@ impl From<u32> for PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&VARIANT> for u32 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
@@ -609,6 +646,7 @@ impl TryFrom<&VARIANT> for u32 {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&PROPVARIANT> for u32 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
@@ -651,6 +689,7 @@ impl From<i32> for PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&VARIANT> for i32 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
@@ -659,6 +698,7 @@ impl TryFrom<&VARIANT> for i32 {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&PROPVARIANT> for i32 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
@@ -701,6 +741,7 @@ impl From<u64> for PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&VARIANT> for u64 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
@@ -709,6 +750,7 @@ impl TryFrom<&VARIANT> for u64 {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&PROPVARIANT> for u64 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
@@ -751,6 +793,7 @@ impl From<i64> for PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&VARIANT> for i64 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
@@ -759,6 +802,7 @@ impl TryFrom<&VARIANT> for i64 {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&PROPVARIANT> for i64 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
@@ -835,6 +879,7 @@ impl From<f64> for PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&VARIANT> for f64 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
@@ -843,6 +888,7 @@ impl TryFrom<&VARIANT> for f64 {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&PROPVARIANT> for f64 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {

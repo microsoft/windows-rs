@@ -1,5 +1,6 @@
 use crate::Win32::System::Com::IDispatch;
 
+#[cfg(windows)]
 impl From<IDispatch> for windows_core::VARIANT {
     fn from(value: IDispatch) -> Self {
         unsafe {
@@ -12,6 +13,7 @@ impl From<IDispatch> for windows_core::VARIANT {
     }
 }
 
+#[cfg(windows)]
 impl From<IDispatch> for windows_core::PROPVARIANT {
     fn from(value: IDispatch) -> Self {
         unsafe {
@@ -24,6 +26,7 @@ impl From<IDispatch> for windows_core::PROPVARIANT {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&windows_core::VARIANT> for IDispatch {
     type Error = windows_core::Error;
     fn try_from(from: &windows_core::VARIANT) -> windows_core::Result<Self> {
@@ -39,6 +42,7 @@ impl TryFrom<&windows_core::VARIANT> for IDispatch {
     }
 }
 
+#[cfg(windows)]
 impl TryFrom<&windows_core::PROPVARIANT> for IDispatch {
     type Error = windows_core::Error;
     fn try_from(from: &windows_core::PROPVARIANT) -> windows_core::Result<Self> {
