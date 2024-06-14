@@ -276,8 +276,11 @@ impl Reader {
         // TODO: this needs to be deferred via a TypeName's optional nested type name?
         if let Some(outer) = enclosing {
             if full_name.namespace().is_empty() {
-                let nested = &self.nested[&outer];
-                let Some(inner) = nested.get(full_name.name()) else {
+                let Some(inner) = self
+                    .nested
+                    .get(&outer)
+                    .and_then(|nested| nested.get(full_name.name()))
+                else {
                     panic!(
                         "Nested type not found: {}.{}",
                         outer.type_name(),
