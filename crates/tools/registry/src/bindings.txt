@@ -1,4 +1,4 @@
---out src/bindings.rs
+--out crates/libs/registry/src/bindings.rs
 --config flatten sys minimal no-bindgen-comment
 
 --filter
