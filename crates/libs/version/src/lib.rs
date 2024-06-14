@@ -116,22 +116,4 @@ mod test {
         assert!(OsVersion::current() >= OsVersion::new(10, 100, 1_000, 10_000));
         assert!(!(OsVersion::current() >= OsVersion::new(10, 100, 1_000, 10_001)));
     }
-
-    #[test]
-    fn bindgen() {
-        let args = [
-            "--out",
-            "src/bindings.rs",
-            "--config",
-            "flatten",
-            "sys",
-            "no-bindgen-comment",
-            "--filter",
-            "Windows.Wdk.System.SystemServices.RtlGetVersion",
-            "Windows.Win32.System.SystemInformation.OSVERSIONINFOEXW",
-            "Windows.Win32.System.SystemServices.VER_NT_WORKSTATION",
-        ];
-
-        windows_bindgen::bindgen(args).unwrap();
-    }
 }
