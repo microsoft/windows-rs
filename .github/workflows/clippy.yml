@@ -258,30 +258,18 @@ jobs:
         run:  cargo clippy -p test_window_long
       - name: Clippy test_winrt
         run:  cargo clippy -p test_winrt
-      - name: Clippy tool_core
-        run:  cargo clippy -p tool_core
+      - name: Clippy tool_bindings
+        run:  cargo clippy -p tool_bindings
       - name: Clippy tool_gnu
         run:  cargo clippy -p tool_gnu
       - name: Clippy tool_lib
         run:  cargo clippy -p tool_lib
       - name: Clippy tool_license
         run:  cargo clippy -p tool_license
-      - name: Clippy tool_metadata
-        run:  cargo clippy -p tool_metadata
       - name: Clippy tool_msvc
         run:  cargo clippy -p tool_msvc
-      - name: Clippy tool_registry
-        run:  cargo clippy -p tool_registry
-      - name: Clippy tool_result
-        run:  cargo clippy -p tool_result
       - name: Clippy tool_standalone
         run:  cargo clippy -p tool_standalone
-      - name: Clippy tool_sys
-        run:  cargo clippy -p tool_sys
-      - name: Clippy tool_version
-        run:  cargo clippy -p tool_version
-      - name: Clippy tool_windows
-        run:  cargo clippy -p tool_windows
       - name: Clippy tool_yml
         run:  cargo clippy -p tool_yml
       - name: Clippy windows
