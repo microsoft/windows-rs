@@ -286,6 +286,8 @@ jobs:
         run:  cargo test -p test_window_long --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_winrt
         run:  cargo test -p test_winrt --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_core
+        run:  cargo test -p tool_core --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_gnu
         run:  cargo test -p tool_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_lib
@@ -296,10 +298,16 @@ jobs:
         run:  cargo test -p tool_metadata --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_msvc
         run:  cargo test -p tool_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_registry
+        run:  cargo test -p tool_registry --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_result
+        run:  cargo test -p tool_result --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_standalone
         run:  cargo test -p tool_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_sys
         run:  cargo test -p tool_sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_version
+        run:  cargo test -p tool_version --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_windows
         run:  cargo test -p tool_windows --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_yml
