@@ -1,0 +1,8 @@
+[package]
+name = "tool_result"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+windows-bindgen = { path = "../../libs/bindgen" }
