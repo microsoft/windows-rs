@@ -7,10 +7,8 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 */
 
 #![doc(html_no_source)]
-#![allow(non_snake_case, clashing_extern_declarations, non_upper_case_globals, non_camel_case_types, missing_docs, clippy::all)]
+#![allow(non_snake_case, clashing_extern_declarations, non_upper_case_globals, non_camel_case_types, missing_docs, unused, clippy::all)]
 #![cfg_attr(not(feature = "docs"), doc(hidden))]
-// TODO: https://github.com/microsoft/windows-rs/issues/3096
-#![allow(dead_code)]
 
 #[allow(unused_extern_crates)]
 extern crate self as windows;
