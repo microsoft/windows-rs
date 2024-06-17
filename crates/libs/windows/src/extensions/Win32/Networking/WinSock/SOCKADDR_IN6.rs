@@ -1,3 +1,5 @@
+use crate::Win32::Networking::WinSock::{AF_INET6, SOCKADDR_IN6, SOCKADDR_IN6_0};
+
 impl From<std::net::SocketAddrV6> for SOCKADDR_IN6 {
     fn from(addr: std::net::SocketAddrV6) -> Self {
         // addr.port() and addr.flowinfo() are in host byte order

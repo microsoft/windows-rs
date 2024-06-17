@@ -1,3 +1,5 @@
+use crate::Win32::Networking::WinSock::{IN_ADDR, IN_ADDR_0};
+
 impl From<std::net::Ipv4Addr> for IN_ADDR {
     fn from(addr: std::net::Ipv4Addr) -> Self {
         // u32::from(addr) is in host byte order

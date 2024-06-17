@@ -9395,8 +9395,3 @@ pub type LPWSPSOCKET = Option<unsafe extern "system" fn(af: i32, r#type: i32, pr
 #[cfg(feature = "Win32_System_IO")]
 pub type LPWSPSTARTUP = Option<unsafe extern "system" fn(wversionrequested: u16, lpwspdata: *const WSPDATA, lpprotocolinfo: *const WSAPROTOCOL_INFOW, upcalltable: WSPUPCALLTABLE, lpproctable: *mut WSPPROC_TABLE) -> i32>;
 pub type LPWSPSTRINGTOADDRESS = Option<unsafe extern "system" fn(addressstring: windows_core::PCWSTR, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32, lperrno: *mut i32) -> i32>;
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/Networking/WinSock/IN_ADDR.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/Networking/WinSock/IN6_ADDR.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/Networking/WinSock/SOCKADDR_IN.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/Networking/WinSock/SOCKADDR_IN6.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/Networking/WinSock/SOCKADDR_INET.rs"));

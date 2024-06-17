@@ -1,3 +1,5 @@
+use crate::Win32::Networking::WinSock::SOCKADDR_INET;
+
 impl From<std::net::SocketAddrV4> for SOCKADDR_INET {
     fn from(addr: std::net::SocketAddrV4) -> Self {
         SOCKADDR_INET { Ipv4: addr.into() }
