@@ -1,4 +1,4 @@
-use crate::Win32::Foundation::{VARIANT_BOOL, VARIANT_TRUE, VARIANT_FALSE};
+use crate::Win32::Foundation::{VARIANT_BOOL, VARIANT_FALSE, VARIANT_TRUE};
 
 impl VARIANT_BOOL {
     #[inline]

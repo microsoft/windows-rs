@@ -1,4 +1,4 @@
-use crate::Foundation::Collections::{IIterator, IIterator_Impl, IIterable, IIterable_Impl, IVectorView, IVectorView_Impl};
+use crate::Foundation::Collections::{IIterable, IIterable_Impl, IIterator, IIterator_Impl, IVectorView, IVectorView_Impl};
 
 #[windows_core::implement(IVectorView<T>, IIterable<T>)]
 struct StockVectorView<T>
@@ -17,11 +17,7 @@ where
     fn First(&self) -> windows_core::Result<IIterator<T>> {
         use windows_core::IUnknownImpl;
 
-        Ok(windows_core::ComObject::new(StockVectorViewIterator {
-            owner: self.to_object(),
-            current: 0.into(),
-        })
-        .into_interface())
+        Ok(windows_core::ComObject::new(StockVectorViewIterator { owner: self.to_object(), current: 0.into() }).into_interface())
     }
 }
 
@@ -31,10 +27,7 @@ where
     T::Default: Clone + PartialEq,
 {
     fn GetAt(&self, index: u32) -> windows_core::Result<T> {
-        let item = self
-            .values
-            .get(index as usize)
-            .ok_or_else(|| windows_core::Error::from(windows_core::imp::E_BOUNDS))?;
+        let item = self.values.get(index as usize).ok_or_else(|| windows_core::Error::from(windows_core::imp::E_BOUNDS))?;
         T::from_default(item)
     }
     fn Size(&self) -> windows_core::Result<u32> {
@@ -95,8 +88,7 @@ where
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
 
         if current < self.owner.values.len() {
-            self.current
-                .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+            self.current.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         }
 
         Ok(self.owner.values.len() > current + 1)
@@ -108,8 +100,7 @@ where
         let actual = std::cmp::min(self.owner.values.len() - current, values.len());
         let (values, _) = values.split_at_mut(actual);
         values.clone_from_slice(&self.owner.values[current..current + actual]);
-        self.current
-            .fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
+        self.current.fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
         Ok(actual as u32)
     }
 }

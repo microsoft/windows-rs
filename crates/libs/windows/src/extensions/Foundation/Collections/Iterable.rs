@@ -16,11 +16,7 @@ where
 {
     fn First(&self) -> windows_core::Result<IIterator<T>> {
         use windows_core::IUnknownImpl;
-        Ok(windows_core::ComObject::new(StockIterator {
-            owner: self.to_object(),
-            current: 0.into(),
-        })
-        .into_interface())
+        Ok(windows_core::ComObject::new(StockIterator { owner: self.to_object(), current: 0.into() }).into_interface())
     }
 }
 
@@ -62,8 +58,7 @@ where
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
 
         if current < owner.values.len() {
-            self.current
-                .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+            self.current.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         }
 
         Ok(owner.values.len() > current + 1)
@@ -76,8 +71,7 @@ where
         let actual = std::cmp::min(owner.values.len() - current, values.len());
         let (values, _) = values.split_at_mut(actual);
         values.clone_from_slice(&owner.values[current..current + actual]);
-        self.current
-            .fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
+        self.current.fetch_add(actual, std::sync::atomic::Ordering::Relaxed);
         Ok(actual as u32)
     }
 }

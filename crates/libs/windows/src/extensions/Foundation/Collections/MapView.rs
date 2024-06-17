@@ -21,11 +21,7 @@ where
     fn First(&self) -> windows_core::Result<IIterator<IKeyValuePair<K, V>>> {
         use windows_core::IUnknownImpl;
 
-        Ok(windows_core::ComObject::new(StockMapViewIterator::<K, V> {
-            _owner: self.to_object(),
-            current: std::sync::RwLock::new(self.map.iter()),
-        })
-        .into_interface())
+        Ok(windows_core::ComObject::new(StockMapViewIterator::<K, V> { _owner: self.to_object(), current: std::sync::RwLock::new(self.map.iter()) }).into_interface())
     }
 }
 
@@ -37,10 +33,7 @@ where
     V::Default: Clone,
 {
     fn Lookup(&self, key: &K::Default) -> windows_core::Result<V> {
-        let value = self
-            .map
-            .get(key)
-            .ok_or_else(|| windows_core::Error::from(windows_core::imp::E_BOUNDS))?;
+        let value = self.map.get(key).ok_or_else(|| windows_core::Error::from(windows_core::imp::E_BOUNDS))?;
         V::from_default(value)
     }
     fn Size(&self) -> windows_core::Result<u32> {
@@ -49,11 +42,7 @@ where
     fn HasKey(&self, key: &K::Default) -> windows_core::Result<bool> {
         Ok(self.map.contains_key(key))
     }
-    fn Split(
-        &self,
-        first: &mut Option<IMapView<K, V>>,
-        second: &mut Option<IMapView<K, V>>,
-    ) -> windows_core::Result<()> {
+    fn Split(&self, first: &mut Option<IMapView<K, V>>, second: &mut Option<IMapView<K, V>>) -> windows_core::Result<()> {
         *first = None;
         *second = None;
         Ok(())
@@ -83,11 +72,7 @@ where
         let mut current = self.current.read().unwrap().clone().peekable();
 
         if let Some((key, value)) = current.peek() {
-            Ok(windows_core::ComObject::new(StockKeyValuePair {
-                key: (*key).clone(),
-                value: (*value).clone(),
-            })
-            .into_interface())
+            Ok(windows_core::ComObject::new(StockKeyValuePair { key: (*key).clone(), value: (*value).clone() }).into_interface())
         } else {
             Err(windows_core::Error::from(windows_core::imp::E_BOUNDS))
         }
@@ -112,13 +97,7 @@ where
 
         for pair in pairs {
             if let Some((key, value)) = current.next() {
-                *pair = Some(
-                    windows_core::ComObject::new(StockKeyValuePair {
-                        key: (*key).clone(),
-                        value: (*value).clone(),
-                    })
-                    .into_interface(),
-                );
+                *pair = Some(windows_core::ComObject::new(StockKeyValuePair { key: (*key).clone(), value: (*value).clone() }).into_interface());
                 actual += 1;
             } else {
                 break;
@@ -164,9 +143,7 @@ where
     V::Default: Clone,
 {
     type Error = windows_core::Error;
-    fn try_from(
-        map: std::collections::BTreeMap<K::Default, V::Default>,
-    ) -> windows_core::Result<Self> {
+    fn try_from(map: std::collections::BTreeMap<K::Default, V::Default>) -> windows_core::Result<Self> {
         // TODO: should provide a fallible try_into or more explicit allocator
         Ok(StockMapView { map }.into())
     }
