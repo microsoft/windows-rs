@@ -828,4 +828,3 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         iid == &<IVectorView<T> as windows_core::Interface>::IID
     }
 }
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Foundation/Collections.rs"));
