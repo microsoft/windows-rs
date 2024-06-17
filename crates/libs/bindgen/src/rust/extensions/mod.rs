@@ -44,11 +44,7 @@ pub fn gen_mod(writer: &Writer, namespace: &str) -> TokenStream {
 
 pub fn gen_impl(namespace: &str) -> TokenStream {
     match namespace {
-        "Windows.Foundation.Collections" => include_exts(&[
-            "impl/Foundation/Collections/Iterable.rs",
-            "impl/Foundation/Collections/MapView.rs",
-            "impl/Foundation/Collections/VectorView.rs",
-        ]),
+        "Windows.Foundation.Collections" => include_ext("Foundation/Collections.rs"),
         _ => quote!(),
     }
 }

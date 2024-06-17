@@ -1,3 +1,5 @@
+use crate::Foundation::Collections::{IIterator, IIterator_Impl, IIterable, IIterable_Impl, IVectorView, IVectorView_Impl};
+
 #[windows_core::implement(IVectorView<T>, IIterable<T>)]
 struct StockVectorView<T>
 where

@@ -1,3 +1,5 @@
+use crate::Foundation::Collections::{IIterable, IIterable_Impl, IIterator, IIterator_Impl};
+
 #[windows_core::implement(IIterable<T>)]
 struct StockIterable<T>
 where

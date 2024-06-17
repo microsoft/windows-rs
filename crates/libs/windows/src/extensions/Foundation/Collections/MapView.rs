@@ -1,3 +1,5 @@
+use crate::Foundation::Collections::{IIterable, IIterable_Impl, IIterator, IIterator_Impl, IKeyValuePair, IKeyValuePair_Impl, IMapView, IMapView_Impl};
+
 #[windows_core::implement(IMapView<K, V>, IIterable<IKeyValuePair<K, V>>)]
 struct StockMapView<K, V>
 where
