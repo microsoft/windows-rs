@@ -17,6 +17,7 @@ extern crate self as windows;
 
 pub use windows_core as core;
 
-mod extensions;
+#[doc(hidden)]
+pub mod extensions;
 
 include!("Windows/mod.rs");

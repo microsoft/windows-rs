@@ -1,4 +1,6 @@
-impl BOOLEAN {
+use crate::Win32::Foundation::{VARIANT_BOOL, VARIANT_TRUE, VARIANT_FALSE};
+
+impl VARIANT_BOOL {
     #[inline]
     pub fn as_bool(self) -> bool {
         self.0 != 0
@@ -22,52 +24,47 @@ impl BOOLEAN {
         self.ok().expect(msg);
     }
 }
-impl From<BOOLEAN> for bool {
-    fn from(value: BOOLEAN) -> Self {
+impl From<VARIANT_BOOL> for bool {
+    fn from(value: VARIANT_BOOL) -> Self {
         value.as_bool()
     }
 }
-impl From<&BOOLEAN> for bool {
-    fn from(value: &BOOLEAN) -> Self {
+impl From<&VARIANT_BOOL> for bool {
+    fn from(value: &VARIANT_BOOL) -> Self {
         value.as_bool()
     }
 }
-impl From<bool> for BOOLEAN {
+impl From<bool> for VARIANT_BOOL {
     fn from(value: bool) -> Self {
         if value {
-            Self(1)
+            VARIANT_TRUE
         } else {
-            Self(0)
+            VARIANT_FALSE
         }
     }
 }
-impl From<&bool> for BOOLEAN {
+impl From<&bool> for VARIANT_BOOL {
     fn from(value: &bool) -> Self {
         (*value).into()
     }
 }
-impl PartialEq<bool> for BOOLEAN {
+impl PartialEq<bool> for VARIANT_BOOL {
     fn eq(&self, other: &bool) -> bool {
         self.as_bool() == *other
     }
 }
-impl PartialEq<BOOLEAN> for bool {
-    fn eq(&self, other: &BOOLEAN) -> bool {
+impl PartialEq<VARIANT_BOOL> for bool {
+    fn eq(&self, other: &VARIANT_BOOL) -> bool {
         *self == other.as_bool()
     }
 }
-impl core::ops::Not for BOOLEAN {
+impl core::ops::Not for VARIANT_BOOL {
     type Output = Self;
     fn not(self) -> Self::Output {
         if self.as_bool() {
-            Self(0)
+            VARIANT_FALSE
         } else {
-            Self(1)
+            VARIANT_TRUE
         }
-    }
-}
-impl windows_core::Param<BOOLEAN> for bool {
-    unsafe fn param(self) -> windows_core::ParamValue<BOOLEAN> {
-        windows_core::ParamValue::Owned(self.into())
     }
 }

@@ -1,3 +1,5 @@
+use crate::Win32::Foundation::WIN32_ERROR;
+
 impl WIN32_ERROR {
     #[inline]
     pub const fn is_ok(self) -> bool {

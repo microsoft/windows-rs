@@ -1,3 +1,5 @@
+use crate::Win32::Foundation::NTSTATUS;
+
 impl NTSTATUS {
     #[inline]
     pub const fn is_ok(self) -> bool {

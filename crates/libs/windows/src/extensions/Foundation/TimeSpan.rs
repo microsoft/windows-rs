@@ -1,3 +1,5 @@
+use crate::Foundation::TimeSpan;
+
 impl From<core::time::Duration> for TimeSpan {
     fn from(value: core::time::Duration) -> Self {
         Self { Duration: (value.as_nanos() / 100) as i64 }

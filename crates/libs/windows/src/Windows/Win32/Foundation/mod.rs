@@ -11088,8 +11088,3 @@ pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
 pub type NEARPROC = Option<unsafe extern "system" fn() -> isize>;
 pub type PAPCFUNC = Option<unsafe extern "system" fn(parameter: usize)>;
 pub type PROC = Option<unsafe extern "system" fn() -> isize>;
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/Foundation/BOOL.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/Foundation/BOOLEAN.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/Foundation/NTSTATUS.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/Foundation/VARIANT_BOOL.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/Foundation/WIN32_ERROR.rs"));
