@@ -1,8 +1,10 @@
 use super::*;
 
 #[doc(hidden)]
-pub struct Waiter(isize);
-pub struct WaiterSignaler(isize);
+pub struct Waiter(HANDLE);
+pub struct WaiterSignaler(HANDLE);
+
+unsafe impl Send for WaiterSignaler {}
 
 impl Waiter {
     pub fn new() -> crate::Result<(Waiter, WaiterSignaler)> {

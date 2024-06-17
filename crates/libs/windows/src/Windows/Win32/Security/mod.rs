@@ -2671,7 +2671,7 @@ impl Default for PRIVILEGE_SET {
 pub struct PSECURITY_DESCRIPTOR(pub *mut core::ffi::c_void);
 impl PSECURITY_DESCRIPTOR {
     pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for PSECURITY_DESCRIPTOR {

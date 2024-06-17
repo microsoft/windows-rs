@@ -30,7 +30,9 @@ pub fn gen_win_handle(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let ident = to_ident(name);
     let underlying_type = def.underlying_type();
     let signature = writer.type_default_name(&underlying_type);
-    let is_invalid = if underlying_type.is_pointer() {
+    let invalid = metadata::type_def_invalid_values(def);
+
+    let is_invalid = if underlying_type.is_pointer() && (invalid.is_empty() || invalid == [0]) {
         quote! {
             impl #ident {
                 pub fn is_invalid(&self) -> bool {
@@ -38,28 +40,24 @@ pub fn gen_win_handle(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                 }
             }
         }
+    } else if invalid.is_empty() {
+        quote! {}
     } else {
-        let invalid = metadata::type_def_invalid_values(def);
+        let invalid = invalid.iter().map(|value| {
+            let literal = Literal::i64_unsuffixed(*value);
 
-        if !invalid.is_empty() {
-            let invalid = invalid.iter().map(|value| {
-                let literal = Literal::i64_unsuffixed(*value);
-
-                if *value < 0 && underlying_type.is_unsigned() {
-                    quote! { self.0 == #literal as _ }
-                } else {
-                    quote! { self.0 == #literal }
-                }
-            });
-            quote! {
-                impl #ident {
-                    pub fn is_invalid(&self) -> bool {
-                        #(#invalid)||*
-                    }
+            if underlying_type.is_pointer() || (*value < 0 && underlying_type.is_unsigned()) {
+                quote! { self.0 == #literal as _ }
+            } else {
+                quote! { self.0 == #literal }
+            }
+        });
+        quote! {
+            impl #ident {
+                pub fn is_invalid(&self) -> bool {
+                    #(#invalid)||*
                 }
             }
-        } else {
-            quote! {}
         }
     };
 

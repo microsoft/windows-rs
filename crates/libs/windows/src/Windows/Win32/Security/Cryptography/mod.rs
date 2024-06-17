@@ -14306,7 +14306,7 @@ impl windows_core::TypeKind for HCERTCHAINENGINE {
 pub struct HCERTSTORE(pub *mut core::ffi::c_void);
 impl HCERTSTORE {
     pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HCERTSTORE {
@@ -14322,7 +14322,7 @@ impl windows_core::TypeKind for HCERTSTORE {
 pub struct HCERTSTOREPROV(pub *mut core::ffi::c_void);
 impl HCERTSTOREPROV {
     pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HCERTSTOREPROV {

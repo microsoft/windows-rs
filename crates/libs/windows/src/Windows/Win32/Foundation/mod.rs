@@ -10688,7 +10688,7 @@ impl windows_core::TypeKind for HANDLE_PTR {
 pub struct HGLOBAL(pub *mut core::ffi::c_void);
 impl HGLOBAL {
     pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HGLOBAL {
@@ -10740,7 +10740,7 @@ impl From<HINSTANCE> for HMODULE {
 pub struct HLOCAL(pub *mut core::ffi::c_void);
 impl HLOCAL {
     pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HLOCAL {

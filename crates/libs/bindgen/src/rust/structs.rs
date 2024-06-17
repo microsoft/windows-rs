@@ -43,34 +43,40 @@ fn gen_struct_with_name(
         quote! { #[repr(C)] }
     };
 
-    let fields = def.fields().map(|f| {
-        let name = to_ident(f.name());
-        let ty = f.ty(Some(def));
+    let fields = if def.fields().next().is_none() {
+        quote! { (pub u8); }
+    } else {
+        let fields = def.fields().map(|f| {
+            let name = to_ident(f.name());
+            let ty = f.ty(Some(def));
 
-        if f.flags().contains(metadata::FieldAttributes::Literal) {
-            quote! {}
-        } else if !writer.sys
-            && flags.contains(metadata::TypeAttributes::ExplicitLayout)
-            && !metadata::field_is_copyable(f, def)
-        {
-            let ty = writer.type_default_name(&ty);
-            quote! { pub #name: core::mem::ManuallyDrop<#ty>, }
-        } else if !writer.sys
-            && !flags.contains(metadata::TypeAttributes::WindowsRuntime)
-            && !metadata::field_is_blittable(f, def)
-        {
-            if let metadata::Type::Win32Array(ty, len) = ty {
-                let ty = writer.type_default_name(&ty);
-                quote! { pub #name: [core::mem::ManuallyDrop<#ty>; #len], }
-            } else {
+            if f.flags().contains(metadata::FieldAttributes::Literal) {
+                quote! {}
+            } else if !writer.sys
+                && flags.contains(metadata::TypeAttributes::ExplicitLayout)
+                && !metadata::field_is_copyable(f, def)
+            {
                 let ty = writer.type_default_name(&ty);
                 quote! { pub #name: core::mem::ManuallyDrop<#ty>, }
+            } else if !writer.sys
+                && !flags.contains(metadata::TypeAttributes::WindowsRuntime)
+                && !metadata::field_is_blittable(f, def)
+            {
+                if let metadata::Type::Win32Array(ty, len) = ty {
+                    let ty = writer.type_default_name(&ty);
+                    quote! { pub #name: [core::mem::ManuallyDrop<#ty>; #len], }
+                } else {
+                    let ty = writer.type_default_name(&ty);
+                    quote! { pub #name: core::mem::ManuallyDrop<#ty>, }
+                }
+            } else {
+                let ty = writer.type_default_name(&ty);
+                quote! { pub #name: #ty, }
             }
-        } else {
-            let ty = writer.type_default_name(&ty);
-            quote! { pub #name: #ty, }
-        }
-    });
+        });
+
+        quote! { {#(#fields)*} }
+    };
 
     let struct_or_union = if flags.contains(metadata::TypeAttributes::ExplicitLayout) {
         quote! { union }
@@ -85,7 +91,7 @@ fn gen_struct_with_name(
         #repr
         #features
         #derive
-        pub #struct_or_union #name {#(#fields)*}
+        pub #struct_or_union #name #fields
     };
 
     tokens.combine(&gen_struct_constants(writer, def, &name, &cfg));
