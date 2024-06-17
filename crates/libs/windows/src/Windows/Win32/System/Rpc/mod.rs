@@ -7088,4 +7088,3 @@ pub type USER_MARSHAL_SIZING_ROUTINE = Option<unsafe extern "system" fn(param0: 
 pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut core::ffi::c_void) -> *mut u8>;
 #[cfg(feature = "Win32_System_Com")]
 pub type XMIT_HELPER_ROUTINE = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/System/Rpc/RPC_STATUS.rs"));

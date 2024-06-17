@@ -1,3 +1,5 @@
+use crate::Win32::System::Rpc::RPC_STATUS;
+
 impl RPC_STATUS {
     #[inline]
     pub const fn is_ok(self) -> bool {
