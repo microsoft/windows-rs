@@ -22,13 +22,6 @@ pub fn gen_mod(writer: &Writer, namespace: &str) -> TokenStream {
     }
 
     match namespace {
-        "Windows.Foundation.Numerics" => include_exts(&[
-            "Foundation/Numerics/Matrix3x2.rs",
-            "Foundation/Numerics/Matrix4x4.rs",
-            "Foundation/Numerics/Vector2.rs",
-            "Foundation/Numerics/Vector3.rs",
-            "Foundation/Numerics/Vector4.rs",
-        ]),
         "Windows.Win32.Networking.WinSock" => include_exts(&[
             "Win32/Networking/WinSock/IN_ADDR.rs",
             "Win32/Networking/WinSock/IN6_ADDR.rs",

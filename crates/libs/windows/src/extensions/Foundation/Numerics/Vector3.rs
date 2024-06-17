@@ -1,3 +1,5 @@
+use crate::Foundation::Numerics::Vector3;
+
 impl Vector3 {
     pub fn new(X: f32, Y: f32, Z: f32) -> Self {
         Self { X, Y, Z }

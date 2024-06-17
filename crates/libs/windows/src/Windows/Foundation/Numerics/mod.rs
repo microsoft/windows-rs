@@ -157,8 +157,3 @@ impl Default for Vector4 {
         unsafe { core::mem::zeroed() }
     }
 }
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Foundation/Numerics/Matrix3x2.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Foundation/Numerics/Matrix4x4.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Foundation/Numerics/Vector2.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Foundation/Numerics/Vector3.rs"));
-core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Foundation/Numerics/Vector4.rs"));

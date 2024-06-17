@@ -1,3 +1,5 @@
+use crate::Foundation::Numerics::Vector2;
+
 impl Vector2 {
     pub fn new(X: f32, Y: f32) -> Self {
         Self { X, Y }
