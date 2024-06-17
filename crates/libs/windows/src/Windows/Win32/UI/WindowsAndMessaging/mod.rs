@@ -8227,7 +8227,7 @@ impl From<HCURSOR> for HICON {
 pub struct HDEVNOTIFY(pub *mut core::ffi::c_void);
 impl HDEVNOTIFY {
     pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HDEVNOTIFY {
