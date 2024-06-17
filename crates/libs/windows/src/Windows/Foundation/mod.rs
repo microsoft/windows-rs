@@ -3216,15 +3216,6 @@ where
     pub TSender: core::marker::PhantomData<TSender>,
     pub TResult: core::marker::PhantomData<TResult>,
 }
-impl From<core::time::Duration> for TimeSpan {
-    fn from(value: core::time::Duration) -> Self {
-        Self { Duration: (value.as_nanos() / 100) as i64 }
-    }
-}
-impl From<TimeSpan> for core::time::Duration {
-    fn from(value: TimeSpan) -> Self {
-        core::time::Duration::from_nanos((value.Duration * 100) as u64)
-    }
-}
+core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Foundation/TimeSpan.rs"));
 #[cfg(feature = "implement")]
 core::include!("impl.rs");

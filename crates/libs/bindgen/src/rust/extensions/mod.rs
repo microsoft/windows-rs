@@ -1,55 +1,69 @@
 use super::*;
 
+fn include_ext(relative_path: &str) -> TokenStream {
+    quote! {
+        core::include!(
+            core::concat!(
+                core::env!("CARGO_MANIFEST_DIR"),
+                "/src/includes/",
+                #relative_path
+            )
+        );
+    }
+}
+
+fn include_exts(relative_paths: &[&str]) -> TokenStream {
+    relative_paths.iter().map(|&p| include_ext(p)).collect()
+}
+
 pub fn gen_mod(writer: &Writer, namespace: &str) -> TokenStream {
     if namespace == "Windows.Win32.UI.WindowsAndMessaging" {
-        return include_str!("mod/Win32/UI/WindowsAndMessaging/WindowLong.rs").into();
+        return include_ext("Win32/UI/WindowsAndMessaging/WindowLong.rs");
     }
 
     if writer.sys {
-        return "".into();
+        return quote!();
     }
 
     match namespace {
-        "Windows.Foundation.Numerics" => concat!(
-            include_str!("mod/Foundation/Numerics/Matrix3x2.rs"),
-            include_str!("mod/Foundation/Numerics/Matrix4x4.rs"),
-            include_str!("mod/Foundation/Numerics/Vector2.rs"),
-            include_str!("mod/Foundation/Numerics/Vector3.rs"),
-            include_str!("mod/Foundation/Numerics/Vector4.rs"),
-        ),
-        "Windows.Foundation" => concat!(include_str!("mod/Foundation/TimeSpan.rs"),),
-        "Windows.Win32.Foundation" => concat!(
-            include_str!("mod/Win32/Foundation/BOOL.rs"),
-            include_str!("mod/Win32/Foundation/BOOLEAN.rs"),
-            include_str!("mod/Win32/Foundation/NTSTATUS.rs"),
-            include_str!("mod/Win32/Foundation/VARIANT_BOOL.rs"),
-            include_str!("mod/Win32/Foundation/WIN32_ERROR.rs"),
-        ),
-        "Windows.Win32.Networking.WinSock" => concat!(
-            include_str!("mod/Win32/Networking/WinSock/IN_ADDR.rs"),
-            include_str!("mod/Win32/Networking/WinSock/IN6_ADDR.rs"),
-            include_str!("mod/Win32/Networking/WinSock/SOCKADDR_IN.rs"),
-            include_str!("mod/Win32/Networking/WinSock/SOCKADDR_IN6.rs"),
-            include_str!("mod/Win32/Networking/WinSock/SOCKADDR_INET.rs"),
-        ),
-        "Windows.Win32.System.Rpc" => include_str!("mod/Win32/System/Rpc/RPC_STATUS.rs"),
-        "Windows.Win32.System.Com" => include_str!("mod/Win32/System/Com/IDispatch.rs"),
+        "Windows.Foundation.Numerics" => include_exts(&[
+            "Foundation/Numerics/Matrix3x2.rs",
+            "Foundation/Numerics/Matrix4x4.rs",
+            "Foundation/Numerics/Vector2.rs",
+            "Foundation/Numerics/Vector3.rs",
+            "Foundation/Numerics/Vector4.rs",
+        ]),
+        "Windows.Foundation" => include_ext("Foundation/TimeSpan.rs"),
+        "Windows.Win32.Foundation" => include_exts(&[
+            "Win32/Foundation/BOOL.rs",
+            "Win32/Foundation/BOOLEAN.rs",
+            "Win32/Foundation/NTSTATUS.rs",
+            "Win32/Foundation/VARIANT_BOOL.rs",
+            "Win32/Foundation/WIN32_ERROR.rs",
+        ]),
+        "Windows.Win32.Networking.WinSock" => include_exts(&[
+            "Win32/Networking/WinSock/IN_ADDR.rs",
+            "Win32/Networking/WinSock/IN6_ADDR.rs",
+            "Win32/Networking/WinSock/SOCKADDR_IN.rs",
+            "Win32/Networking/WinSock/SOCKADDR_IN6.rs",
+            "Win32/Networking/WinSock/SOCKADDR_INET.rs",
+        ]),
+        "Windows.Win32.System.Rpc" => include_ext("Win32/System/Rpc/RPC_STATUS.rs"),
+        "Windows.Win32.System.Com" => include_ext("Win32/System/Com/IDispatch.rs"),
         "Windows.Win32.UI.WindowsAndMessaging" => {
-            include_str!("mod/Win32/UI/WindowsAndMessaging/WindowLong.rs")
+            include_ext("Win32/UI/WindowsAndMessaging/WindowLong.rs")
         }
-        _ => "",
+        _ => quote!(),
     }
-    .into()
 }
 
 pub fn gen_impl(namespace: &str) -> TokenStream {
     match namespace {
-        "Windows.Foundation.Collections" => concat!(
-            include_str!("impl/Foundation/Collections/Iterable.rs"),
-            include_str!("impl/Foundation/Collections/MapView.rs"),
-            include_str!("impl/Foundation/Collections/VectorView.rs"),
-        ),
-        _ => "",
+        "Windows.Foundation.Collections" => include_exts(&[
+            "impl/Foundation/Collections/Iterable.rs",
+            "impl/Foundation/Collections/MapView.rs",
+            "impl/Foundation/Collections/VectorView.rs",
+        ]),
+        _ => quote!(),
     }
-    .into()
 }

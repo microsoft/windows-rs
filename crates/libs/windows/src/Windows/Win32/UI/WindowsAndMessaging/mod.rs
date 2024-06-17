@@ -9426,11 +9426,4 @@ pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::super::
 pub type TIMERPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
 pub type WNDENUMPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 pub type WNDPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-#[cfg(target_pointer_width = "32")]
-pub use GetWindowLongA as GetWindowLongPtrA;
-#[cfg(target_pointer_width = "32")]
-pub use GetWindowLongW as GetWindowLongPtrW;
-#[cfg(target_pointer_width = "32")]
-pub use SetWindowLongA as SetWindowLongPtrA;
-#[cfg(target_pointer_width = "32")]
-pub use SetWindowLongW as SetWindowLongPtrW;
+core::include!(core::concat!(core::env!("CARGO_MANIFEST_DIR"), "/src/includes/", "Win32/UI/WindowsAndMessaging/WindowLong.rs"));
