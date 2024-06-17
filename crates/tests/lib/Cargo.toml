@@ -34,4 +34,4 @@ features = [
 path = "../../libs/targets"
 
 [dependencies.mio]
-version = "0.8.6"
+version = "1.0.0"
