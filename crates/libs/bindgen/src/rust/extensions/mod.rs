@@ -37,7 +37,6 @@ pub fn gen_mod(writer: &Writer, namespace: &str) -> TokenStream {
             "Win32/Networking/WinSock/SOCKADDR_INET.rs",
         ]),
         "Windows.Win32.System.Rpc" => include_ext("Win32/System/Rpc/RPC_STATUS.rs"),
-        "Windows.Win32.System.Com" => include_ext("Win32/System/Com/IDispatch.rs"),
         _ => quote!(),
     }
 }

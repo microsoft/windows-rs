@@ -1,3 +1,5 @@
+use crate::Win32::System::Com::IDispatch;
+
 impl From<IDispatch> for windows_core::VARIANT {
     fn from(value: IDispatch) -> Self {
         unsafe {
