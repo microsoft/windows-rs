@@ -17,10 +17,6 @@ fn include_exts(relative_paths: &[&str]) -> TokenStream {
 }
 
 pub fn gen_mod(writer: &Writer, namespace: &str) -> TokenStream {
-    if namespace == "Windows.Win32.UI.WindowsAndMessaging" {
-        return include_ext("Win32/UI/WindowsAndMessaging/WindowLong.rs");
-    }
-
     if writer.sys {
         return quote!();
     }
@@ -33,14 +29,6 @@ pub fn gen_mod(writer: &Writer, namespace: &str) -> TokenStream {
             "Foundation/Numerics/Vector3.rs",
             "Foundation/Numerics/Vector4.rs",
         ]),
-        "Windows.Foundation" => include_ext("Foundation/TimeSpan.rs"),
-        "Windows.Win32.Foundation" => include_exts(&[
-            "Win32/Foundation/BOOL.rs",
-            "Win32/Foundation/BOOLEAN.rs",
-            "Win32/Foundation/NTSTATUS.rs",
-            "Win32/Foundation/VARIANT_BOOL.rs",
-            "Win32/Foundation/WIN32_ERROR.rs",
-        ]),
         "Windows.Win32.Networking.WinSock" => include_exts(&[
             "Win32/Networking/WinSock/IN_ADDR.rs",
             "Win32/Networking/WinSock/IN6_ADDR.rs",
@@ -50,9 +38,6 @@ pub fn gen_mod(writer: &Writer, namespace: &str) -> TokenStream {
         ]),
         "Windows.Win32.System.Rpc" => include_ext("Win32/System/Rpc/RPC_STATUS.rs"),
         "Windows.Win32.System.Com" => include_ext("Win32/System/Com/IDispatch.rs"),
-        "Windows.Win32.UI.WindowsAndMessaging" => {
-            include_ext("Win32/UI/WindowsAndMessaging/WindowLong.rs")
-        }
         _ => quote!(),
     }
 }
