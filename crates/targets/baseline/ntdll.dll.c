@@ -11,43 +11,76 @@ void __stdcall NtAccessCheckByTypeResultListAndAuditAlarm(int p0, int p1, int p2
 void __stdcall NtAccessCheckByTypeResultListAndAuditAlarmByHandle(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11, int p12, int p13, int p14, int p15, int p16) {}
 void __stdcall NtAdjustGroupsToken(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall NtAdjustPrivilegesToken(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall NtAllocateLocallyUniqueId(int p0) {}
 void __stdcall NtAllocateVirtualMemory(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall NtAllocateVirtualMemoryEx(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall NtCancelIoFileEx(int p0, int p1, int p2) {}
+void __stdcall NtCancelTimer(int p0, int p1) {}
 void __stdcall NtClose(int p0) {}
 void __stdcall NtCloseObjectAuditAlarm(int p0, int p1, int p2) {}
 void __stdcall NtCommitComplete(int p0, int p1) {}
 void __stdcall NtCommitEnlistment(int p0, int p1) {}
+void __stdcall NtCommitRegistryTransaction(int p0, int p1) {}
 void __stdcall NtCommitTransaction(int p0, int p1) {}
+void __stdcall NtCreateDirectoryObject(int p0, int p1, int p2) {}
 void __stdcall NtCreateEnlistment(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7) {}
+void __stdcall NtCreateEvent(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtCreateFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10) {}
+void __stdcall NtCreateKey(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
+void __stdcall NtCreateKeyTransacted(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7) {}
+void __stdcall NtCreateRegistryTransaction(int p0, int p1, int p2, int p3) {}
 void __stdcall NtCreateResourceManager(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall NtCreateSection(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall NtCreateSectionEx(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
+void __stdcall NtCreateTimer(int p0, int p1, int p2, int p3) {}
 void __stdcall NtCreateTransaction(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
 void __stdcall NtCreateTransactionManager(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall NtDeleteFile(int p0) {}
+void __stdcall NtDeleteKey(int p0) {}
 void __stdcall NtDeleteObjectAuditAlarm(int p0, int p1, int p2) {}
+void __stdcall NtDeleteValueKey(int p0, int p1) {}
 void __stdcall NtDeviceIoControlFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
+void __stdcall NtDisplayString(int p0) {}
+void __stdcall NtDuplicateObject(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall NtDuplicateToken(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall NtEnumerateKey(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall NtEnumerateTransactionObject(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall NtEnumerateValueKey(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall NtFilterToken(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall NtFlushBuffersFile(int p0, int p1) {}
 void __stdcall NtFlushBuffersFileEx(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall NtFlushKey(int p0) {}
+void __stdcall NtFlushVirtualMemory(int p0, int p1, int p2, int p3) {}
 void __stdcall NtFreeVirtualMemory(int p0, int p1, int p2, int p3) {}
 void __stdcall NtFsControlFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
 void __stdcall NtGetNotificationResourceManager(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall NtImpersonateAnonymousToken(int p0) {}
+void __stdcall NtLoadDriver(int p0) {}
 void __stdcall NtLockFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
+void __stdcall NtMakeTemporaryObject(int p0) {}
 void __stdcall NtManagePartition(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall NtMapViewOfSection(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
+void __stdcall NtNotifyChangeKey(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
 void __stdcall NtNotifyChangeMultipleKeys(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11) {}
+void __stdcall NtOpenDirectoryObject(int p0, int p1, int p2) {}
 void __stdcall NtOpenEnlistment(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall NtOpenEvent(int p0, int p1, int p2) {}
 void __stdcall NtOpenFile(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall NtOpenKey(int p0, int p1, int p2) {}
+void __stdcall NtOpenKeyEx(int p0, int p1, int p2, int p3) {}
+void __stdcall NtOpenKeyTransacted(int p0, int p1, int p2, int p3) {}
+void __stdcall NtOpenKeyTransactedEx(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtOpenObjectAuditAlarm(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11) {}
 void __stdcall NtOpenProcess(int p0, int p1, int p2, int p3) {}
 void __stdcall NtOpenProcessToken(int p0, int p1, int p2) {}
 void __stdcall NtOpenProcessTokenEx(int p0, int p1, int p2, int p3) {}
 void __stdcall NtOpenRegistryTransaction(int p0, int p1, int p2) {}
 void __stdcall NtOpenResourceManager(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall NtOpenSection(int p0, int p1, int p2) {}
+void __stdcall NtOpenSymbolicLinkObject(int p0, int p1, int p2) {}
 void __stdcall NtOpenThreadToken(int p0, int p1, int p2, int p3) {}
 void __stdcall NtOpenThreadTokenEx(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall NtOpenTimer(int p0, int p1, int p2) {}
 void __stdcall NtOpenTransaction(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtOpenTransactionManager(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall NtPowerInformation(int p0, int p1, int p2, int p3, int p4) {}
@@ -62,6 +95,9 @@ void __stdcall NtPropagationComplete(int p0, int p1, int p2, int p3) {}
 void __stdcall NtPropagationFailed(int p0, int p1, int p2) {}
 void __stdcall NtQueryDirectoryFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10) {}
 void __stdcall NtQueryDirectoryFileEx(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
+void __stdcall NtQueryDirectoryObject(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
+void __stdcall NtQueryEaFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
+void __stdcall NtQueryFullAttributesFile(int p0, int p1) {}
 void __stdcall NtQueryInformationByName(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtQueryInformationEnlistment(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtQueryInformationFile(int p0, int p1, int p2, int p3, int p4) {}
@@ -71,13 +107,16 @@ void __stdcall NtQueryInformationThread(int p0, int p1, int p2, int p3, int p4) 
 void __stdcall NtQueryInformationToken(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtQueryInformationTransaction(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtQueryInformationTransactionManager(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall NtQueryKey(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtQueryMultipleValueKey(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall NtQueryObject(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtQueryQuotaInformationFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
 void __stdcall NtQuerySecurityObject(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall NtQuerySymbolicLinkObject(int p0, int p1, int p2) {}
 void __stdcall NtQuerySystemInformation(int p0, int p1, int p2, int p3) {}
 void __stdcall NtQuerySystemTime(int p0) {}
 void __stdcall NtQueryTimerResolution(int p0, int p1, int p2) {}
+void __stdcall NtQueryValueKey(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall NtQueryVirtualMemory(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall NtQueryVolumeInformationFile(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtReadFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
@@ -88,11 +127,16 @@ void __stdcall NtRecoverTransactionManager(int p0) {}
 void __stdcall NtRegisterProtocolAddressInformation(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtRenameKey(int p0, int p1) {}
 void __stdcall NtRenameTransactionManager(int p0, int p1) {}
+void __stdcall NtRestoreKey(int p0, int p1, int p2) {}
 void __stdcall NtRollbackComplete(int p0, int p1) {}
 void __stdcall NtRollbackEnlistment(int p0, int p1) {}
 void __stdcall NtRollbackRegistryTransaction(int p0, int p1) {}
 void __stdcall NtRollbackTransaction(int p0, int p1) {}
 void __stdcall NtRollforwardTransactionManager(int p0, int p1) {}
+void __stdcall NtSaveKey(int p0, int p1) {}
+void __stdcall NtSaveKeyEx(int p0, int p1, int p2) {}
+void __stdcall NtSetEaFile(int p0, int p1, int p2, int p3) {}
+void __stdcall NtSetEvent(int p0, int p1) {}
 void __stdcall NtSetInformationEnlistment(int p0, int p1, int p2, int p3) {}
 void __stdcall NtSetInformationFile(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtSetInformationKey(int p0, int p1, int p2, int p3) {}
@@ -104,9 +148,15 @@ void __stdcall NtSetInformationTransactionManager(int p0, int p1, int p2, int p3
 void __stdcall NtSetInformationVirtualMemory(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall NtSetQuotaInformationFile(int p0, int p1, int p2, int p3) {}
 void __stdcall NtSetSecurityObject(int p0, int p1, int p2) {}
+void __stdcall NtSetTimer(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
+void __stdcall NtSetTimerEx(int p0, int p1, int p2, int p3) {}
+void __stdcall NtSetValueKey(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall NtSetVolumeInformationFile(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NtSinglePhaseReject(int p0, int p1) {}
+void __stdcall NtTerminateProcess(int p0, int p1) {}
+void __stdcall NtUnloadDriver(int p0) {}
 void __stdcall NtUnlockFile(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall NtUnmapViewOfSection(int p0, int p1) {}
 void __stdcall NtWaitForSingleObject(int p0, int p1, int p2) {}
 void __stdcall NtWriteFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
 void __stdcall PfxFindPrefix(int p0, int p1) {}
@@ -423,11 +473,19 @@ void __stdcall RtlxAnsiStringToUnicodeSize(int p0) {}
 void __stdcall RtlxOemStringToUnicodeSize(int p0) {}
 void __stdcall RtlxUnicodeStringToAnsiSize(int p0) {}
 void __stdcall RtlxUnicodeStringToOemSize(int p0) {}
+void __stdcall ZwAccessCheckAndAuditAlarm(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10) {}
+void __stdcall ZwAccessCheckByTypeAndAuditAlarm(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11, int p12, int p13, int p14, int p15) {}
+void __stdcall ZwAccessCheckByTypeResultListAndAuditAlarm(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11, int p12, int p13, int p14, int p15) {}
+void __stdcall ZwAccessCheckByTypeResultListAndAuditAlarmByHandle(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11, int p12, int p13, int p14, int p15, int p16) {}
+void __stdcall ZwAdjustGroupsToken(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall ZwAdjustPrivilegesToken(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall ZwAllocateLocallyUniqueId(int p0) {}
 void __stdcall ZwAllocateVirtualMemory(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall ZwAllocateVirtualMemoryEx(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
+void __stdcall ZwCancelIoFileEx(int p0, int p1, int p2) {}
 void __stdcall ZwCancelTimer(int p0, int p1) {}
 void __stdcall ZwClose(int p0) {}
+void __stdcall ZwCloseObjectAuditAlarm(int p0, int p1, int p2) {}
 void __stdcall ZwCommitComplete(int p0, int p1) {}
 void __stdcall ZwCommitEnlistment(int p0, int p1) {}
 void __stdcall ZwCommitRegistryTransaction(int p0, int p1) {}
@@ -441,11 +499,13 @@ void __stdcall ZwCreateKeyTransacted(int p0, int p1, int p2, int p3, int p4, int
 void __stdcall ZwCreateRegistryTransaction(int p0, int p1, int p2, int p3) {}
 void __stdcall ZwCreateResourceManager(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall ZwCreateSection(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
+void __stdcall ZwCreateSectionEx(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
 void __stdcall ZwCreateTimer(int p0, int p1, int p2, int p3) {}
 void __stdcall ZwCreateTransaction(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
 void __stdcall ZwCreateTransactionManager(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall ZwDeleteFile(int p0) {}
 void __stdcall ZwDeleteKey(int p0) {}
+void __stdcall ZwDeleteObjectAuditAlarm(int p0, int p1, int p2) {}
 void __stdcall ZwDeleteValueKey(int p0, int p1) {}
 void __stdcall ZwDeviceIoControlFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
 void __stdcall ZwDisplayString(int p0) {}
@@ -454,6 +514,7 @@ void __stdcall ZwDuplicateToken(int p0, int p1, int p2, int p3, int p4, int p5) 
 void __stdcall ZwEnumerateKey(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall ZwEnumerateTransactionObject(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwEnumerateValueKey(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall ZwFilterToken(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall ZwFlushBuffersFile(int p0, int p1) {}
 void __stdcall ZwFlushBuffersFileEx(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwFlushKey(int p0) {}
@@ -461,11 +522,14 @@ void __stdcall ZwFlushVirtualMemory(int p0, int p1, int p2, int p3) {}
 void __stdcall ZwFreeVirtualMemory(int p0, int p1, int p2, int p3) {}
 void __stdcall ZwFsControlFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
 void __stdcall ZwGetNotificationResourceManager(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
+void __stdcall ZwImpersonateAnonymousToken(int p0) {}
 void __stdcall ZwLoadDriver(int p0) {}
 void __stdcall ZwLockFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
 void __stdcall ZwMakeTemporaryObject(int p0) {}
+void __stdcall ZwManagePartition(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwMapViewOfSection(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
 void __stdcall ZwNotifyChangeKey(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
+void __stdcall ZwNotifyChangeMultipleKeys(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11) {}
 void __stdcall ZwOpenDirectoryObject(int p0, int p1, int p2) {}
 void __stdcall ZwOpenEnlistment(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwOpenEvent(int p0, int p1, int p2) {}
@@ -474,11 +538,15 @@ void __stdcall ZwOpenKey(int p0, int p1, int p2) {}
 void __stdcall ZwOpenKeyEx(int p0, int p1, int p2, int p3) {}
 void __stdcall ZwOpenKeyTransacted(int p0, int p1, int p2, int p3) {}
 void __stdcall ZwOpenKeyTransactedEx(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall ZwOpenObjectAuditAlarm(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10, int p11) {}
 void __stdcall ZwOpenProcess(int p0, int p1, int p2, int p3) {}
+void __stdcall ZwOpenProcessToken(int p0, int p1, int p2) {}
 void __stdcall ZwOpenProcessTokenEx(int p0, int p1, int p2, int p3) {}
+void __stdcall ZwOpenRegistryTransaction(int p0, int p1, int p2) {}
 void __stdcall ZwOpenResourceManager(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwOpenSection(int p0, int p1, int p2) {}
 void __stdcall ZwOpenSymbolicLinkObject(int p0, int p1, int p2) {}
+void __stdcall ZwOpenThreadToken(int p0, int p1, int p2, int p3) {}
 void __stdcall ZwOpenThreadTokenEx(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwOpenTimer(int p0, int p1, int p2) {}
 void __stdcall ZwOpenTransaction(int p0, int p1, int p2, int p3, int p4) {}
@@ -488,22 +556,34 @@ void __stdcall ZwPrePrepareComplete(int p0, int p1) {}
 void __stdcall ZwPrePrepareEnlistment(int p0, int p1) {}
 void __stdcall ZwPrepareComplete(int p0, int p1) {}
 void __stdcall ZwPrepareEnlistment(int p0, int p1) {}
+void __stdcall ZwPrivilegeCheck(int p0, int p1, int p2) {}
+void __stdcall ZwPrivilegeObjectAuditAlarm(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall ZwPrivilegedServiceAuditAlarm(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall ZwPropagationComplete(int p0, int p1, int p2, int p3) {}
+void __stdcall ZwPropagationFailed(int p0, int p1, int p2) {}
 void __stdcall ZwQueryDirectoryFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10) {}
 void __stdcall ZwQueryDirectoryFileEx(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
+void __stdcall ZwQueryDirectoryObject(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall ZwQueryEaFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
 void __stdcall ZwQueryFullAttributesFile(int p0, int p1) {}
 void __stdcall ZwQueryInformationByName(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwQueryInformationEnlistment(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwQueryInformationFile(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall ZwQueryInformationProcess(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwQueryInformationResourceManager(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall ZwQueryInformationThread(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwQueryInformationToken(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwQueryInformationTransaction(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwQueryInformationTransactionManager(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwQueryKey(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall ZwQueryMultipleValueKey(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall ZwQueryObject(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwQueryQuotaInformationFile(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
 void __stdcall ZwQuerySecurityObject(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwQuerySymbolicLinkObject(int p0, int p1, int p2) {}
+void __stdcall ZwQuerySystemInformation(int p0, int p1, int p2, int p3) {}
+void __stdcall ZwQuerySystemTime(int p0) {}
+void __stdcall ZwQueryTimerResolution(int p0, int p1, int p2) {}
 void __stdcall ZwQueryValueKey(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall ZwQueryVirtualMemory(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall ZwQueryVolumeInformationFile(int p0, int p1, int p2, int p3, int p4) {}
@@ -512,10 +592,13 @@ void __stdcall ZwReadOnlyEnlistment(int p0, int p1) {}
 void __stdcall ZwRecoverEnlistment(int p0, int p1) {}
 void __stdcall ZwRecoverResourceManager(int p0) {}
 void __stdcall ZwRecoverTransactionManager(int p0) {}
+void __stdcall ZwRegisterProtocolAddressInformation(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ZwRenameKey(int p0, int p1) {}
+void __stdcall ZwRenameTransactionManager(int p0, int p1) {}
 void __stdcall ZwRestoreKey(int p0, int p1, int p2) {}
 void __stdcall ZwRollbackComplete(int p0, int p1) {}
 void __stdcall ZwRollbackEnlistment(int p0, int p1) {}
+void __stdcall ZwRollbackRegistryTransaction(int p0, int p1) {}
 void __stdcall ZwRollbackTransaction(int p0, int p1) {}
 void __stdcall ZwRollforwardTransactionManager(int p0, int p1) {}
 void __stdcall ZwSaveKey(int p0, int p1) {}
