@@ -68,7 +68,7 @@ impl HRESULT {
         {
             let mut message = HeapString::default();
             let mut code = self.0;
-            let mut module = 0;
+            let mut module = core::ptr::null_mut();
 
             let mut flags = FORMAT_MESSAGE_ALLOCATE_BUFFER
                 | FORMAT_MESSAGE_FROM_SYSTEM
@@ -81,7 +81,7 @@ impl HRESULT {
 
                     module = LoadLibraryExA(
                         b"ntdll.dll\0".as_ptr(),
-                        0,
+                        core::ptr::null_mut(),
                         LOAD_LIBRARY_SEARCH_DEFAULT_DIRS,
                     );
                 }
