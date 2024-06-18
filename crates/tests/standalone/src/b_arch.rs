@@ -11,7 +11,7 @@
     target_arch = "x86_64"
 ))]
 windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
-pub type HWND = isize;
+pub type HWND = *mut core::ffi::c_void;
 pub type PSTR = *mut u8;
 pub type WINDOW_LONG_PTR_INDEX = i32;
 #[repr(C)]

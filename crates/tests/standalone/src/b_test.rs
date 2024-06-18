@@ -32,7 +32,7 @@ impl GUID {
         }
     }
 }
-pub type HANDLE = isize;
+pub type HANDLE = *mut core::ffi::c_void;
 pub type HRESULT = i32;
 pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
