@@ -13,6 +13,14 @@ readme = "readme.md"
 categories = ["os::windows-apis"]
 exclude = ["features.json"]
 
+[lib]
+# This crate does not contain tests. All tests are in separate crates.
+test = false
+doctest = false
+# This crate does not generate docs because it is too large (rustdoc has problems with very large
+# crates) and because the Windows API is documented elsewhere.
+doc = false
+
 [lints]
 workspace = true
 
