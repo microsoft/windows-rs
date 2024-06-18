@@ -4,9 +4,13 @@ use windows_sys::{core::*, Win32::Foundation::*, Win32::System::LibraryLoader::*
 ///
 /// The `PCSTR` parameters need to be valid for reads up until and including the next `\0`.
 pub unsafe fn delay_load<T>(library: PCSTR, function: PCSTR) -> Option<T> {
-    let library = LoadLibraryExA(library, 0, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
+    let library = LoadLibraryExA(
+        library,
+        core::ptr::null_mut(),
+        LOAD_LIBRARY_SEARCH_DEFAULT_DIRS,
+    );
 
-    if library == 0 {
+    if library.is_null() {
         return None;
     }
 

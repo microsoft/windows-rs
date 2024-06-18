@@ -83,7 +83,7 @@ impl Window {
         };
 
         Ok(Window {
-            handle: HWND(0),
+            handle: Default::default(),
             factory,
             dxfactory,
             style,
@@ -125,7 +125,7 @@ impl Window {
             target.EndDraw(None, None)?;
         }
 
-        if let Err(error) = self.present(1, 0) {
+        if let Err(error) = self.present(1, DXGI_PRESENT(0)) {
             if error.code() == DXGI_STATUS_OCCLUDED {
                 self.occlusion = unsafe {
                     self.dxfactory
@@ -152,7 +152,7 @@ impl Window {
         self.shadow = None;
     }
 
-    fn present(&self, sync: u32, flags: u32) -> Result<()> {
+    fn present(&self, sync: u32, flags: DXGI_PRESENT) -> Result<()> {
         unsafe { self.swapchain.as_ref().unwrap().Present(sync, flags).ok() }
     }
 
@@ -320,7 +320,7 @@ impl Window {
 
             if unsafe {
                 swapchain
-                    .ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0)
+                    .ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, DXGI_SWAP_CHAIN_FLAG(0))
                     .is_ok()
             } {
                 create_swapchain_bitmap(swapchain, target)?;
@@ -379,7 +379,6 @@ impl Window {
     fn run(&mut self) -> Result<()> {
         unsafe {
             let instance = GetModuleHandleA(None)?;
-            debug_assert!(instance.0 != 0);
             let window_class = s!("window");
 
             let wc = WNDCLASSA {
@@ -408,9 +407,9 @@ impl Window {
                 None,
                 instance,
                 Some(self as *mut _ as _),
-            );
+            )?;
 
-            debug_assert!(handle.0 != 0);
+            debug_assert!(!handle.is_invalid());
             debug_assert!(handle == self.handle);
             let mut message = MSG::default();
 

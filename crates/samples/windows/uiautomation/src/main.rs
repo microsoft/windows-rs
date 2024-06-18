@@ -6,7 +6,7 @@ use windows::{
 fn main() -> Result<()> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
-        let window = FindWindowA(None, s!("Calculator"));
+        let window = FindWindowA(None, s!("Calculator"))?;
 
         // Start with COM API
         let automation: IUIAutomation = CoCreateInstance(&CUIAutomation, None, CLSCTX_ALL)?;

@@ -4,7 +4,7 @@ use windows_sys::{
 
 fn main() {
     unsafe {
-        let mut token = 0;
+        let mut token = core::ptr::null_mut();
         OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &mut token);
         let mut bytes_required = 0;
 

@@ -6,20 +6,20 @@ use windows_sys::{
 fn main() {
     unsafe {
         let instance = GetModuleHandleA(std::ptr::null());
-        debug_assert!(instance != 0);
+        debug_assert!(!instance.is_null());
 
         let window_class = s!("window");
 
         let wc = WNDCLASSA {
-            hCursor: LoadCursorW(0, IDC_ARROW),
+            hCursor: LoadCursorW(core::ptr::null_mut(), IDC_ARROW),
             hInstance: instance,
             lpszClassName: window_class,
             style: CS_HREDRAW | CS_VREDRAW,
             lpfnWndProc: Some(wndproc),
             cbClsExtra: 0,
             cbWndExtra: 0,
-            hIcon: 0,
-            hbrBackground: 0,
+            hIcon: core::ptr::null_mut(),
+            hbrBackground: core::ptr::null_mut(),
             lpszMenuName: std::ptr::null(),
         };
 
@@ -35,15 +35,15 @@ fn main() {
             CW_USEDEFAULT,
             CW_USEDEFAULT,
             CW_USEDEFAULT,
-            0,
-            0,
+            core::ptr::null_mut(),
+            core::ptr::null_mut(),
             instance,
             std::ptr::null(),
         );
 
         let mut message = std::mem::zeroed();
 
-        while GetMessageA(&mut message, 0, 0, 0) != 0 {
+        while GetMessageA(&mut message, core::ptr::null_mut(), 0, 0) != 0 {
             DispatchMessageA(&message);
         }
     }
