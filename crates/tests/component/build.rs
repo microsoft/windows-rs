@@ -22,28 +22,23 @@ fn main() {
 
     // TODO: this looks more complicated but soon the midlrt step above should disappear and then overall it should be simpler...
 
-    let mut command = std::process::Command::new("cargo");
+    let command: Vec<String> = vec![
+        "--in".to_owned(),
+        "component.winmd".to_owned(),
+        metadata_dir.to_owned(),
+        "--out".to_owned(),
+        "src/bindings.rs".to_owned(),
+        "--filter".to_owned(),
+        "test_component".to_owned(),
+        "--config".to_owned(),
+        "implement".to_owned(),
+        "no-bindgen-comment".to_owned(),
+    ];
 
-    command.args([
-        "run",
-        "-p",
-        "riddle",
-        "--target-dir",
-        "../../../target/test_component", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
-        "--",
-        "--in",
-        "component.winmd",
-        &metadata_dir,
-        "--out",
-        "src/bindings.rs",
-        "--filter",
-        "test_component",
-        "--config",
-        "implement",
-        "no-bindgen-comment",
-    ]);
-
-    if !command.status().unwrap().success() {
-        panic!("Failed to run riddle");
-    }
+    windows_bindgen::bindgen(&command).unwrap_or_else(|e| {
+        panic!(
+            "Failed to run bindgen: {e:?}\nArgs: riddle.exe {args}",
+            args = command.join(" ")
+        )
+    });
 }

@@ -8,6 +8,9 @@ publish = false
 doc = false
 doctest = false
 
+[build-dependencies.windows-bindgen]
+path = "../../libs/bindgen"
+
 [dependencies.windows-core]
 path = "../../libs/core"
 
