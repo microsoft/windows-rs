@@ -2365,10 +2365,17 @@ impl Default for FIXED_INFO_W2KSP1 {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIFTIMESTAMPCHANGE(pub isize);
+pub struct HIFTIMESTAMPCHANGE(pub *mut core::ffi::c_void);
 impl HIFTIMESTAMPCHANGE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HIFTIMESTAMPCHANGE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            UnregisterInterfaceTimestampConfigChange(*self);
+        }
     }
 }
 impl Default for HIFTIMESTAMPCHANGE {

@@ -1,18 +1,12 @@
 #[inline]
-pub unsafe fn ActivateActCtx<P0>(hactctx: P0, lpcookie: *mut usize) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn ActivateActCtx(hactctx: super::super::Foundation::HANDLE, lpcookie: *mut usize) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn ActivateActCtx(hactctx : super::super::Foundation:: HANDLE, lpcookie : *mut usize) -> super::super::Foundation:: BOOL);
-    ActivateActCtx(hactctx.param().abi(), lpcookie).ok()
+    ActivateActCtx(hactctx, lpcookie).ok()
 }
 #[inline]
-pub unsafe fn AddRefActCtx<P0>(hactctx: P0)
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn AddRefActCtx(hactctx: super::super::Foundation::HANDLE) {
     windows_targets::link!("kernel32.dll" "system" fn AddRefActCtx(hactctx : super::super::Foundation:: HANDLE));
-    AddRefActCtx(hactctx.param().abi())
+    AddRefActCtx(hactctx)
 }
 #[inline]
 pub unsafe fn ApplyDeltaA<P0, P1, P2>(applyflags: i64, lpsourcename: P0, lpdeltaname: P1, lptargetname: P2) -> super::super::Foundation::BOOL
@@ -2769,12 +2763,9 @@ where
     QueryActCtxW(dwflags, hactctx.param().abi(), core::mem::transmute(pvsubinstance.unwrap_or(std::ptr::null())), ulinfoclass, core::mem::transmute(pvbuffer.unwrap_or(std::ptr::null_mut())), cbbuffer, core::mem::transmute(pcbwrittenorrequired.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn ReleaseActCtx<P0>(hactctx: P0)
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn ReleaseActCtx(hactctx: super::super::Foundation::HANDLE) {
     windows_targets::link!("kernel32.dll" "system" fn ReleaseActCtx(hactctx : super::super::Foundation:: HANDLE));
-    ReleaseActCtx(hactctx.param().abi())
+    ReleaseActCtx(hactctx)
 }
 #[inline]
 pub unsafe fn SfcGetNextProtectedFile<P0>(rpchandle: P0, protfiledata: *mut PROTECTED_FILE_DATA) -> windows_core::Result<()>
@@ -2844,12 +2835,9 @@ where
     TestApplyPatchToFileW(patchfilename.param().abi(), oldfilename.param().abi(), applyoptionflags)
 }
 #[inline]
-pub unsafe fn ZombifyActCtx<P0>(hactctx: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn ZombifyActCtx(hactctx: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn ZombifyActCtx(hactctx : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    ZombifyActCtx(hactctx.param().abi()).ok()
+    ZombifyActCtx(hactctx).ok()
 }
 windows_core::imp::define_interface!(IAssemblyCache, IAssemblyCache_Vtbl, 0xe707dcde_d1cd_11d2_bab9_00c04f8eceae);
 impl core::ops::Deref for IAssemblyCache {

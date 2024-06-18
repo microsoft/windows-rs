@@ -2573,6 +2573,13 @@ impl CF_CONNECTION_KEY {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for CF_CONNECTION_KEY {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CfDisconnectSyncRoot(*self);
+        }
+    }
+}
 impl Default for CF_CONNECTION_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

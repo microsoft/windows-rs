@@ -354,13 +354,14 @@ where
     windows_targets::link!("kernel32.dll" "system" fn OpenPackageInfoByFullName(packagefullname : windows_core::PCWSTR, reserved : u32, packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation:: WIN32_ERROR);
     OpenPackageInfoByFullName(packagefullname.param().abi(), reserved, packageinforeference)
 }
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn OpenPackageInfoByFullNameForUser<P0, P1>(usersid: P0, packagefullname: P1, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<super::super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::super::Security::PSID>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn OpenPackageInfoByFullNameForUser(usersid : super::super::super::Foundation:: PSID, packagefullname : windows_core::PCWSTR, reserved : u32, packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation:: WIN32_ERROR);
+    windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn OpenPackageInfoByFullNameForUser(usersid : super::super::super::Security:: PSID, packagefullname : windows_core::PCWSTR, reserved : u32, packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation:: WIN32_ERROR);
     OpenPackageInfoByFullNameForUser(usersid.param().abi(), packagefullname.param().abi(), reserved, packageinforeference)
 }
 #[inline]
@@ -421,14 +422,15 @@ where
     windows_targets::link!("kernelbase.dll" "system" fn RemovePackageDependency(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT) -> windows_core::HRESULT);
     RemovePackageDependency(packagedependencycontext.param().abi()).ok()
 }
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn TryCreatePackageDependency<P0, P1, P2>(user: P0, packagefamilyname: P1, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: P2, options: CreatePackageDependencyOptions) -> windows_core::Result<windows_core::PWSTR>
 where
-    P0: windows_core::Param<super::super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::super::Security::PSID>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("kernelbase.dll" "system" fn TryCreatePackageDependency(user : super::super::super::Foundation:: PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_targets::link!("kernelbase.dll" "system" fn TryCreatePackageDependency(user : super::super::super::Security:: PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     TryCreatePackageDependency(user.param().abi(), packagefamilyname.param().abi(), core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, &mut result__).map(|| result__)
 }
@@ -4064,7 +4066,12 @@ pub const AppxPackageEditor: windows_core::GUID = windows_core::GUID::from_u128(
 pub const AppxPackagingDiagnosticEventSinkManager: windows_core::GUID = windows_core::GUID::from_u128(0x50ca0a46_1588_4161_8ed2_ef9e469ced5d);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACKAGEDEPENDENCY_CONTEXT(pub isize);
+pub struct PACKAGEDEPENDENCY_CONTEXT(pub *mut core::ffi::c_void);
+impl PACKAGEDEPENDENCY_CONTEXT {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for PACKAGEDEPENDENCY_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4204,7 +4211,12 @@ impl Default for PACKAGE_VERSION_0_0 {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE(pub isize);
+pub struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE(pub *mut core::ffi::c_void);
+impl PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

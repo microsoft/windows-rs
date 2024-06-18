@@ -478,14 +478,21 @@ pub unsafe fn EtwActivityIdControl(controlcode: u32, activityid: *mut windows_co
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[inline]
-pub unsafe fn EtwEventEnabled(reghandle: u64, eventdescriptor: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR) -> super::super::super::Win32::Foundation::BOOLEAN {
-    windows_targets::link!("ntdll.dll" "system" fn EtwEventEnabled(reghandle : u64, eventdescriptor : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DESCRIPTOR) -> super::super::super::Win32::Foundation:: BOOLEAN);
-    EtwEventEnabled(reghandle, eventdescriptor)
+pub unsafe fn EtwEventEnabled<P0>(reghandle: P0, eventdescriptor: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR) -> super::super::super::Win32::Foundation::BOOLEAN
+where
+    P0: windows_core::Param<super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE>,
+{
+    windows_targets::link!("ntdll.dll" "system" fn EtwEventEnabled(reghandle : super::super::super::Win32::System::Diagnostics::Etw:: REGHANDLE, eventdescriptor : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DESCRIPTOR) -> super::super::super::Win32::Foundation:: BOOLEAN);
+    EtwEventEnabled(reghandle.param().abi(), eventdescriptor)
 }
+#[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[inline]
-pub unsafe fn EtwProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> super::super::super::Win32::Foundation::BOOLEAN {
-    windows_targets::link!("ntoskrnl.exe" "system" fn EtwProviderEnabled(reghandle : u64, level : u8, keyword : u64) -> super::super::super::Win32::Foundation:: BOOLEAN);
-    EtwProviderEnabled(reghandle, level, keyword)
+pub unsafe fn EtwProviderEnabled<P0>(reghandle: P0, level: u8, keyword: u64) -> super::super::super::Win32::Foundation::BOOLEAN
+where
+    P0: windows_core::Param<super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE>,
+{
+    windows_targets::link!("ntoskrnl.exe" "system" fn EtwProviderEnabled(reghandle : super::super::super::Win32::System::Diagnostics::Etw:: REGHANDLE, level : u8, keyword : u64) -> super::super::super::Win32::Foundation:: BOOLEAN);
+    EtwProviderEnabled(reghandle.param().abi(), level, keyword)
 }
 #[inline]
 pub unsafe fn EtwRegister(providerid: *const windows_core::GUID, enablecallback: PETWENABLECALLBACK, callbackcontext: Option<*const core::ffi::c_void>, reghandle: *mut u64) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -494,40 +501,58 @@ pub unsafe fn EtwRegister(providerid: *const windows_core::GUID, enablecallback:
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[inline]
-pub unsafe fn EtwSetInformation(reghandle: u64, informationclass: super::super::super::Win32::System::Diagnostics::Etw::EVENT_INFO_CLASS, eventinformation: Option<*const core::ffi::c_void>, informationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntoskrnl.exe" "system" fn EtwSetInformation(reghandle : u64, informationclass : super::super::super::Win32::System::Diagnostics::Etw:: EVENT_INFO_CLASS, eventinformation : *const core::ffi::c_void, informationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    EtwSetInformation(reghandle, informationclass, core::mem::transmute(eventinformation.unwrap_or(std::ptr::null())), informationlength)
-}
-#[inline]
-pub unsafe fn EtwUnregister(reghandle: u64) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntoskrnl.exe" "system" fn EtwUnregister(reghandle : u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    EtwUnregister(reghandle)
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-#[inline]
-pub unsafe fn EtwWrite(reghandle: u64, eventdescriptor: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, userdata: Option<&[super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR]>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntoskrnl.exe" "system" fn EtwWrite(reghandle : u64, eventdescriptor : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DESCRIPTOR, activityid : *const windows_core::GUID, userdatacount : u32, userdata : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DATA_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    EtwWrite(reghandle, eventdescriptor, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
-}
-#[cfg(feature = "Win32_System_Diagnostics_Etw")]
-#[inline]
-pub unsafe fn EtwWriteEx(reghandle: u64, eventdescriptor: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR]>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntoskrnl.exe" "system" fn EtwWriteEx(reghandle : u64, eventdescriptor : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DATA_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    EtwWriteEx(reghandle, eventdescriptor, filter, flags, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), core::mem::transmute(relatedactivityid.unwrap_or(std::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
-}
-#[inline]
-pub unsafe fn EtwWriteString<P0>(reghandle: u64, level: u8, keyword: u64, activityid: Option<*const windows_core::GUID>, string: P0) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn EtwSetInformation<P0>(reghandle: P0, informationclass: super::super::super::Win32::System::Diagnostics::Etw::EVENT_INFO_CLASS, eventinformation: Option<*const core::ffi::c_void>, informationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE>,
 {
-    windows_targets::link!("ntoskrnl.exe" "system" fn EtwWriteString(reghandle : u64, level : u8, keyword : u64, activityid : *const windows_core::GUID, string : windows_core::PCWSTR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    EtwWriteString(reghandle, level, keyword, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), string.param().abi())
+    windows_targets::link!("ntoskrnl.exe" "system" fn EtwSetInformation(reghandle : super::super::super::Win32::System::Diagnostics::Etw:: REGHANDLE, informationclass : super::super::super::Win32::System::Diagnostics::Etw:: EVENT_INFO_CLASS, eventinformation : *const core::ffi::c_void, informationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    EtwSetInformation(reghandle.param().abi(), informationclass, core::mem::transmute(eventinformation.unwrap_or(std::ptr::null())), informationlength)
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[inline]
-pub unsafe fn EtwWriteTransfer(reghandle: u64, eventdescriptor: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR]>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntoskrnl.exe" "system" fn EtwWriteTransfer(reghandle : u64, eventdescriptor : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DESCRIPTOR, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DATA_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    EtwWriteTransfer(reghandle, eventdescriptor, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), core::mem::transmute(relatedactivityid.unwrap_or(std::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+pub unsafe fn EtwUnregister<P0>(reghandle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
+where
+    P0: windows_core::Param<super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE>,
+{
+    windows_targets::link!("ntoskrnl.exe" "system" fn EtwUnregister(reghandle : super::super::super::Win32::System::Diagnostics::Etw:: REGHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    EtwUnregister(reghandle.param().abi())
+}
+#[cfg(feature = "Win32_System_Diagnostics_Etw")]
+#[inline]
+pub unsafe fn EtwWrite<P0>(reghandle: P0, eventdescriptor: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, userdata: Option<&[super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR]>) -> super::super::super::Win32::Foundation::NTSTATUS
+where
+    P0: windows_core::Param<super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE>,
+{
+    windows_targets::link!("ntoskrnl.exe" "system" fn EtwWrite(reghandle : super::super::super::Win32::System::Diagnostics::Etw:: REGHANDLE, eventdescriptor : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DESCRIPTOR, activityid : *const windows_core::GUID, userdatacount : u32, userdata : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DATA_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    EtwWrite(reghandle.param().abi(), eventdescriptor, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+}
+#[cfg(feature = "Win32_System_Diagnostics_Etw")]
+#[inline]
+pub unsafe fn EtwWriteEx<P0>(reghandle: P0, eventdescriptor: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR]>) -> super::super::super::Win32::Foundation::NTSTATUS
+where
+    P0: windows_core::Param<super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE>,
+{
+    windows_targets::link!("ntoskrnl.exe" "system" fn EtwWriteEx(reghandle : super::super::super::Win32::System::Diagnostics::Etw:: REGHANDLE, eventdescriptor : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DATA_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    EtwWriteEx(reghandle.param().abi(), eventdescriptor, filter, flags, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), core::mem::transmute(relatedactivityid.unwrap_or(std::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+}
+#[cfg(feature = "Win32_System_Diagnostics_Etw")]
+#[inline]
+pub unsafe fn EtwWriteString<P0, P1>(reghandle: P0, level: u8, keyword: u64, activityid: Option<*const windows_core::GUID>, string: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+where
+    P0: windows_core::Param<super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("ntoskrnl.exe" "system" fn EtwWriteString(reghandle : super::super::super::Win32::System::Diagnostics::Etw:: REGHANDLE, level : u8, keyword : u64, activityid : *const windows_core::GUID, string : windows_core::PCWSTR) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    EtwWriteString(reghandle.param().abi(), level, keyword, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), string.param().abi())
+}
+#[cfg(feature = "Win32_System_Diagnostics_Etw")]
+#[inline]
+pub unsafe fn EtwWriteTransfer<P0>(reghandle: P0, eventdescriptor: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR]>) -> super::super::super::Win32::Foundation::NTSTATUS
+where
+    P0: windows_core::Param<super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE>,
+{
+    windows_targets::link!("ntoskrnl.exe" "system" fn EtwWriteTransfer(reghandle : super::super::super::Win32::System::Diagnostics::Etw:: REGHANDLE, eventdescriptor : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DESCRIPTOR, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const super::super::super::Win32::System::Diagnostics::Etw:: EVENT_DATA_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    EtwWriteTransfer(reghandle.param().abi(), eventdescriptor, core::mem::transmute(activityid.unwrap_or(std::ptr::null())), core::mem::transmute(relatedactivityid.unwrap_or(std::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -1221,8 +1246,8 @@ pub unsafe fn HalAcquireDisplayOwnership(resetdisplayparameters: PHAL_RESET_DISP
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_IscsiDisc", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn HalAllocateAdapterChannel(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, wcb: *const WAIT_CONTEXT_BLOCK, numberofmapregisters: u32, executionroutine: *const super::super::Foundation::DRIVER_CONTROL) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("hal.dll" "system" fn HalAllocateAdapterChannel(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, wcb : *const WAIT_CONTEXT_BLOCK, numberofmapregisters : u32, executionroutine : *const super::super::Foundation:: DRIVER_CONTROL) -> super::super::super::Win32::Foundation:: NTSTATUS);
+pub unsafe fn HalAllocateAdapterChannel(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, wcb: *const WAIT_CONTEXT_BLOCK, numberofmapregisters: u32, executionroutine: super::super::Foundation::DRIVER_CONTROL) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("hal.dll" "system" fn HalAllocateAdapterChannel(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, wcb : *const WAIT_CONTEXT_BLOCK, numberofmapregisters : u32, executionroutine : super::super::Foundation:: DRIVER_CONTROL) -> super::super::super::Win32::Foundation:: NTSTATUS);
     HalAllocateAdapterChannel(adapterobject, wcb, numberofmapregisters, executionroutine)
 }
 #[cfg(feature = "Win32_Storage_IscsiDisc")]
@@ -1380,14 +1405,14 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_IscsiDisc", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoAllocateAdapterChannel(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, numberofmapregisters: u32, executionroutine: *const super::super::Foundation::DRIVER_CONTROL, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntoskrnl.exe" "system" fn IoAllocateAdapterChannel(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, numberofmapregisters : u32, executionroutine : *const super::super::Foundation:: DRIVER_CONTROL, context : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
+pub unsafe fn IoAllocateAdapterChannel(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, numberofmapregisters: u32, executionroutine: super::super::Foundation::DRIVER_CONTROL, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntoskrnl.exe" "system" fn IoAllocateAdapterChannel(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, numberofmapregisters : u32, executionroutine : super::super::Foundation:: DRIVER_CONTROL, context : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoAllocateAdapterChannel(adapterobject, deviceobject, numberofmapregisters, executionroutine, context)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoAllocateController(controllerobject: *const CONTROLLER_OBJECT, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, executionroutine: *const super::super::Foundation::DRIVER_CONTROL, context: Option<*const core::ffi::c_void>) {
-    windows_targets::link!("ntoskrnl.exe" "system" fn IoAllocateController(controllerobject : *const CONTROLLER_OBJECT, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, executionroutine : *const super::super::Foundation:: DRIVER_CONTROL, context : *const core::ffi::c_void));
+pub unsafe fn IoAllocateController(controllerobject: *const CONTROLLER_OBJECT, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, executionroutine: super::super::Foundation::DRIVER_CONTROL, context: Option<*const core::ffi::c_void>) {
+    windows_targets::link!("ntoskrnl.exe" "system" fn IoAllocateController(controllerobject : *const CONTROLLER_OBJECT, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, executionroutine : super::super::Foundation:: DRIVER_CONTROL, context : *const core::ffi::c_void));
     IoAllocateController(controllerobject, deviceobject, executionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null())))
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2242,8 +2267,8 @@ pub unsafe fn IoRegisterBootDriverCallback(callbackfunction: PBOOT_DRIVER_CALLBA
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoRegisterBootDriverReinitialization(driverobject: *const super::super::Foundation::DRIVER_OBJECT, driverreinitializationroutine: *const super::super::Foundation::DRIVER_REINITIALIZE, context: Option<*const core::ffi::c_void>) {
-    windows_targets::link!("ntoskrnl.exe" "system" fn IoRegisterBootDriverReinitialization(driverobject : *const super::super::Foundation:: DRIVER_OBJECT, driverreinitializationroutine : *const super::super::Foundation:: DRIVER_REINITIALIZE, context : *const core::ffi::c_void));
+pub unsafe fn IoRegisterBootDriverReinitialization(driverobject: *const super::super::Foundation::DRIVER_OBJECT, driverreinitializationroutine: super::super::Foundation::DRIVER_REINITIALIZE, context: Option<*const core::ffi::c_void>) {
+    windows_targets::link!("ntoskrnl.exe" "system" fn IoRegisterBootDriverReinitialization(driverobject : *const super::super::Foundation:: DRIVER_OBJECT, driverreinitializationroutine : super::super::Foundation:: DRIVER_REINITIALIZE, context : *const core::ffi::c_void));
     IoRegisterBootDriverReinitialization(driverobject, driverreinitializationroutine, core::mem::transmute(context.unwrap_or(std::ptr::null())))
 }
 #[inline]
@@ -2259,8 +2284,8 @@ pub unsafe fn IoRegisterDeviceInterface(physicaldeviceobject: *const super::supe
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoRegisterDriverReinitialization(driverobject: *const super::super::Foundation::DRIVER_OBJECT, driverreinitializationroutine: *const super::super::Foundation::DRIVER_REINITIALIZE, context: Option<*const core::ffi::c_void>) {
-    windows_targets::link!("ntoskrnl.exe" "system" fn IoRegisterDriverReinitialization(driverobject : *const super::super::Foundation:: DRIVER_OBJECT, driverreinitializationroutine : *const super::super::Foundation:: DRIVER_REINITIALIZE, context : *const core::ffi::c_void));
+pub unsafe fn IoRegisterDriverReinitialization(driverobject: *const super::super::Foundation::DRIVER_OBJECT, driverreinitializationroutine: super::super::Foundation::DRIVER_REINITIALIZE, context: Option<*const core::ffi::c_void>) {
+    windows_targets::link!("ntoskrnl.exe" "system" fn IoRegisterDriverReinitialization(driverobject : *const super::super::Foundation:: DRIVER_OBJECT, driverreinitializationroutine : super::super::Foundation:: DRIVER_REINITIALIZE, context : *const core::ffi::c_void));
     IoRegisterDriverReinitialization(driverobject, driverreinitializationroutine, core::mem::transmute(context.unwrap_or(std::ptr::null())))
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2271,8 +2296,8 @@ pub unsafe fn IoRegisterLastChanceShutdownNotification(deviceobject: *const supe
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoRegisterPlugPlayNotification(eventcategory: IO_NOTIFICATION_EVENT_CATEGORY, eventcategoryflags: u32, eventcategorydata: Option<*const core::ffi::c_void>, driverobject: *const super::super::Foundation::DRIVER_OBJECT, callbackroutine: *const super::super::Foundation::DRIVER_NOTIFICATION_CALLBACK_ROUTINE, context: Option<*mut core::ffi::c_void>, notificationentry: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntoskrnl.exe" "system" fn IoRegisterPlugPlayNotification(eventcategory : IO_NOTIFICATION_EVENT_CATEGORY, eventcategoryflags : u32, eventcategorydata : *const core::ffi::c_void, driverobject : *const super::super::Foundation:: DRIVER_OBJECT, callbackroutine : *const super::super::Foundation:: DRIVER_NOTIFICATION_CALLBACK_ROUTINE, context : *mut core::ffi::c_void, notificationentry : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
+pub unsafe fn IoRegisterPlugPlayNotification(eventcategory: IO_NOTIFICATION_EVENT_CATEGORY, eventcategoryflags: u32, eventcategorydata: Option<*const core::ffi::c_void>, driverobject: *const super::super::Foundation::DRIVER_OBJECT, callbackroutine: super::super::Foundation::DRIVER_NOTIFICATION_CALLBACK_ROUTINE, context: Option<*mut core::ffi::c_void>, notificationentry: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntoskrnl.exe" "system" fn IoRegisterPlugPlayNotification(eventcategory : IO_NOTIFICATION_EVENT_CATEGORY, eventcategoryflags : u32, eventcategorydata : *const core::ffi::c_void, driverobject : *const super::super::Foundation:: DRIVER_OBJECT, callbackroutine : super::super::Foundation:: DRIVER_NOTIFICATION_CALLBACK_ROUTINE, context : *mut core::ffi::c_void, notificationentry : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoRegisterPlugPlayNotification(eventcategory, eventcategoryflags, core::mem::transmute(eventcategorydata.unwrap_or(std::ptr::null())), driverobject, callbackroutine, core::mem::transmute(context.unwrap_or(std::ptr::null_mut())), notificationentry)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2601,9 +2626,9 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoStartPacket(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, key: Option<*const u32>, cancelfunction: Option<*const super::super::Foundation::DRIVER_CANCEL>) {
-    windows_targets::link!("ntoskrnl.exe" "system" fn IoStartPacket(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, irp : *const super::super::Foundation:: IRP, key : *const u32, cancelfunction : *const super::super::Foundation:: DRIVER_CANCEL));
-    IoStartPacket(deviceobject, irp, core::mem::transmute(key.unwrap_or(std::ptr::null())), core::mem::transmute(cancelfunction.unwrap_or(std::ptr::null())))
+pub unsafe fn IoStartPacket(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, key: Option<*const u32>, cancelfunction: super::super::Foundation::DRIVER_CANCEL) {
+    windows_targets::link!("ntoskrnl.exe" "system" fn IoStartPacket(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, irp : *const super::super::Foundation:: IRP, key : *const u32, cancelfunction : super::super::Foundation:: DRIVER_CANCEL));
+    IoStartPacket(deviceobject, irp, core::mem::transmute(key.unwrap_or(std::ptr::null())), cancelfunction)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -4132,6 +4157,11 @@ where
     MmUnsecureVirtualMemory(securehandle.param().abi())
 }
 #[inline]
+pub unsafe fn NtAllocateLocallyUniqueId(luid: *mut super::super::super::Win32::Foundation::LUID) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn NtAllocateLocallyUniqueId(luid : *mut super::super::super::Win32::Foundation:: LUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    NtAllocateLocallyUniqueId(luid)
+}
+#[inline]
 pub unsafe fn NtCommitComplete<P0>(enlistmenthandle: P0, tmvirtualclock: Option<*const i64>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
@@ -4190,6 +4220,11 @@ pub unsafe fn NtCreateTransactionManager(tmhandle: *mut super::super::super::Win
     windows_targets::link!("ntdll.dll" "system" fn NtCreateTransactionManager(tmhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, logfilename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, createoptions : u32, commitstrength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtCreateTransactionManager(tmhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(std::ptr::null())), core::mem::transmute(logfilename.unwrap_or(std::ptr::null())), createoptions, commitstrength)
 }
+#[inline]
+pub unsafe fn NtDisplayString(string: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn NtDisplayString(string : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    NtDisplayString(string)
+}
 #[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn NtEnumerateTransactionObject<P0>(rootobjecthandle: P0, querytype: super::super::super::Win32::System::SystemServices::KTMOBJECT_TYPE, objectcursor: *mut super::super::super::Win32::System::SystemServices::KTMOBJECT_CURSOR, objectcursorlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -4209,6 +4244,19 @@ where
     NtGetNotificationResourceManager(resourcemanagerhandle.param().abi(), transactionnotification, notificationlength, core::mem::transmute(timeout.unwrap_or(std::ptr::null())), core::mem::transmute(returnlength.unwrap_or(std::ptr::null_mut())), asynchronous, asynchronouscontext)
 }
 #[inline]
+pub unsafe fn NtLoadDriver(driverservicename: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn NtLoadDriver(driverservicename : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    NtLoadDriver(driverservicename)
+}
+#[inline]
+pub unsafe fn NtMakeTemporaryObject<P0>(handle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
+where
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+{
+    windows_targets::link!("ntdll.dll" "system" fn NtMakeTemporaryObject(handle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    NtMakeTemporaryObject(handle.param().abi())
+}
+#[inline]
 pub unsafe fn NtManagePartition<P0, P1>(targethandle: P0, sourcehandle: P1, partitioninformationclass: PARTITION_INFORMATION_CLASS, partitioninformation: *mut core::ffi::c_void, partitioninformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
@@ -4225,18 +4273,6 @@ where
 {
     windows_targets::link!("ntdll.dll" "system" fn NtOpenEnlistment(enlistmenthandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, resourcemanagerhandle : super::super::super::Win32::Foundation:: HANDLE, enlistmentguid : *const windows_core::GUID, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtOpenEnlistment(enlistmenthandle, desiredaccess, resourcemanagerhandle.param().abi(), enlistmentguid, core::mem::transmute(objectattributes.unwrap_or(std::ptr::null())))
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_WindowsProgramming"))]
-#[inline]
-pub unsafe fn NtOpenProcess(processhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, clientid: Option<*const super::super::super::Win32::System::WindowsProgramming::CLIENT_ID>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn NtOpenProcess(processhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, clientid : *const super::super::super::Win32::System::WindowsProgramming:: CLIENT_ID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtOpenProcess(processhandle, desiredaccess, objectattributes, core::mem::transmute(clientid.unwrap_or(std::ptr::null())))
-}
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
-pub unsafe fn NtOpenRegistryTransaction(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn NtOpenRegistryTransaction(transactionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtOpenRegistryTransaction(transactionhandle, desiredaccess, objectattributes)
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -4415,14 +4451,6 @@ where
     NtRollbackEnlistment(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn NtRollbackRegistryTransaction<P0>(transactionhandle: P0, flags: u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn NtRollbackRegistryTransaction(transactionhandle : super::super::super::Win32::Foundation:: HANDLE, flags : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtRollbackRegistryTransaction(transactionhandle.param().abi(), flags)
-}
-#[inline]
 pub unsafe fn NtRollbackTransaction<P0, P1>(transactionhandle: P0, wait: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
@@ -4482,6 +4510,11 @@ where
 {
     windows_targets::link!("ntdll.dll" "system" fn NtSinglePhaseReject(enlistmenthandle : super::super::super::Win32::Foundation:: HANDLE, tmvirtualclock : *const i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtSinglePhaseReject(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock.unwrap_or(std::ptr::null())))
+}
+#[inline]
+pub unsafe fn NtUnloadDriver(driverservicename: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn NtUnloadDriver(driverservicename : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    NtUnloadDriver(driverservicename)
 }
 #[inline]
 pub unsafe fn ObCloseHandle<P0>(handle: P0, previousmode: i8) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -6581,9 +6614,9 @@ pub unsafe fn SeReleaseSubjectContext(subjectcontext: *mut super::super::Foundat
 #[inline]
 pub unsafe fn SeReportSecurityEvent<P0>(flags: u32, sourcename: *const super::super::super::Win32::Foundation::UNICODE_STRING, usersid: P0, auditparameters: *const super::super::super::Win32::Security::Authentication::Identity::SE_ADT_PARAMETER_ARRAY) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::PSID>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSID>,
 {
-    windows_targets::link!("ntoskrnl.exe" "system" fn SeReportSecurityEvent(flags : u32, sourcename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, usersid : super::super::super::Win32::Foundation:: PSID, auditparameters : *const super::super::super::Win32::Security::Authentication::Identity:: SE_ADT_PARAMETER_ARRAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    windows_targets::link!("ntoskrnl.exe" "system" fn SeReportSecurityEvent(flags : u32, sourcename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, usersid : super::super::super::Win32::Security:: PSID, auditparameters : *const super::super::super::Win32::Security::Authentication::Identity:: SE_ADT_PARAMETER_ARRAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeReportSecurityEvent(flags, sourcename, usersid.param().abi(), auditparameters)
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
@@ -6945,14 +6978,6 @@ pub unsafe fn ZwAllocateLocallyUniqueId(luid: *mut super::super::super::Win32::F
     ZwAllocateLocallyUniqueId(luid)
 }
 #[inline]
-pub unsafe fn ZwCancelTimer<P0>(timerhandle: P0, currentstate: Option<*mut super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwCancelTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, currentstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwCancelTimer(timerhandle.param().abi(), core::mem::transmute(currentstate.unwrap_or(std::ptr::null_mut())))
-}
-#[inline]
 pub unsafe fn ZwClose<P0>(handle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
@@ -6977,14 +7002,6 @@ where
     ZwCommitEnlistment(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn ZwCommitRegistryTransaction<P0>(transactionhandle: P0, flags: u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwCommitRegistryTransaction(transactionhandle : super::super::super::Win32::Foundation:: HANDLE, flags : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwCommitRegistryTransaction(transactionhandle.param().abi(), flags)
-}
-#[inline]
 pub unsafe fn ZwCommitTransaction<P0, P1>(transactionhandle: P0, wait: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
@@ -6992,12 +7009,6 @@ where
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwCommitTransaction(transactionhandle : super::super::super::Win32::Foundation:: HANDLE, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwCommitTransaction(transactionhandle.param().abi(), wait.param().abi())
-}
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
-pub unsafe fn ZwCreateDirectoryObject(directoryhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn ZwCreateDirectoryObject(directoryhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwCreateDirectoryObject(directoryhandle, desiredaccess, objectattributes)
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -7017,27 +7028,6 @@ pub unsafe fn ZwCreateFile(filehandle: *mut super::super::super::Win32::Foundati
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ZwCreateKey(keyhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, titleindex: u32, class: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, createoptions: u32, disposition: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn ZwCreateKey(keyhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, titleindex : u32, class : *const super::super::super::Win32::Foundation:: UNICODE_STRING, createoptions : u32, disposition : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwCreateKey(keyhandle, desiredaccess, objectattributes, titleindex, core::mem::transmute(class.unwrap_or(std::ptr::null())), createoptions, core::mem::transmute(disposition.unwrap_or(std::ptr::null_mut())))
-}
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
-pub unsafe fn ZwCreateKeyTransacted<P0>(keyhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, titleindex: u32, class: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, createoptions: u32, transactionhandle: P0, disposition: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwCreateKeyTransacted(keyhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, titleindex : u32, class : *const super::super::super::Win32::Foundation:: UNICODE_STRING, createoptions : u32, transactionhandle : super::super::super::Win32::Foundation:: HANDLE, disposition : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwCreateKeyTransacted(keyhandle, desiredaccess, objectattributes, titleindex, core::mem::transmute(class.unwrap_or(std::ptr::null())), createoptions, transactionhandle.param().abi(), core::mem::transmute(disposition.unwrap_or(std::ptr::null_mut())))
-}
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
-pub unsafe fn ZwCreateRegistryTransaction(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, createoptions: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn ZwCreateRegistryTransaction(transactionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, createoptions : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwCreateRegistryTransaction(transactionhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(std::ptr::null())), createoptions)
-}
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
 pub unsafe fn ZwCreateResourceManager<P0>(resourcemanagerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, tmhandle: P0, resourcemanagerguid: Option<*const windows_core::GUID>, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, createoptions: u32, description: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
@@ -7054,12 +7044,6 @@ where
     windows_targets::link!("ntdll.dll" "system" fn ZwCreateSection(sectionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwCreateSection(sectionhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(std::ptr::null())), core::mem::transmute(maximumsize.unwrap_or(std::ptr::null())), sectionpageprotection, allocationattributes, filehandle.param().abi())
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
-pub unsafe fn ZwCreateTimer(timerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, timertype: super::super::super::Win32::System::Kernel::TIMER_TYPE) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn ZwCreateTimer(timerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, timertype : super::super::super::Win32::System::Kernel:: TIMER_TYPE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwCreateTimer(timerhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(std::ptr::null())), timertype)
-}
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn ZwCreateTransaction<P0>(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, uow: Option<*const windows_core::GUID>, tmhandle: P0, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: Option<*const i64>, description: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -7074,22 +7058,6 @@ where
 pub unsafe fn ZwCreateTransactionManager(tmhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, logfilename: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, createoptions: u32, commitstrength: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwCreateTransactionManager(tmhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, logfilename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, createoptions : u32, commitstrength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwCreateTransactionManager(tmhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(std::ptr::null())), core::mem::transmute(logfilename.unwrap_or(std::ptr::null())), createoptions, commitstrength)
-}
-#[inline]
-pub unsafe fn ZwDeleteKey<P0>(keyhandle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwDeleteKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwDeleteKey(keyhandle.param().abi())
-}
-#[inline]
-pub unsafe fn ZwDeleteValueKey<P0>(keyhandle: P0, valuename: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwDeleteValueKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, valuename : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwDeleteValueKey(keyhandle.param().abi(), valuename)
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -7106,14 +7074,6 @@ pub unsafe fn ZwDisplayString(string: *const super::super::super::Win32::Foundat
     windows_targets::link!("ntdll.dll" "system" fn ZwDisplayString(string : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwDisplayString(string)
 }
-#[inline]
-pub unsafe fn ZwEnumerateKey<P0>(keyhandle: P0, index: u32, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwEnumerateKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, index : u32, keyinformationclass : KEY_INFORMATION_CLASS, keyinformation : *mut core::ffi::c_void, length : u32, resultlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwEnumerateKey(keyhandle.param().abi(), index, keyinformationclass, core::mem::transmute(keyinformation.unwrap_or(std::ptr::null_mut())), length, resultlength)
-}
 #[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn ZwEnumerateTransactionObject<P0>(rootobjecthandle: P0, querytype: super::super::super::Win32::System::SystemServices::KTMOBJECT_TYPE, objectcursor: *mut super::super::super::Win32::System::SystemServices::KTMOBJECT_CURSOR, objectcursorlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -7122,22 +7082,6 @@ where
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwEnumerateTransactionObject(rootobjecthandle : super::super::super::Win32::Foundation:: HANDLE, querytype : super::super::super::Win32::System::SystemServices:: KTMOBJECT_TYPE, objectcursor : *mut super::super::super::Win32::System::SystemServices:: KTMOBJECT_CURSOR, objectcursorlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwEnumerateTransactionObject(rootobjecthandle.param().abi(), querytype, objectcursor, objectcursorlength, returnlength)
-}
-#[inline]
-pub unsafe fn ZwEnumerateValueKey<P0>(keyhandle: P0, index: u32, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwEnumerateValueKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, index : u32, keyvalueinformationclass : KEY_VALUE_INFORMATION_CLASS, keyvalueinformation : *mut core::ffi::c_void, length : u32, resultlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwEnumerateValueKey(keyhandle.param().abi(), index, keyvalueinformationclass, core::mem::transmute(keyvalueinformation.unwrap_or(std::ptr::null_mut())), length, resultlength)
-}
-#[inline]
-pub unsafe fn ZwFlushKey<P0>(keyhandle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwFlushKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwFlushKey(keyhandle.param().abi())
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
@@ -7162,13 +7106,13 @@ where
     ZwMakeTemporaryObject(handle.param().abi())
 }
 #[inline]
-pub unsafe fn ZwMapViewOfSection<P0, P1>(sectionhandle: P0, processhandle: P1, baseaddress: *mut *mut core::ffi::c_void, zerobits: usize, commitsize: usize, sectionoffset: Option<*mut i64>, viewsize: *mut usize, inheritdisposition: SECTION_INHERIT, allocationtype: u32, win32protect: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwManagePartition<P0, P1>(targethandle: P0, sourcehandle: P1, partitioninformationclass: PARTITION_INFORMATION_CLASS, partitioninformation: *mut core::ffi::c_void, partitioninformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn ZwMapViewOfSection(sectionhandle : super::super::super::Win32::Foundation:: HANDLE, processhandle : super::super::super::Win32::Foundation:: HANDLE, baseaddress : *mut *mut core::ffi::c_void, zerobits : usize, commitsize : usize, sectionoffset : *mut i64, viewsize : *mut usize, inheritdisposition : SECTION_INHERIT, allocationtype : u32, win32protect : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwMapViewOfSection(sectionhandle.param().abi(), processhandle.param().abi(), baseaddress, zerobits, commitsize, core::mem::transmute(sectionoffset.unwrap_or(std::ptr::null_mut())), viewsize, inheritdisposition, allocationtype, win32protect)
+    windows_targets::link!("ntdll.dll" "system" fn ZwManagePartition(targethandle : super::super::super::Win32::Foundation:: HANDLE, sourcehandle : super::super::super::Win32::Foundation:: HANDLE, partitioninformationclass : PARTITION_INFORMATION_CLASS, partitioninformation : *mut core::ffi::c_void, partitioninformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    ZwManagePartition(targethandle.param().abi(), sourcehandle.param().abi(), partitioninformationclass, partitioninformation, partitioninformationlength)
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -7179,53 +7123,11 @@ where
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenEnlistment(enlistmenthandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, rmhandle : super::super::super::Win32::Foundation:: HANDLE, enlistmentguid : *const windows_core::GUID, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwOpenEnlistment(enlistmenthandle, desiredaccess, rmhandle.param().abi(), enlistmentguid, core::mem::transmute(objectattributes.unwrap_or(std::ptr::null())))
 }
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
-pub unsafe fn ZwOpenEvent(eventhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn ZwOpenEvent(eventhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwOpenEvent(eventhandle, desiredaccess, objectattributes)
-}
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ZwOpenFile(filehandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenFile(filehandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwOpenFile(filehandle, desiredaccess, objectattributes, iostatusblock, shareaccess, openoptions)
-}
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
-pub unsafe fn ZwOpenKey(keyhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn ZwOpenKey(keyhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwOpenKey(keyhandle, desiredaccess, objectattributes)
-}
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
-pub unsafe fn ZwOpenKeyEx(keyhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, openoptions: u32) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn ZwOpenKeyEx(keyhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, openoptions : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwOpenKeyEx(keyhandle, desiredaccess, objectattributes, openoptions)
-}
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
-pub unsafe fn ZwOpenKeyTransacted<P0>(keyhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, transactionhandle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwOpenKeyTransacted(keyhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, transactionhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwOpenKeyTransacted(keyhandle, desiredaccess, objectattributes, transactionhandle.param().abi())
-}
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
-pub unsafe fn ZwOpenKeyTransactedEx<P0>(keyhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, openoptions: u32, transactionhandle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwOpenKeyTransactedEx(keyhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, openoptions : u32, transactionhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwOpenKeyTransactedEx(keyhandle, desiredaccess, objectattributes, openoptions, transactionhandle.param().abi())
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_WindowsProgramming"))]
-#[inline]
-pub unsafe fn ZwOpenProcess(processhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, clientid: Option<*const super::super::super::Win32::System::WindowsProgramming::CLIENT_ID>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn ZwOpenProcess(processhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, clientid : *const super::super::super::Win32::System::WindowsProgramming:: CLIENT_ID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwOpenProcess(processhandle, desiredaccess, objectattributes, core::mem::transmute(clientid.unwrap_or(std::ptr::null())))
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -7238,21 +7140,9 @@ where
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ZwOpenSection(sectionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn ZwOpenSection(sectionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwOpenSection(sectionhandle, desiredaccess, objectattributes)
-}
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
 pub unsafe fn ZwOpenSymbolicLinkObject(linkhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenSymbolicLinkObject(linkhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwOpenSymbolicLinkObject(linkhandle, desiredaccess, objectattributes)
-}
-#[cfg(feature = "Wdk_Foundation")]
-#[inline]
-pub unsafe fn ZwOpenTimer(timerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_targets::link!("ntdll.dll" "system" fn ZwOpenTimer(timerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwOpenTimer(timerhandle, desiredaccess, objectattributes)
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -7307,6 +7197,23 @@ where
     windows_targets::link!("ntdll.dll" "system" fn ZwPrepareEnlistment(enlistmenthandle : super::super::super::Win32::Foundation:: HANDLE, tmvirtualclock : *const i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwPrepareEnlistment(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock.unwrap_or(std::ptr::null())))
 }
+#[inline]
+pub unsafe fn ZwPropagationComplete<P0>(resourcemanagerhandle: P0, requestcookie: u32, bufferlength: u32, buffer: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS
+where
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+{
+    windows_targets::link!("ntdll.dll" "system" fn ZwPropagationComplete(resourcemanagerhandle : super::super::super::Win32::Foundation:: HANDLE, requestcookie : u32, bufferlength : u32, buffer : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    ZwPropagationComplete(resourcemanagerhandle.param().abi(), requestcookie, bufferlength, buffer)
+}
+#[inline]
+pub unsafe fn ZwPropagationFailed<P0, P1>(resourcemanagerhandle: P0, requestcookie: u32, propstatus: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+where
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
+{
+    windows_targets::link!("ntdll.dll" "system" fn ZwPropagationFailed(resourcemanagerhandle : super::super::super::Win32::Foundation:: HANDLE, requestcookie : u32, propstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    ZwPropagationFailed(resourcemanagerhandle.param().abi(), requestcookie, propstatus.param().abi())
+}
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ZwQueryInformationByName(objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: super::super::Storage::FileSystem::FILE_INFORMATION_CLASS) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -7359,28 +7266,12 @@ where
     ZwQueryInformationTransactionManager(transactionmanagerhandle.param().abi(), transactionmanagerinformationclass, transactionmanagerinformation, transactionmanagerinformationlength, core::mem::transmute(returnlength.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ZwQueryKey<P0>(keyhandle: P0, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwQueryKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, keyinformationclass : KEY_INFORMATION_CLASS, keyinformation : *mut core::ffi::c_void, length : u32, resultlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwQueryKey(keyhandle.param().abi(), keyinformationclass, core::mem::transmute(keyinformation.unwrap_or(std::ptr::null_mut())), length, resultlength)
-}
-#[inline]
 pub unsafe fn ZwQuerySymbolicLinkObject<P0>(linkhandle: P0, linktarget: *mut super::super::super::Win32::Foundation::UNICODE_STRING, returnedlength: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwQuerySymbolicLinkObject(linkhandle : super::super::super::Win32::Foundation:: HANDLE, linktarget : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, returnedlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwQuerySymbolicLinkObject(linkhandle.param().abi(), linktarget, core::mem::transmute(returnedlength.unwrap_or(std::ptr::null_mut())))
-}
-#[inline]
-pub unsafe fn ZwQueryValueKey<P0>(keyhandle: P0, valuename: *const super::super::super::Win32::Foundation::UNICODE_STRING, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Option<*mut core::ffi::c_void>, length: u32, resultlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwQueryValueKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, valuename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, keyvalueinformationclass : KEY_VALUE_INFORMATION_CLASS, keyvalueinformation : *mut core::ffi::c_void, length : u32, resultlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwQueryValueKey(keyhandle.param().abi(), valuename, keyvalueinformationclass, core::mem::transmute(keyvalueinformation.unwrap_or(std::ptr::null_mut())), length, resultlength)
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -7425,21 +7316,17 @@ where
     ZwRecoverTransactionManager(transactionmanagerhandle.param().abi())
 }
 #[inline]
-pub unsafe fn ZwRenameKey<P0>(keyhandle: P0, newname: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwRegisterProtocolAddressInformation<P0>(resourcemanager: P0, protocolid: *const windows_core::GUID, protocolinformationsize: u32, protocolinformation: *const core::ffi::c_void, createoptions: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
-    windows_targets::link!("ntdll.dll" "system" fn ZwRenameKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, newname : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwRenameKey(keyhandle.param().abi(), newname)
+    windows_targets::link!("ntdll.dll" "system" fn ZwRegisterProtocolAddressInformation(resourcemanager : super::super::super::Win32::Foundation:: HANDLE, protocolid : *const windows_core::GUID, protocolinformationsize : u32, protocolinformation : *const core::ffi::c_void, createoptions : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    ZwRegisterProtocolAddressInformation(resourcemanager.param().abi(), protocolid, protocolinformationsize, protocolinformation, createoptions)
 }
 #[inline]
-pub unsafe fn ZwRestoreKey<P0, P1>(keyhandle: P0, filehandle: P1, flags: u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwRestoreKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, filehandle : super::super::super::Win32::Foundation:: HANDLE, flags : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwRestoreKey(keyhandle.param().abi(), filehandle.param().abi(), flags)
+pub unsafe fn ZwRenameTransactionManager(logfilename: *const super::super::super::Win32::Foundation::UNICODE_STRING, existingtransactionmanagerguid: *const windows_core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_targets::link!("ntdll.dll" "system" fn ZwRenameTransactionManager(logfilename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, existingtransactionmanagerguid : *const windows_core::GUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
+    ZwRenameTransactionManager(logfilename, existingtransactionmanagerguid)
 }
 #[inline]
 pub unsafe fn ZwRollbackComplete<P0>(enlistmenthandle: P0, tmvirtualclock: Option<*const i64>) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -7473,24 +7360,6 @@ where
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwRollforwardTransactionManager(transactionmanagerhandle : super::super::super::Win32::Foundation:: HANDLE, tmvirtualclock : *const i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwRollforwardTransactionManager(transactionmanagerhandle.param().abi(), core::mem::transmute(tmvirtualclock.unwrap_or(std::ptr::null())))
-}
-#[inline]
-pub unsafe fn ZwSaveKey<P0, P1>(keyhandle: P0, filehandle: P1) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwSaveKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, filehandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwSaveKey(keyhandle.param().abi(), filehandle.param().abi())
-}
-#[inline]
-pub unsafe fn ZwSaveKeyEx<P0, P1>(keyhandle: P0, filehandle: P1, format: u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwSaveKeyEx(keyhandle : super::super::super::Win32::Foundation:: HANDLE, filehandle : super::super::super::Win32::Foundation:: HANDLE, format : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwSaveKeyEx(keyhandle.param().abi(), filehandle.param().abi(), format)
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
@@ -7538,31 +7407,6 @@ where
     ZwSetInformationTransactionManager(tmhandle.param().abi(), transactionmanagerinformationclass, transactionmanagerinformation, transactionmanagerinformationlength)
 }
 #[inline]
-pub unsafe fn ZwSetTimer<P0, P1>(timerhandle: P0, duetime: *const i64, timerapcroutine: PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: P1, period: i32, previousstate: Option<*mut super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwSetTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, duetime : *const i64, timerapcroutine : PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : super::super::super::Win32::Foundation:: BOOLEAN, period : i32, previousstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwSetTimer(timerhandle.param().abi(), duetime, timerapcroutine, core::mem::transmute(timercontext.unwrap_or(std::ptr::null())), resumetimer.param().abi(), period, core::mem::transmute(previousstate.unwrap_or(std::ptr::null_mut())))
-}
-#[inline]
-pub unsafe fn ZwSetTimerEx<P0>(timerhandle: P0, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Option<*mut core::ffi::c_void>, timersetinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwSetTimerEx(timerhandle : super::super::super::Win32::Foundation:: HANDLE, timersetinformationclass : TIMER_SET_INFORMATION_CLASS, timersetinformation : *mut core::ffi::c_void, timersetinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwSetTimerEx(timerhandle.param().abi(), timersetinformationclass, core::mem::transmute(timersetinformation.unwrap_or(std::ptr::null_mut())), timersetinformationlength)
-}
-#[inline]
-pub unsafe fn ZwSetValueKey<P0>(keyhandle: P0, valuename: *const super::super::super::Win32::Foundation::UNICODE_STRING, titleindex: u32, r#type: u32, data: Option<*const core::ffi::c_void>, datasize: u32) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwSetValueKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, valuename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, titleindex : u32, r#type : u32, data : *const core::ffi::c_void, datasize : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwSetValueKey(keyhandle.param().abi(), valuename, titleindex, r#type, core::mem::transmute(data.unwrap_or(std::ptr::null())), datasize)
-}
-#[inline]
 pub unsafe fn ZwSinglePhaseReject<P0>(enlistmenthandle: P0, tmvirtualclock: Option<*const i64>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
@@ -7571,26 +7415,9 @@ where
     ZwSinglePhaseReject(enlistmenthandle.param().abi(), core::mem::transmute(tmvirtualclock.unwrap_or(std::ptr::null())))
 }
 #[inline]
-pub unsafe fn ZwTerminateProcess<P0, P1>(processhandle: P0, exitstatus: P1) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwTerminateProcess(processhandle : super::super::super::Win32::Foundation:: HANDLE, exitstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwTerminateProcess(processhandle.param().abi(), exitstatus.param().abi())
-}
-#[inline]
 pub unsafe fn ZwUnloadDriver(driverservicename: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwUnloadDriver(driverservicename : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwUnloadDriver(driverservicename)
-}
-#[inline]
-pub unsafe fn ZwUnmapViewOfSection<P0>(processhandle: P0, baseaddress: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
-where
-    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-{
-    windows_targets::link!("ntdll.dll" "system" fn ZwUnmapViewOfSection(processhandle : super::super::super::Win32::Foundation:: HANDLE, baseaddress : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwUnmapViewOfSection(processhandle.param().abi(), core::mem::transmute(baseaddress.unwrap_or(std::ptr::null())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -8672,22 +8499,6 @@ pub const KeProcessorAddFailureNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PRO
 pub const KeProcessorAddStartNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(0i32);
 pub const KeepObject: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(1i32);
 pub const KernelMode: MODE = MODE(0i32);
-pub const KeyBasicInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(0i32);
-pub const KeyCachedInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(4i32);
-pub const KeyFlagsInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(5i32);
-pub const KeyFullInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(2i32);
-pub const KeyHandleTagsInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(7i32);
-pub const KeyLayerInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(9i32);
-pub const KeyNameInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(3i32);
-pub const KeyNodeInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(1i32);
-pub const KeyTrustInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(8i32);
-pub const KeyValueBasicInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(0i32);
-pub const KeyValueFullInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(1i32);
-pub const KeyValueFullInformationAlign64: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(3i32);
-pub const KeyValueLayerInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(5i32);
-pub const KeyValuePartialInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(2i32);
-pub const KeyValuePartialInformationAlign64: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(4i32);
-pub const KeyVirtualizationInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(6i32);
 pub const KeyboardController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(22i32);
 pub const KeyboardPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(32i32);
 pub const L0sAndL1EntryDisabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(0i32);
@@ -8818,8 +8629,6 @@ pub const MapPhysicalAddressTypeMdl: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP
 pub const MapPhysicalAddressTypePfn: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(2i32);
 pub const MaxFaultType: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(7i32);
 pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
-pub const MaxKeyInfoClass: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(10i32);
-pub const MaxKeyValueInfoClass: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(6i32);
 pub const MaxPayload1024Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(3i32);
 pub const MaxPayload128Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(0i32);
 pub const MaxPayload2048Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(4i32);
@@ -8828,7 +8637,6 @@ pub const MaxPayload4096Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PA
 pub const MaxPayload512Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(2i32);
 pub const MaxRegNtNotifyClass: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(51i32);
 pub const MaxSubsystemInformationType: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(2i32);
-pub const MaxTimerInfoClass: TIMER_SET_INFORMATION_CLASS = TIMER_SET_INFORMATION_CLASS(1i32);
 pub const MaxTraceInformationClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(16i32);
 pub const MaximumBusDataType: BUS_DATA_TYPE = BUS_DATA_TYPE(12i32);
 pub const MaximumDmaSpeed: DMA_SPEED = DMA_SPEED(5i32);
@@ -9830,7 +9638,6 @@ pub const TapePeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(27i32);
 pub const TargetDeviceRelation: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(4i32);
 pub const TcAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(9i32);
 pub const TerminalPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(33i32);
-pub const TimerSetCoalescableTimer: TIMER_SET_INFORMATION_CLASS = TIMER_SET_INFORMATION_CLASS(0i32);
 pub const TlbMatchConflict: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(2i32);
 pub const TraceEnableFlagsClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(2i32);
 pub const TraceEnableLevelClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(3i32);
@@ -9866,8 +9673,6 @@ pub const VPB_MOUNTED: u32 = 1u32;
 pub const VPB_PERSISTENT: u32 = 4u32;
 pub const VPB_RAW_MOUNT: u32 = 16u32;
 pub const VPB_REMOVE_PENDING: u32 = 8u32;
-pub const ViewShare: SECTION_INHERIT = SECTION_INHERIT(1i32);
-pub const ViewUnmap: SECTION_INHERIT = SECTION_INHERIT(2i32);
 pub const Vmcs: INTERFACE_TYPE = INTERFACE_TYPE(16i32);
 pub const WCS_RAS_REGISTER_NAME_MAX_LENGTH: u32 = 32u32;
 pub const WDM_MAJORVERSION: u32 = 6u32;
@@ -11015,28 +10820,6 @@ impl core::fmt::Debug for KD_OPTION {
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct KEY_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for KEY_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for KEY_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KEY_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct KEY_VALUE_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for KEY_VALUE_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for KEY_VALUE_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KEY_VALUE_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KE_PROCESSOR_CHANGE_NOTIFY_STATE(pub i32);
 impl windows_core::TypeKind for KE_PROCESSOR_CHANGE_NOTIFY_STATE {
     type TypeKind = windows_core::CopyType;
@@ -11620,17 +11403,6 @@ impl core::fmt::Debug for RTL_GENERIC_COMPARE_RESULTS {
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct SECTION_INHERIT(pub i32);
-impl windows_core::TypeKind for SECTION_INHERIT {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SECTION_INHERIT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECTION_INHERIT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SECURITY_OPERATION_CODE(pub i32);
 impl windows_core::TypeKind for SECURITY_OPERATION_CODE {
     type TypeKind = windows_core::CopyType;
@@ -11726,17 +11498,6 @@ impl windows_core::TypeKind for TABLE_SEARCH_RESULT {
 impl core::fmt::Debug for TABLE_SEARCH_RESULT {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("TABLE_SEARCH_RESULT").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct TIMER_SET_INFORMATION_CLASS(pub i32);
-impl windows_core::TypeKind for TIMER_SET_INFORMATION_CLASS {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TIMER_SET_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TIMER_SET_INFORMATION_CLASS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
@@ -13239,7 +13000,7 @@ impl Default for CM_PNP_BIOS_INSTALLATION_CHECK {
 pub struct CM_POWER_DATA {
     pub PD_Size: u32,
     pub PD_MostRecentPowerState: super::super::super::Win32::System::Power::DEVICE_POWER_STATE,
-    pub PD_Capabilities: u32,
+    pub PD_Capabilities: super::super::super::Win32::System::Power::DEVICE_POWER_CAPABILITIES,
     pub PD_D1Latency: u32,
     pub PD_D2Latency: u32,
     pub PD_D3Latency: u32,
@@ -23997,48 +23758,6 @@ impl Default for REG_DELETE_VALUE_KEY_INFORMATION {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct REG_ENUMERATE_KEY_INFORMATION {
-    pub Object: *mut core::ffi::c_void,
-    pub Index: u32,
-    pub KeyInformationClass: KEY_INFORMATION_CLASS,
-    pub KeyInformation: *mut core::ffi::c_void,
-    pub Length: u32,
-    pub ResultLength: *mut u32,
-    pub CallContext: *mut core::ffi::c_void,
-    pub ObjectContext: *mut core::ffi::c_void,
-    pub Reserved: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for REG_ENUMERATE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for REG_ENUMERATE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
-    pub Object: *mut core::ffi::c_void,
-    pub Index: u32,
-    pub KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS,
-    pub KeyValueInformation: *mut core::ffi::c_void,
-    pub Length: u32,
-    pub ResultLength: *mut u32,
-    pub CallContext: *mut core::ffi::c_void,
-    pub ObjectContext: *mut core::ffi::c_void,
-    pub Reserved: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for REG_ENUMERATE_VALUE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for REG_ENUMERATE_VALUE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_KEY_HANDLE_CLOSE_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub CallContext: *mut core::ffi::c_void,
@@ -24148,26 +23867,6 @@ impl Default for REG_PRE_CREATE_KEY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct REG_QUERY_KEY_INFORMATION {
-    pub Object: *mut core::ffi::c_void,
-    pub KeyInformationClass: KEY_INFORMATION_CLASS,
-    pub KeyInformation: *mut core::ffi::c_void,
-    pub Length: u32,
-    pub ResultLength: *mut u32,
-    pub CallContext: *mut core::ffi::c_void,
-    pub ObjectContext: *mut core::ffi::c_void,
-    pub Reserved: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for REG_QUERY_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for REG_QUERY_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_QUERY_KEY_NAME {
@@ -24207,27 +23906,6 @@ impl windows_core::TypeKind for REG_QUERY_KEY_SECURITY_INFORMATION {
 }
 #[cfg(feature = "Win32_Security")]
 impl Default for REG_QUERY_KEY_SECURITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct REG_QUERY_VALUE_KEY_INFORMATION {
-    pub Object: *mut core::ffi::c_void,
-    pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
-    pub KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS,
-    pub KeyValueInformation: *mut core::ffi::c_void,
-    pub Length: u32,
-    pub ResultLength: *mut u32,
-    pub CallContext: *mut core::ffi::c_void,
-    pub ObjectContext: *mut core::ffi::c_void,
-    pub Reserved: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for REG_QUERY_VALUE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for REG_QUERY_VALUE_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -25232,7 +24910,7 @@ impl Default for VM_COUNTERS_EX2 {
 #[derive(Clone, Copy)]
 pub struct WAIT_CONTEXT_BLOCK {
     pub Anonymous: WAIT_CONTEXT_BLOCK_0,
-    pub DeviceRoutine: *mut super::super::Foundation::DRIVER_CONTROL,
+    pub DeviceRoutine: super::super::Foundation::DRIVER_CONTROL,
     pub DeviceContext: *mut core::ffi::c_void,
     pub NumberOfMapRegisters: u32,
     pub DeviceObject: *mut core::ffi::c_void,
@@ -29434,9 +29112,9 @@ pub type NPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "system" fn(co
 #[cfg(feature = "Win32_Security")]
 pub type NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "system" fn(vcb: *const core::ffi::c_void, securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR)>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PALLOCATE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, numberofmapregisters: u32, executionroutine: *const super::super::Foundation::DRIVER_CONTROL, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PALLOCATE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, numberofmapregisters: u32, executionroutine: super::super::Foundation::DRIVER_CONTROL, context: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PALLOCATE_ADAPTER_CHANNEL_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, numberofmapregisters: u32, flags: u32, executionroutine: *const super::super::Foundation::DRIVER_CONTROL, executioncontext: *const core::ffi::c_void, mapregisterbase: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PALLOCATE_ADAPTER_CHANNEL_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, numberofmapregisters: u32, flags: u32, executionroutine: super::super::Foundation::DRIVER_CONTROL, executioncontext: *const core::ffi::c_void, mapregisterbase: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PALLOCATE_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, length: u32, logicaladdress: *mut i64, cacheenabled: super::super::super::Win32::Foundation::BOOLEAN) -> *mut core::ffi::c_void>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -29456,9 +29134,9 @@ pub type PBOUND_CALLBACK = Option<unsafe extern "system" fn() -> BOUND_CALLBACK_
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PBUILD_MDL_FROM_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, scattergather: *const SCATTER_GATHER_LIST, originalmdl: *const super::super::Foundation::MDL, targetmdl: *mut *mut super::super::Foundation::MDL) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PBUILD_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, mdl: *const super::super::Foundation::MDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: *const DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PBUILD_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, mdl: *const super::super::Foundation::MDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PBUILD_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const super::super::Foundation::MDL, offset: u64, length: u32, flags: u32, executionroutine: *const DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PBUILD_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const super::super::Foundation::MDL, offset: u64, length: u32, flags: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 pub type PCALCULATE_SCATTER_GATHER_LIST_SIZE = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const super::super::Foundation::MDL, currentva: *const core::ffi::c_void, length: u32, scattergatherlistsize: *mut u32, pnumberofmapregisters: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PCALLBACK_FUNCTION = Option<unsafe extern "system" fn()>;
@@ -29584,9 +29262,9 @@ pub type PGET_DMA_TRANSFER_INFO = Option<unsafe extern "system" fn(dmaadapter: *
 pub type PGET_IDLE_WAKE_INFO = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PGET_LOCATION_STRING = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, locationstrings: *mut windows_core::PWSTR) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGET_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, mdl: *const super::super::Foundation::MDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: *const DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGET_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, mdl: *const super::super::Foundation::MDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PGET_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const super::super::Foundation::MDL, offset: u64, length: u32, flags: u32, executionroutine: *const DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut *mut SCATTER_GATHER_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PGET_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const super::super::Foundation::MDL, offset: u64, length: u32, flags: u32, executionroutine: DRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: super::super::super::Win32::Foundation::BOOLEAN, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut *mut SCATTER_GATHER_LIST) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PGET_SDEV_IDENTIFIER = Option<unsafe extern "system" fn() -> u64>;
 pub type PGET_SET_DEVICE_DATA = Option<unsafe extern "system" fn() -> u32>;
 pub type PGET_UPDATED_BUS_RESOURCE = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;

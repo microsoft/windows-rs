@@ -9359,10 +9359,10 @@ impl Default for SPEVENTSOURCEINFO {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct SPGRAMMARHANDLE(pub isize);
+pub struct SPGRAMMARHANDLE(pub *mut core::ffi::c_void);
 impl SPGRAMMARHANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for SPGRAMMARHANDLE {
@@ -9568,10 +9568,10 @@ impl Default for SPPHRASEPROPERTY_0_0 {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct SPPHRASEPROPERTYHANDLE(pub isize);
+pub struct SPPHRASEPROPERTYHANDLE(pub *mut core::ffi::c_void);
 impl SPPHRASEPROPERTYHANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for SPPHRASEPROPERTYHANDLE {
@@ -9620,10 +9620,10 @@ impl Default for SPPHRASERULE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct SPPHRASERULEHANDLE(pub isize);
+pub struct SPPHRASERULEHANDLE(pub *mut core::ffi::c_void);
 impl SPPHRASERULEHANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for SPPHRASERULEHANDLE {
@@ -9686,10 +9686,10 @@ impl Default for SPPROPERTYINFO {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct SPRECOCONTEXTHANDLE(pub isize);
+pub struct SPRECOCONTEXTHANDLE(pub *mut core::ffi::c_void);
 impl SPRECOCONTEXTHANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for SPRECOCONTEXTHANDLE {
@@ -9835,10 +9835,10 @@ impl Default for SPRULEENTRY {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct SPRULEHANDLE(pub isize);
+pub struct SPRULEHANDLE(pub *mut core::ffi::c_void);
 impl SPRULEHANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for SPRULEHANDLE {
@@ -9960,10 +9960,10 @@ impl Default for SPSHORTCUTPAIRLIST {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct SPSTATEHANDLE(pub isize);
+pub struct SPSTATEHANDLE(pub *mut core::ffi::c_void);
 impl SPSTATEHANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for SPSTATEHANDLE {
@@ -10115,10 +10115,10 @@ impl Default for SPTRANSITIONENTRY_1_2 {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct SPTRANSITIONID(pub isize);
+pub struct SPTRANSITIONID(pub *mut core::ffi::c_void);
 impl SPTRANSITIONID {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for SPTRANSITIONID {
@@ -10282,10 +10282,10 @@ impl Default for SPWORDENTRY {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct SPWORDHANDLE(pub isize);
+pub struct SPWORDHANDLE(pub *mut core::ffi::c_void);
 impl SPWORDHANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for SPWORDHANDLE {

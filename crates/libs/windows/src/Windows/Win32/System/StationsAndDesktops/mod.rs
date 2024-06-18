@@ -449,10 +449,10 @@ impl Default for BSMINFO {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDESK(pub isize);
+pub struct HDESK(pub *mut core::ffi::c_void);
 impl HDESK {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HDESK {
@@ -472,10 +472,10 @@ impl windows_core::TypeKind for HDESK {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HWINSTA(pub isize);
+pub struct HWINSTA(pub *mut core::ffi::c_void);
 impl HWINSTA {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HWINSTA {

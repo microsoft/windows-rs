@@ -2524,8 +2524,9 @@ impl IMMDevice {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetState(&self, pdwstate: *mut u32) -> DEVICE_STATE {
-        (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), pdwstate)
+    pub unsafe fn GetState(&self) -> windows_core::Result<DEVICE_STATE> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -2540,7 +2541,7 @@ pub struct IMMDevice_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     OpenPropertyStore: usize,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> DEVICE_STATE,
+    pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEVICE_STATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMMDeviceActivator, IMMDeviceActivator_Vtbl, 0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0);
 impl core::ops::Deref for IMMDeviceActivator {
@@ -5442,10 +5443,17 @@ impl Default for ECHOWAVEFILTER {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HACMDRIVER(pub isize);
+pub struct HACMDRIVER(pub *mut core::ffi::c_void);
 impl HACMDRIVER {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HACMDRIVER {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = acmDriverClose(*self, 0);
+        }
     }
 }
 impl Default for HACMDRIVER {
@@ -5458,10 +5466,10 @@ impl windows_core::TypeKind for HACMDRIVER {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HACMDRIVERID(pub isize);
+pub struct HACMDRIVERID(pub *mut core::ffi::c_void);
 impl HACMDRIVERID {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HACMDRIVERID {
@@ -5474,10 +5482,10 @@ impl windows_core::TypeKind for HACMDRIVERID {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HACMOBJ(pub isize);
+pub struct HACMOBJ(pub *mut core::ffi::c_void);
 impl HACMOBJ {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HACMOBJ {
@@ -5490,10 +5498,17 @@ impl windows_core::TypeKind for HACMOBJ {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HACMSTREAM(pub isize);
+pub struct HACMSTREAM(pub *mut core::ffi::c_void);
 impl HACMSTREAM {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HACMSTREAM {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = acmStreamClose(*self, 0);
+        }
     }
 }
 impl Default for HACMSTREAM {
@@ -5506,10 +5521,10 @@ impl windows_core::TypeKind for HACMSTREAM {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMIDI(pub isize);
+pub struct HMIDI(pub *mut core::ffi::c_void);
 impl HMIDI {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HMIDI {
@@ -5522,10 +5537,17 @@ impl windows_core::TypeKind for HMIDI {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMIDIIN(pub isize);
+pub struct HMIDIIN(pub *mut core::ffi::c_void);
 impl HMIDIIN {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HMIDIIN {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = midiInClose(*self);
+        }
     }
 }
 impl Default for HMIDIIN {
@@ -5538,10 +5560,17 @@ impl windows_core::TypeKind for HMIDIIN {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMIDIOUT(pub isize);
+pub struct HMIDIOUT(pub *mut core::ffi::c_void);
 impl HMIDIOUT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HMIDIOUT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = midiOutClose(*self);
+        }
     }
 }
 impl Default for HMIDIOUT {
@@ -5554,10 +5583,17 @@ impl windows_core::TypeKind for HMIDIOUT {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMIDISTRM(pub isize);
+pub struct HMIDISTRM(pub *mut core::ffi::c_void);
 impl HMIDISTRM {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HMIDISTRM {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = midiStreamClose(*self);
+        }
     }
 }
 impl Default for HMIDISTRM {
@@ -5570,10 +5606,17 @@ impl windows_core::TypeKind for HMIDISTRM {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMIXER(pub isize);
+pub struct HMIXER(pub *mut core::ffi::c_void);
 impl HMIXER {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HMIXER {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = mixerClose(*self);
+        }
     }
 }
 impl Default for HMIXER {
@@ -5586,10 +5629,10 @@ impl windows_core::TypeKind for HMIXER {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMIXEROBJ(pub isize);
+pub struct HMIXEROBJ(pub *mut core::ffi::c_void);
 impl HMIXEROBJ {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HMIXEROBJ {
@@ -5602,10 +5645,10 @@ impl windows_core::TypeKind for HMIXEROBJ {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HWAVE(pub isize);
+pub struct HWAVE(pub *mut core::ffi::c_void);
 impl HWAVE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HWAVE {
@@ -5618,10 +5661,17 @@ impl windows_core::TypeKind for HWAVE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HWAVEIN(pub isize);
+pub struct HWAVEIN(pub *mut core::ffi::c_void);
 impl HWAVEIN {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HWAVEIN {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = waveInClose(*self);
+        }
     }
 }
 impl Default for HWAVEIN {
@@ -5634,10 +5684,17 @@ impl windows_core::TypeKind for HWAVEIN {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HWAVEOUT(pub isize);
+pub struct HWAVEOUT(pub *mut core::ffi::c_void);
 impl HWAVEOUT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HWAVEOUT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = waveOutClose(*self);
+        }
     }
 }
 impl Default for HWAVEOUT {

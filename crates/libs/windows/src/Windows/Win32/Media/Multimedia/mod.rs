@@ -6896,10 +6896,10 @@ impl Default for GSM610WAVEFORMAT {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVR(pub isize);
+pub struct HDRVR(pub *mut core::ffi::c_void);
 impl HDRVR {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HDRVR {
@@ -6912,10 +6912,17 @@ impl windows_core::TypeKind for HDRVR {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIC(pub isize);
+pub struct HIC(pub *mut core::ffi::c_void);
 impl HIC {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HIC {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = ICClose(*self);
+        }
     }
 }
 impl Default for HIC {
@@ -6928,10 +6935,10 @@ impl windows_core::TypeKind for HIC {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMMIO(pub isize);
+pub struct HMMIO(pub *mut core::ffi::c_void);
 impl HMMIO {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HMMIO {
@@ -6944,10 +6951,10 @@ impl windows_core::TypeKind for HMMIO {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HVIDEO(pub isize);
+pub struct HVIDEO(pub *mut core::ffi::c_void);
 impl HVIDEO {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HVIDEO {

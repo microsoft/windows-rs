@@ -585,10 +585,10 @@ impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub isize);
+pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub *mut core::ffi::c_void);
 impl PRJ_DIR_ENTRY_BUFFER_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for PRJ_DIR_ENTRY_BUFFER_HANDLE {
@@ -661,10 +661,10 @@ impl Default for PRJ_FILE_BASIC_INFO {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub isize);
+pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub *mut core::ffi::c_void);
 impl PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {

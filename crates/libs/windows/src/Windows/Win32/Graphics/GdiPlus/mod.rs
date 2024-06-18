@@ -5732,269 +5732,269 @@ impl Default for GdiplusStartupOutput {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpAdjustableArrowCap(pub isize);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpAdjustableArrowCap(pub u8);
+impl windows_core::TypeKind for GpAdjustableArrowCap {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for GpAdjustableArrowCap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpAdjustableArrowCap {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpBitmap(pub u8);
+impl windows_core::TypeKind for GpBitmap {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpBitmap(pub isize);
 impl Default for GpBitmap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpBitmap {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpBrush(pub u8);
+impl windows_core::TypeKind for GpBrush {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpBrush(pub isize);
 impl Default for GpBrush {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpBrush {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpCachedBitmap(pub u8);
+impl windows_core::TypeKind for GpCachedBitmap {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpCachedBitmap(pub isize);
 impl Default for GpCachedBitmap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpCachedBitmap {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpCustomLineCap(pub u8);
+impl windows_core::TypeKind for GpCustomLineCap {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpCustomLineCap(pub isize);
 impl Default for GpCustomLineCap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpCustomLineCap {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpFont(pub u8);
+impl windows_core::TypeKind for GpFont {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpFont(pub isize);
 impl Default for GpFont {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpFont {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpFontCollection(pub u8);
+impl windows_core::TypeKind for GpFontCollection {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpFontCollection(pub isize);
 impl Default for GpFontCollection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpFontCollection {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpFontFamily(pub u8);
+impl windows_core::TypeKind for GpFontFamily {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpFontFamily(pub isize);
 impl Default for GpFontFamily {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpFontFamily {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpGraphics(pub u8);
+impl windows_core::TypeKind for GpGraphics {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpGraphics(pub isize);
 impl Default for GpGraphics {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpGraphics {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpHatch(pub u8);
+impl windows_core::TypeKind for GpHatch {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpHatch(pub isize);
 impl Default for GpHatch {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpHatch {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpImage(pub u8);
+impl windows_core::TypeKind for GpImage {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpImage(pub isize);
 impl Default for GpImage {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpImage {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpImageAttributes(pub u8);
+impl windows_core::TypeKind for GpImageAttributes {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpImageAttributes(pub isize);
 impl Default for GpImageAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpImageAttributes {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpInstalledFontCollection(pub u8);
+impl windows_core::TypeKind for GpInstalledFontCollection {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpInstalledFontCollection(pub isize);
 impl Default for GpInstalledFontCollection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpInstalledFontCollection {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpLineGradient(pub u8);
+impl windows_core::TypeKind for GpLineGradient {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpLineGradient(pub isize);
 impl Default for GpLineGradient {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpLineGradient {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpMetafile(pub u8);
+impl windows_core::TypeKind for GpMetafile {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpMetafile(pub isize);
 impl Default for GpMetafile {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpMetafile {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpPath(pub u8);
+impl windows_core::TypeKind for GpPath {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpPath(pub isize);
 impl Default for GpPath {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpPath {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpPathGradient(pub u8);
+impl windows_core::TypeKind for GpPathGradient {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpPathGradient(pub isize);
 impl Default for GpPathGradient {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpPathGradient {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpPathIterator(pub u8);
+impl windows_core::TypeKind for GpPathIterator {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpPathIterator(pub isize);
 impl Default for GpPathIterator {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpPathIterator {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpPen(pub u8);
+impl windows_core::TypeKind for GpPen {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpPen(pub isize);
 impl Default for GpPen {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpPen {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpPrivateFontCollection(pub u8);
+impl windows_core::TypeKind for GpPrivateFontCollection {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpPrivateFontCollection(pub isize);
 impl Default for GpPrivateFontCollection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpPrivateFontCollection {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpRegion(pub u8);
+impl windows_core::TypeKind for GpRegion {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpRegion(pub isize);
 impl Default for GpRegion {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpRegion {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpSolidFill(pub u8);
+impl windows_core::TypeKind for GpSolidFill {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpSolidFill(pub isize);
 impl Default for GpSolidFill {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpSolidFill {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpStringFormat(pub u8);
+impl windows_core::TypeKind for GpStringFormat {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpStringFormat(pub isize);
 impl Default for GpStringFormat {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GpStringFormat {
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct GpTexture(pub u8);
+impl windows_core::TypeKind for GpTexture {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GpTexture(pub isize);
 impl Default for GpTexture {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GpTexture {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -2838,10 +2838,10 @@ impl Default for DEVINFO {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct DHPDEV(pub isize);
+pub struct DHPDEV(pub *mut core::ffi::c_void);
 impl DHPDEV {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for DHPDEV {
@@ -2854,10 +2854,10 @@ impl windows_core::TypeKind for DHPDEV {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct DHSURF(pub isize);
+pub struct DHSURF(pub *mut core::ffi::c_void);
 impl DHSURF {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for DHSURF {
@@ -4359,10 +4359,10 @@ impl Default for GLYPHPOS {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HBM(pub isize);
+pub struct HBM(pub *mut core::ffi::c_void);
 impl HBM {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HBM {
@@ -4375,10 +4375,10 @@ impl windows_core::TypeKind for HBM {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDEV(pub isize);
+pub struct HDEV(pub *mut core::ffi::c_void);
 impl HDEV {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HDEV {
@@ -4391,10 +4391,10 @@ impl windows_core::TypeKind for HDEV {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVOBJ(pub isize);
+pub struct HDRVOBJ(pub *mut core::ffi::c_void);
 impl HDRVOBJ {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HDRVOBJ {
@@ -4407,10 +4407,10 @@ impl windows_core::TypeKind for HDRVOBJ {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HFASTMUTEX(pub isize);
+pub struct HFASTMUTEX(pub *mut core::ffi::c_void);
 impl HFASTMUTEX {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HFASTMUTEX {
@@ -4423,10 +4423,10 @@ impl windows_core::TypeKind for HFASTMUTEX {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSEMAPHORE(pub isize);
+pub struct HSEMAPHORE(pub *mut core::ffi::c_void);
 impl HSEMAPHORE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HSEMAPHORE {
@@ -4446,10 +4446,10 @@ impl windows_core::TypeKind for HSEMAPHORE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSURF(pub isize);
+pub struct HSURF(pub *mut core::ffi::c_void);
 impl HSURF {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HSURF {

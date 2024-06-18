@@ -3011,10 +3011,10 @@ impl Default for GLYPHMETRICSFLOAT {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HGLRC(pub isize);
+pub struct HGLRC(pub *mut core::ffi::c_void);
 impl HGLRC {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HGLRC {

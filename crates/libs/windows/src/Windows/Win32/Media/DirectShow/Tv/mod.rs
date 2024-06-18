@@ -12747,7 +12747,8 @@ impl IStreamBufferInitialize {
     {
         (windows_core::Interface::vtable(self).SetHKEY)(windows_core::Interface::as_raw(self), hkeyroot.param().abi()).ok()
     }
-    pub unsafe fn SetSIDs(&self, csids: u32, ppsid: *mut super::super::super::Foundation::PSID) -> windows_core::Result<()> {
+    #[cfg(feature = "Win32_Security")]
+    pub unsafe fn SetSIDs(&self, csids: u32, ppsid: *mut super::super::super::Security::PSID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetSIDs)(windows_core::Interface::as_raw(self), csids, ppsid).ok()
     }
 }
@@ -12758,7 +12759,10 @@ pub struct IStreamBufferInitialize_Vtbl {
     pub SetHKEY: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Registry::HKEY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))]
     SetHKEY: usize,
-    pub SetSIDs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::PSID) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_Security")]
+    pub SetSIDs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Security::PSID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Security"))]
+    SetSIDs: usize,
 }
 windows_core::imp::define_interface!(IStreamBufferMediaSeeking, IStreamBufferMediaSeeking_Vtbl, 0xf61f5c26_863d_4afa_b0ba_2f81dc978596);
 impl core::ops::Deref for IStreamBufferMediaSeeking {

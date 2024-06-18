@@ -9579,10 +9579,17 @@ impl Default for HIGHCONTRASTW {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HUIAEVENT(pub isize);
+pub struct HUIAEVENT(pub *mut core::ffi::c_void);
 impl HUIAEVENT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HUIAEVENT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = UiaRemoveEvent(*self);
+        }
     }
 }
 impl Default for HUIAEVENT {
@@ -9595,10 +9602,17 @@ impl windows_core::TypeKind for HUIAEVENT {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HUIANODE(pub isize);
+pub struct HUIANODE(pub *mut core::ffi::c_void);
 impl HUIANODE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HUIANODE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = UiaNodeRelease(*self);
+        }
     }
 }
 impl Default for HUIANODE {
@@ -9611,10 +9625,17 @@ impl windows_core::TypeKind for HUIANODE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HUIAPATTERNOBJECT(pub isize);
+pub struct HUIAPATTERNOBJECT(pub *mut core::ffi::c_void);
 impl HUIAPATTERNOBJECT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HUIAPATTERNOBJECT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = UiaPatternRelease(*self);
+        }
     }
 }
 impl Default for HUIAPATTERNOBJECT {
@@ -9627,10 +9648,17 @@ impl windows_core::TypeKind for HUIAPATTERNOBJECT {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HUIATEXTRANGE(pub isize);
+pub struct HUIATEXTRANGE(pub *mut core::ffi::c_void);
 impl HUIATEXTRANGE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HUIATEXTRANGE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = UiaTextRangeRelease(*self);
+        }
     }
 }
 impl Default for HUIATEXTRANGE {
@@ -9643,10 +9671,10 @@ impl windows_core::TypeKind for HUIATEXTRANGE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HWINEVENTHOOK(pub isize);
+pub struct HWINEVENTHOOK(pub *mut core::ffi::c_void);
 impl HWINEVENTHOOK {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HWINEVENTHOOK {

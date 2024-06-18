@@ -376,10 +376,10 @@ impl core::fmt::Debug for PROCESS_DPI_AWARENESS {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct DPI_AWARENESS_CONTEXT(pub isize);
+pub struct DPI_AWARENESS_CONTEXT(pub *mut core::ffi::c_void);
 impl DPI_AWARENESS_CONTEXT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for DPI_AWARENESS_CONTEXT {

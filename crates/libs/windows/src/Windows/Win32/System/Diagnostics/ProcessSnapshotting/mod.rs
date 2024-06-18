@@ -391,10 +391,10 @@ impl core::fmt::Debug for PSS_WALK_INFORMATION_CLASS {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HPSS(pub isize);
+pub struct HPSS(pub *mut core::ffi::c_void);
 impl HPSS {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HPSS {
@@ -407,10 +407,17 @@ impl windows_core::TypeKind for HPSS {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HPSSWALK(pub isize);
+pub struct HPSSWALK(pub *mut core::ffi::c_void);
 impl HPSSWALK {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HPSSWALK {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = PssWalkMarkerFree(*self);
+        }
     }
 }
 impl Default for HPSSWALK {

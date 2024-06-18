@@ -3727,21 +3727,26 @@ impl core::ops::Deref for ISecurityProperty {
 }
 windows_core::imp::interface_hierarchy!(ISecurityProperty, windows_core::IUnknown);
 impl ISecurityProperty {
-    pub unsafe fn GetDirectCreatorSID(&self, psid: *mut super::super::Foundation::PSID) -> windows_core::Result<()> {
+    #[cfg(feature = "Win32_Security")]
+    pub unsafe fn GetDirectCreatorSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDirectCreatorSID)(windows_core::Interface::as_raw(self), psid).ok()
     }
-    pub unsafe fn GetOriginalCreatorSID(&self, psid: *mut super::super::Foundation::PSID) -> windows_core::Result<()> {
+    #[cfg(feature = "Win32_Security")]
+    pub unsafe fn GetOriginalCreatorSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOriginalCreatorSID)(windows_core::Interface::as_raw(self), psid).ok()
     }
-    pub unsafe fn GetDirectCallerSID(&self, psid: *mut super::super::Foundation::PSID) -> windows_core::Result<()> {
+    #[cfg(feature = "Win32_Security")]
+    pub unsafe fn GetDirectCallerSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDirectCallerSID)(windows_core::Interface::as_raw(self), psid).ok()
     }
-    pub unsafe fn GetOriginalCallerSID(&self, psid: *mut super::super::Foundation::PSID) -> windows_core::Result<()> {
+    #[cfg(feature = "Win32_Security")]
+    pub unsafe fn GetOriginalCallerSID(&self, psid: *mut super::super::Security::PSID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOriginalCallerSID)(windows_core::Interface::as_raw(self), psid).ok()
     }
+    #[cfg(feature = "Win32_Security")]
     pub unsafe fn ReleaseSID<P0>(&self, psid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::PSID>,
+        P0: windows_core::Param<super::super::Security::PSID>,
     {
         (windows_core::Interface::vtable(self).ReleaseSID)(windows_core::Interface::as_raw(self), psid.param().abi()).ok()
     }
@@ -3749,11 +3754,26 @@ impl ISecurityProperty {
 #[repr(C)]
 pub struct ISecurityProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetDirectCreatorSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::PSID) -> windows_core::HRESULT,
-    pub GetOriginalCreatorSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::PSID) -> windows_core::HRESULT,
-    pub GetDirectCallerSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::PSID) -> windows_core::HRESULT,
-    pub GetOriginalCallerSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::PSID) -> windows_core::HRESULT,
-    pub ReleaseSID: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::PSID) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_Security")]
+    pub GetDirectCreatorSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Security::PSID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Security"))]
+    GetDirectCreatorSID: usize,
+    #[cfg(feature = "Win32_Security")]
+    pub GetOriginalCreatorSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Security::PSID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Security"))]
+    GetOriginalCreatorSID: usize,
+    #[cfg(feature = "Win32_Security")]
+    pub GetDirectCallerSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Security::PSID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Security"))]
+    GetDirectCallerSID: usize,
+    #[cfg(feature = "Win32_Security")]
+    pub GetOriginalCallerSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Security::PSID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Security"))]
+    GetOriginalCallerSID: usize,
+    #[cfg(feature = "Win32_Security")]
+    pub ReleaseSID: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Security::PSID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Security"))]
+    ReleaseSID: usize,
 }
 windows_core::imp::define_interface!(ISelectCOMLBServer, ISelectCOMLBServer_Vtbl, 0xdcf443f4_3f8a_4872_b9f0_369a796d12d6);
 impl core::ops::Deref for ISelectCOMLBServer {

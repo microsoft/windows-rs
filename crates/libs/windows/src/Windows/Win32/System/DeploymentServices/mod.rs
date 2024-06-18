@@ -253,12 +253,9 @@ where
     WdsBpQueryOption(hhandle.param().abi(), uoption, uvaluelen, pvalue, core::mem::transmute(pubytes.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn WdsCliAuthorizeSession<P0>(hsession: P0, pcred: Option<*const WDS_CLI_CRED>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn WdsCliAuthorizeSession(hsession: super::super::Foundation::HANDLE, pcred: Option<*const WDS_CLI_CRED>) -> windows_core::Result<()> {
     windows_targets::link!("wdsclientapi.dll" "system" fn WdsCliAuthorizeSession(hsession : super::super::Foundation:: HANDLE, pcred : *const WDS_CLI_CRED) -> windows_core::HRESULT);
-    WdsCliAuthorizeSession(hsession.param().abi(), core::mem::transmute(pcred.unwrap_or(std::ptr::null()))).ok()
+    WdsCliAuthorizeSession(hsession, core::mem::transmute(pcred.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WdsCliCancelTransfer<P0>(htransfer: P0) -> windows_core::Result<()>

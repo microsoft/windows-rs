@@ -714,10 +714,17 @@ impl Default for GESTURENOTIFYSTRUCT {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HGESTUREINFO(pub isize);
+pub struct HGESTUREINFO(pub *mut core::ffi::c_void);
 impl HGESTUREINFO {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HGESTUREINFO {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CloseGestureInfoHandle(*self);
+        }
     }
 }
 impl Default for HGESTUREINFO {
@@ -730,10 +737,17 @@ impl windows_core::TypeKind for HGESTUREINFO {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTOUCHINPUT(pub isize);
+pub struct HTOUCHINPUT(pub *mut core::ffi::c_void);
 impl HTOUCHINPUT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HTOUCHINPUT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CloseTouchInputHandle(*self);
+        }
     }
 }
 impl Default for HTOUCHINPUT {

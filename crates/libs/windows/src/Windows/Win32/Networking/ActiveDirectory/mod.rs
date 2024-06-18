@@ -479,6 +479,7 @@ where
     windows_targets::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsW(servername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, domainguid : *const windows_core::GUID, dsaguid : *const windows_core::GUID, dnshostname : windows_core::PCWSTR) -> u32);
     DsDeregisterDnsHostRecordsW(servername.param().abi(), dnsdomainname.param().abi(), core::mem::transmute(domainguid.unwrap_or(std::ptr::null())), core::mem::transmute(dsaguid.unwrap_or(std::ptr::null())), dnshostname.param().abi())
 }
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn DsEnumerateDomainTrustsA<P0>(servername: P0, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSA, domaincount: *mut u32) -> u32
 where
@@ -487,6 +488,7 @@ where
     windows_targets::link!("netapi32.dll" "system" fn DsEnumerateDomainTrustsA(servername : windows_core::PCSTR, flags : u32, domains : *mut *mut DS_DOMAIN_TRUSTSA, domaincount : *mut u32) -> u32);
     DsEnumerateDomainTrustsA(servername.param().abi(), flags, domains, domaincount)
 }
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn DsEnumerateDomainTrustsW<P0>(servername: P0, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSW, domaincount: *mut u32) -> u32
 where
@@ -9265,6 +9267,7 @@ impl Default for DS_DOMAIN_CONTROLLER_INFO_3W {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSA {
     pub NetbiosDomainName: windows_core::PSTR,
@@ -9273,18 +9276,21 @@ pub struct DS_DOMAIN_TRUSTSA {
     pub ParentIndex: u32,
     pub TrustType: u32,
     pub TrustAttributes: u32,
-    pub DomainSid: super::super::Foundation::PSID,
+    pub DomainSid: super::super::Security::PSID,
     pub DomainGuid: windows_core::GUID,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for DS_DOMAIN_TRUSTSA {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for DS_DOMAIN_TRUSTSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSW {
     pub NetbiosDomainName: windows_core::PWSTR,
@@ -9293,12 +9299,14 @@ pub struct DS_DOMAIN_TRUSTSW {
     pub ParentIndex: u32,
     pub TrustType: u32,
     pub TrustAttributes: u32,
-    pub DomainSid: super::super::Foundation::PSID,
+    pub DomainSid: super::super::Security::PSID,
     pub DomainGuid: windows_core::GUID,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for DS_DOMAIN_TRUSTSW {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for DS_DOMAIN_TRUSTSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

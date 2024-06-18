@@ -1914,7 +1914,8 @@ impl core::ops::Deref for ID2D1DeviceContext7 {
 }
 windows_core::imp::interface_hierarchy!(ID2D1DeviceContext7, windows_core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3, ID2D1DeviceContext4, ID2D1DeviceContext5, ID2D1DeviceContext6);
 impl ID2D1DeviceContext7 {
-    pub unsafe fn GetPaintFeatureLevel(&self) -> DWRITE_PAINT_FEATURE_LEVEL {
+    #[cfg(feature = "Win32_Graphics_DirectWrite")]
+    pub unsafe fn GetPaintFeatureLevel(&self) -> super::DirectWrite::DWRITE_PAINT_FEATURE_LEVEL {
         (windows_core::Interface::vtable(self).GetPaintFeatureLevel)(windows_core::Interface::as_raw(self))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -1938,7 +1939,10 @@ unsafe impl Sync for ID2D1DeviceContext7 {}
 #[repr(C)]
 pub struct ID2D1DeviceContext7_Vtbl {
     pub base__: ID2D1DeviceContext6_Vtbl,
-    pub GetPaintFeatureLevel: unsafe extern "system" fn(*mut core::ffi::c_void) -> DWRITE_PAINT_FEATURE_LEVEL,
+    #[cfg(feature = "Win32_Graphics_DirectWrite")]
+    pub GetPaintFeatureLevel: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::DirectWrite::DWRITE_PAINT_FEATURE_LEVEL,
+    #[cfg(not(feature = "Win32_Graphics_DirectWrite"))]
+    GetPaintFeatureLevel: usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub DrawPaintGlyphRun: unsafe extern "system" fn(*mut core::ffi::c_void, Common::D2D_POINT_2F, *const super::DirectWrite::DWRITE_GLYPH_RUN, *mut core::ffi::c_void, u32, super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
@@ -8737,17 +8741,6 @@ impl windows_core::TypeKind for D2D1_YCBCR_PROP {
 impl core::fmt::Debug for D2D1_YCBCR_PROP {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("D2D1_YCBCR_PROP").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct DWRITE_PAINT_FEATURE_LEVEL(pub i32);
-impl windows_core::TypeKind for DWRITE_PAINT_FEATURE_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DWRITE_PAINT_FEATURE_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DWRITE_PAINT_FEATURE_LEVEL").field(&self.0).finish()
     }
 }
 #[repr(C)]

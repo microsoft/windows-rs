@@ -8,20 +8,22 @@ pub unsafe fn AcquireSRWLockShared(srwlock: *mut SRWLOCK) {
     windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockShared(srwlock : *mut SRWLOCK));
     AcquireSRWLockShared(srwlock)
 }
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn AddIntegrityLabelToBoundaryDescriptor<P0>(boundarydescriptor: *mut super::super::Foundation::HANDLE, integritylabel: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::Security::PSID>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor : *mut super::super::Foundation:: HANDLE, integritylabel : super::super::Foundation:: PSID) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor : *mut super::super::Foundation:: HANDLE, integritylabel : super::super::Security:: PSID) -> super::super::Foundation:: BOOL);
     AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor, integritylabel.param().abi()).ok()
 }
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn AddSIDToBoundaryDescriptor<P0>(boundarydescriptor: *mut super::super::Foundation::HANDLE, requiredsid: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::Security::PSID>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn AddSIDToBoundaryDescriptor(boundarydescriptor : *mut super::super::Foundation:: HANDLE, requiredsid : super::super::Foundation:: PSID) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn AddSIDToBoundaryDescriptor(boundarydescriptor : *mut super::super::Foundation:: HANDLE, requiredsid : super::super::Security:: PSID) -> super::super::Foundation:: BOOL);
     AddSIDToBoundaryDescriptor(boundarydescriptor, requiredsid.param().abi()).ok()
 }
 #[inline]
@@ -181,13 +183,12 @@ where
     CancelWaitableTimer(htimer.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn ChangeTimerQueueTimer<P0, P1>(timerqueue: P0, timer: P1, duetime: u32, period: u32) -> windows_core::Result<()>
+pub unsafe fn ChangeTimerQueueTimer<P0>(timerqueue: P0, timer: super::super::Foundation::HANDLE, duetime: u32, period: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ChangeTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE, duetime : u32, period : u32) -> super::super::Foundation:: BOOL);
-    ChangeTimerQueueTimer(timerqueue.param().abi(), timer.param().abi(), duetime, period).ok()
+    ChangeTimerQueueTimer(timerqueue.param().abi(), timer, duetime, period).ok()
 }
 #[inline]
 pub unsafe fn ClosePrivateNamespace<P0>(handle: P0, flags: u32) -> super::super::Foundation::BOOLEAN
@@ -538,14 +539,16 @@ pub unsafe fn CreateThread(lpthreadattributes: Option<*const super::super::Secur
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateThreadpool(reserved: Option<*const core::ffi::c_void>) -> PTP_POOL {
+pub unsafe fn CreateThreadpool(reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<PTP_POOL> {
     windows_targets::link!("kernel32.dll" "system" fn CreateThreadpool(reserved : *const core::ffi::c_void) -> PTP_POOL);
-    CreateThreadpool(core::mem::transmute(reserved.unwrap_or(std::ptr::null())))
+    let result__ = CreateThreadpool(core::mem::transmute(reserved.unwrap_or(std::ptr::null())));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateThreadpoolCleanupGroup() -> PTP_CLEANUP_GROUP {
+pub unsafe fn CreateThreadpoolCleanupGroup() -> windows_core::Result<PTP_CLEANUP_GROUP> {
     windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolCleanupGroup() -> PTP_CLEANUP_GROUP);
-    CreateThreadpoolCleanupGroup()
+    let result__ = CreateThreadpoolCleanupGroup();
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateThreadpoolIo<P0>(fl: P0, pfnio: PTP_WIN32_IO_CALLBACK, pv: Option<*mut core::ffi::c_void>, pcbe: Option<*const TP_CALLBACK_ENVIRON_V3>) -> windows_core::Result<PTP_IO>
@@ -998,6 +1001,14 @@ where
 {
     windows_targets::link!("kernel32.dll" "system" fn GetProcessHandleCount(hprocess : super::super::Foundation:: HANDLE, pdwhandlecount : *mut u32) -> super::super::Foundation:: BOOL);
     GetProcessHandleCount(hprocess.param().abi(), pdwhandlecount).ok()
+}
+#[inline]
+pub unsafe fn GetProcessHandleFromHwnd<P0>(hwnd: P0) -> super::super::Foundation::HANDLE
+where
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+{
+    windows_targets::link!("oleacc.dll" "system" fn GetProcessHandleFromHwnd(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: HANDLE);
+    GetProcessHandleFromHwnd(hwnd.param().abi())
 }
 #[inline]
 pub unsafe fn GetProcessId<P0>(process: P0) -> u32
@@ -2577,6 +2588,7 @@ pub const EXTENDED_STARTUPINFO_PRESENT: PROCESS_CREATION_FLAGS = PROCESS_CREATIO
 pub const FLS_OUT_OF_INDEXES: u32 = 4294967295u32;
 pub const GR_GDIOBJECTS: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(0u32);
 pub const GR_GDIOBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(2u32);
+pub const GR_GLOBAL: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(4294967294u32);
 pub const GR_USEROBJECTS: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(1u32);
 pub const GR_USEROBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(4u32);
 pub const HIGH_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(128u32);
@@ -3645,6 +3657,13 @@ impl LPPROC_THREAD_ATTRIBUTE_LIST {
         self.0.is_null()
     }
 }
+impl windows_core::Free for LPPROC_THREAD_ATTRIBUTE_LIST {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            DeleteProcThreadAttributeList(*self);
+        }
+    }
+}
 impl Default for LPPROC_THREAD_ATTRIBUTE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3924,6 +3943,18 @@ impl windows_core::TypeKind for PTP_CALLBACK_INSTANCE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTP_CLEANUP_GROUP(pub isize);
+impl PTP_CLEANUP_GROUP {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl windows_core::Free for PTP_CLEANUP_GROUP {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            CloseThreadpoolCleanupGroup(*self);
+        }
+    }
+}
 impl Default for PTP_CLEANUP_GROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3940,6 +3971,13 @@ impl PTP_IO {
         self.0 == 0
     }
 }
+impl windows_core::Free for PTP_IO {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            CloseThreadpoolIo(*self);
+        }
+    }
+}
 impl Default for PTP_IO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3951,6 +3989,18 @@ impl windows_core::TypeKind for PTP_IO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTP_POOL(pub isize);
+impl PTP_POOL {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl windows_core::Free for PTP_POOL {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            CloseThreadpool(*self);
+        }
+    }
+}
 impl Default for PTP_POOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3965,6 +4015,13 @@ pub struct PTP_TIMER(pub isize);
 impl PTP_TIMER {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
+    }
+}
+impl windows_core::Free for PTP_TIMER {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            CloseThreadpoolTimer(*self);
+        }
     }
 }
 impl Default for PTP_TIMER {
@@ -3983,6 +4040,13 @@ impl PTP_WAIT {
         self.0 == 0
     }
 }
+impl windows_core::Free for PTP_WAIT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            CloseThreadpoolWait(*self);
+        }
+    }
+}
 impl Default for PTP_WAIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3997,6 +4061,13 @@ pub struct PTP_WORK(pub isize);
 impl PTP_WORK {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
+    }
+}
+impl windows_core::Free for PTP_WORK {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            CloseThreadpoolWork(*self);
+        }
     }
 }
 impl Default for PTP_WORK {

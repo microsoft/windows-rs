@@ -284,10 +284,10 @@ impl core::ops::Not for TIMECODE_SAMPLE_FLAGS {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTASK(pub isize);
+pub struct HTASK(pub *mut core::ffi::c_void);
 impl HTASK {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HTASK {
