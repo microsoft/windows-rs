@@ -11,7 +11,7 @@ fn boolean() {
 fn hfont() {
     unsafe {
         let underlying: isize = 123;
-        let font: HFONT = underlying;
+        let font: HFONT = underlying as _;
         let object: HGDIOBJ = font;
 
         assert!(DeleteObject(font) == 0);

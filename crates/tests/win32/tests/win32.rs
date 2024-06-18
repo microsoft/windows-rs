@@ -130,7 +130,7 @@ fn function() -> windows::core::Result<()> {
 fn bool_as_error() {
     unsafe {
         helpers::set_thread_ui_language();
-        let error = SetEvent(HANDLE(0)).unwrap_err();
+        let error = SetEvent(HANDLE(0 as _)).unwrap_err();
 
         assert_eq!(error.code(), windows::core::HRESULT(-2147024890));
         let message: String = error.message().try_into().unwrap();
@@ -176,7 +176,9 @@ fn com_inheritance() {
         let factory: IDXGIFactory7 = CreateDXGIFactory1().unwrap();
 
         // IDXGIFactory
-        assert!(factory.MakeWindowAssociation(HWND(0), 0).is_ok());
+        assert!(factory
+            .MakeWindowAssociation(None, DXGI_MWA_FLAGS::default())
+            .is_ok());
 
         // IDXGIFactory1
         assert!(factory.IsCurrent().as_bool());
@@ -185,12 +187,12 @@ fn com_inheritance() {
         _ = factory.IsWindowedStereoEnabled();
 
         // IDXGIFactory3
-        assert!(factory.GetCreationFlags() == 0);
+        assert!(factory.GetCreationFlags() == DXGI_CREATE_FACTORY_FLAGS(0));
 
         // IDXGIFactory7 (default)
         assert!(
             factory
-                .RegisterAdaptersChangedEvent(HANDLE(0))
+                .RegisterAdaptersChangedEvent(None)
                 .unwrap_err()
                 .code()
                 == DXGI_ERROR_INVALID_CALL
@@ -232,16 +234,16 @@ fn interface() -> windows::core::Result<()> {
 fn callback() {
     unsafe {
         let a: PROPENUMPROCA = Some(callback_a);
-        assert!(BOOL(789) == a.unwrap()(HWND(123), s!("hello a"), HANDLE(456)));
+        assert!(BOOL(789) == a.unwrap()(HWND(123 as _), s!("hello a"), HANDLE(456 as _)));
 
         let a: PROPENUMPROCW = Some(callback_w);
-        assert!(BOOL(789) == a.unwrap()(HWND(123), w!("hello w").into(), HANDLE(456)));
+        assert!(BOOL(789) == a.unwrap()(HWND(123 as _), w!("hello w").into(), HANDLE(456 as _)));
     }
 }
 
 extern "system" fn callback_a(param0: HWND, param1: PCSTR, param2: HANDLE) -> BOOL {
-    assert!(param0.0 == 123);
-    assert!(param2.0 == 456);
+    assert!(param0.0 == 123 as _);
+    assert!(param2.0 == 456 as _);
 
     let s = unsafe { param1.to_string().unwrap() };
     assert!(s == "hello a");
@@ -249,8 +251,8 @@ extern "system" fn callback_a(param0: HWND, param1: PCSTR, param2: HANDLE) -> BO
 }
 
 extern "system" fn callback_w(param0: HWND, param1: PCWSTR, param2: HANDLE) -> BOOL {
-    assert!(param0.0 == 123);
-    assert!(param2.0 == 456);
+    assert!(param0.0 == 123 as _);
+    assert!(param2.0 == 456 as _);
     let s = unsafe { param1.to_string().unwrap() };
     assert!(s == "hello w");
     BOOL(789)

@@ -6,7 +6,7 @@ fn test() {
         Internal: 1,
         InternalHigh: 2,
         Anonymous: unsafe { std::mem::zeroed() },
-        hEvent: Default::default(),
+        hEvent: core::ptr::null_mut(),
     };
 
     assert_eq!(o.Internal, 1);
@@ -17,9 +17,9 @@ fn test() {
     o.InternalHigh = 20;
     assert_eq!(o.InternalHigh, 20);
 
-    assert_eq!(o.hEvent, 0);
-    o.hEvent = 1;
-    assert_eq!(o.hEvent, 1);
+    assert_eq!(o.hEvent, core::ptr::null_mut());
+    o.hEvent = 1 as _;
+    assert_eq!(o.hEvent, 1 as _);
 
     unsafe {
         assert_eq!(o.Anonymous.Pointer, core::ptr::null_mut());

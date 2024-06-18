@@ -21,9 +21,9 @@ fn test() {
     o.InternalHigh = 20;
     assert_eq!(o.InternalHigh, 20);
 
-    assert_eq!(o.hEvent, HANDLE(0));
-    o.hEvent = HANDLE(1);
-    assert_eq!(o.hEvent, HANDLE(1));
+    assert_eq!(o.hEvent, HANDLE(0 as _));
+    o.hEvent = HANDLE(1 as _);
+    assert_eq!(o.hEvent, HANDLE(1 as _));
 
     unsafe {
         assert_eq!(o.Anonymous.Pointer, core::ptr::null_mut());
@@ -80,7 +80,7 @@ fn d3d() {
     let mut desc = D3D12_INDIRECT_ARGUMENT_DESC {
         Type: D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW,
         Anonymous: D3D12_INDIRECT_ARGUMENT_DESC_0 {
-            VertexBuffer: D3D12_INDIRECT_ARGUMENT_DESC_0_4 { Slot: 123 },
+            VertexBuffer: D3D12_INDIRECT_ARGUMENT_DESC_0_5 { Slot: 123 },
         },
     };
 
