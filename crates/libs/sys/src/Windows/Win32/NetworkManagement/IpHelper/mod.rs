@@ -1033,7 +1033,7 @@ pub struct FIXED_INFO_W2KSP1 {
     pub EnableProxy: u32,
     pub EnableDns: u32,
 }
-pub type HIFTIMESTAMPCHANGE = isize;
+pub type HIFTIMESTAMPCHANGE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ICMPV6_ECHO_REPLY_LH {

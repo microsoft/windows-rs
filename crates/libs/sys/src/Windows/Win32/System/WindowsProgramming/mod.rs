@@ -1179,14 +1179,13 @@ pub struct FEATURE_ERROR {
     pub originCallerModule: windows_sys::core::PCSTR,
     pub originName: windows_sys::core::PCSTR,
 }
-pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = isize;
-pub type FH_SERVICE_PIPE_HANDLE = isize;
+pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILE_CASE_SENSITIVE_INFO {
     pub Flags: u32,
 }
-pub type HWINWATCH = isize;
+pub type HWINWATCH = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HW_PROFILE_INFOA {

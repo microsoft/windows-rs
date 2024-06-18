@@ -1,10 +1,40 @@
+windows_targets::link!("ntdll.dll" "system" fn NtCancelTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, currentstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+windows_targets::link!("ntdll.dll" "system" fn NtCreateTimer(timerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, timertype : super::super::super::Win32::System::Kernel:: TIMER_TYPE) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(feature = "Wdk_Foundation")]
+windows_targets::link!("ntdll.dll" "system" fn NtOpenEvent(eventhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_WindowsProgramming"))]
+windows_targets::link!("ntdll.dll" "system" fn NtOpenProcess(processhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, clientid : *const super::super::super::Win32::System::WindowsProgramming:: CLIENT_ID) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(feature = "Wdk_Foundation")]
+windows_targets::link!("ntdll.dll" "system" fn NtOpenTimer(timerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationProcess(processhandle : super::super::super::Win32::Foundation:: HANDLE, processinformationclass : PROCESSINFOCLASS, processinformation : *mut core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *mut core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntdll.dll" "system" fn NtSetInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(feature = "Wdk_System_SystemServices")]
+windows_targets::link!("ntdll.dll" "system" fn NtSetTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices:: PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : super::super::super::Win32::Foundation:: BOOLEAN, period : i32, previousstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+windows_targets::link!("ntdll.dll" "system" fn NtSetTimerEx(timerhandle : super::super::super::Win32::Foundation:: HANDLE, timersetinformationclass : TIMER_SET_INFORMATION_CLASS, timersetinformation : *mut core::ffi::c_void, timersetinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+windows_targets::link!("ntdll.dll" "system" fn NtTerminateProcess(processhandle : super::super::super::Win32::Foundation:: HANDLE, exitstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::super::super::Win32::Foundation:: HANDLE, alertable : super::super::super::Win32::Foundation:: BOOLEAN, timeout : *mut i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
+windows_targets::link!("ntdll.dll" "system" fn ZwCancelTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, currentstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+windows_targets::link!("ntdll.dll" "system" fn ZwCreateTimer(timerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, timertype : super::super::super::Win32::System::Kernel:: TIMER_TYPE) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(feature = "Wdk_Foundation")]
+windows_targets::link!("ntdll.dll" "system" fn ZwOpenEvent(eventhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_WindowsProgramming"))]
+windows_targets::link!("ntdll.dll" "system" fn ZwOpenProcess(processhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, clientid : *const super::super::super::Win32::System::WindowsProgramming:: CLIENT_ID) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(feature = "Wdk_Foundation")]
+windows_targets::link!("ntdll.dll" "system" fn ZwOpenTimer(timerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
+windows_targets::link!("ntdll.dll" "system" fn ZwQueryInformationProcess(processhandle : super::super::super::Win32::Foundation:: HANDLE, processinformationclass : PROCESSINFOCLASS, processinformation : *mut core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+windows_targets::link!("ntdll.dll" "system" fn ZwQueryInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *mut core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_targets::link!("ntdll.dll" "system" fn ZwSetInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(feature = "Wdk_System_SystemServices")]
+windows_targets::link!("ntdll.dll" "system" fn ZwSetTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices:: PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : super::super::super::Win32::Foundation:: BOOLEAN, period : i32, previousstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
+windows_targets::link!("ntdll.dll" "system" fn ZwSetTimerEx(timerhandle : super::super::super::Win32::Foundation:: HANDLE, timersetinformationclass : TIMER_SET_INFORMATION_CLASS, timersetinformation : *mut core::ffi::c_void, timersetinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
+windows_targets::link!("ntdll.dll" "system" fn ZwTerminateProcess(processhandle : super::super::super::Win32::Foundation:: HANDLE, exitstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
+windows_targets::link!("ntdll.dll" "system" fn ZwWaitForSingleObject(handle : super::super::super::Win32::Foundation:: HANDLE, alertable : super::super::super::Win32::Foundation:: BOOLEAN, timeout : *const i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
 pub const MaxProcessInfoClass: PROCESSINFOCLASS = 83i32;
 pub const MaxThreadInfoClass: THREADINFOCLASS = 56i32;
+pub const MaxTimerInfoClass: TIMER_SET_INFORMATION_CLASS = 1i32;
 pub const ProcessAccessToken: PROCESSINFOCLASS = 9i32;
 pub const ProcessAffinityMask: PROCESSINFOCLASS = 21i32;
 pub const ProcessAffinityUpdateMode: PROCESSINFOCLASS = 45i32;
@@ -104,6 +134,7 @@ pub const ThreadIoPriority: THREADINFOCLASS = 22i32;
 pub const ThreadIsIoPending: THREADINFOCLASS = 16i32;
 pub const ThreadIsTerminated: THREADINFOCLASS = 20i32;
 pub const ThreadLastSystemCall: THREADINFOCLASS = 21i32;
+pub const ThreadNameInformation: THREADINFOCLASS = 38i32;
 pub const ThreadPagePriority: THREADINFOCLASS = 24i32;
 pub const ThreadPerformanceCount: THREADINFOCLASS = 11i32;
 pub const ThreadPriority: THREADINFOCLASS = 2i32;
@@ -118,5 +149,7 @@ pub const ThreadTimes: THREADINFOCLASS = 1i32;
 pub const ThreadUmsInformation: THREADINFOCLASS = 31i32;
 pub const ThreadWow64Context: THREADINFOCLASS = 29i32;
 pub const ThreadZeroTlsCell: THREADINFOCLASS = 10i32;
+pub const TimerSetCoalescableTimer: TIMER_SET_INFORMATION_CLASS = 0i32;
 pub type PROCESSINFOCLASS = i32;
 pub type THREADINFOCLASS = i32;
+pub type TIMER_SET_INFORMATION_CLASS = i32;

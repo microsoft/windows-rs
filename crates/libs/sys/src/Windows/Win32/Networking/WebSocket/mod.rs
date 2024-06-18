@@ -70,7 +70,7 @@ pub struct WEB_SOCKET_BUFFER_1 {
     pub pbBuffer: *mut u8,
     pub ulBufferLength: u32,
 }
-pub type WEB_SOCKET_HANDLE = isize;
+pub type WEB_SOCKET_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WEB_SOCKET_HTTP_HEADER {

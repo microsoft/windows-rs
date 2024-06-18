@@ -5249,10 +5249,10 @@ pub struct GSM610WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-pub type HDRVR = isize;
-pub type HIC = isize;
-pub type HMMIO = isize;
-pub type HVIDEO = isize;
+pub type HDRVR = *mut core::ffi::c_void;
+pub type HIC = *mut core::ffi::c_void;
+pub type HMMIO = *mut core::ffi::c_void;
+pub type HVIDEO = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]

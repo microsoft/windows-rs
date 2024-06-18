@@ -1513,11 +1513,11 @@ pub struct HIGHCONTRASTW {
     pub dwFlags: HIGHCONTRASTW_FLAGS,
     pub lpszDefaultScheme: windows_sys::core::PWSTR,
 }
-pub type HUIAEVENT = isize;
-pub type HUIANODE = isize;
-pub type HUIAPATTERNOBJECT = isize;
-pub type HUIATEXTRANGE = isize;
-pub type HWINEVENTHOOK = isize;
+pub type HUIAEVENT = *mut core::ffi::c_void;
+pub type HUIANODE = *mut core::ffi::c_void;
+pub type HUIAPATTERNOBJECT = *mut core::ffi::c_void;
+pub type HUIATEXTRANGE = *mut core::ffi::c_void;
+pub type HWINEVENTHOOK = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MOUSEKEYS {

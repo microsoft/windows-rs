@@ -154,8 +154,8 @@ pub struct HCS_EVENT {
     pub EventData: windows_sys::core::PCWSTR,
     pub Operation: HCS_OPERATION,
 }
-pub type HCS_OPERATION = isize;
-pub type HCS_PROCESS = isize;
+pub type HCS_OPERATION = *mut core::ffi::c_void;
+pub type HCS_PROCESS = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HCS_PROCESS_INFORMATION {
@@ -165,7 +165,7 @@ pub struct HCS_PROCESS_INFORMATION {
     pub StdOutput: super::super::Foundation::HANDLE,
     pub StdError: super::super::Foundation::HANDLE,
 }
-pub type HCS_SYSTEM = isize;
+pub type HCS_SYSTEM = *mut core::ffi::c_void;
 pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const core::ffi::c_void)>;
 pub type HCS_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *const core::ffi::c_void, notificationstatus: windows_sys::core::HRESULT, notificationdata: windows_sys::core::PCWSTR)>;
 pub type HCS_OPERATION_COMPLETION = Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const core::ffi::c_void)>;

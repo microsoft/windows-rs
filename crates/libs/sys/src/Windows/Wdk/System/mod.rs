@@ -1,5 +1,7 @@
 #[cfg(feature = "Wdk_System_IO")]
 pub mod IO;
+#[cfg(feature = "Wdk_System_Memory")]
+pub mod Memory;
 #[cfg(feature = "Wdk_System_OfflineRegistry")]
 pub mod OfflineRegistry;
 #[cfg(feature = "Wdk_System_Registry")]

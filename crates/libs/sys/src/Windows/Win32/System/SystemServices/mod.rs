@@ -1530,15 +1530,6 @@ pub const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: windows_sys::core:
 pub const PARKING_TOPOLOGY_POLICY_DISABLED: u32 = 0u32;
 pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN: u32 = 1u32;
 pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL: u32 = 2u32;
-pub const PDCAP_D0_SUPPORTED: u32 = 1u32;
-pub const PDCAP_D1_SUPPORTED: u32 = 2u32;
-pub const PDCAP_D2_SUPPORTED: u32 = 4u32;
-pub const PDCAP_D3_SUPPORTED: u32 = 8u32;
-pub const PDCAP_WAKE_FROM_D0_SUPPORTED: u32 = 16u32;
-pub const PDCAP_WAKE_FROM_D1_SUPPORTED: u32 = 32u32;
-pub const PDCAP_WAKE_FROM_D2_SUPPORTED: u32 = 64u32;
-pub const PDCAP_WAKE_FROM_D3_SUPPORTED: u32 = 128u32;
-pub const PDCAP_WARM_EJECT_SUPPORTED: u32 = 256u32;
 pub const PERFORMANCE_DATA_VERSION: u32 = 1u32;
 pub const PERFSTATE_POLICY_CHANGE_DECREASE_MAX: u32 = 2u32;
 pub const PERFSTATE_POLICY_CHANGE_IDEAL: u32 = 0u32;
@@ -4317,9 +4308,10 @@ pub struct TOKEN_BNO_ISOLATION_INFORMATION {
     pub IsolationEnabled: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct TOKEN_SID_INFORMATION {
-    pub Sid: super::super::Foundation::PSID,
+    pub Sid: super::super::Security::PSID,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

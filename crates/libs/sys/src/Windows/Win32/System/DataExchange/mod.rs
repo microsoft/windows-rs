@@ -318,10 +318,10 @@ pub struct DDEUP {
     pub cfFormat: i16,
     pub rgb: [u8; 1],
 }
-pub type HCONV = isize;
-pub type HCONVLIST = isize;
-pub type HDDEDATA = isize;
-pub type HSZ = isize;
+pub type HCONV = *mut core::ffi::c_void;
+pub type HCONVLIST = *mut core::ffi::c_void;
+pub type HDDEDATA = *mut core::ffi::c_void;
+pub type HSZ = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HSZPAIR {

@@ -93,7 +93,7 @@ pub const SerenumFirstHalf: SERENUM_PORTION = 0i32;
 pub const SerenumSecondHalf: SERENUM_PORTION = 1i32;
 pub const SerenumWhole: SERENUM_PORTION = 2i32;
 pub type SERENUM_PORTION = i32;
-pub type HCOMDB = isize;
+pub type HCOMDB = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SERENUM_PORT_DESC {

@@ -63,4 +63,4 @@ pub type DPI_AWARENESS = i32;
 pub type DPI_HOSTING_BEHAVIOR = i32;
 pub type MONITOR_DPI_TYPE = i32;
 pub type PROCESS_DPI_AWARENESS = i32;
-pub type DPI_AWARENESS_CONTEXT = isize;
+pub type DPI_AWARENESS_CONTEXT = *mut core::ffi::c_void;

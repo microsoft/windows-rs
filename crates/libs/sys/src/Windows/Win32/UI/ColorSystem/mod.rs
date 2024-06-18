@@ -526,7 +526,7 @@ pub struct GamutShell {
 pub struct GamutShellTriangle {
     pub aVertexIndex: [u32; 3],
 }
-pub type HCOLORSPACE = isize;
+pub type HCOLORSPACE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HiFiCOLOR {

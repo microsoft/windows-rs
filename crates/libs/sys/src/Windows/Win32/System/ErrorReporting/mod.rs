@@ -189,8 +189,8 @@ pub type WER_REPORT_TYPE = i32;
 pub type WER_REPORT_UI = i32;
 pub type WER_SUBMIT_FLAGS = u32;
 pub type WER_SUBMIT_RESULT = i32;
-pub type HREPORT = isize;
-pub type HREPORTSTORE = isize;
+pub type HREPORT = *mut core::ffi::c_void;
+pub type HREPORTSTORE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WER_DUMP_CUSTOM_OPTIONS {

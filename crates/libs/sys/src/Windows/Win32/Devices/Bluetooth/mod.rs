@@ -1276,8 +1276,8 @@ pub struct BTH_SET_SERVICE {
     pub pRecord: [u8; 1],
 }
 pub type HANDLE_SDP_TYPE = u64;
-pub type HBLUETOOTH_DEVICE_FIND = isize;
-pub type HBLUETOOTH_RADIO_FIND = isize;
+pub type HBLUETOOTH_DEVICE_FIND = *mut core::ffi::c_void;
+pub type HBLUETOOTH_RADIO_FIND = *mut core::ffi::c_void;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RFCOMM_COMMAND {

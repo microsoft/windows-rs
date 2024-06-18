@@ -58,7 +58,7 @@ pub type RAWINPUTDEVICE_FLAGS = u32;
 pub type RAW_INPUT_DATA_COMMAND_FLAGS = u32;
 pub type RAW_INPUT_DEVICE_INFO_COMMAND = u32;
 pub type RID_DEVICE_INFO_TYPE = u32;
-pub type HRAWINPUT = isize;
+pub type HRAWINPUT = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INPUT_MESSAGE_SOURCE {

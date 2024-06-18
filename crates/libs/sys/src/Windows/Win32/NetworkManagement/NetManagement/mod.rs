@@ -53,10 +53,12 @@ windows_targets::link!("netapi32.dll" "system" fn NetGroupSetUsers(servername : 
 windows_targets::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : windows_sys::core::PCWSTR, accountname : windows_sys::core::PCWSTR, isservice : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("netapi32.dll" "system" fn NetJoinDomain(lpserver : windows_sys::core::PCWSTR, lpdomain : windows_sys::core::PCWSTR, lpmachineaccountou : windows_sys::core::PCWSTR, lpaccount : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, fjoinoptions : NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
-windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAddMember(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, membersid : super::super::Foundation:: PSID) -> u32);
+#[cfg(feature = "Win32_Security")]
+windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAddMember(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, membersid : super::super::Security:: PSID) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupAddMembers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupDel(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR) -> u32);
-windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupDelMember(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, membersid : super::super::Foundation:: PSID) -> u32);
+#[cfg(feature = "Win32_Security")]
+windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupDelMember(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, membersid : super::super::Security:: PSID) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupDelMembers(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, totalentries : u32) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut usize) -> u32);
 windows_targets::link!("netapi32.dll" "system" fn NetLocalGroupGetInfo(servername : windows_sys::core::PCWSTR, groupname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
@@ -2788,11 +2790,12 @@ pub struct GROUP_INFO_2 {
     pub grpi2_attributes: u32,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct GROUP_INFO_3 {
     pub grpi3_name: windows_sys::core::PWSTR,
     pub grpi3_comment: windows_sys::core::PWSTR,
-    pub grpi3_group_sid: super::super::Foundation::PSID,
+    pub grpi3_group_sid: super::super::Security::PSID,
     pub grpi3_attributes: u32,
 }
 #[repr(C)]
@@ -2836,15 +2839,16 @@ pub struct LOCALGROUP_INFO_1002 {
     pub lgrpi1002_comment: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct LOCALGROUP_MEMBERS_INFO_0 {
-    pub lgrmi0_sid: super::super::Foundation::PSID,
+    pub lgrmi0_sid: super::super::Security::PSID,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct LOCALGROUP_MEMBERS_INFO_1 {
-    pub lgrmi1_sid: super::super::Foundation::PSID,
+    pub lgrmi1_sid: super::super::Security::PSID,
     pub lgrmi1_sidusage: super::super::Security::SID_NAME_USE,
     pub lgrmi1_name: windows_sys::core::PWSTR,
 }
@@ -2852,7 +2856,7 @@ pub struct LOCALGROUP_MEMBERS_INFO_1 {
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct LOCALGROUP_MEMBERS_INFO_2 {
-    pub lgrmi2_sid: super::super::Foundation::PSID,
+    pub lgrmi2_sid: super::super::Security::PSID,
     pub lgrmi2_sidusage: super::super::Security::SID_NAME_USE,
     pub lgrmi2_domainandname: windows_sys::core::PWSTR,
 }
@@ -4264,22 +4268,24 @@ pub struct USER_INFO_22 {
     pub usri22_code_page: u32,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_23 {
     pub usri23_name: windows_sys::core::PWSTR,
     pub usri23_full_name: windows_sys::core::PWSTR,
     pub usri23_comment: windows_sys::core::PWSTR,
     pub usri23_flags: USER_ACCOUNT_FLAGS,
-    pub usri23_user_sid: super::super::Foundation::PSID,
+    pub usri23_user_sid: super::super::Security::PSID,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_24 {
     pub usri24_internet_identity: super::super::Foundation::BOOL,
     pub usri24_flags: u32,
     pub usri24_internet_provider_name: windows_sys::core::PWSTR,
     pub usri24_internet_principal_name: windows_sys::core::PWSTR,
-    pub usri24_user_sid: super::super::Foundation::PSID,
+    pub usri24_user_sid: super::super::Security::PSID,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4315,6 +4321,7 @@ pub struct USER_INFO_3 {
     pub usri3_password_expired: u32,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct USER_INFO_4 {
     pub usri4_name: windows_sys::core::PWSTR,
@@ -4341,7 +4348,7 @@ pub struct USER_INFO_4 {
     pub usri4_logon_server: windows_sys::core::PWSTR,
     pub usri4_country_code: u32,
     pub usri4_code_page: u32,
-    pub usri4_user_sid: super::super::Foundation::PSID,
+    pub usri4_user_sid: super::super::Security::PSID,
     pub usri4_primary_group_id: u32,
     pub usri4_profile: windows_sys::core::PWSTR,
     pub usri4_home_dir_drive: windows_sys::core::PWSTR,
@@ -4398,10 +4405,11 @@ pub struct USER_MODALS_INFO_1007 {
     pub usrmod1007_primary: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct USER_MODALS_INFO_2 {
     pub usrmod2_domain_name: windows_sys::core::PWSTR,
-    pub usrmod2_domain_id: super::super::Foundation::PSID,
+    pub usrmod2_domain_id: super::super::Security::PSID,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

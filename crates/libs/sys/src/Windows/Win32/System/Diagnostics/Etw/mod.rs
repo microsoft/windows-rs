@@ -8,20 +8,21 @@ windows_targets::link!("advapi32.dll" "system" fn EnableTraceEx(providerid : *co
 windows_targets::link!("advapi32.dll" "system" fn EnableTraceEx2(tracehandle : CONTROLTRACE_HANDLE, providerid : *const windows_sys::core::GUID, controlcode : u32, level : u8, matchanykeyword : u64, matchallkeyword : u64, timeout : u32, enableparameters : *const ENABLE_TRACE_PARAMETERS) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn EnumerateTraceGuids(guidpropertiesarray : *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount : u32, guidcount : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn EnumerateTraceGuidsEx(tracequeryinfoclass : TRACE_QUERY_INFO_CLASS, inbuffer : *const core::ffi::c_void, inbuffersize : u32, outbuffer : *mut core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_sys::core::GUID, operation : u32, sid : super::super::super::Foundation:: PSID, rights : u32, allowordeny : super::super::super::Foundation:: BOOLEAN) -> u32);
+#[cfg(feature = "Win32_Security")]
+windows_targets::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_sys::core::GUID, operation : u32, sid : super::super::super::Security:: PSID, rights : u32, allowordeny : super::super::super::Foundation:: BOOLEAN) -> u32);
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("advapi32.dll" "system" fn EventAccessQuery(guid : *const windows_sys::core::GUID, buffer : super::super::super::Security:: PSECURITY_DESCRIPTOR, buffersize : *mut u32) -> u32);
 windows_targets::link!("advapi32.dll" "system" fn EventAccessRemove(guid : *const windows_sys::core::GUID) -> u32);
 windows_targets::link!("advapi32.dll" "system" fn EventActivityIdControl(controlcode : u32, activityid : *mut windows_sys::core::GUID) -> u32);
-windows_targets::link!("advapi32.dll" "system" fn EventEnabled(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
-windows_targets::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : u64, level : u8, keyword : u64) -> super::super::super::Foundation:: BOOLEAN);
+windows_targets::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
+windows_targets::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> super::super::super::Foundation:: BOOLEAN);
 windows_targets::link!("advapi32.dll" "system" fn EventRegister(providerid : *const windows_sys::core::GUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : *mut u64) -> u32);
-windows_targets::link!("advapi32.dll" "system" fn EventSetInformation(reghandle : u64, informationclass : EVENT_INFO_CLASS, eventinformation : *const core::ffi::c_void, informationlength : u32) -> u32);
-windows_targets::link!("advapi32.dll" "system" fn EventUnregister(reghandle : u64) -> u32);
-windows_targets::link!("advapi32.dll" "system" fn EventWrite(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-windows_targets::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_sys::core::GUID, relatedactivityid : *const windows_sys::core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-windows_targets::link!("advapi32.dll" "system" fn EventWriteString(reghandle : u64, level : u8, keyword : u64, string : windows_sys::core::PCWSTR) -> u32);
-windows_targets::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR, activityid : *const windows_sys::core::GUID, relatedactivityid : *const windows_sys::core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
+windows_targets::link!("advapi32.dll" "system" fn EventSetInformation(reghandle : REGHANDLE, informationclass : EVENT_INFO_CLASS, eventinformation : *const core::ffi::c_void, informationlength : u32) -> u32);
+windows_targets::link!("advapi32.dll" "system" fn EventUnregister(reghandle : REGHANDLE) -> u32);
+windows_targets::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
+windows_targets::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_sys::core::GUID, relatedactivityid : *const windows_sys::core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
+windows_targets::link!("advapi32.dll" "system" fn EventWriteString(reghandle : REGHANDLE, level : u8, keyword : u64, string : windows_sys::core::PCWSTR) -> u32);
+windows_targets::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, activityid : *const windows_sys::core::GUID, relatedactivityid : *const windows_sys::core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
 windows_targets::link!("advapi32.dll" "system" fn FlushTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn FlushTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn GetTraceEnableFlags(tracehandle : u64) -> u32);
@@ -1599,6 +1600,7 @@ pub struct PROVIDER_FILTER_INFO {
     pub PropertyCount: u32,
     pub EventPropertyInfoArray: [EVENT_PROPERTY_INFO; 1],
 }
+pub type REGHANDLE = i64;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RELOGSTREAM_HANDLE {

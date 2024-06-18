@@ -47,7 +47,7 @@ windows_targets::link!("powrprof.dll" "system" fn PowerReadACDefaultIndex(rootpo
 #[cfg(feature = "Win32_System_Registry")]
 windows_targets::link!("powrprof.dll" "system" fn PowerReadACValue(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-windows_targets::link!("powrprof.dll" "system" fn PowerReadACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, acvalueindex : *mut u32) -> u32);
+windows_targets::link!("powrprof.dll" "system" fn PowerReadACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, acvalueindex : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
 windows_targets::link!("powrprof.dll" "system" fn PowerReadDCDefaultIndex(rootpowerkey : super::Registry:: HKEY, schemepersonalityguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, dcdefaultindex : *mut u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
@@ -97,7 +97,7 @@ windows_targets::link!("powrprof.dll" "system" fn PowerUnregisterSuspendResumeNo
 #[cfg(feature = "Win32_System_Registry")]
 windows_targets::link!("powrprof.dll" "system" fn PowerWriteACDefaultIndex(rootsystempowerkey : super::Registry:: HKEY, schemepersonalityguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, defaultacindex : u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-windows_targets::link!("powrprof.dll" "system" fn PowerWriteACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, acvalueindex : u32) -> u32);
+windows_targets::link!("powrprof.dll" "system" fn PowerWriteACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, acvalueindex : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
 windows_targets::link!("powrprof.dll" "system" fn PowerWriteDCDefaultIndex(rootsystempowerkey : super::Registry:: HKEY, schemepersonalityguid : *const windows_sys::core::GUID, subgroupofpowersettingsguid : *const windows_sys::core::GUID, powersettingguid : *const windows_sys::core::GUID, defaultdcindex : u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
@@ -395,16 +395,25 @@ pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = 2i32;
 pub const NotifyUserModeLegacyPowerEvent: POWER_INFORMATION_LEVEL = 47i32;
 pub const NotifyUserPowerSetting: POWER_INFORMATION_LEVEL = 26i32;
 pub const PASSIVE_COOLING: u32 = 1u32;
-pub const PDCAP_S0_SUPPORTED: u32 = 65536u32;
-pub const PDCAP_S1_SUPPORTED: u32 = 131072u32;
-pub const PDCAP_S2_SUPPORTED: u32 = 262144u32;
-pub const PDCAP_S3_SUPPORTED: u32 = 524288u32;
-pub const PDCAP_S4_SUPPORTED: u32 = 16777216u32;
-pub const PDCAP_S5_SUPPORTED: u32 = 33554432u32;
-pub const PDCAP_WAKE_FROM_S0_SUPPORTED: u32 = 1048576u32;
-pub const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152u32;
-pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304u32;
-pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
+pub const PDCAP_D0_SUPPORTED: DEVICE_POWER_CAPABILITIES = 1u32;
+pub const PDCAP_D1_SUPPORTED: DEVICE_POWER_CAPABILITIES = 2u32;
+pub const PDCAP_D2_SUPPORTED: DEVICE_POWER_CAPABILITIES = 4u32;
+pub const PDCAP_D3_SUPPORTED: DEVICE_POWER_CAPABILITIES = 8u32;
+pub const PDCAP_S0_SUPPORTED: DEVICE_POWER_CAPABILITIES = 65536u32;
+pub const PDCAP_S1_SUPPORTED: DEVICE_POWER_CAPABILITIES = 131072u32;
+pub const PDCAP_S2_SUPPORTED: DEVICE_POWER_CAPABILITIES = 262144u32;
+pub const PDCAP_S3_SUPPORTED: DEVICE_POWER_CAPABILITIES = 524288u32;
+pub const PDCAP_S4_SUPPORTED: DEVICE_POWER_CAPABILITIES = 16777216u32;
+pub const PDCAP_S5_SUPPORTED: DEVICE_POWER_CAPABILITIES = 33554432u32;
+pub const PDCAP_WAKE_FROM_D0_SUPPORTED: DEVICE_POWER_CAPABILITIES = 16u32;
+pub const PDCAP_WAKE_FROM_D1_SUPPORTED: DEVICE_POWER_CAPABILITIES = 32u32;
+pub const PDCAP_WAKE_FROM_D2_SUPPORTED: DEVICE_POWER_CAPABILITIES = 64u32;
+pub const PDCAP_WAKE_FROM_D3_SUPPORTED: DEVICE_POWER_CAPABILITIES = 128u32;
+pub const PDCAP_WAKE_FROM_S0_SUPPORTED: DEVICE_POWER_CAPABILITIES = 1048576u32;
+pub const PDCAP_WAKE_FROM_S1_SUPPORTED: DEVICE_POWER_CAPABILITIES = 2097152u32;
+pub const PDCAP_WAKE_FROM_S2_SUPPORTED: DEVICE_POWER_CAPABILITIES = 4194304u32;
+pub const PDCAP_WAKE_FROM_S3_SUPPORTED: DEVICE_POWER_CAPABILITIES = 8388608u32;
+pub const PDCAP_WARM_EJECT_SUPPORTED: DEVICE_POWER_CAPABILITIES = 256u32;
 pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
 pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = 2147483648u32;
@@ -614,6 +623,7 @@ pub type ACPI_TIME_RESOLUTION = i32;
 pub type BATTERY_CHARGING_SOURCE_TYPE = i32;
 pub type BATTERY_QUERY_INFORMATION_LEVEL = i32;
 pub type BATTERY_SET_INFORMATION_LEVEL = i32;
+pub type DEVICE_POWER_CAPABILITIES = u32;
 pub type DEVICE_POWER_STATE = i32;
 pub type EFFECTIVE_POWER_MODE = i32;
 pub type EMI_MEASUREMENT_UNIT = i32;

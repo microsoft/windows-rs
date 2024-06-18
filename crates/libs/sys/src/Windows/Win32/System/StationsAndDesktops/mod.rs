@@ -84,8 +84,8 @@ pub struct BSMINFO {
     pub hwnd: super::super::Foundation::HWND,
     pub luid: super::super::Foundation::LUID,
 }
-pub type HDESK = isize;
-pub type HWINSTA = isize;
+pub type HDESK = *mut core::ffi::c_void;
+pub type HWINSTA = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USEROBJECTFLAGS {

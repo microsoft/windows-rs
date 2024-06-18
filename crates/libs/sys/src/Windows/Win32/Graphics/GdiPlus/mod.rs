@@ -2042,30 +2042,78 @@ pub struct GdiplusStartupOutput {
     pub NotificationHook: isize,
     pub NotificationUnhook: isize,
 }
-pub type GpAdjustableArrowCap = isize;
-pub type GpBitmap = isize;
-pub type GpBrush = isize;
-pub type GpCachedBitmap = isize;
-pub type GpCustomLineCap = isize;
-pub type GpFont = isize;
-pub type GpFontCollection = isize;
-pub type GpFontFamily = isize;
-pub type GpGraphics = isize;
-pub type GpHatch = isize;
-pub type GpImage = isize;
-pub type GpImageAttributes = isize;
-pub type GpInstalledFontCollection = isize;
-pub type GpLineGradient = isize;
-pub type GpMetafile = isize;
-pub type GpPath = isize;
-pub type GpPathGradient = isize;
-pub type GpPathIterator = isize;
-pub type GpPen = isize;
-pub type GpPrivateFontCollection = isize;
-pub type GpRegion = isize;
-pub type GpSolidFill = isize;
-pub type GpStringFormat = isize;
-pub type GpTexture = isize;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpAdjustableArrowCap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpBitmap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpBrush(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpCachedBitmap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpCustomLineCap(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpFont(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpFontCollection(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpFontFamily(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpGraphics(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpHatch(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpImage(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpImageAttributes(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpInstalledFontCollection(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpLineGradient(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpMetafile(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPath(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPathGradient(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPathIterator(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPen(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpPrivateFontCollection(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpRegion(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpSolidFill(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpStringFormat(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GpTexture(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HueSaturationLightness {

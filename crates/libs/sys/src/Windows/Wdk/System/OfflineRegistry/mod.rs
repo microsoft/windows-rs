@@ -25,4 +25,4 @@ windows_targets::link!("offreg.dll" "system" fn ORSetValue(handle : ORHKEY, lpva
 windows_targets::link!("offreg.dll" "system" fn ORSetVirtualFlags(handle : ORHKEY, dwflags : u32) -> super::super::super::Win32::Foundation:: WIN32_ERROR);
 windows_targets::link!("offreg.dll" "system" fn ORShutdown() -> super::super::super::Win32::Foundation:: WIN32_ERROR);
 windows_targets::link!("offreg.dll" "system" fn ORStart() -> super::super::super::Win32::Foundation:: WIN32_ERROR);
-pub type ORHKEY = isize;
+pub type ORHKEY = *mut core::ffi::c_void;

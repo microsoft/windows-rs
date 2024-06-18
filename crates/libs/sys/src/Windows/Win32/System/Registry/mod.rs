@@ -1061,7 +1061,7 @@ pub struct DSKTLSYSTEMTIME {
     pub wMilliseconds: u16,
     pub wResult: u16,
 }
-pub type HKEY = isize;
+pub type HKEY = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PVALUEA {

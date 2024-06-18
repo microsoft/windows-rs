@@ -1178,7 +1178,7 @@ pub struct GLYPHMETRICSFLOAT {
     pub gmfCellIncX: f32,
     pub gmfCellIncY: f32,
 }
-pub type HGLRC = isize;
+pub type HGLRC = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LAYERPLANEDESCRIPTOR {

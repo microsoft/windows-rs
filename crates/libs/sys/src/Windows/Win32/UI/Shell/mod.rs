@@ -5477,7 +5477,7 @@ pub const FolderViewHost: windows_sys::core::GUID = windows_sys::core::GUID::fro
 pub const FrameworkInputPane: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5120aa3_46ba_44c5_822d_ca8092c1fc72);
 pub const FreeSpaceCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb5607793_24ac_44c7_82e2_831726aa6cb7);
 pub const GenericCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);
-pub type HDROP = isize;
+pub type HDROP = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HELPINFO {
@@ -5531,7 +5531,7 @@ pub struct HLTBINFO {
     pub uDockType: u32,
     pub rcTbPos: super::super::Foundation::RECT,
 }
-pub type HPSXA = isize;
+pub type HPSXA = *mut core::ffi::c_void;
 pub const HideInputPaneAnimationCoordinator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x384742b1_2a77_4cb3_8cf8_1136f5e17e59);
 pub const HomeGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde77ba04_3c92_4d11_a1a5_42352a53e0e3);
 pub const IENamespaceTreeControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xace52d03_e5cd_4b20_82ff_e71b11beae1d);

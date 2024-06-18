@@ -1362,8 +1362,8 @@ pub struct DEVINFO {
     pub hpalDefault: super::super::Graphics::Gdi::HPALETTE,
     pub flGraphicsCaps2: u32,
 }
-pub type DHPDEV = isize;
-pub type DHSURF = isize;
+pub type DHPDEV = *mut core::ffi::c_void;
+pub type DHSURF = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_2DREGION {
@@ -2087,12 +2087,12 @@ pub struct GLYPHPOS {
     pub pgdf: *mut GLYPHDEF,
     pub ptl: super::super::Foundation::POINTL,
 }
-pub type HBM = isize;
-pub type HDEV = isize;
-pub type HDRVOBJ = isize;
-pub type HFASTMUTEX = isize;
-pub type HSEMAPHORE = isize;
-pub type HSURF = isize;
+pub type HBM = *mut core::ffi::c_void;
+pub type HDEV = *mut core::ffi::c_void;
+pub type HDRVOBJ = *mut core::ffi::c_void;
+pub type HFASTMUTEX = *mut core::ffi::c_void;
+pub type HSEMAPHORE = *mut core::ffi::c_void;
+pub type HSURF = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IFIEXTRA {
