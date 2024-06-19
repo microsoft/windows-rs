@@ -17,7 +17,7 @@ pub fn writer(
     let mut cfg = cfg::signature_cfg(writer, method);
     cfg.add_feature(def.namespace());
 
-    if !cfg.included(writer) {
+    if !cfg.included(writer) && def.namespace().starts_with("Windows.") {
         return quote! {};
     }
 
