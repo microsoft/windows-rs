@@ -13,6 +13,11 @@ readme = "readme.md"
 categories = ["os::windows-apis"]
 exclude = ["features.json"]
 
+[lib]
+# This crate does not contain tests. All tests are in separate crates.
+test = false
+doctest = false
+
 [lints]
 workspace = true
 
