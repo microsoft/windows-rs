@@ -628,7 +628,6 @@ pub const AccDictionary: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const AccServerDocMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
 pub const AccStore: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
 pub const DocWrap: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
-pub type HKL = isize;
 pub const MSAAControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -660,6 +659,7 @@ pub struct TF_HALTCOND {
     pub dwFlags: u32,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[derive(Clone, Copy)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
@@ -667,9 +667,9 @@ pub struct TF_INPUTPROCESSORPROFILE {
     pub clsid: windows_sys::core::GUID,
     pub guidProfile: windows_sys::core::GUID,
     pub catid: windows_sys::core::GUID,
-    pub hklSubstitute: HKL,
+    pub hklSubstitute: super::Input::KeyboardAndMouse::HKL,
     pub dwCaps: u32,
-    pub hkl: HKL,
+    pub hkl: super::Input::KeyboardAndMouse::HKL,
     pub dwFlags: u32,
 }
 #[repr(C)]

@@ -98,8 +98,8 @@ impl GUID {
         }
     }
 }
-pub type HBITMAP = isize;
-pub type HENHMETAFILE = isize;
+pub type HBITMAP = *mut core::ffi::c_void;
+pub type HENHMETAFILE = *mut core::ffi::c_void;
 pub type HGLOBAL = *mut core::ffi::c_void;
 pub type HRESULT = i32;
 pub type PCWSTR = *const u16;

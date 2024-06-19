@@ -1,3 +1,46 @@
+#[cfg(feature = "Win32_Storage_Xps_Printing")]
+pub trait IPrintDocumentPageSource_Impl: Sized {
+    fn GetPreviewPageCollection(&self, docpackagetarget: Option<&super::super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget>) -> windows_core::Result<IPrintPreviewPageCollection>;
+    fn MakeDocument(&self, printtaskoptions: Option<&windows_core::IInspectable>, docpackagetarget: Option<&super::super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget>) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Storage_Xps_Printing")]
+impl windows_core::RuntimeName for IPrintDocumentPageSource {}
+#[cfg(feature = "Win32_Storage_Xps_Printing")]
+impl IPrintDocumentPageSource_Vtbl {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IPrintDocumentPageSource_Vtbl
+    where
+        Identity: IPrintDocumentPageSource_Impl,
+    {
+        unsafe extern "system" fn GetPreviewPageCollection<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, docpackagetarget: *mut core::ffi::c_void, docpagecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IPrintDocumentPageSource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPrintDocumentPageSource_Impl::GetPreviewPageCollection(this, windows_core::from_raw_borrowed(&docpackagetarget)) {
+                Ok(ok__) => {
+                    docpagecollection.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MakeDocument<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, printtaskoptions: *mut core::ffi::c_void, docpackagetarget: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IPrintDocumentPageSource_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPrintDocumentPageSource_Impl::MakeDocument(this, windows_core::from_raw_borrowed(&printtaskoptions), windows_core::from_raw_borrowed(&docpackagetarget)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetPreviewPageCollection: GetPreviewPageCollection::<Identity, OFFSET>,
+            MakeDocument: MakeDocument::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IPrintDocumentPageSource as windows_core::Interface>::IID
+    }
+}
 pub trait IPrintManagerInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::super::Foundation::HWND, riid: *const windows_core::GUID, printmanager: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn ShowPrintUIForWindowAsync(&self, appwindow: super::super::super::Foundation::HWND, riid: *const windows_core::GUID, asyncoperation: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -30,6 +73,36 @@ impl IPrintManagerInterop_Vtbl {
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPrintManagerInterop as windows_core::Interface>::IID
+    }
+}
+pub trait IPrintPreviewPageCollection_Impl: Sized {
+    fn Paginate(&self, currentjobpage: u32, printtaskoptions: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn MakePage(&self, desiredjobpage: u32, width: f32, height: f32) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IPrintPreviewPageCollection {}
+impl IPrintPreviewPageCollection_Vtbl {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IPrintPreviewPageCollection_Vtbl
+    where
+        Identity: IPrintPreviewPageCollection_Impl,
+    {
+        unsafe extern "system" fn Paginate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentjobpage: u32, printtaskoptions: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IPrintPreviewPageCollection_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPrintPreviewPageCollection_Impl::Paginate(this, core::mem::transmute_copy(&currentjobpage), windows_core::from_raw_borrowed(&printtaskoptions)).into()
+        }
+        unsafe extern "system" fn MakePage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredjobpage: u32, width: f32, height: f32) -> windows_core::HRESULT
+        where
+            Identity: IPrintPreviewPageCollection_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPrintPreviewPageCollection_Impl::MakePage(this, core::mem::transmute_copy(&desiredjobpage), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Paginate: Paginate::<Identity, OFFSET>, MakePage: MakePage::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IPrintPreviewPageCollection as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]

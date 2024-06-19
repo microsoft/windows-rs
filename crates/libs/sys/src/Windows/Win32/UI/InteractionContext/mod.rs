@@ -142,7 +142,7 @@ pub struct CROSS_SLIDE_PARAMETER {
     pub threshold: CROSS_SLIDE_THRESHOLD,
     pub distance: f32,
 }
-pub type HINTERACTIONCONTEXT = isize;
+pub type HINTERACTIONCONTEXT = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INTERACTION_ARGUMENTS_CROSS_SLIDE {

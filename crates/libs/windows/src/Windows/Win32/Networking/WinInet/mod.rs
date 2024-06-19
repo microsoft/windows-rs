@@ -1705,12 +1705,9 @@ where
     InternetTimeToSystemTimeW(lpsztime.param().abi(), pst, dwreserved).ok()
 }
 #[inline]
-pub unsafe fn InternetUnlockRequestFile<P0>(hlockrequestinfo: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn InternetUnlockRequestFile(hlockrequestinfo: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("wininet.dll" "system" fn InternetUnlockRequestFile(hlockrequestinfo : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    InternetUnlockRequestFile(hlockrequestinfo.param().abi()).ok()
+    InternetUnlockRequestFile(hlockrequestinfo).ok()
 }
 #[inline]
 pub unsafe fn InternetWriteFile(hfile: *const core::ffi::c_void, lpbuffer: *const core::ffi::c_void, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> windows_core::Result<()> {
@@ -4243,10 +4240,10 @@ impl Default for HTTP_PUSH_TRANSPORT_SETTING {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTTP_PUSH_WAIT_HANDLE(pub isize);
+pub struct HTTP_PUSH_WAIT_HANDLE(pub *mut core::ffi::c_void);
 impl HTTP_PUSH_WAIT_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HTTP_PUSH_WAIT_HANDLE {

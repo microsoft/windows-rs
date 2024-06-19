@@ -3039,9 +3039,9 @@ pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     pub InterruptType: u32,
     pub MaxInterruptMessages: u32,
 }
-pub type NDIS_PD_COUNTER_HANDLE = isize;
-pub type NDIS_PD_FILTER_HANDLE = isize;
-pub type NDIS_PD_PROVIDER_HANDLE = isize;
+pub type NDIS_PD_COUNTER_HANDLE = *mut core::ffi::c_void;
+pub type NDIS_PD_FILTER_HANDLE = *mut core::ffi::c_void;
+pub type NDIS_PD_PROVIDER_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NDIS_PHYSICAL_ADDRESS_UNIT {
@@ -3071,7 +3071,7 @@ pub struct NDIS_PNP_CAPABILITIES {
     pub Flags: u32,
     pub WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
 }
-pub type NDIS_POLL_HANDLE = isize;
+pub type NDIS_POLL_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy)]

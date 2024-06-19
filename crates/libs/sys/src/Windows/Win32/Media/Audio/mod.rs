@@ -1302,19 +1302,19 @@ pub struct ECHOWAVEFILTER {
     pub dwVolume: u32,
     pub dwDelay: u32,
 }
-pub type HACMDRIVER = isize;
-pub type HACMDRIVERID = isize;
-pub type HACMOBJ = isize;
-pub type HACMSTREAM = isize;
-pub type HMIDI = isize;
-pub type HMIDIIN = isize;
-pub type HMIDIOUT = isize;
-pub type HMIDISTRM = isize;
-pub type HMIXER = isize;
-pub type HMIXEROBJ = isize;
-pub type HWAVE = isize;
-pub type HWAVEIN = isize;
-pub type HWAVEOUT = isize;
+pub type HACMDRIVER = *mut core::ffi::c_void;
+pub type HACMDRIVERID = *mut core::ffi::c_void;
+pub type HACMOBJ = *mut core::ffi::c_void;
+pub type HACMSTREAM = *mut core::ffi::c_void;
+pub type HMIDI = *mut core::ffi::c_void;
+pub type HMIDIIN = *mut core::ffi::c_void;
+pub type HMIDIOUT = *mut core::ffi::c_void;
+pub type HMIDISTRM = *mut core::ffi::c_void;
+pub type HMIXER = *mut core::ffi::c_void;
+pub type HMIXEROBJ = *mut core::ffi::c_void;
+pub type HWAVE = *mut core::ffi::c_void;
+pub type HWAVEIN = *mut core::ffi::c_void;
+pub type HWAVEOUT = *mut core::ffi::c_void;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MIDIEVENT {

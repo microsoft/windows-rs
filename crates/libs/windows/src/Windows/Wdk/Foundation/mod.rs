@@ -636,10 +636,10 @@ impl windows_core::TypeKind for DMA_COMMON_BUFFER_VECTOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DRIVER_EXTENSION {
     pub DriverObject: *mut DRIVER_OBJECT,
-    pub AddDevice: *mut DRIVER_ADD_DEVICE,
+    pub AddDevice: DRIVER_ADD_DEVICE,
     pub Count: u32,
     pub ServiceKeyName: super::super::Win32::Foundation::UNICODE_STRING,
 }
@@ -655,7 +655,7 @@ impl Default for DRIVER_EXTENSION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct DRIVER_OBJECT {
     pub Type: i16,
     pub Size: i16,
@@ -668,10 +668,10 @@ pub struct DRIVER_OBJECT {
     pub DriverName: super::super::Win32::Foundation::UNICODE_STRING,
     pub HardwareDatabase: *mut super::super::Win32::Foundation::UNICODE_STRING,
     pub FastIoDispatch: *mut FAST_IO_DISPATCH,
-    pub DriverInit: *mut DRIVER_INITIALIZE,
-    pub DriverStartIo: *mut DRIVER_STARTIO,
-    pub DriverUnload: *mut DRIVER_UNLOAD,
-    pub MajorFunction: [*mut DRIVER_DISPATCH; 28],
+    pub DriverInit: DRIVER_INITIALIZE,
+    pub DriverStartIo: DRIVER_STARTIO,
+    pub DriverUnload: DRIVER_UNLOAD,
+    pub MajorFunction: [DRIVER_DISPATCH; 28],
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl windows_core::TypeKind for DRIVER_OBJECT {
@@ -786,36 +786,36 @@ impl Default for ERESOURCE_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct FAST_IO_DISPATCH {
     pub SizeOfFastIoDispatch: u32,
-    pub FastIoCheckIfPossible: *mut FAST_IO_CHECK_IF_POSSIBLE,
-    pub FastIoRead: *mut FAST_IO_READ,
-    pub FastIoWrite: *mut FAST_IO_WRITE,
-    pub FastIoQueryBasicInfo: *mut FAST_IO_QUERY_BASIC_INFO,
-    pub FastIoQueryStandardInfo: *mut FAST_IO_QUERY_STANDARD_INFO,
-    pub FastIoLock: *mut FAST_IO_LOCK,
-    pub FastIoUnlockSingle: *mut FAST_IO_UNLOCK_SINGLE,
-    pub FastIoUnlockAll: *mut FAST_IO_UNLOCK_ALL,
-    pub FastIoUnlockAllByKey: *mut FAST_IO_UNLOCK_ALL_BY_KEY,
-    pub FastIoDeviceControl: *mut FAST_IO_DEVICE_CONTROL,
-    pub AcquireFileForNtCreateSection: *mut FAST_IO_ACQUIRE_FILE,
-    pub ReleaseFileForNtCreateSection: *mut FAST_IO_RELEASE_FILE,
-    pub FastIoDetachDevice: *mut FAST_IO_DETACH_DEVICE,
-    pub FastIoQueryNetworkOpenInfo: *mut FAST_IO_QUERY_NETWORK_OPEN_INFO,
-    pub AcquireForModWrite: *mut FAST_IO_ACQUIRE_FOR_MOD_WRITE,
-    pub MdlRead: *mut FAST_IO_MDL_READ,
-    pub MdlReadComplete: *mut FAST_IO_MDL_READ_COMPLETE,
-    pub PrepareMdlWrite: *mut FAST_IO_PREPARE_MDL_WRITE,
-    pub MdlWriteComplete: *mut FAST_IO_MDL_WRITE_COMPLETE,
-    pub FastIoReadCompressed: *mut FAST_IO_READ_COMPRESSED,
-    pub FastIoWriteCompressed: *mut FAST_IO_WRITE_COMPRESSED,
-    pub MdlReadCompleteCompressed: *mut FAST_IO_MDL_READ_COMPLETE_COMPRESSED,
-    pub MdlWriteCompleteCompressed: *mut FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED,
-    pub FastIoQueryOpen: *mut FAST_IO_QUERY_OPEN,
-    pub ReleaseForModWrite: *mut FAST_IO_RELEASE_FOR_MOD_WRITE,
-    pub AcquireForCcFlush: *mut FAST_IO_ACQUIRE_FOR_CCFLUSH,
-    pub ReleaseForCcFlush: *mut FAST_IO_RELEASE_FOR_CCFLUSH,
+    pub FastIoCheckIfPossible: FAST_IO_CHECK_IF_POSSIBLE,
+    pub FastIoRead: FAST_IO_READ,
+    pub FastIoWrite: FAST_IO_WRITE,
+    pub FastIoQueryBasicInfo: FAST_IO_QUERY_BASIC_INFO,
+    pub FastIoQueryStandardInfo: FAST_IO_QUERY_STANDARD_INFO,
+    pub FastIoLock: FAST_IO_LOCK,
+    pub FastIoUnlockSingle: FAST_IO_UNLOCK_SINGLE,
+    pub FastIoUnlockAll: FAST_IO_UNLOCK_ALL,
+    pub FastIoUnlockAllByKey: FAST_IO_UNLOCK_ALL_BY_KEY,
+    pub FastIoDeviceControl: FAST_IO_DEVICE_CONTROL,
+    pub AcquireFileForNtCreateSection: FAST_IO_ACQUIRE_FILE,
+    pub ReleaseFileForNtCreateSection: FAST_IO_RELEASE_FILE,
+    pub FastIoDetachDevice: FAST_IO_DETACH_DEVICE,
+    pub FastIoQueryNetworkOpenInfo: FAST_IO_QUERY_NETWORK_OPEN_INFO,
+    pub AcquireForModWrite: FAST_IO_ACQUIRE_FOR_MOD_WRITE,
+    pub MdlRead: FAST_IO_MDL_READ,
+    pub MdlReadComplete: FAST_IO_MDL_READ_COMPLETE,
+    pub PrepareMdlWrite: FAST_IO_PREPARE_MDL_WRITE,
+    pub MdlWriteComplete: FAST_IO_MDL_WRITE_COMPLETE,
+    pub FastIoReadCompressed: FAST_IO_READ_COMPRESSED,
+    pub FastIoWriteCompressed: FAST_IO_WRITE_COMPRESSED,
+    pub MdlReadCompleteCompressed: FAST_IO_MDL_READ_COMPLETE_COMPRESSED,
+    pub MdlWriteCompleteCompressed: FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED,
+    pub FastIoQueryOpen: FAST_IO_QUERY_OPEN,
+    pub ReleaseForModWrite: FAST_IO_RELEASE_FOR_MOD_WRITE,
+    pub AcquireForCcFlush: FAST_IO_ACQUIRE_FOR_CCFLUSH,
+    pub ReleaseForCcFlush: FAST_IO_RELEASE_FOR_CCFLUSH,
 }
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl windows_core::TypeKind for FAST_IO_DISPATCH {
@@ -1426,7 +1426,7 @@ impl Default for IO_STACK_LOCATION_0_20 {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_21 {
     pub Length: u32,
-    pub StartSid: super::super::Win32::Foundation::PSID,
+    pub StartSid: super::super::Win32::Security::PSID,
     pub SidList: *mut super::Storage::FileSystem::FILE_GET_QUOTA_INFORMATION,
     pub SidListLength: u32,
 }
@@ -1790,7 +1790,7 @@ pub struct IRP {
     pub Anonymous: IRP_0,
     pub UserEvent: *mut KEVENT,
     pub Overlay: IRP_2,
-    pub CancelRoutine: *mut DRIVER_CANCEL,
+    pub CancelRoutine: DRIVER_CANCEL,
     pub UserBuffer: *mut core::ffi::c_void,
     pub Tail: IRP_3,
 }
@@ -2657,7 +2657,12 @@ impl windows_core::TypeKind for POBJECT_TYPE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POHANDLE(pub isize);
+pub struct POHANDLE(pub *mut core::ffi::c_void);
+impl POHANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for POHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

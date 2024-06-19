@@ -73,8 +73,8 @@ pub type PSS_PROCESS_FLAGS = i32;
 pub type PSS_QUERY_INFORMATION_CLASS = i32;
 pub type PSS_THREAD_FLAGS = i32;
 pub type PSS_WALK_INFORMATION_CLASS = i32;
-pub type HPSS = isize;
-pub type HPSSWALK = isize;
+pub type HPSS = *mut core::ffi::c_void;
+pub type HPSSWALK = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PSS_ALLOCATOR {

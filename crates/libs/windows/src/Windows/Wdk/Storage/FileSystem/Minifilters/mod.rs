@@ -3254,7 +3254,7 @@ impl Default for FLT_PARAMETERS_20 {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLT_PARAMETERS_21 {
     pub Length: u32,
-    pub StartSid: super::super::super::super::Win32::Foundation::PSID,
+    pub StartSid: super::super::super::super::Win32::Security::PSID,
     pub SidList: *mut super::FILE_GET_QUOTA_INFORMATION,
     pub SidListLength: u32,
     pub QuotaBuffer: *mut core::ffi::c_void,

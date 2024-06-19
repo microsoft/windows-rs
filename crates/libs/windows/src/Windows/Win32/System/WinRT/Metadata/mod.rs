@@ -20,9 +20,9 @@ pub unsafe fn RoCreatePropertySetSerializer() -> windows_core::Result<super::sup
 #[inline]
 pub unsafe fn RoFreeParameterizedTypeExtra<P0>(extra: P0)
 where
-    P0: windows_core::Param<super::ROPARAMIIDHANDLE>,
+    P0: windows_core::Param<ROPARAMIIDHANDLE>,
 {
-    windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoFreeParameterizedTypeExtra(extra : super:: ROPARAMIIDHANDLE));
+    windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoFreeParameterizedTypeExtra(extra : ROPARAMIIDHANDLE));
     RoFreeParameterizedTypeExtra(extra.param().abi())
 }
 #[inline]
@@ -34,11 +34,11 @@ where
     RoGetMetaDataFile(core::mem::transmute_copy(name), metadatadispenser.param().abi(), core::mem::transmute(metadatafilepath.unwrap_or(std::ptr::null_mut())), core::mem::transmute(metadataimport.unwrap_or(std::ptr::null_mut())), core::mem::transmute(typedeftoken.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn RoGetParameterizedTypeInstanceIID<P0>(nameelements: &[windows_core::PCWSTR], metadatalocator: P0, iid: *mut windows_core::GUID, pextra: Option<*mut super::ROPARAMIIDHANDLE>) -> windows_core::Result<()>
+pub unsafe fn RoGetParameterizedTypeInstanceIID<P0>(nameelements: &[windows_core::PCWSTR], metadatalocator: P0, iid: *mut windows_core::GUID, pextra: Option<*mut ROPARAMIIDHANDLE>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<IRoMetaDataLocator>,
 {
-    windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoGetParameterizedTypeInstanceIID(nameelementcount : u32, nameelements : *const windows_core::PCWSTR, metadatalocator : * mut core::ffi::c_void, iid : *mut windows_core::GUID, pextra : *mut super:: ROPARAMIIDHANDLE) -> windows_core::HRESULT);
+    windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoGetParameterizedTypeInstanceIID(nameelementcount : u32, nameelements : *const windows_core::PCWSTR, metadatalocator : * mut core::ffi::c_void, iid : *mut windows_core::GUID, pextra : *mut ROPARAMIIDHANDLE) -> windows_core::HRESULT);
     RoGetParameterizedTypeInstanceIID(nameelements.len().try_into().unwrap(), core::mem::transmute(nameelements.as_ptr()), metadatalocator.param().abi(), iid, core::mem::transmute(pextra.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -62,9 +62,9 @@ where
 #[inline]
 pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<P0>(extra: P0) -> windows_core::PCSTR
 where
-    P0: windows_core::Param<super::ROPARAMIIDHANDLE>,
+    P0: windows_core::Param<ROPARAMIIDHANDLE>,
 {
-    windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoParameterizedTypeExtraGetTypeSignature(extra : super:: ROPARAMIIDHANDLE) -> windows_core::PCSTR);
+    windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoParameterizedTypeExtraGetTypeSignature(extra : ROPARAMIIDHANDLE) -> windows_core::PCSTR);
     RoParameterizedTypeExtraGetTypeSignature(extra.param().abi())
 }
 #[inline]
@@ -3128,6 +3128,30 @@ impl Default for OSINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct ROPARAMIIDHANDLE(pub *mut core::ffi::c_void);
+impl ROPARAMIIDHANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for ROPARAMIIDHANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            RoFreeParameterizedTypeExtra(*self);
+        }
+    }
+}
+impl Default for ROPARAMIIDHANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for ROPARAMIIDHANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "implement")]
 core::include!("impl.rs");

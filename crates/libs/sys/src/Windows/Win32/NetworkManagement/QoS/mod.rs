@@ -960,7 +960,7 @@ pub struct LPMIPTABLE {
     pub IfIpAddr: super::super::Networking::WinSock::IN_ADDR,
     pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
 }
-pub type LPM_HANDLE = isize;
+pub type LPM_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LPM_INIT_INFO {
@@ -1121,7 +1121,7 @@ pub struct RESV_STYLE {
     pub style_header: RsvpObjHdr,
     pub style_word: u32,
 }
-pub type RHANDLE = isize;
+pub type RHANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RSVP_ADSPEC {

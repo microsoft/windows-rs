@@ -2375,7 +2375,12 @@ impl Default for USB_BUS_STATISTICS_0 {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct USB_CHANGE_REGISTRATION_HANDLE(pub isize);
+pub struct USB_CHANGE_REGISTRATION_HANDLE(pub *mut core::ffi::c_void);
+impl USB_CHANGE_REGISTRATION_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for USB_CHANGE_REGISTRATION_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4544,13 +4549,14 @@ impl Default for USB_USB2HW_VERSION_PARAMETERS {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WINUSB_INTERFACE_HANDLE(pub isize);
+pub struct WINUSB_INTERFACE_HANDLE(pub *mut core::ffi::c_void);
 impl WINUSB_INTERFACE_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0
+        self.0.is_null()
     }
 }
 impl windows_core::Free for WINUSB_INTERFACE_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = WinUsb_Free(*self);

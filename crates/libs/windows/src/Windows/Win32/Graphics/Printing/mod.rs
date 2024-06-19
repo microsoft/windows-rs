@@ -462,12 +462,9 @@ where
     DeletePrintProvidorW(pname.param().abi(), penvironment.param().abi(), pprintprovidorname.param().abi())
 }
 #[inline]
-pub unsafe fn DeletePrinter<P0>(hprinter: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn DeletePrinter(hprinter: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("winspool.drv" "system" fn DeletePrinter(hprinter : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    DeletePrinter(hprinter.param().abi()).ok()
+    DeletePrinter(hprinter).ok()
 }
 #[inline]
 pub unsafe fn DeletePrinterConnectionA<P0>(pname: P0) -> super::super::Foundation::BOOL

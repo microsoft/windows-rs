@@ -6,7 +6,7 @@
     clippy::all
 )]
 pub type ADDRESS_FAMILY = u16;
-pub type HANDLE = isize;
+pub type HANDLE = *mut core::ffi::c_void;
 pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = Option<
     unsafe extern "system" fn(
         dwerror: u32,

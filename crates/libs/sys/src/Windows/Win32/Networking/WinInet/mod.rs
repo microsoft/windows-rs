@@ -1639,7 +1639,7 @@ pub struct HTTP_PUSH_TRANSPORT_SETTING {
     pub TransportSettingId: windows_sys::core::GUID,
     pub BrokerEventId: windows_sys::core::GUID,
 }
-pub type HTTP_PUSH_WAIT_HANDLE = isize;
+pub type HTTP_PUSH_WAIT_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HTTP_REQUEST_TIMES {

@@ -992,12 +992,12 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptStringAnalyse<P0>(hdc: P0, pstring: *const core::ffi::c_void, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pidx: Option<&[i32]>, ptabdef: Option<*const SCRIPT_TABDEF>, pbinclass: *const u8, pssa: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn ScriptStringAnalyse<P0>(hdc: P0, pstring: *const core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pidx: Option<*const i32>, ptabdef: Option<*const SCRIPT_TABDEF>, pbinclass: *const u8, pssa: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::Graphics::Gdi:: HDC, pstring : *const core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : u32, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const u8, pssa : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    ScriptStringAnalyse(hdc.param().abi(), pstring, pidx.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cglyphs, icharset, dwflags, ireqwidth, core::mem::transmute(pscontrol.unwrap_or(std::ptr::null())), core::mem::transmute(psstate.unwrap_or(std::ptr::null())), core::mem::transmute(pidx.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(ptabdef.unwrap_or(std::ptr::null())), pbinclass, pssa).ok()
+    ScriptStringAnalyse(hdc.param().abi(), pstring, cstring, cglyphs, icharset, dwflags, ireqwidth, core::mem::transmute(pscontrol.unwrap_or(std::ptr::null())), core::mem::transmute(psstate.unwrap_or(std::ptr::null())), core::mem::transmute(pidx.unwrap_or(std::ptr::null())), core::mem::transmute(ptabdef.unwrap_or(std::ptr::null())), pbinclass, pssa).ok()
 }
 #[inline]
 pub unsafe fn ScriptStringCPtoX<P0>(ssa: *const core::ffi::c_void, icp: i32, ftrailing: P0) -> windows_core::Result<i32>
@@ -8686,6 +8686,8 @@ pub const IS_TEXT_UNICODE_REVERSE_STATISTICS: IS_TEXT_UNICODE_RESULT = IS_TEXT_U
 pub const IS_TEXT_UNICODE_SIGNATURE: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(8u32);
 pub const IS_TEXT_UNICODE_STATISTICS: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(2u32);
 pub const IS_TEXT_UNICODE_UNICODE_MASK: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(15u32);
+pub const LANG_SYSTEM_DEFAULT: i32 = 2048i32;
+pub const LANG_USER_DEFAULT: i32 = 1024i32;
 pub const LCID_ALTERNATE_SORTS: u32 = 4u32;
 pub const LCID_INSTALLED: IS_VALID_LOCALE_FLAGS = IS_VALID_LOCALE_FLAGS(1u32);
 pub const LCID_SUPPORTED: IS_VALID_LOCALE_FLAGS = IS_VALID_LOCALE_FLAGS(2u32);
@@ -8895,6 +8897,8 @@ pub const LOCALE_STIME: u32 = 30u32;
 pub const LOCALE_STIMEFORMAT: u32 = 4099u32;
 pub const LOCALE_SUPPLEMENTAL: u32 = 2u32;
 pub const LOCALE_SYEARMONTH: u32 = 4102u32;
+pub const LOCALE_SYSTEM_DEFAULT: u32 = 2048u32;
+pub const LOCALE_USER_DEFAULT: u32 = 1024u32;
 pub const LOCALE_USE_CP_ACP: u32 = 1073741824u32;
 pub const LOCALE_WINDOWS: u32 = 1u32;
 pub const LOWLEVEL_SERVICE_TYPES: u32 = 2u32;
@@ -13621,42 +13625,10 @@ impl Default for GOFFSET {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIMC(pub isize);
-impl HIMC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl Default for HIMC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HIMC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIMCC(pub isize);
-impl HIMCC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl Default for HIMCC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HIMCC {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSAVEDUILANGUAGES(pub isize);
+pub struct HSAVEDUILANGUAGES(pub *mut core::ffi::c_void);
 impl HSAVEDUILANGUAGES {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HSAVEDUILANGUAGES {

@@ -1975,13 +1975,14 @@ impl Default for DSKTLSYSTEMTIME {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HKEY(pub isize);
+pub struct HKEY(pub *mut core::ffi::c_void);
 impl HKEY {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HKEY {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = RegCloseKey(*self);

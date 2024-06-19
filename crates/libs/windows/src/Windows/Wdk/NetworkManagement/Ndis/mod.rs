@@ -4588,7 +4588,12 @@ impl Default for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NDIS_PD_COUNTER_HANDLE(pub isize);
+pub struct NDIS_PD_COUNTER_HANDLE(pub *mut core::ffi::c_void);
+impl NDIS_PD_COUNTER_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for NDIS_PD_COUNTER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4599,7 +4604,12 @@ impl windows_core::TypeKind for NDIS_PD_COUNTER_HANDLE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NDIS_PD_FILTER_HANDLE(pub isize);
+pub struct NDIS_PD_FILTER_HANDLE(pub *mut core::ffi::c_void);
+impl NDIS_PD_FILTER_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for NDIS_PD_FILTER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4610,7 +4620,12 @@ impl windows_core::TypeKind for NDIS_PD_FILTER_HANDLE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NDIS_PD_PROVIDER_HANDLE(pub isize);
+pub struct NDIS_PD_PROVIDER_HANDLE(pub *mut core::ffi::c_void);
+impl NDIS_PD_PROVIDER_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for NDIS_PD_PROVIDER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4682,7 +4697,12 @@ impl Default for NDIS_PNP_CAPABILITIES {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NDIS_POLL_HANDLE(pub isize);
+pub struct NDIS_POLL_HANDLE(pub *mut core::ffi::c_void);
+impl NDIS_POLL_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for NDIS_POLL_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

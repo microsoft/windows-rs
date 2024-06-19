@@ -8483,10 +8483,10 @@ impl Default for GESTURE_DATA {
 pub const GestureRecognizer: windows_core::GUID = windows_core::GUID::from_u128(0xea30c654_c62c_441f_ac00_95f9a196782c);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HRECOALT(pub isize);
+pub struct HRECOALT(pub *mut core::ffi::c_void);
 impl HRECOALT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HRECOALT {
@@ -8499,10 +8499,18 @@ impl windows_core::TypeKind for HRECOALT {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HRECOCONTEXT(pub isize);
+pub struct HRECOCONTEXT(pub *mut core::ffi::c_void);
 impl HRECOCONTEXT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HRECOCONTEXT {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyContext(*self);
+        }
     }
 }
 impl Default for HRECOCONTEXT {
@@ -8515,10 +8523,18 @@ impl windows_core::TypeKind for HRECOCONTEXT {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HRECOGNIZER(pub isize);
+pub struct HRECOGNIZER(pub *mut core::ffi::c_void);
 impl HRECOGNIZER {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HRECOGNIZER {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyRecognizer(*self);
+        }
     }
 }
 impl Default for HRECOGNIZER {
@@ -8531,10 +8547,10 @@ impl windows_core::TypeKind for HRECOGNIZER {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HRECOLATTICE(pub isize);
+pub struct HRECOLATTICE(pub *mut core::ffi::c_void);
 impl HRECOLATTICE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HRECOLATTICE {
@@ -8547,10 +8563,18 @@ impl windows_core::TypeKind for HRECOLATTICE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HRECOWORDLIST(pub isize);
+pub struct HRECOWORDLIST(pub *mut core::ffi::c_void);
 impl HRECOWORDLIST {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HRECOWORDLIST {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyWordList(*self);
+        }
     }
 }
 impl Default for HRECOWORDLIST {

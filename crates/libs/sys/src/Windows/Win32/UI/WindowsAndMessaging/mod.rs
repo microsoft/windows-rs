@@ -1126,6 +1126,7 @@ pub const IDC_SIZENESW: windows_sys::core::PCWSTR = 32643u16 as _;
 pub const IDC_SIZENS: windows_sys::core::PCWSTR = 32645u16 as _;
 pub const IDC_SIZENWSE: windows_sys::core::PCWSTR = 32642u16 as _;
 pub const IDC_SIZEWE: windows_sys::core::PCWSTR = 32644u16 as _;
+pub const IDC_STATIC: i32 = -1i32;
 pub const IDC_UPARROW: windows_sys::core::PCWSTR = 32516u16 as _;
 pub const IDC_WAIT: windows_sys::core::PCWSTR = 32514u16 as _;
 pub const IDHELP: MESSAGEBOX_RESULT = 9i32;
@@ -1696,9 +1697,11 @@ pub const RT_DIALOG: windows_sys::core::PCWSTR = 5u16 as _;
 pub const RT_DLGINCLUDE: windows_sys::core::PCWSTR = 17u16 as _;
 pub const RT_FONT: windows_sys::core::PCWSTR = 8u16 as _;
 pub const RT_FONTDIR: windows_sys::core::PCWSTR = 7u16 as _;
+pub const RT_GROUP_CURSOR: windows_sys::core::PCWSTR = 12u16 as _;
+pub const RT_GROUP_ICON: windows_sys::core::PCWSTR = 14u16 as _;
 pub const RT_HTML: windows_sys::core::PCWSTR = 23u16 as _;
 pub const RT_ICON: windows_sys::core::PCWSTR = 3u16 as _;
-pub const RT_MANIFEST: u32 = 24u32;
+pub const RT_MANIFEST: windows_sys::core::PCWSTR = 24u16 as _;
 pub const RT_MENU: windows_sys::core::PCWSTR = 4u16 as _;
 pub const RT_MESSAGETABLE: windows_sys::core::PCWSTR = 11u16 as _;
 pub const RT_PLUGPLAY: windows_sys::core::PCWSTR = 19u16 as _;
@@ -2333,6 +2336,7 @@ pub const WINEVENT_SKIPOWNPROCESS: u32 = 2u32;
 pub const WINEVENT_SKIPOWNTHREAD: u32 = 1u32;
 pub const WINSTA_ACCESSCLIPBOARD: i32 = 4i32;
 pub const WINSTA_ACCESSGLOBALATOMS: i32 = 32i32;
+pub const WINSTA_ALL_ACCESS: i32 = 895i32;
 pub const WINSTA_CREATEDESKTOP: i32 = 8i32;
 pub const WINSTA_ENUMDESKTOPS: i32 = 1i32;
 pub const WINSTA_ENUMERATE: i32 = 256i32;
@@ -2678,6 +2682,7 @@ pub const WVR_ALIGNLEFT: u32 = 32u32;
 pub const WVR_ALIGNRIGHT: u32 = 128u32;
 pub const WVR_ALIGNTOP: u32 = 16u32;
 pub const WVR_HREDRAW: u32 = 256u32;
+pub const WVR_REDRAW: u32 = 768u32;
 pub const WVR_VALIDRECTS: u32 = 1024u32;
 pub const WVR_VREDRAW: u32 = 512u32;
 pub const XBUTTON1: u16 = 1u16;
@@ -2845,7 +2850,7 @@ pub struct CREATESTRUCTA {
     pub style: i32,
     pub lpszName: windows_sys::core::PCSTR,
     pub lpszClass: windows_sys::core::PCSTR,
-    pub dwExStyle: u32,
+    pub dwExStyle: WINDOW_EX_STYLE,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2861,7 +2866,7 @@ pub struct CREATESTRUCTW {
     pub style: i32,
     pub lpszName: windows_sys::core::PCWSTR,
     pub lpszClass: windows_sys::core::PCWSTR,
-    pub dwExStyle: u32,
+    pub dwExStyle: WINDOW_EX_STYLE,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3139,7 +3144,7 @@ pub struct GUITHREADINFO {
     pub hwndCaret: super::super::Foundation::HWND,
     pub rcCaret: super::super::Foundation::RECT,
 }
-pub type HACCEL = isize;
+pub type HACCEL = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HARDWAREHOOKSTRUCT {
@@ -3148,12 +3153,12 @@ pub struct HARDWAREHOOKSTRUCT {
     pub wParam: super::super::Foundation::WPARAM,
     pub lParam: super::super::Foundation::LPARAM,
 }
-pub type HCURSOR = isize;
+pub type HCURSOR = *mut core::ffi::c_void;
 pub type HDEVNOTIFY = *mut core::ffi::c_void;
-pub type HDWP = isize;
-pub type HHOOK = isize;
-pub type HICON = isize;
-pub type HMENU = isize;
+pub type HDWP = *mut core::ffi::c_void;
+pub type HHOOK = *mut core::ffi::c_void;
+pub type HICON = *mut core::ffi::c_void;
+pub type HMENU = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]

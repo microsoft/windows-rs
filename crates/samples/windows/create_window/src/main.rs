@@ -6,8 +6,6 @@ use windows::{
 fn main() -> Result<()> {
     unsafe {
         let instance = GetModuleHandleA(None)?;
-        debug_assert!(instance.0 != 0);
-
         let window_class = s!("window");
 
         let wc = WNDCLASSA {
@@ -36,7 +34,7 @@ fn main() -> Result<()> {
             None,
             instance,
             None,
-        );
+        )?;
 
         let mut message = MSG::default();
 

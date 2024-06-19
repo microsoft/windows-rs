@@ -6,7 +6,19 @@ use windows_sys::{
 #[test]
 fn gdi() {
     unsafe {
-        AlphaBlend(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, std::mem::zeroed());
+        AlphaBlend(
+            core::ptr::null_mut(),
+            0,
+            0,
+            0,
+            0,
+            core::ptr::null_mut(),
+            0,
+            0,
+            0,
+            0,
+            std::mem::zeroed(),
+        );
     }
 }
 
@@ -20,7 +32,15 @@ fn wait_on_address() {
 #[test]
 fn browser() {
     unsafe {
-        IECreateFile(std::ptr::null(), 0, 0, std::ptr::null(), 0, 0, 0);
+        IECreateFile(
+            std::ptr::null(),
+            0,
+            0,
+            std::ptr::null(),
+            0,
+            0,
+            core::ptr::null_mut(),
+        );
     }
 }
 

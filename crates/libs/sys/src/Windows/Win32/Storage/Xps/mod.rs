@@ -299,7 +299,6 @@ pub struct DRAWPATRECT {
     pub wStyle: u16,
     pub wPattern: u16,
 }
-pub type HPTPROVIDER = isize;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PSFEATURE_CUSTPAPER {

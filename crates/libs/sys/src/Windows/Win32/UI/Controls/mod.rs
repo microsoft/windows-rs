@@ -5099,8 +5099,8 @@ pub struct HD_TEXTFILTERW {
     pub cchTextMax: i32,
 }
 pub type HIMAGELIST = isize;
-pub type HPROPSHEETPAGE = isize;
-pub type HSYNTHETICPOINTERDEVICE = isize;
+pub type HPROPSHEETPAGE = *mut core::ffi::c_void;
+pub type HSYNTHETICPOINTERDEVICE = *mut core::ffi::c_void;
 pub type HTHEME = isize;
 pub type HTREEITEM = isize;
 #[repr(C)]

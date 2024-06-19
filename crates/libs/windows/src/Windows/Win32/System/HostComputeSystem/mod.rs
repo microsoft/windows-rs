@@ -845,13 +845,14 @@ impl Default for HCS_EVENT {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCS_OPERATION(pub isize);
+pub struct HCS_OPERATION(pub *mut core::ffi::c_void);
 impl HCS_OPERATION {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HCS_OPERATION {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             HcsCloseOperation(*self);
@@ -868,13 +869,14 @@ impl windows_core::TypeKind for HCS_OPERATION {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCS_PROCESS(pub isize);
+pub struct HCS_PROCESS(pub *mut core::ffi::c_void);
 impl HCS_PROCESS {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HCS_PROCESS {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             HcsCloseProcess(*self);
@@ -908,13 +910,14 @@ impl Default for HCS_PROCESS_INFORMATION {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCS_SYSTEM(pub isize);
+pub struct HCS_SYSTEM(pub *mut core::ffi::c_void);
 impl HCS_SYSTEM {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HCS_SYSTEM {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             HcsCloseComputeSystem(*self);

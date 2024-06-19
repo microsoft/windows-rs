@@ -16,6 +16,7 @@ features = [
     "Win32_System_Registry",
     "Win32_Devices_Bluetooth",
     "Win32_System_ApplicationInstallationAndServicing",
+    "Win32_Security",
 ]
 
 [dependencies.windows-sys]

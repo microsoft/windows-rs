@@ -100,7 +100,7 @@ where
             instance,
             Some(&mut sample as *mut _ as _),
         )
-    };
+    }?;
 
     sample.bind_to_window(&hwnd)?;
     unsafe { _ = ShowWindow(hwnd, SW_SHOW) };
@@ -179,11 +179,9 @@ extern "system" fn wndproc<S: DXSample>(
 fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
     for i in 0.. {
         let adapter = unsafe { factory.EnumAdapters1(i)? };
+        let desc = unsafe { adapter.GetDesc1()? };
 
-        let mut desc = Default::default();
-        unsafe { adapter.GetDesc1(&mut desc)? };
-
-        if (DXGI_ADAPTER_FLAG(desc.Flags as i32) & DXGI_ADAPTER_FLAG_SOFTWARE)
+        if (DXGI_ADAPTER_FLAG(desc.Flags as _) & DXGI_ADAPTER_FLAG_SOFTWARE)
             != DXGI_ADAPTER_FLAG_NONE
         {
             // Don't select the Basic Render Driver adapter. If you want a
@@ -415,7 +413,9 @@ mod d3d12_hello_triangle {
                 unsafe { resources.command_queue.ExecuteCommandLists(&[command_list]) };
 
                 // Present the frame.
-                unsafe { resources.swap_chain.Present(1, 0) }.ok().unwrap();
+                unsafe { resources.swap_chain.Present(1, DXGI_PRESENT(0)) }
+                    .ok()
+                    .unwrap();
 
                 wait_for_previous_frame(resources);
             }
@@ -515,7 +515,7 @@ mod d3d12_hello_triangle {
         let dxgi_factory_flags = if cfg!(debug_assertions) {
             DXGI_CREATE_FACTORY_DEBUG
         } else {
-            0
+            DXGI_CREATE_FACTORY_FLAGS(0)
         };
 
         let dxgi_factory: IDXGIFactory4 = unsafe { CreateDXGIFactory2(dxgi_factory_flags) }?;

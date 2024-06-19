@@ -129,7 +129,7 @@ pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
-pub type PRJ_DIR_ENTRY_BUFFER_HANDLE = isize;
+pub type PRJ_DIR_ENTRY_BUFFER_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRJ_EXTENDED_INFO {
@@ -158,7 +158,7 @@ pub struct PRJ_FILE_BASIC_INFO {
     pub ChangeTime: i64,
     pub FileAttributes: u32,
 }
-pub type PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT = isize;
+pub type PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRJ_NOTIFICATION_MAPPING {

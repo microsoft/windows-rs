@@ -242,12 +242,9 @@ where
     HeapDestroy(hheap.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn HeapFree<P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HeapFree(hheap: super::super::Foundation::HANDLE, dwflags: HEAP_FLAGS, lpmem: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn HeapFree(hheap : super::super::Foundation:: HANDLE, dwflags : HEAP_FLAGS, lpmem : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    HeapFree(hheap.param().abi(), dwflags, core::mem::transmute(lpmem.unwrap_or(std::ptr::null()))).ok()
+    HeapFree(hheap, dwflags, core::mem::transmute(lpmem.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn HeapLock<P0>(hheap: P0) -> windows_core::Result<()>
@@ -266,12 +263,9 @@ where
     HeapQueryInformation(heaphandle.param().abi(), heapinformationclass, core::mem::transmute(heapinformation.unwrap_or(std::ptr::null_mut())), heapinformationlength, core::mem::transmute(returnlength.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn HeapReAlloc<P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: Option<*const core::ffi::c_void>, dwbytes: usize) -> *mut core::ffi::c_void
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn HeapReAlloc(hheap: super::super::Foundation::HANDLE, dwflags: HEAP_FLAGS, lpmem: Option<*const core::ffi::c_void>, dwbytes: usize) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn HeapReAlloc(hheap : super::super::Foundation:: HANDLE, dwflags : HEAP_FLAGS, lpmem : *const core::ffi::c_void, dwbytes : usize) -> *mut core::ffi::c_void);
-    HeapReAlloc(hheap.param().abi(), dwflags, core::mem::transmute(lpmem.unwrap_or(std::ptr::null())), dwbytes)
+    HeapReAlloc(hheap, dwflags, core::mem::transmute(lpmem.unwrap_or(std::ptr::null())), dwbytes)
 }
 #[inline]
 pub unsafe fn HeapSetInformation<P0>(heaphandle: P0, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: Option<*const core::ffi::c_void>, heapinformationlength: usize) -> windows_core::Result<()>

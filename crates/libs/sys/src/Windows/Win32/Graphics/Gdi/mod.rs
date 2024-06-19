@@ -3347,17 +3347,17 @@ pub struct GRADIENT_TRIANGLE {
 pub struct HANDLETABLE {
     pub objectHandle: [HGDIOBJ; 1],
 }
-pub type HBITMAP = isize;
-pub type HBRUSH = isize;
-pub type HDC = isize;
-pub type HENHMETAFILE = isize;
-pub type HFONT = isize;
-pub type HGDIOBJ = isize;
-pub type HMETAFILE = isize;
-pub type HMONITOR = isize;
-pub type HPALETTE = isize;
-pub type HPEN = isize;
-pub type HRGN = isize;
+pub type HBITMAP = *mut core::ffi::c_void;
+pub type HBRUSH = *mut core::ffi::c_void;
+pub type HDC = *mut core::ffi::c_void;
+pub type HENHMETAFILE = *mut core::ffi::c_void;
+pub type HFONT = *mut core::ffi::c_void;
+pub type HGDIOBJ = *mut core::ffi::c_void;
+pub type HMETAFILE = *mut core::ffi::c_void;
+pub type HMONITOR = *mut core::ffi::c_void;
+pub type HPALETTE = *mut core::ffi::c_void;
+pub type HPEN = *mut core::ffi::c_void;
+pub type HRGN = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KERNINGPAIR {

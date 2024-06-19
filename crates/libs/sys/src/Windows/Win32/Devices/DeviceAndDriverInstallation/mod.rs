@@ -295,8 +295,8 @@ windows_targets::link!("setupapi.dll" "system" fn SetupCopyOEMInfA(sourceinffile
 windows_targets::link!("setupapi.dll" "system" fn SetupCopyOEMInfW(sourceinffilename : windows_sys::core::PCWSTR, oemsourcemedialocation : windows_sys::core::PCWSTR, oemsourcemediatype : OEM_SOURCE_MEDIA_TYPE, copystyle : SP_COPY_STYLE, destinationinffilename : windows_sys::core::PWSTR, destinationinffilenamesize : u32, requiredsize : *mut u32, destinationinffilenamecomponent : *mut windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 windows_targets::link!("setupapi.dll" "system" fn SetupCreateDiskSpaceListA(reserved1 : *const core::ffi::c_void, reserved2 : u32, flags : u32) -> *mut core::ffi::c_void);
 windows_targets::link!("setupapi.dll" "system" fn SetupCreateDiskSpaceListW(reserved1 : *const core::ffi::c_void, reserved2 : u32, flags : u32) -> *mut core::ffi::c_void);
-windows_targets::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileA(sourcefilename : windows_sys::core::PCSTR, targetfilename : windows_sys::core::PCSTR, compressiontype : *const u32) -> u32);
-windows_targets::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileW(sourcefilename : windows_sys::core::PCWSTR, targetfilename : windows_sys::core::PCWSTR, compressiontype : *const u32) -> u32);
+windows_targets::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileA(sourcefilename : windows_sys::core::PCSTR, targetfilename : windows_sys::core::PCSTR, compressiontype : *const FILE_COMPRESSION_TYPE) -> u32);
+windows_targets::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileW(sourcefilename : windows_sys::core::PCWSTR, targetfilename : windows_sys::core::PCWSTR, compressiontype : *const FILE_COMPRESSION_TYPE) -> u32);
 windows_targets::link!("setupapi.dll" "system" fn SetupDefaultQueueCallbackA(context : *const core::ffi::c_void, notification : u32, param1 : usize, param2 : usize) -> u32);
 windows_targets::link!("setupapi.dll" "system" fn SetupDefaultQueueCallbackW(context : *const core::ffi::c_void, notification : u32, param1 : usize, param2 : usize) -> u32);
 windows_targets::link!("setupapi.dll" "system" fn SetupDeleteErrorA(hwndparent : super::super::Foundation:: HWND, dialogtitle : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, win32errorcode : u32, style : u32) -> u32);
@@ -501,10 +501,10 @@ windows_targets::link!("setupapi.dll" "system" fn SetupGetBackupInformationA(que
 windows_targets::link!("setupapi.dll" "system" fn SetupGetBackupInformationW(queuehandle : *const core::ffi::c_void, backupparams : *mut SP_BACKUP_QUEUE_PARAMS_V2_W) -> super::super::Foundation:: BOOL);
 windows_targets::link!("setupapi.dll" "system" fn SetupGetBinaryField(context : *const INFCONTEXT, fieldindex : u32, returnbuffer : *mut u8, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("setupapi.dll" "system" fn SetupGetFieldCount(context : *const INFCONTEXT) -> u32);
-windows_targets::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoA(sourcefilename : windows_sys::core::PCSTR, actualsourcefilename : *mut windows_sys::core::PSTR, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut u32) -> u32);
-windows_targets::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExA(sourcefilename : windows_sys::core::PCSTR, actualsourcefilenamebuffer : windows_sys::core::PCSTR, actualsourcefilenamebufferlen : u32, requiredbufferlen : *mut u32, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExW(sourcefilename : windows_sys::core::PCWSTR, actualsourcefilenamebuffer : windows_sys::core::PCWSTR, actualsourcefilenamebufferlen : u32, requiredbufferlen : *mut u32, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoW(sourcefilename : windows_sys::core::PCWSTR, actualsourcefilename : *mut windows_sys::core::PWSTR, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut u32) -> u32);
+windows_targets::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoA(sourcefilename : windows_sys::core::PCSTR, actualsourcefilename : *mut windows_sys::core::PSTR, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut FILE_COMPRESSION_TYPE) -> u32);
+windows_targets::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExA(sourcefilename : windows_sys::core::PCSTR, actualsourcefilenamebuffer : windows_sys::core::PCSTR, actualsourcefilenamebufferlen : u32, requiredbufferlen : *mut u32, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut FILE_COMPRESSION_TYPE) -> super::super::Foundation:: BOOL);
+windows_targets::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExW(sourcefilename : windows_sys::core::PCWSTR, actualsourcefilenamebuffer : windows_sys::core::PCWSTR, actualsourcefilenamebufferlen : u32, requiredbufferlen : *mut u32, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut FILE_COMPRESSION_TYPE) -> super::super::Foundation:: BOOL);
+windows_targets::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoW(sourcefilename : windows_sys::core::PCWSTR, actualsourcefilename : *mut windows_sys::core::PWSTR, sourcefilesize : *mut u32, targetfilesize : *mut u32, compressiontype : *mut FILE_COMPRESSION_TYPE) -> u32);
 windows_targets::link!("setupapi.dll" "system" fn SetupGetFileQueueCount(filequeue : *const core::ffi::c_void, subqueuefileop : u32, numoperations : *mut u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("setupapi.dll" "system" fn SetupGetFileQueueFlags(filequeue : *const core::ffi::c_void, flags : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
@@ -1353,10 +1353,10 @@ pub const FILEOP_NEWPATH: u32 = 4u32;
 pub const FILEOP_RENAME: u32 = 1u32;
 pub const FILEOP_RETRY: u32 = 1u32;
 pub const FILEOP_SKIP: u32 = 2u32;
-pub const FILE_COMPRESSION_MSZIP: u32 = 2u32;
-pub const FILE_COMPRESSION_NONE: u32 = 0u32;
-pub const FILE_COMPRESSION_NTCAB: u32 = 3u32;
-pub const FILE_COMPRESSION_WINLZA: u32 = 1u32;
+pub const FILE_COMPRESSION_MSZIP: FILE_COMPRESSION_TYPE = 2u32;
+pub const FILE_COMPRESSION_NONE: FILE_COMPRESSION_TYPE = 0u32;
+pub const FILE_COMPRESSION_NTCAB: FILE_COMPRESSION_TYPE = 3u32;
+pub const FILE_COMPRESSION_WINLZA: FILE_COMPRESSION_TYPE = 1u32;
 pub const FILTERED_LOG_CONF: CM_LOG_CONF = 1u32;
 pub const FLG_ADDPROPERTY_AND: u32 = 16u32;
 pub const FLG_ADDPROPERTY_APPEND: u32 = 4u32;
@@ -2342,6 +2342,7 @@ pub type DIINSTALLDRIVER_FLAGS = u32;
 pub type DIROLLBACKDRIVER_FLAGS = u32;
 pub type DIUNINSTALLDRIVER_FLAGS = u32;
 pub type DI_FUNCTION = u32;
+pub type FILE_COMPRESSION_TYPE = u32;
 pub type INF_STYLE = u32;
 pub type IOD_DESFLAGS = u32;
 pub type IRQD_FLAGS = u32;
@@ -2737,7 +2738,7 @@ pub struct FILE_IN_CABINET_INFO_W {
     pub DosAttribs: u16,
     pub FullTargetName: [u16; 260],
 }
-pub type HCMNOTIFICATION = isize;
+pub type HCMNOTIFICATION = *mut core::ffi::c_void;
 pub type HDEVINFO = isize;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]

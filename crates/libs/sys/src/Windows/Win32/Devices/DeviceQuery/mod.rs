@@ -136,6 +136,6 @@ pub union DEV_QUERY_RESULT_ACTION_DATA_0 {
     pub State: DEV_QUERY_STATE,
     pub DeviceObject: DEV_OBJECT,
 }
-pub type HDEVQUERY = isize;
+pub type HDEVQUERY = *mut core::ffi::c_void;
 #[cfg(feature = "Win32_Devices_Properties")]
 pub type PDEV_QUERY_RESULT_CALLBACK = Option<unsafe extern "system" fn(hdevquery: HDEVQUERY, pcontext: *const core::ffi::c_void, pactiondata: *const DEV_QUERY_RESULT_ACTION_DATA)>;

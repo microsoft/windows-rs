@@ -597,10 +597,18 @@ impl Default for CROSS_SLIDE_PARAMETER {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HINTERACTIONCONTEXT(pub isize);
+pub struct HINTERACTIONCONTEXT(pub *mut core::ffi::c_void);
 impl HINTERACTIONCONTEXT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HINTERACTIONCONTEXT {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyInteractionContext(*self);
+        }
     }
 }
 impl Default for HINTERACTIONCONTEXT {

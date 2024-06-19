@@ -4,12 +4,12 @@ use windows::Win32::System::Registry::*;
 
 #[test]
 fn handle() {
-    let handle = HANDLE(0);
+    let handle = HANDLE(0 as _);
     let _clone = handle.clone();
     let _copy: HANDLE = handle;
-    assert!(HANDLE::default() == HANDLE(0));
-    assert!(HANDLE(0).is_invalid());
-    assert!(HANDLE(-1).is_invalid());
+    assert!(HANDLE::default() == HANDLE(0 as _));
+    assert!(HANDLE(0 as _).is_invalid());
+    assert!(HANDLE(-1 as _).is_invalid());
 
     assert!(core::mem::size_of::<HANDLE>() == core::mem::size_of::<usize>());
 }

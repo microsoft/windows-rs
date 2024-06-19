@@ -59,12 +59,12 @@ pub struct VHF_CONFIG {
     pub InstanceID: windows_core::PWSTR,
     pub ReportDescriptorLength: u16,
     pub ReportDescriptor: *mut u8,
-    pub EvtVhfReadyForNextReadReport: PEVT_VHF_READY_FOR_NEXT_READ_REPORT,
-    pub EvtVhfAsyncOperationGetFeature: PEVT_VHF_ASYNC_OPERATION,
-    pub EvtVhfAsyncOperationSetFeature: PEVT_VHF_ASYNC_OPERATION,
-    pub EvtVhfAsyncOperationWriteReport: PEVT_VHF_ASYNC_OPERATION,
-    pub EvtVhfAsyncOperationGetInputReport: PEVT_VHF_ASYNC_OPERATION,
-    pub EvtVhfCleanup: PEVT_VHF_CLEANUP,
+    pub EvtVhfReadyForNextReadReport: EVT_VHF_READY_FOR_NEXT_READ_REPORT,
+    pub EvtVhfAsyncOperationGetFeature: EVT_VHF_ASYNC_OPERATION,
+    pub EvtVhfAsyncOperationSetFeature: EVT_VHF_ASYNC_OPERATION,
+    pub EvtVhfAsyncOperationWriteReport: EVT_VHF_ASYNC_OPERATION,
+    pub EvtVhfAsyncOperationGetInputReport: EVT_VHF_ASYNC_OPERATION,
+    pub EvtVhfCleanup: EVT_VHF_CLEANUP,
     pub HardwareIDsLength: u16,
     pub HardwareIDs: windows_core::PWSTR,
 }
@@ -79,6 +79,3 @@ impl Default for VHF_CONFIG {
 pub type EVT_VHF_ASYNC_OPERATION = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void, vhfoperationhandle: *const core::ffi::c_void, vhfoperationcontext: *const core::ffi::c_void, hidtransferpacket: *const HID_XFER_PACKET)>;
 pub type EVT_VHF_CLEANUP = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void)>;
 pub type EVT_VHF_READY_FOR_NEXT_READ_REPORT = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void)>;
-pub type PEVT_VHF_ASYNC_OPERATION = Option<unsafe extern "system" fn()>;
-pub type PEVT_VHF_CLEANUP = Option<unsafe extern "system" fn()>;
-pub type PEVT_VHF_READY_FOR_NEXT_READ_REPORT = Option<unsafe extern "system" fn()>;

@@ -10,11 +10,19 @@ fn test() {
         assert_eq!(InSendMessageEx(std::ptr::null_mut()), ISMEX_NOSEND);
         assert!(CreateThreadpool(std::ptr::null_mut()) != 0);
         assert_eq!(
-            TrackPopupMenu(0, TPM_LEFTBUTTON, 1, 2, 0, 0, std::ptr::null()),
+            TrackPopupMenu(
+                core::ptr::null_mut(),
+                TPM_LEFTBUTTON,
+                1,
+                2,
+                0,
+                core::ptr::null_mut(),
+                std::ptr::null()
+            ),
             0
         );
 
-        let mut key = 0;
+        let mut key = core::ptr::null_mut();
         RegOpenKeyExA(HKEY_CLASSES_ROOT, s!(r".txt"), 0, KEY_QUERY_VALUE, &mut key);
         let mut len = 0;
         RegQueryValueExA(

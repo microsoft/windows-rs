@@ -203,6 +203,7 @@ pub const CLSCTX_RESERVED4: CLSCTX = 512u32;
 pub const CLSCTX_RESERVED5: CLSCTX = 2048u32;
 pub const CLSCTX_RESERVED6: CLSCTX = 16777216u32;
 pub const CLSCTX_SERVER: CLSCTX = 21u32;
+pub const CLSID_GlobalOptions: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000034b_0000_0000_c000_000000000046);
 pub const COINITBASE_MULTITHREADED: COINITBASE = 0i32;
 pub const COINIT_APARTMENTTHREADED: COINIT = 2i32;
 pub const COINIT_DISABLE_OLE1DDE: COINIT = 4i32;
@@ -753,8 +754,8 @@ pub struct COSERVERINFO {
     pub pAuthInfo: *mut COAUTHINFO,
     pub dwReserved2: u32,
 }
-pub type CO_DEVICE_CATALOG_COOKIE = isize;
-pub type CO_MTA_USAGE_COOKIE = isize;
+pub type CO_DEVICE_CATALOG_COOKIE = *mut core::ffi::c_void;
+pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CSPLATFORM {
@@ -950,7 +951,7 @@ pub struct MULTI_QI {
     pub pItf: *mut core::ffi::c_void,
     pub hr: windows_sys::core::HRESULT,
 }
-pub type MachineGlobalObjectTableRegistrationToken = isize;
+pub type MachineGlobalObjectTableRegistrationToken = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct QUERYCONTEXT {

@@ -88,7 +88,7 @@ pub fn factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
         // If RoGetActivationFactory fails because combase hasn't been loaded yet then load combase
         // automatically so that it "just works" for apartment-agnostic code.
         if code == CO_E_NOTINITIALIZED {
-            let mut cookie = 0;
+            let mut cookie = core::ptr::null_mut();
             CoIncrementMTAUsage(&mut cookie);
 
             // Now try a second time to get the activation factory via the OS.

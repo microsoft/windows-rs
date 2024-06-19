@@ -363,9 +363,10 @@ pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: &mut [u16]) -
     GetClipboardFormatNameW(format, core::mem::transmute(lpszformatname.as_ptr()), lpszformatname.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn GetClipboardOwner() -> super::super::Foundation::HWND {
+pub unsafe fn GetClipboardOwner() -> windows_core::Result<super::super::Foundation::HWND> {
     windows_targets::link!("user32.dll" "system" fn GetClipboardOwner() -> super::super::Foundation:: HWND);
-    GetClipboardOwner()
+    let result__ = GetClipboardOwner();
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn GetClipboardSequenceNumber() -> u32 {
@@ -373,14 +374,16 @@ pub unsafe fn GetClipboardSequenceNumber() -> u32 {
     GetClipboardSequenceNumber()
 }
 #[inline]
-pub unsafe fn GetClipboardViewer() -> super::super::Foundation::HWND {
+pub unsafe fn GetClipboardViewer() -> windows_core::Result<super::super::Foundation::HWND> {
     windows_targets::link!("user32.dll" "system" fn GetClipboardViewer() -> super::super::Foundation:: HWND);
-    GetClipboardViewer()
+    let result__ = GetClipboardViewer();
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn GetOpenClipboardWindow() -> super::super::Foundation::HWND {
+pub unsafe fn GetOpenClipboardWindow() -> windows_core::Result<super::super::Foundation::HWND> {
     windows_targets::link!("user32.dll" "system" fn GetOpenClipboardWindow() -> super::super::Foundation:: HWND);
-    GetOpenClipboardWindow()
+    let result__ = GetOpenClipboardWindow();
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: &[u32]) -> i32 {
@@ -529,12 +532,13 @@ where
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetClipboardViewer<P0>(hwndnewviewer: P0) -> super::super::Foundation::HWND
+pub unsafe fn SetClipboardViewer<P0>(hwndnewviewer: P0) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn SetClipboardViewer(hwndnewviewer : super::super::Foundation:: HWND) -> super::super::Foundation:: HWND);
-    SetClipboardViewer(hwndnewviewer.param().abi())
+    let result__ = SetClipboardViewer(hwndnewviewer.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1003,10 +1007,18 @@ impl Default for DDEUP {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCONV(pub isize);
+pub struct HCONV(pub *mut core::ffi::c_void);
 impl HCONV {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HCONV {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DdeDisconnect(*self);
+        }
     }
 }
 impl Default for HCONV {
@@ -1019,10 +1031,18 @@ impl windows_core::TypeKind for HCONV {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCONVLIST(pub isize);
+pub struct HCONVLIST(pub *mut core::ffi::c_void);
 impl HCONVLIST {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HCONVLIST {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DdeDisconnectList(*self);
+        }
     }
 }
 impl Default for HCONVLIST {
@@ -1035,10 +1055,18 @@ impl windows_core::TypeKind for HCONVLIST {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDDEDATA(pub isize);
+pub struct HDDEDATA(pub *mut core::ffi::c_void);
 impl HDDEDATA {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0
+        self.0.is_null()
+    }
+}
+impl windows_core::Free for HDDEDATA {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DdeFreeDataHandle(*self);
+        }
     }
 }
 impl Default for HDDEDATA {
@@ -1051,10 +1079,10 @@ impl windows_core::TypeKind for HDDEDATA {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSZ(pub isize);
+pub struct HSZ(pub *mut core::ffi::c_void);
 impl HSZ {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HSZ {

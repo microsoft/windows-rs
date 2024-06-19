@@ -6189,18 +6189,7 @@ pub const RPC_NT_WRONG_KIND_OF_BINDING: NTSTATUS = NTSTATUS(0xC0020002_u32 as _)
 pub const RPC_NT_WRONG_PIPE_VERSION: NTSTATUS = NTSTATUS(0xC003005E_u32 as _);
 pub const RPC_NT_WRONG_STUB_VERSION: NTSTATUS = NTSTATUS(0xC003005B_u32 as _);
 pub const RPC_NT_ZERO_DIVIDE: NTSTATUS = NTSTATUS(0xC0020044_u32 as _);
-pub const RPC_S_ACCESS_DENIED: i32 = -1073741790i32;
-pub const RPC_S_ASYNC_CALL_PENDING: i32 = 259i32;
-pub const RPC_S_BUFFER_TOO_SMALL: i32 = -1073741789i32;
 pub const RPC_S_CALLPENDING: windows_core::HRESULT = windows_core::HRESULT(0x80010115_u32 as _);
-pub const RPC_S_INVALID_ARG: i32 = -1073741811i32;
-pub const RPC_S_INVALID_LEVEL: i32 = -1073741811i32;
-pub const RPC_S_INVALID_SECURITY_DESC: i32 = -1073741703i32;
-pub const RPC_S_NOT_ENOUGH_QUOTA: i32 = -1073741756i32;
-pub const RPC_S_OUT_OF_MEMORY: i32 = -1073741801i32;
-pub const RPC_S_OUT_OF_THREADS: i32 = -1073741801i32;
-pub const RPC_S_SERVER_OUT_OF_MEMORY: i32 = -1073741307i32;
-pub const RPC_S_UNKNOWN_PRINCIPAL: i32 = -1073741709i32;
 pub const RPC_S_WAITONTIMER: windows_core::HRESULT = windows_core::HRESULT(0x80010116_u32 as _);
 pub const RPC_X_BAD_STUB_DATA: i32 = 1783i32;
 pub const RPC_X_BYTE_COUNT_TOO_SMALL: i32 = 1782i32;
@@ -10651,13 +10640,14 @@ impl Default for FLOAT128 {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HANDLE(pub isize);
+pub struct HANDLE(pub *mut core::ffi::c_void);
 impl HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CloseHandle(*self);
@@ -10692,6 +10682,7 @@ impl HGLOBAL {
     }
 }
 impl windows_core::Free for HGLOBAL {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = GlobalFree(*self);
@@ -10708,13 +10699,14 @@ impl windows_core::TypeKind for HGLOBAL {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HINSTANCE(pub isize);
+pub struct HINSTANCE(pub *mut core::ffi::c_void);
 impl HINSTANCE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0
+        self.0.is_null()
     }
 }
 impl windows_core::Free for HINSTANCE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = FreeLibrary(*self);
@@ -10744,6 +10736,7 @@ impl HLOCAL {
     }
 }
 impl windows_core::Free for HLOCAL {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = LocalFree(*self);
@@ -10760,7 +10753,12 @@ impl windows_core::TypeKind for HLOCAL {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HLSURF(pub isize);
+pub struct HLSURF(pub *mut core::ffi::c_void);
+impl HLSURF {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HLSURF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10771,13 +10769,14 @@ impl windows_core::TypeKind for HLSURF {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMODULE(pub isize);
+pub struct HMODULE(pub *mut core::ffi::c_void);
 impl HMODULE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0
+        self.0.is_null()
     }
 }
 impl windows_core::Free for HMODULE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = FreeLibrary(*self);
@@ -10800,10 +10799,10 @@ impl From<HMODULE> for HINSTANCE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HRSRC(pub isize);
+pub struct HRSRC(pub *mut core::ffi::c_void);
 impl HRSRC {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HRSRC {
@@ -10816,7 +10815,12 @@ impl windows_core::TypeKind for HRSRC {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSPRITE(pub isize);
+pub struct HSPRITE(pub *mut core::ffi::c_void);
+impl HSPRITE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HSPRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10827,7 +10831,12 @@ impl windows_core::TypeKind for HSPRITE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSTR(pub isize);
+pub struct HSTR(pub *mut core::ffi::c_void);
+impl HSTR {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HSTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10838,7 +10847,12 @@ impl windows_core::TypeKind for HSTR {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HUMPD(pub isize);
+pub struct HUMPD(pub *mut core::ffi::c_void);
+impl HUMPD {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HUMPD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10849,7 +10863,12 @@ impl windows_core::TypeKind for HUMPD {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HWND(pub isize);
+pub struct HWND(pub *mut core::ffi::c_void);
+impl HWND {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HWND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10953,22 +10972,6 @@ impl Default for POINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSID(pub *mut core::ffi::c_void);
-impl PSID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for PSID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

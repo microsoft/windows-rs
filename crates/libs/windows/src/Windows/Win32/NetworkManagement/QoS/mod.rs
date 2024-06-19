@@ -1660,10 +1660,10 @@ impl Default for LPMIPTABLE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPM_HANDLE(pub isize);
+pub struct LPM_HANDLE(pub *mut core::ffi::c_void);
 impl LPM_HANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for LPM_HANDLE {
@@ -2022,10 +2022,10 @@ impl Default for RESV_STYLE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct RHANDLE(pub isize);
+pub struct RHANDLE(pub *mut core::ffi::c_void);
 impl RHANDLE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for RHANDLE {

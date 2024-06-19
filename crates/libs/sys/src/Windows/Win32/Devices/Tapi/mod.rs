@@ -1914,15 +1914,15 @@ pub struct DTR {
     pub wDayOfWeek: u16,
 }
 pub const DispatchMapper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
-pub type HDRVCALL = isize;
-pub type HDRVDIALOGINSTANCE = isize;
-pub type HDRVLINE = isize;
-pub type HDRVMSPLINE = isize;
-pub type HDRVPHONE = isize;
-pub type HPROVIDER = isize;
-pub type HTAPICALL = isize;
-pub type HTAPILINE = isize;
-pub type HTAPIPHONE = isize;
+pub type HDRVCALL = *mut core::ffi::c_void;
+pub type HDRVDIALOGINSTANCE = *mut core::ffi::c_void;
+pub type HDRVLINE = *mut core::ffi::c_void;
+pub type HDRVMSPLINE = *mut core::ffi::c_void;
+pub type HDRVPHONE = *mut core::ffi::c_void;
+pub type HPROVIDER = *mut core::ffi::c_void;
+pub type HTAPICALL = *mut core::ffi::c_void;
+pub type HTAPILINE = *mut core::ffi::c_void;
+pub type HTAPIPHONE = *mut core::ffi::c_void;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEADDRESSCAPS {

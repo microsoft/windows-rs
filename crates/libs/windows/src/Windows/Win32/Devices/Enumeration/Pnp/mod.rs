@@ -1170,10 +1170,18 @@ impl core::fmt::Debug for SW_DEVICE_LIFETIME {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HSWDEVICE(pub isize);
+pub struct HSWDEVICE(pub *mut core::ffi::c_void);
 impl HSWDEVICE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HSWDEVICE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            SwDeviceClose(*self);
+        }
     }
 }
 impl Default for HSWDEVICE {

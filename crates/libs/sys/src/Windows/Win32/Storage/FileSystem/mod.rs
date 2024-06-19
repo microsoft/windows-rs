@@ -2332,7 +2332,7 @@ pub struct FIO_CONTEXT {
     pub m_dwLinesOffset: u32,
     pub m_dwHeaderLength: u32,
 }
-pub type HIORING = isize;
+pub type HIORING = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IORING_BUFFER_INFO {

@@ -122,7 +122,7 @@ pub const TIME_SMPTE: u32 = 8u32;
 pub const TIME_TICKS: u32 = 32u32;
 pub const WAVERR_BASE: u32 = 32u32;
 pub type TIMECODE_SAMPLE_FLAGS = u32;
-pub type HTASK = isize;
+pub type HTASK = *mut core::ffi::c_void;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MMTIME {

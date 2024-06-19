@@ -1201,7 +1201,7 @@ pub struct GRE_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
-pub type HRASCONN = isize;
+pub type HRASCONN = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]

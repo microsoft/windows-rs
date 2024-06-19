@@ -4887,6 +4887,7 @@ pub const CLSCTX_RESERVED4: CLSCTX = CLSCTX(512u32);
 pub const CLSCTX_RESERVED5: CLSCTX = CLSCTX(2048u32);
 pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
 pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
+pub const CLSID_GlobalOptions: windows_core::GUID = windows_core::GUID::from_u128(0x0000034b_0000_0000_c000_000000000046);
 pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
 pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2i32);
 pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4i32);
@@ -6629,10 +6630,18 @@ impl Default for COSERVERINFO {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct CO_DEVICE_CATALOG_COOKIE(pub isize);
+pub struct CO_DEVICE_CATALOG_COOKIE(pub *mut core::ffi::c_void);
 impl CO_DEVICE_CATALOG_COOKIE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for CO_DEVICE_CATALOG_COOKIE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CoRevokeDeviceCatalog(*self);
+        }
     }
 }
 impl Default for CO_DEVICE_CATALOG_COOKIE {
@@ -6645,10 +6654,18 @@ impl windows_core::TypeKind for CO_DEVICE_CATALOG_COOKIE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct CO_MTA_USAGE_COOKIE(pub isize);
+pub struct CO_MTA_USAGE_COOKIE(pub *mut core::ffi::c_void);
 impl CO_MTA_USAGE_COOKIE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for CO_MTA_USAGE_COOKIE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CoDecrementMTAUsage(*self);
+        }
     }
 }
 impl Default for CO_MTA_USAGE_COOKIE {
@@ -7095,7 +7112,12 @@ impl Default for MULTI_QI {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct MachineGlobalObjectTableRegistrationToken(pub isize);
+pub struct MachineGlobalObjectTableRegistrationToken(pub *mut core::ffi::c_void);
+impl MachineGlobalObjectTableRegistrationToken {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for MachineGlobalObjectTableRegistrationToken {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -68,7 +68,7 @@ pub const UPNP_E_VARIABLE_VALUE_UNKNOWN: windows_sys::core::HRESULT = 0x80040212
 pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1u32;
 pub type SW_DEVICE_CAPABILITIES = i32;
 pub type SW_DEVICE_LIFETIME = i32;
-pub type HSWDEVICE = isize;
+pub type HSWDEVICE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]

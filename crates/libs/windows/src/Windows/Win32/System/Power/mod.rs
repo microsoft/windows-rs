@@ -239,11 +239,11 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadACValueIndex<P0>(rootpowerkey: P0, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, acvalueindex: *mut u32) -> u32
+pub unsafe fn PowerReadACValueIndex<P0>(rootpowerkey: P0, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, acvalueindex: *mut u32) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<super::Registry::HKEY>,
 {
-    windows_targets::link!("powrprof.dll" "system" fn PowerReadACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, acvalueindex : *mut u32) -> u32);
+    windows_targets::link!("powrprof.dll" "system" fn PowerReadACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, acvalueindex : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     PowerReadACValueIndex(rootpowerkey.param().abi(), core::mem::transmute(schemeguid.unwrap_or(std::ptr::null())), core::mem::transmute(subgroupofpowersettingsguid.unwrap_or(std::ptr::null())), core::mem::transmute(powersettingguid.unwrap_or(std::ptr::null())), acvalueindex)
 }
 #[cfg(feature = "Win32_System_Registry")]
@@ -476,11 +476,11 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteACValueIndex<P0>(rootpowerkey: P0, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, acvalueindex: u32) -> u32
+pub unsafe fn PowerWriteACValueIndex<P0>(rootpowerkey: P0, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, acvalueindex: u32) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<super::Registry::HKEY>,
 {
-    windows_targets::link!("powrprof.dll" "system" fn PowerWriteACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, acvalueindex : u32) -> u32);
+    windows_targets::link!("powrprof.dll" "system" fn PowerWriteACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, acvalueindex : u32) -> super::super::Foundation:: WIN32_ERROR);
     PowerWriteACValueIndex(rootpowerkey.param().abi(), schemeguid, core::mem::transmute(subgroupofpowersettingsguid.unwrap_or(std::ptr::null())), core::mem::transmute(powersettingguid.unwrap_or(std::ptr::null())), acvalueindex)
 }
 #[cfg(feature = "Win32_System_Registry")]
@@ -959,16 +959,25 @@ pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR
 pub const NotifyUserModeLegacyPowerEvent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(47i32);
 pub const NotifyUserPowerSetting: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(26i32);
 pub const PASSIVE_COOLING: u32 = 1u32;
-pub const PDCAP_S0_SUPPORTED: u32 = 65536u32;
-pub const PDCAP_S1_SUPPORTED: u32 = 131072u32;
-pub const PDCAP_S2_SUPPORTED: u32 = 262144u32;
-pub const PDCAP_S3_SUPPORTED: u32 = 524288u32;
-pub const PDCAP_S4_SUPPORTED: u32 = 16777216u32;
-pub const PDCAP_S5_SUPPORTED: u32 = 33554432u32;
-pub const PDCAP_WAKE_FROM_S0_SUPPORTED: u32 = 1048576u32;
-pub const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152u32;
-pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304u32;
-pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
+pub const PDCAP_D0_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(1u32);
+pub const PDCAP_D1_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(2u32);
+pub const PDCAP_D2_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(4u32);
+pub const PDCAP_D3_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(8u32);
+pub const PDCAP_S0_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(65536u32);
+pub const PDCAP_S1_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(131072u32);
+pub const PDCAP_S2_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(262144u32);
+pub const PDCAP_S3_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(524288u32);
+pub const PDCAP_S4_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(16777216u32);
+pub const PDCAP_S5_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(33554432u32);
+pub const PDCAP_WAKE_FROM_D0_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(16u32);
+pub const PDCAP_WAKE_FROM_D1_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(32u32);
+pub const PDCAP_WAKE_FROM_D2_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(64u32);
+pub const PDCAP_WAKE_FROM_D3_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(128u32);
+pub const PDCAP_WAKE_FROM_S0_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(1048576u32);
+pub const PDCAP_WAKE_FROM_S1_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(2097152u32);
+pub const PDCAP_WAKE_FROM_S2_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(4194304u32);
+pub const PDCAP_WAKE_FROM_S3_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(8388608u32);
+pub const PDCAP_WARM_EJECT_SUPPORTED: DEVICE_POWER_CAPABILITIES = DEVICE_POWER_CAPABILITIES(256u32);
 pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
 pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2147483648u32);
@@ -1216,6 +1225,50 @@ impl windows_core::TypeKind for BATTERY_SET_INFORMATION_LEVEL {
 impl core::fmt::Debug for BATTERY_SET_INFORMATION_LEVEL {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("BATTERY_SET_INFORMATION_LEVEL").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct DEVICE_POWER_CAPABILITIES(pub u32);
+impl windows_core::TypeKind for DEVICE_POWER_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DEVICE_POWER_CAPABILITIES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_POWER_CAPABILITIES").field(&self.0).finish()
+    }
+}
+impl DEVICE_POWER_CAPABILITIES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DEVICE_POWER_CAPABILITIES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DEVICE_POWER_CAPABILITIES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DEVICE_POWER_CAPABILITIES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DEVICE_POWER_CAPABILITIES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DEVICE_POWER_CAPABILITIES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -1952,6 +2005,7 @@ impl HPOWERNOTIFY {
     }
 }
 impl windows_core::Free for HPOWERNOTIFY {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UnregisterPowerSettingNotification(*self);

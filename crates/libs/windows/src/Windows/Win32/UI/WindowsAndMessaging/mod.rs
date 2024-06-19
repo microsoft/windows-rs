@@ -395,27 +395,29 @@ where
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateDialogIndirectParamA<P0, P1, P2>(hinstance: P0, lptemplate: *const DLGTEMPLATE, hwndparent: P1, lpdialogfunc: DLGPROC, dwinitparam: P2) -> super::super::Foundation::HWND
+pub unsafe fn CreateDialogIndirectParamA<P0, P1, P2>(hinstance: P0, lptemplate: *const DLGTEMPLATE, hwndparent: P1, lpdialogfunc: DLGPROC, dwinitparam: P2) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateDialogIndirectParamA(hinstance : super::super::Foundation:: HINSTANCE, lptemplate : *const DLGTEMPLATE, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: HWND);
-    CreateDialogIndirectParamA(hinstance.param().abi(), lptemplate, hwndparent.param().abi(), lpdialogfunc, dwinitparam.param().abi())
+    let result__ = CreateDialogIndirectParamA(hinstance.param().abi(), lptemplate, hwndparent.param().abi(), lpdialogfunc, dwinitparam.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateDialogIndirectParamW<P0, P1, P2>(hinstance: P0, lptemplate: *const DLGTEMPLATE, hwndparent: P1, lpdialogfunc: DLGPROC, dwinitparam: P2) -> super::super::Foundation::HWND
+pub unsafe fn CreateDialogIndirectParamW<P0, P1, P2>(hinstance: P0, lptemplate: *const DLGTEMPLATE, hwndparent: P1, lpdialogfunc: DLGPROC, dwinitparam: P2) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateDialogIndirectParamW(hinstance : super::super::Foundation:: HINSTANCE, lptemplate : *const DLGTEMPLATE, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: HWND);
-    CreateDialogIndirectParamW(hinstance.param().abi(), lptemplate, hwndparent.param().abi(), lpdialogfunc, dwinitparam.param().abi())
+    let result__ = CreateDialogIndirectParamW(hinstance.param().abi(), lptemplate, hwndparent.param().abi(), lpdialogfunc, dwinitparam.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateDialogParamA<P0, P1, P2, P3>(hinstance: P0, lptemplatename: P1, hwndparent: P2, lpdialogfunc: DLGPROC, dwinitparam: P3) -> super::super::Foundation::HWND
+pub unsafe fn CreateDialogParamA<P0, P1, P2, P3>(hinstance: P0, lptemplatename: P1, hwndparent: P2, lpdialogfunc: DLGPROC, dwinitparam: P3) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P1: windows_core::Param<windows_core::PCSTR>,
@@ -423,10 +425,11 @@ where
     P3: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateDialogParamA(hinstance : super::super::Foundation:: HINSTANCE, lptemplatename : windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: HWND);
-    CreateDialogParamA(hinstance.param().abi(), lptemplatename.param().abi(), hwndparent.param().abi(), lpdialogfunc, dwinitparam.param().abi())
+    let result__ = CreateDialogParamA(hinstance.param().abi(), lptemplatename.param().abi(), hwndparent.param().abi(), lpdialogfunc, dwinitparam.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateDialogParamW<P0, P1, P2, P3>(hinstance: P0, lptemplatename: P1, hwndparent: P2, lpdialogfunc: DLGPROC, dwinitparam: P3) -> super::super::Foundation::HWND
+pub unsafe fn CreateDialogParamW<P0, P1, P2, P3>(hinstance: P0, lptemplatename: P1, hwndparent: P2, lpdialogfunc: DLGPROC, dwinitparam: P3) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -434,7 +437,8 @@ where
     P3: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateDialogParamW(hinstance : super::super::Foundation:: HINSTANCE, lptemplatename : windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, lpdialogfunc : DLGPROC, dwinitparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: HWND);
-    CreateDialogParamW(hinstance.param().abi(), lptemplatename.param().abi(), hwndparent.param().abi(), lpdialogfunc, dwinitparam.param().abi())
+    let result__ = CreateDialogParamW(hinstance.param().abi(), lptemplatename.param().abi(), hwndparent.param().abi(), lpdialogfunc, dwinitparam.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateIcon<P0>(hinstance: P0, nwidth: i32, nheight: i32, cplanes: u8, cbitspixel: u8, lpbandbits: *const u8, lpbxorbits: *const u8) -> windows_core::Result<HICON>
@@ -471,7 +475,7 @@ pub unsafe fn CreateIconIndirect(piconinfo: *const ICONINFO) -> windows_core::Re
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateMDIWindowA<P0, P1, P2, P3, P4>(lpclassname: P0, lpwindowname: P1, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P2, hinstance: P3, lparam: P4) -> super::super::Foundation::HWND
+pub unsafe fn CreateMDIWindowA<P0, P1, P2, P3, P4>(lpclassname: P0, lpwindowname: P1, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P2, hinstance: P3, lparam: P4) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
@@ -480,10 +484,11 @@ where
     P4: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateMDIWindowA(lpclassname : windows_core::PCSTR, lpwindowname : windows_core::PCSTR, dwstyle : WINDOW_STYLE, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: HWND);
-    CreateMDIWindowA(lpclassname.param().abi(), lpwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), hinstance.param().abi(), lparam.param().abi())
+    let result__ = CreateMDIWindowA(lpclassname.param().abi(), lpwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), hinstance.param().abi(), lparam.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateMDIWindowW<P0, P1, P2, P3, P4>(lpclassname: P0, lpwindowname: P1, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P2, hinstance: P3, lparam: P4) -> super::super::Foundation::HWND
+pub unsafe fn CreateMDIWindowW<P0, P1, P2, P3, P4>(lpclassname: P0, lpwindowname: P1, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P2, hinstance: P3, lparam: P4) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -492,7 +497,8 @@ where
     P4: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateMDIWindowW(lpclassname : windows_core::PCWSTR, lpwindowname : windows_core::PCWSTR, dwstyle : WINDOW_STYLE, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: HWND);
-    CreateMDIWindowW(lpclassname.param().abi(), lpwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), hinstance.param().abi(), lparam.param().abi())
+    let result__ = CreateMDIWindowW(lpclassname.param().abi(), lpwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), hinstance.param().abi(), lparam.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn CreateMenu() -> windows_core::Result<HMENU> {
@@ -516,7 +522,7 @@ where
     CreateResourceIndexer(projectroot.param().abi(), extensiondllpath.param().abi(), ppresourceindexer).ok()
 }
 #[inline]
-pub unsafe fn CreateWindowExA<P0, P1, P2, P3, P4>(dwexstyle: WINDOW_EX_STYLE, lpclassname: P0, lpwindowname: P1, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P2, hmenu: P3, hinstance: P4, lpparam: Option<*const core::ffi::c_void>) -> super::super::Foundation::HWND
+pub unsafe fn CreateWindowExA<P0, P1, P2, P3, P4>(dwexstyle: WINDOW_EX_STYLE, lpclassname: P0, lpwindowname: P1, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P2, hmenu: P3, hinstance: P4, lpparam: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
@@ -525,10 +531,11 @@ where
     P4: windows_core::Param<super::super::Foundation::HINSTANCE>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateWindowExA(dwexstyle : WINDOW_EX_STYLE, lpclassname : windows_core::PCSTR, lpwindowname : windows_core::PCSTR, dwstyle : WINDOW_STYLE, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, hmenu : HMENU, hinstance : super::super::Foundation:: HINSTANCE, lpparam : *const core::ffi::c_void) -> super::super::Foundation:: HWND);
-    CreateWindowExA(dwexstyle, lpclassname.param().abi(), lpwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), hmenu.param().abi(), hinstance.param().abi(), core::mem::transmute(lpparam.unwrap_or(std::ptr::null())))
+    let result__ = CreateWindowExA(dwexstyle, lpclassname.param().abi(), lpwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), hmenu.param().abi(), hinstance.param().abi(), core::mem::transmute(lpparam.unwrap_or(std::ptr::null())));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateWindowExW<P0, P1, P2, P3, P4>(dwexstyle: WINDOW_EX_STYLE, lpclassname: P0, lpwindowname: P1, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P2, hmenu: P3, hinstance: P4, lpparam: Option<*const core::ffi::c_void>) -> super::super::Foundation::HWND
+pub unsafe fn CreateWindowExW<P0, P1, P2, P3, P4>(dwexstyle: WINDOW_EX_STYLE, lpclassname: P0, lpwindowname: P1, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P2, hmenu: P3, hinstance: P4, lpparam: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -537,7 +544,8 @@ where
     P4: windows_core::Param<super::super::Foundation::HINSTANCE>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateWindowExW(dwexstyle : WINDOW_EX_STYLE, lpclassname : windows_core::PCWSTR, lpwindowname : windows_core::PCWSTR, dwstyle : WINDOW_STYLE, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, hmenu : HMENU, hinstance : super::super::Foundation:: HINSTANCE, lpparam : *const core::ffi::c_void) -> super::super::Foundation:: HWND);
-    CreateWindowExW(dwexstyle, lpclassname.param().abi(), lpwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), hmenu.param().abi(), hinstance.param().abi(), core::mem::transmute(lpparam.unwrap_or(std::ptr::null())))
+    let result__ = CreateWindowExW(dwexstyle, lpclassname.param().abi(), lpwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), hmenu.param().abi(), hinstance.param().abi(), core::mem::transmute(lpparam.unwrap_or(std::ptr::null())));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn DefDlgProcA<P0, P1, P2>(hdlg: P0, msg: u32, wparam: P1, lparam: P2) -> super::super::Foundation::LRESULT
@@ -891,16 +899,17 @@ where
     EnumWindows(lpenumfunc, lparam.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn FindWindowA<P0, P1>(lpclassname: P0, lpwindowname: P1) -> super::super::Foundation::HWND
+pub unsafe fn FindWindowA<P0, P1>(lpclassname: P0, lpwindowname: P1) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn FindWindowA(lpclassname : windows_core::PCSTR, lpwindowname : windows_core::PCSTR) -> super::super::Foundation:: HWND);
-    FindWindowA(lpclassname.param().abi(), lpwindowname.param().abi())
+    let result__ = FindWindowA(lpclassname.param().abi(), lpwindowname.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindWindowExA<P0, P1, P2, P3>(hwndparent: P0, hwndchildafter: P1, lpszclass: P2, lpszwindow: P3) -> super::super::Foundation::HWND
+pub unsafe fn FindWindowExA<P0, P1, P2, P3>(hwndparent: P0, hwndchildafter: P1, lpszclass: P2, lpszwindow: P3) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<super::super::Foundation::HWND>,
@@ -908,10 +917,11 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn FindWindowExA(hwndparent : super::super::Foundation:: HWND, hwndchildafter : super::super::Foundation:: HWND, lpszclass : windows_core::PCSTR, lpszwindow : windows_core::PCSTR) -> super::super::Foundation:: HWND);
-    FindWindowExA(hwndparent.param().abi(), hwndchildafter.param().abi(), lpszclass.param().abi(), lpszwindow.param().abi())
+    let result__ = FindWindowExA(hwndparent.param().abi(), hwndchildafter.param().abi(), lpszclass.param().abi(), lpszwindow.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindWindowExW<P0, P1, P2, P3>(hwndparent: P0, hwndchildafter: P1, lpszclass: P2, lpszwindow: P3) -> super::super::Foundation::HWND
+pub unsafe fn FindWindowExW<P0, P1, P2, P3>(hwndparent: P0, hwndchildafter: P1, lpszclass: P2, lpszwindow: P3) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<super::super::Foundation::HWND>,
@@ -919,16 +929,18 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn FindWindowExW(hwndparent : super::super::Foundation:: HWND, hwndchildafter : super::super::Foundation:: HWND, lpszclass : windows_core::PCWSTR, lpszwindow : windows_core::PCWSTR) -> super::super::Foundation:: HWND);
-    FindWindowExW(hwndparent.param().abi(), hwndchildafter.param().abi(), lpszclass.param().abi(), lpszwindow.param().abi())
+    let result__ = FindWindowExW(hwndparent.param().abi(), hwndchildafter.param().abi(), lpszclass.param().abi(), lpszwindow.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn FindWindowW<P0, P1>(lpclassname: P0, lpwindowname: P1) -> super::super::Foundation::HWND
+pub unsafe fn FindWindowW<P0, P1>(lpclassname: P0, lpwindowname: P1) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn FindWindowW(lpclassname : windows_core::PCWSTR, lpwindowname : windows_core::PCWSTR) -> super::super::Foundation:: HWND);
-    FindWindowW(lpclassname.param().abi(), lpwindowname.param().abi())
+    let result__ = FindWindowW(lpclassname.param().abi(), lpwindowname.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn FlashWindow<P0, P1>(hwnd: P0, binvert: P1) -> super::super::Foundation::BOOL
@@ -1123,12 +1135,13 @@ where
     GetDlgCtrlID(hwnd.param().abi())
 }
 #[inline]
-pub unsafe fn GetDlgItem<P0>(hdlg: P0, niddlgitem: i32) -> super::super::Foundation::HWND
+pub unsafe fn GetDlgItem<P0>(hdlg: P0, niddlgitem: i32) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn GetDlgItem(hdlg : super::super::Foundation:: HWND, niddlgitem : i32) -> super::super::Foundation:: HWND);
-    GetDlgItem(hdlg.param().abi(), niddlgitem)
+    let result__ = GetDlgItem(hdlg.param().abi(), niddlgitem);
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn GetDlgItemInt<P0, P1>(hdlg: P0, niddlgitem: i32, lptranslated: Option<*mut super::super::Foundation::BOOL>, bsigned: P1) -> u32
@@ -1352,32 +1365,35 @@ where
     GetMessageW(lpmsg, hwnd.param().abi(), wmsgfiltermin, wmsgfiltermax)
 }
 #[inline]
-pub unsafe fn GetNextDlgGroupItem<P0, P1, P2>(hdlg: P0, hctl: P1, bprevious: P2) -> super::super::Foundation::HWND
+pub unsafe fn GetNextDlgGroupItem<P0, P1, P2>(hdlg: P0, hctl: P1, bprevious: P2) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn GetNextDlgGroupItem(hdlg : super::super::Foundation:: HWND, hctl : super::super::Foundation:: HWND, bprevious : super::super::Foundation:: BOOL) -> super::super::Foundation:: HWND);
-    GetNextDlgGroupItem(hdlg.param().abi(), hctl.param().abi(), bprevious.param().abi())
+    let result__ = GetNextDlgGroupItem(hdlg.param().abi(), hctl.param().abi(), bprevious.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn GetNextDlgTabItem<P0, P1, P2>(hdlg: P0, hctl: P1, bprevious: P2) -> super::super::Foundation::HWND
+pub unsafe fn GetNextDlgTabItem<P0, P1, P2>(hdlg: P0, hctl: P1, bprevious: P2) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<super::super::Foundation::HWND>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn GetNextDlgTabItem(hdlg : super::super::Foundation:: HWND, hctl : super::super::Foundation:: HWND, bprevious : super::super::Foundation:: BOOL) -> super::super::Foundation:: HWND);
-    GetNextDlgTabItem(hdlg.param().abi(), hctl.param().abi(), bprevious.param().abi())
+    let result__ = GetNextDlgTabItem(hdlg.param().abi(), hctl.param().abi(), bprevious.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn GetParent<P0>(hwnd: P0) -> super::super::Foundation::HWND
+pub unsafe fn GetParent<P0>(hwnd: P0) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn GetParent(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: HWND);
-    GetParent(hwnd.param().abi())
+    let result__ = GetParent(hwnd.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn GetPhysicalCursorPos(lppoint: *mut super::super::Foundation::POINT) -> windows_core::Result<()> {
@@ -1480,20 +1496,22 @@ where
     GetTitleBarInfo(hwnd.param().abi(), pti).ok()
 }
 #[inline]
-pub unsafe fn GetTopWindow<P0>(hwnd: P0) -> super::super::Foundation::HWND
+pub unsafe fn GetTopWindow<P0>(hwnd: P0) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn GetTopWindow(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: HWND);
-    GetTopWindow(hwnd.param().abi())
+    let result__ = GetTopWindow(hwnd.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn GetWindow<P0>(hwnd: P0, ucmd: GET_WINDOW_CMD) -> super::super::Foundation::HWND
+pub unsafe fn GetWindow<P0>(hwnd: P0, ucmd: GET_WINDOW_CMD) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn GetWindow(hwnd : super::super::Foundation:: HWND, ucmd : GET_WINDOW_CMD) -> super::super::Foundation:: HWND);
-    GetWindow(hwnd.param().abi(), ucmd)
+    let result__ = GetWindow(hwnd.param().abi(), ucmd);
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn GetWindowDisplayAffinity<P0>(hwnd: P0, pdwaffinity: *mut u32) -> windows_core::Result<()>
@@ -2918,13 +2936,14 @@ pub unsafe fn SetMessageQueue(cmessagesmax: i32) -> super::super::Foundation::BO
     SetMessageQueue(cmessagesmax)
 }
 #[inline]
-pub unsafe fn SetParent<P0, P1>(hwndchild: P0, hwndnewparent: P1) -> super::super::Foundation::HWND
+pub unsafe fn SetParent<P0, P1>(hwndchild: P0, hwndnewparent: P1) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn SetParent(hwndchild : super::super::Foundation:: HWND, hwndnewparent : super::super::Foundation:: HWND) -> super::super::Foundation:: HWND);
-    SetParent(hwndchild.param().abi(), hwndnewparent.param().abi())
+    let result__ = SetParent(hwndchild.param().abi(), hwndnewparent.param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn SetPhysicalCursorPos(x: i32, y: i32) -> windows_core::Result<()> {
@@ -3993,6 +4012,7 @@ pub const IDC_SIZENESW: windows_core::PCWSTR = windows_core::PCWSTR(32643u16 as 
 pub const IDC_SIZENS: windows_core::PCWSTR = windows_core::PCWSTR(32645u16 as _);
 pub const IDC_SIZENWSE: windows_core::PCWSTR = windows_core::PCWSTR(32642u16 as _);
 pub const IDC_SIZEWE: windows_core::PCWSTR = windows_core::PCWSTR(32644u16 as _);
+pub const IDC_STATIC: i32 = -1i32;
 pub const IDC_UPARROW: windows_core::PCWSTR = windows_core::PCWSTR(32516u16 as _);
 pub const IDC_WAIT: windows_core::PCWSTR = windows_core::PCWSTR(32514u16 as _);
 pub const IDHELP: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(9i32);
@@ -4563,9 +4583,11 @@ pub const RT_DIALOG: windows_core::PCWSTR = windows_core::PCWSTR(5u16 as _);
 pub const RT_DLGINCLUDE: windows_core::PCWSTR = windows_core::PCWSTR(17u16 as _);
 pub const RT_FONT: windows_core::PCWSTR = windows_core::PCWSTR(8u16 as _);
 pub const RT_FONTDIR: windows_core::PCWSTR = windows_core::PCWSTR(7u16 as _);
+pub const RT_GROUP_CURSOR: windows_core::PCWSTR = windows_core::PCWSTR(12u16 as _);
+pub const RT_GROUP_ICON: windows_core::PCWSTR = windows_core::PCWSTR(14u16 as _);
 pub const RT_HTML: windows_core::PCWSTR = windows_core::PCWSTR(23u16 as _);
 pub const RT_ICON: windows_core::PCWSTR = windows_core::PCWSTR(3u16 as _);
-pub const RT_MANIFEST: u32 = 24u32;
+pub const RT_MANIFEST: windows_core::PCWSTR = windows_core::PCWSTR(24u16 as _);
 pub const RT_MENU: windows_core::PCWSTR = windows_core::PCWSTR(4u16 as _);
 pub const RT_MESSAGETABLE: windows_core::PCWSTR = windows_core::PCWSTR(11u16 as _);
 pub const RT_PLUGPLAY: windows_core::PCWSTR = windows_core::PCWSTR(19u16 as _);
@@ -5200,6 +5222,7 @@ pub const WINEVENT_SKIPOWNPROCESS: u32 = 2u32;
 pub const WINEVENT_SKIPOWNTHREAD: u32 = 1u32;
 pub const WINSTA_ACCESSCLIPBOARD: i32 = 4i32;
 pub const WINSTA_ACCESSGLOBALATOMS: i32 = 32i32;
+pub const WINSTA_ALL_ACCESS: i32 = 895i32;
 pub const WINSTA_CREATEDESKTOP: i32 = 8i32;
 pub const WINSTA_ENUMDESKTOPS: i32 = 1i32;
 pub const WINSTA_ENUMERATE: i32 = 256i32;
@@ -5545,6 +5568,7 @@ pub const WVR_ALIGNLEFT: u32 = 32u32;
 pub const WVR_ALIGNRIGHT: u32 = 128u32;
 pub const WVR_ALIGNTOP: u32 = 16u32;
 pub const WVR_HREDRAW: u32 = 256u32;
+pub const WVR_REDRAW: u32 = 768u32;
 pub const WVR_VALIDRECTS: u32 = 1024u32;
 pub const WVR_VREDRAW: u32 = 512u32;
 pub const XBUTTON1: u16 = 1u16;
@@ -7596,7 +7620,7 @@ pub struct CREATESTRUCTA {
     pub style: i32,
     pub lpszName: windows_core::PCSTR,
     pub lpszClass: windows_core::PCSTR,
-    pub dwExStyle: u32,
+    pub dwExStyle: WINDOW_EX_STYLE,
 }
 impl windows_core::TypeKind for CREATESTRUCTA {
     type TypeKind = windows_core::CopyType;
@@ -7620,7 +7644,7 @@ pub struct CREATESTRUCTW {
     pub style: i32,
     pub lpszName: windows_core::PCWSTR,
     pub lpszClass: windows_core::PCWSTR,
-    pub dwExStyle: u32,
+    pub dwExStyle: WINDOW_EX_STYLE,
 }
 impl windows_core::TypeKind for CREATESTRUCTW {
     type TypeKind = windows_core::CopyType;
@@ -8156,13 +8180,14 @@ impl Default for GUITHREADINFO {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HACCEL(pub isize);
+pub struct HACCEL(pub *mut core::ffi::c_void);
 impl HACCEL {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HACCEL {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyAcceleratorTable(*self);
@@ -8195,13 +8220,14 @@ impl Default for HARDWAREHOOKSTRUCT {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCURSOR(pub isize);
+pub struct HCURSOR(pub *mut core::ffi::c_void);
 impl HCURSOR {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HCURSOR {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyCursor(*self);
@@ -8231,6 +8257,7 @@ impl HDEVNOTIFY {
     }
 }
 impl windows_core::Free for HDEVNOTIFY {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UnregisterDeviceNotification(*self);
@@ -8247,10 +8274,10 @@ impl windows_core::TypeKind for HDEVNOTIFY {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDWP(pub isize);
+pub struct HDWP(pub *mut core::ffi::c_void);
 impl HDWP {
     pub fn is_invalid(&self) -> bool {
-        self.0 == 0
+        self.0.is_null()
     }
 }
 impl Default for HDWP {
@@ -8263,13 +8290,14 @@ impl windows_core::TypeKind for HDWP {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HHOOK(pub isize);
+pub struct HHOOK(pub *mut core::ffi::c_void);
 impl HHOOK {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HHOOK {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UnhookWindowsHookEx(*self);
@@ -8286,13 +8314,14 @@ impl windows_core::TypeKind for HHOOK {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HICON(pub isize);
+pub struct HICON(pub *mut core::ffi::c_void);
 impl HICON {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HICON {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyIcon(*self);
@@ -8309,13 +8338,14 @@ impl windows_core::TypeKind for HICON {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMENU(pub isize);
+pub struct HMENU(pub *mut core::ffi::c_void);
 impl HMENU {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HMENU {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyMenu(*self);

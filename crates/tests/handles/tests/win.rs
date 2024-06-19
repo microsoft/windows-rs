@@ -1,12 +1,13 @@
 use windows::{
     Win32::Devices::Bluetooth::*, Win32::Foundation::*, Win32::Graphics::Gdi::*,
-    Win32::System::ApplicationInstallationAndServicing::*, Win32::System::Registry::*,
+    Win32::Security::*, Win32::System::ApplicationInstallationAndServicing::*,
+    Win32::System::Registry::*,
 };
 
 #[test]
 fn handle() {
     let underlying: isize = 123;
-    let handle: HANDLE = HANDLE(underlying);
+    let handle: HANDLE = HANDLE(underlying as _);
     assert!(!handle.is_invalid());
 
     let copy = handle;
@@ -18,7 +19,7 @@ fn handle() {
     let default = HANDLE::default();
     assert!(default.is_invalid());
 
-    assert_eq!(format!("{:?}", handle), "HANDLE(123)");
+    assert_eq!(format!("{:?}", handle), "HANDLE(0x7b)");
 }
 
 #[test]
@@ -43,7 +44,7 @@ fn psid() {
 fn hfont() {
     unsafe {
         let underlying: isize = 123;
-        let font: HFONT = HFONT(underlying);
+        let font: HFONT = HFONT(underlying as _);
         let object: HGDIOBJ = HGDIOBJ(font.0);
 
         assert!(!DeleteObject(font).as_bool());

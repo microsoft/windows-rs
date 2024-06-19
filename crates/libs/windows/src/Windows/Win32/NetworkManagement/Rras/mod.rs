@@ -3212,10 +3212,10 @@ impl Default for GRE_CONFIG_PARAMS0 {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HRASCONN(pub isize);
+pub struct HRASCONN(pub *mut core::ffi::c_void);
 impl HRASCONN {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HRASCONN {

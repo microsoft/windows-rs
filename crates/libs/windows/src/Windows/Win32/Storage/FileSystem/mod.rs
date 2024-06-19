@@ -779,12 +779,9 @@ pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundatio
     FileTimeToLocalFileTime(lpfiletime, lplocalfiletime).ok()
 }
 #[inline]
-pub unsafe fn FindClose<P0>(hfindfile: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn FindClose(hfindfile: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn FindClose(hfindfile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    FindClose(hfindfile.param().abi()).ok()
+    FindClose(hfindfile).ok()
 }
 #[inline]
 pub unsafe fn FindCloseChangeNotification<P0>(hchangehandle: P0) -> windows_core::Result<()>
@@ -987,12 +984,9 @@ where
     FindNextStreamW(hfindstream.param().abi(), lpfindstreamdata).ok()
 }
 #[inline]
-pub unsafe fn FindNextVolumeA<P0>(hfindvolume: P0, lpszvolumename: &mut [u8]) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn FindNextVolumeA(hfindvolume: super::super::Foundation::HANDLE, lpszvolumename: &mut [u8]) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn FindNextVolumeA(hfindvolume : super::super::Foundation:: HANDLE, lpszvolumename : windows_core::PSTR, cchbufferlength : u32) -> super::super::Foundation:: BOOL);
-    FindNextVolumeA(hfindvolume.param().abi(), core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok()
+    FindNextVolumeA(hfindvolume, core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok()
 }
 #[inline]
 pub unsafe fn FindNextVolumeMountPointA<P0>(hfindvolumemountpoint: P0, lpszvolumemountpoint: &mut [u8]) -> windows_core::Result<()>
@@ -1011,12 +1005,9 @@ where
     FindNextVolumeMountPointW(hfindvolumemountpoint.param().abi(), core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len().try_into().unwrap()).ok()
 }
 #[inline]
-pub unsafe fn FindNextVolumeW<P0>(hfindvolume: P0, lpszvolumename: &mut [u16]) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
+pub unsafe fn FindNextVolumeW(hfindvolume: super::super::Foundation::HANDLE, lpszvolumename: &mut [u16]) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn FindNextVolumeW(hfindvolume : super::super::Foundation:: HANDLE, lpszvolumename : windows_core::PWSTR, cchbufferlength : u32) -> super::super::Foundation:: BOOL);
-    FindNextVolumeW(hfindvolume.param().abi(), core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok()
+    FindNextVolumeW(hfindvolume, core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok()
 }
 #[inline]
 pub unsafe fn FindVolumeClose<P0>(hfindvolume: P0) -> windows_core::Result<()>
@@ -2256,13 +2247,12 @@ pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const windows_co
     (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn PopIoRingCompletion<P0>(ioring: P0) -> windows_core::Result<IORING_CQE>
+pub unsafe fn PopIoRingCompletion<P0>(ioring: P0, cqe: *mut IORING_CQE) -> windows_core::HRESULT
 where
     P0: windows_core::Param<HIORING>,
 {
     windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn PopIoRingCompletion(ioring : HIORING, cqe : *mut IORING_CQE) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    PopIoRingCompletion(ioring.param().abi(), &mut result__).map(|| result__)
+    PopIoRingCompletion(ioring.param().abi(), cqe)
 }
 #[inline]
 pub unsafe fn PrePrepareComplete<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64) -> windows_core::Result<()>
@@ -3389,9 +3379,10 @@ impl IDiskQuotaControl {
     {
         (windows_core::Interface::vtable(self).GetDefaultQuotaLimitText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok()
     }
+    #[cfg(feature = "Win32_Security")]
     pub unsafe fn AddUserSid<P0>(&self, pusersid: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser>
     where
-        P0: windows_core::Param<super::super::Foundation::PSID>,
+        P0: windows_core::Param<super::super::Security::PSID>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AddUserSid)(windows_core::Interface::as_raw(self), pusersid.param().abi(), fnameresolution, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3409,9 +3400,10 @@ impl IDiskQuotaControl {
     {
         (windows_core::Interface::vtable(self).DeleteUser)(windows_core::Interface::as_raw(self), puser.param().abi()).ok()
     }
+    #[cfg(feature = "Win32_Security")]
     pub unsafe fn FindUserSid<P0>(&self, pusersid: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser>
     where
-        P0: windows_core::Param<super::super::Foundation::PSID>,
+        P0: windows_core::Param<super::super::Security::PSID>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindUserSid)(windows_core::Interface::as_raw(self), pusersid.param().abi(), fnameresolution, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3423,7 +3415,8 @@ impl IDiskQuotaControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FindUserName)(windows_core::Interface::as_raw(self), pszlogonname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut Option<IEnumDiskQuotaUsers>) -> windows_core::Result<()> {
+    #[cfg(feature = "Win32_Security")]
+    pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Security::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut Option<IEnumDiskQuotaUsers>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CreateEnumUsers)(windows_core::Interface::as_raw(self), rgpusersids, cpsids, fnameresolution, core::mem::transmute(ppenum)).ok()
     }
     pub unsafe fn CreateUserBatch(&self) -> windows_core::Result<IDiskQuotaUserBatch> {
@@ -3458,12 +3451,21 @@ pub struct IDiskQuotaControl_Vtbl {
     pub SetDefaultQuotaLimit: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub GetDefaultQuotaLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub GetDefaultQuotaLimitText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
-    pub AddUserSid: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::PSID, DISKQUOTA_USERNAME_RESOLVE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_Security")]
+    pub AddUserSid: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Security::PSID, DISKQUOTA_USERNAME_RESOLVE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Security"))]
+    AddUserSid: usize,
     pub AddUserName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, DISKQUOTA_USERNAME_RESOLVE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FindUserSid: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::PSID, DISKQUOTA_USERNAME_RESOLVE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_Security")]
+    pub FindUserSid: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Security::PSID, DISKQUOTA_USERNAME_RESOLVE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Security"))]
+    FindUserSid: usize,
     pub FindUserName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateEnumUsers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::PSID, u32, DISKQUOTA_USERNAME_RESOLVE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_Security")]
+    pub CreateEnumUsers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Security::PSID, u32, DISKQUOTA_USERNAME_RESOLVE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Security"))]
+    CreateEnumUsers: usize,
     pub CreateUserBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InvalidateSidNameCache: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GiveUserNameResolutionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8235,7 +8237,20 @@ impl Default for FIO_CONTEXT {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIORING(pub isize);
+pub struct HIORING(pub *mut core::ffi::c_void);
+impl HIORING {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HIORING {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CloseIoRing(*self);
+        }
+    }
+}
 impl Default for HIORING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

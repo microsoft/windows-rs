@@ -28,9 +28,9 @@ pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
-pub type HANDLE = isize;
+pub type HANDLE = *mut core::ffi::c_void;
 pub type HEAP_FLAGS = u32;
-pub type HKEY = isize;
+pub type HKEY = *mut core::ffi::c_void;
 pub const HKEY_CLASSES_ROOT: HKEY = -2147483648i32 as _;
 pub const HKEY_CURRENT_CONFIG: HKEY = -2147483643i32 as _;
 pub const HKEY_CURRENT_USER: HKEY = -2147483647i32 as _;

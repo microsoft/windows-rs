@@ -5,12 +5,12 @@ like [ILSpy](https://github.com/icsharpcode/ILSpy).
 ## `Windows.Win32.winmd`
 
 - Source: <https://www.nuget.org/packages/Microsoft.Windows.SDK.Win32Metadata/>
-- Version: `58.0.18`
+- Version: `61.0.15`
 
 ## `Windows.Wdk.winmd`
 
 - Source: <https://www.nuget.org/packages/Microsoft.Windows.WDK.Win32Metadata/>
-- Version: `0.10.7`
+- Version: `0.12.8`
 
 ## `Windows.winmd`
 

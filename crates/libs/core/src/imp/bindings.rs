@@ -216,7 +216,7 @@ pub struct CLIPDATA {
     pub ulClipFmt: i32,
     pub pClipData: *mut u8,
 }
-pub type CO_MTA_USAGE_COOKIE = isize;
+pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CY {
@@ -339,9 +339,9 @@ impl GUID {
         }
     }
 }
-pub type HANDLE = isize;
+pub type HANDLE = *mut core::ffi::c_void;
 pub type HEAP_FLAGS = u32;
-pub type HMODULE = isize;
+pub type HMODULE = *mut core::ffi::c_void;
 pub type HRESULT = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]

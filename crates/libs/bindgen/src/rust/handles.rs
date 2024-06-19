@@ -11,17 +11,10 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
 pub fn gen_sys_handle(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let ident = to_ident(def.name());
-    match def.underlying_type() {
-        metadata::Type::ISize if writer.std => quote! {
-            pub type #ident = *mut core::ffi::c_void;
-        },
-        underlying_type => {
-            let signature = writer.type_default_name(&underlying_type);
+    let signature = writer.type_default_name(&def.underlying_type());
 
-            quote! {
-                pub type #ident = #signature;
-            }
-        }
+    quote! {
+        pub type #ident = #signature;
     }
 }
 
@@ -84,6 +77,7 @@ pub fn gen_win_handle(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
             quote! {
                 impl windows_core::Free for #ident {
+                    #[inline]
                     unsafe fn free(&mut self) {
                         if !self.is_invalid() {
                             #result #name(*self #tail);

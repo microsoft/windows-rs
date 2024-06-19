@@ -8,18 +8,10 @@ use windows::{
 fn test() -> Result<()> {
     unsafe {
         assert_eq!(InSendMessageEx(None), ISMEX_NOSEND);
-        assert!(CreateThreadpool(None).0 != 0);
+        assert!(CreateThreadpool(None).is_ok());
 
         assert_eq!(
-            TrackPopupMenu(
-                HMENU(0),
-                TPM_LEFTBUTTON,
-                1,
-                2,
-                0,
-                HWND(0),
-                Default::default(),
-            ),
+            TrackPopupMenu(None, TPM_LEFTBUTTON, 1, 2, 0, None, Default::default(),),
             FALSE
         );
 

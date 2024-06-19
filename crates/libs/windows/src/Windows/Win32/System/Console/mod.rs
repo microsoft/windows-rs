@@ -628,7 +628,7 @@ pub unsafe fn WriteConsoleA<P0>(hconsoleoutput: P0, lpbuffer: &[u8], lpnumberofc
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn WriteConsoleA(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn WriteConsoleA(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : windows_core::PCSTR, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WriteConsoleA(hconsoleoutput.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofcharswritten.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpreserved.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
@@ -688,11 +688,11 @@ where
     WriteConsoleOutputW(hconsoleoutput.param().abi(), lpbuffer, core::mem::transmute(dwbuffersize), core::mem::transmute(dwbuffercoord), lpwriteregion).ok()
 }
 #[inline]
-pub unsafe fn WriteConsoleW<P0>(hconsoleoutput: P0, lpbuffer: &[u8], lpnumberofcharswritten: Option<*mut u32>, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn WriteConsoleW<P0>(hconsoleoutput: P0, lpbuffer: &[u16], lpnumberofcharswritten: Option<*mut u32>, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn WriteConsoleW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *const core::ffi::c_void, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn WriteConsoleW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : windows_core::PCWSTR, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WriteConsoleW(hconsoleoutput.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofcharswritten.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpreserved.unwrap_or(std::ptr::null()))).ok()
 }
 pub const ALTNUMPAD_BIT: u32 = 67108864u32;
@@ -1164,6 +1164,7 @@ impl HPCON {
     }
 }
 impl windows_core::Free for HPCON {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             ClosePseudoConsole(*self);

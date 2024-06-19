@@ -44,9 +44,9 @@ impl GUID {
         }
     }
 }
-pub type HANDLE = isize;
+pub type HANDLE = *mut core::ffi::c_void;
 pub type HEAP_FLAGS = u32;
-pub type HMODULE = isize;
+pub type HMODULE = *mut core::ffi::c_void;
 pub type HRESULT = i32;
 pub const IID_IErrorInfo: GUID = GUID::from_u128(0x1cf2b120_547d_101b_8e65_08002b2bd119);
 #[repr(C)]

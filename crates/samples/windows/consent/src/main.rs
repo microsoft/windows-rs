@@ -7,7 +7,7 @@ fn main() -> Result<()> {
     unsafe {
         let interop = factory::<UserConsentVerifier, IUserConsentVerifierInterop>()?;
 
-        let window = HWND(0); // <== replace with your app's window handle
+        let window = HWND::default(); // <== replace with your app's window handle
 
         let operation: IAsyncOperation<UserConsentVerificationResult> =
             interop.RequestVerificationForWindowAsync(window, h!("Hello from Rust"))?;

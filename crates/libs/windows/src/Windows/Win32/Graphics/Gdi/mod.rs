@@ -8529,13 +8529,14 @@ impl Default for HANDLETABLE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HBITMAP(pub isize);
+pub struct HBITMAP(pub *mut core::ffi::c_void);
 impl HBITMAP {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HBITMAP {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);
@@ -8558,13 +8559,14 @@ impl From<HBITMAP> for HGDIOBJ {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HBRUSH(pub isize);
+pub struct HBRUSH(pub *mut core::ffi::c_void);
 impl HBRUSH {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HBRUSH {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);
@@ -8587,10 +8589,10 @@ impl From<HBRUSH> for HGDIOBJ {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDC(pub isize);
+pub struct HDC(pub *mut core::ffi::c_void);
 impl HDC {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HDC {
@@ -8603,13 +8605,14 @@ impl windows_core::TypeKind for HDC {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HENHMETAFILE(pub isize);
+pub struct HENHMETAFILE(pub *mut core::ffi::c_void);
 impl HENHMETAFILE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HENHMETAFILE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteEnhMetaFile(*self);
@@ -8626,13 +8629,14 @@ impl windows_core::TypeKind for HENHMETAFILE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HFONT(pub isize);
+pub struct HFONT(pub *mut core::ffi::c_void);
 impl HFONT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HFONT {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);
@@ -8655,10 +8659,18 @@ impl From<HFONT> for HGDIOBJ {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HGDIOBJ(pub isize);
+pub struct HGDIOBJ(pub *mut core::ffi::c_void);
 impl HGDIOBJ {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HGDIOBJ {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DeleteObject(*self);
+        }
     }
 }
 impl Default for HGDIOBJ {
@@ -8671,13 +8683,14 @@ impl windows_core::TypeKind for HGDIOBJ {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMETAFILE(pub isize);
+pub struct HMETAFILE(pub *mut core::ffi::c_void);
 impl HMETAFILE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HMETAFILE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteMetaFile(*self);
@@ -8694,10 +8707,10 @@ impl windows_core::TypeKind for HMETAFILE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HMONITOR(pub isize);
+pub struct HMONITOR(pub *mut core::ffi::c_void);
 impl HMONITOR {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HMONITOR {
@@ -8710,13 +8723,14 @@ impl windows_core::TypeKind for HMONITOR {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HPALETTE(pub isize);
+pub struct HPALETTE(pub *mut core::ffi::c_void);
 impl HPALETTE {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HPALETTE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);
@@ -8739,13 +8753,14 @@ impl From<HPALETTE> for HGDIOBJ {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HPEN(pub isize);
+pub struct HPEN(pub *mut core::ffi::c_void);
 impl HPEN {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HPEN {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);
@@ -8768,13 +8783,14 @@ impl From<HPEN> for HGDIOBJ {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HRGN(pub isize);
+pub struct HRGN(pub *mut core::ffi::c_void);
 impl HRGN {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl windows_core::Free for HRGN {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);

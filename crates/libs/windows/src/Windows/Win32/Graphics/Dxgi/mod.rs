@@ -19,11 +19,11 @@ where
     CreateDXGIFactory1(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
-pub unsafe fn CreateDXGIFactory2<T>(flags: u32) -> windows_core::Result<T>
+pub unsafe fn CreateDXGIFactory2<T>(flags: DXGI_CREATE_FACTORY_FLAGS) -> windows_core::Result<T>
 where
     T: windows_core::Interface,
 {
-    windows_targets::link!("dxgi.dll" "system" fn CreateDXGIFactory2(flags : u32, riid : *const windows_core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_targets::link!("dxgi.dll" "system" fn CreateDXGIFactory2(flags : DXGI_CREATE_FACTORY_FLAGS, riid : *const windows_core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
     CreateDXGIFactory2(flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -59,8 +59,9 @@ impl IDXGIAdapter {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumOutputs)(windows_core::Interface::as_raw(self), output, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_ADAPTER_DESC) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc).ok()
+    pub unsafe fn GetDesc(&self) -> windows_core::Result<DXGI_ADAPTER_DESC> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const windows_core::GUID) -> windows_core::Result<i64> {
         let mut result__ = core::mem::zeroed();
@@ -85,8 +86,9 @@ impl core::ops::Deref for IDXGIAdapter1 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter1, windows_core::IUnknown, IDXGIObject, IDXGIAdapter);
 impl IDXGIAdapter1 {
-    pub unsafe fn GetDesc1(&self, pdesc: *mut DXGI_ADAPTER_DESC1) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), pdesc).ok()
+    pub unsafe fn GetDesc1(&self) -> windows_core::Result<DXGI_ADAPTER_DESC1> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 unsafe impl Send for IDXGIAdapter1 {}
@@ -105,8 +107,9 @@ impl core::ops::Deref for IDXGIAdapter2 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter2, windows_core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1);
 impl IDXGIAdapter2 {
-    pub unsafe fn GetDesc2(&self, pdesc: *mut DXGI_ADAPTER_DESC2) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDesc2)(windows_core::Interface::as_raw(self), pdesc).ok()
+    pub unsafe fn GetDesc2(&self) -> windows_core::Result<DXGI_ADAPTER_DESC2> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDesc2)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 unsafe impl Send for IDXGIAdapter2 {}
@@ -173,8 +176,9 @@ impl core::ops::Deref for IDXGIAdapter4 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter4, windows_core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2, IDXGIAdapter3);
 impl IDXGIAdapter4 {
-    pub unsafe fn GetDesc3(&self, pdesc: *mut DXGI_ADAPTER_DESC3) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDesc3)(windows_core::Interface::as_raw(self), pdesc).ok()
+    pub unsafe fn GetDesc3(&self) -> windows_core::Result<DXGI_ADAPTER_DESC3> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDesc3)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 unsafe impl Send for IDXGIAdapter4 {}
@@ -241,7 +245,7 @@ impl core::ops::Deref for IDXGIDecodeSwapChain {
 }
 windows_core::imp::interface_hierarchy!(IDXGIDecodeSwapChain, windows_core::IUnknown);
 impl IDXGIDecodeSwapChain {
-    pub unsafe fn PresentBuffer(&self, buffertopresent: u32, syncinterval: u32, flags: u32) -> windows_core::HRESULT {
+    pub unsafe fn PresentBuffer(&self, buffertopresent: u32, syncinterval: u32, flags: DXGI_PRESENT) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).PresentBuffer)(windows_core::Interface::as_raw(self), buffertopresent, syncinterval, flags)
     }
     pub unsafe fn SetSourceRect(&self, prect: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
@@ -276,7 +280,7 @@ unsafe impl Sync for IDXGIDecodeSwapChain {}
 #[repr(C)]
 pub struct IDXGIDecodeSwapChain_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub PresentBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
+    pub PresentBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, DXGI_PRESENT) -> windows_core::HRESULT,
     pub SetSourceRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub SetTargetRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub SetDestSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -413,8 +417,8 @@ impl core::ops::Deref for IDXGIDevice4 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIDevice4, windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2, IDXGIDevice3);
 impl IDXGIDevice4 {
-    pub unsafe fn OfferResources1(&self, ppresources: &[Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OfferResources1)(windows_core::Interface::as_raw(self), ppresources.len().try_into().unwrap(), core::mem::transmute(ppresources.as_ptr()), priority, flags).ok()
+    pub unsafe fn OfferResources1(&self, ppresources: &[Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: DXGI_OFFER_RESOURCE_FLAGS) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).OfferResources1)(windows_core::Interface::as_raw(self), ppresources.len().try_into().unwrap(), core::mem::transmute(ppresources.as_ptr()), priority, flags.0 as _).ok()
     }
     pub unsafe fn ReclaimResources1(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReclaimResources1)(windows_core::Interface::as_raw(self), numresources, core::mem::transmute(ppresources), presults).ok()
@@ -492,7 +496,7 @@ impl IDXGIFactory {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumAdapters)(windows_core::Interface::as_raw(self), adapter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn MakeWindowAssociation<P0>(&self, windowhandle: P0, flags: u32) -> windows_core::Result<()>
+    pub unsafe fn MakeWindowAssociation<P0>(&self, windowhandle: P0, flags: DXGI_MWA_FLAGS) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
     {
@@ -523,7 +527,7 @@ unsafe impl Sync for IDXGIFactory {}
 pub struct IDXGIFactory_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub EnumAdapters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MakeWindowAssociation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
+    pub MakeWindowAssociation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, DXGI_MWA_FLAGS) -> windows_core::HRESULT,
     pub GetWindowAssociation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HWND) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub CreateSwapChain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DXGI_SWAP_CHAIN_DESC, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -674,7 +678,7 @@ impl core::ops::Deref for IDXGIFactory3 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory3, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2);
 impl IDXGIFactory3 {
-    pub unsafe fn GetCreationFlags(&self) -> u32 {
+    pub unsafe fn GetCreationFlags(&self) -> DXGI_CREATE_FACTORY_FLAGS {
         (windows_core::Interface::vtable(self).GetCreationFlags)(windows_core::Interface::as_raw(self))
     }
 }
@@ -683,7 +687,7 @@ unsafe impl Sync for IDXGIFactory3 {}
 #[repr(C)]
 pub struct IDXGIFactory3_Vtbl {
     pub base__: IDXGIFactory2_Vtbl,
-    pub GetCreationFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub GetCreationFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> DXGI_CREATE_FACTORY_FLAGS,
 }
 windows_core::imp::define_interface!(IDXGIFactory4, IDXGIFactory4_Vtbl, 0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
 impl core::ops::Deref for IDXGIFactory4 {
@@ -1085,11 +1089,12 @@ impl core::ops::Deref for IDXGIOutput {
 windows_core::imp::interface_hierarchy!(IDXGIOutput, windows_core::IUnknown, IDXGIObject);
 impl IDXGIOutput {
     #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_OUTPUT_DESC) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc).ok()
+    pub unsafe fn GetDesc(&self) -> windows_core::Result<DXGI_OUTPUT_DESC> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: Option<*mut Common::DXGI_MODE_DESC>) -> windows_core::Result<()> {
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: Option<*mut Common::DXGI_MODE_DESC>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDisplayModeList)(windows_core::Interface::as_raw(self), enumformat, flags, pnummodes, core::mem::transmute(pdesc.unwrap_or(std::ptr::null_mut()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1150,7 +1155,7 @@ pub struct IDXGIOutput_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi")))]
     GetDesc: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDisplayModeList: unsafe extern "system" fn(*mut core::ffi::c_void, Common::DXGI_FORMAT, u32, *mut u32, *mut Common::DXGI_MODE_DESC) -> windows_core::HRESULT,
+    pub GetDisplayModeList: unsafe extern "system" fn(*mut core::ffi::c_void, Common::DXGI_FORMAT, DXGI_ENUM_MODES, *mut u32, *mut Common::DXGI_MODE_DESC) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDisplayModeList: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1186,7 +1191,7 @@ impl core::ops::Deref for IDXGIOutput1 {
 windows_core::imp::interface_hierarchy!(IDXGIOutput1, windows_core::IUnknown, IDXGIObject, IDXGIOutput);
 impl IDXGIOutput1 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: Option<*mut DXGI_MODE_DESC1>) -> windows_core::Result<()> {
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: Option<*mut DXGI_MODE_DESC1>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDisplayModeList1)(windows_core::Interface::as_raw(self), enumformat, flags, pnummodes, core::mem::transmute(pdesc.unwrap_or(std::ptr::null_mut()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1216,7 +1221,7 @@ unsafe impl Sync for IDXGIOutput1 {}
 pub struct IDXGIOutput1_Vtbl {
     pub base__: IDXGIOutput_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDisplayModeList1: unsafe extern "system" fn(*mut core::ffi::c_void, Common::DXGI_FORMAT, u32, *mut u32, *mut DXGI_MODE_DESC1) -> windows_core::HRESULT,
+    pub GetDisplayModeList1: unsafe extern "system" fn(*mut core::ffi::c_void, Common::DXGI_FORMAT, DXGI_ENUM_MODES, *mut u32, *mut DXGI_MODE_DESC1) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDisplayModeList1: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1340,8 +1345,9 @@ impl core::ops::Deref for IDXGIOutput6 {
 windows_core::imp::interface_hierarchy!(IDXGIOutput6, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4, IDXGIOutput5);
 impl IDXGIOutput6 {
     #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetDesc1(&self, pdesc: *mut DXGI_OUTPUT_DESC1) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), pdesc).ok()
+    pub unsafe fn GetDesc1(&self) -> windows_core::Result<DXGI_OUTPUT_DESC1> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CheckHardwareCompositionSupport(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -1369,8 +1375,10 @@ impl core::ops::Deref for IDXGIOutputDuplication {
 windows_core::imp::interface_hierarchy!(IDXGIOutputDuplication, windows_core::IUnknown, IDXGIObject);
 impl IDXGIOutputDuplication {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_OUTDUPL_DESC) {
-        (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc)
+    pub unsafe fn GetDesc(&self) -> DXGI_OUTDUPL_DESC {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
+        result__
     }
     pub unsafe fn AcquireNextFrame(&self, timeoutinmilliseconds: u32, pframeinfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppdesktopresource: *mut Option<IDXGIResource>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AcquireNextFrame)(windows_core::Interface::as_raw(self), timeoutinmilliseconds, pframeinfo, core::mem::transmute(ppdesktopresource)).ok()
@@ -1429,10 +1437,10 @@ impl IDXGIResource {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUsage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetEvictionPriority)(windows_core::Interface::as_raw(self), evictionpriority).ok()
     }
-    pub unsafe fn GetEvictionPriority(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetEvictionPriority(&self) -> windows_core::Result<DXGI_RESOURCE_PRIORITY> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEvictionPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
@@ -1444,8 +1452,8 @@ pub struct IDXGIResource_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
     pub GetSharedHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
     pub GetUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_USAGE) -> windows_core::HRESULT,
-    pub SetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_RESOURCE_PRIORITY) -> windows_core::HRESULT,
+    pub GetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_RESOURCE_PRIORITY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGIResource1, IDXGIResource1_Vtbl, 0x30961379_4609_4a41_998e_54fe567ee0c1);
 impl core::ops::Deref for IDXGIResource1 {
@@ -1490,10 +1498,11 @@ impl core::ops::Deref for IDXGISurface {
 windows_core::imp::interface_hierarchy!(IDXGISurface, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl IDXGISurface {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_SURFACE_DESC) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc).ok()
+    pub unsafe fn GetDesc(&self) -> windows_core::Result<DXGI_SURFACE_DESC> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: DXGI_MAP_FLAGS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Map)(windows_core::Interface::as_raw(self), plockedrect, mapflags).ok()
     }
     pub unsafe fn Unmap(&self) -> windows_core::Result<()> {
@@ -1509,7 +1518,7 @@ pub struct IDXGISurface_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_SURFACE_DESC) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
-    pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_MAPPED_RECT, u32) -> windows_core::HRESULT,
+    pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_MAPPED_RECT, DXGI_MAP_FLAGS) -> windows_core::HRESULT,
     pub Unmap: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDXGISurface1, IDXGISurface1_Vtbl, 0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
@@ -1577,7 +1586,7 @@ impl core::ops::Deref for IDXGISwapChain {
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl IDXGISwapChain {
-    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> windows_core::HRESULT {
+    pub unsafe fn Present(&self, syncinterval: u32, flags: DXGI_PRESENT) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), syncinterval, flags)
     }
     pub unsafe fn GetBuffer<T>(&self, buffer: u32) -> windows_core::Result<T>
@@ -1598,12 +1607,13 @@ impl IDXGISwapChain {
         (windows_core::Interface::vtable(self).GetFullscreenState)(windows_core::Interface::as_raw(self), core::mem::transmute(pfullscreen.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pptarget.unwrap_or(std::ptr::null_mut()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc).ok()
+    pub unsafe fn GetDesc(&self) -> windows_core::Result<DXGI_SWAP_CHAIN_DESC> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ResizeBuffers)(windows_core::Interface::as_raw(self), buffercount, width, height, newformat, swapchainflags).ok()
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: DXGI_SWAP_CHAIN_FLAG) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ResizeBuffers)(windows_core::Interface::as_raw(self), buffercount, width, height, newformat, swapchainflags.0 as _).ok()
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> windows_core::Result<()> {
@@ -1626,7 +1636,7 @@ unsafe impl Sync for IDXGISwapChain {}
 #[repr(C)]
 pub struct IDXGISwapChain_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
-    pub Present: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
+    pub Present: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DXGI_PRESENT) -> windows_core::HRESULT,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFullscreenState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFullscreenState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1656,12 +1666,14 @@ impl core::ops::Deref for IDXGISwapChain1 {
 windows_core::imp::interface_hierarchy!(IDXGISwapChain1, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain);
 impl IDXGISwapChain1 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc1(&self, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), pdesc).ok()
+    pub unsafe fn GetDesc1(&self) -> windows_core::Result<DXGI_SWAP_CHAIN_DESC1> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetFullscreenDesc(&self, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetFullscreenDesc)(windows_core::Interface::as_raw(self), pdesc).ok()
+    pub unsafe fn GetFullscreenDesc(&self) -> windows_core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetFullscreenDesc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = core::mem::zeroed();
@@ -1674,7 +1686,7 @@ impl IDXGISwapChain1 {
         let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetCoreWindow)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT {
+    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: DXGI_PRESENT, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).Present1)(windows_core::Interface::as_raw(self), syncinterval, presentflags, ppresentparameters)
     }
     pub unsafe fn IsTemporaryMonoSupported(&self) -> super::super::Foundation::BOOL {
@@ -1716,7 +1728,7 @@ pub struct IDXGISwapChain1_Vtbl {
     GetFullscreenDesc: usize,
     pub GetHwnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub GetCoreWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Present1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT,
+    pub Present1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DXGI_PRESENT, *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT,
     pub IsTemporaryMonoSupported: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::BOOL,
     pub GetRestrictToOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *const DXGI_RGBA) -> windows_core::HRESULT,
@@ -1797,8 +1809,8 @@ impl IDXGISwapChain3 {
         (windows_core::Interface::vtable(self).SetColorSpace1)(windows_core::Interface::as_raw(self), colorspace).ok()
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const Option<windows_core::IUnknown>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ResizeBuffers1)(windows_core::Interface::as_raw(self), buffercount, width, height, format, swapchainflags, pcreationnodemask, core::mem::transmute(pppresentqueue)).ok()
+    pub unsafe fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: DXGI_SWAP_CHAIN_FLAG, pcreationnodemask: *const u32, pppresentqueue: *const Option<windows_core::IUnknown>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ResizeBuffers1)(windows_core::Interface::as_raw(self), buffercount, width, height, format, swapchainflags.0 as _, pcreationnodemask, core::mem::transmute(pppresentqueue)).ok()
     }
 }
 unsafe impl Send for IDXGISwapChain3 {}
@@ -1905,7 +1917,7 @@ pub const DXGI_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY: DXGI_COMPUTE_PREEMPTION_G
 pub const DXGI_COMPUTE_PREEMPTION_INSTRUCTION_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = DXGI_COMPUTE_PREEMPTION_GRANULARITY(4i32);
 pub const DXGI_COMPUTE_PREEMPTION_THREAD_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = DXGI_COMPUTE_PREEMPTION_GRANULARITY(3i32);
 pub const DXGI_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = DXGI_COMPUTE_PREEMPTION_GRANULARITY(2i32);
-pub const DXGI_CREATE_FACTORY_DEBUG: u32 = 1u32;
+pub const DXGI_CREATE_FACTORY_DEBUG: DXGI_CREATE_FACTORY_FLAGS = DXGI_CREATE_FACTORY_FLAGS(1u32);
 pub const DXGI_DEBUG_ALL: windows_core::GUID = windows_core::GUID::from_u128(0xe48ae283_da80_490b_87e6_43e9a9cfda08);
 pub const DXGI_DEBUG_APP: windows_core::GUID = windows_core::GUID::from_u128(0x06cd6e01_4219_4ebd_8709_27ed23360c62);
 pub const DXGI_DEBUG_BINARY_VERSION: u32 = 1u32;
@@ -1915,10 +1927,10 @@ pub const DXGI_DEBUG_RLO_ALL: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(7i32);
 pub const DXGI_DEBUG_RLO_DETAIL: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(2i32);
 pub const DXGI_DEBUG_RLO_IGNORE_INTERNAL: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(4i32);
 pub const DXGI_DEBUG_RLO_SUMMARY: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(1i32);
-pub const DXGI_ENUM_MODES_DISABLED_STEREO: u32 = 8u32;
-pub const DXGI_ENUM_MODES_INTERLACED: u32 = 1u32;
-pub const DXGI_ENUM_MODES_SCALING: u32 = 2u32;
-pub const DXGI_ENUM_MODES_STEREO: u32 = 4u32;
+pub const DXGI_ENUM_MODES_DISABLED_STEREO: DXGI_ENUM_MODES = DXGI_ENUM_MODES(8u32);
+pub const DXGI_ENUM_MODES_INTERLACED: DXGI_ENUM_MODES = DXGI_ENUM_MODES(1u32);
+pub const DXGI_ENUM_MODES_SCALING: DXGI_ENUM_MODES = DXGI_ENUM_MODES(2u32);
+pub const DXGI_ENUM_MODES_STEREO: DXGI_ENUM_MODES = DXGI_ENUM_MODES(4u32);
 pub const DXGI_ERROR_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x887A002B_u32 as _);
 pub const DXGI_ERROR_ACCESS_LOST: windows_core::HRESULT = windows_core::HRESULT(0x887A0026_u32 as _);
 pub const DXGI_ERROR_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0x887A0036_u32 as _);
@@ -1989,9 +2001,9 @@ pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_ERROR: DXGI_INFO_QUEUE_MESSAGE_SEVERI
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_INFO: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = DXGI_INFO_QUEUE_MESSAGE_SEVERITY(3i32);
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_MESSAGE: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = DXGI_INFO_QUEUE_MESSAGE_SEVERITY(4i32);
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_WARNING: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = DXGI_INFO_QUEUE_MESSAGE_SEVERITY(2i32);
-pub const DXGI_MAP_DISCARD: u32 = 4u32;
-pub const DXGI_MAP_READ: u32 = 1u32;
-pub const DXGI_MAP_WRITE: u32 = 2u32;
+pub const DXGI_MAP_DISCARD: DXGI_MAP_FLAGS = DXGI_MAP_FLAGS(4u32);
+pub const DXGI_MAP_READ: DXGI_MAP_FLAGS = DXGI_MAP_FLAGS(1u32);
+pub const DXGI_MAP_WRITE: DXGI_MAP_FLAGS = DXGI_MAP_FLAGS(2u32);
 pub const DXGI_MAX_SWAP_CHAIN_BUFFERS: u32 = 16u32;
 pub const DXGI_MEMORY_SEGMENT_GROUP_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = DXGI_MEMORY_SEGMENT_GROUP(0i32);
 pub const DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = DXGI_MEMORY_SEGMENT_GROUP(1i32);
@@ -2329,10 +2341,10 @@ pub const DXGI_MSG_Phone_IDXGISwapChain_SetFullscreenState_NotAvailable: DXGI_Me
 pub const DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_BT709: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS = DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(2i32);
 pub const DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS = DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(1i32);
 pub const DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_xvYCC: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS = DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(4i32);
-pub const DXGI_MWA_NO_ALT_ENTER: u32 = 2u32;
-pub const DXGI_MWA_NO_PRINT_SCREEN: u32 = 4u32;
-pub const DXGI_MWA_NO_WINDOW_CHANGES: u32 = 1u32;
-pub const DXGI_MWA_VALID: u32 = 7u32;
+pub const DXGI_MWA_NO_ALT_ENTER: DXGI_MWA_FLAGS = DXGI_MWA_FLAGS(2u32);
+pub const DXGI_MWA_NO_PRINT_SCREEN: DXGI_MWA_FLAGS = DXGI_MWA_FLAGS(4u32);
+pub const DXGI_MWA_NO_WINDOW_CHANGES: DXGI_MWA_FLAGS = DXGI_MWA_FLAGS(1u32);
+pub const DXGI_MWA_VALID: DXGI_MWA_FLAGS = DXGI_MWA_FLAGS(7u32);
 pub const DXGI_OFFER_RESOURCE_FLAG_ALLOW_DECOMMIT: DXGI_OFFER_RESOURCE_FLAGS = DXGI_OFFER_RESOURCE_FLAGS(1i32);
 pub const DXGI_OFFER_RESOURCE_PRIORITY_HIGH: DXGI_OFFER_RESOURCE_PRIORITY = DXGI_OFFER_RESOURCE_PRIORITY(3i32);
 pub const DXGI_OFFER_RESOURCE_PRIORITY_LOW: DXGI_OFFER_RESOURCE_PRIORITY = DXGI_OFFER_RESOURCE_PRIORITY(1i32);
@@ -2344,31 +2356,31 @@ pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: DXGI_OUTDUPL_POINTER_SHAPE
 pub const DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG = DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG(1i32);
 pub const DXGI_OVERLAY_SUPPORT_FLAG_DIRECT: DXGI_OVERLAY_SUPPORT_FLAG = DXGI_OVERLAY_SUPPORT_FLAG(1i32);
 pub const DXGI_OVERLAY_SUPPORT_FLAG_SCALING: DXGI_OVERLAY_SUPPORT_FLAG = DXGI_OVERLAY_SUPPORT_FLAG(2i32);
-pub const DXGI_PRESENT_ALLOW_TEARING: u32 = 512u32;
-pub const DXGI_PRESENT_DO_NOT_SEQUENCE: u32 = 2u32;
-pub const DXGI_PRESENT_DO_NOT_WAIT: u32 = 8u32;
-pub const DXGI_PRESENT_RESTART: u32 = 4u32;
-pub const DXGI_PRESENT_RESTRICT_TO_OUTPUT: u32 = 64u32;
-pub const DXGI_PRESENT_STEREO_PREFER_RIGHT: u32 = 16u32;
-pub const DXGI_PRESENT_STEREO_TEMPORARY_MONO: u32 = 32u32;
-pub const DXGI_PRESENT_TEST: u32 = 1u32;
-pub const DXGI_PRESENT_USE_DURATION: u32 = 256u32;
+pub const DXGI_PRESENT_ALLOW_TEARING: DXGI_PRESENT = DXGI_PRESENT(512u32);
+pub const DXGI_PRESENT_DO_NOT_SEQUENCE: DXGI_PRESENT = DXGI_PRESENT(2u32);
+pub const DXGI_PRESENT_DO_NOT_WAIT: DXGI_PRESENT = DXGI_PRESENT(8u32);
+pub const DXGI_PRESENT_RESTART: DXGI_PRESENT = DXGI_PRESENT(4u32);
+pub const DXGI_PRESENT_RESTRICT_TO_OUTPUT: DXGI_PRESENT = DXGI_PRESENT(64u32);
+pub const DXGI_PRESENT_STEREO_PREFER_RIGHT: DXGI_PRESENT = DXGI_PRESENT(16u32);
+pub const DXGI_PRESENT_STEREO_TEMPORARY_MONO: DXGI_PRESENT = DXGI_PRESENT(32u32);
+pub const DXGI_PRESENT_TEST: DXGI_PRESENT = DXGI_PRESENT(1u32);
+pub const DXGI_PRESENT_USE_DURATION: DXGI_PRESENT = DXGI_PRESENT(256u32);
 pub const DXGI_RECLAIM_RESOURCE_RESULT_DISCARDED: DXGI_RECLAIM_RESOURCE_RESULTS = DXGI_RECLAIM_RESOURCE_RESULTS(1i32);
 pub const DXGI_RECLAIM_RESOURCE_RESULT_NOT_COMMITTED: DXGI_RECLAIM_RESOURCE_RESULTS = DXGI_RECLAIM_RESOURCE_RESULTS(2i32);
 pub const DXGI_RECLAIM_RESOURCE_RESULT_OK: DXGI_RECLAIM_RESOURCE_RESULTS = DXGI_RECLAIM_RESOURCE_RESULTS(0i32);
 pub const DXGI_RESIDENCY_EVICTED_TO_DISK: DXGI_RESIDENCY = DXGI_RESIDENCY(3i32);
 pub const DXGI_RESIDENCY_FULLY_RESIDENT: DXGI_RESIDENCY = DXGI_RESIDENCY(1i32);
 pub const DXGI_RESIDENCY_RESIDENT_IN_SHARED_MEMORY: DXGI_RESIDENCY = DXGI_RESIDENCY(2i32);
-pub const DXGI_RESOURCE_PRIORITY_HIGH: u32 = 2684354560u32;
-pub const DXGI_RESOURCE_PRIORITY_LOW: u32 = 1342177280u32;
-pub const DXGI_RESOURCE_PRIORITY_MAXIMUM: u32 = 3355443200u32;
-pub const DXGI_RESOURCE_PRIORITY_MINIMUM: u32 = 671088640u32;
-pub const DXGI_RESOURCE_PRIORITY_NORMAL: u32 = 2013265920u32;
+pub const DXGI_RESOURCE_PRIORITY_HIGH: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(2684354560u32);
+pub const DXGI_RESOURCE_PRIORITY_LOW: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(1342177280u32);
+pub const DXGI_RESOURCE_PRIORITY_MAXIMUM: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(3355443200u32);
+pub const DXGI_RESOURCE_PRIORITY_MINIMUM: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(671088640u32);
+pub const DXGI_RESOURCE_PRIORITY_NORMAL: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(2013265920u32);
 pub const DXGI_SCALING_ASPECT_RATIO_STRETCH: DXGI_SCALING = DXGI_SCALING(2i32);
 pub const DXGI_SCALING_NONE: DXGI_SCALING = DXGI_SCALING(1i32);
 pub const DXGI_SCALING_STRETCH: DXGI_SCALING = DXGI_SCALING(0i32);
-pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648u32;
-pub const DXGI_SHARED_RESOURCE_WRITE: u32 = 1u32;
+pub const DXGI_SHARED_RESOURCE_READ: DXGI_SHARED_RESOURCE_RW = DXGI_SHARED_RESOURCE_RW(2147483648u32);
+pub const DXGI_SHARED_RESOURCE_WRITE: DXGI_SHARED_RESOURCE_RW = DXGI_SHARED_RESOURCE_RW(1u32);
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_OVERLAY_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(2i32);
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(1i32);
 pub const DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH: DXGI_SWAP_CHAIN_FLAG = DXGI_SWAP_CHAIN_FLAG(2i32);
@@ -2496,6 +2508,50 @@ impl core::fmt::Debug for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct DXGI_CREATE_FACTORY_FLAGS(pub u32);
+impl windows_core::TypeKind for DXGI_CREATE_FACTORY_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DXGI_CREATE_FACTORY_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGI_CREATE_FACTORY_FLAGS").field(&self.0).finish()
+    }
+}
+impl DXGI_CREATE_FACTORY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_CREATE_FACTORY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_CREATE_FACTORY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_CREATE_FACTORY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_CREATE_FACTORY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_CREATE_FACTORY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGI_DEBUG_RLO_FLAGS(pub i32);
 impl windows_core::TypeKind for DXGI_DEBUG_RLO_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -2533,6 +2589,50 @@ impl core::ops::BitAndAssign for DXGI_DEBUG_RLO_FLAGS {
     }
 }
 impl core::ops::Not for DXGI_DEBUG_RLO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct DXGI_ENUM_MODES(pub u32);
+impl windows_core::TypeKind for DXGI_ENUM_MODES {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DXGI_ENUM_MODES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGI_ENUM_MODES").field(&self.0).finish()
+    }
+}
+impl DXGI_ENUM_MODES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_ENUM_MODES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_ENUM_MODES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_ENUM_MODES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_ENUM_MODES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_ENUM_MODES {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -2661,6 +2761,50 @@ impl core::fmt::Debug for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct DXGI_MAP_FLAGS(pub u32);
+impl windows_core::TypeKind for DXGI_MAP_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DXGI_MAP_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGI_MAP_FLAGS").field(&self.0).finish()
+    }
+}
+impl DXGI_MAP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_MAP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_MAP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_MAP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_MAP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_MAP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGI_MEMORY_SEGMENT_GROUP(pub i32);
 impl windows_core::TypeKind for DXGI_MEMORY_SEGMENT_GROUP {
     type TypeKind = windows_core::CopyType;
@@ -2679,6 +2823,83 @@ impl windows_core::TypeKind for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
 impl core::fmt::Debug for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS").field(&self.0).finish()
+    }
+}
+impl DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct DXGI_MWA_FLAGS(pub u32);
+impl windows_core::TypeKind for DXGI_MWA_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DXGI_MWA_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGI_MWA_FLAGS").field(&self.0).finish()
+    }
+}
+impl DXGI_MWA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_MWA_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_MWA_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_MWA_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_MWA_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_MWA_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -2703,6 +2924,39 @@ impl core::fmt::Debug for DXGI_OFFER_RESOURCE_FLAGS {
         f.debug_tuple("DXGI_OFFER_RESOURCE_FLAGS").field(&self.0).finish()
     }
 }
+impl DXGI_OFFER_RESOURCE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_OFFER_RESOURCE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_OFFER_RESOURCE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_OFFER_RESOURCE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_OFFER_RESOURCE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_OFFER_RESOURCE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGI_OFFER_RESOURCE_PRIORITY(pub i32);
@@ -2723,6 +2977,39 @@ impl windows_core::TypeKind for DXGI_OUTDUPL_FLAG {
 impl core::fmt::Debug for DXGI_OUTDUPL_FLAG {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("DXGI_OUTDUPL_FLAG").field(&self.0).finish()
+    }
+}
+impl DXGI_OUTDUPL_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_OUTDUPL_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_OUTDUPL_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_OUTDUPL_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_OUTDUPL_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_OUTDUPL_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -2747,6 +3034,39 @@ impl core::fmt::Debug for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
         f.debug_tuple("DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG").field(&self.0).finish()
     }
 }
+impl DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGI_OVERLAY_SUPPORT_FLAG(pub i32);
@@ -2756,6 +3076,83 @@ impl windows_core::TypeKind for DXGI_OVERLAY_SUPPORT_FLAG {
 impl core::fmt::Debug for DXGI_OVERLAY_SUPPORT_FLAG {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("DXGI_OVERLAY_SUPPORT_FLAG").field(&self.0).finish()
+    }
+}
+impl DXGI_OVERLAY_SUPPORT_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_OVERLAY_SUPPORT_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_OVERLAY_SUPPORT_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_OVERLAY_SUPPORT_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_OVERLAY_SUPPORT_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_OVERLAY_SUPPORT_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct DXGI_PRESENT(pub u32);
+impl windows_core::TypeKind for DXGI_PRESENT {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DXGI_PRESENT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGI_PRESENT").field(&self.0).finish()
+    }
+}
+impl DXGI_PRESENT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_PRESENT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_PRESENT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_PRESENT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_PRESENT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_PRESENT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -2782,6 +3179,17 @@ impl core::fmt::Debug for DXGI_RESIDENCY {
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct DXGI_RESOURCE_PRIORITY(pub u32);
+impl windows_core::TypeKind for DXGI_RESOURCE_PRIORITY {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DXGI_RESOURCE_PRIORITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGI_RESOURCE_PRIORITY").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGI_SCALING(pub i32);
 impl windows_core::TypeKind for DXGI_SCALING {
     type TypeKind = windows_core::CopyType;
@@ -2789,6 +3197,50 @@ impl windows_core::TypeKind for DXGI_SCALING {
 impl core::fmt::Debug for DXGI_SCALING {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("DXGI_SCALING").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct DXGI_SHARED_RESOURCE_RW(pub u32);
+impl windows_core::TypeKind for DXGI_SHARED_RESOURCE_RW {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DXGI_SHARED_RESOURCE_RW {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGI_SHARED_RESOURCE_RW").field(&self.0).finish()
+    }
+}
+impl DXGI_SHARED_RESOURCE_RW {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_SHARED_RESOURCE_RW {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_SHARED_RESOURCE_RW {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_SHARED_RESOURCE_RW {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_SHARED_RESOURCE_RW {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_SHARED_RESOURCE_RW {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -2802,6 +3254,39 @@ impl core::fmt::Debug for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
         f.debug_tuple("DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG").field(&self.0).finish()
     }
 }
+impl DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGI_SWAP_CHAIN_FLAG(pub i32);
@@ -2811,6 +3296,39 @@ impl windows_core::TypeKind for DXGI_SWAP_CHAIN_FLAG {
 impl core::fmt::Debug for DXGI_SWAP_CHAIN_FLAG {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("DXGI_SWAP_CHAIN_FLAG").field(&self.0).finish()
+    }
+}
+impl DXGI_SWAP_CHAIN_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DXGI_SWAP_CHAIN_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DXGI_SWAP_CHAIN_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DXGI_SWAP_CHAIN_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DXGI_SWAP_CHAIN_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DXGI_SWAP_CHAIN_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]

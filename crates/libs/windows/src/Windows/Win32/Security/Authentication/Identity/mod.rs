@@ -71,9 +71,9 @@ pub unsafe fn ApplyControlToken(phcontext: *const super::super::Credentials::Sec
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyBySid<P0>(psid: P0, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: windows_core::Param<super::super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::PSID>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::super::super::Foundation:: PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::super:: PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation:: BOOLEAN);
     AuditComputeEffectivePolicyBySid(psid.param().abi(), core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy)
 }
 #[inline]
@@ -156,9 +156,9 @@ where
 #[inline]
 pub unsafe fn AuditQueryPerUserPolicy<P0>(psid: P0, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: windows_core::Param<super::super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::PSID>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::super::super::Foundation:: PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::super:: PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation:: BOOLEAN);
     AuditQueryPerUserPolicy(psid.param().abi(), core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy)
 }
 #[inline]
@@ -190,9 +190,9 @@ where
 #[inline]
 pub unsafe fn AuditSetPerUserPolicy<P0>(psid: P0, pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: windows_core::Param<super::super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::PSID>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn AuditSetPerUserPolicy(psid : super::super::super::Foundation:: PSID, pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> super::super::super::Foundation:: BOOLEAN);
+    windows_targets::link!("advapi32.dll" "system" fn AuditSetPerUserPolicy(psid : super::super:: PSID, pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> super::super::super::Foundation:: BOOLEAN);
     AuditSetPerUserPolicy(psid.param().abi(), core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len().try_into().unwrap())
 }
 #[inline]
@@ -403,9 +403,9 @@ pub unsafe fn InitializeSecurityContextW(phcredential: Option<*const super::supe
 pub unsafe fn LsaAddAccountRights<P0, P1>(policyhandle: P0, accountsid: P1, userrights: &[LSA_UNICODE_STRING]) -> super::super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<LSA_HANDLE>,
-    P1: windows_core::Param<super::super::super::Foundation::PSID>,
+    P1: windows_core::Param<super::super::PSID>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn LsaAddAccountRights(policyhandle : LSA_HANDLE, accountsid : super::super::super::Foundation:: PSID, userrights : *const LSA_UNICODE_STRING, countofrights : u32) -> super::super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("advapi32.dll" "system" fn LsaAddAccountRights(policyhandle : LSA_HANDLE, accountsid : super::super:: PSID, userrights : *const LSA_UNICODE_STRING, countofrights : u32) -> super::super::super::Foundation:: NTSTATUS);
     LsaAddAccountRights(policyhandle.param().abi(), accountsid.param().abi(), core::mem::transmute(userrights.as_ptr()), userrights.len().try_into().unwrap())
 }
 #[inline]
@@ -441,9 +441,9 @@ where
 pub unsafe fn LsaDeleteTrustedDomain<P0, P1>(policyhandle: P0, trusteddomainsid: P1) -> super::super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<LSA_HANDLE>,
-    P1: windows_core::Param<super::super::super::Foundation::PSID>,
+    P1: windows_core::Param<super::super::PSID>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn LsaDeleteTrustedDomain(policyhandle : LSA_HANDLE, trusteddomainsid : super::super::super::Foundation:: PSID) -> super::super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("advapi32.dll" "system" fn LsaDeleteTrustedDomain(policyhandle : LSA_HANDLE, trusteddomainsid : super::super:: PSID) -> super::super::super::Foundation:: NTSTATUS);
     LsaDeleteTrustedDomain(policyhandle.param().abi(), trusteddomainsid.param().abi())
 }
 #[inline]
@@ -458,9 +458,9 @@ where
 pub unsafe fn LsaEnumerateAccountRights<P0, P1>(policyhandle: P0, accountsid: P1, userrights: *mut *mut LSA_UNICODE_STRING, countofrights: *mut u32) -> super::super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<LSA_HANDLE>,
-    P1: windows_core::Param<super::super::super::Foundation::PSID>,
+    P1: windows_core::Param<super::super::PSID>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn LsaEnumerateAccountRights(policyhandle : LSA_HANDLE, accountsid : super::super::super::Foundation:: PSID, userrights : *mut *mut LSA_UNICODE_STRING, countofrights : *mut u32) -> super::super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("advapi32.dll" "system" fn LsaEnumerateAccountRights(policyhandle : LSA_HANDLE, accountsid : super::super:: PSID, userrights : *mut *mut LSA_UNICODE_STRING, countofrights : *mut u32) -> super::super::super::Foundation:: NTSTATUS);
     LsaEnumerateAccountRights(policyhandle.param().abi(), accountsid.param().abi(), userrights, countofrights)
 }
 #[inline]
@@ -503,8 +503,8 @@ pub unsafe fn LsaFreeReturnBuffer(buffer: *const core::ffi::c_void) -> super::su
     LsaFreeReturnBuffer(buffer)
 }
 #[inline]
-pub unsafe fn LsaGetAppliedCAPIDs(systemname: Option<*const LSA_UNICODE_STRING>, capids: *mut *mut super::super::super::Foundation::PSID, capidcount: *mut u32) -> super::super::super::Foundation::NTSTATUS {
-    windows_targets::link!("advapi32.dll" "system" fn LsaGetAppliedCAPIDs(systemname : *const LSA_UNICODE_STRING, capids : *mut *mut super::super::super::Foundation:: PSID, capidcount : *mut u32) -> super::super::super::Foundation:: NTSTATUS);
+pub unsafe fn LsaGetAppliedCAPIDs(systemname: Option<*const LSA_UNICODE_STRING>, capids: *mut *mut super::super::PSID, capidcount: *mut u32) -> super::super::super::Foundation::NTSTATUS {
+    windows_targets::link!("advapi32.dll" "system" fn LsaGetAppliedCAPIDs(systemname : *const LSA_UNICODE_STRING, capids : *mut *mut super::super:: PSID, capidcount : *mut u32) -> super::super::super::Foundation:: NTSTATUS);
     LsaGetAppliedCAPIDs(core::mem::transmute(systemname.unwrap_or(std::ptr::null())), capids, capidcount)
 }
 #[inline]
@@ -545,19 +545,19 @@ where
     LsaLookupNames2(policyhandle.param().abi(), flags, count, names, referenceddomains, sids)
 }
 #[inline]
-pub unsafe fn LsaLookupSids<P0>(policyhandle: P0, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation::NTSTATUS
+pub unsafe fn LsaLookupSids<P0>(policyhandle: P0, count: u32, sids: *const super::super::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<LSA_HANDLE>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn LsaLookupSids(policyhandle : LSA_HANDLE, count : u32, sids : *const super::super::super::Foundation:: PSID, referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST, names : *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("advapi32.dll" "system" fn LsaLookupSids(policyhandle : LSA_HANDLE, count : u32, sids : *const super::super:: PSID, referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST, names : *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation:: NTSTATUS);
     LsaLookupSids(policyhandle.param().abi(), count, sids, referenceddomains, names)
 }
 #[inline]
-pub unsafe fn LsaLookupSids2<P0>(policyhandle: P0, lookupoptions: u32, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation::NTSTATUS
+pub unsafe fn LsaLookupSids2<P0>(policyhandle: P0, lookupoptions: u32, count: u32, sids: *const super::super::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<LSA_HANDLE>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn LsaLookupSids2(policyhandle : LSA_HANDLE, lookupoptions : u32, count : u32, sids : *const super::super::super::Foundation:: PSID, referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST, names : *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("advapi32.dll" "system" fn LsaLookupSids2(policyhandle : LSA_HANDLE, lookupoptions : u32, count : u32, sids : *const super::super:: PSID, referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST, names : *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation:: NTSTATUS);
     LsaLookupSids2(policyhandle.param().abi(), lookupoptions, count, sids, referenceddomains, names)
 }
 #[inline]
@@ -582,8 +582,8 @@ where
     LsaOpenTrustedDomainByName(policyhandle.param().abi(), trusteddomainname, desiredaccess, trusteddomainhandle)
 }
 #[inline]
-pub unsafe fn LsaQueryCAPs(capids: Option<&[super::super::super::Foundation::PSID]>, caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> super::super::super::Foundation::NTSTATUS {
-    windows_targets::link!("advapi32.dll" "system" fn LsaQueryCAPs(capids : *const super::super::super::Foundation:: PSID, capidcount : u32, caps : *mut *mut CENTRAL_ACCESS_POLICY, capcount : *mut u32) -> super::super::super::Foundation:: NTSTATUS);
+pub unsafe fn LsaQueryCAPs(capids: Option<&[super::super::PSID]>, caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> super::super::super::Foundation::NTSTATUS {
+    windows_targets::link!("advapi32.dll" "system" fn LsaQueryCAPs(capids : *const super::super:: PSID, capidcount : u32, caps : *mut *mut CENTRAL_ACCESS_POLICY, capcount : *mut u32) -> super::super::super::Foundation:: NTSTATUS);
     LsaQueryCAPs(core::mem::transmute(capids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), capids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), caps, capcount)
 }
 #[inline]
@@ -622,9 +622,9 @@ where
 pub unsafe fn LsaQueryTrustedDomainInfo<P0, P1>(policyhandle: P0, trusteddomainsid: P1, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<LSA_HANDLE>,
-    P1: windows_core::Param<super::super::super::Foundation::PSID>,
+    P1: windows_core::Param<super::super::PSID>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfo(policyhandle : LSA_HANDLE, trusteddomainsid : super::super::super::Foundation:: PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfo(policyhandle : LSA_HANDLE, trusteddomainsid : super::super:: PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
     LsaQueryTrustedDomainInfo(policyhandle.param().abi(), trusteddomainsid.param().abi(), informationclass, buffer)
 }
 #[inline]
@@ -652,10 +652,10 @@ where
 pub unsafe fn LsaRemoveAccountRights<P0, P1, P2>(policyhandle: P0, accountsid: P1, allrights: P2, userrights: Option<&[LSA_UNICODE_STRING]>) -> super::super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<LSA_HANDLE>,
-    P1: windows_core::Param<super::super::super::Foundation::PSID>,
+    P1: windows_core::Param<super::super::PSID>,
     P2: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::super::super::Foundation:: PSID, allrights : super::super::super::Foundation:: BOOLEAN, userrights : *const LSA_UNICODE_STRING, countofrights : u32) -> super::super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::super:: PSID, allrights : super::super::super::Foundation:: BOOLEAN, userrights : *const LSA_UNICODE_STRING, countofrights : u32) -> super::super::super::Foundation:: NTSTATUS);
     LsaRemoveAccountRights(policyhandle.param().abi(), accountsid.param().abi(), allrights.param().abi(), core::mem::transmute(userrights.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), userrights.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
@@ -717,9 +717,9 @@ where
 pub unsafe fn LsaSetTrustedDomainInformation<P0, P1>(policyhandle: P0, trusteddomainsid: P1, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<LSA_HANDLE>,
-    P1: windows_core::Param<super::super::super::Foundation::PSID>,
+    P1: windows_core::Param<super::super::PSID>,
 {
-    windows_targets::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInformation(policyhandle : LSA_HANDLE, trusteddomainsid : super::super::super::Foundation:: PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
+    windows_targets::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInformation(policyhandle : LSA_HANDLE, trusteddomainsid : super::super:: PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
     LsaSetTrustedDomainInformation(policyhandle.param().abi(), trusteddomainsid.param().abi(), informationclass, buffer)
 }
 #[inline]
@@ -4728,7 +4728,7 @@ impl Default for AUDIT_POLICY_INFORMATION {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CENTRAL_ACCESS_POLICY {
-    pub CAPID: super::super::super::Foundation::PSID,
+    pub CAPID: super::super::PSID,
     pub Name: LSA_UNICODE_STRING,
     pub Description: LSA_UNICODE_STRING,
     pub ChangeId: LSA_UNICODE_STRING,
@@ -6082,7 +6082,7 @@ impl Default for LSA_DISPATCH_TABLE {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LSA_ENUMERATION_INFORMATION {
-    pub Sid: super::super::super::Foundation::PSID,
+    pub Sid: super::super::PSID,
 }
 impl windows_core::TypeKind for LSA_ENUMERATION_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -6139,7 +6139,7 @@ impl Default for LSA_FOREST_TRUST_COLLISION_RECORD {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
-    pub Sid: super::super::super::Foundation::PSID,
+    pub Sid: super::super::PSID,
     pub DnsName: LSA_UNICODE_STRING,
     pub NetbiosName: LSA_UNICODE_STRING,
 }
@@ -6245,7 +6245,7 @@ impl Default for LSA_FOREST_TRUST_RECORD2_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_SCANNER_INFO {
-    pub DomainSid: super::super::super::Foundation::PSID,
+    pub DomainSid: super::super::PSID,
     pub DnsName: LSA_UNICODE_STRING,
     pub NetbiosName: LSA_UNICODE_STRING,
 }
@@ -6266,6 +6266,7 @@ impl LSA_HANDLE {
     }
 }
 impl windows_core::Free for LSA_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = LsaClose(*self);
@@ -6510,7 +6511,7 @@ impl Default for LSA_TRANSLATED_SID {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LSA_TRANSLATED_SID2 {
     pub Use: super::super::SID_NAME_USE,
-    pub Sid: super::super::super::Foundation::PSID,
+    pub Sid: super::super::PSID,
     pub DomainIndex: i32,
     pub Flags: u32,
 }
@@ -6526,7 +6527,7 @@ impl Default for LSA_TRANSLATED_SID2 {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LSA_TRUST_INFORMATION {
     pub Name: LSA_UNICODE_STRING,
-    pub Sid: super::super::super::Foundation::PSID,
+    pub Sid: super::super::PSID,
 }
 impl windows_core::TypeKind for LSA_TRUST_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -7125,7 +7126,7 @@ impl Default for PKU2U_CREDUI_CONTEXT {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLICY_ACCOUNT_DOMAIN_INFO {
     pub DomainName: LSA_UNICODE_STRING,
-    pub DomainSid: super::super::super::Foundation::PSID,
+    pub DomainSid: super::super::PSID,
 }
 impl windows_core::TypeKind for POLICY_ACCOUNT_DOMAIN_INFO {
     type TypeKind = windows_core::CopyType;
@@ -7213,7 +7214,7 @@ impl Default for POLICY_AUDIT_LOG_INFO {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLICY_AUDIT_SID_ARRAY {
     pub UsersCount: u32,
-    pub UserSidArray: *mut super::super::super::Foundation::PSID,
+    pub UserSidArray: *mut super::super::PSID,
 }
 impl windows_core::TypeKind for POLICY_AUDIT_SID_ARRAY {
     type TypeKind = windows_core::CopyType;
@@ -7257,7 +7258,7 @@ pub struct POLICY_DNS_DOMAIN_INFO {
     pub DnsDomainName: LSA_UNICODE_STRING,
     pub DnsForestName: LSA_UNICODE_STRING,
     pub DomainGuid: windows_core::GUID,
-    pub Sid: super::super::super::Foundation::PSID,
+    pub Sid: super::super::PSID,
 }
 impl windows_core::TypeKind for POLICY_DNS_DOMAIN_INFO {
     type TypeKind = windows_core::CopyType;
@@ -7316,7 +7317,7 @@ impl Default for POLICY_LSA_SERVER_ROLE_INFO {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLICY_MACHINE_ACCT_INFO {
     pub Rid: u32,
-    pub Sid: super::super::super::Foundation::PSID,
+    pub Sid: super::super::PSID,
 }
 impl windows_core::TypeKind for POLICY_MACHINE_ACCT_INFO {
     type TypeKind = windows_core::CopyType;
@@ -7330,7 +7331,7 @@ impl Default for POLICY_MACHINE_ACCT_INFO {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLICY_MACHINE_ACCT_INFO2 {
     pub Rid: u32,
-    pub Sid: super::super::super::Foundation::PSID,
+    pub Sid: super::super::PSID,
     pub ObjectGuid: windows_core::GUID,
 }
 impl windows_core::TypeKind for POLICY_MACHINE_ACCT_INFO2 {
@@ -7372,7 +7373,7 @@ impl Default for POLICY_PD_ACCOUNT_INFO {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLICY_PRIMARY_DOMAIN_INFO {
     pub Name: LSA_UNICODE_STRING,
-    pub Sid: super::super::super::Foundation::PSID,
+    pub Sid: super::super::PSID,
 }
 impl windows_core::TypeKind for POLICY_PRIMARY_DOMAIN_INFO {
     type TypeKind = windows_core::CopyType;
@@ -8136,7 +8137,7 @@ pub struct SECPKG_PARAMETERS {
     pub Version: u32,
     pub MachineState: u32,
     pub SetupMode: u32,
-    pub DomainSid: super::super::super::Foundation::PSID,
+    pub DomainSid: super::super::PSID,
     pub DomainName: LSA_UNICODE_STRING,
     pub DnsDomainName: LSA_UNICODE_STRING,
     pub DomainGuid: windows_core::GUID,
@@ -8172,7 +8173,7 @@ pub struct SECPKG_PRIMARY_CRED {
     pub DomainName: LSA_UNICODE_STRING,
     pub Password: LSA_UNICODE_STRING,
     pub OldPassword: LSA_UNICODE_STRING,
-    pub UserSid: super::super::super::Foundation::PSID,
+    pub UserSid: super::super::PSID,
     pub Flags: u32,
     pub DnsDomainName: LSA_UNICODE_STRING,
     pub Upn: LSA_UNICODE_STRING,
@@ -8198,7 +8199,7 @@ pub struct SECPKG_PRIMARY_CRED_EX {
     pub DomainName: LSA_UNICODE_STRING,
     pub Password: LSA_UNICODE_STRING,
     pub OldPassword: LSA_UNICODE_STRING,
-    pub UserSid: super::super::super::Foundation::PSID,
+    pub UserSid: super::super::PSID,
     pub Flags: u32,
     pub DnsDomainName: LSA_UNICODE_STRING,
     pub Upn: LSA_UNICODE_STRING,
@@ -8348,7 +8349,7 @@ impl Default for SECPKG_SURROGATE_LOGON_ENTRY {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_TARGETINFO {
-    pub DomainSid: super::super::super::Foundation::PSID,
+    pub DomainSid: super::super::PSID,
     pub ComputerName: windows_core::PCWSTR,
 }
 impl windows_core::TypeKind for SECPKG_TARGETINFO {
@@ -8409,7 +8410,7 @@ pub struct SECURITY_LOGON_SESSION_DATA {
     pub AuthenticationPackage: LSA_UNICODE_STRING,
     pub LogonType: u32,
     pub Session: u32,
-    pub Sid: super::super::super::Foundation::PSID,
+    pub Sid: super::super::PSID,
     pub LogonTime: i64,
     pub LogonServer: LSA_UNICODE_STRING,
     pub DnsDomainName: LSA_UNICODE_STRING,
@@ -8472,7 +8473,7 @@ pub struct SECURITY_USER_DATA {
     pub UserName: SECURITY_STRING,
     pub LogonDomainName: SECURITY_STRING,
     pub LogonServer: SECURITY_STRING,
-    pub pSid: super::super::super::Foundation::PSID,
+    pub pSid: super::super::PSID,
 }
 impl windows_core::TypeKind for SECURITY_USER_DATA {
     type TypeKind = windows_core::CopyType;
@@ -10530,7 +10531,7 @@ impl Default for TRUSTED_DOMAIN_FULL_INFORMATION2 {
 pub struct TRUSTED_DOMAIN_INFORMATION_EX {
     pub Name: LSA_UNICODE_STRING,
     pub FlatName: LSA_UNICODE_STRING,
-    pub Sid: super::super::super::Foundation::PSID,
+    pub Sid: super::super::PSID,
     pub TrustDirection: TRUSTED_DOMAIN_TRUST_DIRECTION,
     pub TrustType: TRUSTED_DOMAIN_TRUST_TYPE,
     pub TrustAttributes: TRUSTED_DOMAIN_TRUST_ATTRIBUTES,
@@ -10548,7 +10549,7 @@ impl Default for TRUSTED_DOMAIN_INFORMATION_EX {
 pub struct TRUSTED_DOMAIN_INFORMATION_EX2 {
     pub Name: LSA_UNICODE_STRING,
     pub FlatName: LSA_UNICODE_STRING,
-    pub Sid: super::super::super::Foundation::PSID,
+    pub Sid: super::super::PSID,
     pub TrustDirection: u32,
     pub TrustType: u32,
     pub TrustAttributes: u32,
@@ -10848,8 +10849,8 @@ pub type PLSA_AP_POST_LOGON_USER_SURROGATE = Option<
 >;
 pub type PLSA_AP_PRE_LOGON_USER_SURROGATE = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbuffersize: u32, surrogatelogon: *mut SECPKG_SURROGATE_LOGON, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_AUDIT_ACCOUNT_LOGON = Option<unsafe extern "system" fn(auditid: u32, success: super::super::super::Foundation::BOOLEAN, source: *const LSA_UNICODE_STRING, clientname: *const LSA_UNICODE_STRING, mappedname: *const LSA_UNICODE_STRING, status: super::super::super::Foundation::NTSTATUS) -> super::super::super::Foundation::NTSTATUS>;
-pub type PLSA_AUDIT_LOGON = Option<unsafe extern "system" fn(status: super::super::super::Foundation::NTSTATUS, substatus: super::super::super::Foundation::NTSTATUS, accountname: *const LSA_UNICODE_STRING, authenticatingauthority: *const LSA_UNICODE_STRING, workstationname: *const LSA_UNICODE_STRING, usersid: super::super::super::Foundation::PSID, logontype: SECURITY_LOGON_TYPE, tokensource: *const super::super::TOKEN_SOURCE, logonid: *const super::super::super::Foundation::LUID)>;
-pub type PLSA_AUDIT_LOGON_EX = Option<unsafe extern "system" fn(status: super::super::super::Foundation::NTSTATUS, substatus: super::super::super::Foundation::NTSTATUS, accountname: *const LSA_UNICODE_STRING, authenticatingauthority: *const LSA_UNICODE_STRING, workstationname: *const LSA_UNICODE_STRING, usersid: super::super::super::Foundation::PSID, logontype: SECURITY_LOGON_TYPE, impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL, tokensource: *const super::super::TOKEN_SOURCE, logonid: *const super::super::super::Foundation::LUID)>;
+pub type PLSA_AUDIT_LOGON = Option<unsafe extern "system" fn(status: super::super::super::Foundation::NTSTATUS, substatus: super::super::super::Foundation::NTSTATUS, accountname: *const LSA_UNICODE_STRING, authenticatingauthority: *const LSA_UNICODE_STRING, workstationname: *const LSA_UNICODE_STRING, usersid: super::super::PSID, logontype: SECURITY_LOGON_TYPE, tokensource: *const super::super::TOKEN_SOURCE, logonid: *const super::super::super::Foundation::LUID)>;
+pub type PLSA_AUDIT_LOGON_EX = Option<unsafe extern "system" fn(status: super::super::super::Foundation::NTSTATUS, substatus: super::super::super::Foundation::NTSTATUS, accountname: *const LSA_UNICODE_STRING, authenticatingauthority: *const LSA_UNICODE_STRING, workstationname: *const LSA_UNICODE_STRING, usersid: super::super::PSID, logontype: SECURITY_LOGON_TYPE, impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL, tokensource: *const super::super::TOKEN_SOURCE, logonid: *const super::super::super::Foundation::LUID)>;
 pub type PLSA_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(argument1: usize, argument2: usize, inputbuffer: *mut SecBuffer, outputbuffer: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_CALL_PACKAGE = Option<unsafe extern "system" fn(authenticationpackage: *const LSA_UNICODE_STRING, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_CALL_PACKAGEEX = Option<unsafe extern "system" fn(authenticationpackage: *const LSA_UNICODE_STRING, clientbufferbase: *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
@@ -10897,7 +10898,7 @@ pub type PLSA_QUERY_CLIENT_REQUEST = Option<unsafe extern "system" fn(clientrequ
 pub type PLSA_REDIRECTED_LOGON_CALLBACK = Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32, returnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE)>;
 pub type PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, logonbuffer: *mut *mut u8, logonbufferlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
-pub type PLSA_REDIRECTED_LOGON_GET_SID = Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, sid: *mut super::super::super::Foundation::PSID) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_REDIRECTED_LOGON_GET_SID = Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, sid: *mut super::super::PSID) -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS = Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, supplementalcredentials: *mut *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_REDIRECTED_LOGON_INIT = Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, packagename: *const LSA_UNICODE_STRING, sessionid: u32, logonid: *const super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_REGISTER_CALLBACK = Option<unsafe extern "system" fn(callbackid: u32, callback: PLSA_CALLBACK_FUNCTION) -> super::super::super::Foundation::NTSTATUS>;

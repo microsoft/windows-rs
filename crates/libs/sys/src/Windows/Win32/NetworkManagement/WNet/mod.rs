@@ -1,7 +1,7 @@
 windows_targets::link!("mpr.dll" "system" fn MultinetGetConnectionPerformanceA(lpnetresource : *const NETRESOURCEA, lpnetconnectinfostruct : *mut NETCONNECTINFOSTRUCT) -> u32);
 windows_targets::link!("mpr.dll" "system" fn MultinetGetConnectionPerformanceW(lpnetresource : *const NETRESOURCEW, lpnetconnectinfostruct : *mut NETCONNECTINFOSTRUCT) -> u32);
 windows_targets::link!("davclnt.dll" "system" fn NPAddConnection(lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR) -> u32);
-windows_targets::link!("davclnt.dll" "system" fn NPAddConnection3(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : NET_USE_CONNECT_FLAGS) -> u32);
+windows_targets::link!("davclnt.dll" "system" fn NPAddConnection3(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : NET_CONNECT_FLAGS) -> u32);
 windows_targets::link!("ntlanman.dll" "system" fn NPAddConnection4(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lpauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32) -> u32);
 windows_targets::link!("davclnt.dll" "system" fn NPCancelConnection(lpname : windows_sys::core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
 windows_targets::link!("ntlanman.dll" "system" fn NPCancelConnection2(lpname : windows_sys::core::PCWSTR, fforce : super::super::Foundation:: BOOL, dwflags : u32) -> u32);
@@ -18,16 +18,16 @@ windows_targets::link!("davclnt.dll" "system" fn NPGetResourceParent(lpnetresour
 windows_targets::link!("davclnt.dll" "system" fn NPGetUniversalName(lplocalpath : windows_sys::core::PCWSTR, dwinfolevel : UNC_INFO_LEVEL, lpbuffer : *mut core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
 windows_targets::link!("davclnt.dll" "system" fn NPGetUser(lpname : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PWSTR, lpnbufferlen : *mut u32) -> u32);
 windows_targets::link!("davclnt.dll" "system" fn NPOpenEnum(dwscope : u32, dwtype : u32, dwusage : u32, lpnetresource : *const NETRESOURCEW, lphenum : *mut super::super::Foundation:: HANDLE) -> u32);
-windows_targets::link!("mpr.dll" "system" fn WNetAddConnection2A(lpnetresource : *const NETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpusername : windows_sys::core::PCSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("mpr.dll" "system" fn WNetAddConnection2W(lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("mpr.dll" "system" fn WNetAddConnection3A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpusername : windows_sys::core::PCSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("mpr.dll" "system" fn WNetAddConnection3W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("mpr.dll" "system" fn WNetAddConnection4A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("mpr.dll" "system" fn WNetAddConnection4W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("mpr.dll" "system" fn WNetAddConnection2A(lpnetresource : *const NETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpusername : windows_sys::core::PCSTR, dwflags : NET_CONNECT_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("mpr.dll" "system" fn WNetAddConnection2W(lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : NET_CONNECT_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("mpr.dll" "system" fn WNetAddConnection3A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpusername : windows_sys::core::PCSTR, dwflags : NET_CONNECT_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("mpr.dll" "system" fn WNetAddConnection3W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpusername : windows_sys::core::PCWSTR, dwflags : NET_CONNECT_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("mpr.dll" "system" fn WNetAddConnection4A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : NET_CONNECT_FLAGS, lpuseoptions : *const u8, cbuseoptions : u32) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("mpr.dll" "system" fn WNetAddConnection4W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : NET_CONNECT_FLAGS, lpuseoptions : *const u8, cbuseoptions : u32) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("mpr.dll" "system" fn WNetAddConnectionA(lpremotename : windows_sys::core::PCSTR, lppassword : windows_sys::core::PCSTR, lplocalname : windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("mpr.dll" "system" fn WNetAddConnectionW(lpremotename : windows_sys::core::PCWSTR, lppassword : windows_sys::core::PCWSTR, lplocalname : windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : windows_sys::core::PCSTR, dwflags : u32, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : windows_sys::core::PCWSTR, dwflags : u32, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : windows_sys::core::PCSTR, dwflags : NET_CONNECT_FLAGS, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : windows_sys::core::PCWSTR, dwflags : NET_CONNECT_FLAGS, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionA(lpname : windows_sys::core::PCSTR, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionW(lpname : windows_sys::core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("mpr.dll" "system" fn WNetCloseEnum(henum : super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
@@ -61,33 +61,33 @@ windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorA(err : u32, lperro
 windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorW(err : u32, lperror : windows_sys::core::PCWSTR, lpproviders : windows_sys::core::PCWSTR));
 windows_targets::link!("mpr.dll" "system" fn WNetUseConnection4A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : windows_sys::core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("mpr.dll" "system" fn WNetUseConnection4W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : windows_sys::core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionA(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpuserid : windows_sys::core::PCSTR, dwflags : NET_USE_CONNECT_FLAGS, lpaccessname : windows_sys::core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionW(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpuserid : windows_sys::core::PCWSTR, dwflags : NET_USE_CONNECT_FLAGS, lpaccessname : windows_sys::core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionA(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, lppassword : windows_sys::core::PCSTR, lpuserid : windows_sys::core::PCSTR, dwflags : NET_CONNECT_FLAGS, lpaccessname : windows_sys::core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionW(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_sys::core::PCWSTR, lpuserid : windows_sys::core::PCWSTR, dwflags : NET_CONNECT_FLAGS, lpaccessname : windows_sys::core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 pub const CONNDLG_CONN_POINT: CONNECTDLGSTRUCT_FLAGS = 2u32;
 pub const CONNDLG_HIDE_BOX: CONNECTDLGSTRUCT_FLAGS = 8u32;
 pub const CONNDLG_NOT_PERSIST: CONNECTDLGSTRUCT_FLAGS = 32u32;
 pub const CONNDLG_PERSIST: CONNECTDLGSTRUCT_FLAGS = 16u32;
 pub const CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = 1u32;
 pub const CONNDLG_USE_MRU: CONNECTDLGSTRUCT_FLAGS = 4u32;
-pub const CONNECT_CMD_SAVECRED: NET_USE_CONNECT_FLAGS = 4096u32;
-pub const CONNECT_COMMANDLINE: NET_USE_CONNECT_FLAGS = 2048u32;
-pub const CONNECT_CRED_RESET: u32 = 8192u32;
-pub const CONNECT_CURRENT_MEDIA: u32 = 512u32;
-pub const CONNECT_DEFERRED: NET_USE_CONNECT_FLAGS = 1024u32;
-pub const CONNECT_GLOBAL_MAPPING: u32 = 262144u32;
-pub const CONNECT_INTERACTIVE: NET_USE_CONNECT_FLAGS = 8u32;
-pub const CONNECT_LOCALDRIVE: u32 = 256u32;
-pub const CONNECT_NEED_DRIVE: u32 = 32u32;
-pub const CONNECT_PROMPT: NET_USE_CONNECT_FLAGS = 16u32;
-pub const CONNECT_REDIRECT: NET_USE_CONNECT_FLAGS = 128u32;
-pub const CONNECT_REFCOUNT: u32 = 64u32;
-pub const CONNECT_REQUIRE_INTEGRITY: u32 = 16384u32;
-pub const CONNECT_REQUIRE_PRIVACY: u32 = 32768u32;
-pub const CONNECT_RESERVED: u32 = 4278190080u32;
-pub const CONNECT_TEMPORARY: NET_USE_CONNECT_FLAGS = 4u32;
-pub const CONNECT_UPDATE_PROFILE: NET_USE_CONNECT_FLAGS = 1u32;
-pub const CONNECT_UPDATE_RECENT: NET_USE_CONNECT_FLAGS = 2u32;
-pub const CONNECT_WRITE_THROUGH_SEMANTICS: u32 = 65536u32;
+pub const CONNECT_CMD_SAVECRED: NET_CONNECT_FLAGS = 4096u32;
+pub const CONNECT_COMMANDLINE: NET_CONNECT_FLAGS = 2048u32;
+pub const CONNECT_CRED_RESET: NET_CONNECT_FLAGS = 8192u32;
+pub const CONNECT_CURRENT_MEDIA: NET_CONNECT_FLAGS = 512u32;
+pub const CONNECT_DEFERRED: NET_CONNECT_FLAGS = 1024u32;
+pub const CONNECT_GLOBAL_MAPPING: NET_CONNECT_FLAGS = 262144u32;
+pub const CONNECT_INTERACTIVE: NET_CONNECT_FLAGS = 8u32;
+pub const CONNECT_LOCALDRIVE: NET_CONNECT_FLAGS = 256u32;
+pub const CONNECT_NEED_DRIVE: NET_CONNECT_FLAGS = 32u32;
+pub const CONNECT_PROMPT: NET_CONNECT_FLAGS = 16u32;
+pub const CONNECT_REDIRECT: NET_CONNECT_FLAGS = 128u32;
+pub const CONNECT_REFCOUNT: NET_CONNECT_FLAGS = 64u32;
+pub const CONNECT_REQUIRE_INTEGRITY: NET_CONNECT_FLAGS = 16384u32;
+pub const CONNECT_REQUIRE_PRIVACY: NET_CONNECT_FLAGS = 32768u32;
+pub const CONNECT_RESERVED: NET_CONNECT_FLAGS = 4278190080u32;
+pub const CONNECT_TEMPORARY: NET_CONNECT_FLAGS = 4u32;
+pub const CONNECT_UPDATE_PROFILE: NET_CONNECT_FLAGS = 1u32;
+pub const CONNECT_UPDATE_RECENT: NET_CONNECT_FLAGS = 2u32;
+pub const CONNECT_WRITE_THROUGH_SEMANTICS: NET_CONNECT_FLAGS = 65536u32;
 pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = 64u32;
 pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = 1u32;
 pub const NETINFO_DISKRED: NETINFOSTRUCT_CHARACTERISTICS = 4u32;
@@ -195,9 +195,9 @@ pub type CONNECTDLGSTRUCT_FLAGS = u32;
 pub type DISCDLGSTRUCT_FLAGS = u32;
 pub type NETINFOSTRUCT_CHARACTERISTICS = u32;
 pub type NETWORK_NAME_FORMAT_FLAGS = u32;
+pub type NET_CONNECT_FLAGS = u32;
 pub type NET_RESOURCE_SCOPE = u32;
 pub type NET_RESOURCE_TYPE = u32;
-pub type NET_USE_CONNECT_FLAGS = u32;
 pub type NPDIRECTORY_NOTIFY_OPERATION = u32;
 pub type NP_PROPERTY_DIALOG_SELECTION = u32;
 pub type UNC_INFO_LEVEL = u32;
@@ -289,7 +289,7 @@ pub struct NETRESOURCEW {
 pub struct NOTIFYADD {
     pub hwndOwner: super::super::Foundation::HWND,
     pub NetResource: NETRESOURCEA,
-    pub dwAddFlags: NET_USE_CONNECT_FLAGS,
+    pub dwAddFlags: NET_CONNECT_FLAGS,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

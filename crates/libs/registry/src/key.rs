@@ -3,13 +3,19 @@ use core::ptr::{null, null_mut};
 
 /// A registry key.
 #[repr(transparent)]
-#[derive(Default, Debug)]
+#[derive(Debug)]
 pub struct Key(pub(crate) HKEY);
+
+impl Default for Key {
+    fn default() -> Self {
+        Self(core::ptr::null_mut())
+    }
+}
 
 impl Key {
     /// Creates a registry key. If the key already exists, the function opens it.
     pub fn create<T: AsRef<str>>(&self, path: T) -> Result<Self> {
-        let mut handle = 0;
+        let mut handle = core::ptr::null_mut();
 
         let result = unsafe {
             RegCreateKeyExW(
@@ -30,7 +36,7 @@ impl Key {
 
     /// Opens a registry key.
     pub fn open<T: AsRef<str>>(&self, path: T) -> Result<Self> {
-        let mut handle = 0;
+        let mut handle = core::ptr::null_mut();
 
         let result =
             unsafe { RegOpenKeyExW(self.0, pcwstr(path).as_ptr(), 0, KEY_READ, &mut handle) };
@@ -44,12 +50,12 @@ impl Key {
     ///
     /// This function takes ownership of the handle.
     /// The handle must be owned by the caller and safe to free with `RegCloseKey`.
-    pub unsafe fn from_raw(handle: isize) -> Self {
+    pub unsafe fn from_raw(handle: *mut core::ffi::c_void) -> Self {
         Self(handle)
     }
 
     /// Returns the underlying registry key handle.
-    pub fn as_raw(&self) -> isize {
+    pub fn as_raw(&self) -> *mut core::ffi::c_void {
         self.0
     }
 

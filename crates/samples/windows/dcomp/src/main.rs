@@ -103,7 +103,7 @@ impl Window {
                 CoCreateInstance(&UIAnimationTransitionLibrary2, None, CLSCTX_INPROC_SERVER)?;
 
             Ok(Window {
-                handle: HWND(0),
+                handle: Default::default(),
                 dpi: (0.0, 0.0),
                 format: create_text_format()?,
                 image: create_image()?,
@@ -446,13 +446,13 @@ impl Window {
                 None,
                 instance,
                 Some(self as *mut _ as _),
-            );
+            )?;
 
-            debug_assert!(handle.0 != 0);
+            debug_assert!(!handle.is_invalid());
             debug_assert!(handle == self.handle);
             let mut message = MSG::default();
 
-            while GetMessageA(&mut message, HWND(0), 0, 0).into() {
+            while GetMessageA(&mut message, HWND::default(), 0, 0).into() {
                 DispatchMessageA(&message);
             }
 

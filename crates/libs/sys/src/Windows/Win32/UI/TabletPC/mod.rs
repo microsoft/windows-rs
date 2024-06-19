@@ -1332,11 +1332,11 @@ pub struct GESTURE_DATA {
     pub strokeCount: i32,
 }
 pub const GestureRecognizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea30c654_c62c_441f_ac00_95f9a196782c);
-pub type HRECOALT = isize;
-pub type HRECOCONTEXT = isize;
-pub type HRECOGNIZER = isize;
-pub type HRECOLATTICE = isize;
-pub type HRECOWORDLIST = isize;
+pub type HRECOALT = *mut core::ffi::c_void;
+pub type HRECOCONTEXT = *mut core::ffi::c_void;
+pub type HRECOGNIZER = *mut core::ffi::c_void;
+pub type HRECOLATTICE = *mut core::ffi::c_void;
+pub type HRECOWORDLIST = *mut core::ffi::c_void;
 pub const HandwrittenTextInsertion: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]

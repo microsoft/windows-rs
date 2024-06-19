@@ -1358,7 +1358,7 @@ pub struct USB_BUS_STATISTICS_0 {
     pub Unused: u8,
     pub NameIndex: u8,
 }
-pub type USB_CHANGE_REGISTRATION_HANDLE = isize;
+pub type USB_CHANGE_REGISTRATION_HANDLE = *mut core::ffi::c_void;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_CLOSE_RAW_DEVICE_PARAMETERS {
@@ -2421,7 +2421,7 @@ pub struct USB_UNICODE_NAME {
 pub struct USB_USB2HW_VERSION_PARAMETERS {
     pub Usb2HwRevision: u8,
 }
-pub type WINUSB_INTERFACE_HANDLE = isize;
+pub type WINUSB_INTERFACE_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINUSB_PIPE_INFORMATION {

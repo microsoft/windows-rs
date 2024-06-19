@@ -1,5 +1,5 @@
 pub trait IEffectivePermission_Impl: Sized {
-    fn GetEffectivePermission(&self, pguidobjecttype: *const windows_core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: &windows_core::PCWSTR, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::Result<()>;
+    fn GetEffectivePermission(&self, pguidobjecttype: *const windows_core::GUID, pusersid: super::super::PSID, pszservername: &windows_core::PCWSTR, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IEffectivePermission {}
 impl IEffectivePermission_Vtbl {
@@ -7,7 +7,7 @@ impl IEffectivePermission_Vtbl {
     where
         Identity: IEffectivePermission_Impl,
     {
-        unsafe extern "system" fn GetEffectivePermission<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidobjecttype: *const windows_core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: windows_core::PCWSTR, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::HRESULT
+        unsafe extern "system" fn GetEffectivePermission<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidobjecttype: *const windows_core::GUID, pusersid: super::super::PSID, pszservername: windows_core::PCWSTR, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::HRESULT
         where
             Identity: IEffectivePermission_Impl,
         {
@@ -23,8 +23,8 @@ impl IEffectivePermission_Vtbl {
 pub trait IEffectivePermission2_Impl: Sized {
     fn ComputeEffectivePermissionWithSecondarySecurity(
         &self,
-        psid: super::super::super::Foundation::PSID,
-        pdevicesid: super::super::super::Foundation::PSID,
+        psid: super::super::PSID,
+        pdevicesid: super::super::PSID,
         pszservername: &windows_core::PCWSTR,
         psecurityobjects: *mut SECURITY_OBJECT,
         dwsecurityobjectcount: u32,
@@ -47,8 +47,8 @@ impl IEffectivePermission2_Vtbl {
     {
         unsafe extern "system" fn ComputeEffectivePermissionWithSecondarySecurity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            psid: super::super::super::Foundation::PSID,
-            pdevicesid: super::super::super::Foundation::PSID,
+            psid: super::super::PSID,
+            pdevicesid: super::super::PSID,
             pszservername: windows_core::PCWSTR,
             psecurityobjects: *mut SECURITY_OBJECT,
             dwsecurityobjectcount: u32,
@@ -179,7 +179,7 @@ impl ISecurityInformation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISecurityInformation2_Impl: Sized {
     fn IsDaclCanonical(&self, pdacl: *const super::super::ACL) -> super::super::super::Foundation::BOOL;
-    fn LookupSids(&self, csids: u32, rgpsids: *const super::super::super::Foundation::PSID) -> windows_core::Result<super::super::super::System::Com::IDataObject>;
+    fn LookupSids(&self, csids: u32, rgpsids: *const super::super::PSID) -> windows_core::Result<super::super::super::System::Com::IDataObject>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ISecurityInformation2 {}
@@ -196,7 +196,7 @@ impl ISecurityInformation2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISecurityInformation2_Impl::IsDaclCanonical(this, core::mem::transmute_copy(&pdacl))
         }
-        unsafe extern "system" fn LookupSids<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, csids: u32, rgpsids: *const super::super::super::Foundation::PSID, ppdo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        unsafe extern "system" fn LookupSids<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, csids: u32, rgpsids: *const super::super::PSID, ppdo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
         where
             Identity: ISecurityInformation2_Impl,
         {

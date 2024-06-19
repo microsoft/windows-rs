@@ -3288,10 +3288,18 @@ impl Default for FEATURE_ERROR {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct FEATURE_STATE_CHANGE_SUBSCRIPTION(pub isize);
+pub struct FEATURE_STATE_CHANGE_SUBSCRIPTION(pub *mut core::ffi::c_void);
 impl FEATURE_STATE_CHANGE_SUBSCRIPTION {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            UnsubscribeFeatureStateChangeNotification(*self);
+        }
     }
 }
 impl Default for FEATURE_STATE_CHANGE_SUBSCRIPTION {
@@ -3300,22 +3308,6 @@ impl Default for FEATURE_STATE_CHANGE_SUBSCRIPTION {
     }
 }
 impl windows_core::TypeKind for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct FH_SERVICE_PIPE_HANDLE(pub isize);
-impl FH_SERVICE_PIPE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl Default for FH_SERVICE_PIPE_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for FH_SERVICE_PIPE_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
@@ -3333,10 +3325,10 @@ impl Default for FILE_CASE_SENSITIVE_INFO {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HWINWATCH(pub isize);
+pub struct HWINWATCH(pub *mut core::ffi::c_void);
 impl HWINWATCH {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+        self.0 == -1 as _ || self.0 == 0 as _
     }
 }
 impl Default for HWINWATCH {

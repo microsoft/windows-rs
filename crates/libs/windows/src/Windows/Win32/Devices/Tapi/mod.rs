@@ -10010,7 +10010,12 @@ impl Default for DTR {
 pub const DispatchMapper: windows_core::GUID = windows_core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVCALL(pub isize);
+pub struct HDRVCALL(pub *mut core::ffi::c_void);
+impl HDRVCALL {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HDRVCALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10021,7 +10026,12 @@ impl windows_core::TypeKind for HDRVCALL {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVDIALOGINSTANCE(pub isize);
+pub struct HDRVDIALOGINSTANCE(pub *mut core::ffi::c_void);
+impl HDRVDIALOGINSTANCE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HDRVDIALOGINSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10032,7 +10042,12 @@ impl windows_core::TypeKind for HDRVDIALOGINSTANCE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVLINE(pub isize);
+pub struct HDRVLINE(pub *mut core::ffi::c_void);
+impl HDRVLINE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HDRVLINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10043,7 +10058,12 @@ impl windows_core::TypeKind for HDRVLINE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVMSPLINE(pub isize);
+pub struct HDRVMSPLINE(pub *mut core::ffi::c_void);
+impl HDRVMSPLINE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HDRVMSPLINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10054,7 +10074,12 @@ impl windows_core::TypeKind for HDRVMSPLINE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDRVPHONE(pub isize);
+pub struct HDRVPHONE(pub *mut core::ffi::c_void);
+impl HDRVPHONE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HDRVPHONE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10065,7 +10090,12 @@ impl windows_core::TypeKind for HDRVPHONE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HPROVIDER(pub isize);
+pub struct HPROVIDER(pub *mut core::ffi::c_void);
+impl HPROVIDER {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HPROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10076,7 +10106,12 @@ impl windows_core::TypeKind for HPROVIDER {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTAPICALL(pub isize);
+pub struct HTAPICALL(pub *mut core::ffi::c_void);
+impl HTAPICALL {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HTAPICALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10087,7 +10122,12 @@ impl windows_core::TypeKind for HTAPICALL {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTAPILINE(pub isize);
+pub struct HTAPILINE(pub *mut core::ffi::c_void);
+impl HTAPILINE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HTAPILINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10098,7 +10138,12 @@ impl windows_core::TypeKind for HTAPILINE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTAPIPHONE(pub isize);
+pub struct HTAPIPHONE(pub *mut core::ffi::c_void);
+impl HTAPIPHONE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
 impl Default for HTAPIPHONE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
