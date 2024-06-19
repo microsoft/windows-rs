@@ -161,6 +161,7 @@ impl DECOMPRESSOR_HANDLE {
     }
 }
 impl windows_core::Free for DECOMPRESSOR_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CloseDecompressor(*self);

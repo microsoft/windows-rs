@@ -4067,6 +4067,7 @@ impl JET_INSTANCE {
     }
 }
 impl windows_core::Free for JET_INSTANCE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = JetTerm(*self);
@@ -4699,6 +4700,7 @@ impl JET_SESID {
     }
 }
 impl windows_core::Free for JET_SESID {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = JetEndSession(*self, 0);

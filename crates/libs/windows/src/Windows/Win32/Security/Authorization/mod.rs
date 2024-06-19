@@ -5141,6 +5141,7 @@ impl AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
     }
 }
 impl windows_core::Free for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = AuthzFreeHandle(*self);
@@ -5197,6 +5198,7 @@ impl AUTHZ_AUDIT_EVENT_HANDLE {
     }
 }
 impl windows_core::Free for AUTHZ_AUDIT_EVENT_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = AuthzFreeAuditEvent(*self);
@@ -5282,6 +5284,7 @@ impl AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
     }
 }
 impl windows_core::Free for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = AuthzUnregisterCapChangeNotification(*self);
@@ -5305,6 +5308,7 @@ impl AUTHZ_CLIENT_CONTEXT_HANDLE {
     }
 }
 impl windows_core::Free for AUTHZ_CLIENT_CONTEXT_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = AuthzFreeContext(*self);
@@ -5361,6 +5365,7 @@ impl AUTHZ_RESOURCE_MANAGER_HANDLE {
     }
 }
 impl windows_core::Free for AUTHZ_RESOURCE_MANAGER_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = AuthzFreeResourceManager(*self);

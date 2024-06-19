@@ -159,6 +159,7 @@ impl HCOMDB {
     }
 }
 impl windows_core::Free for HCOMDB {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = ComDBClose(*self);

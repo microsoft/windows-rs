@@ -3295,6 +3295,7 @@ impl FEATURE_STATE_CHANGE_SUBSCRIPTION {
     }
 }
 impl windows_core::Free for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             UnsubscribeFeatureStateChangeNotification(*self);

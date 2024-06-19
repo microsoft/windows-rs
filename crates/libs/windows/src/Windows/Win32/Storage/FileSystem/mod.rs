@@ -8244,6 +8244,7 @@ impl HIORING {
     }
 }
 impl windows_core::Free for HIORING {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CloseIoRing(*self);

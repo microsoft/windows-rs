@@ -9499,6 +9499,7 @@ impl BCRYPT_ALG_HANDLE {
     }
 }
 impl windows_core::Free for BCRYPT_ALG_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = BCryptCloseAlgorithmProvider(*self, 0);
@@ -9813,6 +9814,7 @@ impl BCRYPT_HASH_HANDLE {
     }
 }
 impl windows_core::Free for BCRYPT_HASH_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = BCryptDestroyHash(*self);
@@ -9907,6 +9909,7 @@ impl BCRYPT_KEY_HANDLE {
     }
 }
 impl windows_core::Free for BCRYPT_KEY_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = BCryptDestroyKey(*self);
@@ -10125,6 +10128,7 @@ impl BCRYPT_SECRET_HANDLE {
     }
 }
 impl windows_core::Free for BCRYPT_SECRET_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = BCryptDestroySecret(*self);
@@ -15655,6 +15659,7 @@ impl HCERTCHAINENGINE {
     }
 }
 impl windows_core::Free for HCERTCHAINENGINE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             CertFreeCertificateChainEngine(*self);
@@ -15710,6 +15715,7 @@ impl HCRYPTASYNC {
     }
 }
 impl windows_core::Free for HCRYPTASYNC {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CryptCloseAsyncHandle(*self);
@@ -15983,6 +15989,7 @@ impl NCRYPT_HANDLE {
     }
 }
 impl windows_core::Free for NCRYPT_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = NCryptFreeObject(*self);
@@ -16086,6 +16093,7 @@ impl NCRYPT_KEY_HANDLE {
     }
 }
 impl windows_core::Free for NCRYPT_KEY_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = NCryptFreeObject(*self);
@@ -16264,6 +16272,7 @@ impl NCRYPT_PROV_HANDLE {
     }
 }
 impl windows_core::Free for NCRYPT_PROV_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = NCryptFreeObject(*self);

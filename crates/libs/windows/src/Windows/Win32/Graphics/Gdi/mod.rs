@@ -8536,6 +8536,7 @@ impl HBITMAP {
     }
 }
 impl windows_core::Free for HBITMAP {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);
@@ -8565,6 +8566,7 @@ impl HBRUSH {
     }
 }
 impl windows_core::Free for HBRUSH {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);
@@ -8610,6 +8612,7 @@ impl HENHMETAFILE {
     }
 }
 impl windows_core::Free for HENHMETAFILE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteEnhMetaFile(*self);
@@ -8633,6 +8636,7 @@ impl HFONT {
     }
 }
 impl windows_core::Free for HFONT {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);
@@ -8662,6 +8666,7 @@ impl HGDIOBJ {
     }
 }
 impl windows_core::Free for HGDIOBJ {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);
@@ -8685,6 +8690,7 @@ impl HMETAFILE {
     }
 }
 impl windows_core::Free for HMETAFILE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteMetaFile(*self);
@@ -8724,6 +8730,7 @@ impl HPALETTE {
     }
 }
 impl windows_core::Free for HPALETTE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);
@@ -8753,6 +8760,7 @@ impl HPEN {
     }
 }
 impl windows_core::Free for HPEN {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);
@@ -8782,6 +8790,7 @@ impl HRGN {
     }
 }
 impl windows_core::Free for HRGN {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteObject(*self);

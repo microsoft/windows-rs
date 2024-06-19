@@ -604,6 +604,7 @@ impl HINTERACTIONCONTEXT {
     }
 }
 impl windows_core::Free for HINTERACTIONCONTEXT {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyInteractionContext(*self);

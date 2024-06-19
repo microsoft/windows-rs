@@ -414,6 +414,7 @@ impl HPSSWALK {
     }
 }
 impl windows_core::Free for HPSSWALK {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = PssWalkMarkerFree(*self);

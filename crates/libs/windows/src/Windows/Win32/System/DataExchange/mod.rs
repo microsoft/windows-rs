@@ -1014,6 +1014,7 @@ impl HCONV {
     }
 }
 impl windows_core::Free for HCONV {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DdeDisconnect(*self);
@@ -1037,6 +1038,7 @@ impl HCONVLIST {
     }
 }
 impl windows_core::Free for HCONVLIST {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DdeDisconnectList(*self);
@@ -1060,6 +1062,7 @@ impl HDDEDATA {
     }
 }
 impl windows_core::Free for HDDEDATA {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DdeFreeDataHandle(*self);

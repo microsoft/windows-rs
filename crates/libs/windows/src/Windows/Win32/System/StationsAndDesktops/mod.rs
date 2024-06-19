@@ -456,6 +456,7 @@ impl HDESK {
     }
 }
 impl windows_core::Free for HDESK {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CloseDesktop(*self);
@@ -479,6 +480,7 @@ impl HWINSTA {
     }
 }
 impl windows_core::Free for HWINSTA {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CloseWindowStation(*self);

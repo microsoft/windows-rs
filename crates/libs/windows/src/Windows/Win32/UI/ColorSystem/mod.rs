@@ -1553,6 +1553,7 @@ impl HCOLORSPACE {
     }
 }
 impl windows_core::Free for HCOLORSPACE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DeleteColorSpace(*self);

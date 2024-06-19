@@ -612,6 +612,7 @@ impl HFILTER {
     }
 }
 impl windows_core::Free for HFILTER {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = FilterClose(*self);
@@ -635,6 +636,7 @@ impl HFILTER_INSTANCE {
     }
 }
 impl windows_core::Free for HFILTER_INSTANCE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = FilterInstanceClose(*self);

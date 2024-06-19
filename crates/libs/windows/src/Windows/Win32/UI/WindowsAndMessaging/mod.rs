@@ -8187,6 +8187,7 @@ impl HACCEL {
     }
 }
 impl windows_core::Free for HACCEL {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyAcceleratorTable(*self);
@@ -8226,6 +8227,7 @@ impl HCURSOR {
     }
 }
 impl windows_core::Free for HCURSOR {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyCursor(*self);
@@ -8255,6 +8257,7 @@ impl HDEVNOTIFY {
     }
 }
 impl windows_core::Free for HDEVNOTIFY {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UnregisterDeviceNotification(*self);
@@ -8294,6 +8297,7 @@ impl HHOOK {
     }
 }
 impl windows_core::Free for HHOOK {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UnhookWindowsHookEx(*self);
@@ -8317,6 +8321,7 @@ impl HICON {
     }
 }
 impl windows_core::Free for HICON {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyIcon(*self);
@@ -8340,6 +8345,7 @@ impl HMENU {
     }
 }
 impl windows_core::Free for HMENU {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyMenu(*self);

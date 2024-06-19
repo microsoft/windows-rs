@@ -1647,6 +1647,7 @@ impl HSTRING_BUFFER {
     }
 }
 impl windows_core::Free for HSTRING_BUFFER {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = WindowsDeleteStringBuffer(*self);

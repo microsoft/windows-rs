@@ -34859,6 +34859,7 @@ impl HPSXA {
     }
 }
 impl windows_core::Free for HPSXA {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             SHDestroyPropSheetExtArray(*self);

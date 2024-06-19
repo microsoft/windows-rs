@@ -419,6 +419,7 @@ impl FH_SERVICE_PIPE_HANDLE {
     }
 }
 impl windows_core::Free for FH_SERVICE_PIPE_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = FhServiceClosePipe(*self);

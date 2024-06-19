@@ -7692,6 +7692,7 @@ impl SOCKET {
     }
 }
 impl windows_core::Free for SOCKET {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = closesocket(*self);

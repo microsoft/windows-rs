@@ -3968,6 +3968,7 @@ impl HIMC {
     }
 }
 impl windows_core::Free for HIMC {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = ImmDestroyContext(*self);

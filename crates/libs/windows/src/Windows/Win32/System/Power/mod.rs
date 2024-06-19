@@ -2005,6 +2005,7 @@ impl HPOWERNOTIFY {
     }
 }
 impl windows_core::Free for HPOWERNOTIFY {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UnregisterPowerSettingNotification(*self);

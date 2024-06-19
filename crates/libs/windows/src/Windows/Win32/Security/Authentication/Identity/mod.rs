@@ -6266,6 +6266,7 @@ impl LSA_HANDLE {
     }
 }
 impl windows_core::Free for LSA_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = LsaClose(*self);

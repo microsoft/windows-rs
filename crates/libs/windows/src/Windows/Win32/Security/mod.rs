@@ -2596,6 +2596,7 @@ impl PSID {
     }
 }
 impl windows_core::Free for PSID {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = FreeSid(*self);

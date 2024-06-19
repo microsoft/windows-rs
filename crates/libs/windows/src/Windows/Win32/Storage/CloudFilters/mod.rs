@@ -2574,6 +2574,7 @@ impl CF_CONNECTION_KEY {
     }
 }
 impl windows_core::Free for CF_CONNECTION_KEY {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CfDisconnectSyncRoot(*self);

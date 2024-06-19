@@ -852,6 +852,7 @@ impl HCS_OPERATION {
     }
 }
 impl windows_core::Free for HCS_OPERATION {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             HcsCloseOperation(*self);
@@ -875,6 +876,7 @@ impl HCS_PROCESS {
     }
 }
 impl windows_core::Free for HCS_PROCESS {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             HcsCloseProcess(*self);
@@ -915,6 +917,7 @@ impl HCS_SYSTEM {
     }
 }
 impl windows_core::Free for HCS_SYSTEM {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             HcsCloseComputeSystem(*self);

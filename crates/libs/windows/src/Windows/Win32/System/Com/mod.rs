@@ -6637,6 +6637,7 @@ impl CO_DEVICE_CATALOG_COOKIE {
     }
 }
 impl windows_core::Free for CO_DEVICE_CATALOG_COOKIE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CoRevokeDeviceCatalog(*self);
@@ -6660,6 +6661,7 @@ impl CO_MTA_USAGE_COOKIE {
     }
 }
 impl windows_core::Free for CO_MTA_USAGE_COOKIE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CoDecrementMTAUsage(*self);

@@ -721,6 +721,7 @@ impl HGESTUREINFO {
     }
 }
 impl windows_core::Free for HGESTUREINFO {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CloseGestureInfoHandle(*self);
@@ -744,6 +745,7 @@ impl HTOUCHINPUT {
     }
 }
 impl windows_core::Free for HTOUCHINPUT {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CloseTouchInputHandle(*self);

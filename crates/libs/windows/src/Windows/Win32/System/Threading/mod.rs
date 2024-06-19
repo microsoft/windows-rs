@@ -3658,6 +3658,7 @@ impl LPPROC_THREAD_ATTRIBUTE_LIST {
     }
 }
 impl windows_core::Free for LPPROC_THREAD_ATTRIBUTE_LIST {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             DeleteProcThreadAttributeList(*self);
@@ -3949,6 +3950,7 @@ impl PTP_CLEANUP_GROUP {
     }
 }
 impl windows_core::Free for PTP_CLEANUP_GROUP {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             CloseThreadpoolCleanupGroup(*self);
@@ -3972,6 +3974,7 @@ impl PTP_IO {
     }
 }
 impl windows_core::Free for PTP_IO {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             CloseThreadpoolIo(*self);
@@ -3995,6 +3998,7 @@ impl PTP_POOL {
     }
 }
 impl windows_core::Free for PTP_POOL {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             CloseThreadpool(*self);
@@ -4018,6 +4022,7 @@ impl PTP_TIMER {
     }
 }
 impl windows_core::Free for PTP_TIMER {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             CloseThreadpoolTimer(*self);
@@ -4041,6 +4046,7 @@ impl PTP_WAIT {
     }
 }
 impl windows_core::Free for PTP_WAIT {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             CloseThreadpoolWait(*self);
@@ -4064,6 +4070,7 @@ impl PTP_WORK {
     }
 }
 impl windows_core::Free for PTP_WORK {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             CloseThreadpoolWork(*self);

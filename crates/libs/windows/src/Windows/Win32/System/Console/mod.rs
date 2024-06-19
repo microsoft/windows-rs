@@ -1164,6 +1164,7 @@ impl HPCON {
     }
 }
 impl windows_core::Free for HPCON {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             ClosePseudoConsole(*self);

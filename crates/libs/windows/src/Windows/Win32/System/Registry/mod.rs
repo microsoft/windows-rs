@@ -1982,6 +1982,7 @@ impl HKEY {
     }
 }
 impl windows_core::Free for HKEY {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = RegCloseKey(*self);

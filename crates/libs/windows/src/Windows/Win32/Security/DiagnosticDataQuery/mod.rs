@@ -528,6 +528,7 @@ impl HDIAGNOSTIC_DATA_QUERY_SESSION {
     }
 }
 impl windows_core::Free for HDIAGNOSTIC_DATA_QUERY_SESSION {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DdqCloseSession(*self);
@@ -551,6 +552,7 @@ impl HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     }
 }
 impl windows_core::Free for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DdqFreeDiagnosticRecordProducerCategories(*self);
@@ -574,6 +576,7 @@ impl HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     }
 }
 impl windows_core::Free for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DdqFreeDiagnosticRecordProducers(*self);
@@ -597,6 +600,7 @@ impl HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     }
 }
 impl windows_core::Free for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DdqFreeDiagnosticRecordLocaleTags(*self);
@@ -620,6 +624,7 @@ impl HDIAGNOSTIC_RECORD {
     }
 }
 impl windows_core::Free for HDIAGNOSTIC_RECORD {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DdqFreeDiagnosticRecordPage(*self);
@@ -643,6 +648,7 @@ impl HDIAGNOSTIC_REPORT {
     }
 }
 impl windows_core::Free for HDIAGNOSTIC_REPORT {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DdqFreeDiagnosticReport(*self);

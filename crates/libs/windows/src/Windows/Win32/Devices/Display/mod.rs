@@ -4430,6 +4430,7 @@ impl HSEMAPHORE {
     }
 }
 impl windows_core::Free for HSEMAPHORE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             EngDeleteSemaphore(*self);

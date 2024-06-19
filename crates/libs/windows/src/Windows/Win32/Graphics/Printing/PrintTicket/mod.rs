@@ -146,6 +146,7 @@ impl HPTPROVIDER {
     }
 }
 impl windows_core::Free for HPTPROVIDER {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = PTCloseProvider(*self);

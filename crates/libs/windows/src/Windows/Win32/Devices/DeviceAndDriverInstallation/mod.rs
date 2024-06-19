@@ -8071,6 +8071,7 @@ impl HCMNOTIFICATION {
     }
 }
 impl windows_core::Free for HCMNOTIFICATION {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CM_Unregister_Notification(*self);
@@ -8094,6 +8095,7 @@ impl HDEVINFO {
     }
 }
 impl windows_core::Free for HDEVINFO {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = SetupDiDestroyDeviceInfoList(*self);

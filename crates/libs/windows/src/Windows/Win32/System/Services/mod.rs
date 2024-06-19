@@ -1161,6 +1161,7 @@ impl SC_HANDLE {
     }
 }
 impl windows_core::Free for SC_HANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CloseServiceHandle(*self);

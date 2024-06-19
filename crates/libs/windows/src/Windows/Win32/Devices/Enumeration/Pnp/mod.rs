@@ -1177,6 +1177,7 @@ impl HSWDEVICE {
     }
 }
 impl windows_core::Free for HSWDEVICE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             SwDeviceClose(*self);

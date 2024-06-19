@@ -2033,6 +2033,7 @@ impl HBLUETOOTH_DEVICE_FIND {
     }
 }
 impl windows_core::Free for HBLUETOOTH_DEVICE_FIND {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = BluetoothFindDeviceClose(*self);
@@ -2056,6 +2057,7 @@ impl HBLUETOOTH_RADIO_FIND {
     }
 }
 impl windows_core::Free for HBLUETOOTH_RADIO_FIND {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = BluetoothFindRadioClose(*self);

@@ -8506,6 +8506,7 @@ impl HRECOCONTEXT {
     }
 }
 impl windows_core::Free for HRECOCONTEXT {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyContext(*self);
@@ -8529,6 +8530,7 @@ impl HRECOGNIZER {
     }
 }
 impl windows_core::Free for HRECOGNIZER {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyRecognizer(*self);
@@ -8568,6 +8570,7 @@ impl HRECOWORDLIST {
     }
 }
 impl windows_core::Free for HRECOWORDLIST {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyWordList(*self);

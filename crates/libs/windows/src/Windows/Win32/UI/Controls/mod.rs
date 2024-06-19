@@ -11969,6 +11969,7 @@ impl HDPA {
     }
 }
 impl windows_core::Free for HDPA {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DPA_Destroy(*self);
@@ -11992,6 +11993,7 @@ impl HDSA {
     }
 }
 impl windows_core::Free for HDSA {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DSA_Destroy(*self);
@@ -12043,6 +12045,7 @@ impl HIMAGELIST {
     }
 }
 impl windows_core::Free for HIMAGELIST {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = ImageList_Destroy(*self);
@@ -12066,6 +12069,7 @@ impl HPROPSHEETPAGE {
     }
 }
 impl windows_core::Free for HPROPSHEETPAGE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = DestroyPropertySheetPage(*self);
@@ -12089,6 +12093,7 @@ impl HSYNTHETICPOINTERDEVICE {
     }
 }
 impl windows_core::Free for HSYNTHETICPOINTERDEVICE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             DestroySyntheticPointerDevice(*self);
@@ -12112,6 +12117,7 @@ impl HTHEME {
     }
 }
 impl windows_core::Free for HTHEME {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = CloseThemeData(*self);

@@ -3138,6 +3138,7 @@ impl ROPARAMIIDHANDLE {
     }
 }
 impl windows_core::Free for ROPARAMIIDHANDLE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             RoFreeParameterizedTypeExtra(*self);

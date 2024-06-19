@@ -5450,6 +5450,7 @@ impl HACMDRIVER {
     }
 }
 impl windows_core::Free for HACMDRIVER {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = acmDriverClose(*self, 0);
@@ -5505,6 +5506,7 @@ impl HACMSTREAM {
     }
 }
 impl windows_core::Free for HACMSTREAM {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = acmStreamClose(*self, 0);
@@ -5544,6 +5546,7 @@ impl HMIDIIN {
     }
 }
 impl windows_core::Free for HMIDIIN {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = midiInClose(*self);
@@ -5567,6 +5570,7 @@ impl HMIDIOUT {
     }
 }
 impl windows_core::Free for HMIDIOUT {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = midiOutClose(*self);
@@ -5590,6 +5594,7 @@ impl HMIDISTRM {
     }
 }
 impl windows_core::Free for HMIDISTRM {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = midiStreamClose(*self);
@@ -5613,6 +5618,7 @@ impl HMIXER {
     }
 }
 impl windows_core::Free for HMIXER {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = mixerClose(*self);
@@ -5668,6 +5674,7 @@ impl HWAVEIN {
     }
 }
 impl windows_core::Free for HWAVEIN {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = waveInClose(*self);
@@ -5691,6 +5698,7 @@ impl HWAVEOUT {
     }
 }
 impl windows_core::Free for HWAVEOUT {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = waveOutClose(*self);

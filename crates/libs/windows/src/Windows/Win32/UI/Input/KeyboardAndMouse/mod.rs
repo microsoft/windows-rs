@@ -1020,6 +1020,7 @@ impl HKL {
     }
 }
 impl windows_core::Free for HKL {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UnloadKeyboardLayout(*self);

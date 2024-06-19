@@ -9586,6 +9586,7 @@ impl HUIAEVENT {
     }
 }
 impl windows_core::Free for HUIAEVENT {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UiaRemoveEvent(*self);
@@ -9609,6 +9610,7 @@ impl HUIANODE {
     }
 }
 impl windows_core::Free for HUIANODE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UiaNodeRelease(*self);
@@ -9632,6 +9634,7 @@ impl HUIAPATTERNOBJECT {
     }
 }
 impl windows_core::Free for HUIAPATTERNOBJECT {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UiaPatternRelease(*self);
@@ -9655,6 +9658,7 @@ impl HUIATEXTRANGE {
     }
 }
 impl windows_core::Free for HUIATEXTRANGE {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UiaTextRangeRelease(*self);
@@ -9678,6 +9682,7 @@ impl HWINEVENTHOOK {
     }
 }
 impl windows_core::Free for HWINEVENTHOOK {
+    #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
             _ = UnhookWinEvent(*self);
