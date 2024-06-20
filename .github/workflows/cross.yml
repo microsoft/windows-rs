@@ -36,6 +36,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
         if: contains(matrix.target, 'gnullvm') == false
