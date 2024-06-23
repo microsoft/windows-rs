@@ -115,6 +115,34 @@ impl Key {
         unsafe { self.set_value(name, REG_BINARY, value.as_ptr() as _, value.len()) }
     }
 
+    /// Gets the type for the name in the registry key.
+    pub fn get_type<T: AsRef<str>>(&self, name: T) -> Result<Type> {
+        let name = pcwstr(name);
+        let mut ty = 0;
+
+        let result = unsafe {
+            RegQueryValueExW(
+                self.0,
+                name.as_ptr(),
+                null(),
+                &mut ty,
+                null_mut(),
+                null_mut(),
+            )
+        };
+
+        win32_error(result)?;
+
+        Ok(match ty {
+            REG_DWORD => Type::U32,
+            REG_QWORD => Type::U64,
+            REG_BINARY => Type::Bytes,
+            REG_SZ | REG_EXPAND_SZ => Type::String,
+            REG_MULTI_SZ => Type::MultiString,
+            rest => Type::Unknown(rest),
+        })
+    }
+
     /// Gets the value for the name in the registry key.
     pub fn get_value<T: AsRef<str>>(&self, name: T) -> Result<Value> {
         let name = pcwstr(name);
@@ -252,11 +280,35 @@ impl Key {
 
     /// Gets the value for the name in the registry key.
     pub fn get_bytes<T: AsRef<str>>(&self, name: T) -> Result<Vec<u8>> {
-        if let Value::Bytes(value) = self.get_value(name)? {
-            Ok(value)
-        } else {
-            Err(invalid_data())
-        }
+        let name = pcwstr(name);
+        let mut len = 0;
+
+        let result = unsafe {
+            RegQueryValueExW(
+                self.0,
+                name.as_ptr(),
+                null(),
+                null_mut(),
+                null_mut(),
+                &mut len,
+            )
+        };
+
+        win32_error(result)?;
+        let mut value = vec![0u8; len as usize];
+
+        let result = unsafe {
+            RegQueryValueExW(
+                self.0,
+                name.as_ptr(),
+                null(),
+                null_mut(),
+                value.as_mut_ptr() as _,
+                &mut len,
+            )
+        };
+
+        win32_error(result).map(|_| value)
     }
 
     /// Gets the value for the name in the registry key.
