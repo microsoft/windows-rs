@@ -10,12 +10,14 @@ fn values() -> Result<()> {
     key.set_u32("u32", 123)?;
     key.set_u64("u64", 456)?;
     key.set_string("string", "hello")?;
+    key.set_os_string("os_string", "hello os")?;
     key.set_bytes("bytes", &[1u8, 2u8, 2u8])?;
     key.set_multi_string("multi", &["hello", "world"])?;
 
     assert_eq!(key.get_u32("u32")?, 123u32);
     assert_eq!(key.get_u64("u64")?, 456u64);
     assert_eq!(key.get_string("string")?, "hello".to_string());
+    assert_eq!(&key.get_os_string("os_string")?, "hello os");
     assert_eq!(key.get_bytes("bytes")?, vec![1u8, 2u8, 2u8]);
     assert_eq!(
         key.get_multi_string("multi")?,
@@ -43,6 +45,10 @@ fn values() -> Result<()> {
             ("u32".to_string(), Value::U32(123)),
             ("u64".to_string(), Value::U64(456)),
             ("string".to_string(), Value::String("hello".to_string())),
+            (
+                "os_string".to_string(),
+                Value::String("hello os".to_string())
+            ),
             ("bytes".to_string(), Value::Bytes(vec![1u8, 2u8, 2u8])),
             (
                 "multi".to_string(),
@@ -52,6 +58,7 @@ fn values() -> Result<()> {
     );
 
     key.remove_value("string")?;
+    key.remove_value("os_string")?;
     key.remove_value("multi")?;
     let names: Vec<_> = key.values()?.collect();
 

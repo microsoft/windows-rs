@@ -2,7 +2,7 @@
 Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
 */
 
-#![cfg_attr(not(test), no_std)]
+#![cfg_attr(all(not(feature = "std")), no_std)]
 
 #[macro_use]
 extern crate alloc;
@@ -45,10 +45,20 @@ pub const LOCAL_MACHINE: &Key = &Key(HKEY_LOCAL_MACHINE);
 /// The predefined `HKEY_USERS` registry key.
 pub const USERS: &Key = &Key(HKEY_USERS);
 
-fn pcwstr<T: AsRef<str>>(value: T) -> Vec<u16> {
+fn encode_utf16<T: AsRef<str>>(value: T) -> Vec<u16> {
     value
         .as_ref()
         .encode_utf16()
+        .chain(core::iter::once(0))
+        .collect()
+}
+
+#[cfg(feature = "std")]
+fn encode_wide<T: AsRef<std::ffi::OsStr>>(value: T) -> Vec<u16> {
+    use std::os::windows::prelude::*;
+    value
+        .as_ref()
+        .encode_wide()
         .chain(core::iter::once(0))
         .collect()
 }

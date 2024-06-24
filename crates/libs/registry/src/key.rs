@@ -20,7 +20,7 @@ impl Key {
         let result = unsafe {
             RegCreateKeyExW(
                 self.0,
-                pcwstr(path).as_ptr(),
+                encode_utf16(path).as_ptr(),
                 0,
                 null(),
                 REG_OPTION_NON_VOLATILE,
@@ -38,8 +38,15 @@ impl Key {
     pub fn open<T: AsRef<str>>(&self, path: T) -> Result<Self> {
         let mut handle = core::ptr::null_mut();
 
-        let result =
-            unsafe { RegOpenKeyExW(self.0, pcwstr(path).as_ptr(), 0, KEY_READ, &mut handle) };
+        let result = unsafe {
+            RegOpenKeyExW(
+                self.0,
+                encode_utf16(path).as_ptr(),
+                0,
+                KEY_READ,
+                &mut handle,
+            )
+        };
 
         win32_error(result).map(|_| Self(handle))
     }
@@ -61,13 +68,13 @@ impl Key {
 
     /// Removes the registry keys and values of the specified key recursively.
     pub fn remove_tree<T: AsRef<str>>(&self, path: T) -> Result<()> {
-        let result = unsafe { RegDeleteTreeW(self.0, pcwstr(path).as_ptr()) };
+        let result = unsafe { RegDeleteTreeW(self.0, encode_utf16(path).as_ptr()) };
         win32_error(result)
     }
 
     /// Removes the registry value.
     pub fn remove_value<T: AsRef<str>>(&self, name: T) -> Result<()> {
-        let result = unsafe { RegDeleteValueW(self.0, pcwstr(name).as_ptr()) };
+        let result = unsafe { RegDeleteValueW(self.0, encode_utf16(name).as_ptr()) };
         win32_error(result)
     }
 
@@ -93,7 +100,7 @@ impl Key {
 
     /// Sets the name and value in the registry key.
     pub fn set_string<T: AsRef<str>>(&self, name: T, value: T) -> Result<()> {
-        let value = pcwstr(value);
+        let value = encode_utf16(value);
 
         unsafe { self.set_value(name, REG_SZ, value.as_ptr() as _, value.len() * 2) }
     }
@@ -101,7 +108,7 @@ impl Key {
     /// Sets the name and value in the registry key.
     pub fn set_multi_string<T: AsRef<str>>(&self, name: T, value: &[T]) -> Result<()> {
         let mut packed = value.iter().fold(vec![0u16; 0], |mut packed, value| {
-            packed.append(&mut pcwstr(value));
+            packed.append(&mut encode_utf16(value));
             packed
         });
 
@@ -117,7 +124,7 @@ impl Key {
 
     /// Gets the type for the name in the registry key.
     pub fn get_type<T: AsRef<str>>(&self, name: T) -> Result<Type> {
-        let name = pcwstr(name);
+        let name = encode_utf16(name);
         let mut ty = 0;
 
         let result = unsafe {
@@ -145,7 +152,7 @@ impl Key {
 
     /// Gets the value for the name in the registry key.
     pub fn get_value<T: AsRef<str>>(&self, name: T) -> Result<Value> {
-        let name = pcwstr(name);
+        let name = encode_utf16(name);
         let mut ty = 0;
         let mut len = 0;
 
@@ -280,7 +287,7 @@ impl Key {
 
     /// Gets the value for the name in the registry key.
     pub fn get_bytes<T: AsRef<str>>(&self, name: T) -> Result<Vec<u8>> {
-        let name = pcwstr(name);
+        let name = encode_utf16(name);
         let mut len = 0;
 
         let result = unsafe {
@@ -320,6 +327,48 @@ impl Key {
         }
     }
 
+    /// Sets the name and value in the registry key.
+    #[cfg(feature = "std")]
+    pub fn set_os_string<N: AsRef<str>, V: AsRef<std::ffi::OsStr>>(
+        &self,
+        name: N,
+        value: V,
+    ) -> Result<()> {
+        let value = encode_wide(value);
+
+        unsafe { self.set_value(name, REG_SZ, value.as_ptr() as _, value.len() * 2) }
+    }
+
+    /// Gets the value for the name in the registry key.
+    #[cfg(feature = "std")]
+    pub fn get_os_string<T: AsRef<str>>(&self, name: T) -> Result<std::ffi::OsString> {
+        let name = encode_utf16(name);
+        let mut ty = 0;
+        let mut len = 0;
+
+        let result = unsafe {
+            RegQueryValueExW(self.0, name.as_ptr(), null(), &mut ty, null_mut(), &mut len)
+        };
+
+        win32_error(result)?;
+        let mut value = vec![0u16; len as usize / 2];
+
+        let result = unsafe {
+            RegQueryValueExW(
+                self.0,
+                name.as_ptr(),
+                null(),
+                null_mut(),
+                value.as_mut_ptr() as _,
+                &mut len,
+            )
+        };
+
+        win32_error(result)?;
+        use std::os::windows::prelude::*;
+        Ok(std::ffi::OsString::from_wide(trim(&value)))
+    }
+
     unsafe fn set_value<T: AsRef<str>>(
         &self,
         name: T,
@@ -327,7 +376,14 @@ impl Key {
         ptr: *const u8,
         len: usize,
     ) -> Result<()> {
-        let result = RegSetValueExW(self.0, pcwstr(name).as_ptr(), 0, ty, ptr, len.try_into()?);
+        let result = RegSetValueExW(
+            self.0,
+            encode_utf16(name).as_ptr(),
+            0,
+            ty,
+            ptr,
+            len.try_into()?,
+        );
 
         win32_error(result)
     }

@@ -32,5 +32,9 @@ fn bad_string() -> Result<()> {
 
     let value_as_bytes = key.get_bytes("name")?;
     assert_eq!(value_as_bytes, bad_string_bytes);
+
+    let value_as_os_string = key.get_os_string("name")?;
+    assert_eq!(value_as_os_string.to_string_lossy(), "�ā");
+
     Ok(())
 }

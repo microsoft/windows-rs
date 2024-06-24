@@ -9,7 +9,10 @@ description = "Windows registry"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 categories = ["os::windows-apis"]
-exclude = ["tests"]
+
+[features]
+default = ["std"]
+std = []
 
 [lints]
 workspace = true
