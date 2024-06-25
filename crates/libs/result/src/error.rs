@@ -267,11 +267,6 @@ impl<Detail: ErrorDetail> ErrorT<Detail> {
         }
     }
 
-    /// The error code describing the error.
-    pub const fn code(&self) -> HRESULT {
-        self.code.to_hresult()
-    }
-
     /// The error message describing the error.
     pub fn message(&self) -> String {
         if let Some(message) = self.detail.message() {
@@ -285,6 +280,15 @@ impl<Detail: ErrorDetail> ErrorT<Detail> {
     /// Gets access to the error detail stored in this `Error`.
     pub fn detail(&self) -> &Detail {
         &self.detail
+    }
+}
+
+// This is a separate impl block because Rust 1.60.0 (our MSRV) rejects const fns that have
+// trait bounds on them, so we place it in a separate impl without any bounds.
+impl<Detail> ErrorT<Detail> {
+    /// The error code describing the error.
+    pub const fn code(&self) -> HRESULT {
+        self.code.to_hresult()
     }
 }
 
