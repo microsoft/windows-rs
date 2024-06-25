@@ -16,10 +16,7 @@ jobs:
     strategy:
       matrix:
         rust: [1.70.0, stable, nightly]
-        runs-on:
-          - windows-2022
-          - ubuntu-latest
-    runs-on: ${{ matrix.runs-on }}
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4

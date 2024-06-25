@@ -1,29 +1,5 @@
-mod bstr;
-mod hstring;
-mod literals;
-mod pcstr;
-mod pcwstr;
-mod pstr;
-mod pwstr;
-
-pub use bstr::*;
-pub use hstring::*;
-#[doc(hidden)]
-pub use literals::*;
-pub use pcstr::*;
-pub use pcwstr::*;
-pub use pstr::*;
-pub use pwstr::*;
-
-use super::*;
-
-extern "C" {
-    #[doc(hidden)]
-    pub fn strlen(s: PCSTR) -> usize;
-}
-
 /// An internal helper for decoding an iterator of chars and displaying them
-struct Decode<F>(pub F);
+pub struct Decode<F>(pub F);
 
 impl<F, R, E> core::fmt::Display for Decode<F>
 where
@@ -41,7 +17,7 @@ where
 }
 
 /// Mirror of `std::char::decode_utf16` for utf-8.
-fn decode_utf8(
+pub fn decode_utf8(
     mut buffer: &[u8],
 ) -> impl Iterator<Item = core::result::Result<char, core::str::Utf8Error>> + '_ {
     let mut current = "".chars();

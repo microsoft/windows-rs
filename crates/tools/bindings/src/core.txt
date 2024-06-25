@@ -6,9 +6,6 @@
 --filter
     Windows.Win32.Foundation.CloseHandle
     Windows.Win32.Foundation.FreeLibrary
-    Windows.Win32.Foundation.SysAllocStringLen
-    Windows.Win32.Foundation.SysFreeString
-    Windows.Win32.Foundation.SysStringLen
     Windows.Win32.System.Com.CoIncrementMTAUsage
     Windows.Win32.System.Com.CoTaskMemAlloc
     Windows.Win32.System.Com.CoTaskMemFree

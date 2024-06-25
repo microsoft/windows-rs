@@ -6,6 +6,7 @@ fn main() -> Result<()> {
     run("crates/tools/bindings/src/metadata.txt")?;
     run("crates/tools/bindings/src/registry.txt")?;
     run("crates/tools/bindings/src/result.txt")?;
+    run("crates/tools/bindings/src/strings.txt")?;
     run("crates/tools/bindings/src/sys.txt")?;
     run("crates/tools/bindings/src/version.txt")?;
     run("crates/tools/bindings/src/windows.txt")?;
