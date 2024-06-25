@@ -219,13 +219,13 @@ impl NonZeroHRESULT {
     pub fn ok(self) -> Result<()> {
         // SAFETY: We use a static assertion to check that the size of these two types are identical.
         // Since there is only one possible niche, that niche must be used for the Ok(()) value.
-        #[cfg(any(feature = "slim-error", not(windows)))]
+        #[cfg(any(feature = "slim-errors", not(windows)))]
         unsafe {
             core::mem::transmute(self)
         }
 
         // If we are not using slim Error, then we take the slow path.
-        #[cfg(not(any(feature = "slim-error", not(windows))))]
+        #[cfg(not(any(feature = "slim-errors", not(windows))))]
         HRESULT::from(self).ok()
     }
 
