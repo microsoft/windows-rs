@@ -104,6 +104,7 @@ impl Clone for HSTRING {
 }
 
 impl Drop for HSTRING {
+    #[inline]
     fn drop(&mut self) {
         if self.is_empty() {
             return;
@@ -422,6 +423,7 @@ struct Header {
 }
 
 impl Header {
+    #[inline]
     fn alloc(len: u32) -> Result<*mut Header> {
         debug_assert!(len != 0);
         // Allocate enough space for header and two bytes per character.
