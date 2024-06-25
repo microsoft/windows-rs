@@ -1,8 +1,9 @@
 // This tests code paths in `windows-result` that are different on non-Windows platforms.
 #![cfg(not(windows))]
 
-use windows::core::Error;
-use windows::Win32::Foundation::{E_FAIL, S_OK};
+use windows_result::*;
+pub const E_FAIL: HRESULT = HRESULT(0x80004005_u32 as _);
+pub const S_OK: HRESULT = HRESULT(0x0_u32 as _);
 
 #[test]
 fn basic_hresult() {
