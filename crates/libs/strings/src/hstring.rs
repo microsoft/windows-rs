@@ -104,7 +104,6 @@ impl Clone for HSTRING {
 }
 
 impl Drop for HSTRING {
-    #[inline]
     fn drop(&mut self) {
         if self.is_empty() {
             return;
@@ -116,7 +115,7 @@ impl Drop for HSTRING {
             unsafe {
                 let header = header.as_ref();
                 if header.flags & REFERENCE_FLAG == 0 && header.count.release() == 0 {
-                    bindings::HeapFree(bindings::GetProcessHeap(), 0, header as *const _ as *mut _);
+                    heap_free(header as *const _ as *mut _);
                 }
             }
         }
@@ -423,28 +422,23 @@ struct Header {
 }
 
 impl Header {
-    #[inline]
     fn alloc(len: u32) -> Result<*mut Header> {
         debug_assert!(len != 0);
         // Allocate enough space for header and two bytes per character.
         // The space for the terminating null character is already accounted for inside of `Header`.
         let alloc_size = core::mem::size_of::<Header>() + 2 * len as usize;
 
+        let header = heap_alloc(alloc_size)? as *mut Header;
+
         unsafe {
-            let header =
-                bindings::HeapAlloc(bindings::GetProcessHeap(), 0, alloc_size) as *mut Header;
-
-            if header.is_null() {
-                return Err(Error::from_hresult(HRESULT(bindings::E_OUTOFMEMORY)));
-            }
-
             // Use `ptr::write` (since `header` is unintialized). `Header` is safe to be all zeros.
             header.write(core::mem::MaybeUninit::<Header>::zeroed().assume_init());
             (*header).len = len;
             (*header).count = RefCount::new(1);
             (*header).data = &mut (*header).buffer_start;
-            Ok(header)
         }
+
+        Ok(header)
     }
 
     fn duplicate(&self) -> Result<*mut Header> {

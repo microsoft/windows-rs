@@ -29,6 +29,9 @@ use decode::*;
 mod ref_count;
 use ref_count::*;
 
+mod heap;
+use heap::*;
+
 mod literals;
 pub use literals::*;
 
