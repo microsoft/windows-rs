@@ -1,4 +1,4 @@
-name: windows-registry
+name: windows-strings
 
 on:
   pull_request:
@@ -23,4 +23,4 @@ jobs:
       - name: Prepare
         run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
       - name: Check
-        run: cargo check -p windows-registry --all-features
+        run: cargo check -p windows-strings --all-features

@@ -8,9 +8,8 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows]
-path = "../../libs/windows"
-features = [
-    "Foundation",
-    "Win32_Foundation",
-]
+[dependencies.windows-result]
+path = "../../libs/result"
+
+[dependencies.windows-core]
+path = "../../libs/core"

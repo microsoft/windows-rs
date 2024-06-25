@@ -1,9 +1,9 @@
 [package]
-name = "windows-core"
-version = "0.57.0"
+name = "windows-strings"
+version = "0.1.0"
 authors = ["Microsoft"]
 edition = "2021"
-rust-version = "1.70"
+rust-version = "1.60"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
@@ -24,14 +24,6 @@ path = "../targets"
 [dependencies.windows-result]
 version = "0.1.1"
 path = "../result"
-
-[dependencies.windows-strings]
-version = "0.1.0"
-path = "../strings"
-
-[dependencies]
-windows-implement = { path = "../implement",  version = "0.57.0" }
-windows-interface = { path = "../interface",  version = "0.57.0" }
 
 [features]
 default = ["std"]

@@ -262,6 +262,8 @@ jobs:
         run:  cargo clean
       - name: Test test_string_param
         run:  cargo test -p test_string_param --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_strings
+        run:  cargo test -p test_strings --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_structs
         run:  cargo test -p test_structs --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_sys
@@ -316,6 +318,8 @@ jobs:
         run:  cargo test -p windows-registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-result
         run:  cargo test -p windows-result --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-strings
+        run:  cargo test -p windows-strings --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-sys
         run:  cargo test -p windows-sys --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test windows-targets
