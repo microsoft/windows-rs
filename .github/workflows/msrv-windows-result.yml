@@ -27,3 +27,5 @@ jobs:
         run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
       - name: Check
         run: cargo check -p windows-result --all-features
+      - name: Check Default Features
+        run: cargo check -p windows-result
