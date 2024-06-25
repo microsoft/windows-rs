@@ -8,7 +8,7 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
     windows_debugger_visualizer,
     debugger_visualizer(natvis_file = "../.natvis")
 )]
-#![cfg_attr(all(not(test), not(feature = "std")), no_std)]
+#![cfg_attr(all(not(feature = "std")), no_std)]
 
 extern crate self as windows_core;
 
