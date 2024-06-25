@@ -4,10 +4,6 @@ version = "0.0.0"
 edition = "2021"
 publish = false
 
-[lib]
-doc = false
-doctest = false
-
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
@@ -41,6 +37,9 @@ path = "../../libs/registry"
 
 [dev-dependencies.windows-version]
 path = "../../libs/version"
+
+[dev-dependencies.windows-strings]
+path = "../../libs/strings"
 
 [dev-dependencies.cppwinrt]
 path = "../../libs/cppwinrt"

@@ -82,8 +82,8 @@ fn main() {
         WaitForSingleObject(event, 0);
         CloseHandle(event);
 
-        MessageBoxA(0, s!("Ansi"), s!("Caption"), MB_OK);
-        MessageBoxW(0, w!("Wide"), w!("Caption"), MB_OK);
+        MessageBoxA(0 as _, s!("Ansi"), s!("Caption"), MB_OK);
+        MessageBoxW(0 as _, w!("Wide"), w!("Caption"), MB_OK);
     }
 }
 ```
