@@ -231,6 +231,9 @@ impl<Detail: ErrorDetail> ErrorT<Detail> {
 
     /// Creates a new error object, capturing the stack and other information about the
     /// point of failure.
+    ///
+    /// If `code` is `S_OK`, then this is remapped to `E_FAIL`. The `Error` object cannot
+    /// store an `S_OK` value.
     pub fn new<T: AsRef<str>>(code: HRESULT, message: T) -> Self {
         Detail::originate_error(code, message.as_ref());
         // This into() call will take the ambient thread-local error object, if any.
@@ -238,6 +241,9 @@ impl<Detail: ErrorDetail> ErrorT<Detail> {
     }
 
     /// Creates a new error object with an error code, but without additional error information.
+    ///
+    /// If `code` is `S_OK`, then this is remapped to `E_FAIL`. The `Error` object cannot
+    /// store an `S_OK` value.
     pub fn from_hresult(code: HRESULT) -> Self {
         Self {
             code: NonZeroHRESULT::from_hresult_or_fail(code),
@@ -246,6 +252,9 @@ impl<Detail: ErrorDetail> ErrorT<Detail> {
     }
 
     /// Creates a new `Error` from the Win32 error code returned by `GetLastError()`.
+    ///
+    /// If `GetLastError()` returns `ERROR_SUCCESS` then this is remapped to `E_FAIL`. The `Error`
+    /// object cannot store an `S_OK` value.
     pub fn from_win32() -> Self {
         #[cfg(windows)]
         {
