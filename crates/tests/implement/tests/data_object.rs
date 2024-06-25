@@ -99,7 +99,7 @@ fn test() -> Result<()> {
         let r = d.EnumFormatEtc(0);
         assert!(r.is_err());
         let e = r.unwrap_err();
-        assert!(e.code() == S_OK);
+        assert!(e.code() == E_FAIL);
         assert!(e.detail().as_ptr().is_null());
 
         d.DAdvise(&Default::default(), 0, None)?;

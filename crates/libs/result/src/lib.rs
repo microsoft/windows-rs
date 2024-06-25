@@ -23,7 +23,7 @@ mod com;
 #[cfg(windows)]
 mod strings;
 
-#[cfg(all(windows, feature = "error-info"))]
+#[cfg(windows)]
 mod bstr;
 
 mod error;

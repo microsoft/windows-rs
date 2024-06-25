@@ -184,7 +184,7 @@ fn GetAt() -> Result<()> {
     ])
     .into();
     assert_eq!(v.GetAt(0)?.ToString()?, "http://test/");
-    assert_eq!(v.GetAt(1).unwrap_err().code(), S_OK);
+    assert_eq!(v.GetAt(1).unwrap_err().code(), E_FAIL);
 
     Ok(())
 }

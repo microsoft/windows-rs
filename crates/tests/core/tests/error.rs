@@ -67,5 +67,5 @@ fn suppressed_error_info() -> Result<()> {
 fn just_hresult() {
     let e: Error = E_NOTIMPL.into();
     assert!(e.code() == E_NOTIMPL);
-    assert!(e.as_ptr().is_null());
+    assert!(e.detail().as_ptr().is_null());
 }

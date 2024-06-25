@@ -2,9 +2,17 @@ use super::*;
 #[allow(unused_imports)]
 use core::mem::size_of;
 
-/// An error object consists of both an error code as well as detailed error information for debugging.
+// We define ErrorT and Error separately because it allows type inference to work correctly
+// in some common situations.  If there were no separate type alias, then expressions like
+// `let e = Error::from(...)` and `let e = Error::new(...)` would have a free (unspecified) type
+// parameter, and so are ambiguous and fail to compile.
+//
+// Most code wants to use the default type parameter, so we give the type alias the `Error` name.
+// For the code that wants to deal directly non-default error details, it can use `ErrorT<...>`.
+
+/// An error object consists of both an error code and optional detailed error information for debugging.
 ///
-/// # Extended error info and the `error-info` feature
+/// # Extended error info and the `slim-errors` feature
 ///
 /// The `Error` contains an `HRESULT` value that describes the error, as well as an optional
 /// `IErrorInfo` object. The `IErrorInfo` object is a COM object that can provide detailed information
@@ -16,13 +24,15 @@ use core::mem::size_of;
 /// info within `Error` has no benefits, but has substantial costs because it increases the size of
 /// the `Error` object, which also increases the size of `Result<T>`.
 ///
-/// The `windows-result` crate provides the `error-info` feature, which gives developers control over
-/// the costs of using `Error`.
+/// The `slim-errors` Cargo feature allows you to _statically_ disable error detail in `Error`.
+/// This allows the `Error` and even the `Result<(), Error>` types to have a very small size; they
+/// have the same size and alignment as `HRESULT` itself. Because of this, they can be returned
+/// directly in a machine register, which gives better performance than writing the (relatively
+/// large) `Error` object (with full error detail) to the stack on every function return.
 #[derive(Clone)]
-pub struct ErrorT<Detail = DefaultDetail>
-where
-    Detail: ErrorDetail,
-{
+pub struct ErrorT<Detail = DefaultDetail> {
+    /// The error code. Because this uses `NonZeroHRESULT`, this provides a "niche" to the Rust
+    /// compiler. This allows the compiler to use more compact representations in some sitatutions.
     code: NonZeroHRESULT,
 
     /// Contains details about the error, such as error text.
@@ -35,29 +45,21 @@ where
 
 /// An error object consists of both an error code as well as detailed error information for debugging.
 ///
-/// # Extended error info and the `error-info` feature
-///
-/// The `Error` contains an `HRESULT` value that describes the error, as well as an optional
-/// `IErrorInfo` object. The `IErrorInfo` object is a COM object that can provide detailed information
-/// about an error, such as a text string, a `ProgID` of the originator, etc. If the error object
-/// was originated in an WinRT component, then additional information such as a stack track may be
-/// captured.
-///
-/// However, many systems based on COM do not use `IErrorInfo`. For these systems, the optional error
-/// info within `Error` has no benefits, but has substantial costs because it increases the size of
-/// the `Error` object, which also increases the size of `Result<T>`.
-///
-/// The `windows-result` crate provides the `error-info` feature, which gives developers control over
-/// the costs of using `Error`.
+/// This is a type alias for the [`ErrorT`] type.
 pub type Error = ErrorT<DefaultDetail>;
 
 /// Specifies the default error detail for the `Error` type.
-#[cfg(all(windows, feature = "error-info"))]
+#[cfg(not(feature = "slim-errors"))]
 pub type DefaultDetail = ErrorInfo;
 
 /// Specifies the default error detail for the `Error` type.
-#[cfg(not(all(windows, feature = "error-info")))]
+#[cfg(feature = "slim-errors")]
 pub type DefaultDetail = NoDetail;
+
+/// On non-Windows platforms, `ErrorInfo` is mapped to `NoDetail` because non-Windows platforms
+/// do not support `IErrorInfo`.
+#[cfg(not(windows))]
+pub type ErrorInfo = NoDetail;
 
 /// This type implements `ErrorDetail`, by containing no error information at all. This type allows
 /// for "slim" `Error` objects, which have the same size as `HRESULT`.
@@ -275,17 +277,6 @@ impl<Detail: ErrorDetail> ErrorT<Detail> {
     pub fn detail(&self) -> &Detail {
         &self.detail
     }
-
-    /*
-    /// The error object describing the error.
-    #[cfg(all(windows, feature = "error-info"))]
-    pub fn as_ptr(&self) -> *mut core::ffi::c_void {
-        self.info
-            .ptr
-            .as_ref()
-            .map_or(core::ptr::null_mut(), |info| info.as_raw())
-    }
-    */
 }
 
 #[cfg(feature = "std")]
@@ -363,14 +354,33 @@ impl<Detail: ErrorDetail> core::fmt::Display for ErrorT<Detail> {
     }
 }
 
+impl<Detail> core::hash::Hash for ErrorT<Detail> {
+    fn hash<H: core::hash::Hasher>(&self, state: &mut H) {
+        self.code.hash(state);
+        // We do not hash the detail.
+    }
+}
+
 // Equality tests only the HRESULT, not the error info (if any).
-impl<Detail: ErrorDetail> PartialEq for ErrorT<Detail> {
+impl<Detail> PartialEq for ErrorT<Detail> {
     fn eq(&self, other: &Self) -> bool {
         self.code == other.code
     }
 }
 
-impl<Detail: ErrorDetail> Eq for ErrorT<Detail> {}
+impl<Detail> Eq for ErrorT<Detail> {}
+
+impl<Detail> PartialOrd for ErrorT<Detail> {
+    fn partial_cmp(&self, other: &Self) -> Option<core::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl<Detail> Ord for ErrorT<Detail> {
+    fn cmp(&self, other: &Self) -> core::cmp::Ordering {
+        self.code.cmp(&other.code)
+    }
+}
 
 // If we are using "slim" Error objects, then we can rely on Result<()>
 // having a representation that is equivalent to HRESULT.

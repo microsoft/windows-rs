@@ -32,3 +32,4 @@ windows-interface = { path = "../interface",  version = "0.57.0" }
 [features]
 default = ["std"]
 std = []
+slim-errors = ["windows-result/slim-errors"]

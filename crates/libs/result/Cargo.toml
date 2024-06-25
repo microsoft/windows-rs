@@ -11,9 +11,10 @@ readme = "readme.md"
 categories = ["os::windows-apis"]
 
 [features]
-default = ["std", "error-info"]
+default = ["std"]
 std = []
-error-info = []
+# slim-errors reduces the size of Error (and Result<()>) to that of a single HRESULT
+slim-errors = []
 
 [lints]
 workspace = true

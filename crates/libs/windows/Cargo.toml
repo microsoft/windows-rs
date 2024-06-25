@@ -36,6 +36,7 @@ docs = []
 deprecated = []
 implement = []
 std = ["windows-core/std"]
+slim-errors = ["windows-core/slim-errors"]
 # generated features
 AI = ["Foundation"]
 AI_MachineLearning = ["AI"]
