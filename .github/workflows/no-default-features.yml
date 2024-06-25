@@ -48,6 +48,8 @@ jobs:
         run:  cargo check -p windows-registry --no-default-features
       - name: Check windows-result
         run:  cargo check -p windows-result --no-default-features
+      - name: Check windows-strings
+        run:  cargo check -p windows-strings --no-default-features
       - name: Check windows-sys
         run:  cargo check -p windows-sys --no-default-features
       - name: Check windows-targets

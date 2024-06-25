@@ -234,6 +234,8 @@ jobs:
         run:  cargo clippy -p test_standalone
       - name: Clippy test_string_param
         run:  cargo clippy -p test_string_param
+      - name: Clippy test_strings
+        run:  cargo clippy -p test_strings
       - name: Clippy test_structs
         run:  cargo clippy -p test_structs
       - name: Clippy test_sys
@@ -288,6 +290,8 @@ jobs:
         run:  cargo clippy -p windows-registry
       - name: Clippy windows-result
         run:  cargo clippy -p windows-result
+      - name: Clippy windows-strings
+        run:  cargo clippy -p windows-strings
       - name: Clippy windows-sys
         run:  cargo clippy -p windows-sys
       - name: Clippy windows-targets

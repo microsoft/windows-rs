@@ -22,9 +22,6 @@ windows_targets::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mu
 windows_targets::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
 windows_targets::link!("ole32.dll" "system" fn PropVariantClear(pvar : *mut PROPVARIANT) -> HRESULT);
 windows_targets::link!("ole32.dll" "system" fn PropVariantCopy(pvardest : *mut PROPVARIANT, pvarsrc : *const PROPVARIANT) -> HRESULT);
-windows_targets::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : PCWSTR, ui : u32) -> BSTR);
-windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : BSTR));
-windows_targets::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : BSTR) -> u32);
 windows_targets::link!("oleaut32.dll" "system" fn VariantClear(pvarg : *mut VARIANT) -> HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn VariantCopy(pvargdest : *mut VARIANT, pvargsrc : *const VARIANT) -> HRESULT);
 windows_targets::link!("propsys.dll" "system" fn PropVariantCompareEx(propvar1 : *const PROPVARIANT, propvar2 : *const PROPVARIANT, unit : PROPVAR_COMPARE_UNIT, flags : PROPVAR_COMPARE_FLAGS) -> i32);

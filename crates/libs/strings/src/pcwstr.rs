@@ -32,26 +32,10 @@ impl PCWSTR {
     ///
     /// The `PCWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn len(&self) -> usize {
-        #[cfg(windows)]
-        let len = {
-            extern "C" {
-                fn wcslen(s: *const u16) -> usize;
-            }
-            wcslen(self.0)
-        };
-
-        #[cfg(not(windows))]
-        let len = {
-            let mut len = 0;
-            let mut ptr = self.0;
-            while ptr.read() != 0 {
-                len += 1;
-                ptr = ptr.add(1);
-            }
-            len
-        };
-
-        len
+        extern "C" {
+            fn wcslen(s: *const u16) -> usize;
+        }
+        wcslen(self.0)
     }
 
     /// Returns `true` if the string length is zero, and `false` otherwise.

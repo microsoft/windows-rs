@@ -1,0 +1,13 @@
+// These will use `windows-sys` style bindings.
+
+--out crates/libs/strings/src/bindings.rs
+--config flatten sys minimal no-bindgen-comment
+
+--filter
+    Windows.Win32.Foundation.E_OUTOFMEMORY
+    Windows.Win32.Foundation.SysAllocStringLen
+    Windows.Win32.Foundation.SysFreeString
+    Windows.Win32.Foundation.SysStringLen
+    Windows.Win32.System.Memory.GetProcessHeap
+    Windows.Win32.System.Memory.HeapAlloc
+    Windows.Win32.System.Memory.HeapFree

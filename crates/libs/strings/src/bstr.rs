@@ -23,7 +23,7 @@ impl BSTR {
         if self.0.is_null() {
             0
         } else {
-            unsafe { imp::SysStringLen(self.0) as usize }
+            unsafe { bindings::SysStringLen(self.0) as usize }
         }
     }
 
@@ -49,14 +49,14 @@ impl BSTR {
         }
 
         let result = unsafe {
-            Self(imp::SysAllocStringLen(
+            Self(bindings::SysAllocStringLen(
                 value.as_ptr(),
                 value.len().try_into()?,
             ))
         };
 
         if result.is_empty() {
-            Err(imp::E_OUTOFMEMORY.into())
+            Err(Error::from_hresult(HRESULT(bindings::E_OUTOFMEMORY)))
         } else {
             Ok(result)
         }
@@ -170,7 +170,7 @@ impl<T: AsRef<str> + ?Sized> PartialEq<T> for BSTR {
 impl Drop for BSTR {
     fn drop(&mut self) {
         if !self.0.is_null() {
-            unsafe { imp::SysFreeString(self.0) }
+            unsafe { bindings::SysFreeString(self.0) }
         }
     }
 }
