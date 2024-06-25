@@ -11,27 +11,29 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 
 extern crate alloc;
 
-use alloc::string::String;
-use alloc::vec::Vec;
+#[allow(unused_imports)]
+use alloc::{string::String, vec::Vec};
 
 mod bindings;
 use bindings::*;
 
 #[cfg(windows)]
 mod com;
-#[cfg(windows)]
-use com::*;
 
 #[cfg(windows)]
 mod strings;
-#[cfg(windows)]
-use strings::*;
+
+#[cfg(all(windows, feature = "error-info"))]
+mod bstr;
 
 mod error;
-pub use error::Error;
+pub use error::*;
 
 mod hresult;
-pub use hresult::HRESULT;
+pub use hresult::{NonZeroHRESULT, HRESULT};
 
 /// A specialized [`Result`] type that provides Windows error information.
 pub type Result<T> = core::result::Result<T, Error>;
+
+#[cfg(test)]
+mod tests;

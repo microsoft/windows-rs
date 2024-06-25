@@ -11,8 +11,9 @@ readme = "readme.md"
 categories = ["os::windows-apis"]
 
 [features]
-default = ["std"]
+default = ["std", "error-info"]
 std = []
+error-info = []
 
 [lints]
 workspace = true
@@ -20,6 +21,9 @@ workspace = true
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
+
+[dependencies]
+static_assertions = "1.0"
 
 [dependencies.windows-targets]
 version = "0.52.5"

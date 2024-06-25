@@ -100,7 +100,7 @@ fn test() -> Result<()> {
         assert!(r.is_err());
         let e = r.unwrap_err();
         assert!(e.code() == S_OK);
-        assert!(e.as_ptr().is_null());
+        assert!(e.detail().as_ptr().is_null());
 
         d.DAdvise(&Default::default(), 0, None)?;
 
