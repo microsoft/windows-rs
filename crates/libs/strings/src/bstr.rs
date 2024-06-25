@@ -83,7 +83,7 @@ impl Clone for BSTR {
 
 impl From<&str> for BSTR {
     fn from(value: &str) -> Self {
-        let value: Vec<u16> = value.encode_utf16().collect();
+        let value: alloc::vec::Vec<u16> = value.encode_utf16().collect();
         Self::from_wide(&value).unwrap()
     }
 }

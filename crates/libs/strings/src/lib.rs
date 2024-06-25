@@ -11,6 +11,7 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
 extern crate alloc;
+use alloc::string::String;
 
 pub use windows_result::Result;
 use windows_result::*;
