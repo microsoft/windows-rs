@@ -1,0 +1,26 @@
+name: windows-strings
+
+on:
+  pull_request:
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+    branches:
+      - master
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  check:
+    strategy:
+      matrix:
+        rust: [1.60.0, stable, nightly]
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Prepare
+        run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
+      - name: Check
+        run: cargo check -p windows-strings --all-features
