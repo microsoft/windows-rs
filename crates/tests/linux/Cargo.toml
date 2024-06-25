@@ -10,3 +10,6 @@ doctest = false
 
 [dependencies.windows-result]
 path = "../../libs/result"
+
+[dependencies.windows-core]
+path = "../../libs/core"
