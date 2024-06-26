@@ -5,7 +5,6 @@ use core::mem::{transmute, transmute_copy};
 use core::ptr::null_mut;
 use core::sync::atomic::{AtomicIsize, Ordering};
 
-#[doc(hidden)]
 #[repr(transparent)]
 #[derive(Default)]
 pub struct WeakRefCount(AtomicIsize);

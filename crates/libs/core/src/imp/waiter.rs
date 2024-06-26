@@ -1,6 +1,5 @@
 use super::*;
 
-#[doc(hidden)]
 pub struct Waiter(HANDLE);
 pub struct WaiterSignaler(HANDLE);
 
