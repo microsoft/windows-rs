@@ -22,7 +22,6 @@ jobs:
           - target: i686-pc-windows-gnu
         runs-on:
           - windows-latest
-          - ubuntu-latest
     runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Checkout
