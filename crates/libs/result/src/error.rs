@@ -257,8 +257,6 @@ impl Ord for Error {
     }
 }
 
-static_assertions::assert_impl_all!(Error: Send, Sync);
-
 use error_info::*;
 
 #[cfg(all(windows, not(windows_slim_errors)))]
@@ -395,11 +393,4 @@ mod error_info {
             core::ptr::null_mut()
         }
     }
-
-    // If we are using "slim" Error objects, then we can rely on Result<()>
-    // having a representation that is equivalent to HRESULT.
-    static_assertions::const_assert_eq!(
-        size_of::<core::result::Result<(), Error>>(),
-        size_of::<HRESULT>()
-    );
 }

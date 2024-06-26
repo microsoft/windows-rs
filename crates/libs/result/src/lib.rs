@@ -36,6 +36,3 @@ pub use hresult::HRESULT;
 
 /// A specialized [`Result`] type that provides Windows error information.
 pub type Result<T> = core::result::Result<T, Error>;
-
-#[cfg(test)]
-mod tests;

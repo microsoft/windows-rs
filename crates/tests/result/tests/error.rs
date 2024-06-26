@@ -24,8 +24,14 @@ fn new() {
 
     let e = Error::new(E_INVALIDARG, "test message");
     assert_eq!(e.code(), E_INVALIDARG);
-    assert!(!e.as_ptr().is_null());
-    assert_eq!(e.message(), "test message");
+
+    if cfg!(windows_slim_errors) {
+        assert!(e.as_ptr().is_null());
+        assert_eq!(e.message(), "The parameter is incorrect.");
+    } else {
+        assert!(!e.as_ptr().is_null());
+        assert_eq!(e.message(), "test message");
+    }
 }
 
 #[test]

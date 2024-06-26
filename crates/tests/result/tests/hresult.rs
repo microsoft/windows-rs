@@ -80,7 +80,12 @@ fn from_result() {
     let result: Result<()> = Err(Error::new(E_INVALIDARG, "test message"));
     let err = HRESULT::from(result).ok().unwrap_err();
     assert_eq!(err.code(), E_INVALIDARG);
-    assert_eq!(err.message(), "test message");
+
+    if cfg!(windows_slim_errors) {
+        assert_eq!(err.message(), "The parameter is incorrect.");
+    } else {
+        assert_eq!(err.message(), "test message");
+    }
 }
 
 #[test]
