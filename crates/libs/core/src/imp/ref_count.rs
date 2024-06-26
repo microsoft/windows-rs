@@ -1,6 +1,5 @@
 use core::sync::atomic::{fence, AtomicI32, Ordering};
 
-#[doc(hidden)]
 #[repr(transparent)]
 #[derive(Default)]
 pub struct RefCount(pub(crate) AtomicI32);
