@@ -1,11 +1,6 @@
 use core::convert::*;
 
-use windows::{
-    Foundation::Collections::{
-        CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet,
-    },
-    Foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri},
-};
+use windows::{Foundation::Collections::*, Foundation::*};
 
 use windows::core::Interface;
 
@@ -87,7 +82,7 @@ fn event() -> windows::core::Result<()> {
 
     set.Insert(
         &windows::core::HSTRING::from("A"),
-        &windows::core::IInspectable::try_from(1_u32)?,
+        &PropertyValue::CreateUInt32(1_u32)?,
     )?;
 
     assert!(rx.recv().unwrap());

@@ -8,7 +8,7 @@ use core::ptr::null_mut;
 /// [IInspectable](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
 /// interface.
 #[repr(transparent)]
-#[derive(Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq, Debug)]
 pub struct IInspectable(pub IUnknown);
 
 interface_hierarchy!(IInspectable, IUnknown);
@@ -102,84 +102,5 @@ impl IInspectable_Vtbl {
             GetRuntimeClassName: GetRuntimeClassName::<Name>,
             GetTrustLevel: GetTrustLevel::<Identity, OFFSET>,
         }
-    }
-}
-
-impl core::fmt::Debug for IInspectable {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        // Attempts to retrieve the string representation of the object via the
-        // IStringable interface. If that fails, it will use the canonical type
-        // name to give some idea of what the object represents.
-        let name = <Self as Interface>::cast::<imp::IStringable>(self)
-            .and_then(|s| s.ToString())
-            .or_else(|_| self.GetRuntimeClassName())
-            .unwrap_or_default();
-        write!(f, "\"{}\"", name)
-    }
-}
-
-macro_rules! primitive_boxed_type {
-    ($(($t:ty, $m:ident)),+) => {
-        $(impl TryFrom<$t> for IInspectable {
-            type Error = Error;
-            fn try_from(value: $t) -> Result<Self> {
-                imp::PropertyValue::$m(value)
-            }
-        }
-        impl TryFrom<IInspectable> for $t {
-            type Error = Error;
-            fn try_from(value: IInspectable) -> Result<Self> {
-                <IInspectable as Interface>::cast::<imp::IReference<$t>>(&value)?.Value()
-            }
-        }
-        impl TryFrom<&IInspectable> for $t {
-            type Error = Error;
-            fn try_from(value: &IInspectable) -> Result<Self> {
-                <IInspectable as Interface>::cast::<imp::IReference<$t>>(value)?.Value()
-            }
-        })*
-    };
-}
-primitive_boxed_type! {
-    (bool, CreateBoolean),
-    (u8, CreateUInt8),
-    (i16, CreateInt16),
-    (u16, CreateUInt16),
-    (i32, CreateInt32),
-    (u32, CreateUInt32),
-    (i64, CreateInt64),
-    (u64, CreateUInt64),
-    (f32, CreateSingle),
-    (f64, CreateDouble)
-}
-impl TryFrom<&str> for IInspectable {
-    type Error = Error;
-    fn try_from(value: &str) -> Result<Self> {
-        let value: HSTRING = value.into();
-        imp::PropertyValue::CreateString(&value)
-    }
-}
-impl TryFrom<HSTRING> for IInspectable {
-    type Error = Error;
-    fn try_from(value: HSTRING) -> Result<Self> {
-        imp::PropertyValue::CreateString(&value)
-    }
-}
-impl TryFrom<&HSTRING> for IInspectable {
-    type Error = Error;
-    fn try_from(value: &HSTRING) -> Result<Self> {
-        imp::PropertyValue::CreateString(value)
-    }
-}
-impl TryFrom<IInspectable> for HSTRING {
-    type Error = Error;
-    fn try_from(value: IInspectable) -> Result<Self> {
-        <IInspectable as Interface>::cast::<imp::IReference<HSTRING>>(&value)?.Value()
-    }
-}
-impl TryFrom<&IInspectable> for HSTRING {
-    type Error = Error;
-    fn try_from(value: &IInspectable) -> Result<Self> {
-        <IInspectable as Interface>::cast::<imp::IReference<HSTRING>>(value)?.Value()
     }
 }
