@@ -3,7 +3,7 @@ use core::convert::*;
 use windows::{
     core::Interface,
     Foundation::Collections::{IIterable, IVectorView, PropertySet},
-    Foundation::{IWwwFormUrlDecoderEntry, Uri},
+    Foundation::*,
 };
 
 #[test]
@@ -73,15 +73,15 @@ fn property_set() -> windows::core::Result<()> {
 
     set.Insert(
         &windows::core::HSTRING::from("A"),
-        &windows::core::IInspectable::try_from(1)?,
+        &PropertyValue::CreateInt32(1)?,
     )?;
     set.Insert(
         &windows::core::HSTRING::from("B"),
-        &windows::core::IInspectable::try_from(2)?,
+        &PropertyValue::CreateInt32(2)?,
     )?;
     set.Insert(
         &windows::core::HSTRING::from("C"),
-        &windows::core::IInspectable::try_from(3)?,
+        &PropertyValue::CreateInt32(3)?,
     )?;
 
     assert!(set.Size()? == 3);
@@ -91,7 +91,7 @@ fn property_set() -> windows::core::Result<()> {
 
     for pair in &set {
         keys.push(pair.Key()?.to_string());
-        values += i32::try_from(pair.Value()?)?;
+        values += pair.Value()?.cast::<IReference<i32>>()?.Value()?;
     }
     assert!(set.Size()? == 3);
 

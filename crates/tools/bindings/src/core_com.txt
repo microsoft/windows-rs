@@ -4,9 +4,6 @@
 --config flatten minimal no-bindgen-comment
 
 --filter
-    Windows.Foundation.IReference
-    Windows.Foundation.IStringable
-    Windows.Foundation.PropertyValue
     Windows.Win32.Foundation.CO_E_NOTINITIALIZED
     Windows.Win32.Foundation.E_BOUNDS
     Windows.Win32.Foundation.E_NOINTERFACE
