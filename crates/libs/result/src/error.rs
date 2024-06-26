@@ -6,7 +6,7 @@ use core::mem::size_of;
 
 /// An error object consists of both an error code and optional detailed error information for debugging.
 ///
-/// # Extended error info and the `error-info` feature
+/// # Extended error info and the `windows_slim_errors` configuration option
 ///
 /// `Error` contains an [`HRESULT`] value that describes the error, as well as an optional
 /// `IErrorInfo` COM object. The `IErrorInfo` object is a COM object that can provide detailed information
@@ -18,15 +18,26 @@ use core::mem::size_of;
 /// info within `Error` has no benefits, but has substantial costs because it increases the size of
 /// the `Error` object, which also increases the size of `Result<T>`.
 ///
-/// The `error-info` Cargo feature allows you to control whether `IErrorInfo` support is enabled
-/// at compile time. The `error-info` feature is _enabled_ by default, so if you want to disable it
-/// you will need to disable default features.
+/// This error information can be disabled at compile time by setting `RUSTFLAGS=--cfg=windows_slim_errors`.
+/// This removes the `IErrorInfo` support within the [`Error`] type, which has these benefits:
 ///
-/// When the `error-info` feature is disabled,
-/// This allows the `Error` and even the `Result<(), Error>` types to have a very small size; they
-/// have the same size and alignment as `HRESULT` itself. Because of this, they can be returned
-/// directly in a machine register, which gives better performance than writing the (relatively
-/// large) `Error` object (with full error detail) to the stack on every function return.
+/// * It reduces the size of [`Error`] to 4 bytes (the size of [`HRESULT`]).
+///
+/// * It reduces the size of `Result<(), Error>` to 4 bytes, allowing it to be returned in a single
+///   machine register.
+///
+/// * The `Error` (and `Result<T, Error>`) types no longer have a [`Drop`] impl. This removes the need
+///   for lifetime checking and running drop code when [`Error`] and [`Result`] go out of scope. This
+///   significantly reduces code size for codebase that make extensive use of [`Error`].
+///
+/// Of course, these benefits come with a cost; you lose extended error information for those
+/// COM objects that support it.
+///
+/// This is controlled by a `--cfg` option rather than a Cargo feature because this compilation
+/// option sets a policy that applies to an entire graph of crates. Individual crates that take a
+/// dependency on the `windows-result` crate are not in a good position to decide whether they want
+/// slim errors or full errors.  Cargo features are meant to be additive, but specifying the size
+/// and contents of `Error` is not a feature so much as a whole-program policy decision.
 ///
 /// # References
 ///
@@ -249,7 +260,7 @@ static_assertions::assert_impl_all!(Error: Send, Sync);
 
 use error_info::*;
 
-#[cfg(all(windows, feature = "error-info", not(feature = "disable-error-info")))]
+#[cfg(all(windows, not(windows_slim_errors)))]
 mod error_info {
     use super::*;
     use crate::com::ComPtr;
@@ -350,7 +361,7 @@ mod error_info {
     unsafe impl Sync for ErrorInfo {}
 }
 
-#[cfg(not(all(windows, feature = "error-info", not(feature = "disable-error-info"))))]
+#[cfg(not(all(windows, not(windows_slim_errors))))]
 mod error_info {
     use super::*;
 

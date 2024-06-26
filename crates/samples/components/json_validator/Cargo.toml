@@ -16,5 +16,4 @@ path = "../../../libs/windows"
 features = [
     "Win32_Foundation",
     "Win32_System_Com",
-    "error-info",
 ]
