@@ -67,10 +67,7 @@ pub type ErrorInfo = NoDetail;
 pub struct NoDetail;
 
 /// Defines the behavior of error detail objects, which are stored within `Error`.
-pub trait ErrorDetail: Sized {
-    /// Returns an empty error detail.
-    fn empty() -> Self;
-
+pub trait ErrorDetail: Sized + Default {
     /// If this implementation stores error detail in ambient (thread-local) storage, then this
     /// function transfers the error detail from ambient storage and returns it.
     fn from_ambient() -> Self;
@@ -92,9 +89,6 @@ pub trait ErrorDetail: Sized {
 }
 
 impl ErrorDetail for NoDetail {
-    fn empty() -> Self {
-        Self
-    }
     fn from_ambient() -> Self {
         Self
     }
@@ -137,10 +131,6 @@ mod win_impl {
     }
 
     impl ErrorDetail for ErrorInfo {
-        fn empty() -> Self {
-            Self { ptr: None }
-        }
-
         fn from_ambient() -> Self {
             unsafe {
                 let mut ptr = None;
@@ -220,24 +210,15 @@ mod win_impl {
     }
 }
 
-impl<Detail: ErrorDetail> ErrorT<Detail> {
-    /// Creates an error object without any failure information.
-    pub fn empty() -> Self {
+impl<Detail: Default> ErrorT<Detail> {
+    /// Creates an error object without any specific failure information.
+    ///
+    /// The `code()` for this error is `E_FAIL`.
+    pub fn fail() -> Self {
         Self {
             code: NonZeroHRESULT::E_FAIL,
-            detail: Detail::empty(),
+            detail: Detail::default(),
         }
-    }
-
-    /// Creates a new error object, capturing the stack and other information about the
-    /// point of failure.
-    ///
-    /// If `code` is `S_OK`, then this is remapped to `E_FAIL`. The `Error` object cannot
-    /// store an `S_OK` value.
-    pub fn new<T: AsRef<str>>(code: HRESULT, message: T) -> Self {
-        Detail::originate_error(code, message.as_ref());
-        // This into() call will take the ambient thread-local error object, if any.
-        Self::from(code)
     }
 
     /// Creates a new error object with an error code, but without additional error information.
@@ -247,7 +228,7 @@ impl<Detail: ErrorDetail> ErrorT<Detail> {
     pub fn from_hresult(code: HRESULT) -> Self {
         Self {
             code: NonZeroHRESULT::from_hresult_or_fail(code),
-            detail: Detail::empty(),
+            detail: Detail::default(),
         }
     }
 
@@ -266,6 +247,19 @@ impl<Detail: ErrorDetail> ErrorT<Detail> {
             unimplemented!()
         }
     }
+}
+
+impl<Detail: ErrorDetail> ErrorT<Detail> {
+    /// Creates a new error object, capturing the stack and other information about the
+    /// point of failure.
+    ///
+    /// If `code` is `S_OK`, then this is remapped to `E_FAIL`. The `Error` object cannot
+    /// store an `S_OK` value.
+    pub fn new<T: AsRef<str>>(code: HRESULT, message: T) -> Self {
+        Detail::originate_error(code, message.as_ref());
+        // This into() call will take the ambient thread-local error object, if any.
+        Self::from(code)
+    }
 
     /// The error message describing the error.
     pub fn message(&self) -> String {
@@ -276,16 +270,14 @@ impl<Detail: ErrorDetail> ErrorT<Detail> {
         // Otherwise fallback to a generic error code description.
         self.code.message()
     }
+}
 
+impl<Detail> ErrorT<Detail> {
     /// Gets access to the error detail stored in this `Error`.
     pub fn detail(&self) -> &Detail {
         &self.detail
     }
-}
 
-// This is a separate impl block because Rust 1.60.0 (our MSRV) rejects const fns that have
-// trait bounds on them, so we place it in a separate impl without any bounds.
-impl<Detail> ErrorT<Detail> {
     /// The error code describing the error.
     pub const fn code(&self) -> HRESULT {
         self.code.to_hresult()
@@ -328,19 +320,19 @@ impl<Detail: ErrorDetail> From<std::io::Error> for ErrorT<Detail> {
     }
 }
 
-impl<Detail: ErrorDetail> From<alloc::string::FromUtf16Error> for ErrorT<Detail> {
+impl<Detail: Default> From<alloc::string::FromUtf16Error> for ErrorT<Detail> {
     fn from(_: alloc::string::FromUtf16Error) -> Self {
         Self::from_hresult(HRESULT::from_win32(ERROR_NO_UNICODE_TRANSLATION))
     }
 }
 
-impl<Detail: ErrorDetail> From<alloc::string::FromUtf8Error> for ErrorT<Detail> {
+impl<Detail: Default> From<alloc::string::FromUtf8Error> for ErrorT<Detail> {
     fn from(_: alloc::string::FromUtf8Error) -> Self {
         Self::from_hresult(HRESULT::from_win32(ERROR_NO_UNICODE_TRANSLATION))
     }
 }
 
-impl<Detail: ErrorDetail> From<core::num::TryFromIntError> for ErrorT<Detail> {
+impl<Detail: Default> From<core::num::TryFromIntError> for ErrorT<Detail> {
     fn from(_: core::num::TryFromIntError) -> Self {
         Self::from_hresult(HRESULT::from_win32(ERROR_INVALID_DATA))
     }

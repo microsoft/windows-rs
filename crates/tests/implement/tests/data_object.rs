@@ -58,7 +58,7 @@ impl IDataObject_Impl for Test_Impl {
     fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
         unsafe {
             (*self.0.get()).EnumFormatEtc = true;
-            Err(Error::empty())
+            Err(Error::fail())
         }
     }
 
@@ -79,7 +79,7 @@ impl IDataObject_Impl for Test_Impl {
     fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
         unsafe {
             (*self.0.get()).EnumDAdvise = true;
-            Err(Error::empty())
+            Err(Error::fail())
         }
     }
 }

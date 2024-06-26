@@ -9,14 +9,6 @@ const E_CANCELLED: HRESULT = HRESULT::from_win32(ERROR_CANCELLED);
 windows_targets::link!("kernel32.dll" "system" fn SetLastError(code: u32));
 
 #[test]
-fn empty() {
-    let e: Error = Error::empty();
-    assert_eq!(e.code(), E_FAIL);
-    assert!(e.detail().as_ptr().is_null());
-    assert_eq!(e.message(), "Unspecified error");
-}
-
-#[test]
 fn new() {
     let e = Error::new(E_INVALIDARG, "");
     assert_eq!(e.code(), E_INVALIDARG);
