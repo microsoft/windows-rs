@@ -1,4 +1,5 @@
 use super::*;
+use core::ffi::c_void;
 use core::marker::PhantomData;
 use core::mem::{size_of, transmute_copy};
 use core::ptr::null_mut;
@@ -212,7 +213,7 @@ impl<T: Interface> Drop for Array<T> {
         unsafe {
             if !self.is_empty() && (*self.buffer).0.release() == 0 {
                 core::ptr::drop_in_place(self.as_mut_slice());
-                imp::heap_free(self.buffer as _)
+                heap_free(self.buffer as _)
             }
         }
     }
@@ -230,7 +231,7 @@ impl<T: Interface> Buffer<T> {
             Ok(null_mut())
         } else {
             let alloc_size = size_of::<Self>() + len * size_of::<Delegate<T>>();
-            let header = imp::heap_alloc(alloc_size)? as *mut Self;
+            let header = heap_alloc(alloc_size)? as *mut Self;
             unsafe {
                 header.write(Self(imp::RefCount::new(1), PhantomData));
             }
@@ -284,4 +285,31 @@ impl<T: Interface> Delegate<T> {
             Self::Indirect(delegate) => callback(&delegate.resolve()?),
         }
     }
+}
+
+/// Allocate memory of size `bytes` using `malloc` - the `Event` implementation does not
+/// need to use any particular allocator so `HeapAlloc` need not be used.
+fn heap_alloc(bytes: usize) -> crate::Result<*mut c_void> {
+    let ptr: *mut c_void = unsafe {
+        extern "C" {
+            fn malloc(bytes: usize) -> *mut c_void;
+        }
+
+        malloc(bytes)
+    };
+
+    if ptr.is_null() {
+        Err(Error::from_hresult(imp::E_OUTOFMEMORY))
+    } else {
+        Ok(ptr)
+    }
+}
+
+/// Free memory allocated by `heap_alloc`.
+unsafe fn heap_free(ptr: *mut c_void) {
+    extern "C" {
+        fn free(ptr: *mut c_void);
+    }
+
+    free(ptr);
 }

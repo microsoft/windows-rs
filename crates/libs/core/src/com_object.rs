@@ -165,7 +165,7 @@ impl<T: ComObjectInner> ComObject<T> {
     /// Gets a borrowed reference to an interface that is implemented by `T`.
     ///
     /// The returned reference does not have an additional reference count.
-    /// You can AddRef it by calling [`Self::to_owned`].
+    /// You can AddRef it by calling [`InterfaceRef::to_owned`].
     #[inline(always)]
     pub fn as_interface<I: Interface>(&self) -> InterfaceRef<'_, I>
     where

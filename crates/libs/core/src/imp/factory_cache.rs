@@ -6,7 +6,6 @@ use core::mem::{forget, transmute, transmute_copy};
 use core::ptr::null_mut;
 use core::sync::atomic::{AtomicPtr, Ordering};
 
-#[doc(hidden)]
 pub struct FactoryCache<C, I> {
     shared: AtomicPtr<c_void>,
     _c: PhantomData<C>,
@@ -152,6 +151,27 @@ unsafe fn get_activation_factory(
             .ok_or_else(crate::Error::from_win32)?;
     let mut abi = null_mut();
     function(transmute_copy(name), &mut abi).and_then(|| crate::Type::from_abi(abi))
+}
+
+unsafe fn delay_load<T>(library: crate::PCSTR, function: crate::PCSTR) -> Option<T> {
+    let library = LoadLibraryExA(
+        library.0,
+        core::ptr::null_mut(),
+        LOAD_LIBRARY_SEARCH_DEFAULT_DIRS,
+    );
+
+    if library.is_null() {
+        return None;
+    }
+
+    let address = GetProcAddress(library, function.0);
+
+    if address.is_some() {
+        return Some(core::mem::transmute_copy(&address));
+    }
+
+    FreeLibrary(library);
+    None
 }
 
 type DllGetActivationFactory =
