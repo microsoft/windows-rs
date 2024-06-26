@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
   <Type Name="windows_result::error::Error">
-    <DisplayString>{(HRESULT)code.__0.__0}</DisplayString>
     <Expand>
-      <ExpandedItem>code</ExpandedItem>
+      <ExpandedItem>(HRESULT)code.__0.__0,hr</ExpandedItem>
       <Item Name="[code]">(HRESULT)code.__0.__0</Item>
-      <Item Name="[info]">info</Item>
+      <Item Name="[info]">info.ptr</Item>
     </Expand>
   </Type>
 

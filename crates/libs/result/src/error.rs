@@ -44,9 +44,10 @@ use core::mem::size_of;
 /// * [`IErrorInfo`](https://learn.microsoft.com/en-us/windows/win32/api/oaidl/nn-oaidl-ierrorinfo)
 #[derive(Clone)]
 pub struct Error {
-    /// The `HRESULT` error code, but represented using `NonZeroI32`. The `NonZeroHRESULT` provides
+    /// The `HRESULT` error code, but represented using [`NonZeroI32`]. [`NonZeroI32`] provides
     /// a "niche" to the Rust compiler, which is a space-saving optimization. This allows the
-    /// compiler to use more compact representations in some sitatutions.
+    /// compiler to use more compact representation for enum variants (such as [`Result`]) that
+    /// contain instances of [`Error`].
     code: NonZeroI32,
 
     /// Contains details about the error, such as error text.
