@@ -5,27 +5,11 @@
     dead_code,
     clippy::all
 )]
-#[link(name = "advapi32")]
-extern "system" {
-    #[link_name = "SystemFunction036"]
-    pub fn RtlGenRandom(randombuffer: *mut core::ffi::c_void, randombufferlength: u32) -> BOOLEAN;
-}
-#[link(name = "kernel32")]
-extern "system" {
-    pub fn CloseHandle(hobject: HANDLE) -> BOOL;
-}
-#[link(name = "kernel32")]
-extern "system" {
-    pub fn GetLastError() -> WIN32_ERROR;
-}
-#[link(name = "user32")]
-extern "cdecl" {
-    pub fn wsprintfA(param0: PSTR, param1: PCSTR, ...) -> i32;
-}
-#[link(name = "ws2_32")]
-extern "system" {
-    pub fn socket(af: i32, r#type: WINSOCK_SOCKET_TYPE, protocol: i32) -> SOCKET;
-}
+windows_targets::link!("advapi32.dll" "system" "SystemFunction036" fn RtlGenRandom(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> BOOLEAN);
+windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
+windows_targets::link!("kernel32.dll" "system" fn GetLastError() -> WIN32_ERROR);
+windows_targets::link!("user32.dll" "cdecl" fn wsprintfA(param0 : PSTR, param1 : PCSTR, ...) -> i32);
+windows_targets::link!("ws2_32.dll" "system" fn socket(af : i32, r#type : WINSOCK_SOCKET_TYPE, protocol : i32) -> SOCKET);
 pub type BCRYPT_ALG_HANDLE = *mut core::ffi::c_void;
 pub type BOOL = i32;
 pub type BOOLEAN = u8;
