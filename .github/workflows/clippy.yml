@@ -160,8 +160,6 @@ jobs:
         run:  cargo clippy -p test_core
       - name: Clippy test_debug
         run:  cargo clippy -p test_debug
-      - name: Clippy test_debug_inspectable
-        run:  cargo clippy -p test_debug_inspectable
       - name: Clippy test_debugger_visualizer
         run:  cargo clippy -p test_debugger_visualizer
       - name: Clippy test_deprecated

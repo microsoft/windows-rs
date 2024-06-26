@@ -186,8 +186,6 @@ jobs:
         run:  cargo test -p test_core --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_debug
         run:  cargo test -p test_debug --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_debug_inspectable
-        run:  cargo test -p test_debug_inspectable --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_debugger_visualizer
         run:  cargo test -p test_debugger_visualizer --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_deprecated
@@ -258,10 +256,10 @@ jobs:
         run:  cargo test -p test_riddle --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_standalone
         run:  cargo test -p test_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_string_param
         run:  cargo test -p test_string_param --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_strings
         run:  cargo test -p test_strings --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_structs
