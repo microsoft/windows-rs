@@ -1,5 +1,4 @@
 use super::*;
-use crate::imp::E_POINTER;
 
 #[doc(hidden)]
 pub trait TypeKind {
@@ -36,15 +35,12 @@ where
         if !abi.is_null() {
             Ok(core::mem::transmute_copy(&abi))
         } else {
-            Err(Error::from_hresult(E_POINTER))
+            Err(Error::empty())
         }
     }
 
     fn from_default(default: &Self::Default) -> Result<Self> {
-        default
-            .as_ref()
-            .cloned()
-            .ok_or(Error::from_hresult(E_POINTER))
+        default.as_ref().cloned().ok_or(Error::empty())
     }
 }
 

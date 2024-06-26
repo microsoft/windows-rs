@@ -6,7 +6,7 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
     windows_debugger_visualizer,
     debugger_visualizer(natvis_file = "../.natvis")
 )]
-#![cfg_attr(all(not(feature = "std")), no_std)]
+#![cfg_attr(all(not(feature = "std"), not(test)), no_std)]
 #![cfg_attr(not(windows), allow(unused_imports))]
 
 extern crate alloc;
@@ -22,15 +22,17 @@ mod com;
 
 #[cfg(windows)]
 mod strings;
-
 #[cfg(windows)]
+use strings::*;
+
+#[cfg(all(windows, feature = "error-info", not(feature = "disable-error-info")))]
 mod bstr;
 
 mod error;
 pub use error::*;
 
 mod hresult;
-pub use hresult::{NonZeroHRESULT, HRESULT};
+pub use hresult::HRESULT;
 
 /// A specialized [`Result`] type that provides Windows error information.
 pub type Result<T> = core::result::Result<T, Error>;

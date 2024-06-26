@@ -11,10 +11,15 @@ readme = "readme.md"
 categories = ["os::windows-apis"]
 
 [features]
-default = ["std"]
+default = ["std", "error-info"]
 std = []
-# slim-errors reduces the size of Error (and Result<()>) to that of a single HRESULT
-slim-errors = []
+error-info = []
+
+# The disable-error-info feature forcibly disables error-info (and overrides it).
+# This should _not_ be the preferred way to disable error info, but is necessary
+# in case a third-party crate has a dependency on Windows crates but does not
+# provide any way to control its own feature selection.
+disable-error-info = []
 
 [lints]
 workspace = true

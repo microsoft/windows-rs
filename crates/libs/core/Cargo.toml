@@ -24,6 +24,7 @@ path = "../targets"
 [dependencies.windows-result]
 version = "0.1.1"
 path = "../result"
+default-features = false
 
 [dependencies.windows-strings]
 version = "0.1.0"
@@ -35,5 +36,5 @@ windows-interface = { path = "../interface",  version = "0.57.0" }
 
 [features]
 default = ["std"]
-std = []
-slim-errors = ["windows-result/slim-errors"]
+std = ["windows-result/std"]
+error-info = ["windows-result/error-info"]
