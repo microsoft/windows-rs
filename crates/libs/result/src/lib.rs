@@ -17,7 +17,7 @@ use alloc::{string::String, vec::Vec};
 mod bindings;
 use bindings::*;
 
-#[cfg(windows)]
+#[cfg(all(windows, feature = "error-info", not(feature = "disable-error-info")))]
 mod com;
 
 #[cfg(windows)]

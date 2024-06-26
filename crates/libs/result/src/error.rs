@@ -354,10 +354,14 @@ mod error_info {
 mod error_info {
     use super::*;
 
+    // We use this name so that the NatVis <Type> element for ErrorInfo does *not* match this type.
+    // This prevents the NatVis description from failing to load.
     #[derive(Clone, Default)]
-    pub(crate) struct ErrorInfo;
+    pub(crate) struct EmptyErrorInfo;
 
-    impl ErrorInfo {
+    pub(crate) use EmptyErrorInfo as ErrorInfo;
+
+    impl EmptyErrorInfo {
         pub(crate) const fn empty() -> Self {
             Self
         }
