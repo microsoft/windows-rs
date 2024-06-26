@@ -21,6 +21,9 @@ workspace = true
 default-target = "x86_64-pc-windows-msvc"
 targets = []
 
+[dependencies]
+static_assertions = "1.0"
+
 [dependencies.windows-targets]
 version = "0.52.5"
 path = "../targets"

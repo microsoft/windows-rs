@@ -2,7 +2,7 @@ use super::*;
 
 /// An error code value returned by most COM functions.
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Eq, PartialEq)]
+#[derive(Copy, Clone, Default, Eq, PartialEq, Ord, PartialOrd, Hash)]
 #[must_use]
 #[allow(non_camel_case_types)]
 pub struct HRESULT(pub i32);
@@ -63,7 +63,7 @@ impl HRESULT {
     }
 
     /// The error message describing the error.
-    pub fn message(&self) -> String {
+    pub fn message(self) -> String {
         #[cfg(windows)]
         {
             let mut message = HeapString::default();
@@ -109,7 +109,7 @@ impl HRESULT {
 
         #[cfg(not(windows))]
         {
-            return format!("0x{:08x}", self.0 as u32);
+            return alloc::format!("0x{:08x}", self.0 as u32);
         }
     }
 

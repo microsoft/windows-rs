@@ -27,3 +27,15 @@ jobs:
         run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
       - name: Check
         run: cargo check -p windows-result --all-features
+      - name: Check Default Features
+        run: cargo check -p windows-result
+      - name: Check Slim Errors
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $env:RUSTFLAGS = '--cfg=windows_slim_errors'
+
+          # This will show the size of Error, which lets us confirm that RUSTFLAGS was set.
+          cargo test -p windows-result --lib -- --nocapture --test-threads=1
+
+          cargo check -p windows-result
