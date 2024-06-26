@@ -107,7 +107,7 @@ fn main() {
         ],
     );
 
-    write_std(
+    write_sys(
         &src.join("b_std.rs"),
         &[
             "Windows.Win32.Foundation.CloseHandle",
@@ -221,10 +221,6 @@ fn write_sys(output: &Path, filter: &[&str]) {
 
 fn write_win(output: &Path, filter: &[&str]) {
     riddle(output, filter, &["flatten", "minimal"]);
-}
-
-fn write_std(output: &Path, filter: &[&str]) {
-    riddle(output, filter, &["flatten", "std", "minimal"]);
 }
 
 fn write_no_inner_attr(output: &Path, filter: &[&str]) {

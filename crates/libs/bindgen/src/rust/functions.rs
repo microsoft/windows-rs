@@ -248,7 +248,7 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &metadata::Signature) -
         quote! {}
     };
 
-    if writer.std || !namespace.starts_with("Windows.") {
+    if !namespace.starts_with("Windows.") {
         let library = library.trim_end_matches(".dll");
 
         quote! {

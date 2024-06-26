@@ -31,8 +31,7 @@ pub fn from_reader(
     let mut writer = Writer::new(reader, output);
     writer.package = config.remove("package").is_some();
     writer.flatten = config.remove("flatten").is_some();
-    writer.std = config.remove("std").is_some();
-    writer.sys = writer.std || config.remove("sys").is_some();
+    writer.sys = config.remove("sys").is_some();
     writer.implement = config.remove("implement").is_some();
     writer.minimal = config.remove("minimal").is_some();
     writer.no_inner_attributes = config.remove("no-inner-attributes").is_some();

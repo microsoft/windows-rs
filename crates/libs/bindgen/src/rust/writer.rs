@@ -13,7 +13,6 @@ pub struct Writer {
     //
     // Maybe this macro is the embedable version of the IDL format?! like a more intelligient
     // version of the existing interface macro...
-    pub std: bool,                 // tweaks for internal std library support
     pub sys: bool,                 // writer sys-style bindings
     pub flatten: bool,             // strips out namespaces - implies !package
     pub package: bool,             // default is single file with no cfg - implies !flatten
@@ -33,7 +32,6 @@ impl Writer {
             output: output.to_string(),
             namespace: "",
             implement: false,
-            std: false,
             sys: false,
             flatten: false,
             package: false,
