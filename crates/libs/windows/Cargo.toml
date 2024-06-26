@@ -27,7 +27,7 @@ targets = []
 rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
-windows-core = { path = "../core", version = "0.57.0", default-features = false }
+windows-core = { path = "../core", version = "0.57.0" }
 windows-targets = { path = "../targets", version = "0.52.5" }
 
 [features]

@@ -299,7 +299,6 @@ mod error_info {
             }
         }
 
-        #[cfg(windows)]
         pub(crate) fn originate_error(code: HRESULT, message: &str) {
             let message: Vec<_> = message.encode_utf16().collect();
             unsafe {
