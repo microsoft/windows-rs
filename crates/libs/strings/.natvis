@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
   <Type Name="windows_strings::hstring::HSTRING">
-    <Intrinsic Name="header" Expression="(windows_strings::hstring::Header *)__0.tag" />
+    <Intrinsic Name="header" Expression="(windows_strings::hstring_header::HStringHeader *)__0.tag" />
     <Intrinsic Name="is_empty" Expression="__0.tag == 0" />
     <DisplayString Condition="is_empty()">""</DisplayString>
     <DisplayString>{header()->data,[header()->len]su}</DisplayString>
