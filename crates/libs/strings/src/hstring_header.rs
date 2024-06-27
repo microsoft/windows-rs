@@ -33,7 +33,7 @@ impl HStringHeader {
                 fn malloc(bytes: usize) -> *mut core::ffi::c_void;
             }
 
-            malloc(bytes) as *mut HStringHeader;
+            malloc(bytes) as *mut HStringHeader
         };
 
         if header.is_null() {
