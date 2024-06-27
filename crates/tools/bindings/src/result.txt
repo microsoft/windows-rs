@@ -2,7 +2,6 @@
 --config flatten sys minimal vtbl no-bindgen-comment
 
 --filter
-    Windows.Win32.Foundation.E_INVALIDARG
     Windows.Win32.Foundation.E_UNEXPECTED
     Windows.Win32.Foundation.ERROR_INVALID_DATA
     Windows.Win32.Foundation.ERROR_NO_UNICODE_TRANSLATION

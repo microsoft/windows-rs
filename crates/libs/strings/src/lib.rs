@@ -21,6 +21,12 @@ pub use bstr::*;
 mod hstring;
 pub use hstring::*;
 
+mod hstring_builder;
+pub use hstring_builder::*;
+
+mod hstring_header;
+use hstring_header::*;
+
 mod bindings;
 
 mod decode;
@@ -28,9 +34,6 @@ use decode::*;
 
 mod ref_count;
 use ref_count::*;
-
-mod heap;
-use heap::*;
 
 mod literals;
 pub use literals::*;

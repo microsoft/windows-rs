@@ -30,6 +30,9 @@ pub use r#type::Type;
 pub use windows_result::Result;
 use windows_result::*;
 
+pub use windows_strings::HSTRING;
+use windows_strings::*;
+
 /// The predefined `HKEY_CLASSES_ROOT` registry key.
 pub const CLASSES_ROOT: &Key = &Key(HKEY_CLASSES_ROOT);
 

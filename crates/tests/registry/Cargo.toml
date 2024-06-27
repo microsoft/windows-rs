@@ -21,3 +21,6 @@ features = ["Win32_System_Registry"]
 [dependencies.windows]
 path = "../../libs/windows"
 features = ["Win32_System_Registry"]
+
+[dependencies.windows-strings]
+path = "../../libs/strings"
