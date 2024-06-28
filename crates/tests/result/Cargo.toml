@@ -16,3 +16,7 @@ path = "../../libs/targets"
 
 [dependencies]
 helpers = { package = "test_helpers", path = "../helpers" }
+static_assertions = "1.0"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_slim_errors)'] }
