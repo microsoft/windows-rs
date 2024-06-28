@@ -186,6 +186,7 @@ impl DirectXPixelFormat {
     pub const V408: Self = Self(132i32);
     pub const SamplerFeedbackMinMipOpaque: Self = Self(189i32);
     pub const SamplerFeedbackMipRegionUsedOpaque: Self = Self(190i32);
+    pub const A4B4G4R4: Self = Self(191i32);
 }
 impl windows_core::TypeKind for DirectXPixelFormat {
     type TypeKind = windows_core::CopyType;

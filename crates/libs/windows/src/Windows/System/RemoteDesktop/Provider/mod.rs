@@ -17,6 +17,15 @@ pub struct IRemoteDesktopConnectionInfo_Vtbl {
     pub SetConnectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, RemoteDesktopConnectionStatus) -> windows_core::HRESULT,
     pub SwitchToLocalSession: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IRemoteDesktopConnectionInfo2, IRemoteDesktopConnectionInfo2_Vtbl, 0x871c0b26_23bf_5d3c_bc35_a85c405e25e6);
+impl windows_core::RuntimeType for IRemoteDesktopConnectionInfo2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemoteDesktopConnectionInfo2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PerformLocalActionFromRemote: unsafe extern "system" fn(*mut core::ffi::c_void, RemoteDesktopLocalAction) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IRemoteDesktopConnectionInfoStatics, IRemoteDesktopConnectionInfoStatics_Vtbl, 0x4a7dc5a1_3368_5a75_bb78_807df7ebc439);
 impl windows_core::RuntimeType for IRemoteDesktopConnectionInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -121,6 +130,10 @@ impl RemoteDesktopConnectionInfo {
     pub fn SwitchToLocalSession(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SwitchToLocalSession)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn PerformLocalActionFromRemote(&self, action: RemoteDesktopLocalAction) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IRemoteDesktopConnectionInfo2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).PerformLocalActionFromRemote)(windows_core::Interface::as_raw(this), action).ok() }
     }
     #[cfg(feature = "UI")]
     pub fn GetForLaunchUri<P0>(launchuri: P0, windowid: super::super::super::UI::WindowId) -> windows_core::Result<RemoteDesktopConnectionInfo>
@@ -317,6 +330,10 @@ impl windows_core::RuntimeType for RemoteDesktopConnectionStatus {
 pub struct RemoteDesktopLocalAction(pub i32);
 impl RemoteDesktopLocalAction {
     pub const ShowBluetoothSettings: Self = Self(0i32);
+    pub const ShowSystemSoundSettings: Self = Self(1i32);
+    pub const ShowSystemDisplaySettings: Self = Self(2i32);
+    pub const ShowSystemAccountSettings: Self = Self(3i32);
+    pub const ShowLocalSettings: Self = Self(4i32);
 }
 impl windows_core::TypeKind for RemoteDesktopLocalAction {
     type TypeKind = windows_core::CopyType;

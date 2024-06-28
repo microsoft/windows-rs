@@ -2235,6 +2235,8 @@ impl WwanDataClass {
     pub const Hsdpa: Self = Self(8u32);
     pub const Hsupa: Self = Self(16u32);
     pub const LteAdvanced: Self = Self(32u32);
+    pub const NewRadioNonStandalone: Self = Self(64u32);
+    pub const NewRadioStandalone: Self = Self(128u32);
     pub const Cdma1xRtt: Self = Self(65536u32);
     pub const Cdma1xEvdo: Self = Self(131072u32);
     pub const Cdma1xEvdoRevA: Self = Self(262144u32);

@@ -124,6 +124,15 @@ pub struct IKnownRetailInfoPropertiesStatics_Vtbl {
     pub IsOfficeInstalled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub WindowsEdition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IPlatformAutomaticAppSignInManagerStatics, IPlatformAutomaticAppSignInManagerStatics_Vtbl, 0x1ac9afce_8dd5_5c2d_b420_767d1f3b7d03);
+impl windows_core::RuntimeType for IPlatformAutomaticAppSignInManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlatformAutomaticAppSignInManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Policy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PlatformAutomaticAppSignInPolicy) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPlatformDiagnosticsAndUsageDataSettingsStatics, IPlatformDiagnosticsAndUsageDataSettingsStatics_Vtbl, 0xb6e24c1b_7b1c_4b32_8c62_a66597ce723a);
 impl windows_core::RuntimeType for IPlatformDiagnosticsAndUsageDataSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -557,6 +566,23 @@ impl KnownRetailInfoProperties {
 impl windows_core::RuntimeName for KnownRetailInfoProperties {
     const NAME: &'static str = "Windows.System.Profile.KnownRetailInfoProperties";
 }
+pub struct PlatformAutomaticAppSignInManager;
+impl PlatformAutomaticAppSignInManager {
+    pub fn Policy() -> windows_core::Result<PlatformAutomaticAppSignInPolicy> {
+        Self::IPlatformAutomaticAppSignInManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Policy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IPlatformAutomaticAppSignInManagerStatics<R, F: FnOnce(&IPlatformAutomaticAppSignInManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PlatformAutomaticAppSignInManager, IPlatformAutomaticAppSignInManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for PlatformAutomaticAppSignInManager {
+    const NAME: &'static str = "Windows.System.Profile.PlatformAutomaticAppSignInManager";
+}
 pub struct PlatformDiagnosticsAndUsageDataSettings;
 impl PlatformDiagnosticsAndUsageDataSettings {
     pub fn CollectionLevel() -> windows_core::Result<PlatformDataCollectionLevel> {
@@ -839,6 +865,25 @@ impl WindowsIntegrityPolicy {
 }
 impl windows_core::RuntimeName for WindowsIntegrityPolicy {
     const NAME: &'static str = "Windows.System.Profile.WindowsIntegrityPolicy";
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct PlatformAutomaticAppSignInPolicy(pub i32);
+impl PlatformAutomaticAppSignInPolicy {
+    pub const Unknown: Self = Self(0i32);
+    pub const PermissionRequired: Self = Self(1i32);
+    pub const AlwaysAllowed: Self = Self(2i32);
+}
+impl windows_core::TypeKind for PlatformAutomaticAppSignInPolicy {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PlatformAutomaticAppSignInPolicy {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PlatformAutomaticAppSignInPolicy").field(&self.0).finish()
+    }
+}
+impl windows_core::RuntimeType for PlatformAutomaticAppSignInPolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformAutomaticAppSignInPolicy;i4)");
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]

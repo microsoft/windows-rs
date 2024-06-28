@@ -166,6 +166,18 @@ pub struct IAudioDeviceController_Vtbl {
     pub SetVolumePercent: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub VolumePercent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IAudioDeviceController2, IAudioDeviceController2_Vtbl, 0x85326599_4c24_48b0_81dd_0c5cc79ddf05);
+impl windows_core::RuntimeType for IAudioDeviceController2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IAudioDeviceController2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Media_Effects")]
+    pub AudioCaptureEffectsManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Media_Effects"))]
+    AudioCaptureEffectsManager: usize,
+}
 windows_core::imp::define_interface!(IAudioDeviceModule, IAudioDeviceModule_Vtbl, 0x86cfac36_47c1_4b33_9852_8773ec4be123);
 impl windows_core::RuntimeType for IAudioDeviceModule {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1133,6 +1145,14 @@ impl AudioDeviceController {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VolumePercent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Media_Effects")]
+    pub fn AudioCaptureEffectsManager(&self) -> windows_core::Result<super::Effects::AudioCaptureEffectsManager> {
+        let this = &windows_core::Interface::cast::<IAudioDeviceController2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AudioCaptureEffectsManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]

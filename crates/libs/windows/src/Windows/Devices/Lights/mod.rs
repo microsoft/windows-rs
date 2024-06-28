@@ -625,6 +625,8 @@ impl LampArrayKind {
     pub const Furniture: Self = Self(9i32);
     pub const Art: Self = Self(10i32);
     pub const Headset: Self = Self(11i32);
+    pub const Microphone: Self = Self(12i32);
+    pub const Speaker: Self = Self(13i32);
 }
 impl windows_core::TypeKind for LampArrayKind {
     type TypeKind = windows_core::CopyType;

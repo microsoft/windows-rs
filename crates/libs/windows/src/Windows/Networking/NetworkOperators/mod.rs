@@ -738,6 +738,21 @@ pub struct IMobileBroadbandDeviceService_Vtbl {
     pub OpenDataSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OpenCommandSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceCommandEventArgs, IMobileBroadbandDeviceServiceCommandEventArgs_Vtbl, 0x28e4338f_cca4_5047_a20c_0a6d79acecba);
+impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceCommandEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IMobileBroadbandDeviceServiceCommandEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DeviceServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub EventId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub ReceivedData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ReceivedData: usize,
+}
 windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceCommandResult, IMobileBroadbandDeviceServiceCommandResult_Vtbl, 0xb0f46abb_94d6_44b9_a538_f0810b645389);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceCommandResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -767,6 +782,16 @@ pub struct IMobileBroadbandDeviceServiceCommandSession_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SendSetCommandAsync: usize,
     pub CloseSession: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceCommandSession2, IMobileBroadbandDeviceServiceCommandSession2_Vtbl, 0xef004861_2546_5739_86e7_0fdc0e62411c);
+impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceCommandSession2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IMobileBroadbandDeviceServiceCommandSession2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CommandReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveCommandReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMobileBroadbandDeviceServiceDataReceivedEventArgs, IMobileBroadbandDeviceServiceDataReceivedEventArgs_Vtbl, 0xb6aa13de_1380_40e3_8618_73cbca48138c);
 impl windows_core::RuntimeType for IMobileBroadbandDeviceServiceDataReceivedEventArgs {
@@ -1318,6 +1343,18 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration2_Vtbl {
     pub Band: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TetheringWiFiBand) -> windows_core::HRESULT,
     pub SetBand: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiBand) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(INetworkOperatorTetheringAccessPointConfiguration3, INetworkOperatorTetheringAccessPointConfiguration3_Vtbl, 0xa9bb0081_9eed_5d18_b676_24b74a182b8c);
+impl windows_core::RuntimeType for INetworkOperatorTetheringAccessPointConfiguration3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INetworkOperatorTetheringAccessPointConfiguration3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsAuthenticationKindSupported: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiAuthenticationKind, *mut bool) -> windows_core::HRESULT,
+    pub IsAuthenticationKindSupportedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiAuthenticationKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AuthenticationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TetheringWiFiAuthenticationKind) -> windows_core::HRESULT,
+    pub SetAuthenticationKind: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiAuthenticationKind) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(INetworkOperatorTetheringClient, INetworkOperatorTetheringClient_Vtbl, 0x709d254c_595f_4847_bb30_646935542918);
 impl windows_core::RuntimeType for INetworkOperatorTetheringClient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1366,6 +1403,15 @@ pub struct INetworkOperatorTetheringManager_Vtbl {
     pub ConfigureAccessPointAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartTetheringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopTetheringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(INetworkOperatorTetheringManager2, INetworkOperatorTetheringManager2_Vtbl, 0x7c1a4df2_b789_4fea_bc4e_1f2b9e76c1f7);
+impl windows_core::RuntimeType for INetworkOperatorTetheringManager2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INetworkOperatorTetheringManager2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub StartTetheringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetworkOperatorTetheringManagerStatics, INetworkOperatorTetheringManagerStatics_Vtbl, 0x3ebcbacc_f8c3_405c_9964_70a1eeabe194);
 impl windows_core::RuntimeType for INetworkOperatorTetheringManagerStatics {
@@ -1427,6 +1473,28 @@ pub struct INetworkOperatorTetheringOperationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TetheringOperationStatus) -> windows_core::HRESULT,
     pub AdditionalErrorMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(INetworkOperatorTetheringSessionAccessPointConfiguration, INetworkOperatorTetheringSessionAccessPointConfiguration_Vtbl, 0x0bcc1104_34b7_5212_858c_59d97404920a);
+impl windows_core::RuntimeType for INetworkOperatorTetheringSessionAccessPointConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INetworkOperatorTetheringSessionAccessPointConfiguration_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Ssid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetSsid: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Passphrase: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetPassphrase: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub IsBandSupported: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiBand, *mut bool) -> windows_core::HRESULT,
+    pub IsBandSupportedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiBand, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Band: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TetheringWiFiBand) -> windows_core::HRESULT,
+    pub SetBand: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiBand) -> windows_core::HRESULT,
+    pub IsAuthenticationKindSupported: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiAuthenticationKind, *mut bool) -> windows_core::HRESULT,
+    pub IsAuthenticationKindSupportedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiAuthenticationKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AuthenticationKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TetheringWiFiAuthenticationKind) -> windows_core::HRESULT,
+    pub SetAuthenticationKind: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiAuthenticationKind) -> windows_core::HRESULT,
+    pub PerformancePriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TetheringWiFiPerformancePriority) -> windows_core::HRESULT,
+    pub SetPerformancePriority: unsafe extern "system" fn(*mut core::ffi::c_void, TetheringWiFiPerformancePriority) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProvisionFromXmlDocumentResults, IProvisionFromXmlDocumentResults_Vtbl, 0x217700e0_8203_11df_adb9_f4ce462d9137);
 impl windows_core::RuntimeType for IProvisionFromXmlDocumentResults {
@@ -3736,6 +3804,53 @@ unsafe impl Send for MobileBroadbandDeviceService {}
 unsafe impl Sync for MobileBroadbandDeviceService {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
+pub struct MobileBroadbandDeviceServiceCommandEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl MobileBroadbandDeviceServiceCommandEventArgs {
+    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DeviceServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn EventId(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EventId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ReceivedData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReceivedData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandEventArgs>();
+}
+unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandEventArgs {
+    type Vtable = IMobileBroadbandDeviceServiceCommandEventArgs_Vtbl;
+    const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandEventArgs as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandEventArgs {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandEventArgs";
+}
+unsafe impl Send for MobileBroadbandDeviceServiceCommandEventArgs {}
+unsafe impl Sync for MobileBroadbandDeviceServiceCommandEventArgs {}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceServiceCommandResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceServiceCommandResult {
@@ -3797,6 +3912,20 @@ impl MobileBroadbandDeviceServiceCommandSession {
     pub fn CloseSession(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).CloseSession)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn CommandReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceCommandSession, MobileBroadbandDeviceServiceCommandEventArgs>>,
+    {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceCommandSession2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CommandReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RemoveCommandReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceCommandSession2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveCommandReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
 impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandSession {
@@ -5421,6 +5550,31 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBand)(windows_core::Interface::as_raw(this), value).ok() }
     }
+    pub fn IsAuthenticationKindSupported(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsAuthenticationKindSupported)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsAuthenticationKindSupportedAsync(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsAuthenticationKindSupportedAsync)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AuthenticationKind(&self) -> windows_core::Result<TetheringWiFiAuthenticationKind> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AuthenticationKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAuthenticationKind(&self, value: TetheringWiFiAuthenticationKind) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetAuthenticationKind)(windows_core::Interface::as_raw(this), value).ok() }
+    }
 }
 impl windows_core::RuntimeType for NetworkOperatorTetheringAccessPointConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringAccessPointConfiguration>();
@@ -5530,6 +5684,16 @@ impl NetworkOperatorTetheringManager {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopTetheringAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartTetheringAsync2<P0>(&self, configuration: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>
+    where
+        P0: windows_core::Param<NetworkOperatorTetheringSessionAccessPointConfiguration>,
+    {
+        let this = &windows_core::Interface::cast::<INetworkOperatorTetheringManager2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartTetheringAsync)(windows_core::Interface::as_raw(this), configuration.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetTetheringCapability(networkaccountid: &windows_core::HSTRING) -> windows_core::Result<TetheringCapability> {
@@ -5660,6 +5824,114 @@ unsafe impl windows_core::Interface for NetworkOperatorTetheringOperationResult 
 impl windows_core::RuntimeName for NetworkOperatorTetheringOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult";
 }
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Debug, Clone)]
+pub struct NetworkOperatorTetheringSessionAccessPointConfiguration(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringSessionAccessPointConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+impl NetworkOperatorTetheringSessionAccessPointConfiguration {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringSessionAccessPointConfiguration, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Ssid(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Ssid)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetSsid(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetSsid)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Passphrase(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Passphrase)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetPassphrase(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPassphrase)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn IsBandSupported(&self, band: TetheringWiFiBand) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsBandSupported)(windows_core::Interface::as_raw(this), band, &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsBandSupportedAsync)(windows_core::Interface::as_raw(this), band, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Band(&self) -> windows_core::Result<TetheringWiFiBand> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Band)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetBand(&self, value: TetheringWiFiBand) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetBand)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IsAuthenticationKindSupported(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsAuthenticationKindSupported)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsAuthenticationKindSupportedAsync(&self, authenticationkind: TetheringWiFiAuthenticationKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsAuthenticationKindSupportedAsync)(windows_core::Interface::as_raw(this), authenticationkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AuthenticationKind(&self) -> windows_core::Result<TetheringWiFiAuthenticationKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AuthenticationKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAuthenticationKind(&self, value: TetheringWiFiAuthenticationKind) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAuthenticationKind)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn PerformancePriority(&self) -> windows_core::Result<TetheringWiFiPerformancePriority> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PerformancePriority)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetPerformancePriority(&self, value: TetheringWiFiPerformancePriority) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPerformancePriority)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for NetworkOperatorTetheringSessionAccessPointConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringSessionAccessPointConfiguration>();
+}
+unsafe impl windows_core::Interface for NetworkOperatorTetheringSessionAccessPointConfiguration {
+    type Vtable = INetworkOperatorTetheringSessionAccessPointConfiguration_Vtbl;
+    const IID: windows_core::GUID = <INetworkOperatorTetheringSessionAccessPointConfiguration as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for NetworkOperatorTetheringSessionAccessPointConfiguration {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringSessionAccessPointConfiguration";
+}
+unsafe impl Send for NetworkOperatorTetheringSessionAccessPointConfiguration {}
+unsafe impl Sync for NetworkOperatorTetheringSessionAccessPointConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProvisionFromXmlDocumentResults(windows_core::IUnknown);
@@ -6550,6 +6822,9 @@ impl TetheringOperationStatus {
     pub const OperationInProgress: Self = Self(6i32);
     pub const BluetoothDeviceOff: Self = Self(7i32);
     pub const NetworkLimitedConnectivity: Self = Self(8i32);
+    pub const AlreadyOn: Self = Self(9i32);
+    pub const RadioRestriction: Self = Self(10i32);
+    pub const BandInterference: Self = Self(11i32);
 }
 impl windows_core::TypeKind for TetheringOperationStatus {
     type TypeKind = windows_core::CopyType;
@@ -6584,11 +6859,31 @@ impl windows_core::RuntimeType for TetheringOperationalState {
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct TetheringWiFiAuthenticationKind(pub i32);
+impl TetheringWiFiAuthenticationKind {
+    pub const Wpa2: Self = Self(0i32);
+    pub const Wpa3TransitionMode: Self = Self(1i32);
+    pub const Wpa3: Self = Self(2i32);
+}
+impl windows_core::TypeKind for TetheringWiFiAuthenticationKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for TetheringWiFiAuthenticationKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TetheringWiFiAuthenticationKind").field(&self.0).finish()
+    }
+}
+impl windows_core::RuntimeType for TetheringWiFiAuthenticationKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringWiFiAuthenticationKind;i4)");
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TetheringWiFiBand(pub i32);
 impl TetheringWiFiBand {
     pub const Auto: Self = Self(0i32);
     pub const TwoPointFourGigahertz: Self = Self(1i32);
     pub const FiveGigahertz: Self = Self(2i32);
+    pub const SixGigahertz: Self = Self(3i32);
 }
 impl windows_core::TypeKind for TetheringWiFiBand {
     type TypeKind = windows_core::CopyType;
@@ -6600,6 +6895,24 @@ impl core::fmt::Debug for TetheringWiFiBand {
 }
 impl windows_core::RuntimeType for TetheringWiFiBand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringWiFiBand;i4)");
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct TetheringWiFiPerformancePriority(pub i32);
+impl TetheringWiFiPerformancePriority {
+    pub const Default: Self = Self(0i32);
+    pub const TetheringOverStation: Self = Self(1i32);
+}
+impl windows_core::TypeKind for TetheringWiFiPerformancePriority {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for TetheringWiFiPerformancePriority {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TetheringWiFiPerformancePriority").field(&self.0).finish()
+    }
+}
+impl windows_core::RuntimeType for TetheringWiFiPerformancePriority {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringWiFiPerformancePriority;i4)");
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]

@@ -20,6 +20,16 @@ pub struct IDisplayAdapter_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
+windows_core::imp::define_interface!(IDisplayAdapter2, IDisplayAdapter2_Vtbl, 0x9ab49b18_b3c7_5546_8374_a9127111edd8);
+impl windows_core::RuntimeType for IDisplayAdapter2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDisplayAdapter2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsIndirectDisplayDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub PreferredRenderAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IDisplayAdapterStatics, IDisplayAdapterStatics_Vtbl, 0x1dac3cda_481f_5469_8470_82c4ba680a28);
 impl windows_core::RuntimeType for IDisplayAdapterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -58,6 +68,18 @@ pub struct IDisplayDevice2_Vtbl {
     pub CreateSimpleScanoutWithDirtyRectsAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, DisplayScanoutOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics")))]
     CreateSimpleScanoutWithDirtyRectsAndOptions: usize,
+}
+windows_core::imp::define_interface!(IDisplayDeviceRenderAdapter, IDisplayDeviceRenderAdapter_Vtbl, 0x41c86ce5_b18f_573f_9d59_70463115e4cc);
+impl windows_core::RuntimeType for IDisplayDeviceRenderAdapter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDisplayDeviceRenderAdapter_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Graphics")]
+    pub RenderAdapterId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Graphics::DisplayAdapterId) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics"))]
+    RenderAdapterId: usize,
 }
 windows_core::imp::define_interface!(IDisplayFence, IDisplayFence_Vtbl, 0x04dcf9ef_3406_5700_8fec_77eba4c5a74b);
 impl windows_core::RuntimeType for IDisplayFence {
@@ -108,6 +130,24 @@ pub struct IDisplayManager_Vtbl {
     pub RemovePathsFailedOrInvalidated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IDisplayManager2, IDisplayManager2_Vtbl, 0xe001ec1e_7eb1_597f_9a30_14d3fe3714cd);
+impl windows_core::RuntimeType for IDisplayManager2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDisplayManager2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TryReadCurrentStateForModeQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IDisplayManager3, IDisplayManager3_Vtbl, 0x6f14cb89_7f49_587d_93ce_77487cbcb530);
+impl windows_core::RuntimeType for IDisplayManager3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDisplayManager3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateDisplayDeviceForIndirectAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayManagerChangedEventArgs, IDisplayManagerChangedEventArgs_Vtbl, 0x6abfa285_6cca_5731_bcdc_42e5d2f5c50f);
 impl windows_core::RuntimeType for IDisplayManagerChangedEventArgs {
@@ -216,6 +256,37 @@ pub struct IDisplayModeInfo2_Vtbl {
     pub PhysicalPresentationRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayPresentationRate) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     PhysicalPresentationRate: usize,
+}
+windows_core::imp::define_interface!(IDisplayMuxDevice, IDisplayMuxDevice_Vtbl, 0xd81c4925_83dd_52c9_ab4e_e0833fc75068);
+impl windows_core::RuntimeType for IDisplayMuxDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDisplayMuxDevice_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub IsActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAvailableMuxTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAvailableMuxTargets: usize,
+    pub CurrentTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PreferredTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsAutomaticTargetSwitchingEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetPreferredTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAutomaticTargetSwitching: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Changed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IDisplayMuxDeviceStatics, IDisplayMuxDeviceStatics_Vtbl, 0x7b37a64a_0465_53da_baee_70028480ced0);
+impl windows_core::RuntimeType for IDisplayMuxDeviceStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDisplayMuxDeviceStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayPath, IDisplayPath_Vtbl, 0xb3dfd64a_7460_5cde_811b_d5ae9f3d9f84);
 impl windows_core::RuntimeType for IDisplayPath {
@@ -634,6 +705,20 @@ impl DisplayAdapter {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub fn IsIndirectDisplayDevice(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IDisplayAdapter2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsIndirectDisplayDevice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn PreferredRenderAdapter(&self) -> windows_core::Result<DisplayAdapter> {
+        let this = &windows_core::Interface::cast::<IDisplayAdapter2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PreferredRenderAdapter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     #[cfg(feature = "Graphics")]
     pub fn FromId(id: super::super::super::Graphics::DisplayAdapterId) -> windows_core::Result<DisplayAdapter> {
         Self::IDisplayAdapterStatics(|this| unsafe {
@@ -738,6 +823,14 @@ impl DisplayDevice {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSimpleScanoutWithDirtyRectsAndOptions)(windows_core::Interface::as_raw(this), source.param().abi(), surface.param().abi(), subresourceindex, syncinterval, dirtyrects.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Graphics")]
+    pub fn RenderAdapterId(&self) -> windows_core::Result<super::super::super::Graphics::DisplayAdapterId> {
+        let this = &windows_core::Interface::cast::<IDisplayDeviceRenderAdapter>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RenderAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -927,6 +1020,24 @@ impl DisplayManager {
     pub fn Stop(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn TryReadCurrentStateForModeQuery(&self) -> windows_core::Result<DisplayManagerResultWithState> {
+        let this = &windows_core::Interface::cast::<IDisplayManager2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryReadCurrentStateForModeQuery)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateDisplayDeviceForIndirectAdapter<P0, P1>(&self, indirectadapter: P0, renderadapter: P1) -> windows_core::Result<DisplayDevice>
+    where
+        P0: windows_core::Param<DisplayAdapter>,
+        P1: windows_core::Param<DisplayAdapter>,
+    {
+        let this = &windows_core::Interface::cast::<IDisplayManager3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateDisplayDeviceForIndirectAdapter)(windows_core::Interface::as_raw(this), indirectadapter.param().abi(), renderadapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub fn Create(options: DisplayManagerOptions) -> windows_core::Result<DisplayManager> {
         Self::IDisplayManagerStatics(|this| unsafe {
@@ -1232,6 +1343,120 @@ impl windows_core::RuntimeName for DisplayModeInfo {
 }
 unsafe impl Send for DisplayModeInfo {}
 unsafe impl Sync for DisplayModeInfo {}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Debug, Clone)]
+pub struct DisplayMuxDevice(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(DisplayMuxDevice, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(DisplayMuxDevice, super::super::super::Foundation::IClosable);
+impl DisplayMuxDevice {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsActive(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetAvailableMuxTargets(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAvailableMuxTargets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CurrentTarget(&self) -> windows_core::Result<DisplayTarget> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentTarget)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PreferredTarget(&self) -> windows_core::Result<DisplayTarget> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PreferredTarget)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsAutomaticTargetSwitchingEnabled(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsAutomaticTargetSwitchingEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetPreferredTarget<P0>(&self, target: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<DisplayTarget>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetPreferredTarget)(windows_core::Interface::as_raw(this), target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetAutomaticTargetSwitching(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetAutomaticTargetSwitching)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplayMuxDevice, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RemoveChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+        Self::IDisplayMuxDeviceStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn FromIdAsync(deviceinterfaceid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<DisplayMuxDevice>> {
+        Self::IDisplayMuxDeviceStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[doc(hidden)]
+    pub fn IDisplayMuxDeviceStatics<R, F: FnOnce(&IDisplayMuxDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<DisplayMuxDevice, IDisplayMuxDeviceStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for DisplayMuxDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayMuxDevice>();
+}
+unsafe impl windows_core::Interface for DisplayMuxDevice {
+    type Vtable = IDisplayMuxDevice_Vtbl;
+    const IID: windows_core::GUID = <IDisplayMuxDevice as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for DisplayMuxDevice {
+    const NAME: &'static str = "Windows.Devices.Display.Core.DisplayMuxDevice";
+}
+unsafe impl Send for DisplayMuxDevice {}
+unsafe impl Sync for DisplayMuxDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayPath(windows_core::IUnknown);

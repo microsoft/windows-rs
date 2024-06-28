@@ -540,6 +540,19 @@ pub struct ICompassStatics2_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IDetectedPerson, IDetectedPerson_Vtbl, 0x168cc0d9_3f05_5029_a0bf_cdcab4be3f9e);
+impl windows_core::RuntimeType for IDetectedPerson {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDetectedPerson_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Engagement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HumanEngagement) -> windows_core::HRESULT,
+    pub DistanceInMillimeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub HeadOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub HeadPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PersonId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IGyrometer, IGyrometer_Vtbl, 0xfdb9a9c4_84b1_4ca2_9763_9b589506c70c);
 impl windows_core::RuntimeType for IGyrometer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -666,6 +679,27 @@ pub struct IGyrometerStatics2_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IHeadOrientation, IHeadOrientation_Vtbl, 0x519f54a9_513e_55e8_9c35_3e8da21dee69);
+impl windows_core::RuntimeType for IHeadOrientation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IHeadOrientation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RollInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PitchInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub YawInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IHeadPosition, IHeadPosition_Vtbl, 0x585aeb65_cf35_5e6d_a76a_37db131e17de);
+impl windows_core::RuntimeType for IHeadPosition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IHeadPosition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AzimuthInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AltitudeInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IHingeAngleReading, IHingeAngleReading_Vtbl, 0xa3cd45b9_1bf1_4f65_a704_e2da04f182c0);
 impl windows_core::RuntimeType for IHingeAngleReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -768,6 +802,19 @@ pub struct IHumanPresenceSensor2_Vtbl {
     pub IsPresenceSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsEngagementSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IHumanPresenceSensor3, IHumanPresenceSensor3_Vtbl, 0x963f006d_090d_532c_9eaf_803a9f69285b);
+impl windows_core::RuntimeType for IHumanPresenceSensor3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IHumanPresenceSensor3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MaxDetectablePersons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub MinDetectableAzimuthInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MaxDetectableAzimuthInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MinDetectableAltitudeInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MaxDetectableAltitudeInDegrees: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IHumanPresenceSensorExtension, IHumanPresenceSensorExtension_Vtbl, 0x3e526a71_2d1d_5d43_8a8e_a434a8242ef0);
 impl core::ops::Deref for IHumanPresenceSensorExtension {
     type Target = windows_core::IInspectable;
@@ -852,6 +899,19 @@ pub struct IHumanPresenceSensorReading2_Vtbl {
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
+}
+windows_core::imp::define_interface!(IHumanPresenceSensorReading3, IHumanPresenceSensorReading3_Vtbl, 0xb876d918_f069_586f_90e3_7c6fa5c5d33a);
+impl windows_core::RuntimeType for IHumanPresenceSensorReading3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IHumanPresenceSensorReading3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub OnlookerPresence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HumanPresence) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub DetectedPersons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    DetectedPersons: usize,
 }
 windows_core::imp::define_interface!(IHumanPresenceSensorReadingChangedEventArgs, IHumanPresenceSensorReadingChangedEventArgs_Vtbl, 0xa9dc4583_fd69_5c5e_ab1f_942204eae2db);
 impl windows_core::RuntimeType for IHumanPresenceSensorReadingChangedEventArgs {
@@ -2986,6 +3046,59 @@ unsafe impl Send for CompassReadingChangedEventArgs {}
 unsafe impl Sync for CompassReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
+pub struct DetectedPerson(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(DetectedPerson, windows_core::IUnknown, windows_core::IInspectable);
+impl DetectedPerson {
+    pub fn Engagement(&self) -> windows_core::Result<HumanEngagement> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Engagement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn DistanceInMillimeters(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DistanceInMillimeters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn HeadOrientation(&self) -> windows_core::Result<HeadOrientation> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeadOrientation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn HeadPosition(&self) -> windows_core::Result<HeadPosition> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HeadPosition)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PersonId(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PersonId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for DetectedPerson {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectedPerson>();
+}
+unsafe impl windows_core::Interface for DetectedPerson {
+    type Vtable = IDetectedPerson_Vtbl;
+    const IID: windows_core::GUID = <IDetectedPerson as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for DetectedPerson {
+    const NAME: &'static str = "Windows.Devices.Sensors.DetectedPerson";
+}
+unsafe impl Send for DetectedPerson {}
+unsafe impl Sync for DetectedPerson {}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Gyrometer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Gyrometer, windows_core::IUnknown, windows_core::IInspectable);
 impl Gyrometer {
@@ -3251,6 +3364,77 @@ impl windows_core::RuntimeName for GyrometerReadingChangedEventArgs {
 }
 unsafe impl Send for GyrometerReadingChangedEventArgs {}
 unsafe impl Sync for GyrometerReadingChangedEventArgs {}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Debug, Clone)]
+pub struct HeadOrientation(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(HeadOrientation, windows_core::IUnknown, windows_core::IInspectable);
+impl HeadOrientation {
+    pub fn RollInDegrees(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RollInDegrees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PitchInDegrees(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PitchInDegrees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn YawInDegrees(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).YawInDegrees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for HeadOrientation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadOrientation>();
+}
+unsafe impl windows_core::Interface for HeadOrientation {
+    type Vtable = IHeadOrientation_Vtbl;
+    const IID: windows_core::GUID = <IHeadOrientation as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for HeadOrientation {
+    const NAME: &'static str = "Windows.Devices.Sensors.HeadOrientation";
+}
+unsafe impl Send for HeadOrientation {}
+unsafe impl Sync for HeadOrientation {}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Debug, Clone)]
+pub struct HeadPosition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(HeadPosition, windows_core::IUnknown, windows_core::IInspectable);
+impl HeadPosition {
+    pub fn AzimuthInDegrees(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AzimuthInDegrees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AltitudeInDegrees(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AltitudeInDegrees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for HeadPosition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadPosition>();
+}
+unsafe impl windows_core::Interface for HeadPosition {
+    type Vtable = IHeadPosition_Vtbl;
+    const IID: windows_core::GUID = <IHeadPosition as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for HeadPosition {
+    const NAME: &'static str = "Windows.Devices.Sensors.HeadPosition";
+}
+unsafe impl Send for HeadPosition {}
+unsafe impl Sync for HeadPosition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HingeAngleReading(windows_core::IUnknown);
@@ -3532,6 +3716,41 @@ impl HumanPresenceSensor {
             (windows_core::Interface::vtable(this).IsEngagementSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+    pub fn MaxDetectablePersons(&self) -> windows_core::Result<i32> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSensor3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxDetectablePersons)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn MinDetectableAzimuthInDegrees(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSensor3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MinDetectableAzimuthInDegrees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MaxDetectableAzimuthInDegrees(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSensor3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxDetectableAzimuthInDegrees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MinDetectableAltitudeInDegrees(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSensor3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MinDetectableAltitudeInDegrees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn MaxDetectableAltitudeInDegrees(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSensor3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxDetectableAltitudeInDegrees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
         Self::IHumanPresenceSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3624,6 +3843,21 @@ impl HumanPresenceSensorReading {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn OnlookerPresence(&self) -> windows_core::Result<HumanPresence> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSensorReading3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OnlookerPresence)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DetectedPersons(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<DetectedPerson>> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSensorReading3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DetectedPersons)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

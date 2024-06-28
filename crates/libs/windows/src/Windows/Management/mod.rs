@@ -4,6 +4,8 @@ pub mod Core;
 pub mod Deployment;
 #[cfg(feature = "Management_Policies")]
 pub mod Policies;
+#[cfg(feature = "Management_Setup")]
+pub mod Setup;
 #[cfg(feature = "Management_Update")]
 pub mod Update;
 #[cfg(feature = "Management_Workplace")]

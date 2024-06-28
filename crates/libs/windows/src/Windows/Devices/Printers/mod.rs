@@ -259,6 +259,35 @@ pub struct IIppPrintDevice2_Vtbl {
     pub IsPdlPassthroughSupported: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
     pub GetPdlPassthroughProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IIppPrintDevice3, IIppPrintDevice3_Vtbl, 0xb6258f6d_a46d_5e37_80ce_5f69d5544712);
+impl windows_core::RuntimeType for IIppPrintDevice3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppPrintDevice3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsIppFaxOutPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIppPrintDevice4, IIppPrintDevice4_Vtbl, 0x8c48247e_e869_59fb_bc6d_daea0614f93e);
+impl windows_core::RuntimeType for IIppPrintDevice4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IIppPrintDevice4_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DeviceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppPrintDeviceKind) -> windows_core::HRESULT,
+    pub CanModifyUserDefaultPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub UserDefaultPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
+    UserDefaultPrintTicket: usize,
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub SetUserDefaultPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
+    SetUserDefaultPrintTicket: usize,
+    pub RefreshPrintDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetMaxSupportedPdlVersion: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IIppPrintDeviceStatics, IIppPrintDeviceStatics_Vtbl, 0x7dc19f08_7f20_52ab_94a7_894b83b2a17e);
 impl windows_core::RuntimeType for IIppPrintDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1085,6 +1114,54 @@ impl IppPrintDevice {
             (windows_core::Interface::vtable(this).GetPdlPassthroughProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub fn IsIppFaxOutPrinter(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IIppPrintDevice3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsIppFaxOutPrinter)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn DeviceKind(&self) -> windows_core::Result<IppPrintDeviceKind> {
+        let this = &windows_core::Interface::cast::<IIppPrintDevice4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CanModifyUserDefaultPrintTicket(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IIppPrintDevice4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CanModifyUserDefaultPrintTicket)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub fn UserDefaultPrintTicket(&self) -> windows_core::Result<super::super::Graphics::Printing::PrintTicket::WorkflowPrintTicket> {
+        let this = &windows_core::Interface::cast::<IIppPrintDevice4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UserDefaultPrintTicket)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub fn SetUserDefaultPrintTicket<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Graphics::Printing::PrintTicket::WorkflowPrintTicket>,
+    {
+        let this = &windows_core::Interface::cast::<IIppPrintDevice4>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetUserDefaultPrintTicket)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn RefreshPrintDeviceCapabilities(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IIppPrintDevice4>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RefreshPrintDeviceCapabilities)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn GetMaxSupportedPdlVersion(&self, pdlcontenttype: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<IIppPrintDevice4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetMaxSupportedPdlVersion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pdlcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1539,6 +1616,25 @@ impl core::fmt::Debug for IppAttributeValueKind {
 }
 impl windows_core::RuntimeType for IppAttributeValueKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IppPrintDeviceKind(pub i32);
+impl IppPrintDeviceKind {
+    pub const Printer: Self = Self(0i32);
+    pub const FaxOut: Self = Self(1i32);
+    pub const VirtualPrinter: Self = Self(2i32);
+}
+impl windows_core::TypeKind for IppPrintDeviceKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for IppPrintDeviceKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IppPrintDeviceKind").field(&self.0).finish()
+    }
+}
+impl windows_core::RuntimeType for IppPrintDeviceKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppPrintDeviceKind;i4)");
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
