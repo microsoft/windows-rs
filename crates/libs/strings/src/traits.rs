@@ -10,13 +10,13 @@ pub trait ToUtf16String {
 
 impl ToUtf8String for String {
     fn to_utf8_string(&self) -> PCSTR {
-        s!(self)
+        s!(self.as_str())
     }
 }
 
 impl ToUtf16String for String {
     fn to_utf16_string(&self) -> PCWSTR {
-        w!(self)
+        w!(self.as_str())
     }
 }
 
