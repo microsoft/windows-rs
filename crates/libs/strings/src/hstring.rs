@@ -1,27 +1,27 @@
 use super::*;
 
-/// A WinRT string ([HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring))
-/// is reference-counted and immutable.
+/// An ([HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring))
+/// is a reference-counted and immutable UTF-16 string type.
 #[repr(transparent)]
-pub struct HSTRING(Option<core::ptr::NonNull<Header>>);
+pub struct HSTRING(pub(crate) *mut HStringHeader);
 
 impl HSTRING {
     /// Create an empty `HSTRING`.
     ///
     /// This function does not allocate memory.
     pub const fn new() -> Self {
-        Self(None)
+        Self(core::ptr::null_mut())
     }
 
     /// Returns `true` if the string is empty.
-    pub const fn is_empty(&self) -> bool {
+    pub fn is_empty(&self) -> bool {
         // An empty HSTRING is represented by a null pointer.
-        self.0.is_none()
+        self.0.is_null()
     }
 
     /// Returns the length of the string. The length is measured in `u16`s (UTF-16 code units), not including the terminating null character.
     pub fn len(&self) -> usize {
-        if let Some(header) = self.get_header() {
+        if let Some(header) = self.as_header() {
             header.len as usize
         } else {
             0
@@ -35,7 +35,7 @@ impl HSTRING {
 
     /// Returns a raw pointer to the `HSTRING` buffer.
     pub fn as_ptr(&self) -> *const u16 {
-        if let Some(header) = self.get_header() {
+        if let Some(header) = self.as_header() {
             header.data
         } else {
             const EMPTY: [u16; 1] = [0];
@@ -66,7 +66,7 @@ impl HSTRING {
             return Ok(Self::new());
         }
 
-        let ptr = Header::alloc(len.try_into()?)?;
+        let ptr = HStringHeader::alloc(len.try_into()?)?;
 
         // Place each utf-16 character into the buffer and
         // increase len as we go along.
@@ -79,11 +79,11 @@ impl HSTRING {
 
         // Write a 0 byte to the end of the buffer.
         (*ptr).data.offset((*ptr).len as isize).write(0);
-        Ok(Self(core::ptr::NonNull::new(ptr)))
+        Ok(Self(ptr))
     }
 
-    fn get_header(&self) -> Option<&Header> {
-        self.0.map(|header| unsafe { header.as_ref() })
+    fn as_header(&self) -> Option<&HStringHeader> {
+        unsafe { self.0.as_ref() }
     }
 }
 
@@ -95,8 +95,8 @@ impl Default for HSTRING {
 
 impl Clone for HSTRING {
     fn clone(&self) -> Self {
-        if let Some(header) = self.get_header() {
-            Self(core::ptr::NonNull::new(header.duplicate().unwrap()))
+        if let Some(header) = self.as_header() {
+            Self(header.duplicate().unwrap())
         } else {
             Self::new()
         }
@@ -105,17 +105,12 @@ impl Clone for HSTRING {
 
 impl Drop for HSTRING {
     fn drop(&mut self) {
-        if self.is_empty() {
-            return;
-        }
-
-        if let Some(header) = self.0.take() {
-            // REFERENCE_FLAG indicates a string backed by static or stack memory that is
+        if let Some(header) = self.as_header() {
+            // HSTRING_REFERENCE_FLAG indicates a string backed by static or stack memory that is
             // thus not reference-counted and does not need to be freed.
             unsafe {
-                let header = header.as_ref();
-                if header.flags & REFERENCE_FLAG == 0 && header.count.release() == 0 {
-                    heap_free(header as *const _ as *mut _);
+                if header.flags & HSTRING_REFERENCE_FLAG == 0 && header.count.release() == 0 {
+                    HStringHeader::free(self.0);
                 }
             }
         }
@@ -405,56 +400,5 @@ impl<'a> From<&'a HSTRING> for std::ffi::OsString {
 impl From<HSTRING> for std::ffi::OsString {
     fn from(hstring: HSTRING) -> Self {
         Self::from(&hstring)
-    }
-}
-
-const REFERENCE_FLAG: u32 = 1;
-
-#[repr(C)]
-struct Header {
-    flags: u32,
-    len: u32,
-    _0: u32,
-    _1: u32,
-    data: *mut u16,
-    count: RefCount,
-    buffer_start: u16,
-}
-
-impl Header {
-    fn alloc(len: u32) -> Result<*mut Header> {
-        debug_assert!(len != 0);
-        // Allocate enough space for header and two bytes per character.
-        // The space for the terminating null character is already accounted for inside of `Header`.
-        let alloc_size = core::mem::size_of::<Header>() + 2 * len as usize;
-
-        let header = heap_alloc(alloc_size)? as *mut Header;
-
-        unsafe {
-            // Use `ptr::write` (since `header` is unintialized). `Header` is safe to be all zeros.
-            header.write(core::mem::MaybeUninit::<Header>::zeroed().assume_init());
-            (*header).len = len;
-            (*header).count = RefCount::new(1);
-            (*header).data = &mut (*header).buffer_start;
-        }
-
-        Ok(header)
-    }
-
-    fn duplicate(&self) -> Result<*mut Header> {
-        if self.flags & REFERENCE_FLAG == 0 {
-            // If this is not a "fast pass" string then simply increment the reference count.
-            self.count.add_ref();
-            Ok(self as *const Header as *mut Header)
-        } else {
-            // Otherwise, allocate a new string and copy the value into the new string.
-            let copy = Header::alloc(self.len)?;
-            // SAFETY: since we are duplicating the string it is safe to copy all data from self to the initialized `copy`.
-            // We copy `len + 1` characters since `len` does not account for the terminating null character.
-            unsafe {
-                core::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
-            }
-            Ok(copy)
-        }
     }
 }

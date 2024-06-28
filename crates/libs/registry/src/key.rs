@@ -99,6 +99,15 @@ impl Key {
     }
 
     /// Sets the name and value in the registry key.
+    pub fn set_hstring<T: AsRef<str>>(
+        &self,
+        name: T,
+        value: &windows_strings::HSTRING,
+    ) -> Result<()> {
+        unsafe { self.set_value(name, REG_SZ, value.as_ptr() as _, value.len() * 2) }
+    }
+
+    /// Sets the name and value in the registry key.
     pub fn set_multi_string<T: AsRef<str>>(&self, name: T, value: &[T]) -> Result<()> {
         let mut packed = value.iter().fold(vec![0u16; 0], |mut packed, value| {
             packed.append(&mut pcwstr(value));
@@ -276,6 +285,40 @@ impl Key {
         } else {
             Err(invalid_data())
         }
+    }
+
+    /// Gets the value for the name in the registry key.
+    pub fn get_hstring<T: AsRef<str>>(&self, name: T) -> Result<HSTRING> {
+        let name = pcwstr(name);
+        let mut ty = 0;
+        let mut len = 0;
+
+        let result = unsafe {
+            RegQueryValueExW(self.0, name.as_ptr(), null(), &mut ty, null_mut(), &mut len)
+        };
+
+        win32_error(result)?;
+
+        if !matches!(ty, REG_SZ | REG_EXPAND_SZ) {
+            return Err(invalid_data());
+        }
+
+        let mut value = HStringBuilder::new(len as usize / 2)?;
+
+        let result = unsafe {
+            RegQueryValueExW(
+                self.0,
+                name.as_ptr(),
+                null(),
+                null_mut(),
+                value.as_mut_ptr() as _,
+                &mut len,
+            )
+        };
+
+        win32_error(result)?;
+        value.trim_end();
+        Ok(value.into())
     }
 
     /// Gets the value for the name in the registry key.
