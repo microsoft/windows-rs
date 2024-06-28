@@ -1481,6 +1481,7 @@ impl PrintColorMode {
     pub const Color: Self = Self(3i32);
     pub const Grayscale: Self = Self(4i32);
     pub const Monochrome: Self = Self(5i32);
+    pub const AutoSelect: Self = Self(6i32);
 }
 impl windows_core::TypeKind for PrintColorMode {
     type TypeKind = windows_core::CopyType;

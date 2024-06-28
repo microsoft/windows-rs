@@ -421,6 +421,7 @@ impl PnpObjectType {
     pub const AssociationEndpointContainer: Self = Self(6i32);
     pub const AssociationEndpointService: Self = Self(7i32);
     pub const DevicePanel: Self = Self(8i32);
+    pub const AssociationEndpointProtocol: Self = Self(9i32);
 }
 impl windows_core::TypeKind for PnpObjectType {
     type TypeKind = windows_core::CopyType;

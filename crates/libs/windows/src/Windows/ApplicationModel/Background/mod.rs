@@ -236,6 +236,27 @@ pub struct IBackgroundTaskBuilder5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetTaskEntryPointClsid: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IBackgroundTaskBuilder6, IBackgroundTaskBuilder6_Vtbl, 0x80b47b17_ec8b_5653_850b_7508a01f52e7);
+impl windows_core::RuntimeType for IBackgroundTaskBuilder6 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IBackgroundTaskBuilder6_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AllowRunningTaskInStandby: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetAllowRunningTaskInStandby: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IBackgroundTaskBuilderStatics, IBackgroundTaskBuilderStatics_Vtbl, 0xd1eb5046_06f2_55b4_9bb7_a6457ebf3300);
+impl windows_core::RuntimeType for IBackgroundTaskBuilderStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IBackgroundTaskBuilderStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsRunningTaskInStandbySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IBackgroundTaskCompletedEventArgs, IBackgroundTaskCompletedEventArgs_Vtbl, 0x565d25cf_f209_48f4_9967_2b184f7bfbf0);
 impl windows_core::RuntimeType for IBackgroundTaskCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -741,6 +762,16 @@ pub struct IBackgroundTaskRegistration3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IBackgroundTaskRegistration4, IBackgroundTaskRegistration4_Vtbl, 0x169c09c9_b0de_5576_a05b_a02067989879);
+impl windows_core::RuntimeType for IBackgroundTaskRegistration4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IBackgroundTaskRegistration4_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TaskLastThrottledInStandbyTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub AppEnergyUsePredictionContribution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IBackgroundTaskRegistrationGroup, IBackgroundTaskRegistrationGroup_Vtbl, 0x2ab1919a_871b_4167_8a76_055cd67b5b23);
 impl windows_core::RuntimeType for IBackgroundTaskRegistrationGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -819,6 +850,17 @@ impl windows_core::RuntimeType for IBackgroundWorkCostStatics {
 pub struct IBackgroundWorkCostStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CurrentBackgroundWorkCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundWorkCostValue) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IBackgroundWorkCostStatics2, IBackgroundWorkCostStatics2_Vtbl, 0xd868c976_81f6_57c8_ab2b_400b749e21d6);
+impl windows_core::RuntimeType for IBackgroundWorkCostStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IBackgroundWorkCostStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AppEnergyUseLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnergyUseLevel) -> windows_core::HRESULT,
+    pub AppEnergyUsePrediction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnergyUseLevel) -> windows_core::HRESULT,
+    pub AppLastThrottledInStandbyTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger, IBluetoothLEAdvertisementPublisherTrigger_Vtbl, 0xab3e2612_25d3_48ae_8724_d81877ae6129);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTrigger {
@@ -2005,6 +2047,42 @@ impl BackgroundTaskBuilder {
         let this = &windows_core::Interface::cast::<IBackgroundTaskBuilder5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTaskEntryPointClsid)(windows_core::Interface::as_raw(this), taskentrypoint).ok() }
     }
+    pub fn AllowRunningTaskInStandby(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IBackgroundTaskBuilder6>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AllowRunningTaskInStandby)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAllowRunningTaskInStandby(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IBackgroundTaskBuilder6>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetAllowRunningTaskInStandby)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Validate(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IBackgroundTaskBuilder6>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Validate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Register2(&self, taskname: &windows_core::HSTRING) -> windows_core::Result<BackgroundTaskRegistration> {
+        let this = &windows_core::Interface::cast::<IBackgroundTaskBuilder6>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(taskname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsRunningTaskInStandbySupported() -> windows_core::Result<bool> {
+        Self::IBackgroundTaskBuilderStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsRunningTaskInStandbySupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IBackgroundTaskBuilderStatics<R, F: FnOnce(&IBackgroundTaskBuilderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<BackgroundTaskBuilder, IBackgroundTaskBuilderStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
 impl windows_core::RuntimeType for BackgroundTaskBuilder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskBuilder>();
@@ -2165,6 +2243,20 @@ impl BackgroundTaskRegistration {
             (windows_core::Interface::vtable(this).TaskGroup)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub fn TaskLastThrottledInStandbyTimestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+        let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TaskLastThrottledInStandbyTimestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn AppEnergyUsePredictionContribution(&self) -> windows_core::Result<f64> {
+        let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppEnergyUsePredictionContribution)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllTasks() -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::GUID, IBackgroundTaskRegistration>> {
         Self::IBackgroundTaskRegistrationStatics(|this| unsafe {
@@ -2288,9 +2380,32 @@ impl BackgroundWorkCost {
             (windows_core::Interface::vtable(this).CurrentBackgroundWorkCost)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
+    pub fn AppEnergyUseLevel() -> windows_core::Result<EnergyUseLevel> {
+        Self::IBackgroundWorkCostStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppEnergyUseLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn AppEnergyUsePrediction() -> windows_core::Result<EnergyUseLevel> {
+        Self::IBackgroundWorkCostStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppEnergyUsePrediction)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn AppLastThrottledInStandbyTimestamp() -> windows_core::Result<super::super::Foundation::DateTime> {
+        Self::IBackgroundWorkCostStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppLastThrottledInStandbyTimestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
     #[doc(hidden)]
     pub fn IBackgroundWorkCostStatics<R, F: FnOnce(&IBackgroundWorkCostStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundWorkCost, IBackgroundWorkCostStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IBackgroundWorkCostStatics2<R, F: FnOnce(&IBackgroundWorkCostStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<BackgroundWorkCost, IBackgroundWorkCostStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4467,6 +4582,26 @@ impl core::fmt::Debug for DeviceTriggerResult {
 }
 impl windows_core::RuntimeType for DeviceTriggerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.DeviceTriggerResult;i4)");
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct EnergyUseLevel(pub i32);
+impl EnergyUseLevel {
+    pub const Unknown: Self = Self(0i32);
+    pub const UnderHalfOfBudget: Self = Self(1i32);
+    pub const OverHalfOfBudget: Self = Self(2i32);
+    pub const OverBudget: Self = Self(3i32);
+}
+impl windows_core::TypeKind for EnergyUseLevel {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for EnergyUseLevel {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EnergyUseLevel").field(&self.0).finish()
+    }
+}
+impl windows_core::RuntimeType for EnergyUseLevel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.EnergyUseLevel;i4)");
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]

@@ -949,6 +949,32 @@ pub struct IVpnPlugInProfile2_Vtbl {
     pub SetRequireVpnClientAppUI: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub ConnectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VpnManagementConnectionStatus) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IVpnPlugInReconnectTransport, IVpnPlugInReconnectTransport_Vtbl, 0x9d5a1092_bb46_4d34_9d88_f217893076f4);
+impl core::ops::Deref for IVpnPlugInReconnectTransport {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IVpnPlugInReconnectTransport, windows_core::IUnknown, windows_core::IInspectable);
+impl IVpnPlugInReconnectTransport {
+    pub fn ReconnectTransport<P0, P1>(&self, channel: P0, context: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<VpnChannel>,
+        P1: windows_core::Param<windows_core::IInspectable>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).ReconnectTransport)(windows_core::Interface::as_raw(this), channel.param().abi(), context.param().abi()).ok() }
+    }
+}
+impl windows_core::RuntimeType for IVpnPlugInReconnectTransport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IVpnPlugInReconnectTransport_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ReconnectTransport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IVpnProfile, IVpnProfile_Vtbl, 0x7875b751_b0d7_43db_8a93_d3fe2479e56a);
 impl core::ops::Deref for IVpnProfile {
     type Target = windows_core::IInspectable;

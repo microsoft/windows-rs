@@ -3833,6 +3833,7 @@ impl SocketProtectionLevel {
     pub const Tls11: Self = Self(7i32);
     pub const Tls12: Self = Self(8i32);
     pub const Unspecified: Self = Self(9i32);
+    pub const Tls13: Self = Self(10i32);
 }
 impl windows_core::TypeKind for SocketProtectionLevel {
     type TypeKind = windows_core::CopyType;

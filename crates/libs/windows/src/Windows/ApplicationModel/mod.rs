@@ -30,6 +30,8 @@ pub mod ExtendedExecution;
 pub mod Holographic;
 #[cfg(feature = "ApplicationModel_LockScreen")]
 pub mod LockScreen;
+#[cfg(feature = "ApplicationModel_PackageExtensions")]
+pub mod PackageExtensions;
 #[cfg(feature = "ApplicationModel_Payments")]
 pub mod Payments;
 #[cfg(feature = "ApplicationModel_Preview")]

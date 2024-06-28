@@ -494,6 +494,33 @@ impl IVpnPlugIn_Vtbl {
         iid == &<IVpnPlugIn as windows_core::Interface>::IID
     }
 }
+pub trait IVpnPlugInReconnectTransport_Impl: Sized {
+    fn ReconnectTransport(&self, channel: Option<&VpnChannel>, context: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IVpnPlugInReconnectTransport {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugInReconnectTransport";
+}
+impl IVpnPlugInReconnectTransport_Vtbl {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IVpnPlugInReconnectTransport_Vtbl
+    where
+        Identity: IVpnPlugInReconnectTransport_Impl,
+    {
+        unsafe extern "system" fn ReconnectTransport<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            Identity: IVpnPlugInReconnectTransport_Impl,
+        {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnPlugInReconnectTransport_Impl::ReconnectTransport(this, windows_core::from_raw_borrowed(&channel), windows_core::from_raw_borrowed(&context)).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnPlugInReconnectTransport, OFFSET>(),
+            ReconnectTransport: ReconnectTransport::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnPlugInReconnectTransport as windows_core::Interface>::IID
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnProfile_Impl: Sized {
     fn ProfileName(&self) -> windows_core::Result<windows_core::HSTRING>;

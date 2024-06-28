@@ -22,6 +22,29 @@ pub struct IAudioDeviceOutputNode_Vtbl {
     #[cfg(not(feature = "Devices_Enumeration"))]
     Device: usize,
 }
+windows_core::imp::define_interface!(IAudioEffectsPackConfiguration, IAudioEffectsPackConfiguration_Vtbl, 0x71d7627d_70c1_536c_a8f8_6f98015a7f06);
+impl windows_core::RuntimeType for IAudioEffectsPackConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IAudioEffectsPackConfiguration_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub EffectsPackId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioEffectsPackStatus) -> windows_core::HRESULT,
+    pub StatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IAudioEffectsPackConfigurationStatics, IAudioEffectsPackConfigurationStatics_Vtbl, 0x61c20413_530c_55ff_ba2b_8e68a9b56a04);
+impl windows_core::RuntimeType for IAudioEffectsPackConfigurationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IAudioEffectsPackConfigurationStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetForDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsDeviceIdSupported: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IAudioFileInputNode, IAudioFileInputNode_Vtbl, 0x905b67c8_6f65_4cd4_8890_4694843c276d);
 impl windows_core::RuntimeType for IAudioFileInputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1615,6 +1638,76 @@ impl windows_core::RuntimeName for AudioDeviceOutputNode {
 }
 unsafe impl Send for AudioDeviceOutputNode {}
 unsafe impl Sync for AudioDeviceOutputNode {}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Debug, Clone)]
+pub struct AudioEffectsPackConfiguration(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(AudioEffectsPackConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+impl AudioEffectsPackConfiguration {
+    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn EffectsPackId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EffectsPackId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Status(&self) -> windows_core::Result<AudioEffectsPackStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioEffectsPackConfiguration, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn GetForDeviceId(effectspackid: &windows_core::HSTRING, deviceid: &windows_core::HSTRING) -> windows_core::Result<AudioEffectsPackConfiguration> {
+        Self::IAudioEffectsPackConfigurationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetForDeviceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(effectspackid), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn IsDeviceIdSupported(effectspackid: &windows_core::HSTRING, deviceid: &windows_core::HSTRING) -> windows_core::Result<bool> {
+        Self::IAudioEffectsPackConfigurationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsDeviceIdSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(effectspackid), core::mem::transmute_copy(deviceid), &mut result__).map(|| result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAudioEffectsPackConfigurationStatics<R, F: FnOnce(&IAudioEffectsPackConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<AudioEffectsPackConfiguration, IAudioEffectsPackConfigurationStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for AudioEffectsPackConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioEffectsPackConfiguration>();
+}
+unsafe impl windows_core::Interface for AudioEffectsPackConfiguration {
+    type Vtable = IAudioEffectsPackConfiguration_Vtbl;
+    const IID: windows_core::GUID = <IAudioEffectsPackConfiguration as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for AudioEffectsPackConfiguration {
+    const NAME: &'static str = "Windows.Media.Audio.AudioEffectsPackConfiguration";
+}
+unsafe impl Send for AudioEffectsPackConfiguration {}
+unsafe impl Sync for AudioEffectsPackConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFileInputNode(windows_core::IUnknown);
@@ -4828,6 +4921,25 @@ impl core::fmt::Debug for AudioDeviceNodeCreationStatus {
 }
 impl windows_core::RuntimeType for AudioDeviceNodeCreationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioDeviceNodeCreationStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct AudioEffectsPackStatus(pub i32);
+impl AudioEffectsPackStatus {
+    pub const NotEnabled: Self = Self(0i32);
+    pub const Enabled: Self = Self(1i32);
+    pub const NotSupported: Self = Self(2i32);
+}
+impl windows_core::TypeKind for AudioEffectsPackStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for AudioEffectsPackStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("AudioEffectsPackStatus").field(&self.0).finish()
+    }
+}
+impl windows_core::RuntimeType for AudioEffectsPackStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioEffectsPackStatus;i4)");
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]

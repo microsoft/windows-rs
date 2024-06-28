@@ -242,6 +242,16 @@ pub struct IPackageAllUserProvisioningOptions_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ProjectionOrderPackageFamilyNames: usize,
 }
+windows_core::imp::define_interface!(IPackageAllUserProvisioningOptions2, IPackageAllUserProvisioningOptions2_Vtbl, 0xb9e3cab5_2d97_579f_9368_d10bb4d4542b);
+impl windows_core::RuntimeType for IPackageAllUserProvisioningOptions2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPackageAllUserProvisioningOptions2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DeferAutomaticRegistration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetDeferAutomaticRegistration: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPackageManager, IPackageManager_Vtbl, 0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53);
 impl windows_core::RuntimeType for IPackageManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -313,6 +323,15 @@ impl windows_core::RuntimeType for IPackageManager10 {
 pub struct IPackageManager10_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProvisionPackageForAllUsersWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPackageManager11, IPackageManager11_Vtbl, 0x12950b24_c77e_4ea7_8859_325318074e15);
+impl windows_core::RuntimeType for IPackageManager11 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPackageManager11_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RemovePackageByUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageManager2, IPackageManager2_Vtbl, 0xf7aad08d_0840_46f2_b5d8_cad47693a095);
 impl windows_core::RuntimeType for IPackageManager2 {
@@ -643,6 +662,20 @@ pub struct IRegisterPackageOptions2_Vtbl {
     pub ExpectedDigests: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ExpectedDigests: usize,
+}
+windows_core::imp::define_interface!(IRemovePackageOptions, IRemovePackageOptions_Vtbl, 0x13cf01f3_c450_4f7c_a5a3_5e3c631b7462);
+impl windows_core::RuntimeType for IRemovePackageOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemovePackageOptions_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PreserveApplicationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetPreserveApplicationData: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub PreserveRoamableApplicationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetPreserveRoamableApplicationData: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub RemoveForAllUsers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetRemoveForAllUsers: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISharedPackageContainer, ISharedPackageContainer_Vtbl, 0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
 impl windows_core::RuntimeType for ISharedPackageContainer {
@@ -1529,6 +1562,17 @@ impl PackageAllUserProvisioningOptions {
             (windows_core::Interface::vtable(this).ProjectionOrderPackageFamilyNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub fn DeferAutomaticRegistration(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IPackageAllUserProvisioningOptions2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeferAutomaticRegistration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetDeferAutomaticRegistration(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IPackageAllUserProvisioningOptions2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetDeferAutomaticRegistration)(windows_core::Interface::as_raw(this), value).ok() }
+    }
 }
 impl windows_core::RuntimeType for PackageAllUserProvisioningOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageAllUserProvisioningOptions>();
@@ -1700,6 +1744,17 @@ impl PackageManager {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProvisionPackageForAllUsersWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(mainpackagefamilyname), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RemovePackageByUriAsync<P0, P1>(&self, packageuri: P0, options: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+        P1: windows_core::Param<RemovePackageOptions>,
+    {
+        let this = &windows_core::Interface::cast::<IPackageManager11>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RemovePackageByUriAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemovePackageWithOptionsAsync(&self, packagefullname: &windows_core::HSTRING, removaloptions: RemovalOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
@@ -2581,6 +2636,64 @@ impl windows_core::RuntimeName for RegisterPackageOptions {
 }
 unsafe impl Send for RegisterPackageOptions {}
 unsafe impl Sync for RegisterPackageOptions {}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Debug, Clone)]
+pub struct RemovePackageOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(RemovePackageOptions, windows_core::IUnknown, windows_core::IInspectable);
+impl RemovePackageOptions {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<RemovePackageOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn PreserveApplicationData(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PreserveApplicationData)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetPreserveApplicationData(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPreserveApplicationData)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn PreserveRoamableApplicationData(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PreserveRoamableApplicationData)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetPreserveRoamableApplicationData(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPreserveRoamableApplicationData)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn RemoveForAllUsers(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RemoveForAllUsers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetRemoveForAllUsers(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetRemoveForAllUsers)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for RemovePackageOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemovePackageOptions>();
+}
+unsafe impl windows_core::Interface for RemovePackageOptions {
+    type Vtable = IRemovePackageOptions_Vtbl;
+    const IID: windows_core::GUID = <IRemovePackageOptions as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for RemovePackageOptions {
+    const NAME: &'static str = "Windows.Management.Deployment.RemovePackageOptions";
+}
+unsafe impl Send for RemovePackageOptions {}
+unsafe impl Sync for RemovePackageOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SharedPackageContainer(windows_core::IUnknown);
