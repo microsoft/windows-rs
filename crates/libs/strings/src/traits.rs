@@ -1,17 +1,33 @@
 use super::*;
 
-pub trait ToWideString {
-    fn to_wide_string(&self) -> PCWSTR;
+pub trait ToUtf8String {
+    fn to_utf8_string(&self) -> PCSTR;
 }
 
-impl ToWideString for String {
-    fn to_wide_string(&self) -> PCWSTR {
+pub trait ToUtf16String {
+    fn to_utf16_string(&self) -> PCWSTR;
+}
+
+impl ToUtf8String for String {
+    fn to_utf8_string(&self) -> PCSTR {
+        s!(self)
+    }
+}
+
+impl ToUtf16String for String {
+    fn to_utf16_string(&self) -> PCWSTR {
         w!(self)
+    }
+}
+
+impl From<String> for PCSTR {
+    fn from(s: String) -> PCSTR {
+        s.to_utf8_string()
     }
 }
 
 impl From<String> for PCWSTR {
     fn from(s: String) -> PCWSTR {
-        s.to_wide_string()
+        s.to_utf16_string()
     }
 }
