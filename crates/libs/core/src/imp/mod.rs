@@ -1,21 +1,16 @@
-mod bindings;
+#[cfg(windows)]
+include!("windows.rs");
+
 mod can_into;
 mod com_bindings;
-mod factory_cache;
-mod generic_factory;
 mod ref_count;
 mod sha1;
-mod waiter;
 mod weak_ref_count;
 
-pub use bindings::*;
 pub use can_into::*;
 pub use com_bindings::*;
-pub use factory_cache::*;
-pub use generic_factory::*;
 pub use ref_count::*;
 pub use sha1::*;
-pub use waiter::*;
 pub use weak_ref_count::*;
 
 #[doc(hidden)]

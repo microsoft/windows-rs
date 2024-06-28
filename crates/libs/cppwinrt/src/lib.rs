@@ -2,6 +2,8 @@
 Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
 */
 
+#![cfg(windows)]
+
 const VERSION: &str = "2.0.240405.15";
 
 /// Calls the C++/WinRT compiler with the given arguments.

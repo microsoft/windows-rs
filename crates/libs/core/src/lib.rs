@@ -10,9 +10,11 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 )]
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
+#[cfg(windows)]
+include!("windows.rs");
+
 extern crate self as windows_core;
 
-#[macro_use]
 extern crate alloc;
 
 use alloc::boxed::Box;
@@ -20,14 +22,9 @@ use alloc::boxed::Box;
 #[doc(hidden)]
 pub mod imp;
 
-mod agile_reference;
-mod array;
 mod as_impl;
 mod com_object;
-#[cfg(feature = "std")]
-mod event;
 mod guid;
-mod handles;
 mod inspectable;
 mod interface;
 mod out_param;
@@ -40,17 +37,11 @@ mod runtime_type;
 mod scoped_interface;
 mod r#type;
 mod unknown;
-mod variant;
 mod weak;
 
-pub use agile_reference::*;
-pub use array::*;
 pub use as_impl::*;
 pub use com_object::*;
-#[cfg(feature = "std")]
-pub use event::*;
 pub use guid::*;
-pub use handles::*;
 pub use inspectable::*;
 pub use interface::*;
 pub use out_param::*;
@@ -63,15 +54,8 @@ pub use runtime_name::*;
 pub use runtime_type::*;
 pub use scoped_interface::*;
 pub use unknown::*;
-pub use variant::*;
 pub use weak::*;
 pub use windows_implement::implement;
 pub use windows_interface::interface;
 pub use windows_result::*;
 pub use windows_strings::*;
-
-/// Attempts to load the factory object for the given WinRT class.
-/// This can be used to access COM interfaces implemented on a Windows Runtime class factory.
-pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
-    imp::factory::<C, I>()
-}
