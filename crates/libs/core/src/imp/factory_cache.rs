@@ -127,7 +127,7 @@ where
     F: FnMut(crate::PCSTR) -> crate::Result<R>,
 {
     let suffix = b".dll\0";
-    let mut library = vec![0; path.len() + suffix.len()];
+    let mut library = alloc::vec![0; path.len() + suffix.len()];
     while let Some(pos) = path.rfind('.') {
         path = &path[..pos];
         library.truncate(path.len() + suffix.len());
