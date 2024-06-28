@@ -47,6 +47,9 @@ pub use pstr::*;
 mod pwstr;
 pub use pwstr::*;
 
+mod traits;
+pub use traits::*;
+
 extern "C" {
     fn strlen(s: PCSTR) -> usize;
 }
