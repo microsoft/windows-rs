@@ -23,3 +23,6 @@ impl<I: Interface> Weak<I> {
         Ok(Self(reference, PhantomData))
     }
 }
+
+unsafe impl<I: Interface> Send for Weak<I> {}
+unsafe impl<I: Interface> Sync for Weak<I> {}
