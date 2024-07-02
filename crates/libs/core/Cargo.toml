@@ -1,6 +1,6 @@
 [package]
 name = "windows-core"
-version = "0.57.0"
+version = "0.58.0"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.70"
@@ -18,11 +18,11 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows-targets]
-version = "0.52.5"
+version = "0.52.6"
 path = "../targets"
 
 [dependencies.windows-result]
-version = "0.1.1"
+version = "0.2.0"
 path = "../result"
 
 [dependencies.windows-strings]
@@ -30,8 +30,8 @@ version = "0.1.0"
 path = "../strings"
 
 [dependencies]
-windows-implement = { path = "../implement",  version = "0.57.0" }
-windows-interface = { path = "../interface",  version = "0.57.0" }
+windows-implement = { path = "../implement",  version = "0.58.0" }
+windows-interface = { path = "../interface",  version = "0.58.0" }
 
 [features]
 default = ["std"]

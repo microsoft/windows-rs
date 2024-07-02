@@ -5,7 +5,7 @@
 fn test() {
     let targets = tool_lib::crates("../../targets");
     assert_eq!(8, targets.len());
-    assert!(targets.iter().all(|(_, version)| version == "0.52.5"));
+    assert!(targets.iter().all(|(_, version)| version == "0.52.6"));
 
     // The lib names can't change for minor (semver) updates as that breaks linker search.
     // https://github.com/microsoft/windows-rs/issues/2869
