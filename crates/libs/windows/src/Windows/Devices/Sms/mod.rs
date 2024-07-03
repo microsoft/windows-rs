@@ -1036,22 +1036,6 @@ impl DeleteSmsMessageOperation {
     }
 }
 #[cfg(feature = "deprecated")]
-impl std::future::Future for DeleteSmsMessageOperation {
-    type Output = windows_core::Result<()>;
-    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
-        if self.Status()? == super::super::Foundation::AsyncStatus::Started {
-            let waker = context.waker().clone();
-            let _ = self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
-                waker.wake_by_ref();
-                Ok(())
-            }));
-            std::task::Poll::Pending
-        } else {
-            std::task::Poll::Ready(self.GetResults())
-        }
-    }
-}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSmsMessagesOperation(windows_core::IUnknown);
@@ -1135,22 +1119,6 @@ impl DeleteSmsMessagesOperation {
             }))?;
         }
         self.GetResults()
-    }
-}
-#[cfg(feature = "deprecated")]
-impl std::future::Future for DeleteSmsMessagesOperation {
-    type Output = windows_core::Result<()>;
-    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
-        if self.Status()? == super::super::Foundation::AsyncStatus::Started {
-            let waker = context.waker().clone();
-            let _ = self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
-                waker.wake_by_ref();
-                Ok(())
-            }));
-            std::task::Poll::Pending
-        } else {
-            std::task::Poll::Ready(self.GetResults())
-        }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1243,22 +1211,6 @@ impl GetSmsDeviceOperation {
     }
 }
 #[cfg(feature = "deprecated")]
-impl std::future::Future for GetSmsDeviceOperation {
-    type Output = windows_core::Result<SmsDevice>;
-    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
-        if self.Status()? == super::super::Foundation::AsyncStatus::Started {
-            let waker = context.waker().clone();
-            let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
-                waker.wake_by_ref();
-                Ok(())
-            }));
-            std::task::Poll::Pending
-        } else {
-            std::task::Poll::Ready(self.GetResults())
-        }
-    }
-}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GetSmsMessageOperation(windows_core::IUnknown);
@@ -1345,22 +1297,6 @@ impl GetSmsMessageOperation {
             }))?;
         }
         self.GetResults()
-    }
-}
-#[cfg(feature = "deprecated")]
-impl std::future::Future for GetSmsMessageOperation {
-    type Output = windows_core::Result<ISmsMessage>;
-    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
-        if self.Status()? == super::super::Foundation::AsyncStatus::Started {
-            let waker = context.waker().clone();
-            let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
-                waker.wake_by_ref();
-                Ok(())
-            }));
-            std::task::Poll::Pending
-        } else {
-            std::task::Poll::Ready(self.GetResults())
-        }
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -1471,22 +1407,6 @@ impl GetSmsMessagesOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl std::future::Future for GetSmsMessagesOperation {
-    type Output = windows_core::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>>;
-    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
-        if self.Status()? == super::super::Foundation::AsyncStatus::Started {
-            let waker = context.waker().clone();
-            let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationWithProgressCompletedHandler::new(move |_sender, _args| {
-                waker.wake_by_ref();
-                Ok(())
-            }));
-            std::task::Poll::Pending
-        } else {
-            std::task::Poll::Ready(self.GetResults())
-        }
-    }
-}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1571,22 +1491,6 @@ impl SendSmsMessageOperation {
             }))?;
         }
         self.GetResults()
-    }
-}
-#[cfg(feature = "deprecated")]
-impl std::future::Future for SendSmsMessageOperation {
-    type Output = windows_core::Result<()>;
-    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
-        if self.Status()? == super::super::Foundation::AsyncStatus::Started {
-            let waker = context.waker().clone();
-            let _ = self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
-                waker.wake_by_ref();
-                Ok(())
-            }));
-            std::task::Poll::Pending
-        } else {
-            std::task::Poll::Ready(self.GetResults())
-        }
     }
 }
 #[repr(transparent)]
