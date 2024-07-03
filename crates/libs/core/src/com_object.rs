@@ -343,7 +343,7 @@ impl<T: ComObjectInner> Borrow<T> for ComObject<T> {
 ///
 /// # Example
 ///
-/// ```rust,no_test
+/// ```rust,ignore
 /// #[implement(IFoo)]
 /// struct MyApp {
 ///     // ...
