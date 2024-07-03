@@ -133,10 +133,10 @@ impl Eq for VARIANT {}
 impl Eq for PROPVARIANT {}
 
 impl VARIANT {
-    /// Create an empty `VARIANT`.
+    /// Creates an empty `VARIANT`.
     ///
     /// This function does not allocate memory.
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         unsafe { core::mem::zeroed() }
     }
 
@@ -150,21 +150,21 @@ impl VARIANT {
     /// # Safety
     ///
     /// The raw data must be owned by the caller and represent a valid `VARIANT` data structure.
-    pub unsafe fn from_raw(raw: imp::VARIANT) -> Self {
+    pub const unsafe fn from_raw(raw: imp::VARIANT) -> Self {
         Self(raw)
     }
 
     /// Returns the underlying raw data for the `VARIANT`.
-    pub fn as_raw(&self) -> &imp::VARIANT {
+    pub const fn as_raw(&self) -> &imp::VARIANT {
         &self.0
     }
 }
 
 impl PROPVARIANT {
-    /// Create an empty `PROPVARIANT`.
+    /// Creates an empty `PROPVARIANT`.
     ///
     /// This function does not allocate memory.
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         unsafe { core::mem::zeroed() }
     }
 
@@ -178,12 +178,12 @@ impl PROPVARIANT {
     /// # Safety
     ///
     /// The raw data must be owned by the caller and represent a valid `PROPVARIANT` data structure.
-    pub unsafe fn from_raw(raw: imp::PROPVARIANT) -> Self {
+    pub const unsafe fn from_raw(raw: imp::PROPVARIANT) -> Self {
         Self(raw)
     }
 
     /// Returns the underlying raw data for the `PROPVARIANT`.
-    pub fn as_raw(&self) -> &imp::PROPVARIANT {
+    pub const fn as_raw(&self) -> &imp::PROPVARIANT {
         &self.0
     }
 }
