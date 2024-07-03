@@ -10,7 +10,7 @@ use core::sync::atomic::{AtomicIsize, Ordering};
 pub struct WeakRefCount(AtomicIsize);
 
 impl WeakRefCount {
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self(AtomicIsize::new(1))
     }
 

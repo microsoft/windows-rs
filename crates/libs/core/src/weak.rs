@@ -7,7 +7,7 @@ pub struct Weak<I: Interface>(Option<imp::IWeakReference>, PhantomData<I>);
 
 impl<I: Interface> Weak<I> {
     /// Creates a new `Weak` object without any backing object.
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self(None, PhantomData)
     }
 
