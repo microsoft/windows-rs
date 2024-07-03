@@ -49,6 +49,7 @@
     Windows.Win32.System.Variant.VT_I2
     Windows.Win32.System.Variant.VT_I4
     Windows.Win32.System.Variant.VT_I8
+    Windows.Win32.System.Variant.VT_NULL
     Windows.Win32.System.Variant.VT_R4
     Windows.Win32.System.Variant.VT_R8
     Windows.Win32.System.Variant.VT_UI1

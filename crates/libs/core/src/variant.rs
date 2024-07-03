@@ -145,6 +145,21 @@ impl VARIANT {
         unsafe { self.0.Anonymous.Anonymous.vt == imp::VT_EMPTY }
     }
 
+    /// Creates a null `VARIANT`.
+    ///
+    /// This is [`Self::new`] with the `VARENUM` set to `VT_NULL`. Similarly,
+    /// it does not allocate memory either.
+    pub const fn null() -> Self {
+        let mut vt = Self::new();
+        vt.0.Anonymous.Anonymous.vt = imp::VT_NULL;
+        vt
+    }
+
+    /// Returns true if the `VARIANT` is `VT_NULL`.
+    pub const fn is_null(&self) -> bool {
+        unsafe { self.0.Anonymous.Anonymous.vt == imp::VT_NULL }
+    }
+
     /// Creates a `VARIANT` by taking ownership of the raw data.
     ///
     /// # Safety
@@ -171,6 +186,21 @@ impl PROPVARIANT {
     /// Returns true if the `PROPVARIANT` is empty.
     pub const fn is_empty(&self) -> bool {
         unsafe { self.0.Anonymous.Anonymous.vt == imp::VT_EMPTY }
+    }
+
+    /// Creates a null `PROPVARIANT`.
+    ///
+    /// This is [`Self::new`] with the `VARENUM` set to `VT_NULL`. Similarly,
+    /// it does not allocate memory either.
+    pub const fn null() -> Self {
+        let mut vt = Self::new();
+        vt.0.Anonymous.Anonymous.vt = imp::VT_NULL;
+        vt
+    }
+
+    /// Returns true if the `PROPVARIANT` is `VT_NULL`.
+    pub const fn is_null(&self) -> bool {
+        unsafe { self.0.Anonymous.Anonymous.vt == imp::VT_NULL }
     }
 
     /// Creates a `PROPVARIANT` by taking ownership of the raw data.

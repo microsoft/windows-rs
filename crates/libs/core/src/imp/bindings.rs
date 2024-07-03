@@ -661,6 +661,7 @@ pub const VT_I1: VARENUM = 16u16;
 pub const VT_I2: VARENUM = 2u16;
 pub const VT_I4: VARENUM = 3u16;
 pub const VT_I8: VARENUM = 20u16;
+pub const VT_NULL: VARENUM = 1u16;
 pub const VT_R4: VARENUM = 4u16;
 pub const VT_R8: VARENUM = 5u16;
 pub const VT_UI1: VARENUM = 17u16;
