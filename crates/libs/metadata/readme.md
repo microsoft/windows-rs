@@ -3,14 +3,14 @@
 The [windows-metadata](https://crates.io/crates/windows-metadata) crate provides a fast reader for Windows metadata files based on the ECMA-335 file format.
 
 * [Getting started](https://kennykerr.ca/rust-getting-started/)
-* [Samples](https://github.com/microsoft/windows-rs/tree/0.57.0/crates/samples)
+* [Samples](https://github.com/microsoft/windows-rs/tree/0.58.0/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 
 Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-metadata]
-version = "0.57"
+version = "0.58"
 ```
 
 Read metadata as needed:

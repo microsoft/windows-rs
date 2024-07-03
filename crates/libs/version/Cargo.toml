@@ -18,5 +18,5 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows-targets]
-version = "0.52.5"
+version = "0.52.6"
 path = "../targets"

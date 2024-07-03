@@ -1,6 +1,6 @@
 [package]
 name = "windows-bindgen"
-version = "0.57.0"
+version = "0.58.0"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.70"
@@ -21,7 +21,7 @@ default = ["metadata"]
 metadata = []
 
 [dependencies]
-windows-metadata = { path = "../metadata", version = "0.57.0" }
+windows-metadata = { path = "../metadata", version = "0.58.0" }
 rayon = "1.7"
 
 [dependencies.syn]

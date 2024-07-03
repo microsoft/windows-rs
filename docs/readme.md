@@ -17,6 +17,7 @@ This repo is the home of the following crates (and other supporting crates):
 * [windows-metadata](https://crates.io/crates/windows-metadata) - Windows metadata reader.
 * [windows-registry](https://crates.io/crates/windows-registry) - Windows registry.
 * [windows-result](https://crates.io/crates/windows-result) - Windows error handling.
+* [windows-strings](https://crates.io/crates/windows-strings) - Windows string types.
 * [windows-sys](https://crates.io/crates/windows-sys) - Raw bindings for C-style Windows APIs.
 * [windows-targets](https://crates.io/crates/windows-targets) - Import libs for Windows.
 * [windows-version](https://crates.io/crates/windows-version) - Windows version information.

@@ -3,7 +3,7 @@
 /*!
 Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
 
-[Feature search](https://microsoft.github.io/windows-rs/features/#/0.57.0)
+[Feature search](https://microsoft.github.io/windows-rs/features/#/0.58.0)
 */
 
 #![cfg(windows)]

@@ -1,6 +1,6 @@
 [package]
 name = "windows-result"
-version = "0.1.2"
+version = "0.2.0"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.60"
@@ -22,5 +22,5 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows-targets]
-version = "0.52.5"
+version = "0.52.6"
 path = "../targets"
