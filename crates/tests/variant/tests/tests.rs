@@ -9,11 +9,18 @@ fn test_variant() -> Result<()> {
 
     let empty: VARIANT = VARIANT::new();
     assert!(empty.is_empty());
+    assert!(!empty.is_null());
 
     let v = VARIANT::default();
     assert!(v.is_empty());
+    assert!(!v.is_null());
 
     assert_eq!(VARIANT::new(), VARIANT::default());
+
+    let v = VARIANT::null();
+    assert!(v.is_null());
+    assert!(!v.is_empty());
+    assert_ne!(v, VARIANT::new());
 
     let v = VARIANT::from(true);
     assert!(!v.is_empty());
@@ -135,11 +142,18 @@ fn test_propvariant() -> Result<()> {
 
     let empty: PROPVARIANT = PROPVARIANT::new();
     assert!(empty.is_empty());
+    assert!(!empty.is_null());
 
     let v = PROPVARIANT::default();
     assert!(v.is_empty());
+    assert!(!v.is_null());
 
     assert_eq!(PROPVARIANT::new(), PROPVARIANT::default());
+
+    let v = PROPVARIANT::null();
+    assert!(v.is_null());
+    assert!(!v.is_empty());
+    assert_ne!(v, PROPVARIANT::new());
 
     let v = PROPVARIANT::from(true);
     assert!(!v.is_empty());
