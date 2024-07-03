@@ -9,7 +9,7 @@ pub struct HStringBuilder(*mut HStringHeader);
 impl HStringBuilder {
     /// Creates a preallocated `HSTRING` value.
     pub fn new(len: usize) -> Result<Self> {
-        Ok(Self(HStringHeader::alloc(len.try_into()?)?))
+        Ok(Self(HStringHeader::alloc(len.try_into()?, true)?))
     }
 
     /// Shortens the string by removing any trailing 0 characters.
