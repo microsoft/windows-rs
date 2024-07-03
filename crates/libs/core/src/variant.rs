@@ -43,12 +43,24 @@ impl Clone for PROPVARIANT {
 
 impl Drop for VARIANT {
     fn drop(&mut self) {
+        let var = unsafe { &mut self.0.Anonymous.Anonymous };
+
+        if var.vt == imp::VT_BSTR {
+            drop(unsafe { BSTR::from_raw(var.Anonymous.bstrVal) });
+        }
+
         unsafe { imp::VariantClear(&mut self.0) };
     }
 }
 
 impl Drop for PROPVARIANT {
     fn drop(&mut self) {
+        let var = unsafe { &mut self.0.Anonymous.Anonymous };
+
+        if var.vt == imp::VT_BSTR {
+            drop(unsafe { BSTR::from_raw(var.Anonymous.bstrVal) });
+        }
+
         unsafe { imp::PropVariantClear(&mut self.0) };
     }
 }
@@ -354,6 +366,18 @@ impl From<&str> for VARIANT {
 
 impl From<&str> for PROPVARIANT {
     fn from(value: &str) -> Self {
+        BSTR::from(value).into()
+    }
+}
+
+impl From<String> for VARIANT {
+    fn from(value: String) -> Self {
+        BSTR::from(value).into()
+    }
+}
+
+impl From<String> for PROPVARIANT {
+    fn from(value: String) -> Self {
         BSTR::from(value).into()
     }
 }
