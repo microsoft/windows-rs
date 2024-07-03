@@ -14,6 +14,7 @@ pub struct HStringHeader {
 }
 
 impl HStringHeader {
+    #[inline]
     pub fn alloc(len: u32, zero_memory: bool) -> Result<*mut Self> {
         if len == 0 {
             return Ok(core::ptr::null_mut());
@@ -45,6 +46,7 @@ impl HStringHeader {
         Ok(header)
     }
 
+    #[inline]
     pub unsafe fn free(header: *mut Self) {
         if header.is_null() {
             return;
