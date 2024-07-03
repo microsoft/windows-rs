@@ -66,7 +66,7 @@ impl HSTRING {
             return Ok(Self::new());
         }
 
-        let ptr = HStringHeader::alloc(len.try_into()?, false)?;
+        let ptr = HStringHeader::alloc(len.try_into()?)?;
 
         // Place each utf-16 character into the buffer and
         // increase len as we go along.

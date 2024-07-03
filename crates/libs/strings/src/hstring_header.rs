@@ -14,7 +14,7 @@ pub struct HStringHeader {
 }
 
 impl HStringHeader {
-    pub fn alloc(len: u32, zero_memory: bool) -> Result<*mut Self> {
+    pub fn alloc(len: u32) -> Result<*mut Self> {
         if len == 0 {
             return Ok(core::ptr::null_mut());
         }
@@ -46,10 +46,6 @@ impl HStringHeader {
             (*header).len = len;
             (*header).count = RefCount::new(1);
             (*header).data = &mut (*header).buffer_start;
-
-            if zero_memory {
-                core::ptr::write_bytes((*header).data, 0, len as usize);
-            }
         }
 
         Ok(header)
@@ -80,7 +76,7 @@ impl HStringHeader {
             Ok(self as *const Self as *mut Self)
         } else {
             // Otherwise, allocate a new string and copy the value into the new string.
-            let copy = Self::alloc(self.len, false)?;
+            let copy = Self::alloc(self.len)?;
             // SAFETY: since we are duplicating the string it is safe to copy all data from self to the initialized `copy`.
             // We copy `len + 1` characters since `len` does not account for the terminating null character.
             unsafe {
