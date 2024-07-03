@@ -61,27 +61,3 @@ where
         ParamValue::Owned(transmute_copy(&self))
     }
 }
-
-impl Param<PCWSTR> for &BSTR {
-    unsafe fn param(self) -> ParamValue<PCWSTR> {
-        ParamValue::Owned(PCWSTR(self.as_ptr()))
-    }
-}
-
-impl Param<PCWSTR> for &HSTRING {
-    unsafe fn param(self) -> ParamValue<PCWSTR> {
-        ParamValue::Owned(PCWSTR(self.as_ptr()))
-    }
-}
-
-impl Param<PCWSTR> for PWSTR {
-    unsafe fn param(self) -> ParamValue<PCWSTR> {
-        ParamValue::Owned(PCWSTR(self.0))
-    }
-}
-
-impl Param<PCSTR> for PSTR {
-    unsafe fn param(self) -> ParamValue<PCSTR> {
-        ParamValue::Owned(PCSTR(self.0))
-    }
-}
