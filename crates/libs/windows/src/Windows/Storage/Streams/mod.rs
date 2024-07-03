@@ -1325,21 +1325,6 @@ impl DataReaderLoadOperation {
         self.GetResults()
     }
 }
-impl std::future::Future for DataReaderLoadOperation {
-    type Output = windows_core::Result<u32>;
-    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
-        if self.Status()? == super::super::Foundation::AsyncStatus::Started {
-            let waker = context.waker().clone();
-            let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
-                waker.wake_by_ref();
-                Ok(())
-            }));
-            std::task::Poll::Pending
-        } else {
-            std::task::Poll::Ready(self.GetResults())
-        }
-    }
-}
 unsafe impl Send for DataReaderLoadOperation {}
 unsafe impl Sync for DataReaderLoadOperation {}
 #[repr(transparent)]
@@ -1606,21 +1591,6 @@ impl DataWriterStoreOperation {
             }))?;
         }
         self.GetResults()
-    }
-}
-impl std::future::Future for DataWriterStoreOperation {
-    type Output = windows_core::Result<u32>;
-    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
-        if self.Status()? == super::super::Foundation::AsyncStatus::Started {
-            let waker = context.waker().clone();
-            let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
-                waker.wake_by_ref();
-                Ok(())
-            }));
-            std::task::Poll::Pending
-        } else {
-            std::task::Poll::Ready(self.GetResults())
-        }
     }
 }
 unsafe impl Send for DataWriterStoreOperation {}
