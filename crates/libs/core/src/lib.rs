@@ -58,4 +58,3 @@ pub use weak::*;
 pub use windows_implement::implement;
 pub use windows_interface::interface;
 pub use windows_result::*;
-pub use windows_strings::*;

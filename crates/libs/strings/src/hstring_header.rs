@@ -23,18 +23,8 @@ impl HStringHeader {
         // The space for the terminating null character is already accounted for inside of `HStringHeader`.
         let bytes = core::mem::size_of::<Self>() + 2 * len as usize;
 
-        #[cfg(windows)]
         let header =
             unsafe { bindings::HeapAlloc(bindings::GetProcessHeap(), 0, bytes) } as *mut Self;
-
-        #[cfg(not(windows))]
-        let header = unsafe {
-            extern "C" {
-                fn malloc(bytes: usize) -> *mut core::ffi::c_void;
-            }
-
-            malloc(bytes) as *mut Self
-        };
 
         if header.is_null() {
             return Err(Error::from_hresult(HRESULT(bindings::E_OUTOFMEMORY)));
@@ -56,17 +46,7 @@ impl HStringHeader {
             return;
         }
 
-        #[cfg(windows)]
         bindings::HeapFree(bindings::GetProcessHeap(), 0, header as *mut _);
-
-        #[cfg(not(windows))]
-        {
-            extern "C" {
-                fn free(ptr: *mut core::ffi::c_void);
-            }
-
-            free(header as *mut _);
-        }
     }
 
     pub fn duplicate(&self) -> Result<*mut Self> {

@@ -1,6 +1,5 @@
 use super::*;
 use core::ffi::c_void;
-use core::mem::{transmute, transmute_copy};
 use core::ptr::null_mut;
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
@@ -15,11 +14,12 @@ interface_hierarchy!(IInspectable, IUnknown);
 
 impl IInspectable {
     /// Returns the canonical type name for the underlying object.
+    #[cfg(windows)]
     pub fn GetRuntimeClassName(&self) -> Result<HSTRING> {
         unsafe {
             let mut abi = null_mut();
-            (self.vtable().GetRuntimeClassName)(transmute_copy(self), &mut abi).ok()?;
-            Ok(transmute::<*mut c_void, HSTRING>(abi))
+            (self.vtable().GetRuntimeClassName)(core::mem::transmute_copy(self), &mut abi).ok()?;
+            Ok(core::mem::transmute::<*mut c_void, HSTRING>(abi))
         }
     }
 
@@ -27,7 +27,7 @@ impl IInspectable {
     pub fn GetTrustLevel(&self) -> Result<i32> {
         unsafe {
             let mut value = 0;
-            (self.vtable().GetTrustLevel)(transmute_copy(self), &mut value).ok()?;
+            (self.vtable().GetTrustLevel)(core::mem::transmute_copy(self), &mut value).ok()?;
             Ok(value)
         }
     }
@@ -82,8 +82,17 @@ impl IInspectable_Vtbl {
             if value.is_null() {
                 return imp::E_POINTER;
             }
-            let h: HSTRING = T::NAME.into(); // TODO: should be try_into
-            *value = transmute::<HSTRING, *mut c_void>(h);
+
+            #[cfg(windows)]
+            {
+                *value = core::mem::transmute::<HSTRING, *mut c_void>(T::NAME.into());
+            }
+
+            #[cfg(not(windows))]
+            {
+                *value = core::ptr::null_mut();
+            }
+
             HRESULT(0)
         }
         unsafe extern "system" fn GetTrustLevel<T: IUnknownImpl, const OFFSET: isize>(
