@@ -14,27 +14,17 @@ pub struct HStringHeader {
 }
 
 impl HStringHeader {
-    pub fn alloc(len: u32) -> Result<*mut HStringHeader> {
+    pub fn alloc(len: u32) -> Result<*mut Self> {
         if len == 0 {
             return Ok(core::ptr::null_mut());
         }
 
         // Allocate enough space for header and two bytes per character.
         // The space for the terminating null character is already accounted for inside of `HStringHeader`.
-        let bytes = core::mem::size_of::<HStringHeader>() + 2 * len as usize;
+        let bytes = core::mem::size_of::<Self>() + 2 * len as usize;
 
-        #[cfg(windows)]
-        let header = unsafe { bindings::HeapAlloc(bindings::GetProcessHeap(), 0, bytes) }
-            as *mut HStringHeader;
-
-        #[cfg(not(windows))]
-        let header = unsafe {
-            extern "C" {
-                fn malloc(bytes: usize) -> *mut core::ffi::c_void;
-            }
-
-            malloc(bytes) as *mut HStringHeader
-        };
+        let header =
+            unsafe { bindings::HeapAlloc(bindings::GetProcessHeap(), 0, bytes) } as *mut Self;
 
         if header.is_null() {
             return Err(Error::from_hresult(HRESULT(bindings::E_OUTOFMEMORY)));
@@ -42,7 +32,7 @@ impl HStringHeader {
 
         unsafe {
             // Use `ptr::write` (since `header` is unintialized). `HStringHeader` is safe to be all zeros.
-            header.write(core::mem::MaybeUninit::<HStringHeader>::zeroed().assume_init());
+            header.write(core::mem::MaybeUninit::<Self>::zeroed().assume_init());
             (*header).len = len;
             (*header).count = RefCount::new(1);
             (*header).data = &mut (*header).buffer_start;
@@ -51,36 +41,22 @@ impl HStringHeader {
         Ok(header)
     }
 
-    pub unsafe fn free(header: *mut HStringHeader) {
+    pub unsafe fn free(header: *mut Self) {
         if header.is_null() {
             return;
         }
 
-        let header = header as *mut _;
-
-        #[cfg(windows)]
-        {
-            bindings::HeapFree(bindings::GetProcessHeap(), 0, header);
-        }
-
-        #[cfg(not(windows))]
-        {
-            extern "C" {
-                fn free(ptr: *mut core::ffi::c_void);
-            }
-
-            free(header);
-        }
+        bindings::HeapFree(bindings::GetProcessHeap(), 0, header as *mut _);
     }
 
-    pub fn duplicate(&self) -> Result<*mut HStringHeader> {
+    pub fn duplicate(&self) -> Result<*mut Self> {
         if self.flags & HSTRING_REFERENCE_FLAG == 0 {
             // If this is not a "fast pass" string then simply increment the reference count.
             self.count.add_ref();
-            Ok(self as *const HStringHeader as *mut HStringHeader)
+            Ok(self as *const Self as *mut Self)
         } else {
             // Otherwise, allocate a new string and copy the value into the new string.
-            let copy = HStringHeader::alloc(self.len)?;
+            let copy = Self::alloc(self.len)?;
             // SAFETY: since we are duplicating the string it is safe to copy all data from self to the initialized `copy`.
             // We copy `len + 1` characters since `len` does not account for the terminating null character.
             unsafe {

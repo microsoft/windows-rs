@@ -697,25 +697,6 @@ impl Writer {
                         self.GetResults()
                     }
                 }
-                #features
-                impl<#constraints> std::future::Future for #ident {
-                    type Output = windows_core::Result<#return_type>;
-
-                    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
-                        if self.Status()? == #namespace AsyncStatus::Started {
-                            let waker = context.waker().clone();
-
-                            let _ = self.SetCompleted(&#namespace #handler::new(move |_sender, _args| {
-                                waker.wake_by_ref();
-                                Ok(())
-                            }));
-
-                            std::task::Poll::Pending
-                        } else {
-                            std::task::Poll::Ready(self.GetResults())
-                        }
-                    }
-                }
             }
         }
     }

@@ -47,5 +47,9 @@ fn hstring_builder() -> Result<()> {
     assert_eq!(h.len(), 5);
     assert_eq!(h.as_wide(), HELLO);
 
+    // HStringBuilder will initialize memory to zero.
+    let b = HStringBuilder::new(5)?;
+    assert_eq!(*b, [0, 0, 0, 0, 0]);
+
     Ok(())
 }

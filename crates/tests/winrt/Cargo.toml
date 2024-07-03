@@ -29,5 +29,4 @@ features = [
 ]
 
 [dev-dependencies]
-futures = "0.3"
 helpers = { package = "test_helpers", path = "../helpers" }

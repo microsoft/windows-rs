@@ -504,21 +504,6 @@ impl SignOutUserOperation {
         self.GetResults()
     }
 }
-impl std::future::Future for SignOutUserOperation {
-    type Output = windows_core::Result<()>;
-    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
-        if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
-            let waker = context.waker().clone();
-            let _ = self.SetCompleted(&super::super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
-                waker.wake_by_ref();
-                Ok(())
-            }));
-            std::task::Poll::Pending
-        } else {
-            std::task::Poll::Ready(self.GetResults())
-        }
-    }
-}
 unsafe impl Send for SignOutUserOperation {}
 unsafe impl Sync for SignOutUserOperation {}
 #[repr(transparent)]
@@ -600,21 +585,6 @@ impl UserAuthenticationOperation {
             }))?;
         }
         self.GetResults()
-    }
-}
-impl std::future::Future for UserAuthenticationOperation {
-    type Output = windows_core::Result<UserIdentity>;
-    fn poll(self: std::pin::Pin<&mut Self>, context: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
-        if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
-            let waker = context.waker().clone();
-            let _ = self.SetCompleted(&super::super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
-                waker.wake_by_ref();
-                Ok(())
-            }));
-            std::task::Poll::Pending
-        } else {
-            std::task::Poll::Ready(self.GetResults())
-        }
     }
 }
 unsafe impl Send for UserAuthenticationOperation {}

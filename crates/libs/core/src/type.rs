@@ -98,27 +98,3 @@ primitives!(bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64, usize, isize);
 
 #[doc(hidden)]
 pub type AbiType<T> = <T as Type<T>>::Abi;
-
-impl TypeKind for PWSTR {
-    type TypeKind = CopyType;
-}
-
-impl TypeKind for PSTR {
-    type TypeKind = CopyType;
-}
-
-impl TypeKind for PCWSTR {
-    type TypeKind = CopyType;
-}
-
-impl TypeKind for PCSTR {
-    type TypeKind = CopyType;
-}
-
-impl TypeKind for HSTRING {
-    type TypeKind = CloneType;
-}
-
-impl TypeKind for BSTR {
-    type TypeKind = CloneType;
-}
