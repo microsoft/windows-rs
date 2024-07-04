@@ -196,6 +196,18 @@ fn test_variant() -> Result<()> {
         VARIANT::try_from(&["hello".to_owned(), "world".to_owned()][..])?
     );
 
+    let v = VARIANT::try_from(&[1, 2, 3, 4][..])?;
+    assert!(!v.is_empty());
+    assert!(!v.is_null());
+    assert_eq!(
+        VARIANT::try_from(&[10, 20, 30, 40][..])?,
+        VARIANT::try_from(&[10, 20, 30, 40][..])?
+    );
+    assert_ne!(
+        VARIANT::try_from(&[1, 2, 3, 4][..])?,
+        VARIANT::try_from(&[123, 210][..])?
+    );
+
     Ok(())
 }
 
@@ -396,6 +408,18 @@ fn test_propvariant() -> Result<()> {
             ][..]
         )?,
         PROPVARIANT::try_from(&["hello".to_owned(), "world".to_owned()][..])?
+    );
+
+    let v = PROPVARIANT::try_from(&[1, 2, 3, 4][..])?;
+    assert!(!v.is_empty());
+    assert!(!v.is_null());
+    assert_eq!(
+        PROPVARIANT::try_from(&[10, 20, 30, 40][..])?,
+        PROPVARIANT::try_from(&[10, 20, 30, 40][..])?
+    );
+    assert_ne!(
+        PROPVARIANT::try_from(&[1, 2, 3, 4][..])?,
+        PROPVARIANT::try_from(&[123, 210][..])?
     );
 
     Ok(())
