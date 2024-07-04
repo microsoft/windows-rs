@@ -47,6 +47,8 @@ impl Drop for VARIANT {
 
         if var.vt == imp::VT_BSTR {
             drop(unsafe { BSTR::from_raw(var.Anonymous.bstrVal) });
+        } else if var.vt & imp::VT_ARRAY != 0 {
+            let _r = unsafe { imp::SafeArrayDestroy(var.Anonymous.parray) };
         }
 
         unsafe { imp::VariantClear(&mut self.0) };
@@ -59,6 +61,8 @@ impl Drop for PROPVARIANT {
 
         if var.vt == imp::VT_BSTR {
             drop(unsafe { BSTR::from_raw(var.Anonymous.bstrVal) });
+        } else if var.vt & imp::VT_ARRAY != 0 {
+            let _r = unsafe { imp::SafeArrayDestroy(var.Anonymous.parray) };
         }
 
         unsafe { imp::PropVariantClear(&mut self.0) };
@@ -902,5 +906,159 @@ impl TryFrom<&PROPVARIANT> for f64 {
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         let mut value = 0.0;
         HRESULT(unsafe { imp::PropVariantToDouble(&from.0, &mut value) }).map(|| value)
+    }
+}
+
+// VT_ARRAY | VT_BSTR
+
+impl TryFrom<&[&str]> for VARIANT {
+    type Error = Error;
+
+    fn try_from(value: &[&str]) -> Result<Self> {
+        if value.is_empty() {
+            return Ok(Self::new());
+        }
+
+        let parray = unsafe { imp::SafeArrayCreateVector(imp::VT_BSTR, 0, value.len() as u32) };
+        if parray.is_null() {
+            return Err(imp::E_OUTOFMEMORY.into());
+        }
+
+        for (i, v) in value.iter().enumerate() {
+            let v = BSTR::from(*v);
+            let res =
+                unsafe { imp::SafeArrayPutElement(parray, &(i as i32), v.into_raw() as *const _) };
+
+            if let Err(err) = HRESULT(res).ok() {
+                let _r = unsafe { imp::SafeArrayDestroy(parray) };
+                return Err(err);
+            }
+        }
+
+        Ok(Self(imp::VARIANT {
+            Anonymous: imp::VARIANT_0 {
+                Anonymous: imp::VARIANT_0_0 {
+                    vt: imp::VT_ARRAY | imp::VT_BSTR,
+                    wReserved1: 0,
+                    wReserved2: 0,
+                    wReserved3: 0,
+                    Anonymous: imp::VARIANT_0_0_0 { parray },
+                },
+            },
+        }))
+    }
+}
+
+impl TryFrom<&[&str]> for PROPVARIANT {
+    type Error = Error;
+
+    fn try_from(value: &[&str]) -> Result<Self> {
+        if value.is_empty() {
+            return Ok(Self::new());
+        }
+
+        let parray = unsafe { imp::SafeArrayCreateVector(imp::VT_BSTR, 0, value.len() as u32) };
+        if parray.is_null() {
+            return Err(imp::E_OUTOFMEMORY.into());
+        }
+
+        for (i, v) in value.iter().enumerate() {
+            let v = BSTR::from(*v);
+            let res =
+                unsafe { imp::SafeArrayPutElement(parray, &(i as i32), v.into_raw() as *const _) };
+
+            if let Err(err) = HRESULT(res).ok() {
+                let _r = unsafe { imp::SafeArrayDestroy(parray) };
+                return Err(err);
+            }
+        }
+
+        Ok(Self(imp::PROPVARIANT {
+            Anonymous: imp::PROPVARIANT_0 {
+                Anonymous: imp::PROPVARIANT_0_0 {
+                    vt: imp::VT_ARRAY | imp::VT_BSTR,
+                    wReserved1: 0,
+                    wReserved2: 0,
+                    wReserved3: 0,
+                    Anonymous: imp::PROPVARIANT_0_0_0 { parray },
+                },
+            },
+        }))
+    }
+}
+
+impl TryFrom<&[String]> for VARIANT {
+    type Error = Error;
+
+    fn try_from(value: &[String]) -> Result<Self> {
+        if value.is_empty() {
+            return Ok(Self::new());
+        }
+
+        let parray = unsafe { imp::SafeArrayCreateVector(imp::VT_BSTR, 0, value.len() as u32) };
+        if parray.is_null() {
+            return Err(imp::E_OUTOFMEMORY.into());
+        }
+
+        for (i, v) in value.iter().enumerate() {
+            let v = BSTR::from(v);
+            let res =
+                unsafe { imp::SafeArrayPutElement(parray, &(i as i32), v.into_raw() as *const _) };
+
+            if let Err(err) = HRESULT(res).ok() {
+                let _r = unsafe { imp::SafeArrayDestroy(parray) };
+                return Err(err);
+            }
+        }
+
+        Ok(Self(imp::VARIANT {
+            Anonymous: imp::VARIANT_0 {
+                Anonymous: imp::VARIANT_0_0 {
+                    vt: imp::VT_ARRAY | imp::VT_BSTR,
+                    wReserved1: 0,
+                    wReserved2: 0,
+                    wReserved3: 0,
+                    Anonymous: imp::VARIANT_0_0_0 { parray },
+                },
+            },
+        }))
+    }
+}
+
+impl TryFrom<&[String]> for PROPVARIANT {
+    type Error = Error;
+
+    fn try_from(value: &[String]) -> Result<Self> {
+        if value.is_empty() {
+            return Ok(Self::new());
+        }
+
+        let parray = unsafe { imp::SafeArrayCreateVector(imp::VT_BSTR, 0, value.len() as u32) };
+        if parray.is_null() {
+            return Err(imp::E_OUTOFMEMORY.into());
+        }
+
+        for (i, v) in value.iter().enumerate() {
+            let v = BSTR::from(v);
+            let res =
+                unsafe { imp::SafeArrayPutElement(parray, &(i as i32), v.into_raw() as *const _) };
+
+            if let Err(err) = HRESULT(res).ok() {
+                let _r = unsafe { imp::SafeArrayDestroy(parray) };
+                return Err(err);
+            }
+        }
+
+        Ok(Self(imp::PROPVARIANT {
+            Anonymous: imp::PROPVARIANT_0 {
+                Anonymous: imp::PROPVARIANT_0_0 {
+                    vt: imp::VT_ARRAY | imp::VT_BSTR,
+                    wReserved1: 0,
+                    wReserved2: 0,
+                    wReserved3: 0,
+                    Anonymous: imp::PROPVARIANT_0_0_0 { parray },
+                },
+            },
+        }))
     }
 }

@@ -28,6 +28,9 @@
     Windows.Win32.System.LibraryLoader.GetProcAddress
     Windows.Win32.System.LibraryLoader.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
     Windows.Win32.System.LibraryLoader.LoadLibraryExA
+    Windows.Win32.System.Ole.SafeArrayCreateVector
+    Windows.Win32.System.Ole.SafeArrayDestroy
+    Windows.Win32.System.Ole.SafeArrayPutElement
     Windows.Win32.System.Threading.CreateEventW
     Windows.Win32.System.Threading.SetEvent
     Windows.Win32.System.Threading.WaitForSingleObject
@@ -42,6 +45,7 @@
     Windows.Win32.System.Variant.VariantToUInt16
     Windows.Win32.System.Variant.VariantToUInt32
     Windows.Win32.System.Variant.VariantToUInt64
+    Windows.Win32.System.Variant.VT_ARRAY
     Windows.Win32.System.Variant.VT_BOOL
     Windows.Win32.System.Variant.VT_BSTR
     Windows.Win32.System.Variant.VT_EMPTY
