@@ -144,6 +144,58 @@ fn test_variant() -> Result<()> {
     assert_eq!(v, VARIANT::from(3.5f64));
     assert_ne!(v, VARIANT::from(true));
 
+    let v = VARIANT::try_from(&["abc", "def", "xyz", "123"][..])?;
+    assert!(!v.is_empty());
+    assert!(!v.is_null());
+    assert_eq!(
+        VARIANT::try_from(&["abc", "def", "xyz", "123"][..])?,
+        VARIANT::try_from(&["abc", "def", "xyz", "123"][..])?
+    );
+    assert_ne!(
+        VARIANT::try_from(&["abc", "def", "xyz", "123"][..])?,
+        VARIANT::try_from(&["hello", "world"][..])?
+    );
+
+    let v = VARIANT::try_from(
+        &[
+            "abc".to_owned(),
+            "def".to_owned(),
+            "xyz".to_owned(),
+            "123".to_owned(),
+        ][..],
+    )?;
+    assert!(!v.is_empty());
+    assert!(!v.is_null());
+    assert_eq!(
+        VARIANT::try_from(
+            &[
+                "abc".to_owned(),
+                "def".to_owned(),
+                "xyz".to_owned(),
+                "123".to_owned(),
+            ][..]
+        )?,
+        VARIANT::try_from(
+            &[
+                "abc".to_owned(),
+                "def".to_owned(),
+                "xyz".to_owned(),
+                "123".to_owned(),
+            ][..]
+        )?
+    );
+    assert_ne!(
+        VARIANT::try_from(
+            &[
+                "abc".to_owned(),
+                "def".to_owned(),
+                "xyz".to_owned(),
+                "123".to_owned(),
+            ][..]
+        )?,
+        VARIANT::try_from(&["hello".to_owned(), "world".to_owned()][..])?
+    );
+
     Ok(())
 }
 
@@ -293,6 +345,58 @@ fn test_propvariant() -> Result<()> {
     assert_eq!(v, clone);
     assert_eq!(v, PROPVARIANT::from(3.5f64));
     assert_ne!(v, PROPVARIANT::from(true));
+
+    let v = PROPVARIANT::try_from(&["abc", "def", "xyz", "123"][..])?;
+    assert!(!v.is_empty());
+    assert!(!v.is_null());
+    assert_eq!(
+        PROPVARIANT::try_from(&["abc", "def", "xyz", "123"][..])?,
+        PROPVARIANT::try_from(&["abc", "def", "xyz", "123"][..])?
+    );
+    assert_ne!(
+        PROPVARIANT::try_from(&["abc", "def", "xyz", "123"][..])?,
+        PROPVARIANT::try_from(&["hello", "world"][..])?
+    );
+
+    let v = PROPVARIANT::try_from(
+        &[
+            "abc".to_owned(),
+            "def".to_owned(),
+            "xyz".to_owned(),
+            "123".to_owned(),
+        ][..],
+    )?;
+    assert!(!v.is_empty());
+    assert!(!v.is_null());
+    assert_eq!(
+        PROPVARIANT::try_from(
+            &[
+                "abc".to_owned(),
+                "def".to_owned(),
+                "xyz".to_owned(),
+                "123".to_owned(),
+            ][..]
+        )?,
+        PROPVARIANT::try_from(
+            &[
+                "abc".to_owned(),
+                "def".to_owned(),
+                "xyz".to_owned(),
+                "123".to_owned(),
+            ][..]
+        )?
+    );
+    assert_ne!(
+        PROPVARIANT::try_from(
+            &[
+                "abc".to_owned(),
+                "def".to_owned(),
+                "xyz".to_owned(),
+                "123".to_owned(),
+            ][..]
+        )?,
+        PROPVARIANT::try_from(&["hello".to_owned(), "world".to_owned()][..])?
+    );
 
     Ok(())
 }
