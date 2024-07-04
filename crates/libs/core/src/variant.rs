@@ -1062,3 +1062,79 @@ impl TryFrom<&[String]> for PROPVARIANT {
         }))
     }
 }
+
+// VT_ARRAY | VT_UI1
+
+impl TryFrom<&[u8]> for VARIANT {
+    type Error = Error;
+
+    fn try_from(value: &[u8]) -> Result<Self> {
+        if value.is_empty() {
+            return Ok(Self::new());
+        }
+
+        let parray = unsafe { imp::SafeArrayCreateVector(imp::VT_UI1, 0, value.len() as u32) };
+        if parray.is_null() {
+            return Err(imp::E_OUTOFMEMORY.into());
+        }
+
+        for (i, v) in value.iter().enumerate() {
+            let res =
+                unsafe { imp::SafeArrayPutElement(parray, &(i as i32), v as *const _ as *const _) };
+
+            if let Err(err) = HRESULT(res).ok() {
+                let _r = unsafe { imp::SafeArrayDestroy(parray) };
+                return Err(err);
+            }
+        }
+
+        Ok(Self(imp::VARIANT {
+            Anonymous: imp::VARIANT_0 {
+                Anonymous: imp::VARIANT_0_0 {
+                    vt: imp::VT_ARRAY | imp::VT_UI1,
+                    wReserved1: 0,
+                    wReserved2: 0,
+                    wReserved3: 0,
+                    Anonymous: imp::VARIANT_0_0_0 { parray },
+                },
+            },
+        }))
+    }
+}
+
+impl TryFrom<&[u8]> for PROPVARIANT {
+    type Error = Error;
+
+    fn try_from(value: &[u8]) -> Result<Self> {
+        if value.is_empty() {
+            return Ok(Self::new());
+        }
+
+        let parray = unsafe { imp::SafeArrayCreateVector(imp::VT_UI1, 0, value.len() as u32) };
+        if parray.is_null() {
+            return Err(imp::E_OUTOFMEMORY.into());
+        }
+
+        for (i, v) in value.iter().enumerate() {
+            let res =
+                unsafe { imp::SafeArrayPutElement(parray, &(i as i32), v as *const _ as *const _) };
+
+            if let Err(err) = HRESULT(res).ok() {
+                let _r = unsafe { imp::SafeArrayDestroy(parray) };
+                return Err(err);
+            }
+        }
+
+        Ok(Self(imp::PROPVARIANT {
+            Anonymous: imp::PROPVARIANT_0 {
+                Anonymous: imp::PROPVARIANT_0_0 {
+                    vt: imp::VT_ARRAY | imp::VT_UI1,
+                    wReserved1: 0,
+                    wReserved2: 0,
+                    wReserved3: 0,
+                    Anonymous: imp::PROPVARIANT_0_0_0 { parray },
+                },
+            },
+        }))
+    }
+}
