@@ -1,6 +1,45 @@
 use super::*;
 use core::mem::transmute;
 
+macro_rules! variant_from_value {
+    ($from:ident, $vt:ident, $field:ident, $value:expr) => {
+        impl From<$from> for VARIANT {
+            fn from(value: $from) -> Self {
+                Self(imp::VARIANT {
+                    Anonymous: imp::VARIANT_0 {
+                        Anonymous: imp::VARIANT_0_0 {
+                            vt: imp::$vt,
+                            wReserved1: 0,
+                            wReserved2: 0,
+                            wReserved3: 0,
+                            Anonymous: imp::VARIANT_0_0_0 {
+                                $field: $value(value),
+                            },
+                        },
+                    },
+                })
+            }
+        }
+        impl From<$from> for PROPVARIANT {
+            fn from(value: $from) -> Self {
+                Self(imp::PROPVARIANT {
+                    Anonymous: imp::PROPVARIANT_0 {
+                        Anonymous: imp::PROPVARIANT_0_0 {
+                            vt: imp::$vt,
+                            wReserved1: 0,
+                            wReserved2: 0,
+                            wReserved3: 0,
+                            Anonymous: imp::PROPVARIANT_0_0_0 {
+                                $field: $value(value),
+                            },
+                        },
+                    },
+                })
+            }
+        }
+    }
+}
+
 /// A VARIANT ([VARIANT](https://learn.microsoft.com/en-us/windows/win32/api/oaidl/ns-oaidl-variant)) is a container that can store different types of values.
 #[repr(transparent)]
 pub struct VARIANT(imp::VARIANT);
@@ -105,6 +144,8 @@ impl PartialEq for VARIANT {
             if self.0.Anonymous.Anonymous.vt != other.0.Anonymous.Anonymous.vt {
                 return false;
             }
+
+            // Convert to PROPVARIANT since VarCmp does not compare various primitive types.
             let this = PROPVARIANT::try_from(self);
             let other = PROPVARIANT::try_from(other);
 
@@ -210,41 +251,7 @@ impl TryFrom<&PROPVARIANT> for VARIANT {
 
 // VT_UNKNOWN
 
-impl From<IUnknown> for VARIANT {
-    fn from(value: IUnknown) -> Self {
-        Self(imp::VARIANT {
-            Anonymous: imp::VARIANT_0 {
-                Anonymous: imp::VARIANT_0_0 {
-                    vt: imp::VT_UNKNOWN,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::VARIANT_0_0_0 {
-                        punkVal: value.into_raw(),
-                    },
-                },
-            },
-        })
-    }
-}
-
-impl From<IUnknown> for PROPVARIANT {
-    fn from(value: IUnknown) -> Self {
-        Self(imp::PROPVARIANT {
-            Anonymous: imp::PROPVARIANT_0 {
-                Anonymous: imp::PROPVARIANT_0_0 {
-                    vt: imp::VT_UNKNOWN,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::PROPVARIANT_0_0_0 {
-                        punkVal: value.into_raw(),
-                    },
-                },
-            },
-        })
-    }
-}
+variant_from_value!(IUnknown, VT_UNKNOWN, punkVal, |v: IUnknown| v.into_raw());
 
 impl TryFrom<&VARIANT> for IUnknown {
     type Error = Error;
@@ -280,41 +287,7 @@ impl TryFrom<&PROPVARIANT> for IUnknown {
 
 // VT_BSTR
 
-impl From<BSTR> for VARIANT {
-    fn from(value: BSTR) -> Self {
-        Self(imp::VARIANT {
-            Anonymous: imp::VARIANT_0 {
-                Anonymous: imp::VARIANT_0_0 {
-                    vt: imp::VT_BSTR,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::VARIANT_0_0_0 {
-                        bstrVal: value.into_raw(),
-                    },
-                },
-            },
-        })
-    }
-}
-
-impl From<BSTR> for PROPVARIANT {
-    fn from(value: BSTR) -> Self {
-        Self(imp::PROPVARIANT {
-            Anonymous: imp::PROPVARIANT_0 {
-                Anonymous: imp::PROPVARIANT_0_0 {
-                    vt: imp::VT_BSTR,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::PROPVARIANT_0_0_0 {
-                        bstrVal: value.into_raw(),
-                    },
-                },
-            },
-        })
-    }
-}
+variant_from_value!(BSTR, VT_BSTR, bstrVal, |v: BSTR| v.into_raw() );
 
 impl From<&str> for VARIANT {
     fn from(value: &str) -> Self {
@@ -347,41 +320,7 @@ impl TryFrom<&PROPVARIANT> for BSTR {
 
 // VT_BOOL
 
-impl From<bool> for VARIANT {
-    fn from(value: bool) -> Self {
-        Self(imp::VARIANT {
-            Anonymous: imp::VARIANT_0 {
-                Anonymous: imp::VARIANT_0_0 {
-                    vt: imp::VT_BOOL,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::VARIANT_0_0_0 {
-                        boolVal: if value { -1 } else { 0 },
-                    },
-                },
-            },
-        })
-    }
-}
-
-impl From<bool> for PROPVARIANT {
-    fn from(value: bool) -> Self {
-        Self(imp::PROPVARIANT {
-            Anonymous: imp::PROPVARIANT_0 {
-                Anonymous: imp::PROPVARIANT_0_0 {
-                    vt: imp::VT_BOOL,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::PROPVARIANT_0_0_0 {
-                        boolVal: if value { -1 } else { 0 },
-                    },
-                },
-            },
-        })
-    }
-}
+variant_from_value!(bool, VT_BOOL, boolVal, |v: bool| if v { -1 } else { 0 } );
 
 impl TryFrom<&VARIANT> for bool {
     type Error = Error;
@@ -401,105 +340,15 @@ impl TryFrom<&PROPVARIANT> for bool {
 
 // VT_UI1
 
-impl From<u8> for VARIANT {
-    fn from(value: u8) -> Self {
-        Self(imp::VARIANT {
-            Anonymous: imp::VARIANT_0 {
-                Anonymous: imp::VARIANT_0_0 {
-                    vt: imp::VT_UI1,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::VARIANT_0_0_0 { bVal: value },
-                },
-            },
-        })
-    }
-}
-
-impl From<u8> for PROPVARIANT {
-    fn from(value: u8) -> Self {
-        Self(imp::PROPVARIANT {
-            Anonymous: imp::PROPVARIANT_0 {
-                Anonymous: imp::PROPVARIANT_0_0 {
-                    vt: imp::VT_UI1,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::PROPVARIANT_0_0_0 { bVal: value },
-                },
-            },
-        })
-    }
-}
+variant_from_value!(u8, VT_UI1, bVal, |v: u8| v);
 
 // VT_I1
 
-impl From<i8> for VARIANT {
-    fn from(value: i8) -> Self {
-        Self(imp::VARIANT {
-            Anonymous: imp::VARIANT_0 {
-                Anonymous: imp::VARIANT_0_0 {
-                    vt: imp::VT_I1,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::VARIANT_0_0_0 { cVal: value },
-                },
-            },
-        })
-    }
-}
-
-impl From<i8> for PROPVARIANT {
-    fn from(value: i8) -> Self {
-        Self(imp::PROPVARIANT {
-            Anonymous: imp::PROPVARIANT_0 {
-                Anonymous: imp::PROPVARIANT_0_0 {
-                    vt: imp::VT_I1,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::PROPVARIANT_0_0_0 { cVal: value },
-                },
-            },
-        })
-    }
-}
+variant_from_value!(i8, VT_I1, cVal, |v: i8| v);
 
 // VT_UI2
 
-impl From<u16> for VARIANT {
-    fn from(value: u16) -> Self {
-        Self(imp::VARIANT {
-            Anonymous: imp::VARIANT_0 {
-                Anonymous: imp::VARIANT_0_0 {
-                    vt: imp::VT_UI2,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::VARIANT_0_0_0 { uiVal: value },
-                },
-            },
-        })
-    }
-}
-
-impl From<u16> for PROPVARIANT {
-    fn from(value: u16) -> Self {
-        Self(imp::PROPVARIANT {
-            Anonymous: imp::PROPVARIANT_0 {
-                Anonymous: imp::PROPVARIANT_0_0 {
-                    vt: imp::VT_UI2,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::PROPVARIANT_0_0_0 { uiVal: value },
-                },
-            },
-        })
-    }
-}
+variant_from_value!(u16, VT_UI2, uiVal, |v: u16| v);
 
 impl TryFrom<&VARIANT> for u16 {
     type Error = Error;
@@ -519,37 +368,7 @@ impl TryFrom<&PROPVARIANT> for u16 {
 
 // VT_I2
 
-impl From<i16> for VARIANT {
-    fn from(value: i16) -> Self {
-        Self(imp::VARIANT {
-            Anonymous: imp::VARIANT_0 {
-                Anonymous: imp::VARIANT_0_0 {
-                    vt: imp::VT_I2,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::VARIANT_0_0_0 { iVal: value },
-                },
-            },
-        })
-    }
-}
-
-impl From<i16> for PROPVARIANT {
-    fn from(value: i16) -> Self {
-        Self(imp::PROPVARIANT {
-            Anonymous: imp::PROPVARIANT_0 {
-                Anonymous: imp::PROPVARIANT_0_0 {
-                    vt: imp::VT_I2,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::PROPVARIANT_0_0_0 { iVal: value },
-                },
-            },
-        })
-    }
-}
+variant_from_value!(i16, VT_I2, iVal, |v: i16| v);
 
 impl TryFrom<&VARIANT> for i16 {
     type Error = Error;
@@ -569,37 +388,7 @@ impl TryFrom<&PROPVARIANT> for i16 {
 
 // VT_UI4
 
-impl From<u32> for VARIANT {
-    fn from(value: u32) -> Self {
-        Self(imp::VARIANT {
-            Anonymous: imp::VARIANT_0 {
-                Anonymous: imp::VARIANT_0_0 {
-                    vt: imp::VT_UI4,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::VARIANT_0_0_0 { ulVal: value },
-                },
-            },
-        })
-    }
-}
-
-impl From<u32> for PROPVARIANT {
-    fn from(value: u32) -> Self {
-        Self(imp::PROPVARIANT {
-            Anonymous: imp::PROPVARIANT_0 {
-                Anonymous: imp::PROPVARIANT_0_0 {
-                    vt: imp::VT_UI4,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::PROPVARIANT_0_0_0 { ulVal: value },
-                },
-            },
-        })
-    }
-}
+variant_from_value!(u32, VT_UI4, ulVal, |v: u32| v);
 
 impl TryFrom<&VARIANT> for u32 {
     type Error = Error;
@@ -619,37 +408,7 @@ impl TryFrom<&PROPVARIANT> for u32 {
 
 // VT_I4
 
-impl From<i32> for VARIANT {
-    fn from(value: i32) -> Self {
-        Self(imp::VARIANT {
-            Anonymous: imp::VARIANT_0 {
-                Anonymous: imp::VARIANT_0_0 {
-                    vt: imp::VT_I4,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::VARIANT_0_0_0 { lVal: value },
-                },
-            },
-        })
-    }
-}
-
-impl From<i32> for PROPVARIANT {
-    fn from(value: i32) -> Self {
-        Self(imp::PROPVARIANT {
-            Anonymous: imp::PROPVARIANT_0 {
-                Anonymous: imp::PROPVARIANT_0_0 {
-                    vt: imp::VT_I4,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::PROPVARIANT_0_0_0 { lVal: value },
-                },
-            },
-        })
-    }
-}
+variant_from_value!(i32, VT_I4, lVal, |v: i32| v);
 
 impl TryFrom<&VARIANT> for i32 {
     type Error = Error;
@@ -769,71 +528,11 @@ impl TryFrom<&PROPVARIANT> for i64 {
 
 // VT_R4
 
-impl From<f32> for VARIANT {
-    fn from(value: f32) -> Self {
-        Self(imp::VARIANT {
-            Anonymous: imp::VARIANT_0 {
-                Anonymous: imp::VARIANT_0_0 {
-                    vt: imp::VT_R4,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::VARIANT_0_0_0 { fltVal: value },
-                },
-            },
-        })
-    }
-}
-
-impl From<f32> for PROPVARIANT {
-    fn from(value: f32) -> Self {
-        Self(imp::PROPVARIANT {
-            Anonymous: imp::PROPVARIANT_0 {
-                Anonymous: imp::PROPVARIANT_0_0 {
-                    vt: imp::VT_R4,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::PROPVARIANT_0_0_0 { fltVal: value },
-                },
-            },
-        })
-    }
-}
+variant_from_value!(f32, VT_R4, fltVal, |v: f32| v);
 
 // VT_R8
 
-impl From<f64> for VARIANT {
-    fn from(value: f64) -> Self {
-        Self(imp::VARIANT {
-            Anonymous: imp::VARIANT_0 {
-                Anonymous: imp::VARIANT_0_0 {
-                    vt: imp::VT_R8,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::VARIANT_0_0_0 { dblVal: value },
-                },
-            },
-        })
-    }
-}
-
-impl From<f64> for PROPVARIANT {
-    fn from(value: f64) -> Self {
-        Self(imp::PROPVARIANT {
-            Anonymous: imp::PROPVARIANT_0 {
-                Anonymous: imp::PROPVARIANT_0_0 {
-                    vt: imp::VT_R8,
-                    wReserved1: 0,
-                    wReserved2: 0,
-                    wReserved3: 0,
-                    Anonymous: imp::PROPVARIANT_0_0_0 { dblVal: value },
-                },
-            },
-        })
-    }
-}
+variant_from_value!(f64, VT_R8, dblVal, |v: f64| v);
 
 impl TryFrom<&VARIANT> for f64 {
     type Error = Error;
