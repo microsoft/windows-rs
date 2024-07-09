@@ -6,7 +6,7 @@ pub struct RefCount(pub(crate) AtomicI32);
 
 impl RefCount {
     /// Creates a new `RefCount` with an initial value of `1`.
-    pub fn new(count: u32) -> Self {
+    pub const fn new(count: u32) -> Self {
         Self(AtomicI32::new(count as i32))
     }
 

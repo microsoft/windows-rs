@@ -179,6 +179,38 @@ pub fn implement(
             const IDENTITY: ::windows_core::IInspectable_Vtbl = ::windows_core::IInspectable_Vtbl::new::<Self, #identity_type, 0>();
         }
 
+        impl #generics #original_ident::#generics where #constraints {
+            /// This converts a partially-constructed COM object (in the sense that it contains
+            /// application state but does not yet have vtable and reference count constructed)
+            /// into a `StaticComObject`. This allows the COM object to be stored in static
+            /// (global) variables.
+            pub const fn into_static(self) -> ::windows_core::StaticComObject<Self> {
+                ::windows_core::StaticComObject::from_outer(self.into_outer())
+            }
+
+            // This constructs an "outer" object. This should only be used by the implementation
+            // of the outer object, never by application code.
+            //
+            // The callers of this function (`into_static` and `into_object`) are both responsible
+            // for maintaining one of our invariants: Application code never has an owned instance
+            // of the outer (implementation) type. into_static() maintains this invariant by
+            // returning a wrapped StaticComObject value, which owns its contents but never gives
+            // application code a way to mutably access its contents. This prevents the refcount
+            // shearing problem.
+            //
+            // TODO: Make it impossible for app code to call this function, by placing it in a
+            // module and marking this as private to the module.
+            #[inline(always)]
+            const fn into_outer(self) -> #impl_ident::#generics {
+                #impl_ident::#generics {
+                    identity: &#impl_ident::#generics::IDENTITY,
+                    vtables: (#(&#impl_ident::#generics::VTABLES.#offset,)*),
+                    this: self,
+                    count: ::windows_core::imp::WeakRefCount::new(),
+                }
+            }
+        }
+
         impl #generics ::windows_core::ComObjectInner for #original_ident::#generics where #constraints {
             type Outer = #impl_ident::#generics;
 
@@ -191,12 +223,7 @@ pub fn implement(
             // This is why this function returns ComObject<Self> instead of returning #impl_ident.
 
             fn into_object(self) -> ::windows_core::ComObject<Self> {
-                let boxed = ::windows_core::imp::Box::new(#impl_ident::#generics {
-                    identity: &#impl_ident::#generics::IDENTITY,
-                    vtables: (#(&#impl_ident::#generics::VTABLES.#offset,)*),
-                    this: self,
-                    count: ::windows_core::imp::WeakRefCount::new(),
-                });
+                let boxed = ::windows_core::imp::Box::<#impl_ident::#generics>::new(self.into_outer());
                 unsafe {
                     let ptr = ::windows_core::imp::Box::into_raw(boxed);
                     ::windows_core::ComObject::from_raw(

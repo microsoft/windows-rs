@@ -330,3 +330,68 @@ impl<T: ComObjectInner> Borrow<T> for ComObject<T> {
         self.get()
     }
 }
+
+/// Enables applications to define COM objects using static storage. This is useful for factory
+/// objects, stateless objects, or objects which use need to contain or use mutable global state.
+///
+/// COM objects that are defined using `StaticComObject` have their storage placed directly in
+/// static storage; they are not stored in the heap.
+///
+/// COM objects defined using `StaticComObject` do have a reference count and this reference
+/// count is adjusted when owned COM interface references (e.g. `IFoo` and `IUnknown`) are created
+/// for the object. The reference count is initialized to 1.
+///
+/// # Example
+///
+/// ```rust,ignore
+/// #[implement(IFoo)]
+/// struct MyApp {
+///     // ...
+/// }
+///
+/// static MY_STATIC_APP: StaticComObject<MyApp> = MyApp { ... }.into_static();
+///
+/// fn get_my_static_ifoo() -> IFoo {
+///     MY_STATIC_APP.to_interface()
+/// }
+/// ```
+pub struct StaticComObject<T>
+where
+    T: ComObjectInner,
+{
+    outer: T::Outer,
+}
+
+// IMPORTANT: Do not expose any methods that return mutable access to the contents of StaticComObject.
+// Doing so would violate our safety invariants. For example, we provide a Deref impl but it would
+// be unsound to provide a DerefMut impl.
+impl<T> StaticComObject<T>
+where
+    T: ComObjectInner,
+{
+    /// Wraps `outer` in a `StaticComObject`.
+    pub const fn from_outer(outer: T::Outer) -> Self {
+        Self { outer }
+    }
+}
+
+impl<T> StaticComObject<T>
+where
+    T: ComObjectInner,
+{
+    /// Gets access to the contained value.
+    pub const fn get(&'static self) -> &'static T::Outer {
+        &self.outer
+    }
+}
+
+impl<T> core::ops::Deref for StaticComObject<T>
+where
+    T: ComObjectInner,
+{
+    type Target = T::Outer;
+
+    fn deref(&self) -> &Self::Target {
+        &self.outer
+    }
+}
