@@ -63,31 +63,20 @@ fn json_from_hstring(value: &HSTRING) -> Result<serde_json::Value> {
     serde_json::from_str(&value).map_err(|error| Error::new(E_INVALIDARG, format!("{error}")))
 }
 
+static JSON_VALIDATOR_FACTORY: StaticComObject<JsonValidatorFactory> =
+    JsonValidatorFactory.into_static();
+
 #[no_mangle]
-unsafe extern "system" fn DllGetActivationFactory(
+extern "system" fn DllGetActivationFactory(
     name: Ref<HSTRING>,
-    result: *mut *mut std::ffi::c_void,
+    factory: OutRef<IActivationFactory>,
 ) -> HRESULT {
-    if result.is_null() {
-        return E_POINTER;
-    }
-
-    let mut factory: Option<IActivationFactory> = None;
-
     if *name == "Sample.JsonValidator" {
-        factory = Some(JsonValidatorFactory.into());
-    }
-
-    // Dereferencing `result` is safe because we've validated that the pointer is not null and
-    // transmuting `factory` is safe because `DllGetActivationFactory` is expected to return an
-    // `IActivationFactory` pointer and that's what `factory` contains.
-    unsafe {
-        if let Some(factory) = factory {
-            *result = factory.into_raw();
-            S_OK
-        } else {
-            *result = std::ptr::null_mut();
-            CLASS_E_CLASSNOTAVAILABLE
-        }
+        factory
+            .write(Some(JSON_VALIDATOR_FACTORY.to_interface()))
+            .into()
+    } else {
+        _ = factory.write(None);
+        CLASS_E_CLASSNOTAVAILABLE
     }
 }
