@@ -22,10 +22,12 @@ version = "0.52.6"
 path = "../targets"
 
 [dependencies.windows-result]
+default-features = false
 version = "0.2.0"
 path = "../result"
 
 [dependencies.windows-strings]
+default-features = false
 version = "0.1.0"
 path = "../strings"
 
@@ -35,4 +37,4 @@ windows-interface = { path = "../interface",  version = "0.58.0" }
 
 [features]
 default = ["std"]
-std = []
+std = ["windows-result/std", "windows-strings/std"]
