@@ -7,8 +7,11 @@ pub enum Type {
     /// A 64-bit unsigned integer value.
     U64,
 
-    /// A string value.
+    /// A string value which has `REG_SZ` type.
     String,
+
+    /// A string value which has `REG_EXPAND_SZ` type.
+    ExpandString,
 
     /// An array u8 bytes.
     Bytes,

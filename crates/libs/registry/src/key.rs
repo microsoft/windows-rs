@@ -91,20 +91,36 @@ impl Key {
         unsafe { self.set_value(name, REG_QWORD, &value as *const _ as _, 8) }
     }
 
-    /// Sets the name and value in the registry key.
+    /// Sets the name and value in the registry key with `REG_SZ` type.
     pub fn set_string<T: AsRef<str>>(&self, name: T, value: T) -> Result<()> {
         let value = pcwstr(value);
 
         unsafe { self.set_value(name, REG_SZ, value.as_ptr() as _, value.len() * 2) }
     }
 
-    /// Sets the name and value in the registry key.
+    /// Sets the name and value in the registry key with `REG_EXPAND_SZ` type.
+    pub fn set_expand_string<T: AsRef<str>>(&self, name: T, value: T) -> Result<()> {
+        let value = pcwstr(value);
+
+        unsafe { self.set_value(name, REG_EXPAND_SZ, value.as_ptr() as _, value.len() * 2) }
+    }
+
+    /// Sets the name and value in the registry key with `REG_SZ` type.
     pub fn set_hstring<T: AsRef<str>>(
         &self,
         name: T,
         value: &windows_strings::HSTRING,
     ) -> Result<()> {
         unsafe { self.set_value(name, REG_SZ, value.as_ptr() as _, value.len() * 2) }
+    }
+
+    /// Sets the name and value in the registry key with `REG_EXPAND_SZ` type.
+    pub fn set_expand_hstring<T: AsRef<str>>(
+        &self,
+        name: T,
+        value: &windows_strings::HSTRING,
+    ) -> Result<()> {
+        unsafe { self.set_value(name, REG_EXPAND_SZ, value.as_ptr() as _, value.len() * 2) }
     }
 
     /// Sets the name and value in the registry key.
@@ -146,7 +162,8 @@ impl Key {
             REG_DWORD => Type::U32,
             REG_QWORD => Type::U64,
             REG_BINARY => Type::Bytes,
-            REG_SZ | REG_EXPAND_SZ => Type::String,
+            REG_SZ => Type::String,
+            REG_EXPAND_SZ => Type::ExpandString,
             REG_MULTI_SZ => Type::MultiString,
             rest => Type::Unknown(rest),
         })
