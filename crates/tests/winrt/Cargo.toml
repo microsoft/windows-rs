@@ -23,6 +23,7 @@ features = [
     "Foundation_Numerics",
     "Storage_Streams",
     "System",
+    "System_Threading",
     "UI_Composition",
     "Win32_System_Com",
     "Win32_System_WinRT",
