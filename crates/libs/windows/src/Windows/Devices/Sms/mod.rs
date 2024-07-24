@@ -1050,6 +1050,9 @@ impl windows_core::AsyncOperation for DeleteSmsMessageOperation {
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
     }
+    fn cancel(&self) {
+        let _ = self.Cancel();
+    }
 }
 #[cfg(feature = "deprecated")]
 impl std::future::IntoFuture for DeleteSmsMessageOperation {
@@ -1159,6 +1162,9 @@ impl windows_core::AsyncOperation for DeleteSmsMessagesOperation {
     }
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
+    }
+    fn cancel(&self) {
+        let _ = self.Cancel();
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1273,6 +1279,9 @@ impl windows_core::AsyncOperation for GetSmsDeviceOperation {
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
     }
+    fn cancel(&self) {
+        let _ = self.Cancel();
+    }
 }
 #[cfg(feature = "deprecated")]
 impl std::future::IntoFuture for GetSmsDeviceOperation {
@@ -1385,6 +1394,9 @@ impl windows_core::AsyncOperation for GetSmsMessageOperation {
     }
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
+    }
+    fn cancel(&self) {
+        let _ = self.Cancel();
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1518,6 +1530,9 @@ impl windows_core::AsyncOperation for GetSmsMessagesOperation {
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
     }
+    fn cancel(&self) {
+        let _ = self.Cancel();
+    }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl std::future::IntoFuture for GetSmsMessagesOperation {
@@ -1627,6 +1642,9 @@ impl windows_core::AsyncOperation for SendSmsMessageOperation {
     }
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
+    }
+    fn cancel(&self) {
+        let _ = self.Cancel();
     }
 }
 #[cfg(feature = "deprecated")]

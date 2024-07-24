@@ -22,26 +22,26 @@ pub trait AsyncOperation {
     /// Get the result value from a completed operation.
     /// Wraps `self.GetResults()`.
     fn get_results(&self) -> crate::Result<Self::Output>;
+    /// Attempts to cancel the operation. Any error is ignored.
+    /// Wraps `self.Cancel()`.
+    fn cancel(&self);
 }
 
 /// A wrapper around an `AsyncOperation` that implements `std::future::Future`.
 /// This is used by generated `IntoFuture` impls. It shouldn't be necessary to use this type manually.
-pub struct FutureWrapper<T> {
+pub struct FutureWrapper<T: AsyncOperation> {
     inner: T,
     waker: Option<Arc<Mutex<Waker>>>,
 }
 
-impl<T> FutureWrapper<T> {
+impl<T: AsyncOperation> FutureWrapper<T> {
     /// Creates a `FutureWrapper`, which implements `std::future::Future`.
     pub fn new(inner: T) -> Self {
-        Self {
-            inner,
-            waker: None,
-        }
+        Self { inner, waker: None }
     }
 }
 
-impl<T> Unpin for FutureWrapper<T> {}
+impl<T: AsyncOperation> Unpin for FutureWrapper<T> {}
 
 impl<T: AsyncOperation> Future for FutureWrapper<T> {
     type Output = crate::Result<T::Output>;
@@ -64,5 +64,11 @@ impl<T: AsyncOperation> Future for FutureWrapper<T> {
             }
             Poll::Pending
         }
+    }
+}
+
+impl<T: AsyncOperation> Drop for FutureWrapper<T> {
+    fn drop(&mut self) {
+        self.inner.cancel();
     }
 }

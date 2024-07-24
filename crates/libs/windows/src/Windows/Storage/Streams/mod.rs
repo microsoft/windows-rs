@@ -1339,6 +1339,9 @@ impl windows_core::AsyncOperation for DataReaderLoadOperation {
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
     }
+    fn cancel(&self) {
+        let _ = self.Cancel();
+    }
 }
 impl std::future::IntoFuture for DataReaderLoadOperation {
     type Output = windows_core::Result<u32>;
@@ -1628,6 +1631,9 @@ impl windows_core::AsyncOperation for DataWriterStoreOperation {
     }
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
+    }
+    fn cancel(&self) {
+        let _ = self.Cancel();
     }
 }
 impl std::future::IntoFuture for DataWriterStoreOperation {

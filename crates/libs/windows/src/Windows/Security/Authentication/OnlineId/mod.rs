@@ -518,6 +518,9 @@ impl windows_core::AsyncOperation for SignOutUserOperation {
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
     }
+    fn cancel(&self) {
+        let _ = self.Cancel();
+    }
 }
 impl std::future::IntoFuture for SignOutUserOperation {
     type Output = windows_core::Result<()>;
@@ -622,6 +625,9 @@ impl windows_core::AsyncOperation for UserAuthenticationOperation {
     }
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
+    }
+    fn cancel(&self) {
+        let _ = self.Cancel();
     }
 }
 impl std::future::IntoFuture for UserAuthenticationOperation {

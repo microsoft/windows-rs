@@ -712,6 +712,9 @@ impl Writer {
                     fn get_results(&self) -> windows_core::Result<Self::Output> {
                         self.GetResults()
                     }
+                    fn cancel(&self) {
+                        let _ = self.Cancel();
+                    }
                 }
                 #features
                 impl<#constraints> std::future::IntoFuture for #ident {

@@ -92,6 +92,9 @@ impl windows_core::AsyncOperation for IAsyncAction {
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
     }
+    fn cancel(&self) {
+        let _ = self.Cancel();
+    }
 }
 impl std::future::IntoFuture for IAsyncAction {
     type Output = windows_core::Result<()>;
@@ -218,6 +221,9 @@ impl<TProgress: windows_core::RuntimeType + 'static> windows_core::AsyncOperatio
     }
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
+    }
+    fn cancel(&self) {
+        let _ = self.Cancel();
     }
 }
 impl<TProgress: windows_core::RuntimeType + 'static> std::future::IntoFuture for IAsyncActionWithProgress<TProgress> {
@@ -396,6 +402,9 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::AsyncOperation 
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
     }
+    fn cancel(&self) {
+        let _ = self.Cancel();
+    }
 }
 impl<TResult: windows_core::RuntimeType + 'static> std::future::IntoFuture for IAsyncOperation<TResult> {
     type Output = windows_core::Result<TResult>;
@@ -534,6 +543,9 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     }
     fn get_results(&self) -> windows_core::Result<Self::Output> {
         self.GetResults()
+    }
+    fn cancel(&self) {
+        let _ = self.Cancel();
     }
 }
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> std::future::IntoFuture for IAsyncOperationWithProgress<TResult, TProgress> {
