@@ -697,6 +697,31 @@ impl Writer {
                         self.GetResults()
                     }
                 }
+                #features
+                impl<#constraints> windows_core::AsyncOperation for #ident {
+                    type Output = #return_type;
+                    fn is_complete(&self) -> windows_core::Result<bool> {
+                        Ok(self.Status()? != #namespace AsyncStatus::Started)
+                    }
+                    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+                        self.SetCompleted(&#namespace #handler::new(move |_sender, _args| {
+                            f();
+                            Ok(())
+                        }))
+                    }
+                    fn get_results(&self) -> windows_core::Result<Self::Output> {
+                        self.GetResults()
+                    }
+                }
+                #features
+                impl<#constraints> std::future::IntoFuture for #ident {
+                    type Output = windows_core::Result<#return_type>;
+                    type IntoFuture = windows_core::FutureWrapper<#ident>;
+
+                    fn into_future(self) -> Self::IntoFuture {
+                        windows_core::FutureWrapper::new(self)
+                    }
+                }
             }
         }
     }

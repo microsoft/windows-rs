@@ -24,6 +24,7 @@ pub mod imp;
 
 mod as_impl;
 mod com_object;
+mod future;
 mod guid;
 mod inspectable;
 mod interface;
@@ -41,6 +42,7 @@ mod weak;
 
 pub use as_impl::*;
 pub use com_object::*;
+pub use future::*;
 pub use guid::*;
 pub use inspectable::*;
 pub use interface::*;

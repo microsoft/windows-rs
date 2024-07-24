@@ -1325,6 +1325,28 @@ impl DataReaderLoadOperation {
         self.GetResults()
     }
 }
+impl windows_core::AsyncOperation for DataReaderLoadOperation {
+    type Output = u32;
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != super::super::Foundation::AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+impl std::future::IntoFuture for DataReaderLoadOperation {
+    type Output = windows_core::Result<u32>;
+    type IntoFuture = windows_core::FutureWrapper<DataReaderLoadOperation>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
+    }
+}
 unsafe impl Send for DataReaderLoadOperation {}
 unsafe impl Sync for DataReaderLoadOperation {}
 #[repr(transparent)]
@@ -1591,6 +1613,28 @@ impl DataWriterStoreOperation {
             }))?;
         }
         self.GetResults()
+    }
+}
+impl windows_core::AsyncOperation for DataWriterStoreOperation {
+    type Output = u32;
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != super::super::Foundation::AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+impl std::future::IntoFuture for DataWriterStoreOperation {
+    type Output = windows_core::Result<u32>;
+    type IntoFuture = windows_core::FutureWrapper<DataWriterStoreOperation>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
     }
 }
 unsafe impl Send for DataWriterStoreOperation {}

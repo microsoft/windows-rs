@@ -78,6 +78,28 @@ impl IAsyncAction {
         self.GetResults()
     }
 }
+impl windows_core::AsyncOperation for IAsyncAction {
+    type Output = ();
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&AsyncActionCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+impl std::future::IntoFuture for IAsyncAction {
+    type Output = windows_core::Result<()>;
+    type IntoFuture = windows_core::FutureWrapper<IAsyncAction>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
+    }
+}
 unsafe impl Send for IAsyncAction {}
 unsafe impl Sync for IAsyncAction {}
 impl windows_core::RuntimeType for IAsyncAction {
@@ -181,6 +203,28 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TP
             }))?;
         }
         self.GetResults()
+    }
+}
+impl<TProgress: windows_core::RuntimeType + 'static> windows_core::AsyncOperation for IAsyncActionWithProgress<TProgress> {
+    type Output = ();
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&AsyncActionWithProgressCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+impl<TProgress: windows_core::RuntimeType + 'static> std::future::IntoFuture for IAsyncActionWithProgress<TProgress> {
+    type Output = windows_core::Result<()>;
+    type IntoFuture = windows_core::FutureWrapper<IAsyncActionWithProgress<TProgress>>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
     }
 }
 unsafe impl<TProgress: windows_core::RuntimeType + 'static> Send for IAsyncActionWithProgress<TProgress> {}
@@ -338,6 +382,28 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
         self.GetResults()
     }
 }
+impl<TResult: windows_core::RuntimeType + 'static> windows_core::AsyncOperation for IAsyncOperation<TResult> {
+    type Output = TResult;
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+impl<TResult: windows_core::RuntimeType + 'static> std::future::IntoFuture for IAsyncOperation<TResult> {
+    type Output = windows_core::Result<TResult>;
+    type IntoFuture = windows_core::FutureWrapper<IAsyncOperation<TResult>>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
+    }
+}
 unsafe impl<TResult: windows_core::RuntimeType + 'static> Send for IAsyncOperation<TResult> {}
 unsafe impl<TResult: windows_core::RuntimeType + 'static> Sync for IAsyncOperation<TResult> {}
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IAsyncOperation<TResult> {
@@ -453,6 +519,28 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
             }))?;
         }
         self.GetResults()
+    }
+}
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::AsyncOperation for IAsyncOperationWithProgress<TResult, TProgress> {
+    type Output = TResult;
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&AsyncOperationWithProgressCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> std::future::IntoFuture for IAsyncOperationWithProgress<TResult, TProgress> {
+    type Output = windows_core::Result<TResult>;
+    type IntoFuture = windows_core::FutureWrapper<IAsyncOperationWithProgress<TResult, TProgress>>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
     }
 }
 unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> Send for IAsyncOperationWithProgress<TResult, TProgress> {}

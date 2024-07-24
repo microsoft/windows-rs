@@ -1036,6 +1036,30 @@ impl DeleteSmsMessageOperation {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::AsyncOperation for DeleteSmsMessageOperation {
+    type Output = ();
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != super::super::Foundation::AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl std::future::IntoFuture for DeleteSmsMessageOperation {
+    type Output = windows_core::Result<()>;
+    type IntoFuture = windows_core::FutureWrapper<DeleteSmsMessageOperation>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
+    }
+}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSmsMessagesOperation(windows_core::IUnknown);
@@ -1119,6 +1143,30 @@ impl DeleteSmsMessagesOperation {
             }))?;
         }
         self.GetResults()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::AsyncOperation for DeleteSmsMessagesOperation {
+    type Output = ();
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != super::super::Foundation::AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl std::future::IntoFuture for DeleteSmsMessagesOperation {
+    type Output = windows_core::Result<()>;
+    type IntoFuture = windows_core::FutureWrapper<DeleteSmsMessagesOperation>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1211,6 +1259,30 @@ impl GetSmsDeviceOperation {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::AsyncOperation for GetSmsDeviceOperation {
+    type Output = SmsDevice;
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != super::super::Foundation::AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl std::future::IntoFuture for GetSmsDeviceOperation {
+    type Output = windows_core::Result<SmsDevice>;
+    type IntoFuture = windows_core::FutureWrapper<GetSmsDeviceOperation>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
+    }
+}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GetSmsMessageOperation(windows_core::IUnknown);
@@ -1297,6 +1369,30 @@ impl GetSmsMessageOperation {
             }))?;
         }
         self.GetResults()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::AsyncOperation for GetSmsMessageOperation {
+    type Output = ISmsMessage;
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != super::super::Foundation::AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl std::future::IntoFuture for GetSmsMessageOperation {
+    type Output = windows_core::Result<ISmsMessage>;
+    type IntoFuture = windows_core::FutureWrapper<GetSmsMessageOperation>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -1407,6 +1503,30 @@ impl GetSmsMessagesOperation {
         self.GetResults()
     }
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+impl windows_core::AsyncOperation for GetSmsMessagesOperation {
+    type Output = super::super::Foundation::Collections::IVectorView<ISmsMessage>;
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != super::super::Foundation::AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&super::super::Foundation::AsyncOperationWithProgressCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+impl std::future::IntoFuture for GetSmsMessagesOperation {
+    type Output = windows_core::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>>;
+    type IntoFuture = windows_core::FutureWrapper<GetSmsMessagesOperation>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
+    }
+}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1491,6 +1611,30 @@ impl SendSmsMessageOperation {
             }))?;
         }
         self.GetResults()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::AsyncOperation for SendSmsMessageOperation {
+    type Output = ();
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != super::super::Foundation::AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl std::future::IntoFuture for SendSmsMessageOperation {
+    type Output = windows_core::Result<()>;
+    type IntoFuture = windows_core::FutureWrapper<SendSmsMessageOperation>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
     }
 }
 #[repr(transparent)]

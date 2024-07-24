@@ -504,6 +504,28 @@ impl SignOutUserOperation {
         self.GetResults()
     }
 }
+impl windows_core::AsyncOperation for SignOutUserOperation {
+    type Output = ();
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != super::super::super::Foundation::AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&super::super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+impl std::future::IntoFuture for SignOutUserOperation {
+    type Output = windows_core::Result<()>;
+    type IntoFuture = windows_core::FutureWrapper<SignOutUserOperation>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
+    }
+}
 unsafe impl Send for SignOutUserOperation {}
 unsafe impl Sync for SignOutUserOperation {}
 #[repr(transparent)]
@@ -585,6 +607,28 @@ impl UserAuthenticationOperation {
             }))?;
         }
         self.GetResults()
+    }
+}
+impl windows_core::AsyncOperation for UserAuthenticationOperation {
+    type Output = UserIdentity;
+    fn is_complete(&self) -> windows_core::Result<bool> {
+        Ok(self.Status()? != super::super::super::Foundation::AsyncStatus::Started)
+    }
+    fn set_completed(&self, f: impl Fn() + Send + 'static) -> windows_core::Result<()> {
+        self.SetCompleted(&super::super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            f();
+            Ok(())
+        }))
+    }
+    fn get_results(&self) -> windows_core::Result<Self::Output> {
+        self.GetResults()
+    }
+}
+impl std::future::IntoFuture for UserAuthenticationOperation {
+    type Output = windows_core::Result<UserIdentity>;
+    type IntoFuture = windows_core::FutureWrapper<UserAuthenticationOperation>;
+    fn into_future(self) -> Self::IntoFuture {
+        windows_core::FutureWrapper::new(self)
     }
 }
 unsafe impl Send for UserAuthenticationOperation {}
