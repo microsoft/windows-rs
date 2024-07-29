@@ -58,8 +58,6 @@ jobs:
         run:  cargo clean
       - name: Test cppwinrt
         run:  cargo test -p cppwinrt --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test no_std
-        run:  cargo test -p no_std --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test riddle
         run:  cargo test -p riddle --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_bits
@@ -156,10 +154,10 @@ jobs:
         run:  cargo test -p test_alternate_success_code --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_arch
         run:  cargo test -p test_arch --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_arch_feature
         run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_array
         run:  cargo test -p test_array --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_bcrypt
@@ -230,6 +228,8 @@ jobs:
         run:  cargo test -p test_metadata --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_msrv
         run:  cargo test -p test_msrv --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_no_std
+        run:  cargo test -p test_no_std --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_no_use
         run:  cargo test -p test_no_use --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_noexcept

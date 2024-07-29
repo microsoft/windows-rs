@@ -34,8 +34,6 @@ jobs:
         uses: ./.github/actions/fix-environment
       - name: Clippy cppwinrt
         run:  cargo clippy -p cppwinrt
-      - name: Clippy no_std
-        run:  cargo clippy -p no_std
       - name: Clippy riddle
         run:  cargo clippy -p riddle
       - name: Clippy sample_bits
@@ -204,6 +202,8 @@ jobs:
         run:  cargo clippy -p test_metadata
       - name: Clippy test_msrv
         run:  cargo clippy -p test_msrv
+      - name: Clippy test_no_std
+        run:  cargo clippy -p test_no_std
       - name: Clippy test_no_use
         run:  cargo clippy -p test_no_use
       - name: Clippy test_noexcept

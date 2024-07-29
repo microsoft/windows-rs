@@ -1,0 +1,29 @@
+name: no_std
+
+on:
+  pull_request:
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+    branches:
+      - master
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  check:
+    strategy:
+      matrix:
+        rust: [stable, nightly]
+        runs-on:
+          - windows-latest
+          - ubuntu-latest
+    runs-on: ${{ matrix.runs-on }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Prepare
+        run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
+      - name: Check
+        run: cargo check -p test_no_std
