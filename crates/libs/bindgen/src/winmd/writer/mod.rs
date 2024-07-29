@@ -45,9 +45,7 @@ impl Writer {
             MethodList: 0,
         });
 
-        let name = name
-            .rsplit_once(&['/', '\\'])
-            .map_or(name, |(_, name)| name);
+        let name = name.rsplit_once(['/', '\\']).map_or(name, |(_, name)| name);
 
         writer.tables.Module.push(Module {
             Name: writer.strings.insert(name),

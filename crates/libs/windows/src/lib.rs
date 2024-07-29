@@ -12,6 +12,7 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 #![cfg_attr(not(feature = "docs"), doc(hidden))]
 // TODO: workaround for https://github.com/rust-lang/rust/issues/126169
 #![allow(unused)]
+#![cfg_attr(all(not(feature = "std")), no_std)]
 
 #[allow(unused_extern_crates)]
 extern crate self as windows;
