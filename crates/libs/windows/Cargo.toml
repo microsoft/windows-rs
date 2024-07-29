@@ -26,9 +26,14 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 rustdoc-args = ["--cfg", "docsrs"]
 
-[dependencies]
-windows-core = { path = "../core", version = "0.58.0" }
-windows-targets = { path = "../targets", version = "0.52.6" }
+[dependencies.windows-core]
+version = "0.58.0"
+path = "../core"
+default-features = false
+
+[dependencies.windows-targets]
+version = "0.52.6"
+path = "../targets"
 
 [features]
 default = ["std"]

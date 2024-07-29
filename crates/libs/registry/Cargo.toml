@@ -24,7 +24,9 @@ path = "../targets"
 [dependencies.windows-result]
 version = "0.2.0"
 path = "../result"
+default-features = false
 
 [dependencies.windows-strings]
 version = "0.1.0"
 path = "../strings"
+default-features = false

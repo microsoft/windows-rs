@@ -11,6 +11,8 @@ struct App;
 
 #[cfg(not(test))]
 fn _test() {
+    // Pull in something from each library crate that supports `no_std` to ensure they don't
+    // accidentally depend on `std`.
     let _ = windows_core::ComObject::new(App);
     let _ = windows_registry::CURRENT_USER.create("software\\windows-rs");
     let _ = windows_result::HRESULT(0);
