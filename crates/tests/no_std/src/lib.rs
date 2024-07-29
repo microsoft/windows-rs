@@ -11,11 +11,16 @@ struct App;
 
 #[cfg(not(test))]
 fn _test() {
-    let _ = windows::core::HRESULT(0);
+    let _ = windows_core::ComObject::new(App);
+    let _ = windows_registry::CURRENT_USER.create("software\\windows-rs");
+    let _ = windows_result::HRESULT(0);
+    let _ = windows_strings::BSTR::new();
+    let _ = windows_sys::core::GUID::from_u128(0);
+    let _ = windows_version::OsVersion::current();
     let _ = windows::core::ComObject::new(App);
 }
 
-// #[cfg_attr(not(test), panic_handler)]
-// fn _panic(_: &core::panic::PanicInfo<'_>) -> ! {
-//     loop {}
-// }
+#[cfg_attr(not(test), panic_handler)]
+fn _panic(_: &core::panic::PanicInfo<'_>) -> ! {
+    loop {}
+}
