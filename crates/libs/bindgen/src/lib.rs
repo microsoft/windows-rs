@@ -292,6 +292,6 @@ fn extension(path: &str) -> &str {
 }
 
 fn directory(path: &str) -> &str {
-    path.rsplit_once(&['/', '\\'])
+    path.rsplit_once(['/', '\\'])
         .map_or("", |(directory, _)| directory)
 }
