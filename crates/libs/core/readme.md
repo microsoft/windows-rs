@@ -13,7 +13,6 @@ Start by adding the following to your Cargo.toml file:
 version = "0.58"
 features = [
     "Data_Xml_Dom",
-    "Win32_Foundation",
     "Win32_Security",
     "Win32_System_Threading",
     "Win32_UI_WindowsAndMessaging",
@@ -58,9 +57,8 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-sys]
-version = "0.52"
+version = "0.59"
 features = [
-    "Win32_Foundation",
     "Win32_Security",
     "Win32_System_Threading",
     "Win32_UI_WindowsAndMessaging",
