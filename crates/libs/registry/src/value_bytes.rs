@@ -58,7 +58,7 @@ impl ValueBytes {
             })
         } else {
             // This pointer will have at least 8 byte alignment.
-            let ptr = unsafe { HeapAlloc(GetProcessHeap(), 0, len) } as *mut u8;
+            let ptr = HeapAlloc(GetProcessHeap(), 0, len) as *mut u8;
 
             if ptr.is_null() {
                 Err(Error::from_hresult(HRESULT::from_win32(ERROR_OUTOFMEMORY)))
