@@ -36,6 +36,17 @@ impl HStringBuilder {
         }
     }
 
+    /// Allows the `HSTRING` to be constructed from bytes.
+    pub fn as_bytes_mut(&mut self) -> &mut [u8] {
+        if let Some(header) = self.as_header() {
+            unsafe {
+                core::slice::from_raw_parts_mut(header.data as *mut _, header.len as usize * 2)
+            }
+        } else {
+            &mut []
+        }
+    }
+
     fn as_header(&self) -> Option<&HStringHeader> {
         unsafe { self.0.as_ref() }
     }

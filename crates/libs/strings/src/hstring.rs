@@ -33,6 +33,11 @@ impl HSTRING {
         unsafe { core::slice::from_raw_parts(self.as_ptr(), self.len()) }
     }
 
+    /// Get the string as 8-bit bytes.
+    pub fn as_bytes(&self) -> &[u8] {
+        unsafe { core::slice::from_raw_parts(self.as_ptr() as *const _, self.len() * 2) }
+    }
+
     /// Returns a raw pointer to the `HSTRING` buffer.
     pub fn as_ptr(&self) -> *const u16 {
         if let Some(header) = self.as_header() {
