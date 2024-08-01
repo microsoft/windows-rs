@@ -18,7 +18,7 @@ version = "0.58"
 
 Generates Rust bindings in a build script or test as needed:
 
-```rust,no_run
+```rust,ignore
 #[test]
 fn bindgen() {
     let args = [

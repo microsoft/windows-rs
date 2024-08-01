@@ -2,9 +2,9 @@
 
 The [windows-version](https://crates.io/crates/windows-version) crate provides reliable operating system version information without the need for application manifest files.
 
-* [Getting started](https://kennykerr.ca/rust-getting-started/)
-* [Samples](https://github.com/microsoft/windows-rs/tree/0.58.0/crates/samples)
-* [Releases](https://github.com/microsoft/windows-rs/releases)
+- [Getting started](https://kennykerr.ca/rust-getting-started/)
+- [Samples](https://github.com/microsoft/windows-rs/tree/0.58.0/crates/samples)
+- [Releases](https://github.com/microsoft/windows-rs/releases)
 
 Start by adding the following to your Cargo.toml file:
 
@@ -15,7 +15,7 @@ version = "0.1"
 
 Make use of Windows version information as needed:
 
-```rust,no_run
+```rust
 use windows_version::*;
 
 fn main() {

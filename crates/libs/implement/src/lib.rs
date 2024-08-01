@@ -1,6 +1,8 @@
-/*!
-Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
-*/
+//! Implement COM interfaces for Rust types.
+//! 
+//! Take a look at [macro@implement] for an example.
+//! 
+//! Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
 
 use quote::{quote, ToTokens};
 
