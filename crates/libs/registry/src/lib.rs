@@ -9,6 +9,8 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 extern crate alloc;
 
 use alloc::{string::String, vec::Vec};
+use core::ops::Deref;
+use core::ptr::{null, null_mut};
 
 mod bindings;
 use bindings::*;
@@ -18,6 +20,12 @@ pub use key::Key;
 
 mod value;
 pub use value::Value;
+
+mod data;
+use data::Data;
+
+mod pcwstr;
+use pcwstr::*;
 
 mod key_iterator;
 pub use key_iterator::KeyIterator;
@@ -32,7 +40,7 @@ pub use windows_result::Result;
 use windows_result::*;
 
 pub use windows_strings::HSTRING;
-use windows_strings::*;
+use windows_strings::{PCWSTR, *};
 
 /// The predefined `HKEY_CLASSES_ROOT` registry key.
 pub const CLASSES_ROOT: &Key = &Key(HKEY_CLASSES_ROOT);
@@ -49,21 +57,6 @@ pub const LOCAL_MACHINE: &Key = &Key(HKEY_LOCAL_MACHINE);
 /// The predefined `HKEY_USERS` registry key.
 pub const USERS: &Key = &Key(HKEY_USERS);
 
-fn pcwstr<T: AsRef<str>>(value: T) -> Vec<u16> {
-    value
-        .as_ref()
-        .encode_utf16()
-        .chain(core::iter::once(0))
-        .collect()
-}
-
-fn trim(mut value: &[u16]) -> &[u16] {
-    while value.last() == Some(&0) {
-        value = &value[..value.len() - 1];
-    }
-    value
-}
-
 fn win32_error(result: u32) -> Result<()> {
     if result == 0 {
         Ok(())
@@ -74,4 +67,12 @@ fn win32_error(result: u32) -> Result<()> {
 
 fn invalid_data() -> Error {
     Error::from_hresult(HRESULT::from_win32(ERROR_INVALID_DATA))
+}
+
+fn from_le_bytes(ty: Type, from: &[u8]) -> Result<u64> {
+    match ty {
+        Type::U32 if from.len() == 4 => Ok(u32::from_le_bytes(from.try_into().unwrap()).into()),
+        Type::U64 if from.len() == 8 => Ok(u64::from_le_bytes(from.try_into().unwrap())),
+        _ => Err(invalid_data()),
+    }
 }

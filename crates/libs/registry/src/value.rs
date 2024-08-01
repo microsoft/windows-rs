@@ -2,22 +2,122 @@ use super::*;
 
 /// A registry value.
 #[derive(Clone, PartialEq, Eq, Debug)]
-pub enum Value {
-    /// A 32-bit unsigned integer value.
-    U32(u32),
+pub struct Value {
+    pub(crate) data: Data,
+    pub(crate) ty: Type,
+}
 
-    /// A 64-bit unsigned integer value.
-    U64(u64),
+impl Value {
+    /// Gets the type of the registry value.
+    pub fn ty(&self) -> Type {
+        self.ty
+    }
 
-    /// A string value.
-    String(String),
+    /// Sets the type of the registry value. This does not change the value.
+    pub fn set_ty(&mut self, ty: Type) {
+        self.ty = ty;
+    }
+}
 
-    /// An array u8 bytes.
-    Bytes(Vec<u8>),
+impl core::ops::Deref for Value {
+    type Target = [u8];
 
-    /// An array of string values.
-    MultiString(Vec<String>),
+    fn deref(&self) -> &[u8] {
+        &self.data
+    }
+}
 
-    /// An unknown or unsupported type.
-    Unknown(u32),
+impl AsRef<[u8]> for Value {
+    fn as_ref(&self) -> &[u8] {
+        &self.data
+    }
+}
+
+impl TryFrom<u32> for Value {
+    type Error = Error;
+    fn try_from(from: u32) -> Result<Self> {
+        Ok(Self {
+            data: from.to_le_bytes().try_into()?,
+            ty: Type::U32,
+        })
+    }
+}
+
+impl TryFrom<Value> for u32 {
+    type Error = Error;
+    fn try_from(from: Value) -> Result<Self> {
+        Ok(from_le_bytes(from.ty, &from)?.try_into()?)
+    }
+}
+
+impl TryFrom<u64> for Value {
+    type Error = Error;
+    fn try_from(from: u64) -> Result<Self> {
+        Ok(Self {
+            data: from.to_le_bytes().try_into()?,
+            ty: Type::U64,
+        })
+    }
+}
+
+impl TryFrom<Value> for u64 {
+    type Error = Error;
+    fn try_from(from: Value) -> Result<Self> {
+        from_le_bytes(from.ty, &from)
+    }
+}
+
+impl TryFrom<Value> for String {
+    type Error = Error;
+    fn try_from(from: Value) -> Result<Self> {
+        match from.ty {
+            Type::String | Type::ExpandString => Ok(Self::from_utf16(from.data.as_wide())?),
+            _ => Err(invalid_data()),
+        }
+    }
+}
+
+impl TryFrom<&str> for Value {
+    type Error = Error;
+    fn try_from(from: &str) -> Result<Self> {
+        Ok(Self {
+            data: Data::from_slice(pcwstr(from).as_bytes())?,
+            ty: Type::String,
+        })
+    }
+}
+
+impl TryFrom<Value> for Vec<String> {
+    type Error = Error;
+    fn try_from(from: Value) -> Result<Self> {
+        match from.ty {
+            Type::MultiString => Ok(from
+                .data
+                .as_wide()
+                .split(|c| *c == 0)
+                .map(String::from_utf16_lossy)
+                .collect()),
+            _ => Ok(vec![String::try_from(from)?]),
+        }
+    }
+}
+
+impl TryFrom<&[u8]> for Value {
+    type Error = Error;
+    fn try_from(from: &[u8]) -> Result<Self> {
+        Ok(Self {
+            data: Data::from_slice(from)?,
+            ty: Type::Bytes,
+        })
+    }
+}
+
+impl<const N: usize> TryFrom<[u8; N]> for Value {
+    type Error = Error;
+    fn try_from(from: [u8; N]) -> Result<Self> {
+        Ok(Self {
+            data: Data::from_slice(&from)?,
+            ty: Type::Bytes,
+        })
+    }
 }

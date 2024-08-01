@@ -83,3 +83,9 @@ impl PCWSTR {
         Decode(move || core::char::decode_utf16(self.as_wide().iter().cloned()))
     }
 }
+
+impl AsRef<PCWSTR> for PCWSTR {
+    fn as_ref(&self) -> &Self {
+        self
+    }
+}

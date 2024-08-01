@@ -1,5 +1,4 @@
 use super::*;
-use core::ptr::{null, null_mut};
 
 /// An iterator of registry key names.
 pub struct KeyIterator<'a> {
