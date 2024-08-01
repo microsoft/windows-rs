@@ -21,8 +21,8 @@ pub use key::Key;
 mod value;
 pub use value::Value;
 
-mod value_bytes;
-use value_bytes::ValueBytes;
+mod data;
+use data::Data;
 
 mod pcwstr;
 use pcwstr::*;

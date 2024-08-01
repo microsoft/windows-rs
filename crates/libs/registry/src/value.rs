@@ -3,7 +3,7 @@ use super::*;
 /// A registry value.
 #[derive(Clone, PartialEq, Eq, Debug)]
 pub struct Value {
-    pub(crate) value: ValueBytes,
+    pub(crate) data: Data,
     pub(crate) ty: Type,
 }
 
@@ -23,13 +23,13 @@ impl core::ops::Deref for Value {
     type Target = [u8];
 
     fn deref(&self) -> &[u8] {
-        &self.value
+        &self.data
     }
 }
 
 impl AsRef<[u8]> for Value {
     fn as_ref(&self) -> &[u8] {
-        &self.value
+        &self.data
     }
 }
 
@@ -37,7 +37,7 @@ impl TryFrom<u32> for Value {
     type Error = Error;
     fn try_from(from: u32) -> Result<Self> {
         Ok(Self {
-            value: from.to_le_bytes().try_into()?,
+            data: from.to_le_bytes().try_into()?,
             ty: Type::U32,
         })
     }
@@ -54,7 +54,7 @@ impl TryFrom<u64> for Value {
     type Error = Error;
     fn try_from(from: u64) -> Result<Self> {
         Ok(Self {
-            value: from.to_le_bytes().try_into()?,
+            data: from.to_le_bytes().try_into()?,
             ty: Type::U64,
         })
     }
@@ -71,7 +71,7 @@ impl TryFrom<Value> for String {
     type Error = Error;
     fn try_from(from: Value) -> Result<Self> {
         match from.ty {
-            Type::String | Type::ExpandString => Ok(Self::from_utf16(from.value.as_wide())?),
+            Type::String | Type::ExpandString => Ok(Self::from_utf16(from.data.as_wide())?),
             _ => Err(invalid_data()),
         }
     }
@@ -81,7 +81,7 @@ impl TryFrom<&str> for Value {
     type Error = Error;
     fn try_from(from: &str) -> Result<Self> {
         Ok(Self {
-            value: ValueBytes::from_slice(pcwstr(from).as_bytes())?,
+            data: Data::from_slice(pcwstr(from).as_bytes())?,
             ty: Type::String,
         })
     }
@@ -92,7 +92,7 @@ impl TryFrom<Value> for Vec<String> {
     fn try_from(from: Value) -> Result<Self> {
         match from.ty {
             Type::MultiString => Ok(from
-                .value
+                .data
                 .as_wide()
                 .split(|c| *c == 0)
                 .map(String::from_utf16_lossy)

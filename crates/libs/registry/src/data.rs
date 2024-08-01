@@ -1,12 +1,12 @@
 use super::*;
 
 // Minimal `Vec<u8>` replacement providing at least `u16` alignment so that it can be used for wide strings.
-pub struct ValueBytes {
+pub struct Data {
     ptr: *mut u8,
     len: usize,
 }
 
-impl ValueBytes {
+impl Data {
     // Creates a buffer with the specified length of zero bytes.
     pub fn new(len: usize) -> Result<Self> {
         unsafe {
@@ -69,7 +69,7 @@ impl ValueBytes {
     }
 }
 
-impl Drop for ValueBytes {
+impl Drop for Data {
     fn drop(&mut self) {
         if !self.ptr.is_null() {
             unsafe {
@@ -79,7 +79,7 @@ impl Drop for ValueBytes {
     }
 }
 
-impl Deref for ValueBytes {
+impl Deref for Data {
     type Target = [u8];
 
     fn deref(&self) -> &[u8] {
@@ -91,7 +91,7 @@ impl Deref for ValueBytes {
     }
 }
 
-impl core::ops::DerefMut for ValueBytes {
+impl core::ops::DerefMut for Data {
     fn deref_mut(&mut self) -> &mut [u8] {
         if self.ptr.is_null() {
             &mut []
@@ -101,27 +101,27 @@ impl core::ops::DerefMut for ValueBytes {
     }
 }
 
-impl Clone for ValueBytes {
+impl Clone for Data {
     fn clone(&self) -> Self {
         Self::from_slice(self).unwrap()
     }
 }
 
-impl PartialEq for ValueBytes {
+impl PartialEq for Data {
     fn eq(&self, other: &Self) -> bool {
         self.deref() == other.deref()
     }
 }
 
-impl Eq for ValueBytes {}
+impl Eq for Data {}
 
-impl core::fmt::Debug for ValueBytes {
+impl core::fmt::Debug for Data {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         self.deref().fmt(f)
     }
 }
 
-impl<const N: usize> TryFrom<[u8; N]> for ValueBytes {
+impl<const N: usize> TryFrom<[u8; N]> for Data {
     type Error = Error;
     fn try_from(from: [u8; N]) -> Result<Self> {
         Self::from_slice(&from)

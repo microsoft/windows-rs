@@ -5,7 +5,7 @@ pub struct ValueIterator<'a> {
     key: &'a Key,
     range: core::ops::Range<usize>,
     name: Vec<u16>,
-    value: ValueBytes,
+    data: Data,
 }
 
 impl<'a> ValueIterator<'a> {
@@ -37,7 +37,7 @@ impl<'a> ValueIterator<'a> {
             key,
             range: 0..count as usize,
             name: vec![0; name_max_len as usize + 1],
-            value: ValueBytes::new(value_max_len as usize)?,
+            data: Data::new(value_max_len as usize)?,
         })
     }
 }
@@ -49,7 +49,7 @@ impl<'a> Iterator for ValueIterator<'a> {
         self.range.next().and_then(|index| {
             let mut ty = 0;
             let mut name_len = self.name.len() as u32;
-            let mut value_len = self.value.len() as u32;
+            let mut data_len = self.data.len() as u32;
 
             let result = unsafe {
                 RegEnumValueW(
@@ -59,8 +59,8 @@ impl<'a> Iterator for ValueIterator<'a> {
                     &mut name_len,
                     core::ptr::null(),
                     &mut ty,
-                    self.value.as_mut_ptr(),
-                    &mut value_len,
+                    self.data.as_mut_ptr(),
+                    &mut data_len,
                 )
             };
 
@@ -72,7 +72,7 @@ impl<'a> Iterator for ValueIterator<'a> {
                 Some((
                     name,
                     Value {
-                        value: ValueBytes::from_slice(&self.value[0..value_len as usize]).unwrap(),
+                        data: Data::from_slice(&self.data[0..data_len as usize]).unwrap(),
                         ty: ty.into(),
                     },
                 ))
