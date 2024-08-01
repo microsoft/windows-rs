@@ -101,3 +101,23 @@ impl TryFrom<Value> for Vec<String> {
         }
     }
 }
+
+impl TryFrom<&[u8]> for Value {
+    type Error = Error;
+    fn try_from(from: &[u8]) -> Result<Self> {
+        Ok(Self {
+            data: Data::from_slice(from)?,
+            ty: Type::Bytes,
+        })
+    }
+}
+
+impl<const N: usize> TryFrom<[u8; N]> for Value {
+    type Error = Error;
+    fn try_from(from: [u8; N]) -> Result<Self> {
+        Ok(Self {
+            data: Data::from_slice(&from)?,
+            ty: Type::Bytes,
+        })
+    }
+}

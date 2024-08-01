@@ -31,5 +31,15 @@ fn value() -> Result<()> {
     assert_eq!(key.get_value("expand")?, value);
     assert_eq!(key.get_string("expand")?, "expand");
 
+    key.set_value("bytes", &Value::try_from([1u8, 2u8, 3u8])?)?;
+    assert_eq!(key.get_type("bytes")?, Type::Bytes);
+    assert_eq!(key.get_value("bytes")?, Value::try_from([1, 2, 3])?);
+
+    let mut value = Value::try_from([1u8, 2u8, 3u8, 4u8].as_slice())?;
+    value.set_ty(Type::Other(1234));
+    key.set_value("slice", &value)?;
+    assert_eq!(key.get_type("slice")?, Type::Other(1234));
+    assert_eq!(key.get_value("slice")?, value);
+
     Ok(())
 }
