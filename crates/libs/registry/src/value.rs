@@ -17,6 +17,11 @@ impl Value {
     pub fn set_ty(&mut self, ty: Type) {
         self.ty = ty;
     }
+
+    /// Gets the value as a slice of u16 for raw wide characters.
+    pub fn as_wide(&self) -> &[u16] {
+        self.data.as_wide()
+    }
 }
 
 impl core::ops::Deref for Value {
@@ -71,7 +76,7 @@ impl TryFrom<Value> for String {
     type Error = Error;
     fn try_from(from: Value) -> Result<Self> {
         match from.ty {
-            Type::String | Type::ExpandString => Ok(Self::from_utf16(from.data.as_wide())?),
+            Type::String | Type::ExpandString => Ok(Self::from_utf16(trim(from.data.as_wide()))?),
             _ => Err(invalid_data()),
         }
     }
@@ -102,6 +107,26 @@ impl TryFrom<Value> for Vec<String> {
     }
 }
 
+impl TryFrom<Value> for HSTRING {
+    type Error = Error;
+    fn try_from(from: Value) -> Result<Self> {
+        match from.ty {
+            Type::String | Type::ExpandString => Ok(Self::from_wide(trim(from.data.as_wide()))?),
+            _ => Err(invalid_data()),
+        }
+    }
+}
+
+impl TryFrom<&HSTRING> for Value {
+    type Error = Error;
+    fn try_from(from: &HSTRING) -> Result<Self> {
+        Ok(Self {
+            data: Data::from_slice(as_bytes(from))?,
+            ty: Type::String,
+        })
+    }
+}
+
 impl TryFrom<&[u8]> for Value {
     type Error = Error;
     fn try_from(from: &[u8]) -> Result<Self> {
@@ -120,4 +145,12 @@ impl<const N: usize> TryFrom<[u8; N]> for Value {
             ty: Type::Bytes,
         })
     }
+}
+
+fn trim(mut wide: &[u16]) -> &[u16] {
+    while wide.last() == Some(&0) {
+        wide = &wide[..wide.len() - 1];
+    }
+
+    wide
 }

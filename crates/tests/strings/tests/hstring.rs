@@ -4,6 +4,7 @@ use windows_strings::*;
 fn hstring() -> Result<()> {
     let s = HSTRING::from("hello");
     assert_eq!(s.len(), 5);
+    assert_eq!(s.as_wide().len(), 5);
 
     Ok(())
 }

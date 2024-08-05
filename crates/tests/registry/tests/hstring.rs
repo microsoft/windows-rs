@@ -1,5 +1,5 @@
 use windows_registry::*;
-use windows_strings::h;
+use windows_strings::*;
 
 #[test]
 fn hstring() -> Result<()> {
@@ -9,6 +9,10 @@ fn hstring() -> Result<()> {
 
     key.set_hstring("hstring", h!("simple"))?;
     assert_eq!(&key.get_hstring("hstring")?, h!("simple"));
+    assert_eq!(
+        unsafe { key.raw_get_info(w!("hstring"))? },
+        (Type::String, 14)
+    );
 
     // You can embed nulls.
     key.set_hstring("hstring", h!("hstring\0value\0"))?;
