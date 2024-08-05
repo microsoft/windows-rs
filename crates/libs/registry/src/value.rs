@@ -102,6 +102,26 @@ impl TryFrom<Value> for Vec<String> {
     }
 }
 
+impl TryFrom<Value> for HSTRING {
+    type Error = Error;
+    fn try_from(from: Value) -> Result<Self> {
+        match from.ty {
+            Type::String | Type::ExpandString => Ok(Self::from_wide(from.data.as_wide())?),
+            _ => Err(invalid_data()),
+        }
+    }
+}
+
+impl TryFrom<&HSTRING> for Value {
+    type Error = Error;
+    fn try_from(from: &HSTRING) -> Result<Self> {
+        Ok(Self {
+            data: Data::from_slice(from.as_bytes())?,
+            ty: Type::String,
+        })
+    }
+}
+
 impl TryFrom<&[u8]> for Value {
     type Error = Error;
     fn try_from(from: &[u8]) -> Result<Self> {

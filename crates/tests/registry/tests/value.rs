@@ -1,4 +1,5 @@
 use windows_registry::*;
+use windows_strings::h;
 
 #[test]
 fn value() -> Result<()> {
@@ -11,17 +12,20 @@ fn value() -> Result<()> {
     assert_eq!(key.get_value("u32")?, Value::try_from(123u32)?);
     assert_eq!(key.get_u32("u32")?, 123u32);
     assert_eq!(key.get_u64("u32")?, 123u64);
+    assert_eq!(u32::try_from(key.get_value("u32")?)?, 123u32);
 
     key.set_value("u64", &Value::try_from(123u64)?)?;
     assert_eq!(key.get_type("u64")?, Type::U64);
     assert_eq!(key.get_value("u64")?, Value::try_from(123u64)?);
     assert_eq!(key.get_u32("u64")?, 123u32);
     assert_eq!(key.get_u64("u64")?, 123u64);
+    assert_eq!(u64::try_from(key.get_value("u64")?)?, 123u64);
 
     key.set_value("string", &Value::try_from("string")?)?;
     assert_eq!(key.get_type("string")?, Type::String);
     assert_eq!(key.get_value("string")?, Value::try_from("string")?);
     assert_eq!(key.get_string("string")?, "string");
+    assert_eq!(String::try_from(key.get_value("string")?)?, "string");
 
     let mut value = Value::try_from("expand")?;
     value.set_ty(Type::ExpandString);
@@ -40,6 +44,12 @@ fn value() -> Result<()> {
     key.set_value("slice", &value)?;
     assert_eq!(key.get_type("slice")?, Type::Other(1234));
     assert_eq!(key.get_value("slice")?, value);
+
+    key.set_value("hstring", &Value::try_from(h!("HSTRING"))?)?;
+    assert_eq!(key.get_type("hstring")?, Type::String);
+    assert_eq!(key.get_value("hstring")?, Value::try_from(h!("HSTRING"))?);
+    assert_eq!(key.get_string("hstring")?, "HSTRING");
+    assert_eq!(HSTRING::try_from(key.get_value("hstring")?)?, "HSTRING");
 
     Ok(())
 }
