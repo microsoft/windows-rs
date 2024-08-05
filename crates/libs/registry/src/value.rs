@@ -71,7 +71,9 @@ impl TryFrom<Value> for String {
     type Error = Error;
     fn try_from(from: Value) -> Result<Self> {
         match from.ty {
-            Type::String | Type::ExpandString => Ok(Self::from_utf16(from.data.as_wide())?),
+            Type::String | Type::ExpandString => {
+                Ok(Self::from_utf16(trim(trim(from.data.as_wide())))?)
+            }
             _ => Err(invalid_data()),
         }
     }
@@ -106,7 +108,7 @@ impl TryFrom<Value> for HSTRING {
     type Error = Error;
     fn try_from(from: Value) -> Result<Self> {
         match from.ty {
-            Type::String | Type::ExpandString => Ok(Self::from_wide(from.data.as_wide())?),
+            Type::String | Type::ExpandString => Ok(Self::from_wide(trim(from.data.as_wide()))?),
             _ => Err(invalid_data()),
         }
     }
@@ -116,7 +118,7 @@ impl TryFrom<&HSTRING> for Value {
     type Error = Error;
     fn try_from(from: &HSTRING) -> Result<Self> {
         Ok(Self {
-            data: Data::from_slice(from.as_bytes())?,
+            data: Data::from_slice(as_bytes(from))?,
             ty: Type::String,
         })
     }
@@ -140,4 +142,12 @@ impl<const N: usize> TryFrom<[u8; N]> for Value {
             ty: Type::Bytes,
         })
     }
+}
+
+fn trim(mut wide: &[u16]) -> &[u16] {
+    while wide.last() == Some(&0) {
+        wide = &wide[..wide.len() - 1];
+    }
+
+    wide
 }

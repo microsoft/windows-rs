@@ -76,3 +76,8 @@ fn from_le_bytes(ty: Type, from: &[u8]) -> Result<u64> {
         _ => Err(invalid_data()),
     }
 }
+
+// Get the string as 8-bit bytes including the two terminating null bytes.
+fn as_bytes(value: &HSTRING) -> &[u8] {
+    unsafe { core::slice::from_raw_parts(value.as_ptr() as *const _, (value.len() + 1) * 2) }
+}

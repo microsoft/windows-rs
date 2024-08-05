@@ -1,4 +1,5 @@
 use windows_registry::*;
+use windows_strings::*;
 
 #[test]
 fn bytes() -> Result<()> {
@@ -19,6 +20,11 @@ fn bytes() -> Result<()> {
     let value = key.get_value("other")?;
     assert_eq!(value.ty(), Type::Other(1234));
     assert_eq!(*value, [1, 2, 3, 4]);
+
+    assert_eq!(
+        unsafe { key.raw_get_info(w!("other"))? },
+        (Type::Other(1234), 4)
+    );
 
     Ok(())
 }

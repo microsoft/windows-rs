@@ -31,6 +31,7 @@ impl OwnedPcwstr {
         self.0.as_ptr()
     }
 
+    // Get the string as 8-bit bytes including the two terminating null bytes.
     pub fn as_bytes(&self) -> &[u8] {
         unsafe { core::slice::from_raw_parts(self.as_ptr() as *const _, self.0.len() * 2) }
     }

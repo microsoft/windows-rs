@@ -101,7 +101,7 @@ impl Key {
         name: T,
         value: &windows_strings::HSTRING,
     ) -> Result<()> {
-        self.set_bytes(name, Type::String, value.as_bytes())
+        self.set_bytes(name, Type::String, as_bytes(value))
     }
 
     /// Sets the name and value in the registry key.
@@ -115,7 +115,7 @@ impl Key {
         name: T,
         value: &windows_strings::HSTRING,
     ) -> Result<()> {
-        self.set_bytes(name, Type::ExpandString, value.as_bytes())
+        self.set_bytes(name, Type::ExpandString, as_bytes(value))
     }
 
     /// Sets the name and value in the registry key.
@@ -193,12 +193,24 @@ impl Key {
     /// # Safety
     ///
     /// The `PCWSTR` pointer needs to be valid for reads up until and including the next `\0`.
+    #[track_caller]
     pub unsafe fn raw_set_bytes<N: AsRef<PCWSTR>>(
         &self,
         name: N,
         ty: Type,
         value: &[u8],
     ) -> Result<()> {
+        if cfg!(debug_assertions) {
+            // RegSetValueExW expects string data to be null terminated.
+            if matches!(ty, Type::String | Type::ExpandString | Type::MultiString) {
+                debug_assert!(
+                    value.get(value.len() - 2) == Some(&0),
+                    "`value` isn't null-terminated"
+                );
+                debug_assert!(value.last() == Some(&0), "`value` isn't null-terminated");
+            }
+        }
+
         let result = RegSetValueExW(
             self.0,
             name.as_ref().as_ptr(),

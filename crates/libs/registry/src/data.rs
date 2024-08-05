@@ -20,19 +20,12 @@ impl Data {
         }
     }
 
-    // Returns the buffer as a slice of u16 for reading wide characters. The slice trims off any trailing zero bytes.
+    // Returns the buffer as a slice of u16 for reading wide characters.
     pub fn as_wide(&self) -> &[u16] {
         if self.ptr.is_null() {
             &[]
         } else {
-            let mut wide =
-                unsafe { core::slice::from_raw_parts(self.ptr as *const u16, self.len / 2) };
-
-            while wide.last() == Some(&0) {
-                wide = &wide[..wide.len() - 1];
-            }
-
-            wide
+            unsafe { core::slice::from_raw_parts(self.ptr as *const u16, self.len / 2) }
         }
     }
 
