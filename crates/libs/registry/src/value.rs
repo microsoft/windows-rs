@@ -17,6 +17,11 @@ impl Value {
     pub fn set_ty(&mut self, ty: Type) {
         self.ty = ty;
     }
+
+    /// Gets the value as a slice of u16 for raw wide characters.
+    pub fn as_wide(&self) -> &[u16] {
+        self.data.as_wide()
+    }
 }
 
 impl core::ops::Deref for Value {

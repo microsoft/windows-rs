@@ -77,5 +77,10 @@ fn value() -> Result<()> {
         (Type::String, 16)
     );
 
+    let abc = Value::try_from("abc")?;
+    assert_eq!(abc.as_wide(), &[97, 98, 99, 0]);
+    let abc = Value::try_from(h!("abcd"))?;
+    assert_eq!(abc.as_wide(), &[97, 98, 99, 100, 0]);
+
     Ok(())
 }
