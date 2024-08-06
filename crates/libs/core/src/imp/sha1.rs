@@ -1,5 +1,3 @@
-#![allow(clippy::many_single_char_names)]
-
 pub const fn sha1(data: &ConstBuffer) -> Digest {
     let state: [u32; 5] = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0];
     let len: u64 = 0;
