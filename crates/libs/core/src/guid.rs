@@ -122,14 +122,15 @@ impl core::fmt::Debug for GUID {
 
 impl TryFrom<&str> for GUID {
     type Error = Error;
+
     fn try_from(from: &str) -> Result<Self> {
         if from.len() != 36 {
             return Err(invalid_guid());
         }
 
         let bytes = &mut from.bytes();
-
         let mut guid = Self::zeroed();
+
         guid.data1 = try_u32(bytes, true)?;
         guid.data2 = try_u16(bytes, true)?;
         guid.data3 = try_u16(bytes, true)?;
