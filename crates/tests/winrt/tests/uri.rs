@@ -8,7 +8,7 @@ fn uri() -> windows::core::Result<()> {
 
     assert_eq!(
         Uri::IID,
-        windows::core::GUID::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
+        windows::core::GUID::try_from("9E365E57-48B2-4160-956F-C7385120BBFC")? // IUriRuntimeClass
     );
 
     let uri = &Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;

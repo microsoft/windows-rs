@@ -10,7 +10,7 @@ fn non_generic() -> windows::core::Result<()> {
 
     assert_eq!(
         Handler::IID,
-        windows::core::GUID::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
+        windows::core::GUID::try_from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")?
     );
 
     let (tx, rx) = std::sync::mpsc::channel();
@@ -37,7 +37,7 @@ fn generic() -> windows::core::Result<()> {
 
     assert_eq!(
         Handler::IID,
-        windows::core::GUID::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
+        windows::core::GUID::try_from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")?
     );
 
     let uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
