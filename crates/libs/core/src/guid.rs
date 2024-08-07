@@ -1,5 +1,3 @@
-#![allow(clippy::many_single_char_names)]
-
 use super::*;
 
 /// A globally unique identifier ([GUID](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid))
@@ -120,37 +118,30 @@ impl core::fmt::Debug for GUID {
     }
 }
 
-impl From<&str> for GUID {
-    fn from(value: &str) -> Self {
-        assert!(value.len() == 36, "Invalid GUID string");
-        let mut bytes = value.bytes();
+impl TryFrom<&str> for GUID {
+    type Error = Error;
 
-        let a = ((bytes.next_u32() * 16 + bytes.next_u32()) << 24)
-            + ((bytes.next_u32() * 16 + bytes.next_u32()) << 16)
-            + ((bytes.next_u32() * 16 + bytes.next_u32()) << 8)
-            + bytes.next_u32() * 16
-            + bytes.next_u32();
-        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-        let b = ((bytes.next_u16() * 16 + (bytes.next_u16())) << 8)
-            + bytes.next_u16() * 16
-            + bytes.next_u16();
-        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-        let c = ((bytes.next_u16() * 16 + bytes.next_u16()) << 8)
-            + bytes.next_u16() * 16
-            + bytes.next_u16();
-        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-        let d = bytes.next_u8() * 16 + bytes.next_u8();
-        let e = bytes.next_u8() * 16 + bytes.next_u8();
-        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+    fn try_from(from: &str) -> Result<Self> {
+        if from.len() != 36 {
+            return Err(invalid_guid());
+        }
 
-        let f = bytes.next_u8() * 16 + bytes.next_u8();
-        let g = bytes.next_u8() * 16 + bytes.next_u8();
-        let h = bytes.next_u8() * 16 + bytes.next_u8();
-        let i = bytes.next_u8() * 16 + bytes.next_u8();
-        let j = bytes.next_u8() * 16 + bytes.next_u8();
-        let k = bytes.next_u8() * 16 + bytes.next_u8();
+        let bytes = &mut from.bytes();
+        let mut guid = Self::zeroed();
 
-        Self::from_values(a, b, c, [d, e, f, g, h, i, j, k])
+        guid.data1 = try_u32(bytes, true)?;
+        guid.data2 = try_u16(bytes, true)?;
+        guid.data3 = try_u16(bytes, true)?;
+        guid.data4[0] = try_u8(bytes, false)?;
+        guid.data4[1] = try_u8(bytes, true)?;
+        guid.data4[2] = try_u8(bytes, false)?;
+        guid.data4[3] = try_u8(bytes, false)?;
+        guid.data4[4] = try_u8(bytes, false)?;
+        guid.data4[5] = try_u8(bytes, false)?;
+        guid.data4[6] = try_u8(bytes, false)?;
+        guid.data4[7] = try_u8(bytes, false)?;
+
+        Ok(guid)
     }
 }
 
@@ -166,28 +157,43 @@ impl From<GUID> for u128 {
     }
 }
 
-trait HexReader {
-    fn next_u8(&mut self) -> u8;
-    fn next_u16(&mut self) -> u16;
-    fn next_u32(&mut self) -> u32;
+fn invalid_guid() -> Error {
+    Error::from_hresult(imp::E_INVALIDARG)
 }
 
-impl HexReader for core::str::Bytes<'_> {
-    fn next_u8(&mut self) -> u8 {
-        let value = self.next().unwrap();
-        match value {
-            b'0'..=b'9' => value - b'0',
-            b'A'..=b'F' => 10 + value - b'A',
-            b'a'..=b'f' => 10 + value - b'a',
-            _ => panic!(),
+fn try_u32(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u32> {
+    next(bytes, 8, delimiter).ok_or_else(invalid_guid)
+}
+
+fn try_u16(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u16> {
+    next(bytes, 4, delimiter)
+        .map(|value| value as u16)
+        .ok_or_else(invalid_guid)
+}
+
+fn try_u8(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u8> {
+    next(bytes, 2, delimiter)
+        .map(|value| value as u8)
+        .ok_or_else(invalid_guid)
+}
+
+fn next(bytes: &mut core::str::Bytes<'_>, len: usize, delimiter: bool) -> Option<u32> {
+    let mut value: u32 = 0;
+
+    for _ in 0..len {
+        let digit = bytes.next()?;
+
+        match digit {
+            b'0'..=b'9' => value = (value << 4) + (digit - b'0') as u32,
+            b'A'..=b'F' => value = (value << 4) + (digit - b'A' + 10) as u32,
+            b'a'..=b'f' => value = (value << 4) + (digit - b'a' + 10) as u32,
+            _ => return None,
         }
     }
 
-    fn next_u16(&mut self) -> u16 {
-        self.next_u8().into()
-    }
-
-    fn next_u32(&mut self) -> u32 {
-        self.next_u8().into()
+    if delimiter && bytes.next() != Some(b'-') {
+        None
+    } else {
+        Some(value)
     }
 }

@@ -102,7 +102,7 @@ fn constant() {
     assert!(WM_KEYUP == 257u32);
     assert!(D3D12_DEFAULT_BLEND_FACTOR_ALPHA == 1f32);
     assert!(UIA_ScrollPatternNoScroll == -1f64);
-    assert!(CLSID_D2D1Shadow == GUID::from("C67EA361-1863-4e69-89DB-695D3E9A5B6B"));
+    assert!(CLSID_D2D1Shadow == GUID::try_from("C67EA361-1863-4e69-89DB-695D3E9A5B6B").unwrap());
 
     let b: PCSTR = D3DCOMPILER_DLL_A;
     let c: PCWSTR = D3DCOMPILER_DLL_W;
@@ -264,5 +264,5 @@ fn empty_struct() {
     assert!(ldap.0 == 123);
     assert!(core::mem::size_of::<PLDAPSearch>() == core::mem::size_of::<usize>());
 
-    assert!(UIAnimationManager == GUID::from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8"));
+    assert!(UIAnimationManager == GUID::try_from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8").unwrap());
 }

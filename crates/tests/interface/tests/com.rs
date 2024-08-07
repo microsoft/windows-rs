@@ -61,7 +61,7 @@ struct PersistState {
 
 impl ICustomPersist_Impl for Persist_Impl {
     unsafe fn GetClassID(&self, clsid: *mut GUID) -> HRESULT {
-        *clsid = "117fb826-2155-483a-b50d-bc99a2c7cca3".into();
+        *clsid = "117fb826-2155-483a-b50d-bc99a2c7cca3".try_into().unwrap();
         S_OK
     }
 }
@@ -136,7 +136,7 @@ fn test_custom_interface() -> windows::core::Result<()> {
         let p: IPersistMemory = p.cast()?;
         assert_eq!(
             p.GetClassID()?,
-            "117fb826-2155-483a-b50d-bc99a2c7cca3".into()
+            "117fb826-2155-483a-b50d-bc99a2c7cca3".try_into()?,
         );
         assert_eq!(p.GetSizeMax()?, 10);
         assert_eq!(p.IsDirty(), S_FALSE);
@@ -165,7 +165,7 @@ fn test_custom_interface() -> windows::core::Result<()> {
         let p: ICustomPersist = p.cast()?;
         let mut b = GUID::default();
         p.GetClassID(&mut b).ok()?;
-        assert_eq!(b, "117fb826-2155-483a-b50d-bc99a2c7cca3".into());
+        assert_eq!(b, "117fb826-2155-483a-b50d-bc99a2c7cca3".try_into()?);
 
         Ok(())
     }
