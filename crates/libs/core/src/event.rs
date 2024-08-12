@@ -160,7 +160,7 @@ impl<T: Interface> Array<T> {
 
     /// Swaps the contents of two `Array<T>` objects.
     fn swap(&mut self, mut other: Self) -> Self {
-        unsafe { core::ptr::swap(self.buffer, other.buffer) };
+        unsafe { core::ptr::swap(&mut self.buffer, &mut other.buffer) };
         core::mem::swap(&mut self.len, &mut other.len);
         other
     }
