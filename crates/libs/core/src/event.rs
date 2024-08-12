@@ -3,7 +3,7 @@ use core::ffi::c_void;
 use core::marker::PhantomData;
 use core::mem::{size_of, transmute_copy};
 use core::ptr::null_mut;
-use std::sync::Mutex;
+use std::sync::{Mutex, RwLock};
 
 /// A type that you can use to declare and implement an event of a specified delegate type.
 ///
@@ -12,7 +12,7 @@ use std::sync::Mutex;
 pub struct Event<T: Interface> {
     swap: Mutex<()>,
     change: Mutex<()>,
-    delegates: Array<T>,
+    delegates: RwLock<Array<T>>,
 }
 
 impl<T: Interface> Default for Event<T> {
@@ -25,47 +25,51 @@ impl<T: Interface> Event<T> {
     /// Creates a new, empty `Event<T>`.
     pub fn new() -> Self {
         Self {
-            delegates: Array::new(),
+            delegates: RwLock::new(Array::new()),
             swap: Mutex::default(),
             change: Mutex::default(),
         }
     }
 
     /// Registers a delegate with the event object.
-    pub fn add(&mut self, delegate: &T) -> Result<i64> {
+    pub fn add(&self, delegate: &T) -> Result<i64> {
         let mut _lock_free_drop = Array::new();
         Ok({
             let _change_lock = self.change.lock().unwrap();
-            let mut new_delegates = Array::with_capacity(self.delegates.len() + 1)?;
-            for delegate in self.delegates.as_slice() {
+            let delegate_array = self.delegates.read().unwrap();
+            let mut new_delegates = Array::with_capacity(delegate_array.len() + 1)?;
+            for delegate in delegate_array.as_slice() {
                 new_delegates.push(delegate.clone());
             }
+            drop(delegate_array);
             let delegate = Delegate::new(delegate)?;
             let token = delegate.to_token();
             new_delegates.push(delegate);
 
             let _swap_lock = self.swap.lock().unwrap();
-            _lock_free_drop = self.delegates.swap(new_delegates);
+            let mut delegate_array = self.delegates.write().unwrap();
+            _lock_free_drop = delegate_array.swap(new_delegates);
             token
         })
     }
 
     /// Revokes a delegate's registration from the event object.
-    pub fn remove(&mut self, token: i64) -> Result<()> {
+    pub fn remove(&self, token: i64) -> Result<()> {
         let mut _lock_free_drop = Array::new();
         {
             let _change_lock = self.change.lock().unwrap();
-            if self.delegates.is_empty() {
+            let delegate_array = self.delegates.read().unwrap();
+            if delegate_array.is_empty() {
                 return Ok(());
             }
-            let mut capacity = self.delegates.len() - 1;
+            let mut capacity = delegate_array.len() - 1;
             let mut new_delegates = Array::new();
             let mut removed = false;
             if capacity == 0 {
-                removed = self.delegates.as_slice()[0].to_token() == token;
+                removed = delegate_array.as_slice()[0].to_token() == token;
             } else {
                 new_delegates = Array::with_capacity(capacity)?;
-                for delegate in self.delegates.as_slice() {
+                for delegate in delegate_array.as_slice() {
                     if !removed && delegate.to_token() == token {
                         removed = true;
                         continue;
@@ -77,32 +81,38 @@ impl<T: Interface> Event<T> {
                     capacity -= 1;
                 }
             }
+            drop(delegate_array);
             if removed {
                 let _swap_lock = self.swap.lock().unwrap();
-                _lock_free_drop = self.delegates.swap(new_delegates);
+                let mut delegate_array = self.delegates.write().unwrap();
+                _lock_free_drop = delegate_array.swap(new_delegates);
             }
         }
         Ok(())
     }
 
     /// Clears the event, removing all delegates.
-    pub fn clear(&mut self) {
+    pub fn clear(&self) {
         let mut _lock_free_drop = Array::new();
         {
             let _change_lock = self.change.lock().unwrap();
-            if self.delegates.is_empty() {
-                return;
+            {
+                let delegate_array = self.delegates.read().unwrap();
+                if delegate_array.is_empty() {
+                    return;
+                }
             }
             let _swap_lock = self.swap.lock().unwrap();
-            _lock_free_drop = self.delegates.swap(Array::new());
+            let mut delegate_array = self.delegates.write().unwrap();
+            _lock_free_drop = delegate_array.swap(Array::new());
         }
     }
 
     /// Invokes all of the event object's registered delegates with the provided callback.
-    pub fn call<F: FnMut(&T) -> Result<()>>(&mut self, mut callback: F) -> Result<()> {
+    pub fn call<F: FnMut(&T) -> Result<()>>(&self, mut callback: F) -> Result<()> {
         let lock_free_calls = {
             let _swap_lock = self.swap.lock().unwrap();
-            self.delegates.clone()
+            self.delegates.read().unwrap().clone()
         };
         for delegate in lock_free_calls.as_slice() {
             if let Err(error) = delegate.call(&mut callback) {
@@ -123,7 +133,6 @@ impl<T: Interface> Event<T> {
 struct Array<T: Interface> {
     buffer: *mut Buffer<T>,
     len: usize,
-    _phantom: PhantomData<T>,
 }
 
 impl<T: Interface> Default for Array<T> {
@@ -138,7 +147,6 @@ impl<T: Interface> Array<T> {
         Self {
             buffer: null_mut(),
             len: 0,
-            _phantom: PhantomData,
         }
     }
 
@@ -147,13 +155,12 @@ impl<T: Interface> Array<T> {
         Ok(Self {
             buffer: Buffer::new(capacity)?,
             len: 0,
-            _phantom: PhantomData,
         })
     }
 
     /// Swaps the contents of two `Array<T>` objects.
     fn swap(&mut self, mut other: Self) -> Self {
-        unsafe { core::ptr::swap(&mut self.buffer, &mut other.buffer) };
+        unsafe { core::ptr::swap(self.buffer, other.buffer) };
         core::mem::swap(&mut self.len, &mut other.len);
         other
     }
@@ -203,7 +210,6 @@ impl<T: Interface> Clone for Array<T> {
         Self {
             buffer: self.buffer,
             len: self.len,
-            _phantom: PhantomData,
         }
     }
 }
