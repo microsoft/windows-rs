@@ -4,7 +4,7 @@ use windows::{core::*, Foundation::*};
 
 #[test]
 fn add_remove() -> Result<()> {
-    let mut event = Event::<EventHandler<i32>>::new();
+    let event = Event::<EventHandler<i32>>::new();
 
     // Remove a bogus event handler from an empty event source.
     event.remove(-123)?;
@@ -39,7 +39,7 @@ fn add_remove() -> Result<()> {
 
 #[test]
 fn multiple() -> Result<()> {
-    let mut event = Event::<EventHandler<i32>>::new();
+    let event = Event::<EventHandler<i32>>::new();
 
     let a_check = Arc::new(AtomicI32::new(0));
     let a_check_sender = a_check.clone();
