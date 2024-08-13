@@ -38,7 +38,7 @@ impl<T: Interface> Event<T> {
         Ok({
             let _change_lock = self.change.lock().unwrap();
             // Safety: there is no mutable alias to self.delegates at this point
-            let current_delegates = unsafe { self.get_delegates() };
+            let current_delegates = unsafe { &*self.delegates.get() };
             let mut new_delegates = Array::with_capacity(current_delegates.len() + 1)?;
             for delegate in current_delegates.as_slice() {
                 new_delegates.push(delegate.clone());
@@ -49,7 +49,7 @@ impl<T: Interface> Event<T> {
 
             let _swap_lock = self.swap.lock().unwrap();
             // Safety: we have exclusive access to self.delegates at this point
-            _lock_free_drop = unsafe { self.get_delegates_mut() }.swap(new_delegates);
+            _lock_free_drop = unsafe { &mut *self.delegates.get() }.swap(new_delegates);
             token
         })
     }
@@ -60,7 +60,7 @@ impl<T: Interface> Event<T> {
         {
             let _change_lock = self.change.lock().unwrap();
             // Safety: there is no mutable alias to self.delegates at this point
-            let current_delegates = unsafe { self.get_delegates() };
+            let current_delegates = unsafe { &*self.delegates.get() };
             if current_delegates.is_empty() {
                 return Ok(());
             }
@@ -86,7 +86,7 @@ impl<T: Interface> Event<T> {
             if removed {
                 let _swap_lock = self.swap.lock().unwrap();
                 // Safety: we have exclusive access to self.delegates at this point
-                _lock_free_drop = unsafe { self.get_delegates_mut() }.swap(new_delegates);
+                _lock_free_drop = unsafe { &mut *self.delegates.get() }.swap(new_delegates);
             }
         }
         Ok(())
@@ -98,13 +98,13 @@ impl<T: Interface> Event<T> {
         {
             let _change_lock = self.change.lock().unwrap();
             // Safety: there is no mutable alias to self.delegates at this point
-            let current_delegates = unsafe { self.get_delegates() };
+            let current_delegates = unsafe { &*self.delegates.get() };
             if current_delegates.is_empty() {
                 return;
             }
             let _swap_lock = self.swap.lock().unwrap();
             // Safety: we have exclusive access to self.delegates at this point
-            _lock_free_drop = unsafe { self.get_delegates_mut() }.swap(Array::new());
+            _lock_free_drop = unsafe { &mut *self.delegates.get() }.swap(Array::new());
         }
     }
 
@@ -113,7 +113,7 @@ impl<T: Interface> Event<T> {
         let lock_free_calls = {
             let _swap_lock = self.swap.lock().unwrap();
             // Safety: there is no mutable alias to self.delegates at this point
-            unsafe { self.get_delegates() }.clone()
+            unsafe { &*self.delegates.get() }.clone()
         };
         for delegate in lock_free_calls.as_slice() {
             if let Err(error) = delegate.call(&mut callback) {
@@ -127,20 +127,6 @@ impl<T: Interface> Event<T> {
             }
         }
         Ok(())
-    }
-
-    /// Returns an immutable reference of the delegates member.
-    /// # Safety
-    /// The caller must ensure that there is no mutable alias to self.delegates.
-    unsafe fn get_delegates(&self) -> &Array<T> {
-        &*self.delegates.get()
-    }
-
-    /// Returns a mutable reference of the delegates member.
-    /// # Safety
-    /// The caller must ensure that they have exclusive access to self.delegates.
-    unsafe fn get_delegates_mut(&self) -> &mut Array<T> {
-        &mut *self.delegates.get()
     }
 }
 
