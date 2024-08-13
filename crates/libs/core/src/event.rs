@@ -162,7 +162,7 @@ impl<T: Interface> Array<T> {
     /// - Caller must ensure that they have exclusive access to `current` and `other`.
     unsafe fn swap(current: *mut Self, mut other: Self) -> Self {
         core::mem::swap(&mut (*current).buffer, &mut other.buffer);
-        core::ptr::swap(&mut (*current).len, &mut other.len);
+        core::mem::swap(&mut (*current).len, &mut other.len);
         other
     }
 
