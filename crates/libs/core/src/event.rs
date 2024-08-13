@@ -3,7 +3,7 @@ use core::ffi::c_void;
 use core::marker::PhantomData;
 use core::mem::{size_of, transmute_copy};
 use core::ptr::null_mut;
-use std::sync::{Mutex, RwLock};
+use std::sync::Mutex;
 
 /// A type that you can use to declare and implement an event of a specified delegate type.
 ///
@@ -12,7 +12,7 @@ use std::sync::{Mutex, RwLock};
 pub struct Event<T: Interface> {
     swap: Mutex<()>,
     change: Mutex<()>,
-    delegates: RwLock<Array<T>>,
+    delegates: Array<T>,
 }
 
 impl<T: Interface> Default for Event<T> {
@@ -25,7 +25,7 @@ impl<T: Interface> Event<T> {
     /// Creates a new, empty `Event<T>`.
     pub fn new() -> Self {
         Self {
-            delegates: RwLock::new(Array::new()),
+            delegates: Array::new(),
             swap: Mutex::default(),
             change: Mutex::default(),
         }
@@ -36,19 +36,19 @@ impl<T: Interface> Event<T> {
         let mut _lock_free_drop = Array::new();
         Ok({
             let _change_lock = self.change.lock().unwrap();
-            let delegate_array = self.delegates.read().unwrap();
-            let mut new_delegates = Array::with_capacity(delegate_array.len() + 1)?;
-            for delegate in delegate_array.as_slice() {
+            let mut new_delegates = Array::with_capacity(self.delegates.len() + 1)?;
+            for delegate in self.delegates.as_slice() {
                 new_delegates.push(delegate.clone());
             }
-            drop(delegate_array);
             let delegate = Delegate::new(delegate)?;
             let token = delegate.to_token();
             new_delegates.push(delegate);
 
             let _swap_lock = self.swap.lock().unwrap();
-            let mut delegate_array = self.delegates.write().unwrap();
-            _lock_free_drop = delegate_array.swap(new_delegates);
+            // Safety: we have exclusive access to self.delegates at this point
+            _lock_free_drop = unsafe {
+                Array::swap(core::ptr::addr_of!(self.delegates) as *mut _, new_delegates)
+            };
             token
         })
     }
@@ -58,18 +58,17 @@ impl<T: Interface> Event<T> {
         let mut _lock_free_drop = Array::new();
         {
             let _change_lock = self.change.lock().unwrap();
-            let delegate_array = self.delegates.read().unwrap();
-            if delegate_array.is_empty() {
+            if self.delegates.is_empty() {
                 return Ok(());
             }
-            let mut capacity = delegate_array.len() - 1;
+            let mut capacity = self.delegates.len() - 1;
             let mut new_delegates = Array::new();
             let mut removed = false;
             if capacity == 0 {
-                removed = delegate_array.as_slice()[0].to_token() == token;
+                removed = self.delegates.as_slice()[0].to_token() == token;
             } else {
                 new_delegates = Array::with_capacity(capacity)?;
-                for delegate in delegate_array.as_slice() {
+                for delegate in self.delegates.as_slice() {
                     if !removed && delegate.to_token() == token {
                         removed = true;
                         continue;
@@ -81,11 +80,12 @@ impl<T: Interface> Event<T> {
                     capacity -= 1;
                 }
             }
-            drop(delegate_array);
             if removed {
                 let _swap_lock = self.swap.lock().unwrap();
-                let mut delegate_array = self.delegates.write().unwrap();
-                _lock_free_drop = delegate_array.swap(new_delegates);
+            // Safety: we have exclusive access to self.delegates at this point
+            _lock_free_drop = unsafe {
+                    Array::swap(core::ptr::addr_of!(self.delegates) as *mut _, new_delegates)
+                };
             }
         }
         Ok(())
@@ -93,18 +93,16 @@ impl<T: Interface> Event<T> {
 
     /// Clears the event, removing all delegates.
     pub fn clear(&self) {
-        let mut _lock_free_drop = Array::new();
+        let mut _lock_free_drop = Array::<T>::new();
         {
             let _change_lock = self.change.lock().unwrap();
-            {
-                let delegate_array = self.delegates.read().unwrap();
-                if delegate_array.is_empty() {
-                    return;
-                }
+            if self.delegates.is_empty() {
+                return;
             }
             let _swap_lock = self.swap.lock().unwrap();
-            let mut delegate_array = self.delegates.write().unwrap();
-            _lock_free_drop = delegate_array.swap(Array::new());
+            // Safety: we have exclusive access to self.delegates at this point
+            _lock_free_drop =
+                unsafe { Array::swap(core::ptr::addr_of!(self.delegates) as *mut _, Array::new()) };
         }
     }
 
@@ -112,7 +110,7 @@ impl<T: Interface> Event<T> {
     pub fn call<F: FnMut(&T) -> Result<()>>(&self, mut callback: F) -> Result<()> {
         let lock_free_calls = {
             let _swap_lock = self.swap.lock().unwrap();
-            self.delegates.read().unwrap().clone()
+            self.delegates.clone()
         };
         for delegate in lock_free_calls.as_slice() {
             if let Err(error) = delegate.call(&mut callback) {
@@ -159,9 +157,12 @@ impl<T: Interface> Array<T> {
     }
 
     /// Swaps the contents of two `Array<T>` objects.
-    fn swap(&mut self, mut other: Self) -> Self {
-        unsafe { core::ptr::swap(&mut self.buffer, &mut other.buffer) };
-        core::mem::swap(&mut self.len, &mut other.len);
+    /// # Safety
+    /// - `current` and `other` must be valid pointers to `Array<T>` objects.
+    /// - Caller must ensure that they have exclusive access to `current` and `other`.
+    unsafe fn swap(current: *mut Self, mut other: Self) -> Self {
+        core::mem::swap(&mut (*current).buffer, &mut other.buffer);
+        core::ptr::swap(&mut (*current).len, &mut other.len);
         other
     }
 
