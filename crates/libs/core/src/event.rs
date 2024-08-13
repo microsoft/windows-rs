@@ -16,6 +16,9 @@ pub struct Event<T: Interface> {
     delegates: UnsafeCell<Array<T>>,
 }
 
+unsafe impl<T: Interface> Send for Event<T> {}
+unsafe impl<T: Interface> Sync for Event<T> {}
+
 impl<T: Interface> Default for Event<T> {
     fn default() -> Self {
         Self::new()
