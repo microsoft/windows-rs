@@ -1,4 +1,5 @@
 use super::*;
+use core::cell::UnsafeCell;
 use core::ffi::c_void;
 use core::marker::PhantomData;
 use core::mem::{size_of, transmute_copy};
@@ -12,7 +13,7 @@ use std::sync::Mutex;
 pub struct Event<T: Interface> {
     swap: Mutex<()>,
     change: Mutex<()>,
-    delegates: Array<T>,
+    delegates: UnsafeCell<Array<T>>,
 }
 
 impl<T: Interface> Default for Event<T> {
@@ -25,7 +26,7 @@ impl<T: Interface> Event<T> {
     /// Creates a new, empty `Event<T>`.
     pub fn new() -> Self {
         Self {
-            delegates: Array::new(),
+            delegates: UnsafeCell::new(Array::new()),
             swap: Mutex::default(),
             change: Mutex::default(),
         }
@@ -36,8 +37,10 @@ impl<T: Interface> Event<T> {
         let mut _lock_free_drop = Array::new();
         Ok({
             let _change_lock = self.change.lock().unwrap();
-            let mut new_delegates = Array::with_capacity(self.delegates.len() + 1)?;
-            for delegate in self.delegates.as_slice() {
+            // Safety: there is no mutable alias to self.delegates at this point
+            let current_delegates = unsafe { self.get_delegates() };
+            let mut new_delegates = Array::with_capacity(current_delegates.len() + 1)?;
+            for delegate in current_delegates.as_slice() {
                 new_delegates.push(delegate.clone());
             }
             let delegate = Delegate::new(delegate)?;
@@ -46,9 +49,7 @@ impl<T: Interface> Event<T> {
 
             let _swap_lock = self.swap.lock().unwrap();
             // Safety: we have exclusive access to self.delegates at this point
-            _lock_free_drop = unsafe {
-                Array::swap(core::ptr::addr_of!(self.delegates) as *mut _, new_delegates)
-            };
+            _lock_free_drop = unsafe { self.get_delegates_mut() }.swap(new_delegates);
             token
         })
     }
@@ -58,17 +59,19 @@ impl<T: Interface> Event<T> {
         let mut _lock_free_drop = Array::new();
         {
             let _change_lock = self.change.lock().unwrap();
-            if self.delegates.is_empty() {
+            // Safety: there is no mutable alias to self.delegates at this point
+            let current_delegates = unsafe { self.get_delegates() };
+            if current_delegates.is_empty() {
                 return Ok(());
             }
-            let mut capacity = self.delegates.len() - 1;
+            let mut capacity = current_delegates.len() - 1;
             let mut new_delegates = Array::new();
             let mut removed = false;
             if capacity == 0 {
-                removed = self.delegates.as_slice()[0].to_token() == token;
+                removed = current_delegates.as_slice()[0].to_token() == token;
             } else {
                 new_delegates = Array::with_capacity(capacity)?;
-                for delegate in self.delegates.as_slice() {
+                for delegate in current_delegates.as_slice() {
                     if !removed && delegate.to_token() == token {
                         removed = true;
                         continue;
@@ -82,10 +85,8 @@ impl<T: Interface> Event<T> {
             }
             if removed {
                 let _swap_lock = self.swap.lock().unwrap();
-            // Safety: we have exclusive access to self.delegates at this point
-            _lock_free_drop = unsafe {
-                    Array::swap(core::ptr::addr_of!(self.delegates) as *mut _, new_delegates)
-                };
+                // Safety: we have exclusive access to self.delegates at this point
+                _lock_free_drop = unsafe { self.get_delegates_mut() }.swap(new_delegates);
             }
         }
         Ok(())
@@ -96,13 +97,14 @@ impl<T: Interface> Event<T> {
         let mut _lock_free_drop = Array::<T>::new();
         {
             let _change_lock = self.change.lock().unwrap();
-            if self.delegates.is_empty() {
+            // Safety: there is no mutable alias to self.delegates at this point
+            let current_delegates = unsafe { self.get_delegates() };
+            if current_delegates.is_empty() {
                 return;
             }
             let _swap_lock = self.swap.lock().unwrap();
             // Safety: we have exclusive access to self.delegates at this point
-            _lock_free_drop =
-                unsafe { Array::swap(core::ptr::addr_of!(self.delegates) as *mut _, Array::new()) };
+            _lock_free_drop = unsafe { self.get_delegates_mut() }.swap(Array::new());
         }
     }
 
@@ -110,7 +112,8 @@ impl<T: Interface> Event<T> {
     pub fn call<F: FnMut(&T) -> Result<()>>(&self, mut callback: F) -> Result<()> {
         let lock_free_calls = {
             let _swap_lock = self.swap.lock().unwrap();
-            self.delegates.clone()
+            // Safety: there is no mutable alias to self.delegates at this point
+            unsafe { self.get_delegates() }.clone()
         };
         for delegate in lock_free_calls.as_slice() {
             if let Err(error) = delegate.call(&mut callback) {
@@ -124,6 +127,20 @@ impl<T: Interface> Event<T> {
             }
         }
         Ok(())
+    }
+
+    /// Returns an immutable reference of the delegates member.
+    /// # Safety
+    /// The caller must ensure that there is no mutable alias to self.delegates.
+    unsafe fn get_delegates(&self) -> &Array<T> {
+        &*self.delegates.get()
+    }
+
+    /// Returns a mutable reference of the delegates member.
+    /// # Safety
+    /// The caller must ensure that they have exclusive access to self.delegates.
+    unsafe fn get_delegates_mut(&self) -> &mut Array<T> {
+        &mut *self.delegates.get()
     }
 }
 
@@ -157,12 +174,9 @@ impl<T: Interface> Array<T> {
     }
 
     /// Swaps the contents of two `Array<T>` objects.
-    /// # Safety
-    /// - `current` and `other` must be valid pointers to `Array<T>` objects.
-    /// - Caller must ensure that they have exclusive access to `current` and `other`.
-    unsafe fn swap(current: *mut Self, mut other: Self) -> Self {
-        core::mem::swap(&mut (*current).buffer, &mut other.buffer);
-        core::mem::swap(&mut (*current).len, &mut other.len);
+    fn swap(&mut self, mut other: Self) -> Self {
+        core::mem::swap(&mut self.buffer, &mut other.buffer);
+        core::mem::swap(&mut self.len, &mut other.len);
         other
     }
 
