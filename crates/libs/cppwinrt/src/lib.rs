@@ -1,5 +1,4 @@
 #![doc = include_str!("../README.md")]
-
 #![cfg(windows)]
 
 const VERSION: &str = "2.0.240405.15";

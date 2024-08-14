@@ -1,7 +1,7 @@
 //! Define COM interfaces to call or implement.
-//! 
+//!
 //! Take a look at [macro@interface] for an example.
-//! 
+//!
 //! Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
 
 use quote::quote;

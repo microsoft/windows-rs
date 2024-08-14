@@ -1,5 +1,4 @@
 #![doc = include_str!("../README.md")]
-
 #![cfg(windows)]
 #![no_std]
 
