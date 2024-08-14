@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     paths-ignore:
-      - '.github/ISSUE_TEMPLATE/**'
+      - ".github/ISSUE_TEMPLATE/**"
     branches:
       - master
 
@@ -23,10 +23,10 @@ jobs:
       - name: Doctests
         run: >
           cargo test --doc -p windows
-            -F Data_Xml_Dom
-            -F Win32_Security
-            -F Win32_System_Threading
-            -F Win32_UI_WindowsAndMessaging
+          -F Data_Xml_Dom
+          -F Win32_Security
+          -F Win32_System_Threading
+          -F Win32_UI_WindowsAndMessaging
 
   windows-sys:
     name: windows-sys
@@ -39,9 +39,9 @@ jobs:
       - name: Doctests
         run: >
           cargo test --doc -p windows-sys
-            -F Win32_Security
-            -F Win32_System_Threading
-            -F Win32_UI_WindowsAndMessaging
+          -F Win32_Security
+          -F Win32_System_Threading
+          -F Win32_UI_WindowsAndMessaging
 
   other-crates:
     runs-on: windows-latest
@@ -52,29 +52,29 @@ jobs:
       - name: Check
         run: >
           cargo doc --no-deps
-            -p windows-bindgen
-            -p windows-core
-            -p cppwinrt
-            -p windows-implement
-            -p windows-interface
-            -p windows-metadata
-            -p windows-registry
-            -p windows-result
-            -p windows-strings
-            -p windows-targets
-            -p windows-version
+          -p windows-bindgen
+          -p windows-core
+          -p cppwinrt
+          -p windows-implement
+          -p windows-interface
+          -p windows-metadata
+          -p windows-registry
+          -p windows-result
+          -p windows-strings
+          -p windows-targets
+          -p windows-version
 
       - name: Doctests
         run: >
           cargo test --doc
-            -p windows-bindgen
-            -p windows-core
-            -p cppwinrt
-            -p windows-implement
-            -p windows-interface
-            -p windows-metadata
-            -p windows-registry
-            -p windows-result
-            -p windows-strings
-            -p windows-targets
-            -p windows-version
+          -p windows-bindgen
+          -p windows-core
+          -p cppwinrt
+          -p windows-implement
+          -p windows-interface
+          -p windows-metadata
+          -p windows-registry
+          -p windows-result
+          -p windows-strings
+          -p windows-targets
+          -p windows-version
