@@ -1,4 +1,4 @@
-#![doc = include_str!("../README.md")]
+#![doc = include_str!("../readme.md")]
 
 mod args;
 mod error;

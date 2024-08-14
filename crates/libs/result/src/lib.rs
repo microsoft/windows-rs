@@ -1,4 +1,4 @@
-#![doc = include_str!("../README.md")]
+#![doc = include_str!("../readme.md")]
 #![cfg_attr(
     windows_debugger_visualizer,
     debugger_visualizer(natvis_file = "../.natvis")

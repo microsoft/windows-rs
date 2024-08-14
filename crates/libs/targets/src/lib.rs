@@ -1,4 +1,4 @@
-#![doc = include_str!("../README.md")]
+#![doc = include_str!("../readme.md")]
 #![no_std]
 
 /// Defines an external function to import.

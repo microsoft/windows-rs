@@ -4,7 +4,7 @@
         feature = "Win32_System_Threading",
         feature = "Win32_UI_WindowsAndMessaging",
     ),
-    doc = include_str!("../README.md")
+    doc = include_str!("../readme.md")
 )]
 // fallback if not all features are enabled
 #![cfg_attr(not(all(feature = "Win32_Security", feature = "Win32_System_Threading", feature = "Win32_UI_WindowsAndMessaging",)), doc = "Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>\n\n[Feature search](https://microsoft.github.io/windows-rs/features/#/0.58.0)")]
