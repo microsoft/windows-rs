@@ -12,7 +12,6 @@ doctest = false
 path = "../../libs/windows"
 features = [
     "Win32_Storage_CloudFilters", 
-    "Win32_Foundation", 
     "Win32_System_CorrelationVector",
 ]
 
@@ -20,6 +19,5 @@ features = [
 path = "../../libs/sys"
 features = [
     "Win32_Storage_CloudFilters", 
-    "Win32_Foundation", 
     "Win32_System_CorrelationVector",
 ]

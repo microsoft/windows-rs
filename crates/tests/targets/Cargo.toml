@@ -13,11 +13,11 @@ path = "../../libs/targets"
 
 [dependencies.windows]
 path = "../../libs/windows"
-features = [ "Win32_Foundation", "Win32_Security_Authentication_Identity" ]
+features = [ "Win32_Security_Authentication_Identity" ]
 
 [dependencies.windows-sys]
 path = "../../libs/sys"
-features = [ "Win32_Foundation", "Win32_Security_Authentication_Identity" ]
+features = [ "Win32_Security_Authentication_Identity" ]
 
 [dependencies.tool_lib]
 path = "../../tools/lib"

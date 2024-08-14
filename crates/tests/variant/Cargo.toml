@@ -15,6 +15,5 @@ path = "../../libs/core"
 path = "../../libs/windows"
 features = [
     "Foundation",
-    "Win32_Foundation",
     "Win32_System_Com_Events",
 ]

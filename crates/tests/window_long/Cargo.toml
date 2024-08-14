@@ -11,13 +11,11 @@ doctest = false
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
-    "Win32_Foundation",
     "Win32_UI_WindowsAndMessaging",
 ]
 
 [dependencies.windows-sys]
 path = "../../libs/sys"
 features = [
-    "Win32_Foundation",
     "Win32_UI_WindowsAndMessaging",
 ]

@@ -11,8 +11,6 @@ doctest = false
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
-    "Foundation",
     "Globalization",
-    "Win32_Foundation",
     "Win32_Graphics_Direct2D",
 ]

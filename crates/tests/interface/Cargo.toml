@@ -12,7 +12,6 @@ doctest = false
 path = "../../libs/windows"
 features = [
     "implement",
-    "Win32_Foundation",
     "Win32_Graphics_Direct3D",
     "Win32_Graphics_Direct3D10",
     "Win32_Graphics_Direct3D12",
