@@ -16,7 +16,6 @@ features = [
     "ApplicationModel_Background",
     "Foundation_Collections",
     "Storage_Streams",
-    "Win32_Foundation",
     "Win32_Graphics_Gdi", 
     "Win32_System_Com_StructuredStorage",
     "Win32_System_Ole",

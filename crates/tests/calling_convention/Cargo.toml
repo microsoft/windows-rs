@@ -14,7 +14,6 @@ unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib)'] }
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
-    "Win32_Foundation",
     "Win32_Networking_Ldap",
     "Win32_System_SystemInformation",
 ]
@@ -22,7 +21,6 @@ features = [
 [dependencies.windows-sys]
 path = "../../libs/sys"
 features = [
-    "Win32_Foundation",
     "Win32_Networking_Ldap",
     "Win32_System_SystemInformation",
     "Win32_UI_WindowsAndMessaging",

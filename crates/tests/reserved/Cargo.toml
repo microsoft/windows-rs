@@ -11,7 +11,6 @@ doctest = false
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
-    "Win32_Foundation",
     "Win32_System_Registry",
     "Win32_UI_WindowsAndMessaging",
     "Win32_System_Threading",
@@ -20,7 +19,6 @@ features = [
 [dependencies.windows-sys]
 path = "../../libs/sys"
 features = [
-    "Win32_Foundation",
     "Win32_System_Registry",
     "Win32_UI_WindowsAndMessaging",
     "Win32_System_Threading",

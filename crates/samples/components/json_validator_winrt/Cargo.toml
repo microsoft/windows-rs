@@ -16,7 +16,6 @@ serde_json = {version = "1.0", default-features = false }
 path = "../../../libs/windows"
 features = [
     "implement",
-    "Win32_Foundation",
     "Win32_System_WinRT",
 ]
 

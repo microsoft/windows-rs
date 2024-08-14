@@ -17,7 +17,6 @@ path = "../../libs/windows"
 features = [
     "implement",
     "Foundation",
-    "Win32_Foundation",
     "Win32_System_WinRT",
 ]
 
