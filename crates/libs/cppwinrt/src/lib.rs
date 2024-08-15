@@ -1,7 +1,4 @@
-/*!
-Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
-*/
-
+#![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 
 const VERSION: &str = "2.0.240405.15";

@@ -20,6 +20,13 @@ jobs:
         uses: actions/checkout@v4
       - name: Check
         run: cargo doc --no-deps -p windows
+      - name: Doctests
+        run: >
+          cargo test --doc -p windows
+          -F Data_Xml_Dom
+          -F Win32_Security
+          -F Win32_System_Threading
+          -F Win32_UI_WindowsAndMessaging
 
   windows-sys:
     name: windows-sys
@@ -29,3 +36,45 @@ jobs:
         uses: actions/checkout@v4
       - name: Check
         run: cargo doc --no-deps -p windows-sys
+      - name: Doctests
+        run: >
+          cargo test --doc -p windows-sys
+          -F Win32_Security
+          -F Win32_System_Threading
+          -F Win32_UI_WindowsAndMessaging
+
+  other-crates:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check
+        run: >
+          cargo doc --no-deps
+          -p windows-bindgen
+          -p windows-core
+          -p cppwinrt
+          -p windows-implement
+          -p windows-interface
+          -p windows-metadata
+          -p windows-registry
+          -p windows-result
+          -p windows-strings
+          -p windows-targets
+          -p windows-version
+
+      - name: Doctests
+        run: >
+          cargo test --doc
+          -p windows-bindgen
+          -p windows-core
+          -p cppwinrt
+          -p windows-implement
+          -p windows-interface
+          -p windows-metadata
+          -p windows-registry
+          -p windows-result
+          -p windows-strings
+          -p windows-targets
+          -p windows-version

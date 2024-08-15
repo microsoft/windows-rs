@@ -1,11 +1,16 @@
 #![cfg_attr(docsrs, doc = "This is a stub. The latest API documentation is here: <https://microsoft.github.io/windows-docs-rs/>")]
 #![cfg_attr(docsrs, doc = "")]
-/*!
-Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
-
-[Feature search](https://microsoft.github.io/windows-rs/features/#/0.58.0)
-*/
-
+#![cfg_attr(
+    all(
+        feature = "Data_Xml_Dom",
+        feature = "Win32_Security",
+        feature = "Win32_System_Threading",
+        feature = "Win32_UI_WindowsAndMessaging",
+    ),
+    doc = include_str!("../readme.md"),
+)]
+// fallback if not all features are enabled
+#![cfg_attr(all(not(all(feature = "Data_Xml_Dom", feature = "Win32_Security", feature = "Win32_System_Threading", feature = "Win32_UI_WindowsAndMessaging",)), not(docsrs),), doc = "Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>\n\n[Feature search](https://microsoft.github.io/windows-rs/features/#/0.58.0)")]
 #![cfg(windows)]
 #![doc(html_no_source)]
 #![allow(non_snake_case, clashing_extern_declarations, non_upper_case_globals, non_camel_case_types, missing_docs, clippy::all)]

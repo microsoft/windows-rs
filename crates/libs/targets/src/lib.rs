@@ -1,7 +1,4 @@
-/*!
-Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
-*/
-
+#![doc = include_str!("../readme.md")]
 #![no_std]
 
 /// Defines an external function to import.
