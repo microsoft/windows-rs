@@ -127,3 +127,20 @@ fn multiple() -> Result<()> {
 
     Ok(())
 }
+
+#[test]
+fn is_send_sync() -> Result<()> {
+    // test that the event can be sent and synced between threads
+    let event = Arc::new(Event::<EventHandler<i32>>::new());
+    let event_sender = event.clone();
+
+    let thread = std::thread::spawn(move || {
+        // Nothing will happen because the event is empty.
+        event_sender.call(|delegate| delegate.Invoke(None, 123));
+        event_sender
+    });
+
+    let returned_event = thread.join().unwrap();
+    assert!(Arc::ptr_eq(&event, &returned_event));
+    Ok(())
+}
