@@ -29,46 +29,51 @@ impl<T: Interface> Event<T> {
 
     /// Registers a delegate with the event object.
     pub fn add(&self, delegate: &T) -> Result<i64> {
-        let mut guard = self.delegates.write().unwrap();
-        let new_delegate = Delegate::new(delegate)?;
-        let token = new_delegate.to_token();
-        let new_iter = once(new_delegate);
+        let mut _lock_free_drop = None;
+        Ok({
+            let mut guard = self.delegates.write().unwrap();
+            let new_delegate = Delegate::new(delegate)?;
+            let token = new_delegate.to_token();
+            let new_iter = once(new_delegate);
 
-        let new_list = if let Some(old_delegates) = guard.as_ref() {
-            Arc::from_iter(old_delegates.iter().cloned().chain(new_iter))
-        } else {
-            Arc::from_iter(new_iter)
-        };
+            let new_list = if let Some(old_delegates) = guard.as_ref() {
+                Arc::from_iter(old_delegates.iter().cloned().chain(new_iter))
+            } else {
+                Arc::from_iter(new_iter)
+            };
 
-        *guard = Some(new_list);
-        Ok(token)
+            _lock_free_drop = guard.replace(new_list);
+            token
+        })
     }
 
     /// Revokes a delegate's registration from the event object.
     pub fn remove(&self, token: i64) {
-        let mut guard = self.delegates.write().unwrap();
-        if let Some(old_delegates) = guard.as_ref() {
-            // `self.delegates` is only modified if the token is found.
-            if let Some(i) = old_delegates
-                .iter()
-                .position(|old_delegate| old_delegate.to_token() == token)
-            {
-                let new_list = Arc::from_iter(
-                    old_delegates[..i]
-                        .iter()
-                        .chain(old_delegates[i + 1..].iter())
-                        .cloned(),
-                );
+        let mut _lock_free_drop = None;
+        {
+            let mut guard = self.delegates.write().unwrap();
+            if let Some(old_delegates) = guard.as_ref() {
+                // `self.delegates` is only modified if the token is found.
+                if let Some(i) = old_delegates
+                    .iter()
+                    .position(|old_delegate| old_delegate.to_token() == token)
+                {
+                    let new_list = Arc::from_iter(
+                        old_delegates[..i]
+                            .iter()
+                            .chain(old_delegates[i + 1..].iter())
+                            .cloned(),
+                    );
 
-                *guard = Some(new_list);
+                    _lock_free_drop = guard.replace(new_list);
+                }
             }
         }
     }
 
     /// Clears the event, removing all delegates.
     pub fn clear(&self) {
-        let mut guard = self.delegates.write().unwrap();
-        *guard = None;
+        let _lock_free_drop = self.delegates.write().unwrap().take();
     }
 
     /// Invokes all of the event object's registered delegates with the provided callback.
