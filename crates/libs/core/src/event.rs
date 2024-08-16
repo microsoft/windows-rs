@@ -10,6 +10,15 @@ pub struct Event<T: Interface> {
     delegates: RwLock<Option<Arc<[Delegate<T>]>>>,
 }
 
+unsafe impl<T: Interface> Send for Event<T> {}
+unsafe impl<T: Interface> Sync for Event<T> {}
+
+impl<T: Interface> Default for Event<T> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl<T: Interface> Event<T> {
     /// Creates a new, empty `Event<T>`.
     pub fn new() -> Self {
