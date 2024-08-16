@@ -10,8 +10,6 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 #![doc(html_no_source)]
 #![allow(non_snake_case, clashing_extern_declarations, non_upper_case_globals, non_camel_case_types, missing_docs, clippy::all)]
 #![cfg_attr(not(feature = "docs"), doc(hidden))]
-// TODO: workaround for https://github.com/rust-lang/rust/issues/126169
-#![allow(unused)]
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
 #[allow(unused_extern_crates)]
