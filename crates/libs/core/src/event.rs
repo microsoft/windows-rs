@@ -1,5 +1,5 @@
 use super::*;
-use core::mem::transmute_copy;
+use core::{iter::once, mem::transmute_copy};
 use std::sync::{Arc, RwLock};
 
 /// A type that you can use to declare and implement an event of a specified delegate type.
@@ -21,19 +21,17 @@ impl<T: Interface> Event<T> {
     /// Registers a delegate with the event object.
     pub fn add(&self, delegate: &T) -> Result<i64> {
         let mut guard = self.delegates.write().unwrap();
-        let mut new_list = if let Some(old_delegates) = guard.as_ref() {
-            let mut new_list = Vec::with_capacity(old_delegates.len() + 1);
-            new_list.extend_from_slice(&old_delegates);
-            new_list
-        } else {
-            Vec::with_capacity(1)
-        };
-
         let new_delegate = Delegate::new(delegate)?;
         let token = new_delegate.to_token();
-        new_list.push(new_delegate);
+        let new_iter = once(new_delegate);
 
-        *guard = Some(new_list.into());
+        let new_list = if let Some(old_delegates) = guard.as_ref() {
+            Arc::from_iter(old_delegates.iter().cloned().chain(new_iter))
+        } else {
+            Arc::from_iter(new_iter)
+        };
+
+        *guard = Some(new_list);
         Ok(token)
     }
 
@@ -46,10 +44,14 @@ impl<T: Interface> Event<T> {
                 .iter()
                 .position(|old_delegate| old_delegate.to_token() == token)
             {
-                let mut new_list = Vec::with_capacity(old_delegates.len() - 1);
-                new_list.extend_from_slice(&old_delegates[..i]);
-                new_list.extend_from_slice(&old_delegates[i + 1..]);
-                *guard = Some(new_list.into());
+                let new_list = Arc::from_iter(
+                    old_delegates[..i]
+                        .iter()
+                        .chain(old_delegates[i + 1..].iter())
+                        .cloned(),
+                );
+
+                *guard = Some(new_list);
             }
         }
     }
