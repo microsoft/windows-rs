@@ -29,10 +29,10 @@ impl<T: Interface> Event<T> {
 
     /// Registers a delegate with the event object.
     pub fn add(&self, delegate: &T) -> Result<i64> {
-        let mut guard = self.delegates.write().unwrap();
         let new_delegate = Delegate::new(delegate)?;
         let token = new_delegate.to_token();
         let new_iter = once(new_delegate);
+        let mut guard = self.delegates.write().unwrap();
 
         let new_list = if let Some(old_delegates) = guard.as_ref() {
             Arc::from_iter(old_delegates.iter().cloned().chain(new_iter))
