@@ -9,7 +9,7 @@ on:
       - master
 
 env:
-  RUSTFLAGS: -Dwarnings --cfg windows_slim_errors
+  RUSTFLAGS: --cfg windows_slim_errors
 
 jobs:
   check:

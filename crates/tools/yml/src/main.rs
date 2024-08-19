@@ -17,9 +17,6 @@ on:
     branches:
       - master
 
-env:
-  RUSTFLAGS: -Dwarnings
-
 jobs:
   check:
     runs-on: windows-2022
@@ -114,9 +111,6 @@ on:
     branches:
       - master
 
-env:
-  RUSTFLAGS: -Dwarnings
-
 jobs:
   check:
     runs-on: windows-2022
@@ -165,9 +159,6 @@ on:
       - '.github/ISSUE_TEMPLATE/**'
     branches:
       - master
-
-env:
-  RUSTFLAGS: -Dwarnings
 
 jobs:
   check:

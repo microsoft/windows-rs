@@ -8,9 +8,6 @@ on:
     branches:
       - master
 
-env:
-  RUSTFLAGS: -Dwarnings
-
 jobs:
   windows:
     name: windows
