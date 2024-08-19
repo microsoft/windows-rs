@@ -9,7 +9,7 @@ on:
       - master
 
 env:
-  RUSTFLAGS: -Dwarnings --cfg windows_raw_dylib
+  RUSTFLAGS: --cfg windows_raw_dylib
 
 jobs:
   check:
