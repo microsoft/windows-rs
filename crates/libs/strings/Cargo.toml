@@ -21,11 +21,6 @@ targets = []
 version = "0.52.6"
 path = "../targets"
 
-[dependencies.windows-result]
-version = "0.2.0"
-path = "../result"
-default-features = false
-
 [features]
 default = ["std"]
 std = []

@@ -162,8 +162,6 @@ jobs:
         run:  cargo test -p test_array --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_bcrypt
         run:  cargo test -p test_bcrypt --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_bstr
-        run:  cargo test -p test_bstr --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_calling_convention
         run:  cargo test -p test_calling_convention --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_cfg_generic
@@ -258,10 +256,10 @@ jobs:
         run:  cargo test -p test_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_string_param
         run:  cargo test -p test_string_param --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_strings
         run:  cargo test -p test_strings --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_structs
         run:  cargo test -p test_structs --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_sys

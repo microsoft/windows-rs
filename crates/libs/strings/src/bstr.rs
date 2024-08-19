@@ -43,23 +43,23 @@ impl BSTR {
     }
 
     /// Create a `BSTR` from a slice of 16 bit characters (wchars).
-    pub fn from_wide(value: &[u16]) -> Result<Self> {
+    pub fn from_wide(value: &[u16]) -> Self {
         if value.is_empty() {
-            return Ok(Self::new());
+            return Self::new();
         }
 
         let result = unsafe {
             Self(bindings::SysAllocStringLen(
                 value.as_ptr(),
-                value.len().try_into()?,
+                value.len().try_into().unwrap(),
             ))
         };
 
         if result.is_empty() {
-            Err(Error::from_hresult(HRESULT(bindings::E_OUTOFMEMORY)))
-        } else {
-            Ok(result)
+            panic!("allocation failed");
         }
+
+        result
     }
 
     /// # Safety
@@ -77,14 +77,14 @@ impl BSTR {
 
 impl Clone for BSTR {
     fn clone(&self) -> Self {
-        Self::from_wide(self.as_wide()).unwrap()
+        Self::from_wide(self.as_wide())
     }
 }
 
 impl From<&str> for BSTR {
     fn from(value: &str) -> Self {
         let value: alloc::vec::Vec<u16> = value.encode_utf16().collect();
-        Self::from_wide(&value).unwrap()
+        Self::from_wide(&value)
     }
 }
 

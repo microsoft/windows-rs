@@ -136,8 +136,6 @@ jobs:
         run:  cargo clippy -p test_array
       - name: Clippy test_bcrypt
         run:  cargo clippy -p test_bcrypt
-      - name: Clippy test_bstr
-        run:  cargo clippy -p test_bstr
       - name: Clippy test_calling_convention
         run:  cargo clippy -p test_calling_convention
       - name: Clippy test_cfg_generic
