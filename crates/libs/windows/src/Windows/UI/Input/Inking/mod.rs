@@ -2070,8 +2070,7 @@ impl windows_core::RuntimeName for InkRecognizer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkRecognizerContainer(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(InkRecognizerContainer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InkRecognizerContainer, IInkRecognizerContainer);
+windows_core::imp::interface_hierarchy!(InkRecognizerContainer, windows_core::IUnknown, windows_core::IInspectable, IInkRecognizerContainer);
 impl InkRecognizerContainer {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2347,8 +2346,7 @@ impl windows_core::RuntimeName for InkStrokeBuilder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokeContainer(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(InkStrokeContainer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InkStrokeContainer, IInkStrokeContainer);
+windows_core::imp::interface_hierarchy!(InkStrokeContainer, windows_core::IUnknown, windows_core::IInspectable, IInkStrokeContainer);
 impl InkStrokeContainer {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

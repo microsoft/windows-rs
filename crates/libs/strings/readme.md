@@ -21,16 +21,14 @@ use windows_strings::*;
 const A: PCSTR = s!("ansi");
 const W: PCWSTR = w!("wide");
 
-fn main() -> Result<()> {
+fn main() {
     let b = BSTR::from("bstr");
     let h = HSTRING::from("hstring");
 
     assert_eq!(b, "bstr");
     assert_eq!(h, "hstring");
 
-    assert_eq!(unsafe { A.to_string()? }, "ansi");
-    assert_eq!(unsafe { W.to_string()? }, "wide");
-
-    Ok(())
+    assert_eq!(unsafe { A.to_string().unwrap() }, "ansi");
+    assert_eq!(unsafe { W.to_string().unwrap() }, "wide");
 }
 ```

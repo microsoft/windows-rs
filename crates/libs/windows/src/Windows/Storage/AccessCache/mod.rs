@@ -210,9 +210,9 @@ pub struct IStorageItemMostRecentlyUsedList2_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccessListEntryView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(AccessListEntryView, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(AccessListEntryView, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView::<AccessListEntry>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(AccessListEntryView, super::super::Foundation::Collections::IIterable::<AccessListEntry>, super::super::Foundation::Collections::IVectorView::<AccessListEntry>);
+windows_core::imp::required_hierarchy!(AccessListEntryView, super::super::Foundation::Collections::IIterable::<AccessListEntry>);
 #[cfg(feature = "Foundation_Collections")]
 impl AccessListEntryView {
     #[cfg(feature = "Foundation_Collections")]
@@ -362,8 +362,7 @@ impl windows_core::RuntimeName for StorageApplicationPermissions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageItemAccessList(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageItemAccessList, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(StorageItemAccessList, IStorageItemAccessList);
+windows_core::imp::interface_hierarchy!(StorageItemAccessList, windows_core::IUnknown, windows_core::IInspectable, IStorageItemAccessList);
 impl StorageItemAccessList {
     pub fn AddOverloadDefaultMetadata<P0>(&self, file: P0) -> windows_core::Result<windows_core::HSTRING>
     where

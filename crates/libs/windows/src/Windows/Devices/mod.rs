@@ -166,8 +166,7 @@ pub struct ILowLevelDevicesControllerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LowLevelDevicesAggregateProvider(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LowLevelDevicesAggregateProvider, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProvider);
+windows_core::imp::interface_hierarchy!(LowLevelDevicesAggregateProvider, windows_core::IUnknown, windows_core::IInspectable, ILowLevelDevicesAggregateProvider);
 impl LowLevelDevicesAggregateProvider {
     #[cfg(feature = "Devices_Adc_Provider")]
     pub fn AdcControllerProvider(&self) -> windows_core::Result<Adc::Provider::IAdcControllerProvider> {

@@ -1751,9 +1751,9 @@ unsafe impl Sync for MediaItemDisplayProperties {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackAudioTrackList(windows_core::IUnknown);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::interface_hierarchy!(MediaPlaybackAudioTrackList, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MediaPlaybackAudioTrackList, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView::<super::Core::AudioTrack>);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::required_hierarchy!(MediaPlaybackAudioTrackList, super::super::Foundation::Collections::IIterable::<super::Core::AudioTrack>, super::Core::ISingleSelectMediaTrackList, super::super::Foundation::Collections::IVectorView::<super::Core::AudioTrack>);
+windows_core::imp::required_hierarchy!(MediaPlaybackAudioTrackList, super::super::Foundation::Collections::IIterable::<super::Core::AudioTrack>, super::Core::ISingleSelectMediaTrackList);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl MediaPlaybackAudioTrackList {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -3590,9 +3590,9 @@ unsafe impl Sync for MediaPlaybackSphericalVideoProjection {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackTimedMetadataTrackList(windows_core::IUnknown);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::interface_hierarchy!(MediaPlaybackTimedMetadataTrackList, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MediaPlaybackTimedMetadataTrackList, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView::<super::Core::TimedMetadataTrack>);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::required_hierarchy!(MediaPlaybackTimedMetadataTrackList, super::super::Foundation::Collections::IIterable::<super::Core::TimedMetadataTrack>, super::super::Foundation::Collections::IVectorView::<super::Core::TimedMetadataTrack>);
+windows_core::imp::required_hierarchy!(MediaPlaybackTimedMetadataTrackList, super::super::Foundation::Collections::IIterable::<super::Core::TimedMetadataTrack>);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl MediaPlaybackTimedMetadataTrackList {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -3703,9 +3703,9 @@ unsafe impl Sync for MediaPlaybackTimedMetadataTrackList {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackVideoTrackList(windows_core::IUnknown);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::interface_hierarchy!(MediaPlaybackVideoTrackList, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MediaPlaybackVideoTrackList, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView::<super::Core::VideoTrack>);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-windows_core::imp::required_hierarchy!(MediaPlaybackVideoTrackList, super::super::Foundation::Collections::IIterable::<super::Core::VideoTrack>, super::Core::ISingleSelectMediaTrackList, super::super::Foundation::Collections::IVectorView::<super::Core::VideoTrack>);
+windows_core::imp::required_hierarchy!(MediaPlaybackVideoTrackList, super::super::Foundation::Collections::IIterable::<super::Core::VideoTrack>, super::Core::ISingleSelectMediaTrackList);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl MediaPlaybackVideoTrackList {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]

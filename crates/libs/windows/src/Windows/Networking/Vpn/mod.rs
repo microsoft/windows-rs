@@ -1724,8 +1724,7 @@ unsafe impl Sync for VpnChannelConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCredential(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnCredential, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VpnCredential, IVpnCredential);
+windows_core::imp::interface_hierarchy!(VpnCredential, windows_core::IUnknown, windows_core::IInspectable, IVpnCredential);
 impl VpnCredential {
     #[cfg(feature = "Security_Credentials")]
     pub fn PasskeyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {

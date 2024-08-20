@@ -2177,9 +2177,7 @@ impl windows_core::RuntimeName for NDClient {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDCustomData(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(NDCustomData, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(NDCustomData, INDCustomData);
+windows_core::imp::interface_hierarchy!(NDCustomData, windows_core::IUnknown, windows_core::IInspectable, INDCustomData);
 #[cfg(feature = "deprecated")]
 impl NDCustomData {
     #[cfg(feature = "deprecated")]
@@ -2230,9 +2228,7 @@ impl windows_core::RuntimeName for NDCustomData {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDDownloadEngineNotifier(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(NDDownloadEngineNotifier, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(NDDownloadEngineNotifier, INDDownloadEngineNotifier);
+windows_core::imp::interface_hierarchy!(NDDownloadEngineNotifier, windows_core::IUnknown, windows_core::IInspectable, INDDownloadEngineNotifier);
 #[cfg(feature = "deprecated")]
 impl NDDownloadEngineNotifier {
     pub fn new() -> windows_core::Result<Self> {
@@ -2294,9 +2290,7 @@ impl windows_core::RuntimeName for NDDownloadEngineNotifier {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDLicenseFetchDescriptor(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(NDLicenseFetchDescriptor, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(NDLicenseFetchDescriptor, INDLicenseFetchDescriptor);
+windows_core::imp::interface_hierarchy!(NDLicenseFetchDescriptor, windows_core::IUnknown, windows_core::IInspectable, INDLicenseFetchDescriptor);
 #[cfg(feature = "deprecated")]
 impl NDLicenseFetchDescriptor {
     #[cfg(feature = "deprecated")]
@@ -2366,9 +2360,7 @@ impl windows_core::RuntimeName for NDLicenseFetchDescriptor {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDStorageFileHelper(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(NDStorageFileHelper, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(NDStorageFileHelper, INDStorageFileHelper);
+windows_core::imp::interface_hierarchy!(NDStorageFileHelper, windows_core::IUnknown, windows_core::IInspectable, INDStorageFileHelper);
 #[cfg(feature = "deprecated")]
 impl NDStorageFileHelper {
     pub fn new() -> windows_core::Result<Self> {
@@ -2408,9 +2400,7 @@ impl windows_core::RuntimeName for NDStorageFileHelper {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDStreamParserNotifier(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(NDStreamParserNotifier, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(NDStreamParserNotifier, INDStreamParserNotifier);
+windows_core::imp::interface_hierarchy!(NDStreamParserNotifier, windows_core::IUnknown, windows_core::IInspectable, INDStreamParserNotifier);
 #[cfg(feature = "deprecated")]
 impl NDStreamParserNotifier {
     pub fn new() -> windows_core::Result<Self> {
@@ -2472,9 +2462,7 @@ impl windows_core::RuntimeName for NDStreamParserNotifier {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDTCPMessenger(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(NDTCPMessenger, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(NDTCPMessenger, INDMessenger);
+windows_core::imp::interface_hierarchy!(NDTCPMessenger, windows_core::IUnknown, windows_core::IInspectable, INDMessenger);
 #[cfg(feature = "deprecated")]
 impl NDTCPMessenger {
     #[cfg(feature = "deprecated")]
@@ -2705,8 +2693,7 @@ impl windows_core::RuntimeName for PlayReadyContentResolver {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyDomain(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PlayReadyDomain, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PlayReadyDomain, IPlayReadyDomain);
+windows_core::imp::interface_hierarchy!(PlayReadyDomain, windows_core::IUnknown, windows_core::IInspectable, IPlayReadyDomain);
 impl PlayReadyDomain {
     pub fn AccountId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -2759,9 +2746,7 @@ impl windows_core::RuntimeName for PlayReadyDomain {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyDomainIterable(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadyDomainIterable, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(PlayReadyDomainIterable, super::super::super::Foundation::Collections::IIterable::<IPlayReadyDomain>);
+windows_core::imp::interface_hierarchy!(PlayReadyDomainIterable, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterable::<IPlayReadyDomain>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyDomainIterable {
     #[cfg(feature = "Foundation_Collections")]
@@ -2819,9 +2804,7 @@ impl IntoIterator for &PlayReadyDomainIterable {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyDomainIterator(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadyDomainIterator, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(PlayReadyDomainIterator, super::super::super::Foundation::Collections::IIterator::<IPlayReadyDomain>);
+windows_core::imp::interface_hierarchy!(PlayReadyDomainIterator, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterator::<IPlayReadyDomain>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyDomainIterator {
     #[cfg(feature = "Foundation_Collections")]
@@ -3256,8 +3239,7 @@ impl windows_core::RuntimeName for PlayReadyIndividualizationServiceRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyLicense(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PlayReadyLicense, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PlayReadyLicense, IPlayReadyLicense);
+windows_core::imp::interface_hierarchy!(PlayReadyLicense, windows_core::IUnknown, windows_core::IInspectable, IPlayReadyLicense);
 impl PlayReadyLicense {
     pub fn FullyEvaluated(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -3350,8 +3332,8 @@ impl windows_core::RuntimeName for PlayReadyLicense {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyLicenseAcquisitionServiceRequest(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PlayReadyLicenseAcquisitionServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PlayReadyLicenseAcquisitionServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyLicenseAcquisitionServiceRequest, IPlayReadyServiceRequest);
+windows_core::imp::interface_hierarchy!(PlayReadyLicenseAcquisitionServiceRequest, windows_core::IUnknown, windows_core::IInspectable, IPlayReadyLicenseAcquisitionServiceRequest);
+windows_core::imp::required_hierarchy!(PlayReadyLicenseAcquisitionServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyLicenseAcquisitionServiceRequest {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3493,9 +3475,7 @@ impl windows_core::RuntimeName for PlayReadyLicenseAcquisitionServiceRequest {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyLicenseIterable(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterable, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(PlayReadyLicenseIterable, super::super::super::Foundation::Collections::IIterable::<IPlayReadyLicense>);
+windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterable, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterable::<IPlayReadyLicense>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyLicenseIterable {
     pub fn new() -> windows_core::Result<Self> {
@@ -3563,9 +3543,7 @@ impl IntoIterator for &PlayReadyLicenseIterable {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyLicenseIterator(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterator, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(PlayReadyLicenseIterator, super::super::super::Foundation::Collections::IIterator::<IPlayReadyLicense>);
+windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterator, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterator::<IPlayReadyLicense>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyLicenseIterator {
     #[cfg(feature = "Foundation_Collections")]
@@ -3637,8 +3615,8 @@ impl windows_core::RuntimeName for PlayReadyLicenseManagement {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyLicenseSession(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PlayReadyLicenseSession, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PlayReadyLicenseSession, IPlayReadyLicenseSession, IPlayReadyLicenseSession2);
+windows_core::imp::interface_hierarchy!(PlayReadyLicenseSession, windows_core::IUnknown, windows_core::IInspectable, IPlayReadyLicenseSession);
+windows_core::imp::required_hierarchy!(PlayReadyLicenseSession, IPlayReadyLicenseSession2);
 impl PlayReadyLicenseSession {
     pub fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
         let this = self;
@@ -3903,9 +3881,7 @@ impl windows_core::RuntimeName for PlayReadyRevocationServiceRequest {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadySecureStopIterable(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterable, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(PlayReadySecureStopIterable, super::super::super::Foundation::Collections::IIterable::<IPlayReadySecureStopServiceRequest>);
+windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterable, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterable::<IPlayReadySecureStopServiceRequest>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadySecureStopIterable {
     #[cfg(feature = "Foundation_Collections")]
@@ -3963,9 +3939,7 @@ impl IntoIterator for &PlayReadySecureStopIterable {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadySecureStopIterator(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterator, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(PlayReadySecureStopIterator, super::super::super::Foundation::Collections::IIterator::<IPlayReadySecureStopServiceRequest>);
+windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterator, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterator::<IPlayReadySecureStopServiceRequest>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadySecureStopIterator {
     #[cfg(feature = "Foundation_Collections")]
@@ -4017,8 +3991,8 @@ impl windows_core::RuntimeName for PlayReadySecureStopIterator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadySecureStopServiceRequest(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PlayReadySecureStopServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PlayReadySecureStopServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadySecureStopServiceRequest, IPlayReadyServiceRequest);
+windows_core::imp::interface_hierarchy!(PlayReadySecureStopServiceRequest, windows_core::IUnknown, windows_core::IInspectable, IPlayReadySecureStopServiceRequest);
+windows_core::imp::required_hierarchy!(PlayReadySecureStopServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadySecureStopServiceRequest {
     pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;

@@ -1,3 +1,4 @@
+use windows::core::Result;
 use windows_strings::*;
 
 #[test]

@@ -907,8 +907,8 @@ unsafe impl Sync for PrintTaskCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskOptions(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintTaskOptions, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintTaskOptions, IPrintTaskOptionsCore, IPrintTaskOptionsCoreProperties, IPrintTaskOptionsCoreUIConfiguration);
+windows_core::imp::interface_hierarchy!(PrintTaskOptions, windows_core::IUnknown, windows_core::IInspectable, IPrintTaskOptionsCore);
+windows_core::imp::required_hierarchy!(PrintTaskOptions, IPrintTaskOptionsCoreProperties, IPrintTaskOptionsCoreUIConfiguration);
 impl PrintTaskOptions {
     pub fn SetBordering(&self, value: PrintBordering) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintTaskOptions>(self)?;

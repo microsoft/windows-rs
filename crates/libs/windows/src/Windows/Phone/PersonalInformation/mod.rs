@@ -507,8 +507,7 @@ unsafe impl Sync for ContactChangeRecord {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactInformation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ContactInformation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ContactInformation, IContactInformation);
+windows_core::imp::interface_hierarchy!(ContactInformation, windows_core::IUnknown, windows_core::IInspectable, IContactInformation);
 impl ContactInformation {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

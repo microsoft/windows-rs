@@ -638,8 +638,7 @@ unsafe impl Sync for UserActivityChannel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityContentInfo(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UserActivityContentInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserActivityContentInfo, IUserActivityContentInfo);
+windows_core::imp::interface_hierarchy!(UserActivityContentInfo, windows_core::IUnknown, windows_core::IInspectable, IUserActivityContentInfo);
 impl UserActivityContentInfo {
     pub fn ToJson(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;

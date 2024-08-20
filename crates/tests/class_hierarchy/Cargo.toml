@@ -1,5 +1,5 @@
 [package]
-name = "test_bstr"
+name = "test_class_hierarchy"
 version = "0.0.0"
 edition = "2021"
 publish = false
@@ -11,5 +11,5 @@ doctest = false
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
-    "Win32_Foundation",
+    "Foundation",
 ]

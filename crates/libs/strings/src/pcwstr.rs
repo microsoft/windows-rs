@@ -70,7 +70,7 @@ impl PCWSTR {
     /// # Safety
     ///
     /// See the safety information for `PCWSTR::as_wide`.
-    pub unsafe fn to_hstring(&self) -> Result<HSTRING> {
+    pub unsafe fn to_hstring(&self) -> HSTRING {
         HSTRING::from_wide(self.as_wide())
     }
 

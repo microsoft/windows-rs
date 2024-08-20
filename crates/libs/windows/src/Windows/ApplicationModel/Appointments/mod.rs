@@ -1835,8 +1835,7 @@ unsafe impl Sync for AppointmentManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentOrganizer(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(AppointmentOrganizer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AppointmentOrganizer, IAppointmentParticipant);
+windows_core::imp::interface_hierarchy!(AppointmentOrganizer, windows_core::IUnknown, windows_core::IInspectable, IAppointmentParticipant);
 impl AppointmentOrganizer {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

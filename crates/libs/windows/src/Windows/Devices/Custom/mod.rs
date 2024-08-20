@@ -187,8 +187,7 @@ unsafe impl Sync for CustomDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IOControlCode(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(IOControlCode, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IOControlCode, IIOControlCode);
+windows_core::imp::interface_hierarchy!(IOControlCode, windows_core::IUnknown, windows_core::IInspectable, IIOControlCode);
 impl IOControlCode {
     pub fn AccessMode(&self) -> windows_core::Result<IOControlAccessMode> {
         let this = self;

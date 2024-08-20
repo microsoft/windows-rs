@@ -650,8 +650,7 @@ unsafe impl Sync for InkAnalysisListItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisNode(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(InkAnalysisNode, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InkAnalysisNode, IInkAnalysisNode);
+windows_core::imp::interface_hierarchy!(InkAnalysisNode, windows_core::IUnknown, windows_core::IInspectable, IInkAnalysisNode);
 impl InkAnalysisNode {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;

@@ -519,9 +519,7 @@ impl windows_core::RuntimeName for CredentialCommand {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SettingsCommand(windows_core::IUnknown);
 #[cfg(feature = "UI_Popups")]
-windows_core::imp::interface_hierarchy!(SettingsCommand, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "UI_Popups")]
-windows_core::imp::required_hierarchy!(SettingsCommand, super::Popups::IUICommand);
+windows_core::imp::interface_hierarchy!(SettingsCommand, windows_core::IUnknown, windows_core::IInspectable, super::Popups::IUICommand);
 #[cfg(feature = "UI_Popups")]
 impl SettingsCommand {
     #[cfg(feature = "UI_Popups")]

@@ -8,14 +8,14 @@ pub struct HStringBuilder(*mut HStringHeader);
 
 impl HStringBuilder {
     /// Creates a preallocated `HSTRING` value.
-    pub fn new(len: usize) -> Result<Self> {
-        let header = HStringHeader::alloc(len.try_into()?)?;
+    pub fn new(len: usize) -> Self {
+        let header = HStringHeader::alloc(len.try_into().unwrap());
 
         if len > 0 {
             unsafe { core::ptr::write_bytes((*header).data, 0, len) };
         }
 
-        Ok(Self(header))
+        Self(header)
     }
 
     /// Shortens the string by removing any trailing 0 characters.

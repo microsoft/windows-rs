@@ -179,9 +179,20 @@ fn gen_conversions(
     cfg: &cfg::Cfg,
 ) -> TokenStream {
     let features = writer.cfg_features(cfg);
-    let mut tokens = quote! {
-        #features
-        windows_core::imp::interface_hierarchy!(#ident, windows_core::IUnknown, windows_core::IInspectable);
+
+    let mut tokens = if let Some(default) = interfaces.iter().find(|interface| {
+        !type_is_exclusive(&interface.ty) && interface.kind == metadata::InterfaceKind::Default
+    }) {
+        let default = writer.type_name(&default.ty);
+        quote! {
+            #features
+            windows_core::imp::interface_hierarchy!(#ident, windows_core::IUnknown, windows_core::IInspectable, #default);
+        }
+    } else {
+        quote! {
+            #features
+            windows_core::imp::interface_hierarchy!(#ident, windows_core::IUnknown, windows_core::IInspectable);
+        }
     };
 
     let mut hierarchy = format!("windows_core::imp::required_hierarchy!({ident}");
@@ -189,12 +200,11 @@ fn gen_conversions(
     let mut hierarchy_added = false;
 
     for interface in interfaces {
-        if type_is_exclusive(&interface.ty) {
+        if type_is_exclusive(&interface.ty) || interface.kind == metadata::InterfaceKind::Default {
             continue;
         }
 
-        if interface.kind != metadata::InterfaceKind::Default
-            && interface.kind != metadata::InterfaceKind::None
+        if interface.kind != metadata::InterfaceKind::None
             && interface.kind != metadata::InterfaceKind::Base
         {
             continue;

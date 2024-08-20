@@ -183,9 +183,9 @@ unsafe impl Sync for PnpObject {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PnpObjectCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(PnpObjectCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IVectorView::<PnpObject>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(PnpObjectCollection, super::super::super::Foundation::Collections::IIterable::<PnpObject>, super::super::super::Foundation::Collections::IVectorView::<PnpObject>);
+windows_core::imp::required_hierarchy!(PnpObjectCollection, super::super::super::Foundation::Collections::IIterable::<PnpObject>);
 #[cfg(feature = "Foundation_Collections")]
 impl PnpObjectCollection {
     #[cfg(feature = "Foundation_Collections")]

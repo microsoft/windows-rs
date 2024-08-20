@@ -691,8 +691,8 @@ pub struct IPrintTextOptionDetails_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintBindingOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintBindingOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintBindingOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintBindingOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintBindingOptionDetails, IPrintItemListOptionDetails);
 impl PrintBindingOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintBindingOptionDetails>(self)?;
@@ -793,8 +793,8 @@ unsafe impl Sync for PrintBindingOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintBorderingOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintBorderingOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintBorderingOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintBorderingOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintBorderingOptionDetails, IPrintItemListOptionDetails);
 impl PrintBorderingOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintBorderingOptionDetails>(self)?;
@@ -895,8 +895,8 @@ unsafe impl Sync for PrintBorderingOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCollationOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintCollationOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintCollationOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintCollationOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintCollationOptionDetails, IPrintItemListOptionDetails);
 impl PrintCollationOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCollationOptionDetails>(self)?;
@@ -997,8 +997,8 @@ unsafe impl Sync for PrintCollationOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintColorModeOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintColorModeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintColorModeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintColorModeOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintColorModeOptionDetails, IPrintItemListOptionDetails);
 impl PrintColorModeOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintColorModeOptionDetails>(self)?;
@@ -1099,8 +1099,8 @@ unsafe impl Sync for PrintColorModeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCopiesOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintCopiesOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintCopiesOptionDetails, IPrintNumberOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintCopiesOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintCopiesOptionDetails, IPrintNumberOptionDetails);
 impl PrintCopiesOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCopiesOptionDetails>(self)?;
@@ -1243,8 +1243,8 @@ unsafe impl Sync for PrintCustomItemDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomItemListOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintCustomItemListOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintCustomItemListOptionDetails, IPrintCustomOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintCustomItemListOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintCustomItemListOptionDetails, IPrintCustomOptionDetails, IPrintItemListOptionDetails);
 impl PrintCustomItemListOptionDetails {
     pub fn AddItem(&self, itemid: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCustomItemListOptionDetails>(self)?;
@@ -1368,8 +1368,8 @@ unsafe impl Sync for PrintCustomItemListOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomTextOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintCustomTextOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintCustomTextOptionDetails, IPrintCustomOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintCustomTextOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintCustomTextOptionDetails, IPrintCustomOptionDetails);
 impl PrintCustomTextOptionDetails {
     pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCustomOptionDetails>(self)?;
@@ -1484,8 +1484,8 @@ unsafe impl Sync for PrintCustomTextOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomToggleOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintCustomToggleOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintCustomToggleOptionDetails, IPrintCustomOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintCustomToggleOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintCustomToggleOptionDetails, IPrintCustomOptionDetails);
 impl PrintCustomToggleOptionDetails {
     pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCustomOptionDetails>(self)?;
@@ -1589,8 +1589,8 @@ unsafe impl Sync for PrintCustomToggleOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintDuplexOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintDuplexOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintDuplexOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintDuplexOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintDuplexOptionDetails, IPrintItemListOptionDetails);
 impl PrintDuplexOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintDuplexOptionDetails>(self)?;
@@ -1691,8 +1691,8 @@ unsafe impl Sync for PrintDuplexOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintHolePunchOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintHolePunchOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintHolePunchOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintHolePunchOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintHolePunchOptionDetails, IPrintItemListOptionDetails);
 impl PrintHolePunchOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintHolePunchOptionDetails>(self)?;
@@ -1793,8 +1793,8 @@ unsafe impl Sync for PrintHolePunchOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintMediaSizeOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintMediaSizeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintMediaSizeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintMediaSizeOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintMediaSizeOptionDetails, IPrintItemListOptionDetails);
 impl PrintMediaSizeOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>> {
@@ -1895,8 +1895,8 @@ unsafe impl Sync for PrintMediaSizeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintMediaTypeOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintMediaTypeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintMediaTypeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintMediaTypeOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintMediaTypeOptionDetails, IPrintItemListOptionDetails);
 impl PrintMediaTypeOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>> {
@@ -1997,8 +1997,8 @@ unsafe impl Sync for PrintMediaTypeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintOrientationOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintOrientationOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintOrientationOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintOrientationOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintOrientationOptionDetails, IPrintItemListOptionDetails);
 impl PrintOrientationOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>> {
@@ -2099,8 +2099,7 @@ unsafe impl Sync for PrintOrientationOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageRangeOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintPageRangeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintPageRangeOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintPageRangeOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
 impl PrintPageRangeOptionDetails {
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2193,8 +2192,8 @@ unsafe impl Sync for PrintPageRangeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintQualityOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintQualityOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintQualityOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintQualityOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintQualityOptionDetails, IPrintItemListOptionDetails);
 impl PrintQualityOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>> {
@@ -2295,8 +2294,8 @@ unsafe impl Sync for PrintQualityOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintStapleOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintStapleOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PrintStapleOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
+windows_core::imp::interface_hierarchy!(PrintStapleOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+windows_core::imp::required_hierarchy!(PrintStapleOptionDetails, IPrintItemListOptionDetails);
 impl PrintStapleOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>> {

@@ -8,7 +8,6 @@
     Windows.Win32.Foundation.E_BOUNDS
     Windows.Win32.Foundation.E_INVALIDARG
     Windows.Win32.Foundation.E_NOINTERFACE
-    Windows.Win32.Foundation.E_OUTOFMEMORY
     Windows.Win32.Foundation.E_POINTER
     Windows.Win32.Foundation.JSCRIPT_E_CANTEXECUTE
     Windows.Win32.Foundation.RPC_E_DISCONNECTED
