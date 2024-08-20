@@ -442,9 +442,7 @@ unsafe impl Sync for TargetedContentContainer {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentFile(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::interface_hierarchy!(TargetedContentFile, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(TargetedContentFile, super::super::Storage::Streams::IRandomAccessStreamReference);
+windows_core::imp::interface_hierarchy!(TargetedContentFile, windows_core::IUnknown, windows_core::IInspectable, super::super::Storage::Streams::IRandomAccessStreamReference);
 #[cfg(feature = "Storage_Streams")]
 impl TargetedContentFile {
     #[cfg(feature = "Storage_Streams")]

@@ -2685,8 +2685,7 @@ unsafe impl Sync for AudioGraph {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphBatchUpdater(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(AudioGraphBatchUpdater, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AudioGraphBatchUpdater, super::super::Foundation::IClosable);
+windows_core::imp::interface_hierarchy!(AudioGraphBatchUpdater, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::IClosable);
 impl AudioGraphBatchUpdater {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = self;
@@ -3513,8 +3512,8 @@ unsafe impl Sync for AudioStateMonitor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioSubmixNode(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(AudioSubmixNode, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AudioSubmixNode, IAudioInputNode, IAudioInputNode2, IAudioNode, super::super::Foundation::IClosable);
+windows_core::imp::interface_hierarchy!(AudioSubmixNode, windows_core::IUnknown, windows_core::IInspectable, IAudioInputNode);
+windows_core::imp::required_hierarchy!(AudioSubmixNode, IAudioInputNode2, IAudioNode, super::super::Foundation::IClosable);
 impl AudioSubmixNode {
     #[cfg(feature = "Foundation_Collections")]
     pub fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {

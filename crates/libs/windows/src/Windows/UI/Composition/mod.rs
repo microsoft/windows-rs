@@ -12689,9 +12689,9 @@ unsafe impl Sync for CompositionShape {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionShapeCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(CompositionShapeCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(CompositionShapeCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVector::<CompositionShape>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionShapeCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable::<CompositionShape>, super::super::Foundation::Collections::IVector::<CompositionShape>, CompositionObject);
+windows_core::imp::required_hierarchy!(CompositionShapeCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable::<CompositionShape>, CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionShapeCollection {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P0) -> windows_core::Result<()>
@@ -13271,9 +13271,9 @@ unsafe impl Sync for CompositionSpriteShape {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionStrokeDashArray(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(CompositionStrokeDashArray, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(CompositionStrokeDashArray, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVector::<f32>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionStrokeDashArray, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable::<f32>, super::super::Foundation::Collections::IVector::<f32>, CompositionObject);
+windows_core::imp::required_hierarchy!(CompositionStrokeDashArray, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable::<f32>, CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionStrokeDashArray {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P0) -> windows_core::Result<()>
@@ -17457,9 +17457,9 @@ unsafe impl Sync for ImplicitAnimationCollection {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InitialValueExpressionCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(InitialValueExpressionCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(InitialValueExpressionCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IMap::<windows_core::HSTRING, windows_core::HSTRING>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(InitialValueExpressionCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable::<super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, windows_core::HSTRING>>, super::super::Foundation::Collections::IMap::<windows_core::HSTRING, windows_core::HSTRING>, CompositionObject);
+windows_core::imp::required_hierarchy!(InitialValueExpressionCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable::<super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, windows_core::HSTRING>>, CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl InitialValueExpressionCollection {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P0) -> windows_core::Result<()>

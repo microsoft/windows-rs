@@ -150,8 +150,7 @@ pub struct IRampForceEffect_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConditionForceEffect(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ConditionForceEffect, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ConditionForceEffect, IForceFeedbackEffect);
+windows_core::imp::interface_hierarchy!(ConditionForceEffect, windows_core::IUnknown, windows_core::IInspectable, IForceFeedbackEffect);
 impl ConditionForceEffect {
     pub fn Kind(&self) -> windows_core::Result<ConditionForceEffectKind> {
         let this = &windows_core::Interface::cast::<IConditionForceEffect>(self)?;
@@ -218,8 +217,7 @@ unsafe impl Sync for ConditionForceEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConstantForceEffect(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ConstantForceEffect, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ConstantForceEffect, IForceFeedbackEffect);
+windows_core::imp::interface_hierarchy!(ConstantForceEffect, windows_core::IUnknown, windows_core::IInspectable, IForceFeedbackEffect);
 impl ConstantForceEffect {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -383,8 +381,7 @@ unsafe impl Sync for ForceFeedbackMotor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PeriodicForceEffect(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PeriodicForceEffect, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PeriodicForceEffect, IForceFeedbackEffect);
+windows_core::imp::interface_hierarchy!(PeriodicForceEffect, windows_core::IUnknown, windows_core::IInspectable, IForceFeedbackEffect);
 impl PeriodicForceEffect {
     pub fn Gain(&self) -> windows_core::Result<f64> {
         let this = self;
@@ -456,8 +453,7 @@ unsafe impl Sync for PeriodicForceEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RampForceEffect(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RampForceEffect, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RampForceEffect, IForceFeedbackEffect);
+windows_core::imp::interface_hierarchy!(RampForceEffect, windows_core::IUnknown, windows_core::IInspectable, IForceFeedbackEffect);
 impl RampForceEffect {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

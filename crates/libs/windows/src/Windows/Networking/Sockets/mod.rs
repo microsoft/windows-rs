@@ -1969,8 +1969,8 @@ unsafe impl Sync for MessageWebSocketControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocketInformation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MessageWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MessageWebSocketInformation, IWebSocketInformation, IWebSocketInformation2);
+windows_core::imp::interface_hierarchy!(MessageWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable, IWebSocketInformation);
+windows_core::imp::required_hierarchy!(MessageWebSocketInformation, IWebSocketInformation2);
 impl MessageWebSocketInformation {
     pub fn LocalAddress(&self) -> windows_core::Result<super::HostName> {
         let this = self;
@@ -3395,8 +3395,8 @@ unsafe impl Sync for StreamWebSocketControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamWebSocketInformation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StreamWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(StreamWebSocketInformation, IWebSocketInformation, IWebSocketInformation2);
+windows_core::imp::interface_hierarchy!(StreamWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable, IWebSocketInformation);
+windows_core::imp::required_hierarchy!(StreamWebSocketInformation, IWebSocketInformation2);
 impl StreamWebSocketInformation {
     pub fn LocalAddress(&self) -> windows_core::Result<super::HostName> {
         let this = self;
@@ -3518,9 +3518,7 @@ impl windows_core::RuntimeName for WebSocketError {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebSocketKeepAlive(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Background")]
-windows_core::imp::interface_hierarchy!(WebSocketKeepAlive, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "ApplicationModel_Background")]
-windows_core::imp::required_hierarchy!(WebSocketKeepAlive, super::super::ApplicationModel::Background::IBackgroundTask);
+windows_core::imp::interface_hierarchy!(WebSocketKeepAlive, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Background::IBackgroundTask);
 #[cfg(feature = "ApplicationModel_Background")]
 impl WebSocketKeepAlive {
     pub fn new() -> windows_core::Result<Self> {

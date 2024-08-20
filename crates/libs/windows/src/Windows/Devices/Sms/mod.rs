@@ -954,9 +954,9 @@ pub struct ISmsWapMessage_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSmsMessageOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(DeleteSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(DeleteSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::IAsyncAction);
 #[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(DeleteSmsMessageOperation, super::super::Foundation::IAsyncAction, super::super::Foundation::IAsyncInfo);
+windows_core::imp::required_hierarchy!(DeleteSmsMessageOperation, super::super::Foundation::IAsyncInfo);
 #[cfg(feature = "deprecated")]
 impl DeleteSmsMessageOperation {
     pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
@@ -1040,9 +1040,9 @@ impl DeleteSmsMessageOperation {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSmsMessagesOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(DeleteSmsMessagesOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(DeleteSmsMessagesOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::IAsyncAction);
 #[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(DeleteSmsMessagesOperation, super::super::Foundation::IAsyncAction, super::super::Foundation::IAsyncInfo);
+windows_core::imp::required_hierarchy!(DeleteSmsMessagesOperation, super::super::Foundation::IAsyncInfo);
 #[cfg(feature = "deprecated")]
 impl DeleteSmsMessagesOperation {
     pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
@@ -1126,9 +1126,9 @@ impl DeleteSmsMessagesOperation {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GetSmsDeviceOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(GetSmsDeviceOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(GetSmsDeviceOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::IAsyncOperation::<SmsDevice>);
 #[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(GetSmsDeviceOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation::<SmsDevice>);
+windows_core::imp::required_hierarchy!(GetSmsDeviceOperation, super::super::Foundation::IAsyncInfo);
 #[cfg(feature = "deprecated")]
 impl GetSmsDeviceOperation {
     pub fn Id(&self) -> windows_core::Result<u32> {
@@ -1215,9 +1215,9 @@ impl GetSmsDeviceOperation {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GetSmsMessageOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(GetSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(GetSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::IAsyncOperation::<ISmsMessage>);
 #[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(GetSmsMessageOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation::<ISmsMessage>);
+windows_core::imp::required_hierarchy!(GetSmsMessageOperation, super::super::Foundation::IAsyncInfo);
 #[cfg(feature = "deprecated")]
 impl GetSmsMessageOperation {
     pub fn Id(&self) -> windows_core::Result<u32> {
@@ -1304,9 +1304,9 @@ impl GetSmsMessageOperation {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GetSmsMessagesOperation(windows_core::IUnknown);
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-windows_core::imp::interface_hierarchy!(GetSmsMessagesOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(GetSmsMessagesOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::IAsyncOperationWithProgress::<super::super::Foundation::Collections::IVectorView::<ISmsMessage>, i32>);
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-windows_core::imp::required_hierarchy!(GetSmsMessagesOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperationWithProgress::<super::super::Foundation::Collections::IVectorView::<ISmsMessage>, i32>);
+windows_core::imp::required_hierarchy!(GetSmsMessagesOperation, super::super::Foundation::IAsyncInfo);
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl GetSmsMessagesOperation {
     pub fn Id(&self) -> windows_core::Result<u32> {
@@ -1412,9 +1412,9 @@ impl GetSmsMessagesOperation {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SendSmsMessageOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(SendSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SendSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::IAsyncAction);
 #[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(SendSmsMessageOperation, super::super::Foundation::IAsyncAction, super::super::Foundation::IAsyncInfo);
+windows_core::imp::required_hierarchy!(SendSmsMessageOperation, super::super::Foundation::IAsyncInfo);
 #[cfg(feature = "deprecated")]
 impl SendSmsMessageOperation {
     pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
@@ -1688,9 +1688,9 @@ unsafe impl Sync for SmsAppMessage {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsBinaryMessage(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(SmsBinaryMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SmsBinaryMessage, windows_core::IUnknown, windows_core::IInspectable, ISmsBinaryMessage);
 #[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(SmsBinaryMessage, ISmsBinaryMessage, ISmsMessage);
+windows_core::imp::required_hierarchy!(SmsBinaryMessage, ISmsMessage);
 #[cfg(feature = "deprecated")]
 impl SmsBinaryMessage {
     pub fn new() -> windows_core::Result<Self> {
@@ -1887,9 +1887,7 @@ unsafe impl Sync for SmsBroadcastMessage {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsDevice(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(SmsDevice, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(SmsDevice, ISmsDevice);
+windows_core::imp::interface_hierarchy!(SmsDevice, windows_core::IUnknown, windows_core::IInspectable, ISmsDevice);
 #[cfg(feature = "deprecated")]
 impl SmsDevice {
     #[cfg(feature = "deprecated")]
@@ -2807,9 +2805,9 @@ unsafe impl Sync for SmsStatusMessage {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsTextMessage(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(SmsTextMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SmsTextMessage, windows_core::IUnknown, windows_core::IInspectable, ISmsTextMessage);
 #[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(SmsTextMessage, ISmsMessage, ISmsTextMessage);
+windows_core::imp::required_hierarchy!(SmsTextMessage, ISmsMessage);
 #[cfg(feature = "deprecated")]
 impl SmsTextMessage {
     pub fn new() -> windows_core::Result<Self> {

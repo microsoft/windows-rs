@@ -1974,8 +1974,7 @@ unsafe impl Sync for FontWeights {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RichEditTextDocument(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RichEditTextDocument, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RichEditTextDocument, ITextDocument);
+windows_core::imp::interface_hierarchy!(RichEditTextDocument, windows_core::IUnknown, windows_core::IInspectable, ITextDocument);
 impl RichEditTextDocument {
     pub fn CaretType(&self) -> windows_core::Result<CaretType> {
         let this = self;
@@ -2195,8 +2194,7 @@ unsafe impl Sync for RichEditTextDocument {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RichEditTextRange(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RichEditTextRange, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RichEditTextRange, ITextRange);
+windows_core::imp::interface_hierarchy!(RichEditTextRange, windows_core::IUnknown, windows_core::IInspectable, ITextRange);
 impl RichEditTextRange {
     pub fn ContentLinkInfo(&self) -> windows_core::Result<ContentLinkInfo> {
         let this = &windows_core::Interface::cast::<IRichEditTextRange>(self)?;

@@ -2083,9 +2083,9 @@ unsafe impl Sync for ApplicationData {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationDataCompositeValue(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ApplicationDataCompositeValue, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ApplicationDataCompositeValue, windows_core::IUnknown, windows_core::IInspectable, super::Foundation::Collections::IPropertySet);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(ApplicationDataCompositeValue, super::Foundation::Collections::IIterable::<super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, windows_core::IInspectable>>, super::Foundation::Collections::IMap::<windows_core::HSTRING, windows_core::IInspectable>, super::Foundation::Collections::IObservableMap::<windows_core::HSTRING, windows_core::IInspectable>, super::Foundation::Collections::IPropertySet);
+windows_core::imp::required_hierarchy!(ApplicationDataCompositeValue, super::Foundation::Collections::IIterable::<super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, windows_core::IInspectable>>, super::Foundation::Collections::IMap::<windows_core::HSTRING, windows_core::IInspectable>, super::Foundation::Collections::IObservableMap::<windows_core::HSTRING, windows_core::IInspectable>);
 #[cfg(feature = "Foundation_Collections")]
 impl ApplicationDataCompositeValue {
     pub fn new() -> windows_core::Result<Self> {
@@ -2275,9 +2275,9 @@ unsafe impl Sync for ApplicationDataContainer {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationDataContainerSettings(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ApplicationDataContainerSettings, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ApplicationDataContainerSettings, windows_core::IUnknown, windows_core::IInspectable, super::Foundation::Collections::IPropertySet);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(ApplicationDataContainerSettings, super::Foundation::Collections::IIterable::<super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, windows_core::IInspectable>>, super::Foundation::Collections::IMap::<windows_core::HSTRING, windows_core::IInspectable>, super::Foundation::Collections::IObservableMap::<windows_core::HSTRING, windows_core::IInspectable>, super::Foundation::Collections::IPropertySet);
+windows_core::imp::required_hierarchy!(ApplicationDataContainerSettings, super::Foundation::Collections::IIterable::<super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, windows_core::IInspectable>>, super::Foundation::Collections::IMap::<windows_core::HSTRING, windows_core::IInspectable>, super::Foundation::Collections::IObservableMap::<windows_core::HSTRING, windows_core::IInspectable>);
 #[cfg(feature = "Foundation_Collections")]
 impl ApplicationDataContainerSettings {
     #[cfg(feature = "Foundation_Collections")]
@@ -3002,9 +3002,9 @@ unsafe impl Sync for SetVersionRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageFile(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageFile, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(StorageFile, windows_core::IUnknown, windows_core::IInspectable, IStorageFile);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(StorageFile, Streams::IInputStreamReference, Streams::IRandomAccessStreamReference, IStorageFile, IStorageFile2, IStorageFilePropertiesWithAvailability, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider);
+windows_core::imp::required_hierarchy!(StorageFile, Streams::IInputStreamReference, Streams::IRandomAccessStreamReference, IStorageFile2, IStorageFilePropertiesWithAvailability, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider);
 impl StorageFile {
     #[cfg(feature = "Storage_Streams")]
     pub fn OpenSequentialReadAsync(&self) -> windows_core::Result<super::Foundation::IAsyncOperation<Streams::IInputStream>> {
@@ -3420,9 +3420,9 @@ impl windows_core::RuntimeName for StorageFile {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageFolder(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageFolder, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(StorageFolder, windows_core::IUnknown, windows_core::IInspectable, IStorageFolder);
 #[cfg(feature = "Storage_Search")]
-windows_core::imp::required_hierarchy!(StorageFolder, IStorageFolder, IStorageFolder2, Search::IStorageFolderQueryOperations, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider);
+windows_core::imp::required_hierarchy!(StorageFolder, IStorageFolder2, Search::IStorageFolderQueryOperations, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider);
 impl StorageFolder {
     pub fn CreateFileAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StorageFile>> {
         let this = self;
@@ -4250,9 +4250,9 @@ impl windows_core::RuntimeName for StorageStreamTransaction {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamedFileDataRequest(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::interface_hierarchy!(StreamedFileDataRequest, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(StreamedFileDataRequest, windows_core::IUnknown, windows_core::IInspectable, Streams::IOutputStream);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(StreamedFileDataRequest, super::Foundation::IClosable, Streams::IOutputStream, IStreamedFileDataRequest);
+windows_core::imp::required_hierarchy!(StreamedFileDataRequest, super::Foundation::IClosable, IStreamedFileDataRequest);
 #[cfg(feature = "Storage_Streams")]
 impl StreamedFileDataRequest {
     pub fn Close(&self) -> windows_core::Result<()> {

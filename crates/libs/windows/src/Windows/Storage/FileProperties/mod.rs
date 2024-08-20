@@ -872,9 +872,9 @@ impl windows_core::RuntimeName for StorageItemContentProperties {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageItemThumbnail(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::interface_hierarchy!(StorageItemThumbnail, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(StorageItemThumbnail, windows_core::IUnknown, windows_core::IInspectable, super::Streams::IRandomAccessStreamWithContentType);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(StorageItemThumbnail, super::super::Foundation::IClosable, super::Streams::IContentTypeProvider, super::Streams::IInputStream, super::Streams::IOutputStream, super::Streams::IRandomAccessStream, super::Streams::IRandomAccessStreamWithContentType);
+windows_core::imp::required_hierarchy!(StorageItemThumbnail, super::super::Foundation::IClosable, super::Streams::IContentTypeProvider, super::Streams::IInputStream, super::Streams::IOutputStream, super::Streams::IRandomAccessStream);
 #[cfg(feature = "Storage_Streams")]
 impl StorageItemThumbnail {
     pub fn Close(&self) -> windows_core::Result<()> {

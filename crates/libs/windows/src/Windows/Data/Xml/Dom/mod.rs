@@ -4703,8 +4703,8 @@ unsafe impl Sync for XmlProcessingInstruction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlText(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(XmlText, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(XmlText, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer, IXmlText);
+windows_core::imp::interface_hierarchy!(XmlText, windows_core::IUnknown, windows_core::IInspectable, IXmlText);
+windows_core::imp::required_hierarchy!(XmlText, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl XmlText {
     pub fn Data(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IXmlCharacterData>(self)?;

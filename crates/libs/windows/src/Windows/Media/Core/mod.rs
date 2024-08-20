@@ -1919,8 +1919,7 @@ unsafe impl Sync for AudioStreamDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioTrack(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(AudioTrack, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AudioTrack, IMediaTrack);
+windows_core::imp::interface_hierarchy!(AudioTrack, windows_core::IUnknown, windows_core::IInspectable, IMediaTrack);
 impl AudioTrack {
     pub fn OpenFailed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2732,9 +2731,7 @@ unsafe impl Sync for FaceDetectionEffect {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FaceDetectionEffectDefinition(windows_core::IUnknown);
 #[cfg(feature = "Media_Effects")]
-windows_core::imp::interface_hierarchy!(FaceDetectionEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Media_Effects")]
-windows_core::imp::required_hierarchy!(FaceDetectionEffectDefinition, super::Effects::IVideoEffectDefinition);
+windows_core::imp::interface_hierarchy!(FaceDetectionEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, super::Effects::IVideoEffectDefinition);
 #[cfg(feature = "Media_Effects")]
 impl FaceDetectionEffectDefinition {
     pub fn new() -> windows_core::Result<Self> {
@@ -3905,9 +3902,9 @@ unsafe impl Sync for MediaStreamSample {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaStreamSamplePropertySet(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(MediaStreamSamplePropertySet, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MediaStreamSamplePropertySet, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IMap::<windows_core::GUID, windows_core::IInspectable>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(MediaStreamSamplePropertySet, super::super::Foundation::Collections::IIterable::<super::super::Foundation::Collections::IKeyValuePair::<windows_core::GUID, windows_core::IInspectable>>, super::super::Foundation::Collections::IMap::<windows_core::GUID, windows_core::IInspectable>);
+windows_core::imp::required_hierarchy!(MediaStreamSamplePropertySet, super::super::Foundation::Collections::IIterable::<super::super::Foundation::Collections::IKeyValuePair::<windows_core::GUID, windows_core::IInspectable>>);
 #[cfg(feature = "Foundation_Collections")]
 impl MediaStreamSamplePropertySet {
     #[cfg(feature = "Foundation_Collections")]
@@ -5092,9 +5089,7 @@ unsafe impl Sync for SceneAnalysisEffect {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneAnalysisEffectDefinition(windows_core::IUnknown);
 #[cfg(feature = "Media_Effects")]
-windows_core::imp::interface_hierarchy!(SceneAnalysisEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Media_Effects")]
-windows_core::imp::required_hierarchy!(SceneAnalysisEffectDefinition, super::Effects::IVideoEffectDefinition);
+windows_core::imp::interface_hierarchy!(SceneAnalysisEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, super::Effects::IVideoEffectDefinition);
 #[cfg(feature = "Media_Effects")]
 impl SceneAnalysisEffectDefinition {
     pub fn new() -> windows_core::Result<Self> {
@@ -5384,8 +5379,8 @@ unsafe impl Sync for SpeechCue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TimedMetadataStreamDescriptor(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(TimedMetadataStreamDescriptor, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(TimedMetadataStreamDescriptor, IMediaStreamDescriptor, IMediaStreamDescriptor2);
+windows_core::imp::interface_hierarchy!(TimedMetadataStreamDescriptor, windows_core::IUnknown, windows_core::IInspectable, IMediaStreamDescriptor);
+windows_core::imp::required_hierarchy!(TimedMetadataStreamDescriptor, IMediaStreamDescriptor2);
 impl TimedMetadataStreamDescriptor {
     pub fn IsSelected(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -6631,9 +6626,7 @@ unsafe impl Sync for VideoStabilizationEffect {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoStabilizationEffectDefinition(windows_core::IUnknown);
 #[cfg(feature = "Media_Effects")]
-windows_core::imp::interface_hierarchy!(VideoStabilizationEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Media_Effects")]
-windows_core::imp::required_hierarchy!(VideoStabilizationEffectDefinition, super::Effects::IVideoEffectDefinition);
+windows_core::imp::interface_hierarchy!(VideoStabilizationEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, super::Effects::IVideoEffectDefinition);
 #[cfg(feature = "Media_Effects")]
 impl VideoStabilizationEffectDefinition {
     pub fn new() -> windows_core::Result<Self> {
@@ -6794,8 +6787,7 @@ unsafe impl Sync for VideoStreamDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoTrack(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VideoTrack, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VideoTrack, IMediaTrack);
+windows_core::imp::interface_hierarchy!(VideoTrack, windows_core::IUnknown, windows_core::IInspectable, IMediaTrack);
 impl VideoTrack {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;

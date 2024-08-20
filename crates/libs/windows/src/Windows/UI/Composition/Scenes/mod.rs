@@ -674,9 +674,9 @@ unsafe impl Sync for SceneComponent {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneComponentCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(SceneComponentCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SceneComponentCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IVector::<SceneComponent>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(SceneComponentCollection, super::IAnimationObject, super::super::super::Foundation::IClosable, super::super::super::Foundation::Collections::IIterable::<SceneComponent>, super::super::super::Foundation::Collections::IVector::<SceneComponent>, SceneObject, super::CompositionObject);
+windows_core::imp::required_hierarchy!(SceneComponentCollection, super::IAnimationObject, super::super::super::Foundation::IClosable, super::super::super::Foundation::Collections::IIterable::<SceneComponent>, SceneObject, super::CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl SceneComponentCollection {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P0) -> windows_core::Result<()>
@@ -2404,9 +2404,9 @@ unsafe impl Sync for SceneNode {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneNodeCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(SceneNodeCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SceneNodeCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IVector::<SceneNode>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(SceneNodeCollection, super::IAnimationObject, super::super::super::Foundation::IClosable, super::super::super::Foundation::Collections::IIterable::<SceneNode>, super::super::super::Foundation::Collections::IVector::<SceneNode>, SceneObject, super::CompositionObject);
+windows_core::imp::required_hierarchy!(SceneNodeCollection, super::IAnimationObject, super::super::super::Foundation::IClosable, super::super::super::Foundation::Collections::IIterable::<SceneNode>, SceneObject, super::CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl SceneNodeCollection {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P0) -> windows_core::Result<()>

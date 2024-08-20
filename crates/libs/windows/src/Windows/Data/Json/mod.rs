@@ -707,8 +707,8 @@ unsafe impl Sync for JsonObject {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JsonValue(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(JsonValue, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(JsonValue, IJsonValue, super::super::Foundation::IStringable);
+windows_core::imp::interface_hierarchy!(JsonValue, windows_core::IUnknown, windows_core::IInspectable, IJsonValue);
+windows_core::imp::required_hierarchy!(JsonValue, super::super::Foundation::IStringable);
 impl JsonValue {
     pub fn ValueType(&self) -> windows_core::Result<JsonValueType> {
         let this = self;

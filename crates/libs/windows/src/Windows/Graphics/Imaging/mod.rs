@@ -1131,8 +1131,8 @@ unsafe impl Sync for BitmapEncoder {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapFrame(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(BitmapFrame, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BitmapFrame, IBitmapFrame, IBitmapFrameWithSoftwareBitmap);
+windows_core::imp::interface_hierarchy!(BitmapFrame, windows_core::IUnknown, windows_core::IInspectable, IBitmapFrame);
+windows_core::imp::required_hierarchy!(BitmapFrame, IBitmapFrameWithSoftwareBitmap);
 impl BitmapFrame {
     #[cfg(feature = "Storage_Streams")]
     pub fn GetThumbnailAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
@@ -1303,8 +1303,7 @@ unsafe impl Sync for BitmapProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapPropertiesView(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(BitmapPropertiesView, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BitmapPropertiesView, IBitmapPropertiesView);
+windows_core::imp::interface_hierarchy!(BitmapPropertiesView, windows_core::IUnknown, windows_core::IInspectable, IBitmapPropertiesView);
 impl BitmapPropertiesView {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
@@ -1335,9 +1334,9 @@ unsafe impl Sync for BitmapPropertiesView {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapPropertySet(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(BitmapPropertySet, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(BitmapPropertySet, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IMap::<windows_core::HSTRING, BitmapTypedValue>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(BitmapPropertySet, super::super::Foundation::Collections::IIterable::<super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, BitmapTypedValue>>, super::super::Foundation::Collections::IMap::<windows_core::HSTRING, BitmapTypedValue>);
+windows_core::imp::required_hierarchy!(BitmapPropertySet, super::super::Foundation::Collections::IIterable::<super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, BitmapTypedValue>>);
 #[cfg(feature = "Foundation_Collections")]
 impl BitmapPropertySet {
     pub fn new() -> windows_core::Result<Self> {
@@ -1584,9 +1583,9 @@ unsafe impl Sync for BitmapTypedValue {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageStream(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::interface_hierarchy!(ImageStream, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ImageStream, windows_core::IUnknown, windows_core::IInspectable, super::super::Storage::Streams::IRandomAccessStreamWithContentType);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(ImageStream, super::super::Foundation::IClosable, super::super::Storage::Streams::IContentTypeProvider, super::super::Storage::Streams::IInputStream, super::super::Storage::Streams::IOutputStream, super::super::Storage::Streams::IRandomAccessStream, super::super::Storage::Streams::IRandomAccessStreamWithContentType);
+windows_core::imp::required_hierarchy!(ImageStream, super::super::Foundation::IClosable, super::super::Storage::Streams::IContentTypeProvider, super::super::Storage::Streams::IInputStream, super::super::Storage::Streams::IOutputStream, super::super::Storage::Streams::IRandomAccessStream);
 #[cfg(feature = "Storage_Streams")]
 impl ImageStream {
     pub fn Close(&self) -> windows_core::Result<()> {

@@ -373,9 +373,9 @@ unsafe impl Sync for ResourceCandidate {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceCandidateVectorView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ResourceCandidateVectorView, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ResourceCandidateVectorView, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IVectorView::<ResourceCandidate>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(ResourceCandidateVectorView, super::super::super::Foundation::Collections::IIterable::<ResourceCandidate>, super::super::super::Foundation::Collections::IVectorView::<ResourceCandidate>);
+windows_core::imp::required_hierarchy!(ResourceCandidateVectorView, super::super::super::Foundation::Collections::IIterable::<ResourceCandidate>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceCandidateVectorView {
     #[cfg(feature = "Foundation_Collections")]
@@ -604,9 +604,9 @@ unsafe impl Sync for ResourceContext {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceContextLanguagesVectorView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ResourceContextLanguagesVectorView, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ResourceContextLanguagesVectorView, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IVectorView::<windows_core::HSTRING>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(ResourceContextLanguagesVectorView, super::super::super::Foundation::Collections::IIterable::<windows_core::HSTRING>, super::super::super::Foundation::Collections::IVectorView::<windows_core::HSTRING>);
+windows_core::imp::required_hierarchy!(ResourceContextLanguagesVectorView, super::super::super::Foundation::Collections::IIterable::<windows_core::HSTRING>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceContextLanguagesVectorView {
     #[cfg(feature = "Foundation_Collections")]
@@ -881,9 +881,7 @@ unsafe impl Sync for ResourceMap {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceMapIterator(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ResourceMapIterator, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(ResourceMapIterator, super::super::super::Foundation::Collections::IIterator::<super::super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, NamedResource>>);
+windows_core::imp::interface_hierarchy!(ResourceMapIterator, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterator::<super::super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, NamedResource>>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMapIterator {
     #[cfg(feature = "Foundation_Collections")]
@@ -941,9 +939,9 @@ unsafe impl Sync for ResourceMapIterator {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceMapMapView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ResourceMapMapView, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ResourceMapMapView, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IMapView::<windows_core::HSTRING, ResourceMap>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(ResourceMapMapView, super::super::super::Foundation::Collections::IIterable::<super::super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, ResourceMap>>, super::super::super::Foundation::Collections::IMapView::<windows_core::HSTRING, ResourceMap>);
+windows_core::imp::required_hierarchy!(ResourceMapMapView, super::super::super::Foundation::Collections::IIterable::<super::super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, ResourceMap>>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMapMapView {
     #[cfg(feature = "Foundation_Collections")]
@@ -1022,9 +1020,7 @@ unsafe impl Sync for ResourceMapMapView {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceMapMapViewIterator(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ResourceMapMapViewIterator, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(ResourceMapMapViewIterator, super::super::super::Foundation::Collections::IIterator::<super::super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, ResourceMap>>);
+windows_core::imp::interface_hierarchy!(ResourceMapMapViewIterator, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IIterator::<super::super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, ResourceMap>>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMapMapViewIterator {
     #[cfg(feature = "Foundation_Collections")]
@@ -1135,9 +1131,9 @@ unsafe impl Sync for ResourceQualifier {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceQualifierMapView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ResourceQualifierMapView, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ResourceQualifierMapView, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IMapView::<windows_core::HSTRING, windows_core::HSTRING>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(ResourceQualifierMapView, super::super::super::Foundation::Collections::IIterable::<super::super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, windows_core::HSTRING>>, super::super::super::Foundation::Collections::IMapView::<windows_core::HSTRING, windows_core::HSTRING>);
+windows_core::imp::required_hierarchy!(ResourceQualifierMapView, super::super::super::Foundation::Collections::IIterable::<super::super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, windows_core::HSTRING>>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierMapView {
     #[cfg(feature = "Foundation_Collections")]
@@ -1216,9 +1212,9 @@ unsafe impl Sync for ResourceQualifierMapView {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceQualifierObservableMap(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ResourceQualifierObservableMap, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ResourceQualifierObservableMap, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IObservableMap::<windows_core::HSTRING, windows_core::HSTRING>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(ResourceQualifierObservableMap, super::super::super::Foundation::Collections::IIterable::<super::super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, windows_core::HSTRING>>, super::super::super::Foundation::Collections::IMap::<windows_core::HSTRING, windows_core::HSTRING>, super::super::super::Foundation::Collections::IObservableMap::<windows_core::HSTRING, windows_core::HSTRING>);
+windows_core::imp::required_hierarchy!(ResourceQualifierObservableMap, super::super::super::Foundation::Collections::IIterable::<super::super::super::Foundation::Collections::IKeyValuePair::<windows_core::HSTRING, windows_core::HSTRING>>, super::super::super::Foundation::Collections::IMap::<windows_core::HSTRING, windows_core::HSTRING>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierObservableMap {
     #[cfg(feature = "Foundation_Collections")]
@@ -1334,9 +1330,9 @@ unsafe impl Sync for ResourceQualifierObservableMap {}
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceQualifierVectorView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ResourceQualifierVectorView, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ResourceQualifierVectorView, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IVectorView::<ResourceQualifier>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(ResourceQualifierVectorView, super::super::super::Foundation::Collections::IIterable::<ResourceQualifier>, super::super::super::Foundation::Collections::IVectorView::<ResourceQualifier>);
+windows_core::imp::required_hierarchy!(ResourceQualifierVectorView, super::super::super::Foundation::Collections::IIterable::<ResourceQualifier>);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierVectorView {
     #[cfg(feature = "Foundation_Collections")]

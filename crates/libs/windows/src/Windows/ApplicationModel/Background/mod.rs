@@ -2180,8 +2180,8 @@ unsafe impl Sync for BackgroundTaskProgressEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTaskRegistration(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(BackgroundTaskRegistration, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BackgroundTaskRegistration, IBackgroundTaskRegistration, IBackgroundTaskRegistration2, IBackgroundTaskRegistration3);
+windows_core::imp::interface_hierarchy!(BackgroundTaskRegistration, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTaskRegistration);
+windows_core::imp::required_hierarchy!(BackgroundTaskRegistration, IBackgroundTaskRegistration2, IBackgroundTaskRegistration3);
 impl BackgroundTaskRegistration {
     pub fn TaskId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -2806,8 +2806,7 @@ impl windows_core::RuntimeName for ContentPrefetchTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ConversationalAgentTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ConversationalAgentTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(ConversationalAgentTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl ConversationalAgentTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3421,8 +3420,7 @@ impl windows_core::RuntimeName for MediaProcessingTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceServiceNotificationTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl MobileBroadbandDeviceServiceNotificationTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3447,8 +3445,7 @@ unsafe impl Sync for MobileBroadbandDeviceServiceNotificationTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPcoDataChangeTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MobileBroadbandPcoDataChangeTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl MobileBroadbandPcoDataChangeTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3473,8 +3470,7 @@ unsafe impl Sync for MobileBroadbandPcoDataChangeTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPinLockStateChangeTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl MobileBroadbandPinLockStateChangeTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3499,8 +3495,7 @@ unsafe impl Sync for MobileBroadbandPinLockStateChangeTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandRadioStateChangeTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MobileBroadbandRadioStateChangeTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl MobileBroadbandRadioStateChangeTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3525,8 +3520,7 @@ unsafe impl Sync for MobileBroadbandRadioStateChangeTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandRegistrationStateChangeTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl MobileBroadbandRegistrationStateChangeTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3551,8 +3545,7 @@ unsafe impl Sync for MobileBroadbandRegistrationStateChangeTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorDataUsageTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(NetworkOperatorDataUsageTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(NetworkOperatorDataUsageTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(NetworkOperatorDataUsageTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl NetworkOperatorDataUsageTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3636,8 +3629,7 @@ impl windows_core::RuntimeName for NetworkOperatorNotificationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentAppCanMakePaymentTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PaymentAppCanMakePaymentTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PaymentAppCanMakePaymentTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(PaymentAppCanMakePaymentTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl PaymentAppCanMakePaymentTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3708,8 +3700,7 @@ unsafe impl Sync for PhoneTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PushNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PushNotificationTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(PushNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl PushNotificationTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3955,8 +3946,7 @@ impl windows_core::RuntimeName for SmartCardTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsMessageReceivedTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SmsMessageReceivedTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SmsMessageReceivedTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(SmsMessageReceivedTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl SmsMessageReceivedTrigger {
     #[cfg(feature = "Devices_Sms")]
     pub fn Create<P0>(filterrules: P0) -> windows_core::Result<SmsMessageReceivedTrigger>
@@ -3989,8 +3979,7 @@ unsafe impl Sync for SmsMessageReceivedTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SocketActivityTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SocketActivityTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(SocketActivityTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl SocketActivityTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -4022,8 +4011,7 @@ unsafe impl Sync for SocketActivityTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryChangeTrackerTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(StorageLibraryChangeTrackerTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl StorageLibraryChangeTrackerTrigger {
     #[cfg(feature = "Storage")]
     pub fn Create<P0>(tracker: P0) -> windows_core::Result<StorageLibraryChangeTrackerTrigger>
@@ -4175,8 +4163,7 @@ impl windows_core::RuntimeName for SystemTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TetheringEntitlementCheckTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(TetheringEntitlementCheckTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(TetheringEntitlementCheckTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(TetheringEntitlementCheckTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl TetheringEntitlementCheckTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -4243,8 +4230,7 @@ impl windows_core::RuntimeName for TimeTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationActionTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ToastNotificationActionTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ToastNotificationActionTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(ToastNotificationActionTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl ToastNotificationActionTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -4280,8 +4266,7 @@ unsafe impl Sync for ToastNotificationActionTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationHistoryChangedTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ToastNotificationHistoryChangedTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ToastNotificationHistoryChangedTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(ToastNotificationHistoryChangedTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl ToastNotificationHistoryChangedTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -4317,8 +4302,7 @@ unsafe impl Sync for ToastNotificationHistoryChangedTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserNotificationChangedTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UserNotificationChangedTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserNotificationChangedTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(UserNotificationChangedTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl UserNotificationChangedTrigger {
     #[cfg(feature = "UI_Notifications")]
     pub fn Create(notificationkinds: super::super::UI::Notifications::NotificationKinds) -> windows_core::Result<UserNotificationChangedTrigger> {
@@ -4348,8 +4332,7 @@ unsafe impl Sync for UserNotificationChangedTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotConnectTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(WiFiOnDemandHotspotConnectTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl WiFiOnDemandHotspotConnectTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -4374,8 +4357,7 @@ unsafe impl Sync for WiFiOnDemandHotspotConnectTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotUpdateMetadataTrigger(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, IBackgroundTrigger);
+windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, windows_core::IUnknown, windows_core::IInspectable, IBackgroundTrigger);
 impl WiFiOnDemandHotspotUpdateMetadataTrigger {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

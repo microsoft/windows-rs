@@ -1859,9 +1859,9 @@ impl windows_core::RuntimeName for MediaEncodingSubtypes {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPropertySet(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(MediaPropertySet, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MediaPropertySet, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IMap::<windows_core::GUID, windows_core::IInspectable>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(MediaPropertySet, super::super::Foundation::Collections::IIterable::<super::super::Foundation::Collections::IKeyValuePair::<windows_core::GUID, windows_core::IInspectable>>, super::super::Foundation::Collections::IMap::<windows_core::GUID, windows_core::IInspectable>);
+windows_core::imp::required_hierarchy!(MediaPropertySet, super::super::Foundation::Collections::IIterable::<super::super::Foundation::Collections::IKeyValuePair::<windows_core::GUID, windows_core::IInspectable>>);
 #[cfg(feature = "Foundation_Collections")]
 impl MediaPropertySet {
     pub fn new() -> windows_core::Result<Self> {
@@ -2050,8 +2050,7 @@ impl windows_core::RuntimeName for Mpeg2ProfileIds {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TimedMetadataEncodingProperties(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(TimedMetadataEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(TimedMetadataEncodingProperties, IMediaEncodingProperties);
+windows_core::imp::interface_hierarchy!(TimedMetadataEncodingProperties, windows_core::IUnknown, windows_core::IInspectable, IMediaEncodingProperties);
 impl TimedMetadataEncodingProperties {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
