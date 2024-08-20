@@ -175,7 +175,7 @@ impl Key {
             return Err(invalid_data());
         }
 
-        let mut value = HStringBuilder::new(len / 2)?;
+        let mut value = HStringBuilder::new(len / 2);
         unsafe { self.raw_get_bytes(name.as_raw(), value.as_bytes_mut())? };
         value.trim_end();
         Ok(value.into())
