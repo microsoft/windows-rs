@@ -263,8 +263,7 @@ impl windows_core::RuntimeName for GameList {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameListEntry(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(GameListEntry, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameListEntry, IGameListEntry);
+windows_core::imp::interface_hierarchy!(GameListEntry, windows_core::IUnknown, windows_core::IInspectable, IGameListEntry);
 impl GameListEntry {
     #[cfg(feature = "ApplicationModel")]
     pub fn DisplayInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppDisplayInfo> {

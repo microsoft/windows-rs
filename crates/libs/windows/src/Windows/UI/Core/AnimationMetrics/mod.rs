@@ -239,8 +239,7 @@ unsafe impl Sync for OpacityAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PropertyAnimation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PropertyAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PropertyAnimation, IPropertyAnimation);
+windows_core::imp::interface_hierarchy!(PropertyAnimation, windows_core::IUnknown, windows_core::IInspectable, IPropertyAnimation);
 impl PropertyAnimation {
     pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {
         let this = self;
@@ -382,8 +381,7 @@ unsafe impl Sync for ScaleAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TranslationAnimation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(TranslationAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(TranslationAnimation, IPropertyAnimation);
+windows_core::imp::interface_hierarchy!(TranslationAnimation, windows_core::IUnknown, windows_core::IInspectable, IPropertyAnimation);
 impl TranslationAnimation {
     pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {
         let this = self;

@@ -277,8 +277,7 @@ impl windows_core::RuntimeName for PopupMenu {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UICommand(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UICommand, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UICommand, IUICommand);
+windows_core::imp::interface_hierarchy!(UICommand, windows_core::IUnknown, windows_core::IInspectable, IUICommand);
 impl UICommand {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -372,8 +371,7 @@ unsafe impl Sync for UICommand {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UICommandSeparator(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UICommandSeparator, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UICommandSeparator, IUICommand);
+windows_core::imp::interface_hierarchy!(UICommandSeparator, windows_core::IUnknown, windows_core::IInspectable, IUICommand);
 impl UICommandSeparator {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

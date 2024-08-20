@@ -774,8 +774,8 @@ unsafe impl Sync for ErrorDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileLoggingSession(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(FileLoggingSession, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(FileLoggingSession, super::IClosable, IFileLoggingSession);
+windows_core::imp::interface_hierarchy!(FileLoggingSession, windows_core::IUnknown, windows_core::IInspectable, IFileLoggingSession);
+windows_core::imp::required_hierarchy!(FileLoggingSession, super::IClosable);
 impl FileLoggingSession {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::IClosable>(self)?;
@@ -1055,8 +1055,8 @@ unsafe impl Sync for LoggingActivity {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingChannel(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LoggingChannel, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LoggingChannel, super::IClosable, ILoggingChannel, ILoggingTarget);
+windows_core::imp::interface_hierarchy!(LoggingChannel, windows_core::IUnknown, windows_core::IInspectable, ILoggingChannel);
+windows_core::imp::required_hierarchy!(LoggingChannel, super::IClosable, ILoggingTarget);
 impl LoggingChannel {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::IClosable>(self)?;
@@ -1890,8 +1890,8 @@ unsafe impl Sync for LoggingOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingSession(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LoggingSession, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LoggingSession, super::IClosable, ILoggingSession);
+windows_core::imp::interface_hierarchy!(LoggingSession, windows_core::IUnknown, windows_core::IInspectable, ILoggingSession);
+windows_core::imp::required_hierarchy!(LoggingSession, super::IClosable);
 impl LoggingSession {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::IClosable>(self)?;
@@ -1963,8 +1963,7 @@ unsafe impl Sync for LoggingSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RuntimeBrokerErrorSettings(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RuntimeBrokerErrorSettings, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RuntimeBrokerErrorSettings, IErrorReportingSettings);
+windows_core::imp::interface_hierarchy!(RuntimeBrokerErrorSettings, windows_core::IUnknown, windows_core::IInspectable, IErrorReportingSettings);
 impl RuntimeBrokerErrorSettings {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

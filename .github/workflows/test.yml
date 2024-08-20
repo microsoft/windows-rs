@@ -163,6 +163,8 @@ jobs:
         run:  cargo test -p test_calling_convention --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_cfg_generic
         run:  cargo test -p test_cfg_generic --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_class_hierarchy
+        run:  cargo test -p test_class_hierarchy --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_collections
         run:  cargo test -p test_collections --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_component
@@ -253,10 +255,10 @@ jobs:
         run:  cargo test -p test_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_string_param
         run:  cargo test -p test_string_param --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_strings
-        run:  cargo test -p test_strings --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_strings
+        run:  cargo test -p test_strings --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_structs
         run:  cargo test -p test_structs --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_sys

@@ -371,8 +371,7 @@ pub struct IMidiTimeCodeMessageFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiActiveSensingMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiActiveSensingMessage, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MidiActiveSensingMessage, IMidiMessage);
+windows_core::imp::interface_hierarchy!(MidiActiveSensingMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiActiveSensingMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -485,8 +484,7 @@ unsafe impl Sync for MidiChannelPressureMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiContinueMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiContinueMessage, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MidiContinueMessage, IMidiMessage);
+windows_core::imp::interface_hierarchy!(MidiContinueMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiContinueMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -838,8 +836,8 @@ unsafe impl Sync for MidiNoteOnMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiOutPort(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiOutPort, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MidiOutPort, super::super::Foundation::IClosable, IMidiOutPort);
+windows_core::imp::interface_hierarchy!(MidiOutPort, windows_core::IUnknown, windows_core::IInspectable, IMidiOutPort);
+windows_core::imp::required_hierarchy!(MidiOutPort, super::super::Foundation::IClosable);
 impl MidiOutPort {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1223,8 +1221,7 @@ unsafe impl Sync for MidiSongSelectMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiStartMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiStartMessage, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MidiStartMessage, IMidiMessage);
+windows_core::imp::interface_hierarchy!(MidiStartMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiStartMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1271,8 +1268,7 @@ unsafe impl Sync for MidiStartMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiStopMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiStopMessage, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MidiStopMessage, IMidiMessage);
+windows_core::imp::interface_hierarchy!(MidiStopMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiStopMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1414,8 +1410,7 @@ unsafe impl Sync for MidiSynthesizer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSystemExclusiveMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiSystemExclusiveMessage, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MidiSystemExclusiveMessage, IMidiMessage);
+windows_core::imp::interface_hierarchy!(MidiSystemExclusiveMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiSystemExclusiveMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1470,8 +1465,7 @@ unsafe impl Sync for MidiSystemExclusiveMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSystemResetMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiSystemResetMessage, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MidiSystemResetMessage, IMidiMessage);
+windows_core::imp::interface_hierarchy!(MidiSystemResetMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiSystemResetMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1584,8 +1578,7 @@ unsafe impl Sync for MidiTimeCodeMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiTimingClockMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiTimingClockMessage, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MidiTimingClockMessage, IMidiMessage);
+windows_core::imp::interface_hierarchy!(MidiTimingClockMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiTimingClockMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1632,8 +1625,7 @@ unsafe impl Sync for MidiTimingClockMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiTuneRequestMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiTuneRequestMessage, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MidiTuneRequestMessage, IMidiMessage);
+windows_core::imp::interface_hierarchy!(MidiTuneRequestMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiTuneRequestMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
