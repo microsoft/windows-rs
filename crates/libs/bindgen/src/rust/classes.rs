@@ -29,6 +29,8 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     }
 
     let name = to_ident(def.name());
+    let cfg = cfg::type_def_cfg(writer, def, &[]);
+    let features = writer.cfg_features(&cfg);
     let interfaces = metadata::type_interfaces(&metadata::Type::TypeDef(def, Vec::new()));
 
     // If the default interface is one of the async interfaces then we can simply replace it with a type alias
@@ -38,15 +40,13 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         let interface_name = writer.type_name(&interface.ty);
 
         return quote! {
+            #features
             pub type #name = #interface_name;
         };
     }
 
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
-
-    let cfg = cfg::type_def_cfg(writer, def, &[]);
-    let features = writer.cfg_features(&cfg);
 
     for interface in &interfaces {
         if let metadata::Type::TypeDef(def, generics) = &interface.ty {
