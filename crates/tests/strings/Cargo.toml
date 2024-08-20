@@ -10,3 +10,16 @@ doctest = false
 
 [dependencies.windows-strings]
 path = "../../libs/strings"
+
+[dependencies.windows-targets]
+path = "../../libs/targets"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "Win32_Foundation",
+    "Win32_System_WinRT",
+]
+
+[dev-dependencies]
+helpers = { package = "test_helpers", path = "../helpers" }

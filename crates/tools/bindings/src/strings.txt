@@ -4,7 +4,6 @@
 --config flatten sys minimal no-bindgen-comment
 
 --filter
-    Windows.Win32.Foundation.E_OUTOFMEMORY
     Windows.Win32.Foundation.SysAllocStringLen
     Windows.Win32.Foundation.SysFreeString
     Windows.Win32.Foundation.SysStringLen

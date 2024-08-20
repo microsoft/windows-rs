@@ -44,7 +44,7 @@ impl HSTRING {
     }
 
     /// Create a `HSTRING` from a slice of 16 bit characters (wchars).
-    pub fn from_wide(value: &[u16]) -> Result<Self> {
+    pub fn from_wide(value: &[u16]) -> Self {
         unsafe { Self::from_wide_iter(value.iter().copied(), value.len()) }
     }
 
@@ -61,12 +61,12 @@ impl HSTRING {
 
     /// # Safety
     /// len must not be less than the number of items in the iterator.
-    unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: usize) -> Result<Self> {
+    unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: usize) -> Self {
         if len == 0 {
-            return Ok(Self::new());
+            return Self::new();
         }
 
-        let ptr = HStringHeader::alloc(len.try_into()?)?;
+        let ptr = HStringHeader::alloc(len.try_into().unwrap());
 
         // Place each utf-16 character into the buffer and
         // increase len as we go along.
@@ -79,7 +79,7 @@ impl HSTRING {
 
         // Write a 0 byte to the end of the buffer.
         (*ptr).data.offset((*ptr).len as isize).write(0);
-        Ok(Self(ptr))
+        Self(ptr)
     }
 
     fn as_header(&self) -> Option<&HStringHeader> {
@@ -96,7 +96,7 @@ impl Default for HSTRING {
 impl Clone for HSTRING {
     fn clone(&self) -> Self {
         if let Some(header) = self.as_header() {
-            Self(header.duplicate().unwrap())
+            Self(header.duplicate())
         } else {
             Self::new()
         }
@@ -138,7 +138,7 @@ impl core::fmt::Debug for HSTRING {
 
 impl From<&str> for HSTRING {
     fn from(value: &str) -> Self {
-        unsafe { Self::from_wide_iter(value.encode_utf16(), value.len()).unwrap() }
+        unsafe { Self::from_wide_iter(value.encode_utf16(), value.len()) }
     }
 }
 
@@ -169,7 +169,6 @@ impl From<&std::ffi::OsStr> for HSTRING {
                 std::os::windows::ffi::OsStrExt::encode_wide(value),
                 value.len(),
             )
-            .unwrap()
         }
     }
 }

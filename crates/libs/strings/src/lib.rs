@@ -10,9 +10,6 @@
 extern crate alloc;
 use alloc::string::String;
 
-pub use windows_result::Result;
-use windows_result::*;
-
 mod bstr;
 pub use bstr::*;
 
