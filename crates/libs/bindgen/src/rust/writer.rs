@@ -634,72 +634,7 @@ impl Writer {
             quote! {}
         }
     }
-    pub fn async_get(
-        &self,
-        def: metadata::TypeDef,
-        generics: &[metadata::Type],
-        ident: &TokenStream,
-        constraints: &TokenStream,
-        _phantoms: &TokenStream,
-        features: &TokenStream,
-    ) -> TokenStream {
-        let mut kind = type_def_async_kind(def);
-        let mut async_generics = generics.to_vec();
 
-        if kind == metadata::AsyncKind::None {
-            for interface in def.interface_impls().map(move |imp| imp.ty(generics)) {
-                if let metadata::Type::TypeDef(interface_def, interface_generics) = &interface {
-                    kind = type_def_async_kind(*interface_def);
-                    if kind != metadata::AsyncKind::None {
-                        async_generics = interface_generics.to_vec();
-                        break;
-                    }
-                }
-            }
-        }
-
-        if kind == metadata::AsyncKind::None {
-            quote! {}
-        } else {
-            let return_type = match kind {
-                metadata::AsyncKind::Operation | metadata::AsyncKind::OperationWithProgress => {
-                    self.type_name(&async_generics[0])
-                }
-                _ => quote! { () },
-            };
-
-            let handler = match kind {
-                metadata::AsyncKind::Action => quote! { AsyncActionCompletedHandler },
-                metadata::AsyncKind::ActionWithProgress => {
-                    quote! { AsyncActionWithProgressCompletedHandler }
-                }
-                metadata::AsyncKind::Operation => quote! { AsyncOperationCompletedHandler },
-                metadata::AsyncKind::OperationWithProgress => {
-                    quote! { AsyncOperationWithProgressCompletedHandler }
-                }
-                rest => unimplemented!("{rest:?}"),
-            };
-
-            let namespace = self.namespace("Windows.Foundation");
-
-            quote! {
-                #features
-                impl<#constraints> #ident {
-                    pub fn get(&self) -> windows_core::Result<#return_type> {
-                        if self.Status()? == #namespace AsyncStatus::Started {
-                            let (_waiter, signaler) = windows_core::imp::Waiter::new()?;
-                            self.SetCompleted(&#namespace  #handler::new(move |_sender, _args| {
-                                // Safe because the waiter will only be dropped after being signaled.
-                                unsafe { signaler.signal(); }
-                                Ok(())
-                            }))?;
-                        }
-                        self.GetResults()
-                    }
-                }
-            }
-        }
-    }
     pub fn interface_winrt_trait(
         &self,
         def: metadata::TypeDef,
@@ -1461,18 +1396,6 @@ fn gen_mut_ptrs(pointers: usize) -> TokenStream {
 
 fn gen_const_ptrs(pointers: usize) -> TokenStream {
     "*const ".repeat(pointers).into()
-}
-
-fn type_def_async_kind(row: metadata::TypeDef) -> metadata::AsyncKind {
-    match row.type_name() {
-        metadata::TypeName::IAsyncAction => metadata::AsyncKind::Action,
-        metadata::TypeName::IAsyncActionWithProgress => metadata::AsyncKind::ActionWithProgress,
-        metadata::TypeName::IAsyncOperation => metadata::AsyncKind::Operation,
-        metadata::TypeName::IAsyncOperationWithProgress => {
-            metadata::AsyncKind::OperationWithProgress
-        }
-        _ => metadata::AsyncKind::None,
-    }
 }
 
 fn type_def_is_agile(row: metadata::TypeDef) -> bool {

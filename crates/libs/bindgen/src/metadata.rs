@@ -60,15 +60,6 @@ pub struct SignatureParam {
     pub kind: SignatureParamKind,
 }
 
-#[derive(PartialEq, Eq, Debug)]
-pub enum AsyncKind {
-    None,
-    Action,
-    ActionWithProgress,
-    Operation,
-    OperationWithProgress,
-}
-
 #[derive(Clone, PartialEq, Eq, Default)]
 pub struct Guid(
     pub u32,

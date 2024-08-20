@@ -30,6 +30,18 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
     let name = to_ident(def.name());
     let interfaces = metadata::type_interfaces(&metadata::Type::TypeDef(def, Vec::new()));
+
+    // If the default interface is one of the async interfaces then we can simply replace it with a type alias
+    // for the async interface. This simplifies and reduces code gen and but also provides a more streamlined
+    // developer experience. This works because the default interface is the same vtable as the class itself.
+    if let Some(interface) = is_default_async(&interfaces) {
+        let interface_name = writer.type_name(&interface.ty);
+
+        return quote! {
+            pub type #name = #interface_name;
+        };
+    }
+
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
 
@@ -132,14 +144,6 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             true,
         ));
         tokens.combine(&writer.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
-        tokens.combine(&writer.async_get(
-            def,
-            &[],
-            &name,
-            &TokenStream::new(),
-            &TokenStream::new(),
-            &features,
-        ));
         tokens.combine(&iterators::writer(
             writer,
             def,
@@ -240,4 +244,41 @@ fn type_is_exclusive(ty: &metadata::Type) -> bool {
         metadata::Type::TypeDef(row, _) => metadata::type_def_is_exclusive(*row),
         _ => false,
     }
+}
+
+fn is_default_async(interfaces: &[metadata::Interface]) -> Option<&metadata::Interface> {
+    let pos = interfaces.iter().position(|interface| {
+        if interface.kind == metadata::InterfaceKind::Default {
+            if let metadata::Type::TypeDef(def, _) = interface.ty {
+                if matches!(
+                    def.type_name(),
+                    metadata::TypeName::IAsyncAction
+                        | metadata::TypeName::IAsyncActionWithProgress
+                        | metadata::TypeName::IAsyncOperation
+                        | metadata::TypeName::IAsyncOperationWithProgress
+                ) {
+                    return true;
+                }
+            }
+        }
+        false
+    });
+
+    if let Some(pos) = pos {
+        if interfaces.len() == 1 {
+            return interfaces.get(0);
+        }
+
+        if interfaces.len() == 2 {
+            let info = if pos == 0 { 1 } else { 0 };
+
+            if let metadata::Type::TypeDef(def, _) = interfaces[info].ty {
+                if def.type_name() == metadata::TypeName::IAsyncInfo {
+                    return interfaces.get(pos);
+                }
+            }
+        }
+    }
+
+    None
 }

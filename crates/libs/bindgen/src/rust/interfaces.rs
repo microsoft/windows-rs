@@ -201,14 +201,6 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             }
         });
 
-        tokens.combine(&writer.async_get(
-            def,
-            generics,
-            &ident,
-            &constraints,
-            &phantoms,
-            &features,
-        ));
         tokens.combine(&iterators::writer(
             writer,
             def,
