@@ -257,7 +257,7 @@ fn type_is_exclusive(ty: &metadata::Type) -> bool {
 }
 
 fn is_default_async(interfaces: &[metadata::Interface]) -> Option<&metadata::Interface> {
-    let pos = interfaces.iter().position(|interface| {
+    interfaces.iter().find(|interface| {
         if interface.kind == metadata::InterfaceKind::Default {
             if let metadata::Type::TypeDef(def, _) = interface.ty {
                 if matches!(
@@ -272,23 +272,5 @@ fn is_default_async(interfaces: &[metadata::Interface]) -> Option<&metadata::Int
             }
         }
         false
-    });
-
-    if let Some(pos) = pos {
-        if interfaces.len() == 1 {
-            return interfaces.get(0);
-        }
-
-        if interfaces.len() == 2 {
-            let info = if pos == 0 { 1 } else { 0 };
-
-            if let metadata::Type::TypeDef(def, _) = interfaces[info].ty {
-                if def.type_name() == metadata::TypeName::IAsyncInfo {
-                    return interfaces.get(pos);
-                }
-            }
-        }
-    }
-
-    None
+    })
 }

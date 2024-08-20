@@ -45,7 +45,7 @@ fn stream_async() -> Result<()> {
 fn switch_context() -> Result<()> {
     use futures::{executor::LocalPool, future, task::SpawnExt};
     use std::future::IntoFuture;
-    
+
     let mut pool = LocalPool::new();
     let (sender, receiver) = std::sync::mpsc::channel::<()>();
 
@@ -65,8 +65,8 @@ fn switch_context() -> Result<()> {
             }
         })
         .unwrap();
-        
-    let async_future  = pool.run_until(select);
+
+    let async_future = pool.run_until(select);
 
     pool.spawner()
         .spawn(async move {
