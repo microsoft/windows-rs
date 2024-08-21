@@ -15,7 +15,6 @@ impl TypeName {
 
     pub const HResult: Self = Self("Windows.Foundation", "HResult");
     pub const IAsyncAction: Self = Self("Windows.Foundation", "IAsyncAction");
-    pub const IAsyncInfo: Self = Self("Windows.Foundation", "IAsyncInfo");
     pub const IAsyncActionWithProgress: Self =
         Self("Windows.Foundation", "IAsyncActionWithProgress");
     pub const IAsyncOperation: Self = Self("Windows.Foundation", "IAsyncOperation");

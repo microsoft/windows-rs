@@ -26,8 +26,9 @@ pub trait Async: Interface {
     fn get_results(&self) -> Result<Self::Output>;
 }
 
-// The `AsyncFuture` is needed to store some extra state needed to keep async execution up to date with possible changes to Rust execution context.
-// Each async type implements `IntoFuture` rather than implementing `Future` directly so that this adapter may be used.
+// The `AsyncFuture` is needed to store some extra state needed to keep async execution up to date with possible changes
+// to Rust execution context. Each async type implements `IntoFuture` rather than implementing `Future` directly so that
+// this adapter may be used.
 pub struct AsyncFuture<A: Async> {
     // Represents the async execution and provides the virtual methods for setting up a `Completed` handler and
     // calling `GetResults` when execution is completed.
@@ -38,7 +39,7 @@ pub struct AsyncFuture<A: Async> {
 
     // A shared waker is needed to keep the `Completed` handler updated.
     // - `Option` is used to avoid allocations for async objects that have already completed.
-    // - `Arc` is used to share the `Waker` with the `Completed` handler and and potentially replace the `Waker`
+    // - `Arc` is used to share the `Waker` with the `Completed` handler and potentially replace the `Waker`
     //   since we don't have the ability to replace the `Completed` handler itself.
     // - `Mutex` is used to synchronize replacing the `Waker` across threads.
     waker: Option<Arc<Mutex<Waker>>>,
@@ -63,8 +64,6 @@ impl<A: Async> Future for AsyncFuture<A> {
     type Output = Result<A::Output>;
 
     fn poll(mut self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output> {
-        println!("poll {cx:?}");
-
         // A status of `Started` just means async execution is still in flight. Since WinRT async is always
         // "hot start", if its not `Started` then its ready for us to call `GetResults` so we can skip all of
         // the remaining set up.
@@ -74,8 +73,8 @@ impl<A: Async> Future for AsyncFuture<A> {
 
         if let Some(shared_waker) = &self.waker {
             // We have a shared waker which means we're either getting polled again or been transfered to
-            // another another execution context. Either way, we need to update the shared waker to make sure
-            //  we've got the "current" waker.
+            // another execution context. As we can't tell the difference, we need to update the shared waker
+            // to make sure we've got the "current" waker.
             let mut guard = shared_waker.lock().unwrap();
             guard.clone_from(cx.waker());
 
