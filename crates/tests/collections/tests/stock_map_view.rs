@@ -5,7 +5,7 @@ use windows::{core::*, Foundation::Collections::*, Win32::Foundation::E_BOUNDS};
 
 #[test]
 fn primitive() -> Result<()> {
-    let m = IMapView::<i32, u64>::try_from(BTreeMap::from([]))?;
+    let m = IMapView::<i32, u64>::from(BTreeMap::from([]));
     assert_eq!(m.Lookup(0).unwrap_err().code(), E_BOUNDS);
     assert_eq!(m.Size()?, 0);
     assert_eq!(m.HasKey(0)?, false);
@@ -14,7 +14,7 @@ fn primitive() -> Result<()> {
     m.Split(&mut left, &mut right)?;
 
     let m = BTreeMap::from([(1, 10), (2, 20)]);
-    let m: IMapView<i32, u64> = m.try_into()?;
+    let m: IMapView<i32, u64> = m.into();
     assert_eq!(m.Lookup(1i32)?, 10u64);
     assert_eq!(m.Lookup(2)?, 20);
     assert_eq!(m.Size()?, 2);
@@ -29,7 +29,7 @@ fn primitive() -> Result<()> {
 
 #[test]
 fn primitive_iterator() -> Result<()> {
-    let able = IMapView::<i32, u64>::try_from(BTreeMap::from([]))?;
+    let able = IMapView::<i32, u64>::from(BTreeMap::from([]));
     let iter = able.First()?;
 
     assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
@@ -45,7 +45,7 @@ fn primitive_iterator() -> Result<()> {
     values.resize_with(5, Default::default);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    let able = IMapView::<i32, u64>::try_from(BTreeMap::from([(1, 10), (2, 20), (3, 30)]))?;
+    let able = IMapView::<i32, u64>::from(BTreeMap::from([(1, 10), (2, 20), (3, 30)]));
     let iter = able.First()?;
 
     assert_eq!(iter.Current()?.Key()?, 1i32);
@@ -112,7 +112,7 @@ where
 
 #[test]
 fn hstring() -> Result<()> {
-    let m = IMapView::<HSTRING, i32>::try_from(BTreeMap::new())?;
+    let m = IMapView::<HSTRING, i32>::from(BTreeMap::new());
     assert_eq!(m.Lookup(h!("missing")).unwrap_err().code(), E_BOUNDS);
     assert_eq!(m.Size()?, 0);
     assert_eq!(m.HasKey(h!("missing"))?, false);
@@ -120,7 +120,7 @@ fn hstring() -> Result<()> {
     let m = BTreeMap::from([("one".into(), 1), ("two".into(), 2)]);
     assert!(m.contains_key(h!("one")));
 
-    let m = IMapView::<HSTRING, i32>::try_from(m)?;
+    let m = IMapView::<HSTRING, i32>::from(m);
     assert_eq!(m.Lookup(h!("one"))?, 1);
     assert_eq!(m.Lookup(h!("two"))?, 2);
     assert_eq!(m.Size()?, 2);

@@ -76,14 +76,12 @@ where
     }
 }
 
-impl<T> TryFrom<Vec<T::Default>> for IIterable<T>
+impl<T> From<Vec<T::Default>> for IIterable<T>
 where
     T: windows_core::RuntimeType,
     T::Default: Clone,
 {
-    type Error = windows_core::Error;
-    fn try_from(values: Vec<T::Default>) -> windows_core::Result<Self> {
-        // TODO: should provide a fallible try_into or more explicit allocator
-        Ok(windows_core::ComObject::new(StockIterable { values }).into_interface())
+    fn from(values: Vec<T::Default>) -> Self {
+        windows_core::ComObject::new(StockIterable { values }).into_interface()
     }
 }

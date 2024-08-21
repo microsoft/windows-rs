@@ -6,7 +6,7 @@ use windows::{core::*, Foundation::Collections::*, Foundation::*, Win32::Foundat
 fn calendar() -> Result<()> {
     use windows::Globalization::*;
 
-    let languages = IIterable::try_from(vec![HSTRING::from("he-IL"), HSTRING::from("ja-JP")])?;
+    let languages = IIterable::from(vec![HSTRING::from("he-IL"), HSTRING::from("ja-JP")]);
     let calendar = Calendar::CreateCalendar(
         &languages,
         &CalendarIdentifiers::Hebrew()?,
@@ -23,7 +23,7 @@ fn calendar() -> Result<()> {
 
 #[test]
 fn primitive() -> Result<()> {
-    let able = IIterable::<i32>::try_from(vec![])?;
+    let able = IIterable::<i32>::from(vec![]);
     let iter = able.First()?;
 
     assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
@@ -37,7 +37,7 @@ fn primitive() -> Result<()> {
 
     assert_eq!(iter.GetMany(&mut [0; 5])?, 0);
 
-    let able = IIterable::<i32>::try_from(vec![1, 2, 3])?;
+    let able = IIterable::<i32>::from(vec![1, 2, 3]);
     let iter = able.First()?;
 
     assert_eq!(iter.Current()?, 1);
@@ -85,7 +85,7 @@ fn primitive() -> Result<()> {
 
 #[test]
 fn hstring() -> Result<()> {
-    let able = IIterable::<HSTRING>::try_from(vec![])?;
+    let able = IIterable::<HSTRING>::from(vec![]);
     let iter = able.First()?;
 
     assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
@@ -101,11 +101,11 @@ fn hstring() -> Result<()> {
     values.resize_with(5, Default::default);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    let able = IIterable::<HSTRING>::try_from(vec![
+    let able = IIterable::<HSTRING>::from(vec![
         HSTRING::from("one"),
         HSTRING::from("two"),
         HSTRING::from("three"),
-    ])?;
+    ]);
     let iter = able.First()?;
 
     assert_eq!(&iter.Current()?, h!("one"));
@@ -178,7 +178,7 @@ fn stringable(value: &str) -> IStringable {
 
 #[test]
 fn defaulted() -> Result<()> {
-    let able = IIterable::<IStringable>::try_from(vec![])?;
+    let able = IIterable::<IStringable>::from(vec![]);
     let iter = able.First()?;
 
     assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
@@ -194,11 +194,11 @@ fn defaulted() -> Result<()> {
     values.resize(5, None);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
-    let able = IIterable::<IStringable>::try_from(vec![
+    let able = IIterable::<IStringable>::from(vec![
         Some(stringable("one")),
         Some(stringable("two")),
         Some(stringable("three")),
-    ])?;
+    ]);
     let iter = able.First()?;
 
     assert_eq!(iter.Current()?.ToString()?, "one");
