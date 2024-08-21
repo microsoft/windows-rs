@@ -144,7 +144,7 @@ impl Key {
     pub fn get_value<T: AsRef<str>>(&self, name: T) -> Result<Value> {
         let name = pcwstr(name);
         let (ty, len) = unsafe { self.raw_get_info(name.as_raw())? };
-        let mut data = Data::new(len)?;
+        let mut data = Data::new(len);
         unsafe { self.raw_get_bytes(name.as_raw(), &mut data)? };
         Ok(Value { data, ty })
     }

@@ -37,7 +37,7 @@ impl<'a> ValueIterator<'a> {
             key,
             range: 0..count as usize,
             name: vec![0; name_max_len as usize + 1],
-            data: Data::new(value_max_len as usize)?,
+            data: Data::new(value_max_len as usize),
         })
     }
 }
@@ -72,7 +72,7 @@ impl<'a> Iterator for ValueIterator<'a> {
                 Some((
                     name,
                     Value {
-                        data: Data::from_slice(&self.data[0..data_len as usize]).unwrap(),
+                        data: Data::from_slice(&self.data[0..data_len as usize]),
                         ty: ty.into(),
                     },
                 ))

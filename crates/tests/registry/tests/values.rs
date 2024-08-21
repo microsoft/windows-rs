@@ -16,9 +16,9 @@ fn values() -> Result<()> {
     assert_eq!(
         names,
         [
-            ("u32".to_string(), Value::try_from(123u32)?),
-            ("u64".to_string(), Value::try_from(456u64)?),
-            ("string".to_string(), Value::try_from("hello world")?),
+            ("u32".to_string(), Value::from(123u32)),
+            ("u64".to_string(), Value::from(456u64)),
+            ("string".to_string(), Value::from("hello world")),
         ]
     );
 
