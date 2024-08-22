@@ -30,3 +30,7 @@ default-features = false
 version = "0.1.0"
 path = "../strings"
 default-features = false
+
+[features]
+default = ["std"]
+std = ["windows-result/std", "windows-strings/std"]

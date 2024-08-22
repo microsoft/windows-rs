@@ -213,6 +213,8 @@ jobs:
         run:  cargo clippy -p test_readme
       - name: Clippy test_registry
         run:  cargo clippy -p test_registry
+      - name: Clippy test_registry_default
+        run:  cargo clippy -p test_registry_default
       - name: Clippy test_reserved
         run:  cargo clippy -p test_reserved
       - name: Clippy test_resources
