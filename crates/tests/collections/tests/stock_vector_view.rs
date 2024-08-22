@@ -4,13 +4,13 @@ use windows::{core::*, Foundation::Collections::*, Win32::Foundation::E_BOUNDS};
 
 #[test]
 fn primitive() -> Result<()> {
-    let v = IVectorView::<i32>::try_from(vec![])?;
+    let v = IVectorView::<i32>::from(vec![]);
     assert_eq!(v.GetAt(0).unwrap_err().code(), E_BOUNDS);
     assert_eq!(v.Size()?, 0);
     assert_eq!(v.IndexOf(0, &mut 0)?, false);
     assert_eq!(v.GetMany(0, &mut [0; 5])?, 0);
 
-    let v = IVectorView::<i32>::try_from(vec![1, 2, 3])?;
+    let v = IVectorView::<i32>::from(vec![1, 2, 3]);
     assert_eq!(v.GetAt(0)?, 1);
     assert_eq!(v.GetAt(1)?, 2);
     assert_eq!(v.GetAt(2)?, 3);
@@ -45,7 +45,7 @@ fn primitive() -> Result<()> {
 
 #[test]
 fn primitive_iterator() -> Result<()> {
-    let able = IVectorView::<i32>::try_from(vec![])?;
+    let able = IVectorView::<i32>::from(vec![]);
     let iter = able.First()?;
 
     assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
@@ -59,7 +59,7 @@ fn primitive_iterator() -> Result<()> {
 
     assert_eq!(iter.GetMany(&mut [0; 5])?, 0);
 
-    let able = IVectorView::<i32>::try_from(vec![1, 2, 3])?;
+    let able = IVectorView::<i32>::from(vec![1, 2, 3]);
     let iter = able.First()?;
 
     assert_eq!(iter.Current()?, 1);

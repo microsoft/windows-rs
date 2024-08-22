@@ -135,16 +135,14 @@ where
     }
 }
 
-impl<K, V> TryFrom<std::collections::BTreeMap<K::Default, V::Default>> for IMapView<K, V>
+impl<K, V> From<std::collections::BTreeMap<K::Default, V::Default>> for IMapView<K, V>
 where
     K: windows_core::RuntimeType,
     V: windows_core::RuntimeType,
     K::Default: Clone + Ord,
     V::Default: Clone,
 {
-    type Error = windows_core::Error;
-    fn try_from(map: std::collections::BTreeMap<K::Default, V::Default>) -> windows_core::Result<Self> {
-        // TODO: should provide a fallible try_into or more explicit allocator
-        Ok(StockMapView { map }.into())
+    fn from(map: std::collections::BTreeMap<K::Default, V::Default>) -> Self {
+        StockMapView { map }.into()
     }
 }
