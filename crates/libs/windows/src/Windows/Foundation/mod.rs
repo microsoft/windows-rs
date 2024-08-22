@@ -64,20 +64,6 @@ impl IAsyncAction {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl IAsyncAction {
-    pub fn get(&self) -> windows_core::Result<()> {
-        if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = windows_core::imp::Waiter::new()?;
-            self.SetCompleted(&AsyncActionCompletedHandler::new(move |_sender, _args| {
-                unsafe {
-                    signaler.signal();
-                }
-                Ok(())
-            }))?;
-        }
-        self.GetResults()
-    }
-}
 unsafe impl Send for IAsyncAction {}
 unsafe impl Sync for IAsyncAction {}
 impl windows_core::RuntimeType for IAsyncAction {
@@ -167,20 +153,6 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TP
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-}
-impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TProgress> {
-    pub fn get(&self) -> windows_core::Result<()> {
-        if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = windows_core::imp::Waiter::new()?;
-            self.SetCompleted(&AsyncActionWithProgressCompletedHandler::new(move |_sender, _args| {
-                unsafe {
-                    signaler.signal();
-                }
-                Ok(())
-            }))?;
-        }
-        self.GetResults()
     }
 }
 unsafe impl<TProgress: windows_core::RuntimeType + 'static> Send for IAsyncActionWithProgress<TProgress> {}
@@ -324,20 +296,6 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
-    pub fn get(&self) -> windows_core::Result<TResult> {
-        if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = windows_core::imp::Waiter::new()?;
-            self.SetCompleted(&AsyncOperationCompletedHandler::new(move |_sender, _args| {
-                unsafe {
-                    signaler.signal();
-                }
-                Ok(())
-            }))?;
-        }
-        self.GetResults()
-    }
-}
 unsafe impl<TResult: windows_core::RuntimeType + 'static> Send for IAsyncOperation<TResult> {}
 unsafe impl<TResult: windows_core::RuntimeType + 'static> Sync for IAsyncOperation<TResult> {}
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IAsyncOperation<TResult> {
@@ -439,20 +397,6 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-}
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> IAsyncOperationWithProgress<TResult, TProgress> {
-    pub fn get(&self) -> windows_core::Result<TResult> {
-        if self.Status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = windows_core::imp::Waiter::new()?;
-            self.SetCompleted(&AsyncOperationWithProgressCompletedHandler::new(move |_sender, _args| {
-                unsafe {
-                    signaler.signal();
-                }
-                Ok(())
-            }))?;
-        }
-        self.GetResults()
     }
 }
 unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> Send for IAsyncOperationWithProgress<TResult, TProgress> {}

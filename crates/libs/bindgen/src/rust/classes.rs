@@ -29,12 +29,24 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     }
 
     let name = to_ident(def.name());
-    let interfaces = metadata::type_interfaces(&metadata::Type::TypeDef(def, Vec::new()));
-    let mut methods = quote! {};
-    let mut method_names = MethodNames::new();
-
     let cfg = cfg::type_def_cfg(writer, def, &[]);
     let features = writer.cfg_features(&cfg);
+    let interfaces = metadata::type_interfaces(&metadata::Type::TypeDef(def, Vec::new()));
+
+    // If the default interface is one of the async interfaces then we can simply replace it with a type alias
+    // for the async interface. This simplifies and reduces code gen and but also provides a more streamlined
+    // developer experience. This works because the default interface is the same vtable as the class itself.
+    if let Some(interface) = is_default_async(&interfaces) {
+        let interface_name = writer.type_name(&interface.ty);
+
+        return quote! {
+            #features
+            pub type #name = #interface_name;
+        };
+    }
+
+    let mut methods = quote! {};
+    let mut method_names = MethodNames::new();
 
     for interface in &interfaces {
         if let metadata::Type::TypeDef(def, generics) = &interface.ty {
@@ -132,14 +144,6 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             true,
         ));
         tokens.combine(&writer.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
-        tokens.combine(&writer.async_get(
-            def,
-            &[],
-            &name,
-            &TokenStream::new(),
-            &TokenStream::new(),
-            &features,
-        ));
         tokens.combine(&iterators::writer(
             writer,
             def,
@@ -250,4 +254,23 @@ fn type_is_exclusive(ty: &metadata::Type) -> bool {
         metadata::Type::TypeDef(row, _) => metadata::type_def_is_exclusive(*row),
         _ => false,
     }
+}
+
+fn is_default_async(interfaces: &[metadata::Interface]) -> Option<&metadata::Interface> {
+    interfaces.iter().find(|interface| {
+        if interface.kind == metadata::InterfaceKind::Default {
+            if let metadata::Type::TypeDef(def, _) = interface.ty {
+                if matches!(
+                    def.type_name(),
+                    metadata::TypeName::IAsyncAction
+                        | metadata::TypeName::IAsyncActionWithProgress
+                        | metadata::TypeName::IAsyncOperation
+                        | metadata::TypeName::IAsyncOperationWithProgress
+                ) {
+                    return true;
+                }
+            }
+        }
+        false
+    })
 }

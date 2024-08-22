@@ -1,3 +1,4 @@
+pub mod Async;
 #[cfg(feature = "Foundation_Collections")]
 pub mod Collections;
 #[cfg(feature = "Foundation_Numerics")]

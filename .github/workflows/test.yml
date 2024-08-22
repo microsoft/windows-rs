@@ -197,6 +197,8 @@ jobs:
         run:  cargo test -p test_event --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_extensions
         run:  cargo test -p test_extensions --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_futures
+        run:  cargo test -p test_futures --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_handles
         run:  cargo test -p test_handles --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_helpers
