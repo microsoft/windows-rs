@@ -255,10 +255,10 @@ jobs:
         run:  cargo test -p test_return_struct --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_riddle
         run:  cargo test -p test_riddle --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_standalone
-        run:  cargo test -p test_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_standalone
+        run:  cargo test -p test_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_string_param
         run:  cargo test -p test_string_param --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_strings
