@@ -21,7 +21,6 @@ windows_targets::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwfla
 pub type BOOL = i32;
 pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;
 pub const ERROR_NO_MORE_ITEMS: WIN32_ERROR = 259u32;
-pub const ERROR_OUTOFMEMORY: WIN32_ERROR = 14u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILETIME {

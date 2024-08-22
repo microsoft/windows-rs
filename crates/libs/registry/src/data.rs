@@ -8,15 +8,15 @@ pub struct Data {
 
 impl Data {
     // Creates a buffer with the specified length of zero bytes.
-    pub fn new(len: usize) -> Result<Self> {
+    pub fn new(len: usize) -> Self {
         unsafe {
-            let bytes = Self::alloc(len)?;
+            let bytes = Self::alloc(len);
 
             if len > 0 {
                 core::ptr::write_bytes(bytes.ptr, 0, len);
             }
 
-            Ok(bytes)
+            bytes
         }
     }
 
@@ -30,34 +30,34 @@ impl Data {
     }
 
     // Creates a buffer by copying the bytes from the slice.
-    pub fn from_slice(slice: &[u8]) -> Result<Self> {
+    pub fn from_slice(slice: &[u8]) -> Self {
         unsafe {
-            let bytes = Self::alloc(slice.len())?;
+            let bytes = Self::alloc(slice.len());
 
             if !slice.is_empty() {
                 core::ptr::copy_nonoverlapping(slice.as_ptr(), bytes.ptr, slice.len());
             }
 
-            Ok(bytes)
+            bytes
         }
     }
 
     // Allocates an uninitialized buffer.
-    unsafe fn alloc(len: usize) -> Result<Self> {
+    unsafe fn alloc(len: usize) -> Self {
         if len == 0 {
-            Ok(Self {
+            Self {
                 ptr: null_mut(),
                 len: 0,
-            })
+            }
         } else {
             // This pointer will have at least 8 byte alignment.
             let ptr = HeapAlloc(GetProcessHeap(), 0, len) as *mut u8;
 
             if ptr.is_null() {
-                Err(Error::from_hresult(HRESULT::from_win32(ERROR_OUTOFMEMORY)))
-            } else {
-                Ok(Self { ptr, len })
+                panic!("allocation failed");
             }
+
+            Self { ptr, len }
         }
     }
 }
@@ -96,7 +96,7 @@ impl core::ops::DerefMut for Data {
 
 impl Clone for Data {
     fn clone(&self) -> Self {
-        Self::from_slice(self).unwrap()
+        Self::from_slice(self)
     }
 }
 
@@ -114,9 +114,8 @@ impl core::fmt::Debug for Data {
     }
 }
 
-impl<const N: usize> TryFrom<[u8; N]> for Data {
-    type Error = Error;
-    fn try_from(from: [u8; N]) -> Result<Self> {
+impl<const N: usize> From<[u8; N]> for Data {
+    fn from(from: [u8; N]) -> Self {
         Self::from_slice(&from)
     }
 }

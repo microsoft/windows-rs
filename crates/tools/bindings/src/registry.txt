@@ -4,7 +4,6 @@
 --filter
     Windows.Win32.Foundation.ERROR_INVALID_DATA
     Windows.Win32.Foundation.ERROR_NO_MORE_ITEMS
-    Windows.Win32.Foundation.ERROR_OUTOFMEMORY
     Windows.Win32.System.Memory.GetProcessHeap
     Windows.Win32.System.Memory.HeapAlloc
     Windows.Win32.System.Memory.HeapFree

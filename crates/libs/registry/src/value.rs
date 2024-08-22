@@ -38,13 +38,12 @@ impl AsRef<[u8]> for Value {
     }
 }
 
-impl TryFrom<u32> for Value {
-    type Error = Error;
-    fn try_from(from: u32) -> Result<Self> {
-        Ok(Self {
-            data: from.to_le_bytes().try_into()?,
+impl From<u32> for Value {
+    fn from(from: u32) -> Self {
+        Self {
+            data: from.to_le_bytes().into(),
             ty: Type::U32,
-        })
+        }
     }
 }
 
@@ -55,13 +54,12 @@ impl TryFrom<Value> for u32 {
     }
 }
 
-impl TryFrom<u64> for Value {
-    type Error = Error;
-    fn try_from(from: u64) -> Result<Self> {
-        Ok(Self {
-            data: from.to_le_bytes().try_into()?,
+impl From<u64> for Value {
+    fn from(from: u64) -> Self {
+        Self {
+            data: from.to_le_bytes().into(),
             ty: Type::U64,
-        })
+        }
     }
 }
 
@@ -82,13 +80,12 @@ impl TryFrom<Value> for String {
     }
 }
 
-impl TryFrom<&str> for Value {
-    type Error = Error;
-    fn try_from(from: &str) -> Result<Self> {
-        Ok(Self {
-            data: Data::from_slice(pcwstr(from).as_bytes())?,
+impl From<&str> for Value {
+    fn from(from: &str) -> Self {
+        Self {
+            data: Data::from_slice(pcwstr(from).as_bytes()),
             ty: Type::String,
-        })
+        }
     }
 }
 
@@ -117,33 +114,30 @@ impl TryFrom<Value> for HSTRING {
     }
 }
 
-impl TryFrom<&HSTRING> for Value {
-    type Error = Error;
-    fn try_from(from: &HSTRING) -> Result<Self> {
-        Ok(Self {
-            data: Data::from_slice(as_bytes(from))?,
+impl From<&HSTRING> for Value {
+    fn from(from: &HSTRING) -> Self {
+        Self {
+            data: Data::from_slice(as_bytes(from)),
             ty: Type::String,
-        })
+        }
     }
 }
 
-impl TryFrom<&[u8]> for Value {
-    type Error = Error;
-    fn try_from(from: &[u8]) -> Result<Self> {
-        Ok(Self {
-            data: Data::from_slice(from)?,
+impl From<&[u8]> for Value {
+    fn from(from: &[u8]) -> Self {
+        Self {
+            data: Data::from_slice(from),
             ty: Type::Bytes,
-        })
+        }
     }
 }
 
-impl<const N: usize> TryFrom<[u8; N]> for Value {
-    type Error = Error;
-    fn try_from(from: [u8; N]) -> Result<Self> {
-        Ok(Self {
-            data: Data::from_slice(&from)?,
+impl<const N: usize> From<[u8; N]> for Value {
+    fn from(from: [u8; N]) -> Self {
+        Self {
+            data: Data::from_slice(&from),
             ty: Type::Bytes,
-        })
+        }
     }
 }
 
