@@ -156,11 +156,17 @@ impl Error {
 #[cfg(feature = "std")]
 impl std::error::Error for Error {}
 
+impl From<&Error> for HRESULT {
+    fn from(error: &Error) -> Self {
+        let code = error.code();
+        error.info.to_thread();
+        code
+    }
+}
+
 impl From<Error> for HRESULT {
     fn from(error: Error) -> Self {
-        let code = error.code();
-        error.info.into_thread();
-        code
+        (&error).into()
     }
 }
 
@@ -289,8 +295,8 @@ mod error_info {
             }
         }
 
-        pub(crate) fn into_thread(self) {
-            if let Some(ptr) = self.ptr {
+        pub(crate) fn to_thread(&self) {
+            if let Some(ptr) = &self.ptr {
                 unsafe {
                     crate::bindings::SetErrorInfo(0, ptr.as_raw());
                 }
@@ -379,7 +385,7 @@ mod error_info {
             Self
         }
 
-        pub(crate) fn into_thread(self) {}
+        pub(crate) fn to_thread(self) {}
 
         #[cfg(windows)]
         pub(crate) fn originate_error(_code: HRESULT, _message: &str) {}

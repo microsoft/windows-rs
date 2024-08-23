@@ -19,8 +19,14 @@ pub trait Async: Interface {
     // The type of value produced on completion.
     type Output;
 
+    // The type of the delegate use for completion notification.
+    type CompletedHandler;
+
     // Sets the handler or callback to invoke when execution completes. This handler can only be set once.
     fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()>;
+
+    // Calls the given handler with the current object and status.
+    fn invoke_completed(&self, hander: &Self::CompletedHandler, status: AsyncStatus);
 
     // Returns the value produced on completion. This should only be called when execution completes.
     fn get_results(&self) -> Result<Self::Output>;
@@ -108,12 +114,17 @@ impl<A: Async> Future for AsyncFuture<A> {
 
 impl Async for IAsyncAction {
     type Output = ();
+    type CompletedHandler = AsyncActionCompletedHandler;
 
     fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()> {
         self.SetCompleted(&AsyncActionCompletedHandler::new(move |_, _| {
             handler();
             Ok(())
         }))
+    }
+
+    fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus) {
+        _ = handler.Invoke(self, status);
     }
 
     fn get_results(&self) -> Result<Self::Output> {
@@ -123,12 +134,17 @@ impl Async for IAsyncAction {
 
 impl<T: RuntimeType> Async for IAsyncOperation<T> {
     type Output = T;
+    type CompletedHandler = AsyncOperationCompletedHandler<T>;
 
     fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()> {
         self.SetCompleted(&AsyncOperationCompletedHandler::new(move |_, _| {
             handler();
             Ok(())
         }))
+    }
+
+    fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus) {
+        _ = handler.Invoke(self, status);
     }
 
     fn get_results(&self) -> Result<Self::Output> {
@@ -138,12 +154,17 @@ impl<T: RuntimeType> Async for IAsyncOperation<T> {
 
 impl<P: RuntimeType> Async for IAsyncActionWithProgress<P> {
     type Output = ();
+    type CompletedHandler = AsyncActionWithProgressCompletedHandler<P>;
 
     fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()> {
         self.SetCompleted(&AsyncActionWithProgressCompletedHandler::new(move |_, _| {
             handler();
             Ok(())
         }))
+    }
+
+    fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus) {
+        _ = handler.Invoke(self, status);
     }
 
     fn get_results(&self) -> Result<Self::Output> {
@@ -153,12 +174,17 @@ impl<P: RuntimeType> Async for IAsyncActionWithProgress<P> {
 
 impl<T: RuntimeType, P: RuntimeType> Async for IAsyncOperationWithProgress<T, P> {
     type Output = T;
+    type CompletedHandler = AsyncOperationWithProgressCompletedHandler<T, P>;
 
     fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()> {
         self.SetCompleted(&AsyncOperationWithProgressCompletedHandler::new(move |_, _| {
             handler();
             Ok(())
         }))
+    }
+
+    fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus) {
+        _ = handler.Invoke(self, status);
     }
 
     fn get_results(&self) -> Result<Self::Output> {

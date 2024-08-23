@@ -132,12 +132,18 @@ impl HRESULT {
     }
 }
 
-impl<T> From<Result<T>> for HRESULT {
-    fn from(result: Result<T>) -> Self {
+impl<T> From<&Result<T>> for HRESULT {
+    fn from(result: &Result<T>) -> Self {
         if let Err(error) = result {
             return error.into();
         }
         HRESULT(0)
+    }
+}
+
+impl<T> From<Result<T>> for HRESULT {
+    fn from(result: Result<T>) -> Self {
+        (&result).into()
     }
 }
 

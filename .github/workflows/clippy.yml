@@ -173,6 +173,8 @@ jobs:
         run:  cargo clippy -p test_extensions
       - name: Clippy test_futures
         run:  cargo clippy -p test_futures
+      - name: Clippy test_futures_impl
+        run:  cargo clippy -p test_futures_impl
       - name: Clippy test_handles
         run:  cargo clippy -p test_handles
       - name: Clippy test_helpers
