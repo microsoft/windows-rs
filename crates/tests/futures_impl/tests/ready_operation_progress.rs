@@ -36,9 +36,10 @@ fn ok() -> Result<()> {
     );
 
     assert_eq!(
-        IAsyncOperationWithProgress::<HSTRING, i32>::ready(Ok(HSTRING::from("hello"))).GetResults(),
-        Ok("hello".into())
+        IAsyncOperationWithProgress::<HSTRING, i32>::ready(Ok(HSTRING::from("hello"))).get()?,
+        "hello"
     );
+
     Ok(())
 }
 

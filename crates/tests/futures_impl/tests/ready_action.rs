@@ -31,6 +31,7 @@ fn ok() -> Result<()> {
         E_ILLEGAL_DELEGATE_ASSIGNMENT
     );
 
+    IAsyncAction::ready(Ok(())).get()?;
     Ok(())
 }
 
