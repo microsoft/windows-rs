@@ -290,7 +290,7 @@ mod error_info {
         }
 
         pub(crate) fn into_thread(self) {
-            if let Some(ptr) = &self.ptr {
+            if let Some(ptr) = self.ptr {
                 unsafe {
                     crate::bindings::SetErrorInfo(0, ptr.as_raw());
                 }
