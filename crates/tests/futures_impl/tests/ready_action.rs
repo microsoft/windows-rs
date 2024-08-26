@@ -36,13 +36,15 @@ fn ok() -> Result<()> {
 
 #[test]
 fn err() -> Result<()> {
-    let a = IAsyncAction::ready(Err(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED.into()));
+    let a = IAsyncAction::ready(Err(Error::new(
+        E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED,
+        "async",
+    )));
     assert_eq!(a.Status()?, AsyncStatus::Error);
     assert_eq!(a.ErrorCode()?, E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
-    assert_eq!(
-        a.GetResults(),
-        Err(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED.into())
-    );
+    let error = a.GetResults().unwrap_err();
+    assert_eq!(error.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
+    assert_eq!(error.message(), "async");
 
     let (send, recv) = std::sync::mpsc::channel::<()>();
     let a_clone = a.clone();

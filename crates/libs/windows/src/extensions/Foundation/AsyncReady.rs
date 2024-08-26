@@ -33,8 +33,13 @@ impl<T: Async> ReadyState<T> {
         }
     }
 
+    // The `From` implementation is not used here since we don't want to transfer any error object to the calling thread.
+    // That happens when `GetResults` is called.
     fn error_code(&self) -> Result<HRESULT> {
-        Ok(HRESULT::from(&self.result))
+        Ok(match &self.result {
+            Ok(_) => HRESULT(0),
+            Err(error) => error.code(),
+        })
     }
 }
 
