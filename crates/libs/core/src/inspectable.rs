@@ -2,6 +2,8 @@ use super::*;
 use core::ffi::c_void;
 use core::ptr::null_mut;
 
+/// Parent interface for all WinRT interfaces.
+///
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
 /// [`IInspectable`] represents the
 /// [IInspectable](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
