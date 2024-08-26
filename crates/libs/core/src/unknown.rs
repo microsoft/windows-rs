@@ -2,6 +2,8 @@ use super::*;
 use core::ffi::c_void;
 use core::ptr::NonNull;
 
+/// Base interface for all COM interfaces.
+///
 /// All COM interfaces (and thus WinRT classes and interfaces) implement
 /// [IUnknown](https://docs.microsoft.com/en-us/windows/win32/api/unknwn/nn-unknwn-iunknown)
 /// under the hood to provide reference-counted lifetime management as well as the ability
