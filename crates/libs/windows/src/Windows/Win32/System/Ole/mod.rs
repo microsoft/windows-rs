@@ -663,7 +663,7 @@ where
 {
     windows_targets::link!("ole32.dll" "system" fn OleMetafilePictFromIconAndLabel(hicon : super::super::UI::WindowsAndMessaging:: HICON, lpszlabel : windows_core::PCWSTR, lpszsourcefile : windows_core::PCWSTR, iiconindex : u32) -> super::super::Foundation:: HGLOBAL);
     let result__ = OleMetafilePictFromIconAndLabel(hicon.param().abi(), lpszlabel.param().abi(), lpszsourcefile.param().abi(), iiconindex);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn OleNoteObjectVisible<P0, P1>(punknown: P0, fvisible: P1) -> windows_core::Result<()>

@@ -379,7 +379,7 @@ where
 {
     windows_targets::link!("ws2_32.dll" "system" fn WSAAccept(s : SOCKET, addr : *mut SOCKADDR, addrlen : *mut i32, lpfncondition : LPCONDITIONPROC, dwcallbackdata : usize) -> SOCKET);
     let result__ = WSAAccept(s.param().abi(), core::mem::transmute(addr.unwrap_or(std::ptr::null_mut())), core::mem::transmute(addrlen.unwrap_or(std::ptr::null_mut())), lpfncondition, dwcallbackdata);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn WSAAddressToStringA(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOA>, lpszaddressstring: windows_core::PSTR, lpdwaddressstringlength: *mut u32) -> i32 {
@@ -404,7 +404,7 @@ where
 {
     windows_targets::link!("ws2_32.dll" "system" fn WSAAsyncGetHostByAddr(hwnd : super::super::Foundation:: HWND, wmsg : u32, addr : windows_core::PCSTR, len : i32, r#type : i32, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = WSAAsyncGetHostByAddr(hwnd.param().abi(), wmsg, core::mem::transmute(addr.as_ptr()), addr.len().try_into().unwrap(), r#type, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn WSAAsyncGetHostByName<P0, P1>(hwnd: P0, wmsg: u32, name: P1, buf: &mut [u8]) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -414,7 +414,7 @@ where
 {
     windows_targets::link!("ws2_32.dll" "system" fn WSAAsyncGetHostByName(hwnd : super::super::Foundation:: HWND, wmsg : u32, name : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = WSAAsyncGetHostByName(hwnd.param().abi(), wmsg, name.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn WSAAsyncGetProtoByName<P0, P1>(hwnd: P0, wmsg: u32, name: P1, buf: &mut [u8]) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -424,7 +424,7 @@ where
 {
     windows_targets::link!("ws2_32.dll" "system" fn WSAAsyncGetProtoByName(hwnd : super::super::Foundation:: HWND, wmsg : u32, name : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = WSAAsyncGetProtoByName(hwnd.param().abi(), wmsg, name.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn WSAAsyncGetProtoByNumber<P0>(hwnd: P0, wmsg: u32, number: i32, buf: &mut [u8]) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -433,7 +433,7 @@ where
 {
     windows_targets::link!("ws2_32.dll" "system" fn WSAAsyncGetProtoByNumber(hwnd : super::super::Foundation:: HWND, wmsg : u32, number : i32, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = WSAAsyncGetProtoByNumber(hwnd.param().abi(), wmsg, number, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn WSAAsyncGetServByName<P0, P1, P2>(hwnd: P0, wmsg: u32, name: P1, proto: P2, buf: &mut [u8]) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -444,7 +444,7 @@ where
 {
     windows_targets::link!("ws2_32.dll" "system" fn WSAAsyncGetServByName(hwnd : super::super::Foundation:: HWND, wmsg : u32, name : windows_core::PCSTR, proto : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = WSAAsyncGetServByName(hwnd.param().abi(), wmsg, name.param().abi(), proto.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn WSAAsyncGetServByPort<P0, P1>(hwnd: P0, wmsg: u32, port: i32, proto: P1, buf: &mut [u8]) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -454,7 +454,7 @@ where
 {
     windows_targets::link!("ws2_32.dll" "system" fn WSAAsyncGetServByPort(hwnd : super::super::Foundation:: HWND, wmsg : u32, port : i32, proto : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
     let result__ = WSAAsyncGetServByPort(hwnd.param().abi(), wmsg, port, proto.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn WSAAsyncSelect<P0, P1>(s: P0, hwnd: P1, wmsg: u32, levent: i32) -> i32
@@ -534,7 +534,7 @@ where
 pub unsafe fn WSACreateEvent() -> windows_core::Result<WSAEVENT> {
     windows_targets::link!("ws2_32.dll" "system" fn WSACreateEvent() -> WSAEVENT);
     let result__ = WSACreateEvent();
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -709,7 +709,7 @@ where
 {
     windows_targets::link!("ws2_32.dll" "system" fn WSAJoinLeaf(s : SOCKET, name : *const SOCKADDR, namelen : i32, lpcallerdata : *const WSABUF, lpcalleedata : *mut WSABUF, lpsqos : *const QOS, lpgqos : *const QOS, dwflags : u32) -> SOCKET);
     let result__ = WSAJoinLeaf(s.param().abi(), name, namelen, core::mem::transmute(lpcallerdata.unwrap_or(std::ptr::null())), core::mem::transmute(lpcalleedata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpsqos.unwrap_or(std::ptr::null())), core::mem::transmute(lpgqos.unwrap_or(std::ptr::null())), dwflags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -941,13 +941,13 @@ where
 pub unsafe fn WSASocketA(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOA>, g: u32, dwflags: u32) -> windows_core::Result<SOCKET> {
     windows_targets::link!("ws2_32.dll" "system" fn WSASocketA(af : i32, r#type : i32, protocol : i32, lpprotocolinfo : *const WSAPROTOCOL_INFOA, g : u32, dwflags : u32) -> SOCKET);
     let result__ = WSASocketA(af, r#type, protocol, core::mem::transmute(lpprotocolinfo.unwrap_or(std::ptr::null())), g, dwflags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn WSASocketW(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOW>, g: u32, dwflags: u32) -> windows_core::Result<SOCKET> {
     windows_targets::link!("ws2_32.dll" "system" fn WSASocketW(af : i32, r#type : i32, protocol : i32, lpprotocolinfo : *const WSAPROTOCOL_INFOW, g : u32, dwflags : u32) -> SOCKET);
     let result__ = WSASocketW(af, r#type, protocol, core::mem::transmute(lpprotocolinfo.unwrap_or(std::ptr::null())), g, dwflags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSADATA) -> i32 {
@@ -1217,7 +1217,7 @@ where
 {
     windows_targets::link!("ws2_32.dll" "system" fn accept(s : SOCKET, addr : *mut SOCKADDR, addrlen : *mut i32) -> SOCKET);
     let result__ = accept(s.param().abi(), core::mem::transmute(addr.unwrap_or(std::ptr::null_mut())), core::mem::transmute(addrlen.unwrap_or(std::ptr::null_mut())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn bind<P0>(s: P0, name: *const SOCKADDR, namelen: i32) -> i32
@@ -1456,7 +1456,7 @@ where
 pub unsafe fn socket(af: i32, r#type: WINSOCK_SOCKET_TYPE, protocol: i32) -> windows_core::Result<SOCKET> {
     windows_targets::link!("ws2_32.dll" "system" fn socket(af : i32, r#type : WINSOCK_SOCKET_TYPE, protocol : i32) -> SOCKET);
     let result__ = socket(af, r#type, protocol);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 pub const AAL5_MODE_MESSAGE: u32 = 1u32;
 pub const AAL5_MODE_STREAMING: u32 = 2u32;

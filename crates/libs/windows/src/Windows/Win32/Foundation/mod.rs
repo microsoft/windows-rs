@@ -54,7 +54,7 @@ where
 {
     windows_targets::link!("kernel32.dll" "system" fn GlobalFree(hmem : HGLOBAL) -> HGLOBAL);
     let result__ = GlobalFree(hmem.param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn LocalFree<P0>(hmem: P0) -> HLOCAL
