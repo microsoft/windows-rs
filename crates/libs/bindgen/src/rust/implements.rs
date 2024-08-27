@@ -45,7 +45,9 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let mut matches = quote! { iid == &<#type_ident as windows_core::Interface>::IID };
 
     if let Some(metadata::Type::TypeDef(def, _)) = vtables.last() {
-        requires.combine(&gen_required_trait(writer, *def, &[]))
+        requires.combine(&gen_required_trait(writer, *def, &[]));
+    } else if has_unknown_base {
+        requires.combine(&quote! { + windows_core::IUnknownImpl });
     }
 
     for def in &vtables {
@@ -99,11 +101,9 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             quote! {
                 unsafe extern "system" fn #name<
                     #constraints
-                    Identity: windows_core::IUnknownImpl,
+                    Identity: #impl_ident<#generic_names>,
                     const OFFSET: isize
                 > #vtbl_signature
-                where
-                    Identity: #impl_ident<#generic_names>
                 {
                     // offset the `this` pointer by `OFFSET` times the size of a pointer and cast it as an IUnknown implementation
                     let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -158,11 +158,9 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             #features
             impl<#constraints> #vtbl_ident<#generic_names> {
                 pub const fn new<
-                    Identity: windows_core::IUnknownImpl,
+                    Identity: #impl_ident<#generic_names>,
                     const OFFSET: isize
                 >() -> #vtbl_ident<#generic_names>
-                where
-                    Identity : #impl_ident<#generic_names>
                 {
                     #(#method_impls)*
                     Self{
