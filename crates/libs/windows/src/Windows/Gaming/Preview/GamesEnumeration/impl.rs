@@ -1,5 +1,5 @@
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-pub trait IGameListEntry_Impl: Sized {
+pub trait IGameListEntry_Impl: Sized + windows_core::IUnknownImpl {
     fn DisplayInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppDisplayInfo>;
     fn LaunchAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
     fn Category(&self) -> windows_core::Result<GameListCategory>;
@@ -12,14 +12,8 @@ impl windows_core::RuntimeName for IGameListEntry {
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
 impl IGameListEntry_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IGameListEntry_Vtbl
-    where
-        Identity: IGameListEntry_Impl,
-    {
-        unsafe extern "system" fn DisplayInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IGameListEntry_Impl,
-        {
+    pub const fn new<Identity: IGameListEntry_Impl, const OFFSET: isize>() -> IGameListEntry_Vtbl {
+        unsafe extern "system" fn DisplayInfo<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IGameListEntry_Impl::DisplayInfo(this) {
                 Ok(ok__) => {
@@ -30,10 +24,7 @@ impl IGameListEntry_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LaunchAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IGameListEntry_Impl,
-        {
+        unsafe extern "system" fn LaunchAsync<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IGameListEntry_Impl::LaunchAsync(this) {
                 Ok(ok__) => {
@@ -44,10 +35,7 @@ impl IGameListEntry_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Category<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut GameListCategory) -> windows_core::HRESULT
-        where
-            Identity: IGameListEntry_Impl,
-        {
+        unsafe extern "system" fn Category<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut GameListCategory) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IGameListEntry_Impl::Category(this) {
                 Ok(ok__) => {
@@ -57,10 +45,7 @@ impl IGameListEntry_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IGameListEntry_Impl,
-        {
+        unsafe extern "system" fn Properties<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IGameListEntry_Impl::Properties(this) {
                 Ok(ok__) => {
@@ -71,10 +56,7 @@ impl IGameListEntry_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCategoryAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: GameListCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IGameListEntry_Impl,
-        {
+        unsafe extern "system" fn SetCategoryAsync<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: GameListCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IGameListEntry_Impl::SetCategoryAsync(this, value) {
                 Ok(ok__) => {

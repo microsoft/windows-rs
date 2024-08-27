@@ -1,18 +1,12 @@
-pub trait IEnteredBackgroundEventArgs_Impl: Sized {
+pub trait IEnteredBackgroundEventArgs_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral>;
 }
 impl windows_core::RuntimeName for IEnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.IEnteredBackgroundEventArgs";
 }
 impl IEnteredBackgroundEventArgs_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IEnteredBackgroundEventArgs_Vtbl
-    where
-        Identity: IEnteredBackgroundEventArgs_Impl,
-    {
-        unsafe extern "system" fn GetDeferral<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IEnteredBackgroundEventArgs_Impl,
-        {
+    pub const fn new<Identity: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>() -> IEnteredBackgroundEventArgs_Vtbl {
+        unsafe extern "system" fn GetDeferral<Identity: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEnteredBackgroundEventArgs_Impl::GetDeferral(this) {
                 Ok(ok__) => {
@@ -29,21 +23,15 @@ impl IEnteredBackgroundEventArgs_Vtbl {
         iid == &<IEnteredBackgroundEventArgs as windows_core::Interface>::IID
     }
 }
-pub trait ILeavingBackgroundEventArgs_Impl: Sized {
+pub trait ILeavingBackgroundEventArgs_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral>;
 }
 impl windows_core::RuntimeName for ILeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ILeavingBackgroundEventArgs";
 }
 impl ILeavingBackgroundEventArgs_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ILeavingBackgroundEventArgs_Vtbl
-    where
-        Identity: ILeavingBackgroundEventArgs_Impl,
-    {
-        unsafe extern "system" fn GetDeferral<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILeavingBackgroundEventArgs_Impl,
-        {
+    pub const fn new<Identity: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>() -> ILeavingBackgroundEventArgs_Vtbl {
+        unsafe extern "system" fn GetDeferral<Identity: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILeavingBackgroundEventArgs_Impl::GetDeferral(this) {
                 Ok(ok__) => {
@@ -60,21 +48,15 @@ impl ILeavingBackgroundEventArgs_Vtbl {
         iid == &<ILeavingBackgroundEventArgs as windows_core::Interface>::IID
     }
 }
-pub trait IPackageCatalogStatics2_Impl: Sized {
+pub trait IPackageCatalogStatics2_Impl: Sized + windows_core::IUnknownImpl {
     fn OpenForPackage(&self, package: Option<&Package>) -> windows_core::Result<PackageCatalog>;
 }
 impl windows_core::RuntimeName for IPackageCatalogStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
 }
 impl IPackageCatalogStatics2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IPackageCatalogStatics2_Vtbl
-    where
-        Identity: IPackageCatalogStatics2_Impl,
-    {
-        unsafe extern "system" fn OpenForPackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IPackageCatalogStatics2_Impl,
-        {
+    pub const fn new<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>() -> IPackageCatalogStatics2_Vtbl {
+        unsafe extern "system" fn OpenForPackage<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPackageCatalogStatics2_Impl::OpenForPackage(this, windows_core::from_raw_borrowed(&package)) {
                 Ok(ok__) => {
@@ -91,21 +73,15 @@ impl IPackageCatalogStatics2_Vtbl {
         iid == &<IPackageCatalogStatics2 as windows_core::Interface>::IID
     }
 }
-pub trait ISuspendingDeferral_Impl: Sized {
+pub trait ISuspendingDeferral_Impl: Sized + windows_core::IUnknownImpl {
     fn Complete(&self) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for ISuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingDeferral";
 }
 impl ISuspendingDeferral_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ISuspendingDeferral_Vtbl
-    where
-        Identity: ISuspendingDeferral_Impl,
-    {
-        unsafe extern "system" fn Complete<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISuspendingDeferral_Impl,
-        {
+    pub const fn new<Identity: ISuspendingDeferral_Impl, const OFFSET: isize>() -> ISuspendingDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Identity: ISuspendingDeferral_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISuspendingDeferral_Impl::Complete(this).into()
         }
@@ -115,21 +91,15 @@ impl ISuspendingDeferral_Vtbl {
         iid == &<ISuspendingDeferral as windows_core::Interface>::IID
     }
 }
-pub trait ISuspendingEventArgs_Impl: Sized {
+pub trait ISuspendingEventArgs_Impl: Sized + windows_core::IUnknownImpl {
     fn SuspendingOperation(&self) -> windows_core::Result<SuspendingOperation>;
 }
 impl windows_core::RuntimeName for ISuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingEventArgs";
 }
 impl ISuspendingEventArgs_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ISuspendingEventArgs_Vtbl
-    where
-        Identity: ISuspendingEventArgs_Impl,
-    {
-        unsafe extern "system" fn SuspendingOperation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISuspendingEventArgs_Impl,
-        {
+    pub const fn new<Identity: ISuspendingEventArgs_Impl, const OFFSET: isize>() -> ISuspendingEventArgs_Vtbl {
+        unsafe extern "system" fn SuspendingOperation<Identity: ISuspendingEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISuspendingEventArgs_Impl::SuspendingOperation(this) {
                 Ok(ok__) => {
@@ -149,7 +119,7 @@ impl ISuspendingEventArgs_Vtbl {
         iid == &<ISuspendingEventArgs as windows_core::Interface>::IID
     }
 }
-pub trait ISuspendingOperation_Impl: Sized {
+pub trait ISuspendingOperation_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDeferral(&self) -> windows_core::Result<SuspendingDeferral>;
     fn Deadline(&self) -> windows_core::Result<super::Foundation::DateTime>;
 }
@@ -157,14 +127,8 @@ impl windows_core::RuntimeName for ISuspendingOperation {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingOperation";
 }
 impl ISuspendingOperation_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ISuspendingOperation_Vtbl
-    where
-        Identity: ISuspendingOperation_Impl,
-    {
-        unsafe extern "system" fn GetDeferral<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISuspendingOperation_Impl,
-        {
+    pub const fn new<Identity: ISuspendingOperation_Impl, const OFFSET: isize>() -> ISuspendingOperation_Vtbl {
+        unsafe extern "system" fn GetDeferral<Identity: ISuspendingOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISuspendingOperation_Impl::GetDeferral(this) {
                 Ok(ok__) => {
@@ -175,10 +139,7 @@ impl ISuspendingOperation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Deadline<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> windows_core::HRESULT
-        where
-            Identity: ISuspendingOperation_Impl,
-        {
+        unsafe extern "system" fn Deadline<Identity: ISuspendingOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISuspendingOperation_Impl::Deadline(this) {
                 Ok(ok__) => {

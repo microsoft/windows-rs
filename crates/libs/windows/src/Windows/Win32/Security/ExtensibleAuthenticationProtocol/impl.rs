@@ -1,4 +1,4 @@
-pub trait IAccountingProviderConfig_Impl: Sized {
+pub trait IAccountingProviderConfig_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, pszmachinename: &windows_core::PCWSTR) -> windows_core::Result<usize>;
     fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()>;
     fn Configure(&self, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>;
@@ -7,14 +7,8 @@ pub trait IAccountingProviderConfig_Impl: Sized {
 }
 impl windows_core::RuntimeName for IAccountingProviderConfig {}
 impl IAccountingProviderConfig_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAccountingProviderConfig_Vtbl
-    where
-        Identity: IAccountingProviderConfig_Impl,
-    {
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, puconnectionparam: *mut usize) -> windows_core::HRESULT
-        where
-            Identity: IAccountingProviderConfig_Impl,
-        {
+    pub const fn new<Identity: IAccountingProviderConfig_Impl, const OFFSET: isize>() -> IAccountingProviderConfig_Vtbl {
+        unsafe extern "system" fn Initialize<Identity: IAccountingProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, puconnectionparam: *mut usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccountingProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename)) {
                 Ok(ok__) => {
@@ -24,31 +18,19 @@ impl IAccountingProviderConfig_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Uninitialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize) -> windows_core::HRESULT
-        where
-            Identity: IAccountingProviderConfig_Impl,
-        {
+        unsafe extern "system" fn Uninitialize<Identity: IAccountingProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccountingProviderConfig_Impl::Uninitialize(this, core::mem::transmute_copy(&uconnectionparam)).into()
         }
-        unsafe extern "system" fn Configure<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT
-        where
-            Identity: IAccountingProviderConfig_Impl,
-        {
+        unsafe extern "system" fn Configure<Identity: IAccountingProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccountingProviderConfig_Impl::Configure(this, core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ureserved1), core::mem::transmute_copy(&ureserved2)).into()
         }
-        unsafe extern "system" fn Activate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT
-        where
-            Identity: IAccountingProviderConfig_Impl,
-        {
+        unsafe extern "system" fn Activate<Identity: IAccountingProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccountingProviderConfig_Impl::Activate(this, core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&ureserved1), core::mem::transmute_copy(&ureserved2)).into()
         }
-        unsafe extern "system" fn Deactivate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT
-        where
-            Identity: IAccountingProviderConfig_Impl,
-        {
+        unsafe extern "system" fn Deactivate<Identity: IAccountingProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccountingProviderConfig_Impl::Deactivate(this, core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&ureserved1), core::mem::transmute_copy(&ureserved2)).into()
         }
@@ -65,7 +47,7 @@ impl IAccountingProviderConfig_Vtbl {
         iid == &<IAccountingProviderConfig as windows_core::Interface>::IID
     }
 }
-pub trait IAuthenticationProviderConfig_Impl: Sized {
+pub trait IAuthenticationProviderConfig_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, pszmachinename: &windows_core::PCWSTR) -> windows_core::Result<usize>;
     fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()>;
     fn Configure(&self, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>;
@@ -74,14 +56,8 @@ pub trait IAuthenticationProviderConfig_Impl: Sized {
 }
 impl windows_core::RuntimeName for IAuthenticationProviderConfig {}
 impl IAuthenticationProviderConfig_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAuthenticationProviderConfig_Vtbl
-    where
-        Identity: IAuthenticationProviderConfig_Impl,
-    {
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, puconnectionparam: *mut usize) -> windows_core::HRESULT
-        where
-            Identity: IAuthenticationProviderConfig_Impl,
-        {
+    pub const fn new<Identity: IAuthenticationProviderConfig_Impl, const OFFSET: isize>() -> IAuthenticationProviderConfig_Vtbl {
+        unsafe extern "system" fn Initialize<Identity: IAuthenticationProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, puconnectionparam: *mut usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAuthenticationProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename)) {
                 Ok(ok__) => {
@@ -91,31 +67,19 @@ impl IAuthenticationProviderConfig_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Uninitialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize) -> windows_core::HRESULT
-        where
-            Identity: IAuthenticationProviderConfig_Impl,
-        {
+        unsafe extern "system" fn Uninitialize<Identity: IAuthenticationProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAuthenticationProviderConfig_Impl::Uninitialize(this, core::mem::transmute_copy(&uconnectionparam)).into()
         }
-        unsafe extern "system" fn Configure<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT
-        where
-            Identity: IAuthenticationProviderConfig_Impl,
-        {
+        unsafe extern "system" fn Configure<Identity: IAuthenticationProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAuthenticationProviderConfig_Impl::Configure(this, core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ureserved1), core::mem::transmute_copy(&ureserved2)).into()
         }
-        unsafe extern "system" fn Activate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT
-        where
-            Identity: IAuthenticationProviderConfig_Impl,
-        {
+        unsafe extern "system" fn Activate<Identity: IAuthenticationProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAuthenticationProviderConfig_Impl::Activate(this, core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&ureserved1), core::mem::transmute_copy(&ureserved2)).into()
         }
-        unsafe extern "system" fn Deactivate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT
-        where
-            Identity: IAuthenticationProviderConfig_Impl,
-        {
+        unsafe extern "system" fn Deactivate<Identity: IAuthenticationProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAuthenticationProviderConfig_Impl::Deactivate(this, core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&ureserved1), core::mem::transmute_copy(&ureserved2)).into()
         }
@@ -132,7 +96,7 @@ impl IAuthenticationProviderConfig_Vtbl {
         iid == &<IAuthenticationProviderConfig as windows_core::Interface>::IID
     }
 }
-pub trait IEAPProviderConfig_Impl: Sized {
+pub trait IEAPProviderConfig_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, pszmachinename: &windows_core::PCWSTR, dweaptypeid: u32) -> windows_core::Result<usize>;
     fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> windows_core::Result<()>;
     fn ServerInvokeConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>;
@@ -141,14 +105,8 @@ pub trait IEAPProviderConfig_Impl: Sized {
 }
 impl windows_core::RuntimeName for IEAPProviderConfig {}
 impl IEAPProviderConfig_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IEAPProviderConfig_Vtbl
-    where
-        Identity: IEAPProviderConfig_Impl,
-    {
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, dweaptypeid: u32, puconnectionparam: *mut usize) -> windows_core::HRESULT
-        where
-            Identity: IEAPProviderConfig_Impl,
-        {
+    pub const fn new<Identity: IEAPProviderConfig_Impl, const OFFSET: isize>() -> IEAPProviderConfig_Vtbl {
+        unsafe extern "system" fn Initialize<Identity: IEAPProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, dweaptypeid: u32, puconnectionparam: *mut usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEAPProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename), core::mem::transmute_copy(&dweaptypeid)) {
                 Ok(ok__) => {
@@ -158,31 +116,19 @@ impl IEAPProviderConfig_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Uninitialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize) -> windows_core::HRESULT
-        where
-            Identity: IEAPProviderConfig_Impl,
-        {
+        unsafe extern "system" fn Uninitialize<Identity: IEAPProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEAPProviderConfig_Impl::Uninitialize(this, core::mem::transmute_copy(&dweaptypeid), core::mem::transmute_copy(&uconnectionparam)).into()
         }
-        unsafe extern "system" fn ServerInvokeConfigUI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT
-        where
-            Identity: IEAPProviderConfig_Impl,
-        {
+        unsafe extern "system" fn ServerInvokeConfigUI<Identity: IEAPProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, ureserved1: usize, ureserved2: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEAPProviderConfig_Impl::ServerInvokeConfigUI(this, core::mem::transmute_copy(&dweaptypeid), core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&ureserved1), core::mem::transmute_copy(&ureserved2)).into()
         }
-        unsafe extern "system" fn RouterInvokeConfigUI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IEAPProviderConfig_Impl,
-        {
+        unsafe extern "system" fn RouterInvokeConfigUI<Identity: IEAPProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEAPProviderConfig_Impl::RouterInvokeConfigUI(this, core::mem::transmute_copy(&dweaptypeid), core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pconnectiondatain), core::mem::transmute_copy(&dwsizeofconnectiondatain), core::mem::transmute_copy(&ppconnectiondataout), core::mem::transmute_copy(&pdwsizeofconnectiondataout)).into()
         }
-        unsafe extern "system" fn RouterInvokeCredentialsUI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, puserdatain: *const u8, dwsizeofuserdatain: u32, ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IEAPProviderConfig_Impl,
-        {
+        unsafe extern "system" fn RouterInvokeCredentialsUI<Identity: IEAPProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, puserdatain: *const u8, dwsizeofuserdatain: u32, ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEAPProviderConfig_Impl::RouterInvokeCredentialsUI(this, core::mem::transmute_copy(&dweaptypeid), core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pconnectiondatain), core::mem::transmute_copy(&dwsizeofconnectiondatain), core::mem::transmute_copy(&puserdatain), core::mem::transmute_copy(&dwsizeofuserdatain), core::mem::transmute_copy(&ppuserdataout), core::mem::transmute_copy(&pdwsizeofuserdataout)).into()
         }
@@ -205,21 +151,12 @@ pub trait IEAPProviderConfig2_Impl: Sized + IEAPProviderConfig_Impl {
 }
 impl windows_core::RuntimeName for IEAPProviderConfig2 {}
 impl IEAPProviderConfig2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IEAPProviderConfig2_Vtbl
-    where
-        Identity: IEAPProviderConfig2_Impl,
-    {
-        unsafe extern "system" fn ServerInvokeConfigUI2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IEAPProviderConfig2_Impl,
-        {
+    pub const fn new<Identity: IEAPProviderConfig2_Impl, const OFFSET: isize>() -> IEAPProviderConfig2_Vtbl {
+        unsafe extern "system" fn ServerInvokeConfigUI2<Identity: IEAPProviderConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEAPProviderConfig2_Impl::ServerInvokeConfigUI2(this, core::mem::transmute_copy(&dweaptypeid), core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pconfigdatain), core::mem::transmute_copy(&dwsizeofconfigdatain), core::mem::transmute_copy(&ppconfigdataout), core::mem::transmute_copy(&pdwsizeofconfigdataout)).into()
         }
-        unsafe extern "system" fn GetGlobalConfig<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IEAPProviderConfig2_Impl,
-        {
+        unsafe extern "system" fn GetGlobalConfig<Identity: IEAPProviderConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEAPProviderConfig2_Impl::GetGlobalConfig(this, core::mem::transmute_copy(&dweaptypeid), core::mem::transmute_copy(&ppconfigdataout), core::mem::transmute_copy(&pdwsizeofconfigdataout)).into()
         }
@@ -238,14 +175,8 @@ pub trait IEAPProviderConfig3_Impl: Sized + IEAPProviderConfig2_Impl {
 }
 impl windows_core::RuntimeName for IEAPProviderConfig3 {}
 impl IEAPProviderConfig3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IEAPProviderConfig3_Vtbl
-    where
-        Identity: IEAPProviderConfig3_Impl,
-    {
-        unsafe extern "system" fn ServerInvokeCertificateConfigUI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> windows_core::HRESULT
-        where
-            Identity: IEAPProviderConfig3_Impl,
-        {
+    pub const fn new<Identity: IEAPProviderConfig3_Impl, const OFFSET: isize>() -> IEAPProviderConfig3_Vtbl {
+        unsafe extern "system" fn ServerInvokeCertificateConfigUI<Identity: IEAPProviderConfig3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEAPProviderConfig3_Impl::ServerInvokeCertificateConfigUI(this, core::mem::transmute_copy(&dweaptypeid), core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pconfigdatain), core::mem::transmute_copy(&dwsizeofconfigdatain), core::mem::transmute_copy(&ppconfigdataout), core::mem::transmute_copy(&pdwsizeofconfigdataout), core::mem::transmute_copy(&ureserved)).into()
         }
@@ -258,27 +189,18 @@ impl IEAPProviderConfig3_Vtbl {
         iid == &<IEAPProviderConfig3 as windows_core::Interface>::IID || iid == &<IEAPProviderConfig as windows_core::Interface>::IID || iid == &<IEAPProviderConfig2 as windows_core::Interface>::IID
     }
 }
-pub trait IRouterProtocolConfig_Impl: Sized {
+pub trait IRouterProtocolConfig_Impl: Sized + windows_core::IUnknownImpl {
     fn AddProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: Option<&windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
     fn RemoveProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: Option<&windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IRouterProtocolConfig {}
 impl IRouterProtocolConfig_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IRouterProtocolConfig_Vtbl
-    where
-        Identity: IRouterProtocolConfig_Impl,
-    {
-        unsafe extern "system" fn AddProtocol<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut core::ffi::c_void, ureserved1: usize) -> windows_core::HRESULT
-        where
-            Identity: IRouterProtocolConfig_Impl,
-        {
+    pub const fn new<Identity: IRouterProtocolConfig_Impl, const OFFSET: isize>() -> IRouterProtocolConfig_Vtbl {
+        unsafe extern "system" fn AddProtocol<Identity: IRouterProtocolConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut core::ffi::c_void, ureserved1: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRouterProtocolConfig_Impl::AddProtocol(this, core::mem::transmute(&pszmachinename), core::mem::transmute_copy(&dwtransportid), core::mem::transmute_copy(&dwprotocolid), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&prouter), core::mem::transmute_copy(&ureserved1)).into()
         }
-        unsafe extern "system" fn RemoveProtocol<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut core::ffi::c_void, ureserved1: usize) -> windows_core::HRESULT
-        where
-            Identity: IRouterProtocolConfig_Impl,
-        {
+        unsafe extern "system" fn RemoveProtocol<Identity: IRouterProtocolConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut core::ffi::c_void, ureserved1: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRouterProtocolConfig_Impl::RemoveProtocol(this, core::mem::transmute(&pszmachinename), core::mem::transmute_copy(&dwtransportid), core::mem::transmute_copy(&dwprotocolid), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&prouter), core::mem::transmute_copy(&ureserved1)).into()
         }

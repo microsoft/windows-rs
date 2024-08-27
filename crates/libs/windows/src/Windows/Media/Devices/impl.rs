@@ -1,4 +1,4 @@
-pub trait IDefaultAudioDeviceChangedEventArgs_Impl: Sized {
+pub trait IDefaultAudioDeviceChangedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Role(&self) -> windows_core::Result<AudioDeviceRole>;
 }
@@ -6,14 +6,8 @@ impl windows_core::RuntimeName for IDefaultAudioDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs";
 }
 impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDefaultAudioDeviceChangedEventArgs_Vtbl
-    where
-        Identity: IDefaultAudioDeviceChangedEventArgs_Impl,
-    {
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IDefaultAudioDeviceChangedEventArgs_Impl,
-        {
+    pub const fn new<Identity: IDefaultAudioDeviceChangedEventArgs_Impl, const OFFSET: isize>() -> IDefaultAudioDeviceChangedEventArgs_Vtbl {
+        unsafe extern "system" fn Id<Identity: IDefaultAudioDeviceChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDefaultAudioDeviceChangedEventArgs_Impl::Id(this) {
                 Ok(ok__) => {
@@ -24,10 +18,7 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Role<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AudioDeviceRole) -> windows_core::HRESULT
-        where
-            Identity: IDefaultAudioDeviceChangedEventArgs_Impl,
-        {
+        unsafe extern "system" fn Role<Identity: IDefaultAudioDeviceChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AudioDeviceRole) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDefaultAudioDeviceChangedEventArgs_Impl::Role(this) {
                 Ok(ok__) => {
@@ -48,7 +39,7 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-pub trait IMediaDeviceController_Impl: Sized {
+pub trait IMediaDeviceController_Impl: Sized + windows_core::IUnknownImpl {
     fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
     fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> windows_core::Result<super::MediaProperties::IMediaEncodingProperties>;
     fn SetMediaStreamPropertiesAsync(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: Option<&super::MediaProperties::IMediaEncodingProperties>) -> windows_core::Result<super::super::Foundation::IAsyncAction>;
@@ -59,14 +50,8 @@ impl windows_core::RuntimeName for IMediaDeviceController {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
 impl IMediaDeviceController_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IMediaDeviceController_Vtbl
-    where
-        Identity: IMediaDeviceController_Impl,
-    {
-        unsafe extern "system" fn GetAvailableMediaStreamProperties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IMediaDeviceController_Impl,
-        {
+    pub const fn new<Identity: IMediaDeviceController_Impl, const OFFSET: isize>() -> IMediaDeviceController_Vtbl {
+        unsafe extern "system" fn GetAvailableMediaStreamProperties<Identity: IMediaDeviceController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaDeviceController_Impl::GetAvailableMediaStreamProperties(this, mediastreamtype) {
                 Ok(ok__) => {
@@ -77,10 +62,7 @@ impl IMediaDeviceController_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMediaStreamProperties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IMediaDeviceController_Impl,
-        {
+        unsafe extern "system" fn GetMediaStreamProperties<Identity: IMediaDeviceController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaDeviceController_Impl::GetMediaStreamProperties(this, mediastreamtype) {
                 Ok(ok__) => {
@@ -91,10 +73,7 @@ impl IMediaDeviceController_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMediaStreamPropertiesAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IMediaDeviceController_Impl,
-        {
+        unsafe extern "system" fn SetMediaStreamPropertiesAsync<Identity: IMediaDeviceController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMediaDeviceController_Impl::SetMediaStreamPropertiesAsync(this, mediastreamtype, windows_core::from_raw_borrowed(&mediaencodingproperties)) {
                 Ok(ok__) => {

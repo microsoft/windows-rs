@@ -1,5 +1,5 @@
 #[cfg(feature = "Foundation_Collections")]
-pub trait IInkAnalysisNode_Impl: Sized {
+pub trait IInkAnalysisNode_Impl: Sized + windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<u32>;
     fn Kind(&self) -> windows_core::Result<InkAnalysisNodeKind>;
     fn BoundingRect(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect>;
@@ -14,14 +14,8 @@ impl windows_core::RuntimeName for IInkAnalysisNode {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IInkAnalysisNode_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IInkAnalysisNode_Vtbl
-    where
-        Identity: IInkAnalysisNode_Impl,
-    {
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IInkAnalysisNode_Impl,
-        {
+    pub const fn new<Identity: IInkAnalysisNode_Impl, const OFFSET: isize>() -> IInkAnalysisNode_Vtbl {
+        unsafe extern "system" fn Id<Identity: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInkAnalysisNode_Impl::Id(this) {
                 Ok(ok__) => {
@@ -31,10 +25,7 @@ impl IInkAnalysisNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Kind<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut InkAnalysisNodeKind) -> windows_core::HRESULT
-        where
-            Identity: IInkAnalysisNode_Impl,
-        {
+        unsafe extern "system" fn Kind<Identity: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut InkAnalysisNodeKind) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInkAnalysisNode_Impl::Kind(this) {
                 Ok(ok__) => {
@@ -44,10 +35,7 @@ impl IInkAnalysisNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BoundingRect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> windows_core::HRESULT
-        where
-            Identity: IInkAnalysisNode_Impl,
-        {
+        unsafe extern "system" fn BoundingRect<Identity: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInkAnalysisNode_Impl::BoundingRect(this) {
                 Ok(ok__) => {
@@ -57,10 +45,7 @@ impl IInkAnalysisNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RotatedBoundingRect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IInkAnalysisNode_Impl,
-        {
+        unsafe extern "system" fn RotatedBoundingRect<Identity: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInkAnalysisNode_Impl::RotatedBoundingRect(this) {
                 Ok(ok__) => {
@@ -71,10 +56,7 @@ impl IInkAnalysisNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Children<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IInkAnalysisNode_Impl,
-        {
+        unsafe extern "system" fn Children<Identity: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInkAnalysisNode_Impl::Children(this) {
                 Ok(ok__) => {
@@ -85,10 +67,7 @@ impl IInkAnalysisNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Parent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IInkAnalysisNode_Impl,
-        {
+        unsafe extern "system" fn Parent<Identity: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInkAnalysisNode_Impl::Parent(this) {
                 Ok(ok__) => {
@@ -99,10 +78,7 @@ impl IInkAnalysisNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStrokeIds<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IInkAnalysisNode_Impl,
-        {
+        unsafe extern "system" fn GetStrokeIds<Identity: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInkAnalysisNode_Impl::GetStrokeIds(this) {
                 Ok(ok__) => {
@@ -128,21 +104,15 @@ impl IInkAnalysisNode_Vtbl {
         iid == &<IInkAnalysisNode as windows_core::Interface>::IID
     }
 }
-pub trait IInkAnalyzerFactory_Impl: Sized {
+pub trait IInkAnalyzerFactory_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateAnalyzer(&self) -> windows_core::Result<InkAnalyzer>;
 }
 impl windows_core::RuntimeName for IInkAnalyzerFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalyzerFactory";
 }
 impl IInkAnalyzerFactory_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IInkAnalyzerFactory_Vtbl
-    where
-        Identity: IInkAnalyzerFactory_Impl,
-    {
-        unsafe extern "system" fn CreateAnalyzer<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IInkAnalyzerFactory_Impl,
-        {
+    pub const fn new<Identity: IInkAnalyzerFactory_Impl, const OFFSET: isize>() -> IInkAnalyzerFactory_Vtbl {
+        unsafe extern "system" fn CreateAnalyzer<Identity: IInkAnalyzerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInkAnalyzerFactory_Impl::CreateAnalyzer(this) {
                 Ok(ok__) => {

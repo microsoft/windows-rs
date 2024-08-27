@@ -1,5 +1,5 @@
 #[cfg(feature = "Security_Credentials")]
-pub trait ISyndicationClient_Impl: Sized {
+pub trait ISyndicationClient_Impl: Sized + windows_core::IUnknownImpl {
     fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn SetServerCredential(&self, value: Option<&super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
     fn ProxyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
@@ -19,14 +19,8 @@ impl windows_core::RuntimeName for ISyndicationClient {
 }
 #[cfg(feature = "Security_Credentials")]
 impl ISyndicationClient_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ISyndicationClient_Vtbl
-    where
-        Identity: ISyndicationClient_Impl,
-    {
-        unsafe extern "system" fn ServerCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+    pub const fn new<Identity: ISyndicationClient_Impl, const OFFSET: isize>() -> ISyndicationClient_Vtbl {
+        unsafe extern "system" fn ServerCredential<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationClient_Impl::ServerCredential(this) {
                 Ok(ok__) => {
@@ -37,17 +31,11 @@ impl ISyndicationClient_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServerCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+        unsafe extern "system" fn SetServerCredential<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationClient_Impl::SetServerCredential(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn ProxyCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+        unsafe extern "system" fn ProxyCredential<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationClient_Impl::ProxyCredential(this) {
                 Ok(ok__) => {
@@ -58,17 +46,11 @@ impl ISyndicationClient_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxyCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+        unsafe extern "system" fn SetProxyCredential<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationClient_Impl::SetProxyCredential(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn MaxResponseBufferSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+        unsafe extern "system" fn MaxResponseBufferSize<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationClient_Impl::MaxResponseBufferSize(this) {
                 Ok(ok__) => {
@@ -78,17 +60,11 @@ impl ISyndicationClient_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxResponseBufferSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+        unsafe extern "system" fn SetMaxResponseBufferSize<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationClient_Impl::SetMaxResponseBufferSize(this, value).into()
         }
-        unsafe extern "system" fn Timeout<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+        unsafe extern "system" fn Timeout<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationClient_Impl::Timeout(this) {
                 Ok(ok__) => {
@@ -98,17 +74,11 @@ impl ISyndicationClient_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTimeout<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+        unsafe extern "system" fn SetTimeout<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationClient_Impl::SetTimeout(this, value).into()
         }
-        unsafe extern "system" fn BypassCacheOnRetrieve<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+        unsafe extern "system" fn BypassCacheOnRetrieve<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationClient_Impl::BypassCacheOnRetrieve(this) {
                 Ok(ok__) => {
@@ -118,24 +88,15 @@ impl ISyndicationClient_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBypassCacheOnRetrieve<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+        unsafe extern "system" fn SetBypassCacheOnRetrieve<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationClient_Impl::SetBypassCacheOnRetrieve(this, value).into()
         }
-        unsafe extern "system" fn SetRequestHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::HSTRING>, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+        unsafe extern "system" fn SetRequestHeader<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::HSTRING>, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationClient_Impl::SetRequestHeader(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn RetrieveFeedAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationClient_Impl,
-        {
+        unsafe extern "system" fn RetrieveFeedAsync<Identity: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationClient_Impl::RetrieveFeedAsync(this, windows_core::from_raw_borrowed(&uri)) {
                 Ok(ok__) => {
@@ -167,7 +128,7 @@ impl ISyndicationClient_Vtbl {
     }
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
-pub trait ISyndicationNode_Impl: Sized {
+pub trait ISyndicationNode_Impl: Sized + windows_core::IUnknownImpl {
     fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetNodeName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn NodeNamespace(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -188,14 +149,8 @@ impl windows_core::RuntimeName for ISyndicationNode {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl ISyndicationNode_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ISyndicationNode_Vtbl
-    where
-        Identity: ISyndicationNode_Impl,
-    {
-        unsafe extern "system" fn NodeName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+    pub const fn new<Identity: ISyndicationNode_Impl, const OFFSET: isize>() -> ISyndicationNode_Vtbl {
+        unsafe extern "system" fn NodeName<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationNode_Impl::NodeName(this) {
                 Ok(ok__) => {
@@ -206,17 +161,11 @@ impl ISyndicationNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNodeName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn SetNodeName<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationNode_Impl::SetNodeName(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn NodeNamespace<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn NodeNamespace<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationNode_Impl::NodeNamespace(this) {
                 Ok(ok__) => {
@@ -227,17 +176,11 @@ impl ISyndicationNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNodeNamespace<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn SetNodeNamespace<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationNode_Impl::SetNodeNamespace(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn NodeValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn NodeValue<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationNode_Impl::NodeValue(this) {
                 Ok(ok__) => {
@@ -248,17 +191,11 @@ impl ISyndicationNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNodeValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn SetNodeValue<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationNode_Impl::SetNodeValue(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Language<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn Language<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationNode_Impl::Language(this) {
                 Ok(ok__) => {
@@ -269,17 +206,11 @@ impl ISyndicationNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLanguage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn SetLanguage<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationNode_Impl::SetLanguage(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn BaseUri<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn BaseUri<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationNode_Impl::BaseUri(this) {
                 Ok(ok__) => {
@@ -290,17 +221,11 @@ impl ISyndicationNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBaseUri<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn SetBaseUri<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationNode_Impl::SetBaseUri(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn AttributeExtensions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn AttributeExtensions<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationNode_Impl::AttributeExtensions(this) {
                 Ok(ok__) => {
@@ -311,10 +236,7 @@ impl ISyndicationNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ElementExtensions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn ElementExtensions<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationNode_Impl::ElementExtensions(this) {
                 Ok(ok__) => {
@@ -325,10 +247,7 @@ impl ISyndicationNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXmlDocument<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: SyndicationFormat, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationNode_Impl,
-        {
+        unsafe extern "system" fn GetXmlDocument<Identity: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: SyndicationFormat, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationNode_Impl::GetXmlDocument(this, format) {
                 Ok(ok__) => {
@@ -361,7 +280,7 @@ impl ISyndicationNode_Vtbl {
     }
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
-pub trait ISyndicationText_Impl: Sized + ISyndicationNode_Impl {
+pub trait ISyndicationText_Impl: Sized + windows_core::IUnknownImpl + ISyndicationNode_Impl {
     fn Text(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Type(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -375,14 +294,8 @@ impl windows_core::RuntimeName for ISyndicationText {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl ISyndicationText_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ISyndicationText_Vtbl
-    where
-        Identity: ISyndicationText_Impl,
-    {
-        unsafe extern "system" fn Text<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationText_Impl,
-        {
+    pub const fn new<Identity: ISyndicationText_Impl, const OFFSET: isize>() -> ISyndicationText_Vtbl {
+        unsafe extern "system" fn Text<Identity: ISyndicationText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationText_Impl::Text(this) {
                 Ok(ok__) => {
@@ -393,17 +306,11 @@ impl ISyndicationText_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationText_Impl,
-        {
+        unsafe extern "system" fn SetText<Identity: ISyndicationText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationText_Impl::SetText(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationText_Impl,
-        {
+        unsafe extern "system" fn Type<Identity: ISyndicationText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationText_Impl::Type(this) {
                 Ok(ok__) => {
@@ -414,17 +321,11 @@ impl ISyndicationText_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationText_Impl,
-        {
+        unsafe extern "system" fn SetType<Identity: ISyndicationText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationText_Impl::SetType(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Xml<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationText_Impl,
-        {
+        unsafe extern "system" fn Xml<Identity: ISyndicationText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISyndicationText_Impl::Xml(this) {
                 Ok(ok__) => {
@@ -435,10 +336,7 @@ impl ISyndicationText_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetXml<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISyndicationText_Impl,
-        {
+        unsafe extern "system" fn SetXml<Identity: ISyndicationText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISyndicationText_Impl::SetXml(this, windows_core::from_raw_borrowed(&value)).into()
         }

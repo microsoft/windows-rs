@@ -1,5 +1,5 @@
 #[cfg(feature = "Security_Credentials")]
-pub trait IBackgroundTransferBase_Impl: Sized {
+pub trait IBackgroundTransferBase_Impl: Sized + windows_core::IUnknownImpl {
     fn SetRequestHeader(&self, headername: &windows_core::HSTRING, headervalue: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
     fn SetServerCredential(&self, credential: Option<&super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
@@ -18,21 +18,12 @@ impl windows_core::RuntimeName for IBackgroundTransferBase {
 }
 #[cfg(feature = "Security_Credentials")]
 impl IBackgroundTransferBase_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IBackgroundTransferBase_Vtbl
-    where
-        Identity: IBackgroundTransferBase_Impl,
-    {
-        unsafe extern "system" fn SetRequestHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, headername: core::mem::MaybeUninit<windows_core::HSTRING>, headervalue: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferBase_Impl,
-        {
+    pub const fn new<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>() -> IBackgroundTransferBase_Vtbl {
+        unsafe extern "system" fn SetRequestHeader<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, headername: core::mem::MaybeUninit<windows_core::HSTRING>, headervalue: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IBackgroundTransferBase_Impl::SetRequestHeader(this, core::mem::transmute(&headername), core::mem::transmute(&headervalue)).into()
         }
-        unsafe extern "system" fn ServerCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferBase_Impl,
-        {
+        unsafe extern "system" fn ServerCredential<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferBase_Impl::ServerCredential(this) {
                 Ok(ok__) => {
@@ -43,17 +34,11 @@ impl IBackgroundTransferBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServerCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, credential: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferBase_Impl,
-        {
+        unsafe extern "system" fn SetServerCredential<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, credential: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IBackgroundTransferBase_Impl::SetServerCredential(this, windows_core::from_raw_borrowed(&credential)).into()
         }
-        unsafe extern "system" fn ProxyCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferBase_Impl,
-        {
+        unsafe extern "system" fn ProxyCredential<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferBase_Impl::ProxyCredential(this) {
                 Ok(ok__) => {
@@ -64,17 +49,11 @@ impl IBackgroundTransferBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxyCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, credential: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferBase_Impl,
-        {
+        unsafe extern "system" fn SetProxyCredential<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, credential: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IBackgroundTransferBase_Impl::SetProxyCredential(this, windows_core::from_raw_borrowed(&credential)).into()
         }
-        unsafe extern "system" fn Method<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferBase_Impl,
-        {
+        unsafe extern "system" fn Method<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferBase_Impl::Method(this) {
                 Ok(ok__) => {
@@ -85,17 +64,11 @@ impl IBackgroundTransferBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMethod<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferBase_Impl,
-        {
+        unsafe extern "system" fn SetMethod<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IBackgroundTransferBase_Impl::SetMethod(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Group<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferBase_Impl,
-        {
+        unsafe extern "system" fn Group<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferBase_Impl::Group(this) {
                 Ok(ok__) => {
@@ -106,17 +79,11 @@ impl IBackgroundTransferBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGroup<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferBase_Impl,
-        {
+        unsafe extern "system" fn SetGroup<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IBackgroundTransferBase_Impl::SetGroup(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn CostPolicy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferBase_Impl,
-        {
+        unsafe extern "system" fn CostPolicy<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferBase_Impl::CostPolicy(this) {
                 Ok(ok__) => {
@@ -126,10 +93,7 @@ impl IBackgroundTransferBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCostPolicy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: BackgroundTransferCostPolicy) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferBase_Impl,
-        {
+        unsafe extern "system" fn SetCostPolicy<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: BackgroundTransferCostPolicy) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IBackgroundTransferBase_Impl::SetCostPolicy(this, value).into()
         }
@@ -152,7 +116,7 @@ impl IBackgroundTransferBase_Vtbl {
         iid == &<IBackgroundTransferBase as windows_core::Interface>::IID
     }
 }
-pub trait IBackgroundTransferContentPartFactory_Impl: Sized {
+pub trait IBackgroundTransferContentPartFactory_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateWithName(&self, name: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart>;
     fn CreateWithNameAndFileName(&self, name: &windows_core::HSTRING, filename: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart>;
 }
@@ -160,14 +124,8 @@ impl windows_core::RuntimeName for IBackgroundTransferContentPartFactory {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPartFactory";
 }
 impl IBackgroundTransferContentPartFactory_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IBackgroundTransferContentPartFactory_Vtbl
-    where
-        Identity: IBackgroundTransferContentPartFactory_Impl,
-    {
-        unsafe extern "system" fn CreateWithName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferContentPartFactory_Impl,
-        {
+    pub const fn new<Identity: IBackgroundTransferContentPartFactory_Impl, const OFFSET: isize>() -> IBackgroundTransferContentPartFactory_Vtbl {
+        unsafe extern "system" fn CreateWithName<Identity: IBackgroundTransferContentPartFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferContentPartFactory_Impl::CreateWithName(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
@@ -178,10 +136,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateWithNameAndFileName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::HSTRING>, filename: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferContentPartFactory_Impl,
-        {
+        unsafe extern "system" fn CreateWithNameAndFileName<Identity: IBackgroundTransferContentPartFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::HSTRING>, filename: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferContentPartFactory_Impl::CreateWithNameAndFileName(this, core::mem::transmute(&name), core::mem::transmute(&filename)) {
                 Ok(ok__) => {
@@ -203,7 +158,7 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-pub trait IBackgroundTransferOperation_Impl: Sized {
+pub trait IBackgroundTransferOperation_Impl: Sized + windows_core::IUnknownImpl {
     fn Guid(&self) -> windows_core::Result<windows_core::GUID>;
     fn RequestedUri(&self) -> windows_core::Result<super::super::Foundation::Uri>;
     fn Method(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -219,14 +174,8 @@ impl windows_core::RuntimeName for IBackgroundTransferOperation {
 }
 #[cfg(feature = "Storage_Streams")]
 impl IBackgroundTransferOperation_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IBackgroundTransferOperation_Vtbl
-    where
-        Identity: IBackgroundTransferOperation_Impl,
-    {
-        unsafe extern "system" fn Guid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferOperation_Impl,
-        {
+    pub const fn new<Identity: IBackgroundTransferOperation_Impl, const OFFSET: isize>() -> IBackgroundTransferOperation_Vtbl {
+        unsafe extern "system" fn Guid<Identity: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferOperation_Impl::Guid(this) {
                 Ok(ok__) => {
@@ -236,10 +185,7 @@ impl IBackgroundTransferOperation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestedUri<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferOperation_Impl,
-        {
+        unsafe extern "system" fn RequestedUri<Identity: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferOperation_Impl::RequestedUri(this) {
                 Ok(ok__) => {
@@ -250,10 +196,7 @@ impl IBackgroundTransferOperation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Method<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferOperation_Impl,
-        {
+        unsafe extern "system" fn Method<Identity: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferOperation_Impl::Method(this) {
                 Ok(ok__) => {
@@ -264,10 +207,7 @@ impl IBackgroundTransferOperation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Group<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferOperation_Impl,
-        {
+        unsafe extern "system" fn Group<Identity: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferOperation_Impl::Group(this) {
                 Ok(ok__) => {
@@ -278,10 +218,7 @@ impl IBackgroundTransferOperation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CostPolicy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferOperation_Impl,
-        {
+        unsafe extern "system" fn CostPolicy<Identity: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferOperation_Impl::CostPolicy(this) {
                 Ok(ok__) => {
@@ -291,17 +228,11 @@ impl IBackgroundTransferOperation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCostPolicy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: BackgroundTransferCostPolicy) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferOperation_Impl,
-        {
+        unsafe extern "system" fn SetCostPolicy<Identity: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: BackgroundTransferCostPolicy) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IBackgroundTransferOperation_Impl::SetCostPolicy(this, value).into()
         }
-        unsafe extern "system" fn GetResultStreamAt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: u64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferOperation_Impl,
-        {
+        unsafe extern "system" fn GetResultStreamAt<Identity: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: u64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferOperation_Impl::GetResultStreamAt(this, position) {
                 Ok(ok__) => {
@@ -312,10 +243,7 @@ impl IBackgroundTransferOperation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResponseInformation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferOperation_Impl,
-        {
+        unsafe extern "system" fn GetResponseInformation<Identity: IBackgroundTransferOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferOperation_Impl::GetResponseInformation(this) {
                 Ok(ok__) => {
@@ -342,7 +270,7 @@ impl IBackgroundTransferOperation_Vtbl {
         iid == &<IBackgroundTransferOperation as windows_core::Interface>::IID
     }
 }
-pub trait IBackgroundTransferOperationPriority_Impl: Sized {
+pub trait IBackgroundTransferOperationPriority_Impl: Sized + windows_core::IUnknownImpl {
     fn Priority(&self) -> windows_core::Result<BackgroundTransferPriority>;
     fn SetPriority(&self, value: BackgroundTransferPriority) -> windows_core::Result<()>;
 }
@@ -350,14 +278,8 @@ impl windows_core::RuntimeName for IBackgroundTransferOperationPriority {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferOperationPriority";
 }
 impl IBackgroundTransferOperationPriority_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IBackgroundTransferOperationPriority_Vtbl
-    where
-        Identity: IBackgroundTransferOperationPriority_Impl,
-    {
-        unsafe extern "system" fn Priority<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BackgroundTransferPriority) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferOperationPriority_Impl,
-        {
+    pub const fn new<Identity: IBackgroundTransferOperationPriority_Impl, const OFFSET: isize>() -> IBackgroundTransferOperationPriority_Vtbl {
+        unsafe extern "system" fn Priority<Identity: IBackgroundTransferOperationPriority_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BackgroundTransferPriority) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundTransferOperationPriority_Impl::Priority(this) {
                 Ok(ok__) => {
@@ -367,10 +289,7 @@ impl IBackgroundTransferOperationPriority_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPriority<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: BackgroundTransferPriority) -> windows_core::HRESULT
-        where
-            Identity: IBackgroundTransferOperationPriority_Impl,
-        {
+        unsafe extern "system" fn SetPriority<Identity: IBackgroundTransferOperationPriority_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: BackgroundTransferPriority) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IBackgroundTransferOperationPriority_Impl::SetPriority(this, value).into()
         }

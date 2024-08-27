@@ -1,5 +1,5 @@
 #[cfg(feature = "UI_Notifications")]
-pub trait IToastNotificationManagerStatics3_Impl: Sized {
+pub trait IToastNotificationManagerStatics3_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateToastNotifierForSecondaryTile(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::UI::Notifications::ToastNotifier>;
 }
 #[cfg(feature = "UI_Notifications")]
@@ -8,14 +8,8 @@ impl windows_core::RuntimeName for IToastNotificationManagerStatics3 {
 }
 #[cfg(feature = "UI_Notifications")]
 impl IToastNotificationManagerStatics3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IToastNotificationManagerStatics3_Vtbl
-    where
-        Identity: IToastNotificationManagerStatics3_Impl,
-    {
-        unsafe extern "system" fn CreateToastNotifierForSecondaryTile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, tileid: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IToastNotificationManagerStatics3_Impl,
-        {
+    pub const fn new<Identity: IToastNotificationManagerStatics3_Impl, const OFFSET: isize>() -> IToastNotificationManagerStatics3_Vtbl {
+        unsafe extern "system" fn CreateToastNotifierForSecondaryTile<Identity: IToastNotificationManagerStatics3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tileid: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IToastNotificationManagerStatics3_Impl::CreateToastNotifierForSecondaryTile(this, core::mem::transmute(&tileid)) {
                 Ok(ok__) => {

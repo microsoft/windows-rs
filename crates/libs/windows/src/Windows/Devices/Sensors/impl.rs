@@ -1,4 +1,4 @@
-pub trait IHumanPresenceSensorExtension_Impl: Sized {
+pub trait IHumanPresenceSensorExtension_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, deviceinterface: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Start(&self) -> windows_core::Result<()>;
     fn ProcessReading(&self, reading: Option<&HumanPresenceSensorReading>) -> windows_core::Result<HumanPresenceSensorReadingUpdate>;
@@ -11,28 +11,16 @@ impl windows_core::RuntimeName for IHumanPresenceSensorExtension {
     const NAME: &'static str = "Windows.Devices.Sensors.IHumanPresenceSensorExtension";
 }
 impl IHumanPresenceSensorExtension_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IHumanPresenceSensorExtension_Vtbl
-    where
-        Identity: IHumanPresenceSensorExtension_Impl,
-    {
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceinterface: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IHumanPresenceSensorExtension_Impl,
-        {
+    pub const fn new<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>() -> IHumanPresenceSensorExtension_Vtbl {
+        unsafe extern "system" fn Initialize<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceinterface: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IHumanPresenceSensorExtension_Impl::Initialize(this, core::mem::transmute(&deviceinterface)).into()
         }
-        unsafe extern "system" fn Start<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IHumanPresenceSensorExtension_Impl,
-        {
+        unsafe extern "system" fn Start<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IHumanPresenceSensorExtension_Impl::Start(this).into()
         }
-        unsafe extern "system" fn ProcessReading<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reading: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IHumanPresenceSensorExtension_Impl,
-        {
+        unsafe extern "system" fn ProcessReading<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reading: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IHumanPresenceSensorExtension_Impl::ProcessReading(this, windows_core::from_raw_borrowed(&reading)) {
                 Ok(ok__) => {
@@ -43,31 +31,19 @@ impl IHumanPresenceSensorExtension_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProcessReadingTimeoutExpired<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reading: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IHumanPresenceSensorExtension_Impl,
-        {
+        unsafe extern "system" fn ProcessReadingTimeoutExpired<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reading: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IHumanPresenceSensorExtension_Impl::ProcessReadingTimeoutExpired(this, windows_core::from_raw_borrowed(&reading)).into()
         }
-        unsafe extern "system" fn Stop<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IHumanPresenceSensorExtension_Impl,
-        {
+        unsafe extern "system" fn Stop<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IHumanPresenceSensorExtension_Impl::Stop(this).into()
         }
-        unsafe extern "system" fn Uninitialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IHumanPresenceSensorExtension_Impl,
-        {
+        unsafe extern "system" fn Uninitialize<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IHumanPresenceSensorExtension_Impl::Uninitialize(this).into()
         }
-        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IHumanPresenceSensorExtension_Impl,
-        {
+        unsafe extern "system" fn Reset<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IHumanPresenceSensorExtension_Impl::Reset(this).into()
         }
@@ -86,15 +62,12 @@ impl IHumanPresenceSensorExtension_Vtbl {
         iid == &<IHumanPresenceSensorExtension as windows_core::Interface>::IID
     }
 }
-pub trait ISensorDataThreshold_Impl: Sized {}
+pub trait ISensorDataThreshold_Impl: Sized + windows_core::IUnknownImpl {}
 impl windows_core::RuntimeName for ISensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.ISensorDataThreshold";
 }
 impl ISensorDataThreshold_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ISensorDataThreshold_Vtbl
-    where
-        Identity: ISensorDataThreshold_Impl,
-    {
+    pub const fn new<Identity: ISensorDataThreshold_Impl, const OFFSET: isize>() -> ISensorDataThreshold_Vtbl {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ISensorDataThreshold, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

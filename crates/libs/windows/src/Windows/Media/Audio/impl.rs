@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
-pub trait IAudioInputNode_Impl: Sized + IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
+pub trait IAudioInputNode_Impl: Sized + windows_core::IUnknownImpl + IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
     fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>;
     fn AddOutgoingConnection(&self, destination: Option<&IAudioNode>) -> windows_core::Result<()>;
     fn AddOutgoingConnectionWithGain(&self, destination: Option<&IAudioNode>, gain: f64) -> windows_core::Result<()>;
@@ -11,14 +11,8 @@ impl windows_core::RuntimeName for IAudioInputNode {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl IAudioInputNode_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAudioInputNode_Vtbl
-    where
-        Identity: IAudioInputNode_Impl,
-    {
-        unsafe extern "system" fn OutgoingConnections<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioInputNode_Impl,
-        {
+    pub const fn new<Identity: IAudioInputNode_Impl, const OFFSET: isize>() -> IAudioInputNode_Vtbl {
+        unsafe extern "system" fn OutgoingConnections<Identity: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAudioInputNode_Impl::OutgoingConnections(this) {
                 Ok(ok__) => {
@@ -29,24 +23,15 @@ impl IAudioInputNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddOutgoingConnection<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioInputNode_Impl,
-        {
+        unsafe extern "system" fn AddOutgoingConnection<Identity: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAudioInputNode_Impl::AddOutgoingConnection(this, windows_core::from_raw_borrowed(&destination)).into()
         }
-        unsafe extern "system" fn AddOutgoingConnectionWithGain<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: *mut core::ffi::c_void, gain: f64) -> windows_core::HRESULT
-        where
-            Identity: IAudioInputNode_Impl,
-        {
+        unsafe extern "system" fn AddOutgoingConnectionWithGain<Identity: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: *mut core::ffi::c_void, gain: f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAudioInputNode_Impl::AddOutgoingConnectionWithGain(this, windows_core::from_raw_borrowed(&destination), gain).into()
         }
-        unsafe extern "system" fn RemoveOutgoingConnection<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioInputNode_Impl,
-        {
+        unsafe extern "system" fn RemoveOutgoingConnection<Identity: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAudioInputNode_Impl::RemoveOutgoingConnection(this, windows_core::from_raw_borrowed(&destination)).into()
         }
@@ -63,7 +48,7 @@ impl IAudioInputNode_Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
-pub trait IAudioInputNode2_Impl: Sized + IAudioInputNode_Impl + IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
+pub trait IAudioInputNode2_Impl: Sized + windows_core::IUnknownImpl + IAudioInputNode_Impl + IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
     fn Emitter(&self) -> windows_core::Result<AudioNodeEmitter>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
@@ -72,14 +57,8 @@ impl windows_core::RuntimeName for IAudioInputNode2 {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl IAudioInputNode2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAudioInputNode2_Vtbl
-    where
-        Identity: IAudioInputNode2_Impl,
-    {
-        unsafe extern "system" fn Emitter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioInputNode2_Impl,
-        {
+    pub const fn new<Identity: IAudioInputNode2_Impl, const OFFSET: isize>() -> IAudioInputNode2_Vtbl {
+        unsafe extern "system" fn Emitter<Identity: IAudioInputNode2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAudioInputNode2_Impl::Emitter(this) {
                 Ok(ok__) => {
@@ -97,7 +76,7 @@ impl IAudioInputNode2_Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
-pub trait IAudioNode_Impl: Sized + super::super::Foundation::IClosable_Impl {
+pub trait IAudioNode_Impl: Sized + windows_core::IUnknownImpl + super::super::Foundation::IClosable_Impl {
     fn EffectDefinitions(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
     fn SetOutgoingGain(&self, value: f64) -> windows_core::Result<()>;
     fn OutgoingGain(&self) -> windows_core::Result<f64>;
@@ -116,14 +95,8 @@ impl windows_core::RuntimeName for IAudioNode {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl IAudioNode_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAudioNode_Vtbl
-    where
-        Identity: IAudioNode_Impl,
-    {
-        unsafe extern "system" fn EffectDefinitions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioNode_Impl,
-        {
+    pub const fn new<Identity: IAudioNode_Impl, const OFFSET: isize>() -> IAudioNode_Vtbl {
+        unsafe extern "system" fn EffectDefinitions<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAudioNode_Impl::EffectDefinitions(this) {
                 Ok(ok__) => {
@@ -134,17 +107,11 @@ impl IAudioNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOutgoingGain<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64) -> windows_core::HRESULT
-        where
-            Identity: IAudioNode_Impl,
-        {
+        unsafe extern "system" fn SetOutgoingGain<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAudioNode_Impl::SetOutgoingGain(this, value).into()
         }
-        unsafe extern "system" fn OutgoingGain<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: IAudioNode_Impl,
-        {
+        unsafe extern "system" fn OutgoingGain<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAudioNode_Impl::OutgoingGain(this) {
                 Ok(ok__) => {
@@ -154,10 +121,7 @@ impl IAudioNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EncodingProperties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioNode_Impl,
-        {
+        unsafe extern "system" fn EncodingProperties<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAudioNode_Impl::EncodingProperties(this) {
                 Ok(ok__) => {
@@ -168,10 +132,7 @@ impl IAudioNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConsumeInput<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
-        where
-            Identity: IAudioNode_Impl,
-        {
+        unsafe extern "system" fn ConsumeInput<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAudioNode_Impl::ConsumeInput(this) {
                 Ok(ok__) => {
@@ -181,45 +142,27 @@ impl IAudioNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConsumeInput<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT
-        where
-            Identity: IAudioNode_Impl,
-        {
+        unsafe extern "system" fn SetConsumeInput<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAudioNode_Impl::SetConsumeInput(this, value).into()
         }
-        unsafe extern "system" fn Start<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioNode_Impl,
-        {
+        unsafe extern "system" fn Start<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAudioNode_Impl::Start(this).into()
         }
-        unsafe extern "system" fn Stop<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioNode_Impl,
-        {
+        unsafe extern "system" fn Stop<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAudioNode_Impl::Stop(this).into()
         }
-        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioNode_Impl,
-        {
+        unsafe extern "system" fn Reset<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAudioNode_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn DisableEffectsByDefinition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, definition: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioNode_Impl,
-        {
+        unsafe extern "system" fn DisableEffectsByDefinition<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, definition: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAudioNode_Impl::DisableEffectsByDefinition(this, windows_core::from_raw_borrowed(&definition)).into()
         }
-        unsafe extern "system" fn EnableEffectsByDefinition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, definition: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioNode_Impl,
-        {
+        unsafe extern "system" fn EnableEffectsByDefinition<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, definition: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAudioNode_Impl::EnableEffectsByDefinition(this, windows_core::from_raw_borrowed(&definition)).into()
         }
@@ -243,7 +186,7 @@ impl IAudioNode_Vtbl {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
-pub trait IAudioNodeWithListener_Impl: Sized + IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
+pub trait IAudioNodeWithListener_Impl: Sized + windows_core::IUnknownImpl + IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
     fn SetListener(&self, value: Option<&AudioNodeListener>) -> windows_core::Result<()>;
     fn Listener(&self) -> windows_core::Result<AudioNodeListener>;
 }
@@ -253,21 +196,12 @@ impl windows_core::RuntimeName for IAudioNodeWithListener {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl IAudioNodeWithListener_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAudioNodeWithListener_Vtbl
-    where
-        Identity: IAudioNodeWithListener_Impl,
-    {
-        unsafe extern "system" fn SetListener<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioNodeWithListener_Impl,
-        {
+    pub const fn new<Identity: IAudioNodeWithListener_Impl, const OFFSET: isize>() -> IAudioNodeWithListener_Vtbl {
+        unsafe extern "system" fn SetListener<Identity: IAudioNodeWithListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAudioNodeWithListener_Impl::SetListener(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn Listener<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAudioNodeWithListener_Impl,
-        {
+        unsafe extern "system" fn Listener<Identity: IAudioNodeWithListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAudioNodeWithListener_Impl::Listener(this) {
                 Ok(ok__) => {
