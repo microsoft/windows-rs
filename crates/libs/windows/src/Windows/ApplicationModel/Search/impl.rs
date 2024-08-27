@@ -1,5 +1,5 @@
 #[cfg(feature = "deprecated")]
-pub trait ISearchPaneQueryChangedEventArgs_Impl: Sized {
+pub trait ISearchPaneQueryChangedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
     fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Language(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails>;
@@ -10,14 +10,8 @@ impl windows_core::RuntimeName for ISearchPaneQueryChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ISearchPaneQueryChangedEventArgs_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ISearchPaneQueryChangedEventArgs_Vtbl
-    where
-        Identity: ISearchPaneQueryChangedEventArgs_Impl,
-    {
-        unsafe extern "system" fn QueryText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISearchPaneQueryChangedEventArgs_Impl,
-        {
+    pub const fn new<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>() -> ISearchPaneQueryChangedEventArgs_Vtbl {
+        unsafe extern "system" fn QueryText<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISearchPaneQueryChangedEventArgs_Impl::QueryText(this) {
                 Ok(ok__) => {
@@ -28,10 +22,7 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Language<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: ISearchPaneQueryChangedEventArgs_Impl,
-        {
+        unsafe extern "system" fn Language<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISearchPaneQueryChangedEventArgs_Impl::Language(this) {
                 Ok(ok__) => {
@@ -42,10 +33,7 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LinguisticDetails<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ISearchPaneQueryChangedEventArgs_Impl,
-        {
+        unsafe extern "system" fn LinguisticDetails<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISearchPaneQueryChangedEventArgs_Impl::LinguisticDetails(this) {
                 Ok(ok__) => {

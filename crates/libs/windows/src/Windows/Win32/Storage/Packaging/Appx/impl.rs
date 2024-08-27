@@ -1,19 +1,13 @@
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-pub trait IAppxAppInstallerReader_Impl: Sized {
+pub trait IAppxAppInstallerReader_Impl: Sized + windows_core::IUnknownImpl {
     fn GetXmlDom(&self) -> windows_core::Result<super::super::super::Data::Xml::MsXml::IXMLDOMDocument>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IAppxAppInstallerReader {}
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl IAppxAppInstallerReader_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxAppInstallerReader_Vtbl
-    where
-        Identity: IAppxAppInstallerReader_Impl,
-    {
-        unsafe extern "system" fn GetXmlDom<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxAppInstallerReader_Impl,
-        {
+    pub const fn new<Identity: IAppxAppInstallerReader_Impl, const OFFSET: isize>() -> IAppxAppInstallerReader_Vtbl {
+        unsafe extern "system" fn GetXmlDom<Identity: IAppxAppInstallerReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxAppInstallerReader_Impl::GetXmlDom(this) {
                 Ok(ok__) => {
@@ -29,20 +23,14 @@ impl IAppxAppInstallerReader_Vtbl {
         iid == &<IAppxAppInstallerReader as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBlockMapBlock_Impl: Sized {
+pub trait IAppxBlockMapBlock_Impl: Sized + windows_core::IUnknownImpl {
     fn GetHash(&self, buffersize: *mut u32) -> windows_core::Result<*mut u8>;
     fn GetCompressedSize(&self) -> windows_core::Result<u32>;
 }
 impl windows_core::RuntimeName for IAppxBlockMapBlock {}
 impl IAppxBlockMapBlock_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBlockMapBlock_Vtbl
-    where
-        Identity: IAppxBlockMapBlock_Impl,
-    {
-        unsafe extern "system" fn GetHash<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffersize: *mut u32, buffer: *mut *mut u8) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapBlock_Impl,
-        {
+    pub const fn new<Identity: IAppxBlockMapBlock_Impl, const OFFSET: isize>() -> IAppxBlockMapBlock_Vtbl {
+        unsafe extern "system" fn GetHash<Identity: IAppxBlockMapBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffersize: *mut u32, buffer: *mut *mut u8) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapBlock_Impl::GetHash(this, core::mem::transmute_copy(&buffersize)) {
                 Ok(ok__) => {
@@ -52,10 +40,7 @@ impl IAppxBlockMapBlock_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCompressedSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapBlock_Impl,
-        {
+        unsafe extern "system" fn GetCompressedSize<Identity: IAppxBlockMapBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapBlock_Impl::GetCompressedSize(this) {
                 Ok(ok__) => {
@@ -75,21 +60,15 @@ impl IAppxBlockMapBlock_Vtbl {
         iid == &<IAppxBlockMapBlock as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBlockMapBlocksEnumerator_Impl: Sized {
+pub trait IAppxBlockMapBlocksEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxBlockMapBlock>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxBlockMapBlocksEnumerator {}
 impl IAppxBlockMapBlocksEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBlockMapBlocksEnumerator_Vtbl
-    where
-        Identity: IAppxBlockMapBlocksEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, block: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapBlocksEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxBlockMapBlocksEnumerator_Impl, const OFFSET: isize>() -> IAppxBlockMapBlocksEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxBlockMapBlocksEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, block: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapBlocksEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -99,10 +78,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapBlocksEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBlockMapBlocksEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapBlocksEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -112,10 +88,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapBlocksEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxBlockMapBlocksEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapBlocksEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -137,7 +110,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxBlockMapFile_Impl: Sized {
+pub trait IAppxBlockMapFile_Impl: Sized + windows_core::IUnknownImpl {
     fn GetBlocks(&self) -> windows_core::Result<IAppxBlockMapBlocksEnumerator>;
     fn GetLocalFileHeaderSize(&self) -> windows_core::Result<u32>;
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -148,14 +121,8 @@ pub trait IAppxBlockMapFile_Impl: Sized {
 impl windows_core::RuntimeName for IAppxBlockMapFile {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBlockMapFile_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBlockMapFile_Vtbl
-    where
-        Identity: IAppxBlockMapFile_Impl,
-    {
-        unsafe extern "system" fn GetBlocks<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocks: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapFile_Impl,
-        {
+    pub const fn new<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>() -> IAppxBlockMapFile_Vtbl {
+        unsafe extern "system" fn GetBlocks<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocks: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapFile_Impl::GetBlocks(this) {
                 Ok(ok__) => {
@@ -165,10 +132,7 @@ impl IAppxBlockMapFile_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLocalFileHeaderSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lfhsize: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapFile_Impl,
-        {
+        unsafe extern "system" fn GetLocalFileHeaderSize<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lfhsize: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapFile_Impl::GetLocalFileHeaderSize(this) {
                 Ok(ok__) => {
@@ -178,10 +142,7 @@ impl IAppxBlockMapFile_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapFile_Impl,
-        {
+        unsafe extern "system" fn GetName<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapFile_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -191,10 +152,7 @@ impl IAppxBlockMapFile_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUncompressedSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapFile_Impl,
-        {
+        unsafe extern "system" fn GetUncompressedSize<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapFile_Impl::GetUncompressedSize(this) {
                 Ok(ok__) => {
@@ -204,10 +162,7 @@ impl IAppxBlockMapFile_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ValidateFileHash<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filestream: *mut core::ffi::c_void, isvalid: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapFile_Impl,
-        {
+        unsafe extern "system" fn ValidateFileHash<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filestream: *mut core::ffi::c_void, isvalid: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapFile_Impl::ValidateFileHash(this, windows_core::from_raw_borrowed(&filestream)) {
                 Ok(ok__) => {
@@ -230,21 +185,15 @@ impl IAppxBlockMapFile_Vtbl {
         iid == &<IAppxBlockMapFile as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBlockMapFilesEnumerator_Impl: Sized {
+pub trait IAppxBlockMapFilesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxBlockMapFile>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxBlockMapFilesEnumerator {}
 impl IAppxBlockMapFilesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBlockMapFilesEnumerator_Vtbl
-    where
-        Identity: IAppxBlockMapFilesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapFilesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxBlockMapFilesEnumerator_Impl, const OFFSET: isize>() -> IAppxBlockMapFilesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxBlockMapFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapFilesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -254,10 +203,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapFilesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBlockMapFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapFilesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -267,10 +213,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapFilesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxBlockMapFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapFilesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -292,7 +235,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxBlockMapReader_Impl: Sized {
+pub trait IAppxBlockMapReader_Impl: Sized + windows_core::IUnknownImpl {
     fn GetFile(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<IAppxBlockMapFile>;
     fn GetFiles(&self) -> windows_core::Result<IAppxBlockMapFilesEnumerator>;
     fn GetHashMethod(&self) -> windows_core::Result<super::super::super::System::Com::IUri>;
@@ -302,14 +245,8 @@ pub trait IAppxBlockMapReader_Impl: Sized {
 impl windows_core::RuntimeName for IAppxBlockMapReader {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBlockMapReader_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBlockMapReader_Vtbl
-    where
-        Identity: IAppxBlockMapReader_Impl,
-    {
-        unsafe extern "system" fn GetFile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, file: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapReader_Impl,
-        {
+    pub const fn new<Identity: IAppxBlockMapReader_Impl, const OFFSET: isize>() -> IAppxBlockMapReader_Vtbl {
+        unsafe extern "system" fn GetFile<Identity: IAppxBlockMapReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, file: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapReader_Impl::GetFile(this, core::mem::transmute(&filename)) {
                 Ok(ok__) => {
@@ -319,10 +256,7 @@ impl IAppxBlockMapReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFiles<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapReader_Impl,
-        {
+        unsafe extern "system" fn GetFiles<Identity: IAppxBlockMapReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapReader_Impl::GetFiles(this) {
                 Ok(ok__) => {
@@ -332,10 +266,7 @@ impl IAppxBlockMapReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHashMethod<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hashmethod: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapReader_Impl,
-        {
+        unsafe extern "system" fn GetHashMethod<Identity: IAppxBlockMapReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hashmethod: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapReader_Impl::GetHashMethod(this) {
                 Ok(ok__) => {
@@ -345,10 +276,7 @@ impl IAppxBlockMapReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, blockmapstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBlockMapReader_Impl,
-        {
+        unsafe extern "system" fn GetStream<Identity: IAppxBlockMapReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blockmapstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBlockMapReader_Impl::GetStream(this) {
                 Ok(ok__) => {
@@ -371,7 +299,7 @@ impl IAppxBlockMapReader_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxBundleFactory_Impl: Sized {
+pub trait IAppxBundleFactory_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateBundleWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, bundleversion: u64) -> windows_core::Result<IAppxBundleWriter>;
     fn CreateBundleReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBundleReader>;
     fn CreateBundleManifestReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBundleManifestReader>;
@@ -380,14 +308,8 @@ pub trait IAppxBundleFactory_Impl: Sized {
 impl windows_core::RuntimeName for IAppxBundleFactory {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleFactory_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleFactory_Vtbl
-    where
-        Identity: IAppxBundleFactory_Impl,
-    {
-        unsafe extern "system" fn CreateBundleWriter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleFactory_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>() -> IAppxBundleFactory_Vtbl {
+        unsafe extern "system" fn CreateBundleWriter<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleFactory_Impl::CreateBundleWriter(this, windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&bundleversion)) {
                 Ok(ok__) => {
@@ -397,10 +319,7 @@ impl IAppxBundleFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBundleReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleFactory_Impl,
-        {
+        unsafe extern "system" fn CreateBundleReader<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleFactory_Impl::CreateBundleReader(this, windows_core::from_raw_borrowed(&inputstream)) {
                 Ok(ok__) => {
@@ -410,10 +329,7 @@ impl IAppxBundleFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBundleManifestReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleFactory_Impl,
-        {
+        unsafe extern "system" fn CreateBundleManifestReader<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleFactory_Impl::CreateBundleManifestReader(this, windows_core::from_raw_borrowed(&inputstream)) {
                 Ok(ok__) => {
@@ -435,21 +351,15 @@ impl IAppxBundleFactory_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxBundleFactory2_Impl: Sized {
+pub trait IAppxBundleFactory2_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateBundleReader2(&self, inputstream: Option<&super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAppxBundleFactory2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleFactory2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleFactory2_Vtbl
-    where
-        Identity: IAppxBundleFactory2_Impl,
-    {
-        unsafe extern "system" fn CreateBundleReader2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleFactory2_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleFactory2_Impl, const OFFSET: isize>() -> IAppxBundleFactory2_Vtbl {
+        unsafe extern "system" fn CreateBundleReader2<Identity: IAppxBundleFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleFactory2_Impl::CreateBundleReader2(this, windows_core::from_raw_borrowed(&inputstream), core::mem::transmute(&expecteddigest)) {
                 Ok(ok__) => {
@@ -465,21 +375,15 @@ impl IAppxBundleFactory2_Vtbl {
         iid == &<IAppxBundleFactory2 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBundleManifestOptionalBundleInfo_Impl: Sized {
+pub trait IAppxBundleManifestOptionalBundleInfo_Impl: Sized + windows_core::IUnknownImpl {
     fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId>;
     fn GetFileName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetPackageInfoItems(&self) -> windows_core::Result<IAppxBundleManifestPackageInfoEnumerator>;
 }
 impl windows_core::RuntimeName for IAppxBundleManifestOptionalBundleInfo {}
 impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleManifestOptionalBundleInfo_Vtbl
-    where
-        Identity: IAppxBundleManifestOptionalBundleInfo_Impl,
-    {
-        unsafe extern "system" fn GetPackageId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestOptionalBundleInfo_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleManifestOptionalBundleInfo_Impl, const OFFSET: isize>() -> IAppxBundleManifestOptionalBundleInfo_Vtbl {
+        unsafe extern "system" fn GetPackageId<Identity: IAppxBundleManifestOptionalBundleInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestOptionalBundleInfo_Impl::GetPackageId(this) {
                 Ok(ok__) => {
@@ -489,10 +393,7 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFileName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestOptionalBundleInfo_Impl,
-        {
+        unsafe extern "system" fn GetFileName<Identity: IAppxBundleManifestOptionalBundleInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestOptionalBundleInfo_Impl::GetFileName(this) {
                 Ok(ok__) => {
@@ -502,10 +403,7 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPackageInfoItems<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageinfoitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestOptionalBundleInfo_Impl,
-        {
+        unsafe extern "system" fn GetPackageInfoItems<Identity: IAppxBundleManifestOptionalBundleInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageinfoitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestOptionalBundleInfo_Impl::GetPackageInfoItems(this) {
                 Ok(ok__) => {
@@ -526,21 +424,15 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
         iid == &<IAppxBundleManifestOptionalBundleInfo as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBundleManifestOptionalBundleInfoEnumerator_Impl: Sized {
+pub trait IAppxBundleManifestOptionalBundleInfoEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxBundleManifestOptionalBundleInfo>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxBundleManifestOptionalBundleInfoEnumerator {}
 impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl
-    where
-        Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionalbundle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl, const OFFSET: isize>() -> IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionalbundle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestOptionalBundleInfoEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -550,10 +442,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestOptionalBundleInfoEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -563,10 +452,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxBundleManifestOptionalBundleInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestOptionalBundleInfoEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -587,7 +473,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
         iid == &<IAppxBundleManifestOptionalBundleInfoEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBundleManifestPackageInfo_Impl: Sized {
+pub trait IAppxBundleManifestPackageInfo_Impl: Sized + windows_core::IUnknownImpl {
     fn GetPackageType(&self) -> windows_core::Result<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE>;
     fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId>;
     fn GetFileName(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -597,14 +483,8 @@ pub trait IAppxBundleManifestPackageInfo_Impl: Sized {
 }
 impl windows_core::RuntimeName for IAppxBundleManifestPackageInfo {}
 impl IAppxBundleManifestPackageInfo_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfo_Vtbl
-    where
-        Identity: IAppxBundleManifestPackageInfo_Impl,
-    {
-        unsafe extern "system" fn GetPackageType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagetype: *mut APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfo_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfo_Vtbl {
+        unsafe extern "system" fn GetPackageType<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagetype: *mut APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfo_Impl::GetPackageType(this) {
                 Ok(ok__) => {
@@ -614,10 +494,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPackageId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfo_Impl,
-        {
+        unsafe extern "system" fn GetPackageId<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfo_Impl::GetPackageId(this) {
                 Ok(ok__) => {
@@ -627,10 +504,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFileName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfo_Impl,
-        {
+        unsafe extern "system" fn GetFileName<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfo_Impl::GetFileName(this) {
                 Ok(ok__) => {
@@ -640,10 +514,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOffset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfo_Impl,
-        {
+        unsafe extern "system" fn GetOffset<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfo_Impl::GetOffset(this) {
                 Ok(ok__) => {
@@ -653,10 +524,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfo_Impl,
-        {
+        unsafe extern "system" fn GetSize<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfo_Impl::GetSize(this) {
                 Ok(ok__) => {
@@ -666,10 +534,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResources<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, resources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfo_Impl,
-        {
+        unsafe extern "system" fn GetResources<Identity: IAppxBundleManifestPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfo_Impl::GetResources(this) {
                 Ok(ok__) => {
@@ -693,21 +558,15 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
         iid == &<IAppxBundleManifestPackageInfo as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBundleManifestPackageInfo2_Impl: Sized {
+pub trait IAppxBundleManifestPackageInfo2_Impl: Sized + windows_core::IUnknownImpl {
     fn GetIsPackageReference(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn GetIsDefaultApplicablePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxBundleManifestPackageInfo2 {}
 impl IAppxBundleManifestPackageInfo2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfo2_Vtbl
-    where
-        Identity: IAppxBundleManifestPackageInfo2_Impl,
-    {
-        unsafe extern "system" fn GetIsPackageReference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispackagereference: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfo2_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfo2_Vtbl {
+        unsafe extern "system" fn GetIsPackageReference<Identity: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispackagereference: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfo2_Impl::GetIsPackageReference(this) {
                 Ok(ok__) => {
@@ -717,10 +576,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIsNonQualifiedResourcePackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfo2_Impl,
-        {
+        unsafe extern "system" fn GetIsNonQualifiedResourcePackage<Identity: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfo2_Impl::GetIsNonQualifiedResourcePackage(this) {
                 Ok(ok__) => {
@@ -730,10 +586,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIsDefaultApplicablePackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isdefaultapplicablepackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfo2_Impl,
-        {
+        unsafe extern "system" fn GetIsDefaultApplicablePackage<Identity: IAppxBundleManifestPackageInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isdefaultapplicablepackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfo2_Impl::GetIsDefaultApplicablePackage(this) {
                 Ok(ok__) => {
@@ -754,19 +607,13 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
         iid == &<IAppxBundleManifestPackageInfo2 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBundleManifestPackageInfo3_Impl: Sized {
+pub trait IAppxBundleManifestPackageInfo3_Impl: Sized + windows_core::IUnknownImpl {
     fn GetTargetDeviceFamilies(&self) -> windows_core::Result<IAppxManifestTargetDeviceFamiliesEnumerator>;
 }
 impl windows_core::RuntimeName for IAppxBundleManifestPackageInfo3 {}
 impl IAppxBundleManifestPackageInfo3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfo3_Vtbl
-    where
-        Identity: IAppxBundleManifestPackageInfo3_Impl,
-    {
-        unsafe extern "system" fn GetTargetDeviceFamilies<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetdevicefamilies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfo3_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleManifestPackageInfo3_Impl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfo3_Vtbl {
+        unsafe extern "system" fn GetTargetDeviceFamilies<Identity: IAppxBundleManifestPackageInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetdevicefamilies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfo3_Impl::GetTargetDeviceFamilies(this) {
                 Ok(ok__) => {
@@ -782,19 +629,13 @@ impl IAppxBundleManifestPackageInfo3_Vtbl {
         iid == &<IAppxBundleManifestPackageInfo3 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBundleManifestPackageInfo4_Impl: Sized {
+pub trait IAppxBundleManifestPackageInfo4_Impl: Sized + windows_core::IUnknownImpl {
     fn GetIsStub(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxBundleManifestPackageInfo4 {}
 impl IAppxBundleManifestPackageInfo4_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfo4_Vtbl
-    where
-        Identity: IAppxBundleManifestPackageInfo4_Impl,
-    {
-        unsafe extern "system" fn GetIsStub<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isstub: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfo4_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleManifestPackageInfo4_Impl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfo4_Vtbl {
+        unsafe extern "system" fn GetIsStub<Identity: IAppxBundleManifestPackageInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isstub: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfo4_Impl::GetIsStub(this) {
                 Ok(ok__) => {
@@ -810,21 +651,15 @@ impl IAppxBundleManifestPackageInfo4_Vtbl {
         iid == &<IAppxBundleManifestPackageInfo4 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBundleManifestPackageInfoEnumerator_Impl: Sized {
+pub trait IAppxBundleManifestPackageInfoEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxBundleManifestPackageInfo>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxBundleManifestPackageInfoEnumerator {}
 impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfoEnumerator_Vtbl
-    where
-        Identity: IAppxBundleManifestPackageInfoEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfoEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleManifestPackageInfoEnumerator_Impl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfoEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxBundleManifestPackageInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfoEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -834,10 +669,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfoEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxBundleManifestPackageInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfoEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -847,10 +679,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestPackageInfoEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxBundleManifestPackageInfoEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestPackageInfoEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -872,7 +701,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxBundleManifestReader_Impl: Sized {
+pub trait IAppxBundleManifestReader_Impl: Sized + windows_core::IUnknownImpl {
     fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId>;
     fn GetPackageInfoItems(&self) -> windows_core::Result<IAppxBundleManifestPackageInfoEnumerator>;
     fn GetStream(&self) -> windows_core::Result<super::super::super::System::Com::IStream>;
@@ -881,14 +710,8 @@ pub trait IAppxBundleManifestReader_Impl: Sized {
 impl windows_core::RuntimeName for IAppxBundleManifestReader {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleManifestReader_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleManifestReader_Vtbl
-    where
-        Identity: IAppxBundleManifestReader_Impl,
-    {
-        unsafe extern "system" fn GetPackageId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestReader_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleManifestReader_Impl, const OFFSET: isize>() -> IAppxBundleManifestReader_Vtbl {
+        unsafe extern "system" fn GetPackageId<Identity: IAppxBundleManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestReader_Impl::GetPackageId(this) {
                 Ok(ok__) => {
@@ -898,10 +721,7 @@ impl IAppxBundleManifestReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPackageInfoItems<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageinfoitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestReader_Impl,
-        {
+        unsafe extern "system" fn GetPackageInfoItems<Identity: IAppxBundleManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageinfoitems: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestReader_Impl::GetPackageInfoItems(this) {
                 Ok(ok__) => {
@@ -911,10 +731,7 @@ impl IAppxBundleManifestReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifeststream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestReader_Impl,
-        {
+        unsafe extern "system" fn GetStream<Identity: IAppxBundleManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifeststream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestReader_Impl::GetStream(this) {
                 Ok(ok__) => {
@@ -935,19 +752,13 @@ impl IAppxBundleManifestReader_Vtbl {
         iid == &<IAppxBundleManifestReader as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBundleManifestReader2_Impl: Sized {
+pub trait IAppxBundleManifestReader2_Impl: Sized + windows_core::IUnknownImpl {
     fn GetOptionalBundles(&self) -> windows_core::Result<IAppxBundleManifestOptionalBundleInfoEnumerator>;
 }
 impl windows_core::RuntimeName for IAppxBundleManifestReader2 {}
 impl IAppxBundleManifestReader2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleManifestReader2_Vtbl
-    where
-        Identity: IAppxBundleManifestReader2_Impl,
-    {
-        unsafe extern "system" fn GetOptionalBundles<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionalbundles: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleManifestReader2_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleManifestReader2_Impl, const OFFSET: isize>() -> IAppxBundleManifestReader2_Vtbl {
+        unsafe extern "system" fn GetOptionalBundles<Identity: IAppxBundleManifestReader2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionalbundles: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleManifestReader2_Impl::GetOptionalBundles(this) {
                 Ok(ok__) => {
@@ -963,7 +774,7 @@ impl IAppxBundleManifestReader2_Vtbl {
         iid == &<IAppxBundleManifestReader2 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxBundleReader_Impl: Sized {
+pub trait IAppxBundleReader_Impl: Sized + windows_core::IUnknownImpl {
     fn GetFootprintFile(&self, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE) -> windows_core::Result<IAppxFile>;
     fn GetBlockMap(&self) -> windows_core::Result<IAppxBlockMapReader>;
     fn GetManifest(&self) -> windows_core::Result<IAppxBundleManifestReader>;
@@ -972,14 +783,8 @@ pub trait IAppxBundleReader_Impl: Sized {
 }
 impl windows_core::RuntimeName for IAppxBundleReader {}
 impl IAppxBundleReader_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleReader_Vtbl
-    where
-        Identity: IAppxBundleReader_Impl,
-    {
-        unsafe extern "system" fn GetFootprintFile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE, footprintfile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleReader_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleReader_Impl, const OFFSET: isize>() -> IAppxBundleReader_Vtbl {
+        unsafe extern "system" fn GetFootprintFile<Identity: IAppxBundleReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE, footprintfile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleReader_Impl::GetFootprintFile(this, core::mem::transmute_copy(&filetype)) {
                 Ok(ok__) => {
@@ -989,10 +794,7 @@ impl IAppxBundleReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBlockMap<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, blockmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleReader_Impl,
-        {
+        unsafe extern "system" fn GetBlockMap<Identity: IAppxBundleReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blockmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleReader_Impl::GetBlockMap(this) {
                 Ok(ok__) => {
@@ -1002,10 +804,7 @@ impl IAppxBundleReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetManifest<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleReader_Impl,
-        {
+        unsafe extern "system" fn GetManifest<Identity: IAppxBundleReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleReader_Impl::GetManifest(this) {
                 Ok(ok__) => {
@@ -1015,10 +814,7 @@ impl IAppxBundleReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPayloadPackages<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, payloadpackages: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleReader_Impl,
-        {
+        unsafe extern "system" fn GetPayloadPackages<Identity: IAppxBundleReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, payloadpackages: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleReader_Impl::GetPayloadPackages(this) {
                 Ok(ok__) => {
@@ -1028,10 +824,7 @@ impl IAppxBundleReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPayloadPackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, payloadpackage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleReader_Impl,
-        {
+        unsafe extern "system" fn GetPayloadPackage<Identity: IAppxBundleReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, payloadpackage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxBundleReader_Impl::GetPayloadPackage(this, core::mem::transmute(&filename)) {
                 Ok(ok__) => {
@@ -1055,7 +848,7 @@ impl IAppxBundleReader_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxBundleWriter_Impl: Sized {
+pub trait IAppxBundleWriter_Impl: Sized + windows_core::IUnknownImpl {
     fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
@@ -1063,21 +856,12 @@ pub trait IAppxBundleWriter_Impl: Sized {
 impl windows_core::RuntimeName for IAppxBundleWriter {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleWriter_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleWriter_Vtbl
-    where
-        Identity: IAppxBundleWriter_Impl,
-    {
-        unsafe extern "system" fn AddPayloadPackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleWriter_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleWriter_Impl, const OFFSET: isize>() -> IAppxBundleWriter_Vtbl {
+        unsafe extern "system" fn AddPayloadPackage<Identity: IAppxBundleWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxBundleWriter_Impl::AddPayloadPackage(this, core::mem::transmute(&filename), windows_core::from_raw_borrowed(&packagestream)).into()
         }
-        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleWriter_Impl,
-        {
+        unsafe extern "system" fn Close<Identity: IAppxBundleWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxBundleWriter_Impl::Close(this).into()
         }
@@ -1092,21 +876,15 @@ impl IAppxBundleWriter_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxBundleWriter2_Impl: Sized {
+pub trait IAppxBundleWriter2_Impl: Sized + windows_core::IUnknownImpl {
     fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAppxBundleWriter2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleWriter2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleWriter2_Vtbl
-    where
-        Identity: IAppxBundleWriter2_Impl,
-    {
-        unsafe extern "system" fn AddExternalPackageReference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleWriter2_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleWriter2_Impl, const OFFSET: isize>() -> IAppxBundleWriter2_Vtbl {
+        unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxBundleWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxBundleWriter2_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), windows_core::from_raw_borrowed(&inputstream)).into()
         }
@@ -1117,7 +895,7 @@ impl IAppxBundleWriter2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxBundleWriter3_Impl: Sized {
+pub trait IAppxBundleWriter3_Impl: Sized + windows_core::IUnknownImpl {
     fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self, hashmethodstring: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -1125,21 +903,12 @@ pub trait IAppxBundleWriter3_Impl: Sized {
 impl windows_core::RuntimeName for IAppxBundleWriter3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleWriter3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleWriter3_Vtbl
-    where
-        Identity: IAppxBundleWriter3_Impl,
-    {
-        unsafe extern "system" fn AddPackageReference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleWriter3_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleWriter3_Impl, const OFFSET: isize>() -> IAppxBundleWriter3_Vtbl {
+        unsafe extern "system" fn AddPackageReference<Identity: IAppxBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxBundleWriter3_Impl::AddPackageReference(this, core::mem::transmute(&filename), windows_core::from_raw_borrowed(&inputstream)).into()
         }
-        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hashmethodstring: windows_core::PCWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleWriter3_Impl,
-        {
+        unsafe extern "system" fn Close<Identity: IAppxBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hashmethodstring: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxBundleWriter3_Impl::Close(this, core::mem::transmute(&hashmethodstring)).into()
         }
@@ -1154,7 +923,7 @@ impl IAppxBundleWriter3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxBundleWriter4_Impl: Sized {
+pub trait IAppxBundleWriter4_Impl: Sized + windows_core::IUnknownImpl {
     fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -1163,28 +932,16 @@ pub trait IAppxBundleWriter4_Impl: Sized {
 impl windows_core::RuntimeName for IAppxBundleWriter4 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleWriter4_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxBundleWriter4_Vtbl
-    where
-        Identity: IAppxBundleWriter4_Impl,
-    {
-        unsafe extern "system" fn AddPayloadPackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleWriter4_Impl,
-        {
+    pub const fn new<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>() -> IAppxBundleWriter4_Vtbl {
+        unsafe extern "system" fn AddPayloadPackage<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxBundleWriter4_Impl::AddPayloadPackage(this, core::mem::transmute(&filename), windows_core::from_raw_borrowed(&packagestream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
-        unsafe extern "system" fn AddPackageReference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleWriter4_Impl,
-        {
+        unsafe extern "system" fn AddPackageReference<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxBundleWriter4_Impl::AddPackageReference(this, core::mem::transmute(&filename), windows_core::from_raw_borrowed(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
-        unsafe extern "system" fn AddExternalPackageReference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxBundleWriter4_Impl,
-        {
+        unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxBundleWriter4_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), windows_core::from_raw_borrowed(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
@@ -1199,20 +956,14 @@ impl IAppxBundleWriter4_Vtbl {
         iid == &<IAppxBundleWriter4 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxContentGroup_Impl: Sized {
+pub trait IAppxContentGroup_Impl: Sized + windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetFiles(&self) -> windows_core::Result<IAppxContentGroupFilesEnumerator>;
 }
 impl windows_core::RuntimeName for IAppxContentGroup {}
 impl IAppxContentGroup_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxContentGroup_Vtbl
-    where
-        Identity: IAppxContentGroup_Impl,
-    {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, groupname: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroup_Impl,
-        {
+    pub const fn new<Identity: IAppxContentGroup_Impl, const OFFSET: isize>() -> IAppxContentGroup_Vtbl {
+        unsafe extern "system" fn GetName<Identity: IAppxContentGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, groupname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxContentGroup_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -1222,10 +973,7 @@ impl IAppxContentGroup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFiles<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroup_Impl,
-        {
+        unsafe extern "system" fn GetFiles<Identity: IAppxContentGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxContentGroup_Impl::GetFiles(this) {
                 Ok(ok__) => {
@@ -1241,21 +989,15 @@ impl IAppxContentGroup_Vtbl {
         iid == &<IAppxContentGroup as windows_core::Interface>::IID
     }
 }
-pub trait IAppxContentGroupFilesEnumerator_Impl: Sized {
+pub trait IAppxContentGroupFilesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxContentGroupFilesEnumerator {}
 impl IAppxContentGroupFilesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxContentGroupFilesEnumerator_Vtbl
-    where
-        Identity: IAppxContentGroupFilesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroupFilesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxContentGroupFilesEnumerator_Impl, const OFFSET: isize>() -> IAppxContentGroupFilesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxContentGroupFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxContentGroupFilesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -1265,10 +1007,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroupFilesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxContentGroupFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxContentGroupFilesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -1278,10 +1017,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroupFilesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxContentGroupFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxContentGroupFilesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -1302,20 +1038,14 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
         iid == &<IAppxContentGroupFilesEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxContentGroupMapReader_Impl: Sized {
+pub trait IAppxContentGroupMapReader_Impl: Sized + windows_core::IUnknownImpl {
     fn GetRequiredGroup(&self) -> windows_core::Result<IAppxContentGroup>;
     fn GetAutomaticGroups(&self) -> windows_core::Result<IAppxContentGroupsEnumerator>;
 }
 impl windows_core::RuntimeName for IAppxContentGroupMapReader {}
 impl IAppxContentGroupMapReader_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxContentGroupMapReader_Vtbl
-    where
-        Identity: IAppxContentGroupMapReader_Impl,
-    {
-        unsafe extern "system" fn GetRequiredGroup<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroupMapReader_Impl,
-        {
+    pub const fn new<Identity: IAppxContentGroupMapReader_Impl, const OFFSET: isize>() -> IAppxContentGroupMapReader_Vtbl {
+        unsafe extern "system" fn GetRequiredGroup<Identity: IAppxContentGroupMapReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxContentGroupMapReader_Impl::GetRequiredGroup(this) {
                 Ok(ok__) => {
@@ -1325,10 +1055,7 @@ impl IAppxContentGroupMapReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAutomaticGroups<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, automaticgroupsenumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroupMapReader_Impl,
-        {
+        unsafe extern "system" fn GetAutomaticGroups<Identity: IAppxContentGroupMapReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, automaticgroupsenumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxContentGroupMapReader_Impl::GetAutomaticGroups(this) {
                 Ok(ok__) => {
@@ -1348,35 +1075,23 @@ impl IAppxContentGroupMapReader_Vtbl {
         iid == &<IAppxContentGroupMapReader as windows_core::Interface>::IID
     }
 }
-pub trait IAppxContentGroupMapWriter_Impl: Sized {
+pub trait IAppxContentGroupMapWriter_Impl: Sized + windows_core::IUnknownImpl {
     fn AddAutomaticGroup(&self, groupname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddAutomaticFile(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IAppxContentGroupMapWriter {}
 impl IAppxContentGroupMapWriter_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxContentGroupMapWriter_Vtbl
-    where
-        Identity: IAppxContentGroupMapWriter_Impl,
-    {
-        unsafe extern "system" fn AddAutomaticGroup<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, groupname: windows_core::PCWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroupMapWriter_Impl,
-        {
+    pub const fn new<Identity: IAppxContentGroupMapWriter_Impl, const OFFSET: isize>() -> IAppxContentGroupMapWriter_Vtbl {
+        unsafe extern "system" fn AddAutomaticGroup<Identity: IAppxContentGroupMapWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, groupname: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxContentGroupMapWriter_Impl::AddAutomaticGroup(this, core::mem::transmute(&groupname)).into()
         }
-        unsafe extern "system" fn AddAutomaticFile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroupMapWriter_Impl,
-        {
+        unsafe extern "system" fn AddAutomaticFile<Identity: IAppxContentGroupMapWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxContentGroupMapWriter_Impl::AddAutomaticFile(this, core::mem::transmute(&filename)).into()
         }
-        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroupMapWriter_Impl,
-        {
+        unsafe extern "system" fn Close<Identity: IAppxContentGroupMapWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxContentGroupMapWriter_Impl::Close(this).into()
         }
@@ -1391,21 +1106,15 @@ impl IAppxContentGroupMapWriter_Vtbl {
         iid == &<IAppxContentGroupMapWriter as windows_core::Interface>::IID
     }
 }
-pub trait IAppxContentGroupsEnumerator_Impl: Sized {
+pub trait IAppxContentGroupsEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxContentGroup>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxContentGroupsEnumerator {}
 impl IAppxContentGroupsEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxContentGroupsEnumerator_Vtbl
-    where
-        Identity: IAppxContentGroupsEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroupsEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxContentGroupsEnumerator_Impl, const OFFSET: isize>() -> IAppxContentGroupsEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxContentGroupsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxContentGroupsEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -1415,10 +1124,7 @@ impl IAppxContentGroupsEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroupsEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxContentGroupsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxContentGroupsEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -1428,10 +1134,7 @@ impl IAppxContentGroupsEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxContentGroupsEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxContentGroupsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxContentGroupsEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -1452,19 +1155,13 @@ impl IAppxContentGroupsEnumerator_Vtbl {
         iid == &<IAppxContentGroupsEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxDigestProvider_Impl: Sized {
+pub trait IAppxDigestProvider_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDigest(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl windows_core::RuntimeName for IAppxDigestProvider {}
 impl IAppxDigestProvider_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxDigestProvider_Vtbl
-    where
-        Identity: IAppxDigestProvider_Impl,
-    {
-        unsafe extern "system" fn GetDigest<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, digest: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxDigestProvider_Impl,
-        {
+    pub const fn new<Identity: IAppxDigestProvider_Impl, const OFFSET: isize>() -> IAppxDigestProvider_Vtbl {
+        unsafe extern "system" fn GetDigest<Identity: IAppxDigestProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, digest: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxDigestProvider_Impl::GetDigest(this) {
                 Ok(ok__) => {
@@ -1481,7 +1178,7 @@ impl IAppxDigestProvider_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxEncryptedBundleWriter_Impl: Sized {
+pub trait IAppxEncryptedBundleWriter_Impl: Sized + windows_core::IUnknownImpl {
     fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
@@ -1489,21 +1186,12 @@ pub trait IAppxEncryptedBundleWriter_Impl: Sized {
 impl windows_core::RuntimeName for IAppxEncryptedBundleWriter {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptedBundleWriter_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxEncryptedBundleWriter_Vtbl
-    where
-        Identity: IAppxEncryptedBundleWriter_Impl,
-    {
-        unsafe extern "system" fn AddPayloadPackageEncrypted<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptedBundleWriter_Impl,
-        {
+    pub const fn new<Identity: IAppxEncryptedBundleWriter_Impl, const OFFSET: isize>() -> IAppxEncryptedBundleWriter_Vtbl {
+        unsafe extern "system" fn AddPayloadPackageEncrypted<Identity: IAppxEncryptedBundleWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptedBundleWriter_Impl::AddPayloadPackageEncrypted(this, core::mem::transmute(&filename), windows_core::from_raw_borrowed(&packagestream)).into()
         }
-        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptedBundleWriter_Impl,
-        {
+        unsafe extern "system" fn Close<Identity: IAppxEncryptedBundleWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptedBundleWriter_Impl::Close(this).into()
         }
@@ -1518,21 +1206,15 @@ impl IAppxEncryptedBundleWriter_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxEncryptedBundleWriter2_Impl: Sized {
+pub trait IAppxEncryptedBundleWriter2_Impl: Sized + windows_core::IUnknownImpl {
     fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAppxEncryptedBundleWriter2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptedBundleWriter2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxEncryptedBundleWriter2_Vtbl
-    where
-        Identity: IAppxEncryptedBundleWriter2_Impl,
-    {
-        unsafe extern "system" fn AddExternalPackageReference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptedBundleWriter2_Impl,
-        {
+    pub const fn new<Identity: IAppxEncryptedBundleWriter2_Impl, const OFFSET: isize>() -> IAppxEncryptedBundleWriter2_Vtbl {
+        unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxEncryptedBundleWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptedBundleWriter2_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), windows_core::from_raw_borrowed(&inputstream)).into()
         }
@@ -1543,7 +1225,7 @@ impl IAppxEncryptedBundleWriter2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxEncryptedBundleWriter3_Impl: Sized {
+pub trait IAppxEncryptedBundleWriter3_Impl: Sized + windows_core::IUnknownImpl {
     fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
@@ -1551,21 +1233,12 @@ pub trait IAppxEncryptedBundleWriter3_Impl: Sized {
 impl windows_core::RuntimeName for IAppxEncryptedBundleWriter3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptedBundleWriter3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxEncryptedBundleWriter3_Vtbl
-    where
-        Identity: IAppxEncryptedBundleWriter3_Impl,
-    {
-        unsafe extern "system" fn AddPayloadPackageEncrypted<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptedBundleWriter3_Impl,
-        {
+    pub const fn new<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>() -> IAppxEncryptedBundleWriter3_Vtbl {
+        unsafe extern "system" fn AddPayloadPackageEncrypted<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptedBundleWriter3_Impl::AddPayloadPackageEncrypted(this, core::mem::transmute(&filename), windows_core::from_raw_borrowed(&packagestream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
-        unsafe extern "system" fn AddExternalPackageReference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptedBundleWriter3_Impl,
-        {
+        unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptedBundleWriter3_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), windows_core::from_raw_borrowed(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
@@ -1580,7 +1253,7 @@ impl IAppxEncryptedBundleWriter3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxEncryptedPackageWriter_Impl: Sized {
+pub trait IAppxEncryptedPackageWriter_Impl: Sized + windows_core::IUnknownImpl {
     fn AddPayloadFileEncrypted(&self, filename: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
@@ -1588,21 +1261,12 @@ pub trait IAppxEncryptedPackageWriter_Impl: Sized {
 impl windows_core::RuntimeName for IAppxEncryptedPackageWriter {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptedPackageWriter_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxEncryptedPackageWriter_Vtbl
-    where
-        Identity: IAppxEncryptedPackageWriter_Impl,
-    {
-        unsafe extern "system" fn AddPayloadFileEncrypted<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptedPackageWriter_Impl,
-        {
+    pub const fn new<Identity: IAppxEncryptedPackageWriter_Impl, const OFFSET: isize>() -> IAppxEncryptedPackageWriter_Vtbl {
+        unsafe extern "system" fn AddPayloadFileEncrypted<Identity: IAppxEncryptedPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptedPackageWriter_Impl::AddPayloadFileEncrypted(this, core::mem::transmute(&filename), core::mem::transmute_copy(&compressionoption), windows_core::from_raw_borrowed(&inputstream)).into()
         }
-        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptedPackageWriter_Impl,
-        {
+        unsafe extern "system" fn Close<Identity: IAppxEncryptedPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptedPackageWriter_Impl::Close(this).into()
         }
@@ -1617,21 +1281,15 @@ impl IAppxEncryptedPackageWriter_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxEncryptedPackageWriter2_Impl: Sized {
+pub trait IAppxEncryptedPackageWriter2_Impl: Sized + windows_core::IUnknownImpl {
     fn AddPayloadFilesEncrypted(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAppxEncryptedPackageWriter2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptedPackageWriter2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxEncryptedPackageWriter2_Vtbl
-    where
-        Identity: IAppxEncryptedPackageWriter2_Impl,
-    {
-        unsafe extern "system" fn AddPayloadFilesEncrypted<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptedPackageWriter2_Impl,
-        {
+    pub const fn new<Identity: IAppxEncryptedPackageWriter2_Impl, const OFFSET: isize>() -> IAppxEncryptedPackageWriter2_Vtbl {
+        unsafe extern "system" fn AddPayloadFilesEncrypted<Identity: IAppxEncryptedPackageWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptedPackageWriter2_Impl::AddPayloadFilesEncrypted(this, core::mem::transmute_copy(&filecount), core::mem::transmute_copy(&payloadfiles), core::mem::transmute_copy(&memorylimit)).into()
         }
@@ -1642,7 +1300,7 @@ impl IAppxEncryptedPackageWriter2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxEncryptionFactory_Impl: Sized {
+pub trait IAppxEncryptionFactory_Impl: Sized + windows_core::IUnknownImpl {
     fn EncryptPackage(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
     fn DecryptPackage(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
     fn CreateEncryptedPackageWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, manifeststream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
@@ -1656,28 +1314,16 @@ pub trait IAppxEncryptionFactory_Impl: Sized {
 impl windows_core::RuntimeName for IAppxEncryptionFactory {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxEncryptionFactory_Vtbl
-    where
-        Identity: IAppxEncryptionFactory_Impl,
-    {
-        unsafe extern "system" fn EncryptPackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory_Impl,
-        {
+    pub const fn new<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>() -> IAppxEncryptionFactory_Vtbl {
+        unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptionFactory_Impl::EncryptPackage(this, windows_core::from_raw_borrowed(&inputstream), windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
         }
-        unsafe extern "system" fn DecryptPackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory_Impl,
-        {
+        unsafe extern "system" fn DecryptPackage<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptionFactory_Impl::DecryptPackage(this, windows_core::from_raw_borrowed(&inputstream), windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&keyinfo)).into()
         }
-        unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, manifeststream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory_Impl,
-        {
+        unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, manifeststream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxEncryptionFactory_Impl::CreateEncryptedPackageWriter(this, windows_core::from_raw_borrowed(&outputstream), windows_core::from_raw_borrowed(&manifeststream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
                 Ok(ok__) => {
@@ -1687,10 +1333,7 @@ impl IAppxEncryptionFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEncryptedPackageReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory_Impl,
-        {
+        unsafe extern "system" fn CreateEncryptedPackageReader<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxEncryptionFactory_Impl::CreateEncryptedPackageReader(this, windows_core::from_raw_borrowed(&inputstream), core::mem::transmute_copy(&keyinfo)) {
                 Ok(ok__) => {
@@ -1700,24 +1343,15 @@ impl IAppxEncryptionFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EncryptBundle<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory_Impl,
-        {
+        unsafe extern "system" fn EncryptBundle<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptionFactory_Impl::EncryptBundle(this, windows_core::from_raw_borrowed(&inputstream), windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
         }
-        unsafe extern "system" fn DecryptBundle<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory_Impl,
-        {
+        unsafe extern "system" fn DecryptBundle<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptionFactory_Impl::DecryptBundle(this, windows_core::from_raw_borrowed(&inputstream), windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&keyinfo)).into()
         }
-        unsafe extern "system" fn CreateEncryptedBundleWriter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory_Impl,
-        {
+        unsafe extern "system" fn CreateEncryptedBundleWriter<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxEncryptionFactory_Impl::CreateEncryptedBundleWriter(this, windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&bundleversion), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
                 Ok(ok__) => {
@@ -1727,10 +1361,7 @@ impl IAppxEncryptionFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEncryptedBundleReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory_Impl,
-        {
+        unsafe extern "system" fn CreateEncryptedBundleReader<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxEncryptionFactory_Impl::CreateEncryptedBundleReader(this, windows_core::from_raw_borrowed(&inputstream), core::mem::transmute_copy(&keyinfo)) {
                 Ok(ok__) => {
@@ -1757,21 +1388,15 @@ impl IAppxEncryptionFactory_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxEncryptionFactory2_Impl: Sized {
+pub trait IAppxEncryptionFactory2_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateEncryptedPackageWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, manifeststream: Option<&super::super::super::System::Com::IStream>, contentgroupmapstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAppxEncryptionFactory2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxEncryptionFactory2_Vtbl
-    where
-        Identity: IAppxEncryptionFactory2_Impl,
-    {
-        unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, manifeststream: *mut core::ffi::c_void, contentgroupmapstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory2_Impl,
-        {
+    pub const fn new<Identity: IAppxEncryptionFactory2_Impl, const OFFSET: isize>() -> IAppxEncryptionFactory2_Vtbl {
+        unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: IAppxEncryptionFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, manifeststream: *mut core::ffi::c_void, contentgroupmapstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxEncryptionFactory2_Impl::CreateEncryptedPackageWriter(this, windows_core::from_raw_borrowed(&outputstream), windows_core::from_raw_borrowed(&manifeststream), windows_core::from_raw_borrowed(&contentgroupmapstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
                 Ok(ok__) => {
@@ -1788,7 +1413,7 @@ impl IAppxEncryptionFactory2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxEncryptionFactory3_Impl: Sized {
+pub trait IAppxEncryptionFactory3_Impl: Sized + windows_core::IUnknownImpl {
     fn EncryptPackage(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
     fn CreateEncryptedPackageWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, manifeststream: Option<&super::super::super::System::Com::IStream>, contentgroupmapstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
     fn EncryptBundle(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
@@ -1798,21 +1423,12 @@ pub trait IAppxEncryptionFactory3_Impl: Sized {
 impl windows_core::RuntimeName for IAppxEncryptionFactory3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxEncryptionFactory3_Vtbl
-    where
-        Identity: IAppxEncryptionFactory3_Impl,
-    {
-        unsafe extern "system" fn EncryptPackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory3_Impl,
-        {
+    pub const fn new<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>() -> IAppxEncryptionFactory3_Vtbl {
+        unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptionFactory3_Impl::EncryptPackage(this, windows_core::from_raw_borrowed(&inputstream), windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
         }
-        unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, manifeststream: *mut core::ffi::c_void, contentgroupmapstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory3_Impl,
-        {
+        unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, manifeststream: *mut core::ffi::c_void, contentgroupmapstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxEncryptionFactory3_Impl::CreateEncryptedPackageWriter(this, windows_core::from_raw_borrowed(&outputstream), windows_core::from_raw_borrowed(&manifeststream), windows_core::from_raw_borrowed(&contentgroupmapstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
                 Ok(ok__) => {
@@ -1822,17 +1438,11 @@ impl IAppxEncryptionFactory3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EncryptBundle<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory3_Impl,
-        {
+        unsafe extern "system" fn EncryptBundle<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptionFactory3_Impl::EncryptBundle(this, windows_core::from_raw_borrowed(&inputstream), windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
         }
-        unsafe extern "system" fn CreateEncryptedBundleWriter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory3_Impl,
-        {
+        unsafe extern "system" fn CreateEncryptedBundleWriter<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxEncryptionFactory3_Impl::CreateEncryptedBundleWriter(this, windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&bundleversion), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
                 Ok(ok__) => {
@@ -1855,21 +1465,15 @@ impl IAppxEncryptionFactory3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxEncryptionFactory4_Impl: Sized {
+pub trait IAppxEncryptionFactory4_Impl: Sized + windows_core::IUnknownImpl {
     fn EncryptPackage(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAppxEncryptionFactory4 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory4_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxEncryptionFactory4_Vtbl
-    where
-        Identity: IAppxEncryptionFactory4_Impl,
-    {
-        unsafe extern "system" fn EncryptPackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory4_Impl,
-        {
+    pub const fn new<Identity: IAppxEncryptionFactory4_Impl, const OFFSET: isize>() -> IAppxEncryptionFactory4_Vtbl {
+        unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxEncryptionFactory4_Impl::EncryptPackage(this, windows_core::from_raw_borrowed(&inputstream), windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles), core::mem::transmute_copy(&memorylimit)).into()
         }
@@ -1880,7 +1484,7 @@ impl IAppxEncryptionFactory4_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxEncryptionFactory5_Impl: Sized {
+pub trait IAppxEncryptionFactory5_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateEncryptedPackageReader2(&self, inputstream: Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
     fn CreateEncryptedBundleReader2(&self, inputstream: Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
 }
@@ -1888,14 +1492,8 @@ pub trait IAppxEncryptionFactory5_Impl: Sized {
 impl windows_core::RuntimeName for IAppxEncryptionFactory5 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory5_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxEncryptionFactory5_Vtbl
-    where
-        Identity: IAppxEncryptionFactory5_Impl,
-    {
-        unsafe extern "system" fn CreateEncryptedPackageReader2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: windows_core::PCWSTR, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory5_Impl,
-        {
+    pub const fn new<Identity: IAppxEncryptionFactory5_Impl, const OFFSET: isize>() -> IAppxEncryptionFactory5_Vtbl {
+        unsafe extern "system" fn CreateEncryptedPackageReader2<Identity: IAppxEncryptionFactory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: windows_core::PCWSTR, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxEncryptionFactory5_Impl::CreateEncryptedPackageReader2(this, windows_core::from_raw_borrowed(&inputstream), core::mem::transmute_copy(&keyinfo), core::mem::transmute(&expecteddigest)) {
                 Ok(ok__) => {
@@ -1905,10 +1503,7 @@ impl IAppxEncryptionFactory5_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEncryptedBundleReader2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: windows_core::PCWSTR, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxEncryptionFactory5_Impl,
-        {
+        unsafe extern "system" fn CreateEncryptedBundleReader2<Identity: IAppxEncryptionFactory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: windows_core::PCWSTR, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxEncryptionFactory5_Impl::CreateEncryptedBundleReader2(this, windows_core::from_raw_borrowed(&inputstream), core::mem::transmute_copy(&keyinfo), core::mem::transmute(&expecteddigest)) {
                 Ok(ok__) => {
@@ -1929,7 +1524,7 @@ impl IAppxEncryptionFactory5_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxFactory_Impl: Sized {
+pub trait IAppxFactory_Impl: Sized + windows_core::IUnknownImpl {
     fn CreatePackageWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_PACKAGE_SETTINGS) -> windows_core::Result<IAppxPackageWriter>;
     fn CreatePackageReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxPackageReader>;
     fn CreateManifestReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxManifestReader>;
@@ -1940,14 +1535,8 @@ pub trait IAppxFactory_Impl: Sized {
 impl windows_core::RuntimeName for IAppxFactory {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxFactory_Vtbl
-    where
-        Identity: IAppxFactory_Impl,
-    {
-        unsafe extern "system" fn CreatePackageWriter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_PACKAGE_SETTINGS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFactory_Impl,
-        {
+    pub const fn new<Identity: IAppxFactory_Impl, const OFFSET: isize>() -> IAppxFactory_Vtbl {
+        unsafe extern "system" fn CreatePackageWriter<Identity: IAppxFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_PACKAGE_SETTINGS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFactory_Impl::CreatePackageWriter(this, windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&settings)) {
                 Ok(ok__) => {
@@ -1957,10 +1546,7 @@ impl IAppxFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePackageReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFactory_Impl,
-        {
+        unsafe extern "system" fn CreatePackageReader<Identity: IAppxFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFactory_Impl::CreatePackageReader(this, windows_core::from_raw_borrowed(&inputstream)) {
                 Ok(ok__) => {
@@ -1970,10 +1556,7 @@ impl IAppxFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateManifestReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFactory_Impl,
-        {
+        unsafe extern "system" fn CreateManifestReader<Identity: IAppxFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFactory_Impl::CreateManifestReader(this, windows_core::from_raw_borrowed(&inputstream)) {
                 Ok(ok__) => {
@@ -1983,10 +1566,7 @@ impl IAppxFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBlockMapReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, blockmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFactory_Impl,
-        {
+        unsafe extern "system" fn CreateBlockMapReader<Identity: IAppxFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, blockmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFactory_Impl::CreateBlockMapReader(this, windows_core::from_raw_borrowed(&inputstream)) {
                 Ok(ok__) => {
@@ -1996,10 +1576,7 @@ impl IAppxFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateValidatedBlockMapReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, blockmapstream: *mut core::ffi::c_void, signaturefilename: windows_core::PCWSTR, blockmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFactory_Impl,
-        {
+        unsafe extern "system" fn CreateValidatedBlockMapReader<Identity: IAppxFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blockmapstream: *mut core::ffi::c_void, signaturefilename: windows_core::PCWSTR, blockmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFactory_Impl::CreateValidatedBlockMapReader(this, windows_core::from_raw_borrowed(&blockmapstream), core::mem::transmute(&signaturefilename)) {
                 Ok(ok__) => {
@@ -2023,7 +1600,7 @@ impl IAppxFactory_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxFactory2_Impl: Sized {
+pub trait IAppxFactory2_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateContentGroupMapReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxContentGroupMapReader>;
     fn CreateSourceContentGroupMapReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxSourceContentGroupMapReader>;
     fn CreateContentGroupMapWriter(&self, stream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxContentGroupMapWriter>;
@@ -2032,14 +1609,8 @@ pub trait IAppxFactory2_Impl: Sized {
 impl windows_core::RuntimeName for IAppxFactory2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxFactory2_Vtbl
-    where
-        Identity: IAppxFactory2_Impl,
-    {
-        unsafe extern "system" fn CreateContentGroupMapReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, contentgroupmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFactory2_Impl,
-        {
+    pub const fn new<Identity: IAppxFactory2_Impl, const OFFSET: isize>() -> IAppxFactory2_Vtbl {
+        unsafe extern "system" fn CreateContentGroupMapReader<Identity: IAppxFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, contentgroupmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFactory2_Impl::CreateContentGroupMapReader(this, windows_core::from_raw_borrowed(&inputstream)) {
                 Ok(ok__) => {
@@ -2049,10 +1620,7 @@ impl IAppxFactory2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSourceContentGroupMapReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, reader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFactory2_Impl,
-        {
+        unsafe extern "system" fn CreateSourceContentGroupMapReader<Identity: IAppxFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, reader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFactory2_Impl::CreateSourceContentGroupMapReader(this, windows_core::from_raw_borrowed(&inputstream)) {
                 Ok(ok__) => {
@@ -2062,10 +1630,7 @@ impl IAppxFactory2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateContentGroupMapWriter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, contentgroupmapwriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFactory2_Impl,
-        {
+        unsafe extern "system" fn CreateContentGroupMapWriter<Identity: IAppxFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, contentgroupmapwriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFactory2_Impl::CreateContentGroupMapWriter(this, windows_core::from_raw_borrowed(&stream)) {
                 Ok(ok__) => {
@@ -2087,7 +1652,7 @@ impl IAppxFactory2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxFactory3_Impl: Sized {
+pub trait IAppxFactory3_Impl: Sized + windows_core::IUnknownImpl {
     fn CreatePackageReader2(&self, inputstream: Option<&super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
     fn CreateManifestReader2(&self, inputstream: Option<&super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxManifestReader>;
     fn CreateAppInstallerReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxAppInstallerReader>;
@@ -2096,14 +1661,8 @@ pub trait IAppxFactory3_Impl: Sized {
 impl windows_core::RuntimeName for IAppxFactory3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxFactory3_Vtbl
-    where
-        Identity: IAppxFactory3_Impl,
-    {
-        unsafe extern "system" fn CreatePackageReader2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFactory3_Impl,
-        {
+    pub const fn new<Identity: IAppxFactory3_Impl, const OFFSET: isize>() -> IAppxFactory3_Vtbl {
+        unsafe extern "system" fn CreatePackageReader2<Identity: IAppxFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFactory3_Impl::CreatePackageReader2(this, windows_core::from_raw_borrowed(&inputstream), core::mem::transmute(&expecteddigest)) {
                 Ok(ok__) => {
@@ -2113,10 +1672,7 @@ impl IAppxFactory3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateManifestReader2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFactory3_Impl,
-        {
+        unsafe extern "system" fn CreateManifestReader2<Identity: IAppxFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFactory3_Impl::CreateManifestReader2(this, windows_core::from_raw_borrowed(&inputstream), core::mem::transmute(&expecteddigest)) {
                 Ok(ok__) => {
@@ -2126,10 +1682,7 @@ impl IAppxFactory3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAppInstallerReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, appinstallerreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFactory3_Impl,
-        {
+        unsafe extern "system" fn CreateAppInstallerReader<Identity: IAppxFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, appinstallerreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFactory3_Impl::CreateAppInstallerReader(this, windows_core::from_raw_borrowed(&inputstream), core::mem::transmute(&expecteddigest)) {
                 Ok(ok__) => {
@@ -2151,7 +1704,7 @@ impl IAppxFactory3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxFile_Impl: Sized {
+pub trait IAppxFile_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCompressionOption(&self) -> windows_core::Result<APPX_COMPRESSION_OPTION>;
     fn GetContentType(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -2162,14 +1715,8 @@ pub trait IAppxFile_Impl: Sized {
 impl windows_core::RuntimeName for IAppxFile {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFile_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxFile_Vtbl
-    where
-        Identity: IAppxFile_Impl,
-    {
-        unsafe extern "system" fn GetCompressionOption<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, compressionoption: *mut APPX_COMPRESSION_OPTION) -> windows_core::HRESULT
-        where
-            Identity: IAppxFile_Impl,
-        {
+    pub const fn new<Identity: IAppxFile_Impl, const OFFSET: isize>() -> IAppxFile_Vtbl {
+        unsafe extern "system" fn GetCompressionOption<Identity: IAppxFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, compressionoption: *mut APPX_COMPRESSION_OPTION) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFile_Impl::GetCompressionOption(this) {
                 Ok(ok__) => {
@@ -2179,10 +1726,7 @@ impl IAppxFile_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetContentType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, contenttype: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxFile_Impl,
-        {
+        unsafe extern "system" fn GetContentType<Identity: IAppxFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contenttype: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFile_Impl::GetContentType(this) {
                 Ok(ok__) => {
@@ -2192,10 +1736,7 @@ impl IAppxFile_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxFile_Impl,
-        {
+        unsafe extern "system" fn GetName<Identity: IAppxFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFile_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -2205,10 +1746,7 @@ impl IAppxFile_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxFile_Impl,
-        {
+        unsafe extern "system" fn GetSize<Identity: IAppxFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFile_Impl::GetSize(this) {
                 Ok(ok__) => {
@@ -2218,10 +1756,7 @@ impl IAppxFile_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFile_Impl,
-        {
+        unsafe extern "system" fn GetStream<Identity: IAppxFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFile_Impl::GetStream(this) {
                 Ok(ok__) => {
@@ -2244,21 +1779,15 @@ impl IAppxFile_Vtbl {
         iid == &<IAppxFile as windows_core::Interface>::IID
     }
 }
-pub trait IAppxFilesEnumerator_Impl: Sized {
+pub trait IAppxFilesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxFile>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxFilesEnumerator {}
 impl IAppxFilesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxFilesEnumerator_Vtbl
-    where
-        Identity: IAppxFilesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxFilesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxFilesEnumerator_Impl, const OFFSET: isize>() -> IAppxFilesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFilesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -2268,10 +1797,7 @@ impl IAppxFilesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxFilesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFilesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -2281,10 +1807,7 @@ impl IAppxFilesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxFilesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxFilesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxFilesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -2305,20 +1828,14 @@ impl IAppxFilesEnumerator_Vtbl {
         iid == &<IAppxFilesEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestApplication_Impl: Sized {
+pub trait IAppxManifestApplication_Impl: Sized + windows_core::IUnknownImpl {
     fn GetStringValue(&self, name: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
     fn GetAppUserModelId(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl windows_core::RuntimeName for IAppxManifestApplication {}
 impl IAppxManifestApplication_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestApplication_Vtbl
-    where
-        Identity: IAppxManifestApplication_Impl,
-    {
-        unsafe extern "system" fn GetStringValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestApplication_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestApplication_Impl, const OFFSET: isize>() -> IAppxManifestApplication_Vtbl {
+        unsafe extern "system" fn GetStringValue<Identity: IAppxManifestApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestApplication_Impl::GetStringValue(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
@@ -2328,10 +1845,7 @@ impl IAppxManifestApplication_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAppUserModelId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, appusermodelid: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestApplication_Impl,
-        {
+        unsafe extern "system" fn GetAppUserModelId<Identity: IAppxManifestApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appusermodelid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestApplication_Impl::GetAppUserModelId(this) {
                 Ok(ok__) => {
@@ -2351,21 +1865,15 @@ impl IAppxManifestApplication_Vtbl {
         iid == &<IAppxManifestApplication as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestApplicationsEnumerator_Impl: Sized {
+pub trait IAppxManifestApplicationsEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestApplication>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestApplicationsEnumerator {}
 impl IAppxManifestApplicationsEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestApplicationsEnumerator_Vtbl
-    where
-        Identity: IAppxManifestApplicationsEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, application: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestApplicationsEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestApplicationsEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestApplicationsEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestApplicationsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, application: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestApplicationsEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -2375,10 +1883,7 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestApplicationsEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestApplicationsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestApplicationsEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -2388,10 +1893,7 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestApplicationsEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestApplicationsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestApplicationsEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -2412,21 +1914,15 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
         iid == &<IAppxManifestApplicationsEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestCapabilitiesEnumerator_Impl: Sized {
+pub trait IAppxManifestCapabilitiesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestCapabilitiesEnumerator {}
 impl IAppxManifestCapabilitiesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestCapabilitiesEnumerator_Vtbl
-    where
-        Identity: IAppxManifestCapabilitiesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, capability: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestCapabilitiesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestCapabilitiesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capability: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestCapabilitiesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -2436,10 +1932,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestCapabilitiesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestCapabilitiesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -2449,10 +1942,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestCapabilitiesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestCapabilitiesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -2473,21 +1963,15 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
         iid == &<IAppxManifestCapabilitiesEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestDeviceCapabilitiesEnumerator_Impl: Sized {
+pub trait IAppxManifestDeviceCapabilitiesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestDeviceCapabilitiesEnumerator {}
 impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestDeviceCapabilitiesEnumerator_Vtbl
-    where
-        Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, devicecapability: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, devicecapability: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDeviceCapabilitiesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -2497,10 +1981,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDeviceCapabilitiesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -2510,10 +1991,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestDeviceCapabilitiesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDeviceCapabilitiesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -2534,21 +2012,15 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
         iid == &<IAppxManifestDeviceCapabilitiesEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestDriverConstraint_Impl: Sized {
+pub trait IAppxManifestDriverConstraint_Impl: Sized + windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetMinVersion(&self) -> windows_core::Result<u64>;
     fn GetMinDate(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl windows_core::RuntimeName for IAppxManifestDriverConstraint {}
 impl IAppxManifestDriverConstraint_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestDriverConstraint_Vtbl
-    where
-        Identity: IAppxManifestDriverConstraint_Impl,
-    {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDriverConstraint_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestDriverConstraint_Impl, const OFFSET: isize>() -> IAppxManifestDriverConstraint_Vtbl {
+        unsafe extern "system" fn GetName<Identity: IAppxManifestDriverConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDriverConstraint_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -2558,10 +2030,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMinVersion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDriverConstraint_Impl,
-        {
+        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestDriverConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDriverConstraint_Impl::GetMinVersion(this) {
                 Ok(ok__) => {
@@ -2571,10 +2040,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMinDate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mindate: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDriverConstraint_Impl,
-        {
+        unsafe extern "system" fn GetMinDate<Identity: IAppxManifestDriverConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mindate: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDriverConstraint_Impl::GetMinDate(this) {
                 Ok(ok__) => {
@@ -2595,21 +2061,15 @@ impl IAppxManifestDriverConstraint_Vtbl {
         iid == &<IAppxManifestDriverConstraint as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestDriverConstraintsEnumerator_Impl: Sized {
+pub trait IAppxManifestDriverConstraintsEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestDriverConstraint>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestDriverConstraintsEnumerator {}
 impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestDriverConstraintsEnumerator_Vtbl
-    where
-        Identity: IAppxManifestDriverConstraintsEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, driverconstraint: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDriverConstraintsEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestDriverConstraintsEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestDriverConstraintsEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestDriverConstraintsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, driverconstraint: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDriverConstraintsEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -2619,10 +2079,7 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDriverConstraintsEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestDriverConstraintsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDriverConstraintsEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -2632,10 +2089,7 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDriverConstraintsEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestDriverConstraintsEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDriverConstraintsEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -2656,21 +2110,15 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
         iid == &<IAppxManifestDriverConstraintsEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestDriverDependenciesEnumerator_Impl: Sized {
+pub trait IAppxManifestDriverDependenciesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestDriverDependency>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestDriverDependenciesEnumerator {}
 impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestDriverDependenciesEnumerator_Vtbl
-    where
-        Identity: IAppxManifestDriverDependenciesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, driverdependency: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDriverDependenciesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestDriverDependenciesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestDriverDependenciesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestDriverDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, driverdependency: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDriverDependenciesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -2680,10 +2128,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDriverDependenciesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestDriverDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDriverDependenciesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -2693,10 +2138,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDriverDependenciesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestDriverDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDriverDependenciesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -2717,19 +2159,13 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
         iid == &<IAppxManifestDriverDependenciesEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestDriverDependency_Impl: Sized {
+pub trait IAppxManifestDriverDependency_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDriverConstraints(&self) -> windows_core::Result<IAppxManifestDriverConstraintsEnumerator>;
 }
 impl windows_core::RuntimeName for IAppxManifestDriverDependency {}
 impl IAppxManifestDriverDependency_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestDriverDependency_Vtbl
-    where
-        Identity: IAppxManifestDriverDependency_Impl,
-    {
-        unsafe extern "system" fn GetDriverConstraints<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, driverconstraints: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestDriverDependency_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestDriverDependency_Impl, const OFFSET: isize>() -> IAppxManifestDriverDependency_Vtbl {
+        unsafe extern "system" fn GetDriverConstraints<Identity: IAppxManifestDriverDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, driverconstraints: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestDriverDependency_Impl::GetDriverConstraints(this) {
                 Ok(ok__) => {
@@ -2745,21 +2181,15 @@ impl IAppxManifestDriverDependency_Vtbl {
         iid == &<IAppxManifestDriverDependency as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestHostRuntimeDependenciesEnumerator_Impl: Sized {
+pub trait IAppxManifestHostRuntimeDependenciesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestHostRuntimeDependency>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestHostRuntimeDependenciesEnumerator {}
 impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl
-    where
-        Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostruntimedependency: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostruntimedependency: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestHostRuntimeDependenciesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -2769,10 +2199,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestHostRuntimeDependenciesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -2782,10 +2209,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestHostRuntimeDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestHostRuntimeDependenciesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -2806,21 +2230,15 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
         iid == &<IAppxManifestHostRuntimeDependenciesEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestHostRuntimeDependency_Impl: Sized {
+pub trait IAppxManifestHostRuntimeDependency_Impl: Sized + windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetMinVersion(&self) -> windows_core::Result<u64>;
 }
 impl windows_core::RuntimeName for IAppxManifestHostRuntimeDependency {}
 impl IAppxManifestHostRuntimeDependency_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestHostRuntimeDependency_Vtbl
-    where
-        Identity: IAppxManifestHostRuntimeDependency_Impl,
-    {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestHostRuntimeDependency_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestHostRuntimeDependency_Impl, const OFFSET: isize>() -> IAppxManifestHostRuntimeDependency_Vtbl {
+        unsafe extern "system" fn GetName<Identity: IAppxManifestHostRuntimeDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestHostRuntimeDependency_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -2830,10 +2248,7 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPublisher<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestHostRuntimeDependency_Impl,
-        {
+        unsafe extern "system" fn GetPublisher<Identity: IAppxManifestHostRuntimeDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestHostRuntimeDependency_Impl::GetPublisher(this) {
                 Ok(ok__) => {
@@ -2843,10 +2258,7 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMinVersion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestHostRuntimeDependency_Impl,
-        {
+        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestHostRuntimeDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestHostRuntimeDependency_Impl::GetMinVersion(this) {
                 Ok(ok__) => {
@@ -2867,19 +2279,13 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
         iid == &<IAppxManifestHostRuntimeDependency as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestHostRuntimeDependency2_Impl: Sized {
+pub trait IAppxManifestHostRuntimeDependency2_Impl: Sized + windows_core::IUnknownImpl {
     fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl windows_core::RuntimeName for IAppxManifestHostRuntimeDependency2 {}
 impl IAppxManifestHostRuntimeDependency2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestHostRuntimeDependency2_Vtbl
-    where
-        Identity: IAppxManifestHostRuntimeDependency2_Impl,
-    {
-        unsafe extern "system" fn GetPackageFamilyName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestHostRuntimeDependency2_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestHostRuntimeDependency2_Impl, const OFFSET: isize>() -> IAppxManifestHostRuntimeDependency2_Vtbl {
+        unsafe extern "system" fn GetPackageFamilyName<Identity: IAppxManifestHostRuntimeDependency2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestHostRuntimeDependency2_Impl::GetPackageFamilyName(this) {
                 Ok(ok__) => {
@@ -2895,21 +2301,15 @@ impl IAppxManifestHostRuntimeDependency2_Vtbl {
         iid == &<IAppxManifestHostRuntimeDependency2 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestMainPackageDependenciesEnumerator_Impl: Sized {
+pub trait IAppxManifestMainPackageDependenciesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestMainPackageDependency>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestMainPackageDependenciesEnumerator {}
 impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestMainPackageDependenciesEnumerator_Vtbl
-    where
-        Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mainpackagedependency: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mainpackagedependency: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestMainPackageDependenciesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -2919,10 +2319,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestMainPackageDependenciesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -2932,10 +2329,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestMainPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestMainPackageDependenciesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -2956,21 +2350,15 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
         iid == &<IAppxManifestMainPackageDependenciesEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestMainPackageDependency_Impl: Sized {
+pub trait IAppxManifestMainPackageDependency_Impl: Sized + windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetPackageFamilyName(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl windows_core::RuntimeName for IAppxManifestMainPackageDependency {}
 impl IAppxManifestMainPackageDependency_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestMainPackageDependency_Vtbl
-    where
-        Identity: IAppxManifestMainPackageDependency_Impl,
-    {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestMainPackageDependency_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestMainPackageDependency_Impl, const OFFSET: isize>() -> IAppxManifestMainPackageDependency_Vtbl {
+        unsafe extern "system" fn GetName<Identity: IAppxManifestMainPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestMainPackageDependency_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -2980,10 +2368,7 @@ impl IAppxManifestMainPackageDependency_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPublisher<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestMainPackageDependency_Impl,
-        {
+        unsafe extern "system" fn GetPublisher<Identity: IAppxManifestMainPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestMainPackageDependency_Impl::GetPublisher(this) {
                 Ok(ok__) => {
@@ -2993,10 +2378,7 @@ impl IAppxManifestMainPackageDependency_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPackageFamilyName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestMainPackageDependency_Impl,
-        {
+        unsafe extern "system" fn GetPackageFamilyName<Identity: IAppxManifestMainPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestMainPackageDependency_Impl::GetPackageFamilyName(this) {
                 Ok(ok__) => {
@@ -3017,21 +2399,15 @@ impl IAppxManifestMainPackageDependency_Vtbl {
         iid == &<IAppxManifestMainPackageDependency as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestOSPackageDependenciesEnumerator_Impl: Sized {
+pub trait IAppxManifestOSPackageDependenciesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestOSPackageDependency>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestOSPackageDependenciesEnumerator {}
 impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestOSPackageDependenciesEnumerator_Vtbl
-    where
-        Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ospackagedependency: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ospackagedependency: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestOSPackageDependenciesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -3041,10 +2417,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestOSPackageDependenciesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -3054,10 +2427,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestOSPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestOSPackageDependenciesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -3078,20 +2448,14 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
         iid == &<IAppxManifestOSPackageDependenciesEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestOSPackageDependency_Impl: Sized {
+pub trait IAppxManifestOSPackageDependency_Impl: Sized + windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetVersion(&self) -> windows_core::Result<u64>;
 }
 impl windows_core::RuntimeName for IAppxManifestOSPackageDependency {}
 impl IAppxManifestOSPackageDependency_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestOSPackageDependency_Vtbl
-    where
-        Identity: IAppxManifestOSPackageDependency_Impl,
-    {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestOSPackageDependency_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestOSPackageDependency_Impl, const OFFSET: isize>() -> IAppxManifestOSPackageDependency_Vtbl {
+        unsafe extern "system" fn GetName<Identity: IAppxManifestOSPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestOSPackageDependency_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -3101,10 +2465,7 @@ impl IAppxManifestOSPackageDependency_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVersion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestOSPackageDependency_Impl,
-        {
+        unsafe extern "system" fn GetVersion<Identity: IAppxManifestOSPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestOSPackageDependency_Impl::GetVersion(this) {
                 Ok(ok__) => {
@@ -3120,20 +2481,14 @@ impl IAppxManifestOSPackageDependency_Vtbl {
         iid == &<IAppxManifestOSPackageDependency as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestOptionalPackageInfo_Impl: Sized {
+pub trait IAppxManifestOptionalPackageInfo_Impl: Sized + windows_core::IUnknownImpl {
     fn GetIsOptionalPackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn GetMainPackageName(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl windows_core::RuntimeName for IAppxManifestOptionalPackageInfo {}
 impl IAppxManifestOptionalPackageInfo_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestOptionalPackageInfo_Vtbl
-    where
-        Identity: IAppxManifestOptionalPackageInfo_Impl,
-    {
-        unsafe extern "system" fn GetIsOptionalPackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isoptionalpackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestOptionalPackageInfo_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestOptionalPackageInfo_Impl, const OFFSET: isize>() -> IAppxManifestOptionalPackageInfo_Vtbl {
+        unsafe extern "system" fn GetIsOptionalPackage<Identity: IAppxManifestOptionalPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isoptionalpackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestOptionalPackageInfo_Impl::GetIsOptionalPackage(this) {
                 Ok(ok__) => {
@@ -3143,10 +2498,7 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMainPackageName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mainpackagename: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestOptionalPackageInfo_Impl,
-        {
+        unsafe extern "system" fn GetMainPackageName<Identity: IAppxManifestOptionalPackageInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mainpackagename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestOptionalPackageInfo_Impl::GetMainPackageName(this) {
                 Ok(ok__) => {
@@ -3166,21 +2518,15 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
         iid == &<IAppxManifestOptionalPackageInfo as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestPackageDependenciesEnumerator_Impl: Sized {
+pub trait IAppxManifestPackageDependenciesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestPackageDependency>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestPackageDependenciesEnumerator {}
 impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestPackageDependenciesEnumerator_Vtbl
-    where
-        Identity: IAppxManifestPackageDependenciesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dependency: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageDependenciesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestPackageDependenciesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestPackageDependenciesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dependency: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageDependenciesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -3190,10 +2536,7 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageDependenciesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageDependenciesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -3203,10 +2546,7 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageDependenciesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestPackageDependenciesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageDependenciesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -3227,21 +2567,15 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
         iid == &<IAppxManifestPackageDependenciesEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestPackageDependency_Impl: Sized {
+pub trait IAppxManifestPackageDependency_Impl: Sized + windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetMinVersion(&self) -> windows_core::Result<u64>;
 }
 impl windows_core::RuntimeName for IAppxManifestPackageDependency {}
 impl IAppxManifestPackageDependency_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestPackageDependency_Vtbl
-    where
-        Identity: IAppxManifestPackageDependency_Impl,
-    {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageDependency_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestPackageDependency_Impl, const OFFSET: isize>() -> IAppxManifestPackageDependency_Vtbl {
+        unsafe extern "system" fn GetName<Identity: IAppxManifestPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageDependency_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -3251,10 +2585,7 @@ impl IAppxManifestPackageDependency_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPublisher<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageDependency_Impl,
-        {
+        unsafe extern "system" fn GetPublisher<Identity: IAppxManifestPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageDependency_Impl::GetPublisher(this) {
                 Ok(ok__) => {
@@ -3264,10 +2595,7 @@ impl IAppxManifestPackageDependency_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMinVersion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageDependency_Impl,
-        {
+        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestPackageDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageDependency_Impl::GetMinVersion(this) {
                 Ok(ok__) => {
@@ -3293,14 +2621,8 @@ pub trait IAppxManifestPackageDependency2_Impl: Sized + IAppxManifestPackageDepe
 }
 impl windows_core::RuntimeName for IAppxManifestPackageDependency2 {}
 impl IAppxManifestPackageDependency2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestPackageDependency2_Vtbl
-    where
-        Identity: IAppxManifestPackageDependency2_Impl,
-    {
-        unsafe extern "system" fn GetMaxMajorVersionTested<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxmajorversiontested: *mut u16) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageDependency2_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestPackageDependency2_Impl, const OFFSET: isize>() -> IAppxManifestPackageDependency2_Vtbl {
+        unsafe extern "system" fn GetMaxMajorVersionTested<Identity: IAppxManifestPackageDependency2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxmajorversiontested: *mut u16) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageDependency2_Impl::GetMaxMajorVersionTested(this) {
                 Ok(ok__) => {
@@ -3316,19 +2638,13 @@ impl IAppxManifestPackageDependency2_Vtbl {
         iid == &<IAppxManifestPackageDependency2 as windows_core::Interface>::IID || iid == &<IAppxManifestPackageDependency as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestPackageDependency3_Impl: Sized {
+pub trait IAppxManifestPackageDependency3_Impl: Sized + windows_core::IUnknownImpl {
     fn GetIsOptional(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestPackageDependency3 {}
 impl IAppxManifestPackageDependency3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestPackageDependency3_Vtbl
-    where
-        Identity: IAppxManifestPackageDependency3_Impl,
-    {
-        unsafe extern "system" fn GetIsOptional<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isoptional: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageDependency3_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestPackageDependency3_Impl, const OFFSET: isize>() -> IAppxManifestPackageDependency3_Vtbl {
+        unsafe extern "system" fn GetIsOptional<Identity: IAppxManifestPackageDependency3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isoptional: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageDependency3_Impl::GetIsOptional(this) {
                 Ok(ok__) => {
@@ -3344,7 +2660,7 @@ impl IAppxManifestPackageDependency3_Vtbl {
         iid == &<IAppxManifestPackageDependency3 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestPackageId_Impl: Sized {
+pub trait IAppxManifestPackageId_Impl: Sized + windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetArchitecture(&self) -> windows_core::Result<APPX_PACKAGE_ARCHITECTURE>;
     fn GetPublisher(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -3356,14 +2672,8 @@ pub trait IAppxManifestPackageId_Impl: Sized {
 }
 impl windows_core::RuntimeName for IAppxManifestPackageId {}
 impl IAppxManifestPackageId_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestPackageId_Vtbl
-    where
-        Identity: IAppxManifestPackageId_Impl,
-    {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageId_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>() -> IAppxManifestPackageId_Vtbl {
+        unsafe extern "system" fn GetName<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageId_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -3373,10 +2683,7 @@ impl IAppxManifestPackageId_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetArchitecture<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, architecture: *mut APPX_PACKAGE_ARCHITECTURE) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageId_Impl,
-        {
+        unsafe extern "system" fn GetArchitecture<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, architecture: *mut APPX_PACKAGE_ARCHITECTURE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageId_Impl::GetArchitecture(this) {
                 Ok(ok__) => {
@@ -3386,10 +2693,7 @@ impl IAppxManifestPackageId_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPublisher<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageId_Impl,
-        {
+        unsafe extern "system" fn GetPublisher<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publisher: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageId_Impl::GetPublisher(this) {
                 Ok(ok__) => {
@@ -3399,10 +2703,7 @@ impl IAppxManifestPackageId_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVersion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageversion: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageId_Impl,
-        {
+        unsafe extern "system" fn GetVersion<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageversion: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageId_Impl::GetVersion(this) {
                 Ok(ok__) => {
@@ -3412,10 +2713,7 @@ impl IAppxManifestPackageId_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResourceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceid: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageId_Impl,
-        {
+        unsafe extern "system" fn GetResourceId<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageId_Impl::GetResourceId(this) {
                 Ok(ok__) => {
@@ -3425,10 +2723,7 @@ impl IAppxManifestPackageId_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ComparePublisher<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, other: windows_core::PCWSTR, issame: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageId_Impl,
-        {
+        unsafe extern "system" fn ComparePublisher<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, other: windows_core::PCWSTR, issame: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageId_Impl::ComparePublisher(this, core::mem::transmute(&other)) {
                 Ok(ok__) => {
@@ -3438,10 +2733,7 @@ impl IAppxManifestPackageId_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPackageFullName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefullname: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageId_Impl,
-        {
+        unsafe extern "system" fn GetPackageFullName<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefullname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageId_Impl::GetPackageFullName(this) {
                 Ok(ok__) => {
@@ -3451,10 +2743,7 @@ impl IAppxManifestPackageId_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPackageFamilyName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageId_Impl,
-        {
+        unsafe extern "system" fn GetPackageFamilyName<Identity: IAppxManifestPackageId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefamilyname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageId_Impl::GetPackageFamilyName(this) {
                 Ok(ok__) => {
@@ -3485,14 +2774,8 @@ pub trait IAppxManifestPackageId2_Impl: Sized + IAppxManifestPackageId_Impl {
 }
 impl windows_core::RuntimeName for IAppxManifestPackageId2 {}
 impl IAppxManifestPackageId2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestPackageId2_Vtbl
-    where
-        Identity: IAppxManifestPackageId2_Impl,
-    {
-        unsafe extern "system" fn GetArchitecture2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, architecture: *mut APPX_PACKAGE_ARCHITECTURE2) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestPackageId2_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestPackageId2_Impl, const OFFSET: isize>() -> IAppxManifestPackageId2_Vtbl {
+        unsafe extern "system" fn GetArchitecture2<Identity: IAppxManifestPackageId2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, architecture: *mut APPX_PACKAGE_ARCHITECTURE2) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestPackageId2_Impl::GetArchitecture2(this) {
                 Ok(ok__) => {
@@ -3508,20 +2791,14 @@ impl IAppxManifestPackageId2_Vtbl {
         iid == &<IAppxManifestPackageId2 as windows_core::Interface>::IID || iid == &<IAppxManifestPackageId as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestProperties_Impl: Sized {
+pub trait IAppxManifestProperties_Impl: Sized + windows_core::IUnknownImpl {
     fn GetBoolValue(&self, name: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn GetStringValue(&self, name: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl windows_core::RuntimeName for IAppxManifestProperties {}
 impl IAppxManifestProperties_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestProperties_Vtbl
-    where
-        Identity: IAppxManifestProperties_Impl,
-    {
-        unsafe extern "system" fn GetBoolValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestProperties_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestProperties_Impl, const OFFSET: isize>() -> IAppxManifestProperties_Vtbl {
+        unsafe extern "system" fn GetBoolValue<Identity: IAppxManifestProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestProperties_Impl::GetBoolValue(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
@@ -3531,10 +2808,7 @@ impl IAppxManifestProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStringValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestProperties_Impl,
-        {
+        unsafe extern "system" fn GetStringValue<Identity: IAppxManifestProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestProperties_Impl::GetStringValue(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
@@ -3554,21 +2828,15 @@ impl IAppxManifestProperties_Vtbl {
         iid == &<IAppxManifestProperties as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestQualifiedResource_Impl: Sized {
+pub trait IAppxManifestQualifiedResource_Impl: Sized + windows_core::IUnknownImpl {
     fn GetLanguage(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetScale(&self) -> windows_core::Result<u32>;
     fn GetDXFeatureLevel(&self) -> windows_core::Result<DX_FEATURE_LEVEL>;
 }
 impl windows_core::RuntimeName for IAppxManifestQualifiedResource {}
 impl IAppxManifestQualifiedResource_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestQualifiedResource_Vtbl
-    where
-        Identity: IAppxManifestQualifiedResource_Impl,
-    {
-        unsafe extern "system" fn GetLanguage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, language: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestQualifiedResource_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestQualifiedResource_Impl, const OFFSET: isize>() -> IAppxManifestQualifiedResource_Vtbl {
+        unsafe extern "system" fn GetLanguage<Identity: IAppxManifestQualifiedResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, language: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestQualifiedResource_Impl::GetLanguage(this) {
                 Ok(ok__) => {
@@ -3578,10 +2846,7 @@ impl IAppxManifestQualifiedResource_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetScale<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, scale: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestQualifiedResource_Impl,
-        {
+        unsafe extern "system" fn GetScale<Identity: IAppxManifestQualifiedResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scale: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestQualifiedResource_Impl::GetScale(this) {
                 Ok(ok__) => {
@@ -3591,10 +2856,7 @@ impl IAppxManifestQualifiedResource_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDXFeatureLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxfeaturelevel: *mut DX_FEATURE_LEVEL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestQualifiedResource_Impl,
-        {
+        unsafe extern "system" fn GetDXFeatureLevel<Identity: IAppxManifestQualifiedResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxfeaturelevel: *mut DX_FEATURE_LEVEL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestQualifiedResource_Impl::GetDXFeatureLevel(this) {
                 Ok(ok__) => {
@@ -3615,21 +2877,15 @@ impl IAppxManifestQualifiedResource_Vtbl {
         iid == &<IAppxManifestQualifiedResource as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestQualifiedResourcesEnumerator_Impl: Sized {
+pub trait IAppxManifestQualifiedResourcesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestQualifiedResource>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestQualifiedResourcesEnumerator {}
 impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestQualifiedResourcesEnumerator_Vtbl
-    where
-        Identity: IAppxManifestQualifiedResourcesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, resource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestQualifiedResourcesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestQualifiedResourcesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestQualifiedResourcesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestQualifiedResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestQualifiedResourcesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -3639,10 +2895,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestQualifiedResourcesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestQualifiedResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestQualifiedResourcesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -3652,10 +2905,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestQualifiedResourcesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestQualifiedResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestQualifiedResourcesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -3677,7 +2927,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxManifestReader_Impl: Sized {
+pub trait IAppxManifestReader_Impl: Sized + windows_core::IUnknownImpl {
     fn GetPackageId(&self) -> windows_core::Result<IAppxManifestPackageId>;
     fn GetProperties(&self) -> windows_core::Result<IAppxManifestProperties>;
     fn GetPackageDependencies(&self) -> windows_core::Result<IAppxManifestPackageDependenciesEnumerator>;
@@ -3692,14 +2942,8 @@ pub trait IAppxManifestReader_Impl: Sized {
 impl windows_core::RuntimeName for IAppxManifestReader {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxManifestReader_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestReader_Vtbl
-    where
-        Identity: IAppxManifestReader_Impl,
-    {
-        unsafe extern "system" fn GetPackageId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestReader_Impl, const OFFSET: isize>() -> IAppxManifestReader_Vtbl {
+        unsafe extern "system" fn GetPackageId<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader_Impl::GetPackageId(this) {
                 Ok(ok__) => {
@@ -3709,10 +2953,7 @@ impl IAppxManifestReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader_Impl,
-        {
+        unsafe extern "system" fn GetProperties<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packageproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader_Impl::GetProperties(this) {
                 Ok(ok__) => {
@@ -3722,10 +2963,7 @@ impl IAppxManifestReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPackageDependencies<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dependencies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader_Impl,
-        {
+        unsafe extern "system" fn GetPackageDependencies<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dependencies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader_Impl::GetPackageDependencies(this) {
                 Ok(ok__) => {
@@ -3735,10 +2973,7 @@ impl IAppxManifestReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCapabilities<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilities: *mut APPX_CAPABILITIES) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader_Impl,
-        {
+        unsafe extern "system" fn GetCapabilities<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilities: *mut APPX_CAPABILITIES) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader_Impl::GetCapabilities(this) {
                 Ok(ok__) => {
@@ -3748,10 +2983,7 @@ impl IAppxManifestReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResources<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, resources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader_Impl,
-        {
+        unsafe extern "system" fn GetResources<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader_Impl::GetResources(this) {
                 Ok(ok__) => {
@@ -3761,10 +2993,7 @@ impl IAppxManifestReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceCapabilities<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, devicecapabilities: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader_Impl,
-        {
+        unsafe extern "system" fn GetDeviceCapabilities<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, devicecapabilities: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader_Impl::GetDeviceCapabilities(this) {
                 Ok(ok__) => {
@@ -3774,10 +3003,7 @@ impl IAppxManifestReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPrerequisite<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader_Impl,
-        {
+        unsafe extern "system" fn GetPrerequisite<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader_Impl::GetPrerequisite(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
@@ -3787,10 +3013,7 @@ impl IAppxManifestReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetApplications<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, applications: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader_Impl,
-        {
+        unsafe extern "system" fn GetApplications<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, applications: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader_Impl::GetApplications(this) {
                 Ok(ok__) => {
@@ -3800,10 +3023,7 @@ impl IAppxManifestReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifeststream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader_Impl,
-        {
+        unsafe extern "system" fn GetStream<Identity: IAppxManifestReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifeststream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader_Impl::GetStream(this) {
                 Ok(ok__) => {
@@ -3838,14 +3058,8 @@ pub trait IAppxManifestReader2_Impl: Sized + IAppxManifestReader_Impl {
 impl windows_core::RuntimeName for IAppxManifestReader2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxManifestReader2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestReader2_Vtbl
-    where
-        Identity: IAppxManifestReader2_Impl,
-    {
-        unsafe extern "system" fn GetQualifiedResources<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, resources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader2_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestReader2_Impl, const OFFSET: isize>() -> IAppxManifestReader2_Vtbl {
+        unsafe extern "system" fn GetQualifiedResources<Identity: IAppxManifestReader2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader2_Impl::GetQualifiedResources(this) {
                 Ok(ok__) => {
@@ -3870,14 +3084,8 @@ pub trait IAppxManifestReader3_Impl: Sized + IAppxManifestReader2_Impl {
 impl windows_core::RuntimeName for IAppxManifestReader3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxManifestReader3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestReader3_Vtbl
-    where
-        Identity: IAppxManifestReader3_Impl,
-    {
-        unsafe extern "system" fn GetCapabilitiesByCapabilityClass<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilityclass: APPX_CAPABILITY_CLASS_TYPE, capabilities: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader3_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestReader3_Impl, const OFFSET: isize>() -> IAppxManifestReader3_Vtbl {
+        unsafe extern "system" fn GetCapabilitiesByCapabilityClass<Identity: IAppxManifestReader3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilityclass: APPX_CAPABILITY_CLASS_TYPE, capabilities: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader3_Impl::GetCapabilitiesByCapabilityClass(this, core::mem::transmute_copy(&capabilityclass)) {
                 Ok(ok__) => {
@@ -3887,10 +3095,7 @@ impl IAppxManifestReader3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTargetDeviceFamilies<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetdevicefamilies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader3_Impl,
-        {
+        unsafe extern "system" fn GetTargetDeviceFamilies<Identity: IAppxManifestReader3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetdevicefamilies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader3_Impl::GetTargetDeviceFamilies(this) {
                 Ok(ok__) => {
@@ -3918,14 +3123,8 @@ pub trait IAppxManifestReader4_Impl: Sized + IAppxManifestReader3_Impl {
 impl windows_core::RuntimeName for IAppxManifestReader4 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxManifestReader4_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestReader4_Vtbl
-    where
-        Identity: IAppxManifestReader4_Impl,
-    {
-        unsafe extern "system" fn GetOptionalPackageInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionalpackageinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader4_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestReader4_Impl, const OFFSET: isize>() -> IAppxManifestReader4_Vtbl {
+        unsafe extern "system" fn GetOptionalPackageInfo<Identity: IAppxManifestReader4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionalpackageinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader4_Impl::GetOptionalPackageInfo(this) {
                 Ok(ok__) => {
@@ -3941,19 +3140,13 @@ impl IAppxManifestReader4_Vtbl {
         iid == &<IAppxManifestReader4 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID || iid == &<IAppxManifestReader2 as windows_core::Interface>::IID || iid == &<IAppxManifestReader3 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestReader5_Impl: Sized {
+pub trait IAppxManifestReader5_Impl: Sized + windows_core::IUnknownImpl {
     fn GetMainPackageDependencies(&self) -> windows_core::Result<IAppxManifestMainPackageDependenciesEnumerator>;
 }
 impl windows_core::RuntimeName for IAppxManifestReader5 {}
 impl IAppxManifestReader5_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestReader5_Vtbl
-    where
-        Identity: IAppxManifestReader5_Impl,
-    {
-        unsafe extern "system" fn GetMainPackageDependencies<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mainpackagedependencies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader5_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestReader5_Impl, const OFFSET: isize>() -> IAppxManifestReader5_Vtbl {
+        unsafe extern "system" fn GetMainPackageDependencies<Identity: IAppxManifestReader5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mainpackagedependencies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader5_Impl::GetMainPackageDependencies(this) {
                 Ok(ok__) => {
@@ -3969,19 +3162,13 @@ impl IAppxManifestReader5_Vtbl {
         iid == &<IAppxManifestReader5 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestReader6_Impl: Sized {
+pub trait IAppxManifestReader6_Impl: Sized + windows_core::IUnknownImpl {
     fn GetIsNonQualifiedResourcePackage(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestReader6 {}
 impl IAppxManifestReader6_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestReader6_Vtbl
-    where
-        Identity: IAppxManifestReader6_Impl,
-    {
-        unsafe extern "system" fn GetIsNonQualifiedResourcePackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader6_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestReader6_Impl, const OFFSET: isize>() -> IAppxManifestReader6_Vtbl {
+        unsafe extern "system" fn GetIsNonQualifiedResourcePackage<Identity: IAppxManifestReader6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isnonqualifiedresourcepackage: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader6_Impl::GetIsNonQualifiedResourcePackage(this) {
                 Ok(ok__) => {
@@ -4000,21 +3187,15 @@ impl IAppxManifestReader6_Vtbl {
         iid == &<IAppxManifestReader6 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestReader7_Impl: Sized {
+pub trait IAppxManifestReader7_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDriverDependencies(&self) -> windows_core::Result<IAppxManifestDriverDependenciesEnumerator>;
     fn GetOSPackageDependencies(&self) -> windows_core::Result<IAppxManifestOSPackageDependenciesEnumerator>;
     fn GetHostRuntimeDependencies(&self) -> windows_core::Result<IAppxManifestHostRuntimeDependenciesEnumerator>;
 }
 impl windows_core::RuntimeName for IAppxManifestReader7 {}
 impl IAppxManifestReader7_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestReader7_Vtbl
-    where
-        Identity: IAppxManifestReader7_Impl,
-    {
-        unsafe extern "system" fn GetDriverDependencies<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, driverdependencies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader7_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestReader7_Impl, const OFFSET: isize>() -> IAppxManifestReader7_Vtbl {
+        unsafe extern "system" fn GetDriverDependencies<Identity: IAppxManifestReader7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, driverdependencies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader7_Impl::GetDriverDependencies(this) {
                 Ok(ok__) => {
@@ -4024,10 +3205,7 @@ impl IAppxManifestReader7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOSPackageDependencies<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ospackagedependencies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader7_Impl,
-        {
+        unsafe extern "system" fn GetOSPackageDependencies<Identity: IAppxManifestReader7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ospackagedependencies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader7_Impl::GetOSPackageDependencies(this) {
                 Ok(ok__) => {
@@ -4037,10 +3215,7 @@ impl IAppxManifestReader7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHostRuntimeDependencies<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostruntimedependencies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestReader7_Impl,
-        {
+        unsafe extern "system" fn GetHostRuntimeDependencies<Identity: IAppxManifestReader7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostruntimedependencies: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestReader7_Impl::GetHostRuntimeDependencies(this) {
                 Ok(ok__) => {
@@ -4061,21 +3236,15 @@ impl IAppxManifestReader7_Vtbl {
         iid == &<IAppxManifestReader7 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestResourcesEnumerator_Impl: Sized {
+pub trait IAppxManifestResourcesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestResourcesEnumerator {}
 impl IAppxManifestResourcesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestResourcesEnumerator_Vtbl
-    where
-        Identity: IAppxManifestResourcesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, resource: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestResourcesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestResourcesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resource: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestResourcesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -4085,10 +3254,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestResourcesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestResourcesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -4098,10 +3264,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestResourcesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestResourcesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestResourcesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -4122,21 +3285,15 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
         iid == &<IAppxManifestResourcesEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestTargetDeviceFamiliesEnumerator_Impl: Sized {
+pub trait IAppxManifestTargetDeviceFamiliesEnumerator_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrent(&self) -> windows_core::Result<IAppxManifestTargetDeviceFamily>;
     fn GetHasCurrent(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn MoveNext(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
 impl windows_core::RuntimeName for IAppxManifestTargetDeviceFamiliesEnumerator {}
 impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl
-    where
-        Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl,
-    {
-        unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetdevicefamily: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl, const OFFSET: isize>() -> IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
+        unsafe extern "system" fn GetCurrent<Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetdevicefamily: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestTargetDeviceFamiliesEnumerator_Impl::GetCurrent(this) {
                 Ok(ok__) => {
@@ -4146,10 +3303,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHasCurrent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl,
-        {
+        unsafe extern "system" fn GetHasCurrent<Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hascurrent: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestTargetDeviceFamiliesEnumerator_Impl::GetHasCurrent(this) {
                 Ok(ok__) => {
@@ -4159,10 +3313,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl,
-        {
+        unsafe extern "system" fn MoveNext<Identity: IAppxManifestTargetDeviceFamiliesEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestTargetDeviceFamiliesEnumerator_Impl::MoveNext(this) {
                 Ok(ok__) => {
@@ -4183,21 +3334,15 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
         iid == &<IAppxManifestTargetDeviceFamiliesEnumerator as windows_core::Interface>::IID
     }
 }
-pub trait IAppxManifestTargetDeviceFamily_Impl: Sized {
+pub trait IAppxManifestTargetDeviceFamily_Impl: Sized + windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetMinVersion(&self) -> windows_core::Result<u64>;
     fn GetMaxVersionTested(&self) -> windows_core::Result<u64>;
 }
 impl windows_core::RuntimeName for IAppxManifestTargetDeviceFamily {}
 impl IAppxManifestTargetDeviceFamily_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxManifestTargetDeviceFamily_Vtbl
-    where
-        Identity: IAppxManifestTargetDeviceFamily_Impl,
-    {
-        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestTargetDeviceFamily_Impl,
-        {
+    pub const fn new<Identity: IAppxManifestTargetDeviceFamily_Impl, const OFFSET: isize>() -> IAppxManifestTargetDeviceFamily_Vtbl {
+        unsafe extern "system" fn GetName<Identity: IAppxManifestTargetDeviceFamily_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestTargetDeviceFamily_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -4207,10 +3352,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMinVersion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestTargetDeviceFamily_Impl,
-        {
+        unsafe extern "system" fn GetMinVersion<Identity: IAppxManifestTargetDeviceFamily_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minversion: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestTargetDeviceFamily_Impl::GetMinVersion(this) {
                 Ok(ok__) => {
@@ -4220,10 +3362,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMaxVersionTested<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxversiontested: *mut u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxManifestTargetDeviceFamily_Impl,
-        {
+        unsafe extern "system" fn GetMaxVersionTested<Identity: IAppxManifestTargetDeviceFamily_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxversiontested: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxManifestTargetDeviceFamily_Impl::GetMaxVersionTested(this) {
                 Ok(ok__) => {
@@ -4245,7 +3384,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxPackageEditor_Impl: Sized {
+pub trait IAppxPackageEditor_Impl: Sized + windows_core::IUnknownImpl {
     fn SetWorkingDirectory(&self, workingdirectory: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CreateDeltaPackage(&self, updatedpackagestream: Option<&super::super::super::System::Com::IStream>, baselinepackagestream: Option<&super::super::super::System::Com::IStream>, deltapackagestream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn CreateDeltaPackageUsingBaselineBlockMap(&self, updatedpackagestream: Option<&super::super::super::System::Com::IStream>, baselineblockmapstream: Option<&super::super::super::System::Com::IStream>, baselinepackagefullname: &windows_core::PCWSTR, deltapackagestream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
@@ -4257,49 +3396,28 @@ pub trait IAppxPackageEditor_Impl: Sized {
 impl windows_core::RuntimeName for IAppxPackageEditor {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageEditor_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxPackageEditor_Vtbl
-    where
-        Identity: IAppxPackageEditor_Impl,
-    {
-        unsafe extern "system" fn SetWorkingDirectory<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, workingdirectory: windows_core::PCWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageEditor_Impl,
-        {
+    pub const fn new<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>() -> IAppxPackageEditor_Vtbl {
+        unsafe extern "system" fn SetWorkingDirectory<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workingdirectory: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackageEditor_Impl::SetWorkingDirectory(this, core::mem::transmute(&workingdirectory)).into()
         }
-        unsafe extern "system" fn CreateDeltaPackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, updatedpackagestream: *mut core::ffi::c_void, baselinepackagestream: *mut core::ffi::c_void, deltapackagestream: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageEditor_Impl,
-        {
+        unsafe extern "system" fn CreateDeltaPackage<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updatedpackagestream: *mut core::ffi::c_void, baselinepackagestream: *mut core::ffi::c_void, deltapackagestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackageEditor_Impl::CreateDeltaPackage(this, windows_core::from_raw_borrowed(&updatedpackagestream), windows_core::from_raw_borrowed(&baselinepackagestream), windows_core::from_raw_borrowed(&deltapackagestream)).into()
         }
-        unsafe extern "system" fn CreateDeltaPackageUsingBaselineBlockMap<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, updatedpackagestream: *mut core::ffi::c_void, baselineblockmapstream: *mut core::ffi::c_void, baselinepackagefullname: windows_core::PCWSTR, deltapackagestream: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageEditor_Impl,
-        {
+        unsafe extern "system" fn CreateDeltaPackageUsingBaselineBlockMap<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updatedpackagestream: *mut core::ffi::c_void, baselineblockmapstream: *mut core::ffi::c_void, baselinepackagefullname: windows_core::PCWSTR, deltapackagestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackageEditor_Impl::CreateDeltaPackageUsingBaselineBlockMap(this, windows_core::from_raw_borrowed(&updatedpackagestream), windows_core::from_raw_borrowed(&baselineblockmapstream), core::mem::transmute(&baselinepackagefullname), windows_core::from_raw_borrowed(&deltapackagestream)).into()
         }
-        unsafe extern "system" fn UpdatePackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselinepackagestream: *mut core::ffi::c_void, deltapackagestream: *mut core::ffi::c_void, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageEditor_Impl,
-        {
+        unsafe extern "system" fn UpdatePackage<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselinepackagestream: *mut core::ffi::c_void, deltapackagestream: *mut core::ffi::c_void, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackageEditor_Impl::UpdatePackage(this, windows_core::from_raw_borrowed(&baselinepackagestream), windows_core::from_raw_borrowed(&deltapackagestream), core::mem::transmute_copy(&updateoption)).into()
         }
-        unsafe extern "system" fn UpdateEncryptedPackage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineencryptedpackagestream: *mut core::ffi::c_void, deltapackagestream: *mut core::ffi::c_void, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageEditor_Impl,
-        {
+        unsafe extern "system" fn UpdateEncryptedPackage<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineencryptedpackagestream: *mut core::ffi::c_void, deltapackagestream: *mut core::ffi::c_void, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackageEditor_Impl::UpdateEncryptedPackage(this, windows_core::from_raw_borrowed(&baselineencryptedpackagestream), windows_core::from_raw_borrowed(&deltapackagestream), core::mem::transmute_copy(&updateoption), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo)).into()
         }
-        unsafe extern "system" fn UpdatePackageManifest<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagestream: *mut core::ffi::c_void, updatedmanifeststream: *mut core::ffi::c_void, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageEditor_Impl,
-        {
+        unsafe extern "system" fn UpdatePackageManifest<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagestream: *mut core::ffi::c_void, updatedmanifeststream: *mut core::ffi::c_void, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackageEditor_Impl::UpdatePackageManifest(this, windows_core::from_raw_borrowed(&packagestream), windows_core::from_raw_borrowed(&updatedmanifeststream), core::mem::transmute_copy(&ispackageencrypted), core::mem::transmute_copy(&options)).into()
         }
@@ -4317,7 +3435,7 @@ impl IAppxPackageEditor_Vtbl {
         iid == &<IAppxPackageEditor as windows_core::Interface>::IID
     }
 }
-pub trait IAppxPackageReader_Impl: Sized {
+pub trait IAppxPackageReader_Impl: Sized + windows_core::IUnknownImpl {
     fn GetBlockMap(&self) -> windows_core::Result<IAppxBlockMapReader>;
     fn GetFootprintFile(&self, r#type: APPX_FOOTPRINT_FILE_TYPE) -> windows_core::Result<IAppxFile>;
     fn GetPayloadFile(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<IAppxFile>;
@@ -4326,14 +3444,8 @@ pub trait IAppxPackageReader_Impl: Sized {
 }
 impl windows_core::RuntimeName for IAppxPackageReader {}
 impl IAppxPackageReader_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxPackageReader_Vtbl
-    where
-        Identity: IAppxPackageReader_Impl,
-    {
-        unsafe extern "system" fn GetBlockMap<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, blockmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageReader_Impl,
-        {
+    pub const fn new<Identity: IAppxPackageReader_Impl, const OFFSET: isize>() -> IAppxPackageReader_Vtbl {
+        unsafe extern "system" fn GetBlockMap<Identity: IAppxPackageReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blockmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxPackageReader_Impl::GetBlockMap(this) {
                 Ok(ok__) => {
@@ -4343,10 +3455,7 @@ impl IAppxPackageReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFootprintFile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: APPX_FOOTPRINT_FILE_TYPE, file: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageReader_Impl,
-        {
+        unsafe extern "system" fn GetFootprintFile<Identity: IAppxPackageReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: APPX_FOOTPRINT_FILE_TYPE, file: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxPackageReader_Impl::GetFootprintFile(this, core::mem::transmute_copy(&r#type)) {
                 Ok(ok__) => {
@@ -4356,10 +3465,7 @@ impl IAppxPackageReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPayloadFile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, file: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageReader_Impl,
-        {
+        unsafe extern "system" fn GetPayloadFile<Identity: IAppxPackageReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, file: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxPackageReader_Impl::GetPayloadFile(this, core::mem::transmute(&filename)) {
                 Ok(ok__) => {
@@ -4369,10 +3475,7 @@ impl IAppxPackageReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPayloadFiles<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesenumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageReader_Impl,
-        {
+        unsafe extern "system" fn GetPayloadFiles<Identity: IAppxPackageReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesenumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxPackageReader_Impl::GetPayloadFiles(this) {
                 Ok(ok__) => {
@@ -4382,10 +3485,7 @@ impl IAppxPackageReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetManifest<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageReader_Impl,
-        {
+        unsafe extern "system" fn GetManifest<Identity: IAppxPackageReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxPackageReader_Impl::GetManifest(this) {
                 Ok(ok__) => {
@@ -4409,7 +3509,7 @@ impl IAppxPackageReader_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxPackageWriter_Impl: Sized {
+pub trait IAppxPackageWriter_Impl: Sized + windows_core::IUnknownImpl {
     fn AddPayloadFile(&self, filename: &windows_core::PCWSTR, contenttype: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self, manifest: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
@@ -4417,21 +3517,12 @@ pub trait IAppxPackageWriter_Impl: Sized {
 impl windows_core::RuntimeName for IAppxPackageWriter {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageWriter_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxPackageWriter_Vtbl
-    where
-        Identity: IAppxPackageWriter_Impl,
-    {
-        unsafe extern "system" fn AddPayloadFile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, contenttype: windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageWriter_Impl,
-        {
+    pub const fn new<Identity: IAppxPackageWriter_Impl, const OFFSET: isize>() -> IAppxPackageWriter_Vtbl {
+        unsafe extern "system" fn AddPayloadFile<Identity: IAppxPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, contenttype: windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackageWriter_Impl::AddPayloadFile(this, core::mem::transmute(&filename), core::mem::transmute(&contenttype), core::mem::transmute_copy(&compressionoption), windows_core::from_raw_borrowed(&inputstream)).into()
         }
-        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifest: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageWriter_Impl,
-        {
+        unsafe extern "system" fn Close<Identity: IAppxPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifest: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackageWriter_Impl::Close(this, windows_core::from_raw_borrowed(&manifest)).into()
         }
@@ -4446,21 +3537,15 @@ impl IAppxPackageWriter_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxPackageWriter2_Impl: Sized {
+pub trait IAppxPackageWriter2_Impl: Sized + windows_core::IUnknownImpl {
     fn Close(&self, manifest: Option<&super::super::super::System::Com::IStream>, contentgroupmap: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAppxPackageWriter2 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageWriter2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxPackageWriter2_Vtbl
-    where
-        Identity: IAppxPackageWriter2_Impl,
-    {
-        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifest: *mut core::ffi::c_void, contentgroupmap: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageWriter2_Impl,
-        {
+    pub const fn new<Identity: IAppxPackageWriter2_Impl, const OFFSET: isize>() -> IAppxPackageWriter2_Vtbl {
+        unsafe extern "system" fn Close<Identity: IAppxPackageWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifest: *mut core::ffi::c_void, contentgroupmap: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackageWriter2_Impl::Close(this, windows_core::from_raw_borrowed(&manifest), windows_core::from_raw_borrowed(&contentgroupmap)).into()
         }
@@ -4471,21 +3556,15 @@ impl IAppxPackageWriter2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxPackageWriter3_Impl: Sized {
+pub trait IAppxPackageWriter3_Impl: Sized + windows_core::IUnknownImpl {
     fn AddPayloadFiles(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAppxPackageWriter3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageWriter3_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxPackageWriter3_Vtbl
-    where
-        Identity: IAppxPackageWriter3_Impl,
-    {
-        unsafe extern "system" fn AddPayloadFiles<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackageWriter3_Impl,
-        {
+    pub const fn new<Identity: IAppxPackageWriter3_Impl, const OFFSET: isize>() -> IAppxPackageWriter3_Vtbl {
+        unsafe extern "system" fn AddPayloadFiles<Identity: IAppxPackageWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackageWriter3_Impl::AddPayloadFiles(this, core::mem::transmute_copy(&filecount), core::mem::transmute_copy(&payloadfiles), core::mem::transmute_copy(&memorylimit)).into()
         }
@@ -4495,27 +3574,18 @@ impl IAppxPackageWriter3_Vtbl {
         iid == &<IAppxPackageWriter3 as windows_core::Interface>::IID
     }
 }
-pub trait IAppxPackagingDiagnosticEventSink_Impl: Sized {
+pub trait IAppxPackagingDiagnosticEventSink_Impl: Sized + windows_core::IUnknownImpl {
     fn ReportContextChange(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: &windows_core::PCSTR, contextmessage: &windows_core::PCWSTR, detailsmessage: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ReportError(&self, errormessage: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IAppxPackagingDiagnosticEventSink {}
 impl IAppxPackagingDiagnosticEventSink_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxPackagingDiagnosticEventSink_Vtbl
-    where
-        Identity: IAppxPackagingDiagnosticEventSink_Impl,
-    {
-        unsafe extern "system" fn ReportContextChange<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: windows_core::PCSTR, contextmessage: windows_core::PCWSTR, detailsmessage: windows_core::PCWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackagingDiagnosticEventSink_Impl,
-        {
+    pub const fn new<Identity: IAppxPackagingDiagnosticEventSink_Impl, const OFFSET: isize>() -> IAppxPackagingDiagnosticEventSink_Vtbl {
+        unsafe extern "system" fn ReportContextChange<Identity: IAppxPackagingDiagnosticEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: windows_core::PCSTR, contextmessage: windows_core::PCWSTR, detailsmessage: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackagingDiagnosticEventSink_Impl::ReportContextChange(this, core::mem::transmute_copy(&changetype), core::mem::transmute_copy(&contextid), core::mem::transmute(&contextname), core::mem::transmute(&contextmessage), core::mem::transmute(&detailsmessage)).into()
         }
-        unsafe extern "system" fn ReportError<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, errormessage: windows_core::PCWSTR) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackagingDiagnosticEventSink_Impl,
-        {
+        unsafe extern "system" fn ReportError<Identity: IAppxPackagingDiagnosticEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errormessage: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackagingDiagnosticEventSink_Impl::ReportError(this, core::mem::transmute(&errormessage)).into()
         }
@@ -4529,19 +3599,13 @@ impl IAppxPackagingDiagnosticEventSink_Vtbl {
         iid == &<IAppxPackagingDiagnosticEventSink as windows_core::Interface>::IID
     }
 }
-pub trait IAppxPackagingDiagnosticEventSinkManager_Impl: Sized {
+pub trait IAppxPackagingDiagnosticEventSinkManager_Impl: Sized + windows_core::IUnknownImpl {
     fn SetSinkForProcess(&self, sink: Option<&IAppxPackagingDiagnosticEventSink>) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IAppxPackagingDiagnosticEventSinkManager {}
 impl IAppxPackagingDiagnosticEventSinkManager_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxPackagingDiagnosticEventSinkManager_Vtbl
-    where
-        Identity: IAppxPackagingDiagnosticEventSinkManager_Impl,
-    {
-        unsafe extern "system" fn SetSinkForProcess<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, sink: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxPackagingDiagnosticEventSinkManager_Impl,
-        {
+    pub const fn new<Identity: IAppxPackagingDiagnosticEventSinkManager_Impl, const OFFSET: isize>() -> IAppxPackagingDiagnosticEventSinkManager_Vtbl {
+        unsafe extern "system" fn SetSinkForProcess<Identity: IAppxPackagingDiagnosticEventSinkManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAppxPackagingDiagnosticEventSinkManager_Impl::SetSinkForProcess(this, windows_core::from_raw_borrowed(&sink)).into()
         }
@@ -4551,20 +3615,14 @@ impl IAppxPackagingDiagnosticEventSinkManager_Vtbl {
         iid == &<IAppxPackagingDiagnosticEventSinkManager as windows_core::Interface>::IID
     }
 }
-pub trait IAppxSourceContentGroupMapReader_Impl: Sized {
+pub trait IAppxSourceContentGroupMapReader_Impl: Sized + windows_core::IUnknownImpl {
     fn GetRequiredGroup(&self) -> windows_core::Result<IAppxContentGroup>;
     fn GetAutomaticGroups(&self) -> windows_core::Result<IAppxContentGroupsEnumerator>;
 }
 impl windows_core::RuntimeName for IAppxSourceContentGroupMapReader {}
 impl IAppxSourceContentGroupMapReader_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAppxSourceContentGroupMapReader_Vtbl
-    where
-        Identity: IAppxSourceContentGroupMapReader_Impl,
-    {
-        unsafe extern "system" fn GetRequiredGroup<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxSourceContentGroupMapReader_Impl,
-        {
+    pub const fn new<Identity: IAppxSourceContentGroupMapReader_Impl, const OFFSET: isize>() -> IAppxSourceContentGroupMapReader_Vtbl {
+        unsafe extern "system" fn GetRequiredGroup<Identity: IAppxSourceContentGroupMapReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requiredgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxSourceContentGroupMapReader_Impl::GetRequiredGroup(this) {
                 Ok(ok__) => {
@@ -4574,10 +3632,7 @@ impl IAppxSourceContentGroupMapReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAutomaticGroups<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, automaticgroupsenumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAppxSourceContentGroupMapReader_Impl,
-        {
+        unsafe extern "system" fn GetAutomaticGroups<Identity: IAppxSourceContentGroupMapReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, automaticgroupsenumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAppxSourceContentGroupMapReader_Impl::GetAutomaticGroups(this) {
                 Ok(ok__) => {

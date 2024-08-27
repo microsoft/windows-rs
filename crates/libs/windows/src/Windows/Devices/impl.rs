@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
-pub trait ILowLevelDevicesAggregateProvider_Impl: Sized {
+pub trait ILowLevelDevicesAggregateProvider_Impl: Sized + windows_core::IUnknownImpl {
     fn AdcControllerProvider(&self) -> windows_core::Result<Adc::Provider::IAdcControllerProvider>;
     fn PwmControllerProvider(&self) -> windows_core::Result<Pwm::Provider::IPwmControllerProvider>;
     fn GpioControllerProvider(&self) -> windows_core::Result<Gpio::Provider::IGpioControllerProvider>;
@@ -12,14 +12,8 @@ impl windows_core::RuntimeName for ILowLevelDevicesAggregateProvider {
 }
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
 impl ILowLevelDevicesAggregateProvider_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ILowLevelDevicesAggregateProvider_Vtbl
-    where
-        Identity: ILowLevelDevicesAggregateProvider_Impl,
-    {
-        unsafe extern "system" fn AdcControllerProvider<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILowLevelDevicesAggregateProvider_Impl,
-        {
+    pub const fn new<Identity: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>() -> ILowLevelDevicesAggregateProvider_Vtbl {
+        unsafe extern "system" fn AdcControllerProvider<Identity: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILowLevelDevicesAggregateProvider_Impl::AdcControllerProvider(this) {
                 Ok(ok__) => {
@@ -30,10 +24,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PwmControllerProvider<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILowLevelDevicesAggregateProvider_Impl,
-        {
+        unsafe extern "system" fn PwmControllerProvider<Identity: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILowLevelDevicesAggregateProvider_Impl::PwmControllerProvider(this) {
                 Ok(ok__) => {
@@ -44,10 +35,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GpioControllerProvider<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILowLevelDevicesAggregateProvider_Impl,
-        {
+        unsafe extern "system" fn GpioControllerProvider<Identity: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILowLevelDevicesAggregateProvider_Impl::GpioControllerProvider(this) {
                 Ok(ok__) => {
@@ -58,10 +46,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn I2cControllerProvider<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILowLevelDevicesAggregateProvider_Impl,
-        {
+        unsafe extern "system" fn I2cControllerProvider<Identity: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILowLevelDevicesAggregateProvider_Impl::I2cControllerProvider(this) {
                 Ok(ok__) => {
@@ -72,10 +57,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SpiControllerProvider<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILowLevelDevicesAggregateProvider_Impl,
-        {
+        unsafe extern "system" fn SpiControllerProvider<Identity: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILowLevelDevicesAggregateProvider_Impl::SpiControllerProvider(this) {
                 Ok(ok__) => {

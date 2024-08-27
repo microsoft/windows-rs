@@ -1,24 +1,15 @@
-pub trait ID3DBlob_Impl: Sized {
+pub trait ID3DBlob_Impl: Sized + windows_core::IUnknownImpl {
     fn GetBufferPointer(&self) -> *mut core::ffi::c_void;
     fn GetBufferSize(&self) -> usize;
 }
 impl windows_core::RuntimeName for ID3DBlob {}
 impl ID3DBlob_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ID3DBlob_Vtbl
-    where
-        Identity: ID3DBlob_Impl,
-    {
-        unsafe extern "system" fn GetBufferPointer<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut core::ffi::c_void
-        where
-            Identity: ID3DBlob_Impl,
-        {
+    pub const fn new<Identity: ID3DBlob_Impl, const OFFSET: isize>() -> ID3DBlob_Vtbl {
+        unsafe extern "system" fn GetBufferPointer<Identity: ID3DBlob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut core::ffi::c_void {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID3DBlob_Impl::GetBufferPointer(this)
         }
-        unsafe extern "system" fn GetBufferSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> usize
-        where
-            Identity: ID3DBlob_Impl,
-        {
+        unsafe extern "system" fn GetBufferSize<Identity: ID3DBlob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> usize {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID3DBlob_Impl::GetBufferSize(this)
         }
@@ -32,20 +23,14 @@ impl ID3DBlob_Vtbl {
         iid == &<ID3DBlob as windows_core::Interface>::IID
     }
 }
-pub trait ID3DDestructionNotifier_Impl: Sized {
+pub trait ID3DDestructionNotifier_Impl: Sized + windows_core::IUnknownImpl {
     fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32>;
     fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for ID3DDestructionNotifier {}
 impl ID3DDestructionNotifier_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ID3DDestructionNotifier_Vtbl
-    where
-        Identity: ID3DDestructionNotifier_Impl,
-    {
-        unsafe extern "system" fn RegisterDestructionCallback<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: ID3DDestructionNotifier_Impl,
-        {
+    pub const fn new<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>() -> ID3DDestructionNotifier_Vtbl {
+        unsafe extern "system" fn RegisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ID3DDestructionNotifier_Impl::RegisterDestructionCallback(this, core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata)) {
                 Ok(ok__) => {
@@ -55,10 +40,7 @@ impl ID3DDestructionNotifier_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnregisterDestructionCallback<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackid: u32) -> windows_core::HRESULT
-        where
-            Identity: ID3DDestructionNotifier_Impl,
-        {
+        unsafe extern "system" fn UnregisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackid: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID3DDestructionNotifier_Impl::UnregisterDestructionCallback(this, core::mem::transmute_copy(&callbackid)).into()
         }

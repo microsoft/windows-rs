@@ -1,18 +1,12 @@
-pub trait IChatItem_Impl: Sized {
+pub trait IChatItem_Impl: Sized + windows_core::IUnknownImpl {
     fn ItemKind(&self) -> windows_core::Result<ChatItemKind>;
 }
 impl windows_core::RuntimeName for IChatItem {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatItem";
 }
 impl IChatItem_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IChatItem_Vtbl
-    where
-        Identity: IChatItem_Impl,
-    {
-        unsafe extern "system" fn ItemKind<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ChatItemKind) -> windows_core::HRESULT
-        where
-            Identity: IChatItem_Impl,
-        {
+    pub const fn new<Identity: IChatItem_Impl, const OFFSET: isize>() -> IChatItem_Vtbl {
+        unsafe extern "system" fn ItemKind<Identity: IChatItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ChatItemKind) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IChatItem_Impl::ItemKind(this) {
                 Ok(ok__) => {

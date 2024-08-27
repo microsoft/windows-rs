@@ -1,4 +1,4 @@
-pub trait IXmlCharacterData_Impl: Sized + IXmlNode_Impl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
+pub trait IXmlCharacterData_Impl: Sized + windows_core::IUnknownImpl + IXmlNode_Impl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn Data(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Length(&self) -> windows_core::Result<u32>;
@@ -12,14 +12,8 @@ impl windows_core::RuntimeName for IXmlCharacterData {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlCharacterData";
 }
 impl IXmlCharacterData_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IXmlCharacterData_Vtbl
-    where
-        Identity: IXmlCharacterData_Impl,
-    {
-        unsafe extern "system" fn Data<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IXmlCharacterData_Impl,
-        {
+    pub const fn new<Identity: IXmlCharacterData_Impl, const OFFSET: isize>() -> IXmlCharacterData_Vtbl {
+        unsafe extern "system" fn Data<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlCharacterData_Impl::Data(this) {
                 Ok(ok__) => {
@@ -30,17 +24,11 @@ impl IXmlCharacterData_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IXmlCharacterData_Impl,
-        {
+        unsafe extern "system" fn SetData<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlCharacterData_Impl::SetData(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IXmlCharacterData_Impl,
-        {
+        unsafe extern "system" fn Length<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlCharacterData_Impl::Length(this) {
                 Ok(ok__) => {
@@ -50,10 +38,7 @@ impl IXmlCharacterData_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubstringData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, count: u32, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IXmlCharacterData_Impl,
-        {
+        unsafe extern "system" fn SubstringData<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, count: u32, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlCharacterData_Impl::SubstringData(this, offset, count) {
                 Ok(ok__) => {
@@ -64,31 +49,19 @@ impl IXmlCharacterData_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppendData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IXmlCharacterData_Impl,
-        {
+        unsafe extern "system" fn AppendData<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlCharacterData_Impl::AppendData(this, core::mem::transmute(&data)).into()
         }
-        unsafe extern "system" fn InsertData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, data: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IXmlCharacterData_Impl,
-        {
+        unsafe extern "system" fn InsertData<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, data: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlCharacterData_Impl::InsertData(this, offset, core::mem::transmute(&data)).into()
         }
-        unsafe extern "system" fn DeleteData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, count: u32) -> windows_core::HRESULT
-        where
-            Identity: IXmlCharacterData_Impl,
-        {
+        unsafe extern "system" fn DeleteData<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, count: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlCharacterData_Impl::DeleteData(this, offset, count).into()
         }
-        unsafe extern "system" fn ReplaceData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, count: u32, data: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IXmlCharacterData_Impl,
-        {
+        unsafe extern "system" fn ReplaceData<Identity: IXmlCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, count: u32, data: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlCharacterData_Impl::ReplaceData(this, offset, count, core::mem::transmute(&data)).into()
         }
@@ -108,7 +81,7 @@ impl IXmlCharacterData_Vtbl {
         iid == &<IXmlCharacterData as windows_core::Interface>::IID
     }
 }
-pub trait IXmlNode_Impl: Sized + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
+pub trait IXmlNode_Impl: Sized + windows_core::IUnknownImpl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn NodeValue(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn SetNodeValue(&self, value: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
     fn NodeType(&self) -> windows_core::Result<NodeType>;
@@ -137,14 +110,8 @@ impl windows_core::RuntimeName for IXmlNode {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlNode";
 }
 impl IXmlNode_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IXmlNode_Vtbl
-    where
-        Identity: IXmlNode_Impl,
-    {
-        unsafe extern "system" fn NodeValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+    pub const fn new<Identity: IXmlNode_Impl, const OFFSET: isize>() -> IXmlNode_Vtbl {
+        unsafe extern "system" fn NodeValue<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::NodeValue(this) {
                 Ok(ok__) => {
@@ -155,17 +122,11 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNodeValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn SetNodeValue<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlNode_Impl::SetNodeValue(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn NodeType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NodeType) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn NodeType<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NodeType) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::NodeType(this) {
                 Ok(ok__) => {
@@ -175,10 +136,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NodeName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn NodeName<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::NodeName(this) {
                 Ok(ok__) => {
@@ -189,10 +147,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParentNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn ParentNode<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::ParentNode(this) {
                 Ok(ok__) => {
@@ -203,10 +158,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChildNodes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn ChildNodes<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::ChildNodes(this) {
                 Ok(ok__) => {
@@ -217,10 +169,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FirstChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn FirstChild<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::FirstChild(this) {
                 Ok(ok__) => {
@@ -231,10 +180,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn LastChild<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::LastChild(this) {
                 Ok(ok__) => {
@@ -245,10 +191,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PreviousSibling<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn PreviousSibling<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::PreviousSibling(this) {
                 Ok(ok__) => {
@@ -259,10 +202,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NextSibling<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn NextSibling<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::NextSibling(this) {
                 Ok(ok__) => {
@@ -273,10 +213,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Attributes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn Attributes<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::Attributes(this) {
                 Ok(ok__) => {
@@ -287,10 +224,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasChildNodes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn HasChildNodes<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::HasChildNodes(this) {
                 Ok(ok__) => {
@@ -300,10 +234,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OwnerDocument<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn OwnerDocument<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::OwnerDocument(this) {
                 Ok(ok__) => {
@@ -314,10 +245,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsertBefore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, referencechild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn InsertBefore<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, referencechild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::InsertBefore(this, windows_core::from_raw_borrowed(&newchild), windows_core::from_raw_borrowed(&referencechild)) {
                 Ok(ok__) => {
@@ -328,10 +256,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReplaceChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, referencechild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn ReplaceChild<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, referencechild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::ReplaceChild(this, windows_core::from_raw_borrowed(&newchild), windows_core::from_raw_borrowed(&referencechild)) {
                 Ok(ok__) => {
@@ -342,10 +267,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, childnode: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn RemoveChild<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childnode: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::RemoveChild(this, windows_core::from_raw_borrowed(&childnode)) {
                 Ok(ok__) => {
@@ -356,10 +278,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AppendChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn AppendChild<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::AppendChild(this, windows_core::from_raw_borrowed(&newchild)) {
                 Ok(ok__) => {
@@ -370,10 +289,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CloneNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, deep: bool, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn CloneNode<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deep: bool, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::CloneNode(this, deep) {
                 Ok(ok__) => {
@@ -384,10 +300,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NamespaceUri<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn NamespaceUri<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::NamespaceUri(this) {
                 Ok(ok__) => {
@@ -398,10 +311,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn LocalName<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::LocalName(this) {
                 Ok(ok__) => {
@@ -412,10 +322,7 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Prefix<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn Prefix<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNode_Impl::Prefix(this) {
                 Ok(ok__) => {
@@ -426,17 +333,11 @@ impl IXmlNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Normalize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn Normalize<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlNode_Impl::Normalize(this).into()
         }
-        unsafe extern "system" fn SetPrefix<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNode_Impl,
-        {
+        unsafe extern "system" fn SetPrefix<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlNode_Impl::SetPrefix(this, windows_core::from_raw_borrowed(&value)).into()
         }
@@ -471,7 +372,7 @@ impl IXmlNode_Vtbl {
         iid == &<IXmlNode as windows_core::Interface>::IID
     }
 }
-pub trait IXmlNodeSelector_Impl: Sized {
+pub trait IXmlNodeSelector_Impl: Sized + windows_core::IUnknownImpl {
     fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode>;
     fn SelectNodes(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<XmlNodeList>;
     fn SelectSingleNodeNS(&self, xpath: &windows_core::HSTRING, namespaces: Option<&windows_core::IInspectable>) -> windows_core::Result<IXmlNode>;
@@ -481,14 +382,8 @@ impl windows_core::RuntimeName for IXmlNodeSelector {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlNodeSelector";
 }
 impl IXmlNodeSelector_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IXmlNodeSelector_Vtbl
-    where
-        Identity: IXmlNodeSelector_Impl,
-    {
-        unsafe extern "system" fn SelectSingleNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNodeSelector_Impl,
-        {
+    pub const fn new<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>() -> IXmlNodeSelector_Vtbl {
+        unsafe extern "system" fn SelectSingleNode<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNodeSelector_Impl::SelectSingleNode(this, core::mem::transmute(&xpath)) {
                 Ok(ok__) => {
@@ -499,10 +394,7 @@ impl IXmlNodeSelector_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectNodes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNodeSelector_Impl,
-        {
+        unsafe extern "system" fn SelectNodes<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNodeSelector_Impl::SelectNodes(this, core::mem::transmute(&xpath)) {
                 Ok(ok__) => {
@@ -513,10 +405,7 @@ impl IXmlNodeSelector_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectSingleNodeNS<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: core::mem::MaybeUninit<windows_core::HSTRING>, namespaces: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNodeSelector_Impl,
-        {
+        unsafe extern "system" fn SelectSingleNodeNS<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: core::mem::MaybeUninit<windows_core::HSTRING>, namespaces: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNodeSelector_Impl::SelectSingleNodeNS(this, core::mem::transmute(&xpath), windows_core::from_raw_borrowed(&namespaces)) {
                 Ok(ok__) => {
@@ -527,10 +416,7 @@ impl IXmlNodeSelector_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectNodesNS<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: core::mem::MaybeUninit<windows_core::HSTRING>, namespaces: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlNodeSelector_Impl,
-        {
+        unsafe extern "system" fn SelectNodesNS<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: core::mem::MaybeUninit<windows_core::HSTRING>, namespaces: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNodeSelector_Impl::SelectNodesNS(this, core::mem::transmute(&xpath), windows_core::from_raw_borrowed(&namespaces)) {
                 Ok(ok__) => {
@@ -553,7 +439,7 @@ impl IXmlNodeSelector_Vtbl {
         iid == &<IXmlNodeSelector as windows_core::Interface>::IID
     }
 }
-pub trait IXmlNodeSerializer_Impl: Sized {
+pub trait IXmlNodeSerializer_Impl: Sized + windows_core::IUnknownImpl {
     fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn InnerText(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetInnerText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
@@ -562,14 +448,8 @@ impl windows_core::RuntimeName for IXmlNodeSerializer {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlNodeSerializer";
 }
 impl IXmlNodeSerializer_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IXmlNodeSerializer_Vtbl
-    where
-        Identity: IXmlNodeSerializer_Impl,
-    {
-        unsafe extern "system" fn GetXml<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IXmlNodeSerializer_Impl,
-        {
+    pub const fn new<Identity: IXmlNodeSerializer_Impl, const OFFSET: isize>() -> IXmlNodeSerializer_Vtbl {
+        unsafe extern "system" fn GetXml<Identity: IXmlNodeSerializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNodeSerializer_Impl::GetXml(this) {
                 Ok(ok__) => {
@@ -580,10 +460,7 @@ impl IXmlNodeSerializer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InnerText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IXmlNodeSerializer_Impl,
-        {
+        unsafe extern "system" fn InnerText<Identity: IXmlNodeSerializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlNodeSerializer_Impl::InnerText(this) {
                 Ok(ok__) => {
@@ -594,10 +471,7 @@ impl IXmlNodeSerializer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInnerText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IXmlNodeSerializer_Impl,
-        {
+        unsafe extern "system" fn SetInnerText<Identity: IXmlNodeSerializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlNodeSerializer_Impl::SetInnerText(this, core::mem::transmute(&value)).into()
         }
@@ -612,21 +486,15 @@ impl IXmlNodeSerializer_Vtbl {
         iid == &<IXmlNodeSerializer as windows_core::Interface>::IID
     }
 }
-pub trait IXmlText_Impl: Sized + IXmlCharacterData_Impl + IXmlNode_Impl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
+pub trait IXmlText_Impl: Sized + windows_core::IUnknownImpl + IXmlCharacterData_Impl + IXmlNode_Impl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn SplitText(&self, offset: u32) -> windows_core::Result<IXmlText>;
 }
 impl windows_core::RuntimeName for IXmlText {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlText";
 }
 impl IXmlText_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IXmlText_Vtbl
-    where
-        Identity: IXmlText_Impl,
-    {
-        unsafe extern "system" fn SplitText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXmlText_Impl,
-        {
+    pub const fn new<Identity: IXmlText_Impl, const OFFSET: isize>() -> IXmlText_Vtbl {
+        unsafe extern "system" fn SplitText<Identity: IXmlText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlText_Impl::SplitText(this, offset) {
                 Ok(ok__) => {

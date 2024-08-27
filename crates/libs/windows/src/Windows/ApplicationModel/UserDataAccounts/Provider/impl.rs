@@ -1,18 +1,12 @@
-pub trait IUserDataAccountProviderOperation_Impl: Sized {
+pub trait IUserDataAccountProviderOperation_Impl: Sized + windows_core::IUnknownImpl {
     fn Kind(&self) -> windows_core::Result<UserDataAccountProviderOperationKind>;
 }
 impl windows_core::RuntimeName for IUserDataAccountProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderOperation";
 }
 impl IUserDataAccountProviderOperation_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IUserDataAccountProviderOperation_Vtbl
-    where
-        Identity: IUserDataAccountProviderOperation_Impl,
-    {
-        unsafe extern "system" fn Kind<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut UserDataAccountProviderOperationKind) -> windows_core::HRESULT
-        where
-            Identity: IUserDataAccountProviderOperation_Impl,
-        {
+    pub const fn new<Identity: IUserDataAccountProviderOperation_Impl, const OFFSET: isize>() -> IUserDataAccountProviderOperation_Vtbl {
+        unsafe extern "system" fn Kind<Identity: IUserDataAccountProviderOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut UserDataAccountProviderOperationKind) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUserDataAccountProviderOperation_Impl::Kind(this) {
                 Ok(ok__) => {
