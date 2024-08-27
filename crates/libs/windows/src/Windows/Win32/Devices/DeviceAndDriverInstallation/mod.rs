@@ -1889,7 +1889,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDevRegKeyA(deviceinfoset.param().abi(), deviceinfodata, scope, hwprofile, keytype, core::mem::transmute(infhandle.unwrap_or(std::ptr::null())), infsectionname.param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -1900,7 +1900,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCWSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDevRegKeyW(deviceinfoset.param().abi(), deviceinfodata, scope, hwprofile, keytype, core::mem::transmute(infhandle.unwrap_or(std::ptr::null())), infsectionname.param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoA<P0, P1, P2, P3>(deviceinfoset: P0, devicename: P1, classguid: *const windows_core::GUID, devicedescription: P2, hwndparent: P3, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Option<*mut SP_DEVINFO_DATA>) -> windows_core::Result<()>
@@ -1920,7 +1920,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoList(classguid : *const windows_core::GUID, hwndparent : super::super::Foundation:: HWND) -> HDEVINFO);
     let result__ = SetupDiCreateDeviceInfoList(core::mem::transmute(classguid.unwrap_or(std::ptr::null())), hwndparent.param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoListExA<P0, P1>(classguid: Option<*const windows_core::GUID>, hwndparent: P0, machinename: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
@@ -1930,7 +1930,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExA(classguid : *const windows_core::GUID, hwndparent : super::super::Foundation:: HWND, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiCreateDeviceInfoListExA(core::mem::transmute(classguid.unwrap_or(std::ptr::null())), hwndparent.param().abi(), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoListExW<P0, P1>(classguid: Option<*const windows_core::GUID>, hwndparent: P0, machinename: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
@@ -1940,7 +1940,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExW(classguid : *const windows_core::GUID, hwndparent : super::super::Foundation:: HWND, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiCreateDeviceInfoListExW(core::mem::transmute(classguid.unwrap_or(std::ptr::null())), hwndparent.param().abi(), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInfoW<P0, P1, P2, P3>(deviceinfoset: P0, devicename: P1, classguid: *const windows_core::GUID, devicedescription: P2, hwndparent: P3, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Option<*mut SP_DEVINFO_DATA>) -> windows_core::Result<()>
@@ -1971,7 +1971,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : u32, infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset.param().abi(), deviceinterfacedata, reserved, samdesired, core::mem::transmute(infhandle.unwrap_or(std::ptr::null())), infsectionname.param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -1982,7 +1982,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : u32, infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCWSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset.param().abi(), deviceinterfacedata, reserved, samdesired, core::mem::transmute(infhandle.unwrap_or(std::ptr::null())), infsectionname.param().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn SetupDiCreateDeviceInterfaceW<P0, P1>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const windows_core::GUID, referencestring: P1, creationflags: u32, deviceinterfacedata: Option<*mut SP_DEVICE_INTERFACE_DATA>) -> windows_core::Result<()>
@@ -2211,7 +2211,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsA(classguid : *const windows_core::GUID, enumerator : windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsA(core::mem::transmute(classguid.unwrap_or(std::ptr::null())), enumerator.param().abi(), hwndparent.param().abi(), flags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn SetupDiGetClassDevsExA<P0, P1, P2, P3>(classguid: Option<*const windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: P2, machinename: P3, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
@@ -2223,7 +2223,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExA(classguid : *const windows_core::GUID, enumerator : windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset : HDEVINFO, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsExA(core::mem::transmute(classguid.unwrap_or(std::ptr::null())), enumerator.param().abi(), hwndparent.param().abi(), flags, deviceinfoset.param().abi(), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn SetupDiGetClassDevsExW<P0, P1, P2, P3>(classguid: Option<*const windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: P2, machinename: P3, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
@@ -2235,7 +2235,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExW(classguid : *const windows_core::GUID, enumerator : windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset : HDEVINFO, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsExW(core::mem::transmute(classguid.unwrap_or(std::ptr::null())), enumerator.param().abi(), hwndparent.param().abi(), flags, deviceinfoset.param().abi(), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn SetupDiGetClassDevsW<P0, P1>(classguid: Option<*const windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS) -> windows_core::Result<HDEVINFO>
@@ -2245,7 +2245,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsW(classguid : *const windows_core::GUID, enumerator : windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsW(core::mem::transmute(classguid.unwrap_or(std::ptr::null())), enumerator.param().abi(), hwndparent.param().abi(), flags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
@@ -2697,7 +2697,7 @@ where
 pub unsafe fn SetupDiOpenClassRegKey(classguid: Option<*const windows_core::GUID>, samdesired: u32) -> windows_core::Result<super::super::System::Registry::HKEY> {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKey(classguid : *const windows_core::GUID, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenClassRegKey(core::mem::transmute(classguid.unwrap_or(std::ptr::null())), samdesired);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2707,7 +2707,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExA(classguid : *const windows_core::GUID, samdesired : u32, flags : u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenClassRegKeyExA(core::mem::transmute(classguid.unwrap_or(std::ptr::null())), samdesired, flags, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2717,7 +2717,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExW(classguid : *const windows_core::GUID, samdesired : u32, flags : u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenClassRegKeyExW(core::mem::transmute(classguid.unwrap_or(std::ptr::null())), samdesired, flags, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2727,7 +2727,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenDevRegKey(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenDevRegKey(deviceinfoset.param().abi(), deviceinfodata, scope, hwprofile, keytype, samdesired);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn SetupDiOpenDeviceInfoA<P0, P1, P2>(deviceinfoset: P0, deviceinstanceid: P1, hwndparent: P2, openflags: u32, deviceinfodata: Option<*mut SP_DEVINFO_DATA>) -> windows_core::Result<()>
@@ -2766,7 +2766,7 @@ where
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenDeviceInterfaceRegKey(deviceinfoset.param().abi(), deviceinterfacedata, reserved, samdesired);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn SetupDiOpenDeviceInterfaceW<P0, P1>(deviceinfoset: P0, devicepath: P1, openflags: u32, deviceinterfacedata: Option<*mut SP_DEVICE_INTERFACE_DATA>) -> windows_core::Result<()>
