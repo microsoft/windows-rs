@@ -105,6 +105,8 @@ jobs:
         run:  cargo test -p sample_enum_windows --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_enum_windows_sys
         run:  cargo test -p sample_enum_windows_sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_file_dialogs
+        run:  cargo test -p sample_file_dialogs --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_kernel_event
         run:  cargo test -p sample_kernel_event --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_memory_buffer
@@ -151,10 +153,10 @@ jobs:
         run:  cargo test -p test_alternate_success_code --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_arch
         run:  cargo test -p test_arch --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_arch_feature
-        run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_arch_feature
+        run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_array
         run:  cargo test -p test_array --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_bcrypt
@@ -253,10 +255,10 @@ jobs:
         run:  cargo test -p test_result --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_return_handle
         run:  cargo test -p test_return_handle --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_return_struct
-        run:  cargo test -p test_return_struct --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_return_struct
+        run:  cargo test -p test_return_struct --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_riddle
         run:  cargo test -p test_riddle --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_standalone
