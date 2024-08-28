@@ -17,10 +17,10 @@ use std::task::{Context, Poll, Waker};
 // implementation below can be reused for all of them.
 pub trait Async: Interface {
     // The type of value produced on completion.
-    type Output;
+    type Output: Clone;
 
     // The type of the delegate use for completion notification.
-    type CompletedHandler;
+    type CompletedHandler: Clone;
 
     // Sets the handler or callback to invoke when execution completes. This handler can only be set once.
     fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()>;
