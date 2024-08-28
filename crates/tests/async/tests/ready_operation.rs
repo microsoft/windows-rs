@@ -27,9 +27,7 @@ fn ok() -> Result<()> {
     recv.recv().unwrap();
 
     assert_eq!(
-        a.SetCompleted(&AsyncOperationCompletedHandler::new(move |_, _| { Ok(()) }))
-            .unwrap_err()
-            .code(),
+        a.SetCompleted(None).unwrap_err().code(),
         E_ILLEGAL_DELEGATE_ASSIGNMENT
     );
 

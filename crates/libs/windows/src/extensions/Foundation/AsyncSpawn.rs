@@ -62,7 +62,6 @@ impl<T: Async> SyncState<T> {
             Err(Error::from_hresult(HRESULT(0x80000018u32 as i32))) // E_ILLEGAL_DELEGATE_ASSIGNMENT
         } else {
             guard.completed_assigned = true;
-
             let status = guard.status();
 
             if status == AsyncStatus::Started {
@@ -84,7 +83,7 @@ impl<T: Async> SyncState<T> {
         let mut guard = self.0.lock().unwrap();
         debug_assert!(guard.result.is_none());
         guard.result = Some(result);
-        let status = self.status();
+        let status = guard.status();
         let completed = guard.completed.take();
 
         drop(guard);
