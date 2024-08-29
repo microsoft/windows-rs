@@ -29,5 +29,13 @@ fn test() -> Result<()> {
     a.get()?;
     assert_eq!(a.Completed(), Err(Error::empty()));
 
+    let a = IAsyncActionWithProgress::<i32>::spawn(|| Ok(()));
+    a.get()?;
+    assert_eq!(a.Completed(), Err(Error::empty()));
+
+    let a = IAsyncOperationWithProgress::<i32, i32>::spawn(|| Ok(123));
+    a.get()?;
+    assert_eq!(a.Completed(), Err(Error::empty()));
+
     Ok(())
 }

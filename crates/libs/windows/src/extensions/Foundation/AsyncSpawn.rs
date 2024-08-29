@@ -101,6 +101,17 @@ struct Operation<T>(SyncState<IAsyncOperation<T>>)
 where
     T: RuntimeType + 'static;
 
+#[implement(IAsyncActionWithProgress<P>, IAsyncInfo)]
+struct ActionWithProgress<P>(SyncState<IAsyncActionWithProgress<P>>)
+where
+    P: RuntimeType + 'static;
+
+#[implement(IAsyncOperationWithProgress<T, P>, IAsyncInfo)]
+struct OperationWithProgress<T, P>(SyncState<IAsyncOperationWithProgress<T, P>>)
+where
+    T: RuntimeType + 'static,
+    P: RuntimeType + 'static;
+
 impl IAsyncInfo_Impl for Action_Impl {
     fn Id(&self) -> Result<u32> {
         Ok(1)
@@ -120,6 +131,42 @@ impl IAsyncInfo_Impl for Action_Impl {
 }
 
 impl<T: RuntimeType> IAsyncInfo_Impl for Operation_Impl<T> {
+    fn Id(&self) -> Result<u32> {
+        Ok(1)
+    }
+    fn Status(&self) -> Result<AsyncStatus> {
+        Ok(self.0.status())
+    }
+    fn ErrorCode(&self) -> Result<HRESULT> {
+        Ok(self.0.error_code())
+    }
+    fn Cancel(&self) -> Result<()> {
+        Ok(())
+    }
+    fn Close(&self) -> Result<()> {
+        Ok(())
+    }
+}
+
+impl<P: RuntimeType> IAsyncInfo_Impl for ActionWithProgress_Impl<P> {
+    fn Id(&self) -> Result<u32> {
+        Ok(1)
+    }
+    fn Status(&self) -> Result<AsyncStatus> {
+        Ok(self.0.status())
+    }
+    fn ErrorCode(&self) -> Result<HRESULT> {
+        Ok(self.0.error_code())
+    }
+    fn Cancel(&self) -> Result<()> {
+        Ok(())
+    }
+    fn Close(&self) -> Result<()> {
+        Ok(())
+    }
+}
+
+impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for OperationWithProgress_Impl<T, P> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -161,6 +208,42 @@ impl<T: RuntimeType> IAsyncOperation_Impl<T> for Operation_Impl<T> {
     }
 }
 
+impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ActionWithProgress_Impl<P> {
+    fn SetCompleted(&self, handler: Option<&AsyncActionWithProgressCompletedHandler<P>>) -> Result<()> {
+        self.0.set_completed(&self.as_interface(), handler)
+    }
+    fn Completed(&self) -> Result<AsyncActionWithProgressCompletedHandler<P>> {
+        Err(Error::empty())
+    }
+    fn GetResults(&self) -> Result<()> {
+        self.0.get_results()
+    }
+    fn SetProgress(&self, _: Option<&AsyncActionProgressHandler<P>>) -> Result<()> {
+        Ok(())
+    }
+    fn Progress(&self) -> Result<AsyncActionProgressHandler<P>> {
+        Err(Error::empty())
+    }
+}
+
+impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P> for OperationWithProgress_Impl<T, P> {
+    fn SetCompleted(&self, handler: Option<&AsyncOperationWithProgressCompletedHandler<T, P>>) -> Result<()> {
+        self.0.set_completed(&self.as_interface(), handler)
+    }
+    fn Completed(&self) -> Result<AsyncOperationWithProgressCompletedHandler<T, P>> {
+        Err(Error::empty())
+    }
+    fn GetResults(&self) -> Result<T> {
+        self.0.get_results()
+    }
+    fn SetProgress(&self, _: Option<&AsyncOperationProgressHandler<T, P>>) -> Result<()> {
+        Ok(())
+    }
+    fn Progress(&self) -> Result<AsyncOperationProgressHandler<T, P>> {
+        Err(Error::empty())
+    }
+}
+
 impl IAsyncAction {
     pub fn spawn<F>(f: F) -> Self
     where
@@ -193,17 +276,37 @@ impl<T: RuntimeType> IAsyncOperation<T> {
     }
 }
 
-// impl<P: RuntimeType> IAsyncActionWithProgress<P> {
-//     pub fn spawn(result: Result<()>) -> Self {
+impl<P: RuntimeType> IAsyncActionWithProgress<P> {
+    pub fn spawn<F>(f: F) -> Self
+    where
+        F: FnOnce() -> Result<()> + Send + 'static,
+    {
+        let object = ComObject::new(ActionWithProgress(SyncState::new()));
+        let interface = object.to_interface();
 
-//     }
-// }
+        spawn(move || {
+            object.0.spawn(&object.as_interface(), f);
+        });
 
-// impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
-//     pub fn spawn(result: Result<T>) -> Self {
+        interface
+    }
+}
 
-//     }
-// }
+impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
+    pub fn spawn<F>(f: F) -> Self
+    where
+        F: FnOnce() -> Result<T> + Send + 'static,
+    {
+        let object = ComObject::new(OperationWithProgress(SyncState::new()));
+        let interface = object.to_interface();
+
+        spawn(move || {
+            object.0.spawn(&object.as_interface(), f);
+        });
+
+        interface
+    }
+}
 
 fn spawn<F: FnOnce() + Send + 'static>(f: F) {
     type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *const c_void, context: *const c_void);
