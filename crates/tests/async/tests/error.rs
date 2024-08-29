@@ -6,10 +6,7 @@ use windows::{core::*, Foundation::*, Win32::Foundation::*};
 
 #[test]
 fn test() -> Result<()> {
-    let error = Error::new(
-        E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED,
-        "async",
-    );
+    let error = Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async");
 
     let a = IAsyncAction::ready(Err(error.clone()));
     let e = a.get().unwrap_err();
@@ -39,7 +36,7 @@ fn test() -> Result<()> {
     assert_eq!(a.ErrorCode()?, E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
     assert_eq!(a.Status()?, AsyncStatus::Error);
 
-    let a = IAsyncAction::spawn(move ||Err(error.clone()));
+    let a = IAsyncAction::spawn(move || Err(error.clone()));
     let e = a.get().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);

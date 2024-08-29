@@ -6,7 +6,10 @@ use windows::{core::*, Foundation::*, Win32::Foundation::*};
 fn get() -> Result<()> {
     IAsyncAction::spawn(|| Ok(())).get()?;
 
-    let error = IAsyncAction::spawn(|| Err(Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async"))).get().unwrap_err();
+    let error =
+        IAsyncAction::spawn(|| Err(Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async")))
+            .get()
+            .unwrap_err();
     assert_eq!(error.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
     assert_eq!(error.message(), "async");
 
