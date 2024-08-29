@@ -6,7 +6,10 @@ use windows::{core::*, Foundation::*, Win32::Foundation::*};
 
 #[test]
 fn action_ready() -> Result<()> {
-    let a = IAsyncAction::ready(Err(Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async")));
+    let a = IAsyncAction::ready(Err(Error::new(
+        E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED,
+        "async",
+    )));
     let e = a.get().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
@@ -16,9 +19,12 @@ fn action_ready() -> Result<()> {
     Ok(())
 }
 
-    #[test]
+#[test]
 fn action_with_progress_ready() -> Result<()> {
-    let a = IAsyncActionWithProgress::<i32>::ready(Err(Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async")));
+    let a = IAsyncActionWithProgress::<i32>::ready(Err(Error::new(
+        E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED,
+        "async",
+    )));
     let e = a.get().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
@@ -30,7 +36,10 @@ fn action_with_progress_ready() -> Result<()> {
 
 #[test]
 fn operation_ready() -> Result<()> {
-    let a = IAsyncOperation::<i32>::ready(Err(Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async")));
+    let a = IAsyncOperation::<i32>::ready(Err(Error::new(
+        E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED,
+        "async",
+    )));
     let e = a.get().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
@@ -42,7 +51,10 @@ fn operation_ready() -> Result<()> {
 
 #[test]
 fn operation_with_progress_ready() -> Result<()> {
-    let a = IAsyncOperationWithProgress::<i32, i32>::ready(Err(Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async")));
+    let a = IAsyncOperationWithProgress::<i32, i32>::ready(Err(Error::new(
+        E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED,
+        "async",
+    )));
     let e = a.get().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);

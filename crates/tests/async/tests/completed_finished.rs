@@ -72,15 +72,17 @@ fn operation() -> Result<()> {
     assert_eq!(a.Status()?, AsyncStatus::Completed);
     let a_clone = a.clone();
 
-    a.SetCompleted(&AsyncOperationCompletedHandler::new(move |sender, status| {
-        let completed_thread = thread::current().id();
+    a.SetCompleted(&AsyncOperationCompletedHandler::new(
+        move |sender, status| {
+            let completed_thread = thread::current().id();
 
-        assert_eq!(sender.unwrap(), &a_clone);
-        assert_eq!(status, AsyncStatus::Completed);
+            assert_eq!(sender.unwrap(), &a_clone);
+            assert_eq!(status, AsyncStatus::Completed);
 
-        completed_send.send(completed_thread).unwrap();
-        Ok(())
-    }))?;
+            completed_send.send(completed_thread).unwrap();
+            Ok(())
+        },
+    ))?;
 
     let completed_thread = completed_recv.recv().unwrap();
 
@@ -90,4 +92,3 @@ fn operation() -> Result<()> {
     assert_eq!(a.GetResults()?, 123);
     Ok(())
 }
-

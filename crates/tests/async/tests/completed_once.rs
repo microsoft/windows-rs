@@ -135,12 +135,14 @@ fn operation_spawn() -> Result<()> {
     let (send, recv) = std::sync::mpsc::channel::<()>();
     let a_clone = a.clone();
 
-    a.SetCompleted(&AsyncOperationCompletedHandler::new(move |sender, status| {
-        assert_eq!(sender.unwrap(), &a_clone);
-        assert_eq!(status, AsyncStatus::Completed);
-        send.send(()).unwrap();
-        Err(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED.into())
-    }))?;
+    a.SetCompleted(&AsyncOperationCompletedHandler::new(
+        move |sender, status| {
+            assert_eq!(sender.unwrap(), &a_clone);
+            assert_eq!(status, AsyncStatus::Completed);
+            send.send(()).unwrap();
+            Err(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED.into())
+        },
+    ))?;
 
     recv.recv().unwrap();
 

@@ -1,10 +1,7 @@
 use super::Async::Async;
 use crate::{core::*, Foundation::*};
-use core::mem::transmute;
+use core::ffi::c_void;
 use std::sync::Mutex;
-
-windows_targets::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(callback: PTP_SIMPLE_CALLBACK, context: *const core::ffi::c_void, environment: *const core::ffi::c_void) -> i32);
-type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *const core::ffi::c_void, context: *const core::ffi::c_void);
 
 struct State<T: Async> {
     result: Option<Result<T::Output>>,
@@ -100,8 +97,9 @@ unsafe impl<T: Async> Send for SyncState<T> {}
 struct Action(SyncState<IAsyncAction>);
 
 #[implement(IAsyncOperation<T>, IAsyncInfo)]
-struct Operation<T>(SyncState<IAsyncOperation<T>>)where
-T: RuntimeType + 'static;
+struct Operation<T>(SyncState<IAsyncOperation<T>>)
+where
+    T: RuntimeType + 'static;
 
 impl IAsyncInfo_Impl for Action_Impl {
     fn Id(&self) -> Result<u32> {
@@ -163,7 +161,6 @@ impl<T: RuntimeType> IAsyncOperation_Impl<T> for Operation_Impl<T> {
     }
 }
 
-
 impl IAsyncAction {
     pub fn spawn<F>(f: F) -> Self
     where
@@ -172,7 +169,7 @@ impl IAsyncAction {
         let object = ComObject::new(Action(SyncState::new()));
         let interface = object.to_interface();
 
-        threadpool(move || {
+        spawn(move || {
             object.0.spawn(&object.as_interface(), f);
         });
 
@@ -188,7 +185,7 @@ impl<T: RuntimeType> IAsyncOperation<T> {
         let object = ComObject::new(Operation(SyncState::new()));
         let interface = object.to_interface();
 
-        threadpool(move || {
+        spawn(move || {
             object.0.spawn(&object.as_interface(), f);
         });
 
@@ -208,14 +205,17 @@ impl<T: RuntimeType> IAsyncOperation<T> {
 //     }
 // }
 
-fn threadpool<F: FnOnce() + Send + 'static>(f: F) {
-    unsafe {
-        if TrySubmitThreadpoolCallback(callback::<F>, transmute(Box::new(f)), core::ptr::null()) == 0 {
-            panic!("allocation failed");
-        }
+fn spawn<F: FnOnce() + Send + 'static>(f: F) {
+    type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *const c_void, context: *const c_void);
+    windows_targets::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(callback: PTP_SIMPLE_CALLBACK, context: *const c_void, environment: *const c_void) -> i32);
 
-        unsafe extern "system" fn callback<F: FnOnce() + Send + 'static>(_: *const core::ffi::c_void, callback: *const core::ffi::c_void) {
-            Box::from_raw(callback as *mut F)();
+    unsafe extern "system" fn callback<F: FnOnce() + Send + 'static>(_: *const c_void, callback: *const c_void) {
+        Box::from_raw(callback as *mut F)();
+    }
+
+    unsafe {
+        if TrySubmitThreadpoolCallback(callback::<F>, Box::into_raw(Box::new(f)) as _, core::ptr::null()) == 0 {
+            panic!("allocation failed");
         }
     }
 }
