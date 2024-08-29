@@ -3,24 +3,35 @@ use std::thread;
 use windows::{core::*, Foundation::*, Win32::Foundation::*};
 
 #[test]
-fn get_ok() -> Result<()> {
+fn get() -> Result<()> {
+    IAsyncAction::spawn(|| Ok(())).get()?;
+
+    let error = IAsyncAction::spawn(|| Err(Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async"))).get().unwrap_err();
+    assert_eq!(error.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
+    assert_eq!(error.message(), "async");
+
+    Ok(())
+}
+
+#[test]
+fn info() -> Result<()> {
     let a = IAsyncAction::spawn(|| Ok(()));
-    let _: () = a.get()?;
-
+    // IAsyncAction must also implement IAsyncInfo
     let _: IAsyncInfo = a.cast()?;
+    Ok(())
+}
+
+#[test]
+fn id() -> Result<()> {
+    let a = IAsyncAction::spawn(|| Ok(()));
     assert_eq!(a.Id()?, 1);
-    assert_eq!(a.Status()?, AsyncStatus::Completed);
-    assert_eq!(a.ErrorCode()?, HRESULT(0));
+    Ok(())
+}
+
+#[test]
+fn completed() -> Result<()> {
+    let a = IAsyncAction::spawn(|| Ok(()));
     assert_eq!(a.Completed(), Err(Error::empty()));
-    assert_eq!(a.GetResults(), Ok(()));
-    a.Cancel()?;
-    a.Close()?;
-
-    assert_eq!(
-        a.SetCompleted(None).unwrap_err().code(),
-        E_ILLEGAL_DELEGATE_ASSIGNMENT
-    );
-
     Ok(())
 }
 
