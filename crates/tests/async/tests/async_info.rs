@@ -13,16 +13,20 @@ fn test() -> Result<()> {
     a.get()?;
     async_info(&a.cast()?)?;
 
-    let a = IAsyncOperation::<i32>::ready(Ok(1));
-    a.get()?;
+    let a = IAsyncOperation::<i32>::ready(Ok(123));
+    assert_eq!(a.get()?, 123);
     async_info(&a.cast()?)?;
 
-    let a = IAsyncOperationWithProgress::<i32, i32>::ready(Ok(1));
-    a.get()?;
+    let a = IAsyncOperationWithProgress::<i32, i32>::ready(Ok(123));
+    assert_eq!(a.get()?, 123);
     async_info(&a.cast()?)?;
 
     let a = IAsyncAction::spawn(|| Ok(()));
     a.get()?;
+    async_info(&a.cast()?)?;
+
+    let a = IAsyncOperation::spawn(|| Ok(123));
+    assert_eq!(a.get()?, 123);
     async_info(&a.cast()?)?;
 
     Ok(())

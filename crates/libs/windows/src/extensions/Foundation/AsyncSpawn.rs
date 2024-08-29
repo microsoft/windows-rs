@@ -99,7 +99,29 @@ unsafe impl<T: Async> Send for SyncState<T> {}
 #[implement(IAsyncAction, IAsyncInfo)]
 struct Action(SyncState<IAsyncAction>);
 
+#[implement(IAsyncOperation<T>, IAsyncInfo)]
+struct Operation<T>(SyncState<IAsyncOperation<T>>)where
+T: RuntimeType + 'static;
+
 impl IAsyncInfo_Impl for Action_Impl {
+    fn Id(&self) -> Result<u32> {
+        Ok(1)
+    }
+    fn Status(&self) -> Result<AsyncStatus> {
+        Ok(self.0.status())
+    }
+    fn ErrorCode(&self) -> Result<HRESULT> {
+        Ok(self.0.error_code())
+    }
+    fn Cancel(&self) -> Result<()> {
+        Ok(())
+    }
+    fn Close(&self) -> Result<()> {
+        Ok(())
+    }
+}
+
+impl<T: RuntimeType> IAsyncInfo_Impl for Operation_Impl<T> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -129,6 +151,19 @@ impl IAsyncAction_Impl for Action_Impl {
     }
 }
 
+impl<T: RuntimeType> IAsyncOperation_Impl<T> for Operation_Impl<T> {
+    fn SetCompleted(&self, handler: Option<&AsyncOperationCompletedHandler<T>>) -> Result<()> {
+        self.0.set_completed(&self.as_interface(), handler)
+    }
+    fn Completed(&self) -> Result<AsyncOperationCompletedHandler<T>> {
+        Err(Error::empty())
+    }
+    fn GetResults(&self) -> Result<T> {
+        self.0.get_results()
+    }
+}
+
+
 impl IAsyncAction {
     pub fn spawn<F>(f: F) -> Self
     where
@@ -145,11 +180,21 @@ impl IAsyncAction {
     }
 }
 
-// impl<T: RuntimeType> IAsyncOperation<T> {
-//     pub fn spawn(result: Result<T>) -> Self {
+impl<T: RuntimeType> IAsyncOperation<T> {
+    pub fn spawn<F>(f: F) -> Self
+    where
+        F: FnOnce() -> Result<T> + Send + 'static,
+    {
+        let object = ComObject::new(Operation(SyncState::new()));
+        let interface = object.to_interface();
 
-//     }
-// }
+        threadpool(move || {
+            object.0.spawn(&object.as_interface(), f);
+        });
+
+        interface
+    }
+}
 
 // impl<P: RuntimeType> IAsyncActionWithProgress<P> {
 //     pub fn spawn(result: Result<()>) -> Self {

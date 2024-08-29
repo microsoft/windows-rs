@@ -5,7 +5,7 @@
 use windows::{core::*, Foundation::*, Win32::Foundation::*};
 
 #[test]
-fn test() -> Result<()> {
+fn action() -> Result<()> {
     let (send, recv) = std::sync::mpsc::channel::<()>();
 
     let a = IAsyncAction::spawn(move || {
@@ -17,6 +17,23 @@ fn test() -> Result<()> {
     assert_eq!(a.GetResults().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
     send.send(()).unwrap();
     a.get()?;
+
+    Ok(())
+}
+
+#[test]
+fn operation() -> Result<()> {
+    let (send, recv) = std::sync::mpsc::channel::<()>();
+
+    let a = IAsyncOperation::spawn(move || {
+        recv.recv().unwrap();
+        Ok(123)
+    });
+
+    assert_eq!(a.Status()?, AsyncStatus::Started);
+    assert_eq!(a.GetResults().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
+    send.send(()).unwrap();
+    assert_eq!(a.get()?, 123);
 
     Ok(())
 }
