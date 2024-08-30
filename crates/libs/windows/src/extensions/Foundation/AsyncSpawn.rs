@@ -65,7 +65,7 @@ impl<T: Async> SyncState<T> {
                 guard.completed = handler.cloned();
             } else {
                 drop(guard);
-                sender.invoke_completed(&handler.unwrap(), status);
+                sender.invoke_completed(handler.unwrap(), status);
             }
 
             Ok(())

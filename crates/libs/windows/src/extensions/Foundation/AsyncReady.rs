@@ -23,7 +23,7 @@ impl<T: Async> ReadyState<T> {
     // The "Ready" implementations don't need to store the handler since the handler is invoked immediately
     // but still need to confirm that `SetCompleted` is called at most once.
     fn invoke_completed(&self, sender: &T, handler: Option<&T::CompletedHandler>) -> Result<()> {
-        if self.set_completed.swap(true, Ordering::SeqCst) == false {
+        if !self.set_completed.swap(true, Ordering::SeqCst) {
             if let Some(handler) = handler {
                 sender.invoke_completed(handler, self.status());
             }
