@@ -1,16 +1,10 @@
-pub trait IWaaSAssessor_Impl: Sized {
+pub trait IWaaSAssessor_Impl: Sized + windows_core::IUnknownImpl {
     fn GetOSUpdateAssessment(&self) -> windows_core::Result<OSUpdateAssessment>;
 }
 impl windows_core::RuntimeName for IWaaSAssessor {}
 impl IWaaSAssessor_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IWaaSAssessor_Vtbl
-    where
-        Identity: IWaaSAssessor_Impl,
-    {
-        unsafe extern "system" fn GetOSUpdateAssessment<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result: *mut OSUpdateAssessment) -> windows_core::HRESULT
-        where
-            Identity: IWaaSAssessor_Impl,
-        {
+    pub const fn new<Identity: IWaaSAssessor_Impl, const OFFSET: isize>() -> IWaaSAssessor_Vtbl {
+        unsafe extern "system" fn GetOSUpdateAssessment<Identity: IWaaSAssessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result: *mut OSUpdateAssessment) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWaaSAssessor_Impl::GetOSUpdateAssessment(this) {
                 Ok(ok__) => {

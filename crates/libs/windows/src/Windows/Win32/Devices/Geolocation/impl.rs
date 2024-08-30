@@ -12,14 +12,8 @@ pub trait ICivicAddressReport_Impl: Sized + ILocationReport_Impl {
 impl windows_core::RuntimeName for ICivicAddressReport {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ICivicAddressReport_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ICivicAddressReport_Vtbl
-    where
-        Identity: ICivicAddressReport_Impl,
-    {
-        unsafe extern "system" fn GetAddressLine1<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstraddress1: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: ICivicAddressReport_Impl,
-        {
+    pub const fn new<Identity: ICivicAddressReport_Impl, const OFFSET: isize>() -> ICivicAddressReport_Vtbl {
+        unsafe extern "system" fn GetAddressLine1<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstraddress1: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICivicAddressReport_Impl::GetAddressLine1(this) {
                 Ok(ok__) => {
@@ -29,10 +23,7 @@ impl ICivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAddressLine2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstraddress2: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: ICivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn GetAddressLine2<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstraddress2: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICivicAddressReport_Impl::GetAddressLine2(this) {
                 Ok(ok__) => {
@@ -42,10 +33,7 @@ impl ICivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcity: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: ICivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn GetCity<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcity: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICivicAddressReport_Impl::GetCity(this) {
                 Ok(ok__) => {
@@ -55,10 +43,7 @@ impl ICivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStateProvince<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstateprovince: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: ICivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn GetStateProvince<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstateprovince: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICivicAddressReport_Impl::GetStateProvince(this) {
                 Ok(ok__) => {
@@ -68,10 +53,7 @@ impl ICivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPostalCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpostalcode: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: ICivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn GetPostalCode<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpostalcode: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICivicAddressReport_Impl::GetPostalCode(this) {
                 Ok(ok__) => {
@@ -81,10 +63,7 @@ impl ICivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCountryRegion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcountryregion: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: ICivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn GetCountryRegion<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcountryregion: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICivicAddressReport_Impl::GetCountryRegion(this) {
                 Ok(ok__) => {
@@ -94,10 +73,7 @@ impl ICivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDetailLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdetaillevel: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: ICivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn GetDetailLevel<Identity: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdetaillevel: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICivicAddressReport_Impl::GetDetailLevel(this) {
                 Ok(ok__) => {
@@ -130,14 +106,8 @@ pub trait ICivicAddressReportFactory_Impl: Sized + ILocationReportFactory_Impl {
 impl windows_core::RuntimeName for ICivicAddressReportFactory {}
 #[cfg(feature = "Win32_System_Com")]
 impl ICivicAddressReportFactory_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ICivicAddressReportFactory_Vtbl
-    where
-        Identity: ICivicAddressReportFactory_Impl,
-    {
-        unsafe extern "system" fn CivicAddressReport<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ICivicAddressReportFactory_Impl,
-        {
+    pub const fn new<Identity: ICivicAddressReportFactory_Impl, const OFFSET: isize>() -> ICivicAddressReportFactory_Vtbl {
+        unsafe extern "system" fn CivicAddressReport<Identity: ICivicAddressReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICivicAddressReportFactory_Impl::CivicAddressReport(this) {
                 Ok(ok__) => {
@@ -153,27 +123,18 @@ impl ICivicAddressReportFactory_Vtbl {
         iid == &<ICivicAddressReportFactory as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ILocationReportFactory as windows_core::Interface>::IID
     }
 }
-pub trait IDefaultLocation_Impl: Sized {
+pub trait IDefaultLocation_Impl: Sized + windows_core::IUnknownImpl {
     fn SetReport(&self, reporttype: *const windows_core::GUID, plocationreport: Option<&ILocationReport>) -> windows_core::Result<()>;
     fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport>;
 }
 impl windows_core::RuntimeName for IDefaultLocation {}
 impl IDefaultLocation_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDefaultLocation_Vtbl
-    where
-        Identity: IDefaultLocation_Impl,
-    {
-        unsafe extern "system" fn SetReport<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, plocationreport: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IDefaultLocation_Impl,
-        {
+    pub const fn new<Identity: IDefaultLocation_Impl, const OFFSET: isize>() -> IDefaultLocation_Vtbl {
+        unsafe extern "system" fn SetReport<Identity: IDefaultLocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, plocationreport: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDefaultLocation_Impl::SetReport(this, core::mem::transmute_copy(&reporttype), windows_core::from_raw_borrowed(&plocationreport)).into()
         }
-        unsafe extern "system" fn GetReport<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pplocationreport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IDefaultLocation_Impl,
-        {
+        unsafe extern "system" fn GetReport<Identity: IDefaultLocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pplocationreport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDefaultLocation_Impl::GetReport(this, core::mem::transmute_copy(&reporttype)) {
                 Ok(ok__) => {
@@ -208,14 +169,8 @@ pub trait IDispCivicAddressReport_Impl: Sized + super::super::System::Com::IDisp
 impl windows_core::RuntimeName for IDispCivicAddressReport {}
 #[cfg(feature = "Win32_System_Com")]
 impl IDispCivicAddressReport_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDispCivicAddressReport_Vtbl
-    where
-        Identity: IDispCivicAddressReport_Impl,
-    {
-        unsafe extern "system" fn AddressLine1<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress1: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: IDispCivicAddressReport_Impl,
-        {
+    pub const fn new<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>() -> IDispCivicAddressReport_Vtbl {
+        unsafe extern "system" fn AddressLine1<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress1: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispCivicAddressReport_Impl::AddressLine1(this) {
                 Ok(ok__) => {
@@ -225,10 +180,7 @@ impl IDispCivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddressLine2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress2: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: IDispCivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn AddressLine2<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress2: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispCivicAddressReport_Impl::AddressLine2(this) {
                 Ok(ok__) => {
@@ -238,10 +190,7 @@ impl IDispCivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn City<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcity: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: IDispCivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn City<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcity: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispCivicAddressReport_Impl::City(this) {
                 Ok(ok__) => {
@@ -251,10 +200,7 @@ impl IDispCivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StateProvince<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstateprovince: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: IDispCivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn StateProvince<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstateprovince: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispCivicAddressReport_Impl::StateProvince(this) {
                 Ok(ok__) => {
@@ -264,10 +210,7 @@ impl IDispCivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PostalCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppostalcode: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: IDispCivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn PostalCode<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppostalcode: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispCivicAddressReport_Impl::PostalCode(this) {
                 Ok(ok__) => {
@@ -277,10 +220,7 @@ impl IDispCivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CountryRegion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcountryregion: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT
-        where
-            Identity: IDispCivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn CountryRegion<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcountryregion: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispCivicAddressReport_Impl::CountryRegion(this) {
                 Ok(ok__) => {
@@ -290,10 +230,7 @@ impl IDispCivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DetailLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdetaillevel: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IDispCivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn DetailLevel<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdetaillevel: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispCivicAddressReport_Impl::DetailLevel(this) {
                 Ok(ok__) => {
@@ -303,10 +240,7 @@ impl IDispCivicAddressReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: IDispCivicAddressReport_Impl,
-        {
+        unsafe extern "system" fn Timestamp<Identity: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispCivicAddressReport_Impl::Timestamp(this) {
                 Ok(ok__) => {
@@ -345,14 +279,8 @@ pub trait IDispLatLongReport_Impl: Sized + super::super::System::Com::IDispatch_
 impl windows_core::RuntimeName for IDispLatLongReport {}
 #[cfg(feature = "Win32_System_Com")]
 impl IDispLatLongReport_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDispLatLongReport_Vtbl
-    where
-        Identity: IDispLatLongReport_Impl,
-    {
-        unsafe extern "system" fn Latitude<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: IDispLatLongReport_Impl,
-        {
+    pub const fn new<Identity: IDispLatLongReport_Impl, const OFFSET: isize>() -> IDispLatLongReport_Vtbl {
+        unsafe extern "system" fn Latitude<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispLatLongReport_Impl::Latitude(this) {
                 Ok(ok__) => {
@@ -362,10 +290,7 @@ impl IDispLatLongReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Longitude<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: IDispLatLongReport_Impl,
-        {
+        unsafe extern "system" fn Longitude<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispLatLongReport_Impl::Longitude(this) {
                 Ok(ok__) => {
@@ -375,10 +300,7 @@ impl IDispLatLongReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ErrorRadius<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: IDispLatLongReport_Impl,
-        {
+        unsafe extern "system" fn ErrorRadius<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispLatLongReport_Impl::ErrorRadius(this) {
                 Ok(ok__) => {
@@ -388,10 +310,7 @@ impl IDispLatLongReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Altitude<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: IDispLatLongReport_Impl,
-        {
+        unsafe extern "system" fn Altitude<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispLatLongReport_Impl::Altitude(this) {
                 Ok(ok__) => {
@@ -401,10 +320,7 @@ impl IDispLatLongReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AltitudeError<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: IDispLatLongReport_Impl,
-        {
+        unsafe extern "system" fn AltitudeError<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispLatLongReport_Impl::AltitudeError(this) {
                 Ok(ok__) => {
@@ -414,10 +330,7 @@ impl IDispLatLongReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: IDispLatLongReport_Impl,
-        {
+        unsafe extern "system" fn Timestamp<Identity: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispLatLongReport_Impl::Timestamp(this) {
                 Ok(ok__) => {
@@ -453,14 +366,8 @@ pub trait ILatLongReport_Impl: Sized + ILocationReport_Impl {
 impl windows_core::RuntimeName for ILatLongReport {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ILatLongReport_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ILatLongReport_Vtbl
-    where
-        Identity: ILatLongReport_Impl,
-    {
-        unsafe extern "system" fn GetLatitude<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, platitude: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: ILatLongReport_Impl,
-        {
+    pub const fn new<Identity: ILatLongReport_Impl, const OFFSET: isize>() -> ILatLongReport_Vtbl {
+        unsafe extern "system" fn GetLatitude<Identity: ILatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, platitude: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILatLongReport_Impl::GetLatitude(this) {
                 Ok(ok__) => {
@@ -470,10 +377,7 @@ impl ILatLongReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLongitude<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plongitude: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: ILatLongReport_Impl,
-        {
+        unsafe extern "system" fn GetLongitude<Identity: ILatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plongitude: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILatLongReport_Impl::GetLongitude(this) {
                 Ok(ok__) => {
@@ -483,10 +387,7 @@ impl ILatLongReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetErrorRadius<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrorradius: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: ILatLongReport_Impl,
-        {
+        unsafe extern "system" fn GetErrorRadius<Identity: ILatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrorradius: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILatLongReport_Impl::GetErrorRadius(this) {
                 Ok(ok__) => {
@@ -496,10 +397,7 @@ impl ILatLongReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAltitude<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, paltitude: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: ILatLongReport_Impl,
-        {
+        unsafe extern "system" fn GetAltitude<Identity: ILatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paltitude: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILatLongReport_Impl::GetAltitude(this) {
                 Ok(ok__) => {
@@ -509,10 +407,7 @@ impl ILatLongReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAltitudeError<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, paltitudeerror: *mut f64) -> windows_core::HRESULT
-        where
-            Identity: ILatLongReport_Impl,
-        {
+        unsafe extern "system" fn GetAltitudeError<Identity: ILatLongReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paltitudeerror: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILatLongReport_Impl::GetAltitudeError(this) {
                 Ok(ok__) => {
@@ -543,14 +438,8 @@ pub trait ILatLongReportFactory_Impl: Sized + ILocationReportFactory_Impl {
 impl windows_core::RuntimeName for ILatLongReportFactory {}
 #[cfg(feature = "Win32_System_Com")]
 impl ILatLongReportFactory_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ILatLongReportFactory_Vtbl
-    where
-        Identity: ILatLongReportFactory_Impl,
-    {
-        unsafe extern "system" fn LatLongReport<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILatLongReportFactory_Impl,
-        {
+    pub const fn new<Identity: ILatLongReportFactory_Impl, const OFFSET: isize>() -> ILatLongReportFactory_Vtbl {
+        unsafe extern "system" fn LatLongReport<Identity: ILatLongReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILatLongReportFactory_Impl::LatLongReport(this) {
                 Ok(ok__) => {
@@ -567,7 +456,7 @@ impl ILatLongReportFactory_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Devices_Sensors")]
-pub trait ILocation_Impl: Sized {
+pub trait ILocation_Impl: Sized + windows_core::IUnknownImpl {
     fn RegisterForReport(&self, pevents: Option<&ILocationEvents>, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::Result<()>;
     fn UnregisterForReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport>;
@@ -582,28 +471,16 @@ pub trait ILocation_Impl: Sized {
 impl windows_core::RuntimeName for ILocation {}
 #[cfg(feature = "Win32_Devices_Sensors")]
 impl ILocation_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ILocation_Vtbl
-    where
-        Identity: ILocation_Impl,
-    {
-        unsafe extern "system" fn RegisterForReport<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevents: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::HRESULT
-        where
-            Identity: ILocation_Impl,
-        {
+    pub const fn new<Identity: ILocation_Impl, const OFFSET: isize>() -> ILocation_Vtbl {
+        unsafe extern "system" fn RegisterForReport<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevents: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocation_Impl::RegisterForReport(this, windows_core::from_raw_borrowed(&pevents), core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&dwrequestedreportinterval)).into()
         }
-        unsafe extern "system" fn UnregisterForReport<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID) -> windows_core::HRESULT
-        where
-            Identity: ILocation_Impl,
-        {
+        unsafe extern "system" fn UnregisterForReport<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocation_Impl::UnregisterForReport(this, core::mem::transmute_copy(&reporttype)).into()
         }
-        unsafe extern "system" fn GetReport<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pplocationreport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILocation_Impl,
-        {
+        unsafe extern "system" fn GetReport<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pplocationreport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILocation_Impl::GetReport(this, core::mem::transmute_copy(&reporttype)) {
                 Ok(ok__) => {
@@ -613,10 +490,7 @@ impl ILocation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetReportStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pstatus: *mut LOCATION_REPORT_STATUS) -> windows_core::HRESULT
-        where
-            Identity: ILocation_Impl,
-        {
+        unsafe extern "system" fn GetReportStatus<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pstatus: *mut LOCATION_REPORT_STATUS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILocation_Impl::GetReportStatus(this, core::mem::transmute_copy(&reporttype)) {
                 Ok(ok__) => {
@@ -626,10 +500,7 @@ impl ILocation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetReportInterval<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pmilliseconds: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: ILocation_Impl,
-        {
+        unsafe extern "system" fn GetReportInterval<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pmilliseconds: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILocation_Impl::GetReportInterval(this, core::mem::transmute_copy(&reporttype)) {
                 Ok(ok__) => {
@@ -639,17 +510,11 @@ impl ILocation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReportInterval<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, millisecondsrequested: u32) -> windows_core::HRESULT
-        where
-            Identity: ILocation_Impl,
-        {
+        unsafe extern "system" fn SetReportInterval<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, millisecondsrequested: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocation_Impl::SetReportInterval(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&millisecondsrequested)).into()
         }
-        unsafe extern "system" fn GetDesiredAccuracy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pdesiredaccuracy: *mut super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::HRESULT
-        where
-            Identity: ILocation_Impl,
-        {
+        unsafe extern "system" fn GetDesiredAccuracy<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pdesiredaccuracy: *mut super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILocation_Impl::GetDesiredAccuracy(this, core::mem::transmute_copy(&reporttype)) {
                 Ok(ok__) => {
@@ -659,17 +524,11 @@ impl ILocation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredAccuracy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::HRESULT
-        where
-            Identity: ILocation_Impl,
-        {
+        unsafe extern "system" fn SetDesiredAccuracy<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocation_Impl::SetDesiredAccuracy(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&desiredaccuracy)).into()
         }
-        unsafe extern "system" fn RequestPermissions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hparent: super::super::Foundation::HWND, preporttypes: *const windows_core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> windows_core::HRESULT
-        where
-            Identity: ILocation_Impl,
-        {
+        unsafe extern "system" fn RequestPermissions<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hparent: super::super::Foundation::HWND, preporttypes: *const windows_core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocation_Impl::RequestPermissions(this, core::mem::transmute_copy(&hparent), core::mem::transmute_copy(&preporttypes), core::mem::transmute_copy(&count), core::mem::transmute_copy(&fmodal)).into()
         }
@@ -690,27 +549,18 @@ impl ILocation_Vtbl {
         iid == &<ILocation as windows_core::Interface>::IID
     }
 }
-pub trait ILocationEvents_Impl: Sized {
+pub trait ILocationEvents_Impl: Sized + windows_core::IUnknownImpl {
     fn OnLocationChanged(&self, reporttype: *const windows_core::GUID, plocationreport: Option<&ILocationReport>) -> windows_core::Result<()>;
     fn OnStatusChanged(&self, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for ILocationEvents {}
 impl ILocationEvents_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ILocationEvents_Vtbl
-    where
-        Identity: ILocationEvents_Impl,
-    {
-        unsafe extern "system" fn OnLocationChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, plocationreport: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILocationEvents_Impl,
-        {
+    pub const fn new<Identity: ILocationEvents_Impl, const OFFSET: isize>() -> ILocationEvents_Vtbl {
+        unsafe extern "system" fn OnLocationChanged<Identity: ILocationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, plocationreport: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocationEvents_Impl::OnLocationChanged(this, core::mem::transmute_copy(&reporttype), windows_core::from_raw_borrowed(&plocationreport)).into()
         }
-        unsafe extern "system" fn OnStatusChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::HRESULT
-        where
-            Identity: ILocationEvents_Impl,
-        {
+        unsafe extern "system" fn OnStatusChanged<Identity: ILocationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocationEvents_Impl::OnStatusChanged(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&newstatus)).into()
         }
@@ -724,27 +574,18 @@ impl ILocationEvents_Vtbl {
         iid == &<ILocationEvents as windows_core::Interface>::IID
     }
 }
-pub trait ILocationPower_Impl: Sized {
+pub trait ILocationPower_Impl: Sized + windows_core::IUnknownImpl {
     fn Connect(&self) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for ILocationPower {}
 impl ILocationPower_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ILocationPower_Vtbl
-    where
-        Identity: ILocationPower_Impl,
-    {
-        unsafe extern "system" fn Connect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILocationPower_Impl,
-        {
+    pub const fn new<Identity: ILocationPower_Impl, const OFFSET: isize>() -> ILocationPower_Vtbl {
+        unsafe extern "system" fn Connect<Identity: ILocationPower_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocationPower_Impl::Connect(this).into()
         }
-        unsafe extern "system" fn Disconnect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILocationPower_Impl,
-        {
+        unsafe extern "system" fn Disconnect<Identity: ILocationPower_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocationPower_Impl::Disconnect(this).into()
         }
@@ -755,7 +596,7 @@ impl ILocationPower_Vtbl {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub trait ILocationReport_Impl: Sized {
+pub trait ILocationReport_Impl: Sized + windows_core::IUnknownImpl {
     fn GetSensorID(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetTimestamp(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME>;
     fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::Result<windows_core::PROPVARIANT>;
@@ -764,14 +605,8 @@ pub trait ILocationReport_Impl: Sized {
 impl windows_core::RuntimeName for ILocationReport {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ILocationReport_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ILocationReport_Vtbl
-    where
-        Identity: ILocationReport_Impl,
-    {
-        unsafe extern "system" fn GetSensorID<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, psensorid: *mut windows_core::GUID) -> windows_core::HRESULT
-        where
-            Identity: ILocationReport_Impl,
-        {
+    pub const fn new<Identity: ILocationReport_Impl, const OFFSET: isize>() -> ILocationReport_Vtbl {
+        unsafe extern "system" fn GetSensorID<Identity: ILocationReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psensorid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILocationReport_Impl::GetSensorID(this) {
                 Ok(ok__) => {
@@ -781,10 +616,7 @@ impl ILocationReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTimestamp<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT
-        where
-            Identity: ILocationReport_Impl,
-        {
+        unsafe extern "system" fn GetTimestamp<Identity: ILocationReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILocationReport_Impl::GetTimestamp(this) {
                 Ok(ok__) => {
@@ -794,10 +626,7 @@ impl ILocationReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT
-        where
-            Identity: ILocationReport_Impl,
-        {
+        unsafe extern "system" fn GetValue<Identity: ILocationReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILocationReport_Impl::GetValue(this, core::mem::transmute_copy(&pkey)) {
                 Ok(ok__) => {
@@ -833,28 +662,16 @@ pub trait ILocationReportFactory_Impl: Sized + super::super::System::Com::IDispa
 impl windows_core::RuntimeName for ILocationReportFactory {}
 #[cfg(feature = "Win32_System_Com")]
 impl ILocationReportFactory_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> ILocationReportFactory_Vtbl
-    where
-        Identity: ILocationReportFactory_Impl,
-    {
-        unsafe extern "system" fn ListenForReports<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestedreportinterval: u32) -> windows_core::HRESULT
-        where
-            Identity: ILocationReportFactory_Impl,
-        {
+    pub const fn new<Identity: ILocationReportFactory_Impl, const OFFSET: isize>() -> ILocationReportFactory_Vtbl {
+        unsafe extern "system" fn ListenForReports<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestedreportinterval: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocationReportFactory_Impl::ListenForReports(this, core::mem::transmute_copy(&requestedreportinterval)).into()
         }
-        unsafe extern "system" fn StopListeningForReports<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: ILocationReportFactory_Impl,
-        {
+        unsafe extern "system" fn StopListeningForReports<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocationReportFactory_Impl::StopListeningForReports(this).into()
         }
-        unsafe extern "system" fn Status<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: ILocationReportFactory_Impl,
-        {
+        unsafe extern "system" fn Status<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILocationReportFactory_Impl::Status(this) {
                 Ok(ok__) => {
@@ -864,10 +681,7 @@ impl ILocationReportFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReportInterval<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmilliseconds: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: ILocationReportFactory_Impl,
-        {
+        unsafe extern "system" fn ReportInterval<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmilliseconds: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILocationReportFactory_Impl::ReportInterval(this) {
                 Ok(ok__) => {
@@ -877,17 +691,11 @@ impl ILocationReportFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReportInterval<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, millisecondsrequested: u32) -> windows_core::HRESULT
-        where
-            Identity: ILocationReportFactory_Impl,
-        {
+        unsafe extern "system" fn SetReportInterval<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, millisecondsrequested: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocationReportFactory_Impl::SetReportInterval(this, core::mem::transmute_copy(&millisecondsrequested)).into()
         }
-        unsafe extern "system" fn DesiredAccuracy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesiredaccuracy: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: ILocationReportFactory_Impl,
-        {
+        unsafe extern "system" fn DesiredAccuracy<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesiredaccuracy: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILocationReportFactory_Impl::DesiredAccuracy(this) {
                 Ok(ok__) => {
@@ -897,17 +705,11 @@ impl ILocationReportFactory_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredAccuracy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredaccuracy: u32) -> windows_core::HRESULT
-        where
-            Identity: ILocationReportFactory_Impl,
-        {
+        unsafe extern "system" fn SetDesiredAccuracy<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredaccuracy: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocationReportFactory_Impl::SetDesiredAccuracy(this, core::mem::transmute_copy(&desiredaccuracy)).into()
         }
-        unsafe extern "system" fn RequestPermissions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: *const u32) -> windows_core::HRESULT
-        where
-            Identity: ILocationReportFactory_Impl,
-        {
+        unsafe extern "system" fn RequestPermissions<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: *const u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILocationReportFactory_Impl::RequestPermissions(this, core::mem::transmute_copy(&hwnd)).into()
         }
@@ -933,10 +735,7 @@ pub trait _ICivicAddressReportFactoryEvents_Impl: Sized + super::super::System::
 impl windows_core::RuntimeName for _ICivicAddressReportFactoryEvents {}
 #[cfg(feature = "Win32_System_Com")]
 impl _ICivicAddressReportFactoryEvents_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> _ICivicAddressReportFactoryEvents_Vtbl
-    where
-        Identity: _ICivicAddressReportFactoryEvents_Impl,
-    {
+    pub const fn new<Identity: _ICivicAddressReportFactoryEvents_Impl, const OFFSET: isize>() -> _ICivicAddressReportFactoryEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -949,10 +748,7 @@ pub trait _ILatLongReportFactoryEvents_Impl: Sized + super::super::System::Com::
 impl windows_core::RuntimeName for _ILatLongReportFactoryEvents {}
 #[cfg(feature = "Win32_System_Com")]
 impl _ILatLongReportFactoryEvents_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> _ILatLongReportFactoryEvents_Vtbl
-    where
-        Identity: _ILatLongReportFactoryEvents_Impl,
-    {
+    pub const fn new<Identity: _ILatLongReportFactoryEvents_Impl, const OFFSET: isize>() -> _ILatLongReportFactoryEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

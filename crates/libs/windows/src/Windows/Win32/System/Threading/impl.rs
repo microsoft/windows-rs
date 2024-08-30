@@ -1,24 +1,15 @@
-pub trait IRtwqAsyncCallback_Impl: Sized {
+pub trait IRtwqAsyncCallback_Impl: Sized + windows_core::IUnknownImpl {
     fn GetParameters(&self, pdwflags: *mut u32, pdwqueue: *mut u32) -> windows_core::Result<()>;
     fn Invoke(&self, pasyncresult: Option<&IRtwqAsyncResult>) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IRtwqAsyncCallback {}
 impl IRtwqAsyncCallback_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IRtwqAsyncCallback_Vtbl
-    where
-        Identity: IRtwqAsyncCallback_Impl,
-    {
-        unsafe extern "system" fn GetParameters<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32, pdwqueue: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IRtwqAsyncCallback_Impl,
-        {
+    pub const fn new<Identity: IRtwqAsyncCallback_Impl, const OFFSET: isize>() -> IRtwqAsyncCallback_Vtbl {
+        unsafe extern "system" fn GetParameters<Identity: IRtwqAsyncCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32, pdwqueue: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRtwqAsyncCallback_Impl::GetParameters(this, core::mem::transmute_copy(&pdwflags), core::mem::transmute_copy(&pdwqueue)).into()
         }
-        unsafe extern "system" fn Invoke<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pasyncresult: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IRtwqAsyncCallback_Impl,
-        {
+        unsafe extern "system" fn Invoke<Identity: IRtwqAsyncCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pasyncresult: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRtwqAsyncCallback_Impl::Invoke(this, windows_core::from_raw_borrowed(&pasyncresult)).into()
         }
@@ -32,7 +23,7 @@ impl IRtwqAsyncCallback_Vtbl {
         iid == &<IRtwqAsyncCallback as windows_core::Interface>::IID
     }
 }
-pub trait IRtwqAsyncResult_Impl: Sized {
+pub trait IRtwqAsyncResult_Impl: Sized + windows_core::IUnknownImpl {
     fn GetState(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetStatus(&self) -> windows_core::Result<()>;
     fn SetStatus(&self, hrstatus: windows_core::HRESULT) -> windows_core::Result<()>;
@@ -41,14 +32,8 @@ pub trait IRtwqAsyncResult_Impl: Sized {
 }
 impl windows_core::RuntimeName for IRtwqAsyncResult {}
 impl IRtwqAsyncResult_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IRtwqAsyncResult_Vtbl
-    where
-        Identity: IRtwqAsyncResult_Impl,
-    {
-        unsafe extern "system" fn GetState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IRtwqAsyncResult_Impl,
-        {
+    pub const fn new<Identity: IRtwqAsyncResult_Impl, const OFFSET: isize>() -> IRtwqAsyncResult_Vtbl {
+        unsafe extern "system" fn GetState<Identity: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRtwqAsyncResult_Impl::GetState(this) {
                 Ok(ok__) => {
@@ -58,24 +43,15 @@ impl IRtwqAsyncResult_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IRtwqAsyncResult_Impl,
-        {
+        unsafe extern "system" fn GetStatus<Identity: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRtwqAsyncResult_Impl::GetStatus(this).into()
         }
-        unsafe extern "system" fn SetStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT
-        where
-            Identity: IRtwqAsyncResult_Impl,
-        {
+        unsafe extern "system" fn SetStatus<Identity: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRtwqAsyncResult_Impl::SetStatus(this, core::mem::transmute_copy(&hrstatus)).into()
         }
-        unsafe extern "system" fn GetObject<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IRtwqAsyncResult_Impl,
-        {
+        unsafe extern "system" fn GetObject<Identity: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRtwqAsyncResult_Impl::GetObject(this) {
                 Ok(ok__) => {
@@ -85,10 +61,7 @@ impl IRtwqAsyncResult_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStateNoAddRef<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> Option<windows_core::IUnknown>
-        where
-            Identity: IRtwqAsyncResult_Impl,
-        {
+        unsafe extern "system" fn GetStateNoAddRef<Identity: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> Option<windows_core::IUnknown> {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRtwqAsyncResult_Impl::GetStateNoAddRef(this)
         }
@@ -105,35 +78,23 @@ impl IRtwqAsyncResult_Vtbl {
         iid == &<IRtwqAsyncResult as windows_core::Interface>::IID
     }
 }
-pub trait IRtwqPlatformEvents_Impl: Sized {
+pub trait IRtwqPlatformEvents_Impl: Sized + windows_core::IUnknownImpl {
     fn InitializationComplete(&self) -> windows_core::Result<()>;
     fn ShutdownStart(&self) -> windows_core::Result<()>;
     fn ShutdownComplete(&self) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IRtwqPlatformEvents {}
 impl IRtwqPlatformEvents_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IRtwqPlatformEvents_Vtbl
-    where
-        Identity: IRtwqPlatformEvents_Impl,
-    {
-        unsafe extern "system" fn InitializationComplete<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IRtwqPlatformEvents_Impl,
-        {
+    pub const fn new<Identity: IRtwqPlatformEvents_Impl, const OFFSET: isize>() -> IRtwqPlatformEvents_Vtbl {
+        unsafe extern "system" fn InitializationComplete<Identity: IRtwqPlatformEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRtwqPlatformEvents_Impl::InitializationComplete(this).into()
         }
-        unsafe extern "system" fn ShutdownStart<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IRtwqPlatformEvents_Impl,
-        {
+        unsafe extern "system" fn ShutdownStart<Identity: IRtwqPlatformEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRtwqPlatformEvents_Impl::ShutdownStart(this).into()
         }
-        unsafe extern "system" fn ShutdownComplete<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IRtwqPlatformEvents_Impl,
-        {
+        unsafe extern "system" fn ShutdownComplete<Identity: IRtwqPlatformEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRtwqPlatformEvents_Impl::ShutdownComplete(this).into()
         }
@@ -151,10 +112,7 @@ impl IRtwqPlatformEvents_Vtbl {
 pub trait RTWQASYNCRESULT_Impl: Sized + IRtwqAsyncResult_Impl {}
 impl windows_core::RuntimeName for RTWQASYNCRESULT {}
 impl RTWQASYNCRESULT_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> RTWQASYNCRESULT_Vtbl
-    where
-        Identity: RTWQASYNCRESULT_Impl,
-    {
+    pub const fn new<Identity: RTWQASYNCRESULT_Impl, const OFFSET: isize>() -> RTWQASYNCRESULT_Vtbl {
         Self { base__: IRtwqAsyncResult_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

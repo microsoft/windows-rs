@@ -1,0 +1,12 @@
+[package]
+name = "sample_file_dialogs"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.windows]
+path = "../../../libs/windows"
+features = [
+    "Win32_UI_Shell_Common",
+    "Win32_System_Com",
+]

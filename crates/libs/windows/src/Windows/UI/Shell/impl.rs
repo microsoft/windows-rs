@@ -1,18 +1,12 @@
-pub trait IAdaptiveCard_Impl: Sized {
+pub trait IAdaptiveCard_Impl: Sized + windows_core::IUnknownImpl {
     fn ToJson(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl windows_core::RuntimeName for IAdaptiveCard {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCard";
 }
 impl IAdaptiveCard_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAdaptiveCard_Vtbl
-    where
-        Identity: IAdaptiveCard_Impl,
-    {
-        unsafe extern "system" fn ToJson<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IAdaptiveCard_Impl,
-        {
+    pub const fn new<Identity: IAdaptiveCard_Impl, const OFFSET: isize>() -> IAdaptiveCard_Vtbl {
+        unsafe extern "system" fn ToJson<Identity: IAdaptiveCard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAdaptiveCard_Impl::ToJson(this) {
                 Ok(ok__) => {
@@ -29,21 +23,15 @@ impl IAdaptiveCard_Vtbl {
         iid == &<IAdaptiveCard as windows_core::Interface>::IID
     }
 }
-pub trait IAdaptiveCardBuilderStatics_Impl: Sized {
+pub trait IAdaptiveCardBuilderStatics_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateAdaptiveCardFromJson(&self, value: &windows_core::HSTRING) -> windows_core::Result<IAdaptiveCard>;
 }
 impl windows_core::RuntimeName for IAdaptiveCardBuilderStatics {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCardBuilderStatics";
 }
 impl IAdaptiveCardBuilderStatics_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IAdaptiveCardBuilderStatics_Vtbl
-    where
-        Identity: IAdaptiveCardBuilderStatics_Impl,
-    {
-        unsafe extern "system" fn CreateAdaptiveCardFromJson<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IAdaptiveCardBuilderStatics_Impl,
-        {
+    pub const fn new<Identity: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>() -> IAdaptiveCardBuilderStatics_Vtbl {
+        unsafe extern "system" fn CreateAdaptiveCardFromJson<Identity: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAdaptiveCardBuilderStatics_Impl::CreateAdaptiveCardFromJson(this, core::mem::transmute(&value)) {
                 Ok(ok__) => {

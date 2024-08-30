@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub trait IDialBranding_Impl: Sized {
+pub trait IDialBranding_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, pwzconnectoid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetBitmap(&self, dwindex: u32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP>;
 }
@@ -7,21 +7,12 @@ pub trait IDialBranding_Impl: Sized {
 impl windows_core::RuntimeName for IDialBranding {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDialBranding_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDialBranding_Vtbl
-    where
-        Identity: IDialBranding_Impl,
-    {
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzconnectoid: windows_core::PCWSTR) -> windows_core::HRESULT
-        where
-            Identity: IDialBranding_Impl,
-        {
+    pub const fn new<Identity: IDialBranding_Impl, const OFFSET: isize>() -> IDialBranding_Vtbl {
+        unsafe extern "system" fn Initialize<Identity: IDialBranding_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzconnectoid: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDialBranding_Impl::Initialize(this, core::mem::transmute(&pwzconnectoid)).into()
         }
-        unsafe extern "system" fn GetBitmap<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> windows_core::HRESULT
-        where
-            Identity: IDialBranding_Impl,
-        {
+        unsafe extern "system" fn GetBitmap<Identity: IDialBranding_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDialBranding_Impl::GetBitmap(this, core::mem::transmute_copy(&dwindex)) {
                 Ok(ok__) => {
@@ -41,7 +32,7 @@ impl IDialBranding_Vtbl {
         iid == &<IDialBranding as windows_core::Interface>::IID
     }
 }
-pub trait IDialEngine_Impl: Sized {
+pub trait IDialEngine_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, pwzconnectoid: &windows_core::PCWSTR, pides: Option<&IDialEventSink>) -> windows_core::Result<()>;
     fn GetProperty(&self, pwzproperty: &windows_core::PCWSTR, pwzvalue: &windows_core::PCWSTR, dwbufsize: u32) -> windows_core::Result<()>;
     fn SetProperty(&self, pwzproperty: &windows_core::PCWSTR, pwzvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -52,49 +43,28 @@ pub trait IDialEngine_Impl: Sized {
 }
 impl windows_core::RuntimeName for IDialEngine {}
 impl IDialEngine_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDialEngine_Vtbl
-    where
-        Identity: IDialEngine_Impl,
-    {
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzconnectoid: windows_core::PCWSTR, pides: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IDialEngine_Impl,
-        {
+    pub const fn new<Identity: IDialEngine_Impl, const OFFSET: isize>() -> IDialEngine_Vtbl {
+        unsafe extern "system" fn Initialize<Identity: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzconnectoid: windows_core::PCWSTR, pides: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDialEngine_Impl::Initialize(this, core::mem::transmute(&pwzconnectoid), windows_core::from_raw_borrowed(&pides)).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzproperty: windows_core::PCWSTR, pwzvalue: windows_core::PCWSTR, dwbufsize: u32) -> windows_core::HRESULT
-        where
-            Identity: IDialEngine_Impl,
-        {
+        unsafe extern "system" fn GetProperty<Identity: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzproperty: windows_core::PCWSTR, pwzvalue: windows_core::PCWSTR, dwbufsize: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDialEngine_Impl::GetProperty(this, core::mem::transmute(&pwzproperty), core::mem::transmute(&pwzvalue), core::mem::transmute_copy(&dwbufsize)).into()
         }
-        unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzproperty: windows_core::PCWSTR, pwzvalue: windows_core::PCWSTR) -> windows_core::HRESULT
-        where
-            Identity: IDialEngine_Impl,
-        {
+        unsafe extern "system" fn SetProperty<Identity: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzproperty: windows_core::PCWSTR, pwzvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDialEngine_Impl::SetProperty(this, core::mem::transmute(&pwzproperty), core::mem::transmute(&pwzvalue)).into()
         }
-        unsafe extern "system" fn Dial<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IDialEngine_Impl,
-        {
+        unsafe extern "system" fn Dial<Identity: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDialEngine_Impl::Dial(this).into()
         }
-        unsafe extern "system" fn HangUp<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IDialEngine_Impl,
-        {
+        unsafe extern "system" fn HangUp<Identity: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDialEngine_Impl::HangUp(this).into()
         }
-        unsafe extern "system" fn GetConnectedState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstate: *mut u32) -> windows_core::HRESULT
-        where
-            Identity: IDialEngine_Impl,
-        {
+        unsafe extern "system" fn GetConnectedState<Identity: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstate: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDialEngine_Impl::GetConnectedState(this) {
                 Ok(ok__) => {
@@ -104,10 +74,7 @@ impl IDialEngine_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConnectHandle<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwhandle: *mut usize) -> windows_core::HRESULT
-        where
-            Identity: IDialEngine_Impl,
-        {
+        unsafe extern "system" fn GetConnectHandle<Identity: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwhandle: *mut usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDialEngine_Impl::GetConnectHandle(this) {
                 Ok(ok__) => {
@@ -132,19 +99,13 @@ impl IDialEngine_Vtbl {
         iid == &<IDialEngine as windows_core::Interface>::IID
     }
 }
-pub trait IDialEventSink_Impl: Sized {
+pub trait IDialEventSink_Impl: Sized + windows_core::IUnknownImpl {
     fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IDialEventSink {}
 impl IDialEventSink_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IDialEventSink_Vtbl
-    where
-        Identity: IDialEventSink_Impl,
-    {
-        unsafe extern "system" fn OnEvent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwevent: u32, dwstatus: u32) -> windows_core::HRESULT
-        where
-            Identity: IDialEventSink_Impl,
-        {
+    pub const fn new<Identity: IDialEventSink_Impl, const OFFSET: isize>() -> IDialEventSink_Vtbl {
+        unsafe extern "system" fn OnEvent<Identity: IDialEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwevent: u32, dwstatus: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDialEventSink_Impl::OnEvent(this, core::mem::transmute_copy(&dwevent), core::mem::transmute_copy(&dwstatus)).into()
         }
@@ -154,19 +115,13 @@ impl IDialEventSink_Vtbl {
         iid == &<IDialEventSink as windows_core::Interface>::IID
     }
 }
-pub trait IProofOfPossessionCookieInfoManager_Impl: Sized {
+pub trait IProofOfPossessionCookieInfoManager_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCookieInfoForUri(&self, uri: &windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager {}
 impl IProofOfPossessionCookieInfoManager_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IProofOfPossessionCookieInfoManager_Vtbl
-    where
-        Identity: IProofOfPossessionCookieInfoManager_Impl,
-    {
-        unsafe extern "system" fn GetCookieInfoForUri<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT
-        where
-            Identity: IProofOfPossessionCookieInfoManager_Impl,
-        {
+    pub const fn new<Identity: IProofOfPossessionCookieInfoManager_Impl, const OFFSET: isize>() -> IProofOfPossessionCookieInfoManager_Vtbl {
+        unsafe extern "system" fn GetCookieInfoForUri<Identity: IProofOfPossessionCookieInfoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IProofOfPossessionCookieInfoManager_Impl::GetCookieInfoForUri(this, core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
         }
@@ -176,19 +131,13 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
         iid == &<IProofOfPossessionCookieInfoManager as windows_core::Interface>::IID
     }
 }
-pub trait IProofOfPossessionCookieInfoManager2_Impl: Sized {
+pub trait IProofOfPossessionCookieInfoManager2_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCookieInfoWithUriForAccount(&self, webaccount: Option<&windows_core::IInspectable>, uri: &windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager2 {}
 impl IProofOfPossessionCookieInfoManager2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IProofOfPossessionCookieInfoManager2_Vtbl
-    where
-        Identity: IProofOfPossessionCookieInfoManager2_Impl,
-    {
-        unsafe extern "system" fn GetCookieInfoWithUriForAccount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, webaccount: *mut core::ffi::c_void, uri: windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT
-        where
-            Identity: IProofOfPossessionCookieInfoManager2_Impl,
-        {
+    pub const fn new<Identity: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>() -> IProofOfPossessionCookieInfoManager2_Vtbl {
+        unsafe extern "system" fn GetCookieInfoWithUriForAccount<Identity: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, webaccount: *mut core::ffi::c_void, uri: windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IProofOfPossessionCookieInfoManager2_Impl::GetCookieInfoWithUriForAccount(this, windows_core::from_raw_borrowed(&webaccount), core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
         }

@@ -1,4 +1,4 @@
-pub trait IPointerPointTransform_Impl: Sized {
+pub trait IPointerPointTransform_Impl: Sized + windows_core::IUnknownImpl {
     fn Inverse(&self) -> windows_core::Result<IPointerPointTransform>;
     fn TryTransform(&self, inpoint: &super::super::Foundation::Point, outpoint: &mut super::super::Foundation::Point) -> windows_core::Result<bool>;
     fn TransformBounds(&self, rect: &super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::Rect>;
@@ -7,14 +7,8 @@ impl windows_core::RuntimeName for IPointerPointTransform {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointTransform";
 }
 impl IPointerPointTransform_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IPointerPointTransform_Vtbl
-    where
-        Identity: IPointerPointTransform_Impl,
-    {
-        unsafe extern "system" fn Inverse<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IPointerPointTransform_Impl,
-        {
+    pub const fn new<Identity: IPointerPointTransform_Impl, const OFFSET: isize>() -> IPointerPointTransform_Vtbl {
+        unsafe extern "system" fn Inverse<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPointerPointTransform_Impl::Inverse(this) {
                 Ok(ok__) => {
@@ -25,10 +19,7 @@ impl IPointerPointTransform_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryTransform<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inpoint: super::super::Foundation::Point, outpoint: *mut super::super::Foundation::Point, result__: *mut bool) -> windows_core::HRESULT
-        where
-            Identity: IPointerPointTransform_Impl,
-        {
+        unsafe extern "system" fn TryTransform<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inpoint: super::super::Foundation::Point, outpoint: *mut super::super::Foundation::Point, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPointerPointTransform_Impl::TryTransform(this, core::mem::transmute(&inpoint), core::mem::transmute_copy(&outpoint)) {
                 Ok(ok__) => {
@@ -38,10 +29,7 @@ impl IPointerPointTransform_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransformBounds<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: super::super::Foundation::Rect, result__: *mut super::super::Foundation::Rect) -> windows_core::HRESULT
-        where
-            Identity: IPointerPointTransform_Impl,
-        {
+        unsafe extern "system" fn TransformBounds<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: super::super::Foundation::Rect, result__: *mut super::super::Foundation::Rect) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPointerPointTransform_Impl::TransformBounds(this, core::mem::transmute(&rect)) {
                 Ok(ok__) => {

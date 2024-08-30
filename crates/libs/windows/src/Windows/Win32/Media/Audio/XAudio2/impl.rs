@@ -1,4 +1,4 @@
-pub trait IXAPO_Impl: Sized {
+pub trait IXAPO_Impl: Sized + windows_core::IUnknownImpl {
     fn GetRegistrationProperties(&self) -> windows_core::Result<*mut XAPO_REGISTRATION_PROPERTIES>;
     fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
@@ -12,14 +12,8 @@ pub trait IXAPO_Impl: Sized {
 }
 impl windows_core::RuntimeName for IXAPO {}
 impl IXAPO_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IXAPO_Vtbl
-    where
-        Identity: IXAPO_Impl,
-    {
-        unsafe extern "system" fn GetRegistrationProperties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppregistrationproperties: *mut *mut XAPO_REGISTRATION_PROPERTIES) -> windows_core::HRESULT
-        where
-            Identity: IXAPO_Impl,
-        {
+    pub const fn new<Identity: IXAPO_Impl, const OFFSET: isize>() -> IXAPO_Vtbl {
+        unsafe extern "system" fn GetRegistrationProperties<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppregistrationproperties: *mut *mut XAPO_REGISTRATION_PROPERTIES) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXAPO_Impl::GetRegistrationProperties(this) {
                 Ok(ok__) => {
@@ -29,66 +23,39 @@ impl IXAPO_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsInputFormatSupported<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT
-        where
-            Identity: IXAPO_Impl,
-        {
+        unsafe extern "system" fn IsInputFormatSupported<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPO_Impl::IsInputFormatSupported(this, core::mem::transmute_copy(&poutputformat), core::mem::transmute_copy(&prequestedinputformat), core::mem::transmute_copy(&ppsupportedinputformat)).into()
         }
-        unsafe extern "system" fn IsOutputFormatSupported<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT
-        where
-            Identity: IXAPO_Impl,
-        {
+        unsafe extern "system" fn IsOutputFormatSupported<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPO_Impl::IsOutputFormatSupported(this, core::mem::transmute_copy(&pinputformat), core::mem::transmute_copy(&prequestedoutputformat), core::mem::transmute_copy(&ppsupportedoutputformat)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const core::ffi::c_void, databytesize: u32) -> windows_core::HRESULT
-        where
-            Identity: IXAPO_Impl,
-        {
+        unsafe extern "system" fn Initialize<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const core::ffi::c_void, databytesize: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPO_Impl::Initialize(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&databytesize)).into()
         }
-        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void)
-        where
-            Identity: IXAPO_Impl,
-        {
+        unsafe extern "system" fn Reset<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPO_Impl::Reset(this)
         }
-        unsafe extern "system" fn LockForProcess<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> windows_core::HRESULT
-        where
-            Identity: IXAPO_Impl,
-        {
+        unsafe extern "system" fn LockForProcess<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPO_Impl::LockForProcess(this, core::mem::transmute_copy(&inputlockedparametercount), core::mem::transmute_copy(&pinputlockedparameters), core::mem::transmute_copy(&outputlockedparametercount), core::mem::transmute_copy(&poutputlockedparameters)).into()
         }
-        unsafe extern "system" fn UnlockForProcess<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void)
-        where
-            Identity: IXAPO_Impl,
-        {
+        unsafe extern "system" fn UnlockForProcess<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPO_Impl::UnlockForProcess(this)
         }
-        unsafe extern "system" fn Process<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: super::super::super::Foundation::BOOL)
-        where
-            Identity: IXAPO_Impl,
-        {
+        unsafe extern "system" fn Process<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: super::super::super::Foundation::BOOL) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPO_Impl::Process(this, core::mem::transmute_copy(&inputprocessparametercount), core::mem::transmute_copy(&pinputprocessparameters), core::mem::transmute_copy(&outputprocessparametercount), core::mem::transmute_copy(&poutputprocessparameters), core::mem::transmute_copy(&isenabled))
         }
-        unsafe extern "system" fn CalcInputFrames<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputframecount: u32) -> u32
-        where
-            Identity: IXAPO_Impl,
-        {
+        unsafe extern "system" fn CalcInputFrames<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputframecount: u32) -> u32 {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPO_Impl::CalcInputFrames(this, core::mem::transmute_copy(&outputframecount))
         }
-        unsafe extern "system" fn CalcOutputFrames<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputframecount: u32) -> u32
-        where
-            Identity: IXAPO_Impl,
-        {
+        unsafe extern "system" fn CalcOutputFrames<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputframecount: u32) -> u32 {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPO_Impl::CalcOutputFrames(this, core::mem::transmute_copy(&inputframecount))
         }
@@ -110,7 +77,7 @@ impl IXAPO_Vtbl {
         iid == &<IXAPO as windows_core::Interface>::IID
     }
 }
-pub trait IXAPOHrtfParameters_Impl: Sized {
+pub trait IXAPOHrtfParameters_Impl: Sized + windows_core::IUnknownImpl {
     fn SetSourcePosition(&self, position: *const HrtfPosition) -> windows_core::Result<()>;
     fn SetSourceOrientation(&self, orientation: *const HrtfOrientation) -> windows_core::Result<()>;
     fn SetSourceGain(&self, gain: f32) -> windows_core::Result<()>;
@@ -118,35 +85,20 @@ pub trait IXAPOHrtfParameters_Impl: Sized {
 }
 impl windows_core::RuntimeName for IXAPOHrtfParameters {}
 impl IXAPOHrtfParameters_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IXAPOHrtfParameters_Vtbl
-    where
-        Identity: IXAPOHrtfParameters_Impl,
-    {
-        unsafe extern "system" fn SetSourcePosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: *const HrtfPosition) -> windows_core::HRESULT
-        where
-            Identity: IXAPOHrtfParameters_Impl,
-        {
+    pub const fn new<Identity: IXAPOHrtfParameters_Impl, const OFFSET: isize>() -> IXAPOHrtfParameters_Vtbl {
+        unsafe extern "system" fn SetSourcePosition<Identity: IXAPOHrtfParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: *const HrtfPosition) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPOHrtfParameters_Impl::SetSourcePosition(this, core::mem::transmute_copy(&position)).into()
         }
-        unsafe extern "system" fn SetSourceOrientation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, orientation: *const HrtfOrientation) -> windows_core::HRESULT
-        where
-            Identity: IXAPOHrtfParameters_Impl,
-        {
+        unsafe extern "system" fn SetSourceOrientation<Identity: IXAPOHrtfParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, orientation: *const HrtfOrientation) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPOHrtfParameters_Impl::SetSourceOrientation(this, core::mem::transmute_copy(&orientation)).into()
         }
-        unsafe extern "system" fn SetSourceGain<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, gain: f32) -> windows_core::HRESULT
-        where
-            Identity: IXAPOHrtfParameters_Impl,
-        {
+        unsafe extern "system" fn SetSourceGain<Identity: IXAPOHrtfParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gain: f32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPOHrtfParameters_Impl::SetSourceGain(this, core::mem::transmute_copy(&gain)).into()
         }
-        unsafe extern "system" fn SetEnvironment<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, environment: HrtfEnvironment) -> windows_core::HRESULT
-        where
-            Identity: IXAPOHrtfParameters_Impl,
-        {
+        unsafe extern "system" fn SetEnvironment<Identity: IXAPOHrtfParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, environment: HrtfEnvironment) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPOHrtfParameters_Impl::SetEnvironment(this, core::mem::transmute_copy(&environment)).into()
         }
@@ -162,27 +114,18 @@ impl IXAPOHrtfParameters_Vtbl {
         iid == &<IXAPOHrtfParameters as windows_core::Interface>::IID
     }
 }
-pub trait IXAPOParameters_Impl: Sized {
+pub trait IXAPOParameters_Impl: Sized + windows_core::IUnknownImpl {
     fn SetParameters(&self, pparameters: *const core::ffi::c_void, parameterbytesize: u32);
     fn GetParameters(&self, pparameters: *mut core::ffi::c_void, parameterbytesize: u32);
 }
 impl windows_core::RuntimeName for IXAPOParameters {}
 impl IXAPOParameters_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IXAPOParameters_Vtbl
-    where
-        Identity: IXAPOParameters_Impl,
-    {
-        unsafe extern "system" fn SetParameters<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *const core::ffi::c_void, parameterbytesize: u32)
-        where
-            Identity: IXAPOParameters_Impl,
-        {
+    pub const fn new<Identity: IXAPOParameters_Impl, const OFFSET: isize>() -> IXAPOParameters_Vtbl {
+        unsafe extern "system" fn SetParameters<Identity: IXAPOParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *const core::ffi::c_void, parameterbytesize: u32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPOParameters_Impl::SetParameters(this, core::mem::transmute_copy(&pparameters), core::mem::transmute_copy(&parameterbytesize))
         }
-        unsafe extern "system" fn GetParameters<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *mut core::ffi::c_void, parameterbytesize: u32)
-        where
-            Identity: IXAPOParameters_Impl,
-        {
+        unsafe extern "system" fn GetParameters<Identity: IXAPOParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *mut core::ffi::c_void, parameterbytesize: u32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAPOParameters_Impl::GetParameters(this, core::mem::transmute_copy(&pparameters), core::mem::transmute_copy(&parameterbytesize))
         }
@@ -196,7 +139,7 @@ impl IXAPOParameters_Vtbl {
         iid == &<IXAPOParameters as windows_core::Interface>::IID
     }
 }
-pub trait IXAudio2_Impl: Sized {
+pub trait IXAudio2_Impl: Sized + windows_core::IUnknownImpl {
     fn RegisterForCallbacks(&self, pcallback: Option<&IXAudio2EngineCallback>) -> windows_core::Result<()>;
     fn UnregisterForCallbacks(&self, pcallback: Option<&IXAudio2EngineCallback>);
     fn CreateSourceVoice(&self, ppsourcevoice: *mut Option<IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: Option<&IXAudio2VoiceCallback>, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> windows_core::Result<()>;
@@ -210,77 +153,44 @@ pub trait IXAudio2_Impl: Sized {
 }
 impl windows_core::RuntimeName for IXAudio2 {}
 impl IXAudio2_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IXAudio2_Vtbl
-    where
-        Identity: IXAudio2_Impl,
-    {
-        unsafe extern "system" fn RegisterForCallbacks<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXAudio2_Impl,
-        {
+    pub const fn new<Identity: IXAudio2_Impl, const OFFSET: isize>() -> IXAudio2_Vtbl {
+        unsafe extern "system" fn RegisterForCallbacks<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2_Impl::RegisterForCallbacks(this, windows_core::from_raw_borrowed(&pcallback)).into()
         }
-        unsafe extern "system" fn UnregisterForCallbacks<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void)
-        where
-            Identity: IXAudio2_Impl,
-        {
+        unsafe extern "system" fn UnregisterForCallbacks<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2_Impl::UnregisterForCallbacks(this, windows_core::from_raw_borrowed(&pcallback))
         }
-        unsafe extern "system" fn CreateSourceVoice<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsourcevoice: *mut *mut core::ffi::c_void, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: *mut core::ffi::c_void, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> windows_core::HRESULT
-        where
-            Identity: IXAudio2_Impl,
-        {
+        unsafe extern "system" fn CreateSourceVoice<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsourcevoice: *mut *mut core::ffi::c_void, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: *mut core::ffi::c_void, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2_Impl::CreateSourceVoice(this, core::mem::transmute_copy(&ppsourcevoice), core::mem::transmute_copy(&psourceformat), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&maxfrequencyratio), windows_core::from_raw_borrowed(&pcallback), core::mem::transmute_copy(&psendlist), core::mem::transmute_copy(&peffectchain)).into()
         }
-        unsafe extern "system" fn CreateSubmixVoice<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubmixvoice: *mut *mut core::ffi::c_void, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> windows_core::HRESULT
-        where
-            Identity: IXAudio2_Impl,
-        {
+        unsafe extern "system" fn CreateSubmixVoice<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubmixvoice: *mut *mut core::ffi::c_void, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2_Impl::CreateSubmixVoice(this, core::mem::transmute_copy(&ppsubmixvoice), core::mem::transmute_copy(&inputchannels), core::mem::transmute_copy(&inputsamplerate), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&processingstage), core::mem::transmute_copy(&psendlist), core::mem::transmute_copy(&peffectchain)).into()
         }
-        unsafe extern "system" fn CreateMasteringVoice<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmasteringvoice: *mut *mut core::ffi::c_void, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: windows_core::PCWSTR, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::AUDIO_STREAM_CATEGORY) -> windows_core::HRESULT
-        where
-            Identity: IXAudio2_Impl,
-        {
+        unsafe extern "system" fn CreateMasteringVoice<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmasteringvoice: *mut *mut core::ffi::c_void, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: windows_core::PCWSTR, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::AUDIO_STREAM_CATEGORY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2_Impl::CreateMasteringVoice(this, core::mem::transmute_copy(&ppmasteringvoice), core::mem::transmute_copy(&inputchannels), core::mem::transmute_copy(&inputsamplerate), core::mem::transmute_copy(&flags), core::mem::transmute(&szdeviceid), core::mem::transmute_copy(&peffectchain), core::mem::transmute_copy(&streamcategory)).into()
         }
-        unsafe extern "system" fn StartEngine<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IXAudio2_Impl,
-        {
+        unsafe extern "system" fn StartEngine<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2_Impl::StartEngine(this).into()
         }
-        unsafe extern "system" fn StopEngine<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void)
-        where
-            Identity: IXAudio2_Impl,
-        {
+        unsafe extern "system" fn StopEngine<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2_Impl::StopEngine(this)
         }
-        unsafe extern "system" fn CommitChanges<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, operationset: u32) -> windows_core::HRESULT
-        where
-            Identity: IXAudio2_Impl,
-        {
+        unsafe extern "system" fn CommitChanges<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operationset: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2_Impl::CommitChanges(this, core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn GetPerformanceData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA)
-        where
-            Identity: IXAudio2_Impl,
-        {
+        unsafe extern "system" fn GetPerformanceData<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2_Impl::GetPerformanceData(this, core::mem::transmute_copy(&pperfdata))
         }
-        unsafe extern "system" fn SetDebugConfiguration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const core::ffi::c_void)
-        where
-            Identity: IXAudio2_Impl,
-        {
+        unsafe extern "system" fn SetDebugConfiguration<Identity: IXAudio2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const core::ffi::c_void) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2_Impl::SetDebugConfiguration(this, core::mem::transmute_copy(&pdebugconfiguration), core::mem::transmute_copy(&preserved))
         }
@@ -339,27 +249,18 @@ impl IXAudio2EngineCallback {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-pub trait IXAudio2Extension_Impl: Sized {
+pub trait IXAudio2Extension_Impl: Sized + windows_core::IUnknownImpl {
     fn GetProcessingQuantum(&self, quantumnumerator: *mut u32, quantumdenominator: *mut u32);
     fn GetProcessor(&self, processor: *mut u32);
 }
 impl windows_core::RuntimeName for IXAudio2Extension {}
 impl IXAudio2Extension_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IXAudio2Extension_Vtbl
-    where
-        Identity: IXAudio2Extension_Impl,
-    {
-        unsafe extern "system" fn GetProcessingQuantum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, quantumnumerator: *mut u32, quantumdenominator: *mut u32)
-        where
-            Identity: IXAudio2Extension_Impl,
-        {
+    pub const fn new<Identity: IXAudio2Extension_Impl, const OFFSET: isize>() -> IXAudio2Extension_Vtbl {
+        unsafe extern "system" fn GetProcessingQuantum<Identity: IXAudio2Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quantumnumerator: *mut u32, quantumdenominator: *mut u32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2Extension_Impl::GetProcessingQuantum(this, core::mem::transmute_copy(&quantumnumerator), core::mem::transmute_copy(&quantumdenominator))
         }
-        unsafe extern "system" fn GetProcessor<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: *mut u32)
-        where
-            Identity: IXAudio2Extension_Impl,
-        {
+        unsafe extern "system" fn GetProcessor<Identity: IXAudio2Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: *mut u32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXAudio2Extension_Impl::GetProcessor(this, core::mem::transmute_copy(&processor))
         }

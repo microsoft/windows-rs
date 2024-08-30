@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-pub trait IIndexableContent_Impl: Sized {
+pub trait IIndexableContent_Impl: Sized + windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>;
@@ -14,14 +14,8 @@ impl windows_core::RuntimeName for IIndexableContent {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl IIndexableContent_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IIndexableContent_Vtbl
-    where
-        Identity: IIndexableContent_Impl,
-    {
-        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IIndexableContent_Impl,
-        {
+    pub const fn new<Identity: IIndexableContent_Impl, const OFFSET: isize>() -> IIndexableContent_Vtbl {
+        unsafe extern "system" fn Id<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIndexableContent_Impl::Id(this) {
                 Ok(ok__) => {
@@ -32,17 +26,11 @@ impl IIndexableContent_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IIndexableContent_Impl,
-        {
+        unsafe extern "system" fn SetId<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IIndexableContent_Impl::SetId(this, core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IIndexableContent_Impl,
-        {
+        unsafe extern "system" fn Properties<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIndexableContent_Impl::Properties(this) {
                 Ok(ok__) => {
@@ -53,10 +41,7 @@ impl IIndexableContent_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Stream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IIndexableContent_Impl,
-        {
+        unsafe extern "system" fn Stream<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIndexableContent_Impl::Stream(this) {
                 Ok(ok__) => {
@@ -67,17 +52,11 @@ impl IIndexableContent_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IIndexableContent_Impl,
-        {
+        unsafe extern "system" fn SetStream<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IIndexableContent_Impl::SetStream(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn StreamContentType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IIndexableContent_Impl,
-        {
+        unsafe extern "system" fn StreamContentType<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIndexableContent_Impl::StreamContentType(this) {
                 Ok(ok__) => {
@@ -88,10 +67,7 @@ impl IIndexableContent_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStreamContentType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT
-        where
-            Identity: IIndexableContent_Impl,
-        {
+        unsafe extern "system" fn SetStreamContentType<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IIndexableContent_Impl::SetStreamContentType(this, core::mem::transmute(&value)).into()
         }
@@ -111,7 +87,7 @@ impl IIndexableContent_Vtbl {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IStorageFolderQueryOperations_Impl: Sized {
+pub trait IStorageFolderQueryOperations_Impl: Sized + windows_core::IUnknownImpl {
     fn GetIndexedStateAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
     fn CreateFileQueryOverloadDefault(&self) -> windows_core::Result<StorageFileQueryResult>;
     fn CreateFileQuery(&self, query: CommonFileQuery) -> windows_core::Result<StorageFileQueryResult>;
@@ -136,14 +112,8 @@ impl windows_core::RuntimeName for IStorageFolderQueryOperations {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IStorageFolderQueryOperations_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IStorageFolderQueryOperations_Vtbl
-    where
-        Identity: IStorageFolderQueryOperations_Impl,
-    {
-        unsafe extern "system" fn GetIndexedStateAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+    pub const fn new<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>() -> IStorageFolderQueryOperations_Vtbl {
+        unsafe extern "system" fn GetIndexedStateAsync<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::GetIndexedStateAsync(this) {
                 Ok(ok__) => {
@@ -154,10 +124,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFileQueryOverloadDefault<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn CreateFileQueryOverloadDefault<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::CreateFileQueryOverloadDefault(this) {
                 Ok(ok__) => {
@@ -168,10 +135,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFileQuery<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFileQuery, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn CreateFileQuery<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFileQuery, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::CreateFileQuery(this, query) {
                 Ok(ok__) => {
@@ -182,10 +146,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFileQueryWithOptions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn CreateFileQueryWithOptions<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::CreateFileQueryWithOptions(this, windows_core::from_raw_borrowed(&queryoptions)) {
                 Ok(ok__) => {
@@ -196,10 +157,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFolderQueryOverloadDefault<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn CreateFolderQueryOverloadDefault<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::CreateFolderQueryOverloadDefault(this) {
                 Ok(ok__) => {
@@ -210,10 +168,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFolderQuery<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFolderQuery, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn CreateFolderQuery<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFolderQuery, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::CreateFolderQuery(this, query) {
                 Ok(ok__) => {
@@ -224,10 +179,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFolderQueryWithOptions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn CreateFolderQueryWithOptions<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::CreateFolderQueryWithOptions(this, windows_core::from_raw_borrowed(&queryoptions)) {
                 Ok(ok__) => {
@@ -238,10 +190,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateItemQuery<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn CreateItemQuery<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::CreateItemQuery(this) {
                 Ok(ok__) => {
@@ -252,10 +201,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateItemQueryWithOptions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn CreateItemQueryWithOptions<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::CreateItemQueryWithOptions(this, windows_core::from_raw_borrowed(&queryoptions)) {
                 Ok(ok__) => {
@@ -266,10 +212,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilesAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn GetFilesAsync<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::GetFilesAsync(this, query, startindex, maxitemstoretrieve) {
                 Ok(ok__) => {
@@ -280,10 +223,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilesAsyncOverloadDefaultStartAndCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFileQuery, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn GetFilesAsyncOverloadDefaultStartAndCount<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFileQuery, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::GetFilesAsyncOverloadDefaultStartAndCount(this, query) {
                 Ok(ok__) => {
@@ -294,10 +234,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFoldersAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn GetFoldersAsync<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::GetFoldersAsync(this, query, startindex, maxitemstoretrieve) {
                 Ok(ok__) => {
@@ -308,10 +245,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFoldersAsyncOverloadDefaultStartAndCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFolderQuery, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn GetFoldersAsyncOverloadDefaultStartAndCount<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFolderQuery, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::GetFoldersAsyncOverloadDefaultStartAndCount(this, query) {
                 Ok(ok__) => {
@@ -322,10 +256,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemsAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn GetItemsAsync<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::GetItemsAsync(this, startindex, maxitemstoretrieve) {
                 Ok(ok__) => {
@@ -336,10 +267,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AreQueryOptionsSupported<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn AreQueryOptionsSupported<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queryoptions: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::AreQueryOptionsSupported(this, windows_core::from_raw_borrowed(&queryoptions)) {
                 Ok(ok__) => {
@@ -349,10 +277,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCommonFolderQuerySupported<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFolderQuery, result__: *mut bool) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn IsCommonFolderQuerySupported<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFolderQuery, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::IsCommonFolderQuerySupported(this, query) {
                 Ok(ok__) => {
@@ -362,10 +287,7 @@ impl IStorageFolderQueryOperations_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsCommonFileQuerySupported<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFileQuery, result__: *mut bool) -> windows_core::HRESULT
-        where
-            Identity: IStorageFolderQueryOperations_Impl,
-        {
+        unsafe extern "system" fn IsCommonFileQuerySupported<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, query: CommonFileQuery, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::IsCommonFileQuerySupported(this, query) {
                 Ok(ok__) => {
@@ -400,7 +322,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         iid == &<IStorageFolderQueryOperations as windows_core::Interface>::IID
     }
 }
-pub trait IStorageQueryResultBase_Impl: Sized {
+pub trait IStorageQueryResultBase_Impl: Sized + windows_core::IUnknownImpl {
     fn GetItemCountAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn Folder(&self) -> windows_core::Result<super::StorageFolder>;
     fn ContentsChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -415,14 +337,8 @@ impl windows_core::RuntimeName for IStorageQueryResultBase {
     const NAME: &'static str = "Windows.Storage.Search.IStorageQueryResultBase";
 }
 impl IStorageQueryResultBase_Vtbl {
-    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> IStorageQueryResultBase_Vtbl
-    where
-        Identity: IStorageQueryResultBase_Impl,
-    {
-        unsafe extern "system" fn GetItemCountAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageQueryResultBase_Impl,
-        {
+    pub const fn new<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>() -> IStorageQueryResultBase_Vtbl {
+        unsafe extern "system" fn GetItemCountAsync<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageQueryResultBase_Impl::GetItemCountAsync(this) {
                 Ok(ok__) => {
@@ -433,10 +349,7 @@ impl IStorageQueryResultBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Folder<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageQueryResultBase_Impl,
-        {
+        unsafe extern "system" fn Folder<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageQueryResultBase_Impl::Folder(this) {
                 Ok(ok__) => {
@@ -447,10 +360,7 @@ impl IStorageQueryResultBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentsChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
-        where
-            Identity: IStorageQueryResultBase_Impl,
-        {
+        unsafe extern "system" fn ContentsChanged<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageQueryResultBase_Impl::ContentsChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
@@ -460,17 +370,11 @@ impl IStorageQueryResultBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveContentsChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
-        where
-            Identity: IStorageQueryResultBase_Impl,
-        {
+        unsafe extern "system" fn RemoveContentsChanged<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IStorageQueryResultBase_Impl::RemoveContentsChanged(this, core::mem::transmute(&eventcookie)).into()
         }
-        unsafe extern "system" fn OptionsChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, changedhandler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
-        where
-            Identity: IStorageQueryResultBase_Impl,
-        {
+        unsafe extern "system" fn OptionsChanged<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changedhandler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageQueryResultBase_Impl::OptionsChanged(this, windows_core::from_raw_borrowed(&changedhandler)) {
                 Ok(ok__) => {
@@ -480,17 +384,11 @@ impl IStorageQueryResultBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveOptionsChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT
-        where
-            Identity: IStorageQueryResultBase_Impl,
-        {
+        unsafe extern "system" fn RemoveOptionsChanged<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IStorageQueryResultBase_Impl::RemoveOptionsChanged(this, core::mem::transmute(&eventcookie)).into()
         }
-        unsafe extern "system" fn FindStartIndexAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageQueryResultBase_Impl,
-        {
+        unsafe extern "system" fn FindStartIndexAsync<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageQueryResultBase_Impl::FindStartIndexAsync(this, windows_core::from_raw_borrowed(&value)) {
                 Ok(ok__) => {
@@ -501,10 +399,7 @@ impl IStorageQueryResultBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentQueryOptions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageQueryResultBase_Impl,
-        {
+        unsafe extern "system" fn GetCurrentQueryOptions<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageQueryResultBase_Impl::GetCurrentQueryOptions(this) {
                 Ok(ok__) => {
@@ -515,10 +410,7 @@ impl IStorageQueryResultBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ApplyNewQueryOptions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newqueryoptions: *mut core::ffi::c_void) -> windows_core::HRESULT
-        where
-            Identity: IStorageQueryResultBase_Impl,
-        {
+        unsafe extern "system" fn ApplyNewQueryOptions<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newqueryoptions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IStorageQueryResultBase_Impl::ApplyNewQueryOptions(this, windows_core::from_raw_borrowed(&newqueryoptions)).into()
         }
