@@ -236,6 +236,7 @@ impl<T: RuntimeType, P: RuntimeType> IntoFuture for IAsyncOperationWithProgress<
 //
 
 impl IAsyncAction {
+    /// Waits for the `IAsyncAction` to finish.
     pub fn get(&self) -> Result<()> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;
@@ -252,6 +253,7 @@ impl IAsyncAction {
 }
 
 impl<T: RuntimeType> IAsyncOperation<T> {
+    /// Waits for the `IAsyncOperation<T>` to finish.
     pub fn get(&self) -> Result<T> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;
@@ -268,6 +270,7 @@ impl<T: RuntimeType> IAsyncOperation<T> {
 }
 
 impl<P: RuntimeType> IAsyncActionWithProgress<P> {
+    /// Waits for the `IAsyncActionWithProgress<P>` to finish.
     pub fn get(&self) -> Result<()> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;
@@ -284,6 +287,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress<P> {
 }
 
 impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
+    /// Waits for the `IAsyncOperationWithProgress<T, P>` to finish.
     pub fn get(&self) -> Result<T> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;

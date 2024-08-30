@@ -195,24 +195,28 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P> for 
 }
 
 impl IAsyncAction {
+    /// Creates an `IAsyncAction` that is immediately ready with a value.
     pub fn ready(result: Result<()>) -> Self {
         ReadyAction(ReadyState::new(result)).into()
     }
 }
 
 impl<T: RuntimeType> IAsyncOperation<T> {
+    /// Creates an `IAsyncOperation<T>` that is immediately ready with a value.
     pub fn ready(result: Result<T>) -> Self {
         ReadyOperation(ReadyState::new(result)).into()
     }
 }
 
 impl<P: RuntimeType> IAsyncActionWithProgress<P> {
+    /// Creates an `IAsyncActionWithProgress<P>` that is immediately ready with a value.
     pub fn ready(result: Result<()>) -> Self {
         ReadyActionWithProgress(ReadyState::new(result)).into()
     }
 }
 
 impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
+    /// Creates an `IAsyncOperationWithProgress<T, P>` that is immediately ready with a value.
     pub fn ready(result: Result<T>) -> Self {
         ReadyOperationWithProgress(ReadyState::new(result)).into()
     }
