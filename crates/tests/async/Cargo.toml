@@ -1,5 +1,5 @@
 [package]
-name = "test_futures_impl"
+name = "test_async"
 version = "0.0.0"
 edition = "2021"
 publish = false
@@ -12,6 +12,10 @@ doctest = false
 path = "../../libs/windows"
 features = [
     "implement",
-    "Foundation",
+    "Storage_Streams",
+    "System_Threading",
     "Win32_Foundation",
 ]
+
+[dev-dependencies]
+futures = "0.3"

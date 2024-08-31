@@ -23,7 +23,7 @@ impl<T: Async> ReadyState<T> {
     // The "Ready" implementations don't need to store the handler since the handler is invoked immediately
     // but still need to confirm that `SetCompleted` is called at most once.
     fn invoke_completed(&self, sender: &T, handler: Option<&T::CompletedHandler>) -> Result<()> {
-        if self.set_completed.swap(true, Ordering::SeqCst) == false {
+        if !self.set_completed.swap(true, Ordering::SeqCst) {
             if let Some(handler) = handler {
                 sender.invoke_completed(handler, self.status());
             }
@@ -195,24 +195,28 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P> for 
 }
 
 impl IAsyncAction {
+    /// Creates an `IAsyncAction` that is immediately ready with a value.
     pub fn ready(result: Result<()>) -> Self {
         ReadyAction(ReadyState::new(result)).into()
     }
 }
 
 impl<T: RuntimeType> IAsyncOperation<T> {
+    /// Creates an `IAsyncOperation<T>` that is immediately ready with a value.
     pub fn ready(result: Result<T>) -> Self {
         ReadyOperation(ReadyState::new(result)).into()
     }
 }
 
 impl<P: RuntimeType> IAsyncActionWithProgress<P> {
+    /// Creates an `IAsyncActionWithProgress<P>` that is immediately ready with a value.
     pub fn ready(result: Result<()>) -> Self {
         ReadyActionWithProgress(ReadyState::new(result)).into()
     }
 }
 
 impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
+    /// Creates an `IAsyncOperationWithProgress<T, P>` that is immediately ready with a value.
     pub fn ready(result: Result<T>) -> Self {
         ReadyOperationWithProgress(ReadyState::new(result)).into()
     }

@@ -1,6 +1,5 @@
-use crate::core::{imp::Waiter, Interface, Result, RuntimeType};
-use crate::Foundation::{AsyncActionCompletedHandler, AsyncActionWithProgressCompletedHandler, AsyncOperationCompletedHandler, AsyncOperationWithProgressCompletedHandler};
-use crate::Foundation::{AsyncStatus, IAsyncAction, IAsyncActionWithProgress, IAsyncInfo, IAsyncOperation, IAsyncOperationWithProgress};
+use crate::core::{imp::Waiter, *};
+use crate::Foundation::*;
 use std::future::{Future, IntoFuture};
 use std::pin::Pin;
 use std::sync::{Arc, Mutex};
@@ -17,10 +16,10 @@ use std::task::{Context, Poll, Waker};
 // implementation below can be reused for all of them.
 pub trait Async: Interface {
     // The type of value produced on completion.
-    type Output;
+    type Output: Clone;
 
     // The type of the delegate use for completion notification.
-    type CompletedHandler;
+    type CompletedHandler: Clone;
 
     // Sets the handler or callback to invoke when execution completes. This handler can only be set once.
     fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()>;
@@ -237,6 +236,7 @@ impl<T: RuntimeType, P: RuntimeType> IntoFuture for IAsyncOperationWithProgress<
 //
 
 impl IAsyncAction {
+    /// Waits for the `IAsyncAction` to finish.
     pub fn get(&self) -> Result<()> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;
@@ -253,6 +253,7 @@ impl IAsyncAction {
 }
 
 impl<T: RuntimeType> IAsyncOperation<T> {
+    /// Waits for the `IAsyncOperation<T>` to finish.
     pub fn get(&self) -> Result<T> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;
@@ -269,6 +270,7 @@ impl<T: RuntimeType> IAsyncOperation<T> {
 }
 
 impl<P: RuntimeType> IAsyncActionWithProgress<P> {
+    /// Waits for the `IAsyncActionWithProgress<P>` to finish.
     pub fn get(&self) -> Result<()> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;
@@ -285,6 +287,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress<P> {
 }
 
 impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
+    /// Waits for the `IAsyncOperationWithProgress<T, P>` to finish.
     pub fn get(&self) -> Result<T> {
         if self.Status()? == AsyncStatus::Started {
             let (_waiter, signaler) = Waiter::new()?;

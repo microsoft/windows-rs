@@ -1,3 +1,6 @@
+// Tests that the async interfaces can be used with Rust futures because `IntoFuture` and `Future` implementations
+// are provided by the `windows` crate.
+
 use windows::{core::*, Storage::Streams::*, System::Threading::*};
 
 // A simple example of blocking synchronously with the `get` method.
