@@ -1,6 +1,7 @@
 use std::collections::{BTreeMap, BTreeSet};
-use std::io::prelude::*;
+use std::io::{prelude::*, SeekFrom};
 use std::process::{Command, Stdio};
+use std::str::FromStr;
 
 fn main() {
     const ALL_PLATFORMS: [&str; 5] = [
@@ -140,29 +141,159 @@ EXPORTS
     cmd.output().unwrap();
 
     if dlltool == "dlltool" {
-        // Work around lack of determinism in dlltool output, and at the same time remove
-        // unnecessary sections and symbols.
-        std::fs::rename(output.join(format!("lib{library}.a")), output.join("tmp.a")).unwrap();
-        let mut cmd = Command::new("objcopy");
-        cmd.current_dir(output);
-        cmd.arg("--remove-section=.bss");
-        cmd.arg("--remove-section=.data");
-        cmd.arg("--strip-unneeded-symbol=fthunk");
-        cmd.arg("--strip-unneeded-symbol=hname");
-        cmd.arg("--strip-unneeded-symbol=.file");
-        cmd.arg("--strip-unneeded-symbol=.text");
-        cmd.arg("--strip-unneeded-symbol=.data");
-        cmd.arg("--strip-unneeded-symbol=.bss");
-        cmd.arg("--strip-unneeded-symbol=.idata$7");
-        cmd.arg("--strip-unneeded-symbol=.idata$5");
-        cmd.arg("--strip-unneeded-symbol=.idata$4");
-        cmd.arg("tmp.a");
-        cmd.arg(format!("lib{library}.a"));
-        cmd.output().unwrap();
-
-        std::fs::remove_file(output.join("tmp.a")).unwrap();
+        make_reproducible(output, library);
     }
     std::fs::remove_file(output.join(format!("{library}.def"))).unwrap();
+}
+
+/// Work around lack of determinism in dlltool output, and at the same time remove
+/// unnecessary sections, hints, and symbols.
+fn make_reproducible(output: &std::path::Path, library: &str) {
+    let lib_path = output.join(format!("lib{library}.a"));
+    let tmp_path = output.join("tmp.a");
+    std::fs::rename(&lib_path, &tmp_path).unwrap();
+
+    let mut cmd = Command::new("objcopy");
+    cmd.current_dir(output);
+    cmd.arg("--remove-section=.bss");
+    cmd.arg("--remove-section=.data");
+    cmd.arg("--strip-unneeded-symbol=fthunk");
+    cmd.arg("--strip-unneeded-symbol=hname");
+    cmd.arg("--strip-unneeded-symbol=.file");
+    cmd.arg("--strip-unneeded-symbol=.text");
+    cmd.arg("--strip-unneeded-symbol=.data");
+    cmd.arg("--strip-unneeded-symbol=.bss");
+    cmd.arg("--strip-unneeded-symbol=.idata$7");
+    cmd.arg("--strip-unneeded-symbol=.idata$5");
+    cmd.arg("--strip-unneeded-symbol=.idata$4");
+    cmd.arg("tmp.a");
+    cmd.arg(format!("lib{library}.a"));
+    cmd.output().unwrap();
+
+    std::fs::remove_file(tmp_path).unwrap();
+
+    let mut archive = std::fs::File::options()
+        .read(true)
+        .write(true)
+        .open(&lib_path)
+        .unwrap();
+    let len = archive.metadata().unwrap().len();
+    let mut header = [0u8; 8];
+    archive.read_exact(&mut header).unwrap();
+    assert_eq!(&header, b"!<arch>\n");
+    loop {
+        let mut buf = [0u8; 32];
+
+        //
+        // Archive member header
+        //
+
+        // Name
+        archive.read_exact(&mut buf[..16]).unwrap();
+        let skip_member = match &buf[..4] {
+            b"/   " => true, // Linker member
+            b"//  " => true, // Long names table
+            _ => false,
+        };
+
+        // Timestamp, User ID, Group ID, and Mode
+        archive.seek(SeekFrom::Current(12 + 6 + 6 + 8)).unwrap();
+
+        // Size, sans header
+        archive.read_exact(&mut buf[..10]).unwrap();
+        let size = i64::from_str(
+            std::str::from_utf8(buf.split(u8::is_ascii_whitespace).next().unwrap()).unwrap(),
+        )
+        .unwrap();
+
+        // End of archive member header marker
+        archive.read_exact(&mut buf[..2]).unwrap();
+        assert_eq!(&buf[..2], [0x60, 0x0A]);
+
+        if !skip_member {
+            let start = archive.stream_position().unwrap();
+
+            // Machine type
+            archive.read_exact(&mut buf[..2]).unwrap();
+
+            if buf[..2] != [0x00, 0x00] {
+                //
+                // COFF File Header
+                //
+
+                // Section count
+                archive.read_exact(&mut buf[..2]).unwrap();
+                let sections = u16::from_le_bytes((&buf[..2]).try_into().unwrap());
+
+                // Timestamp + symbol table offset + rest
+                archive.seek(SeekFrom::Current(4 + 4 + 8)).unwrap();
+
+                for _ in 1..sections {
+                    //
+                    // Section Header
+                    //
+
+                    // Name
+                    archive.read_exact(&mut buf[..8]).unwrap();
+                    let is_idata6 = std::str::from_utf8(&buf[..8]).unwrap() == ".idata$6";
+
+                    // Virtual size and address
+                    archive.seek(SeekFrom::Current(8)).unwrap();
+
+                    // Size of data
+                    archive.read_exact(&mut buf[..4]).unwrap();
+                    let size_of_data = u32::from_le_bytes((&buf[..4]).try_into().unwrap());
+
+                    // Pointer to raw data
+                    archive.read_exact(&mut buf[..4]).unwrap();
+                    let start_of_data = u32::from_le_bytes((&buf[..4]).try_into().unwrap())
+                        + u32::try_from(start).unwrap();
+
+                    // ... and rest
+                    archive.seek(SeekFrom::Current(16)).unwrap();
+
+                    if is_idata6 {
+                        //
+                        // Hint and Name table
+                        //
+
+                        let last_position = archive.stream_position().unwrap();
+                        archive.seek(SeekFrom::Start(start_of_data.into())).unwrap();
+
+                        let end_of_data = u64::from(start_of_data) + u64::from(size_of_data);
+                        while archive.stream_position().unwrap() < end_of_data {
+                            // Hint
+                            archive.write_all(&[0u8; 2]).unwrap();
+
+                            // Name
+                            loop {
+                                archive.read_exact(&mut buf[..1]).unwrap();
+                                if buf[0] == b'\0' {
+                                    break;
+                                }
+                            }
+
+                            // Padding
+                            if archive.stream_position().unwrap() % 2 == 0 {
+                                archive.seek(SeekFrom::Current(1)).unwrap();
+                            }
+                        }
+
+                        archive.seek(SeekFrom::Start(last_position)).unwrap();
+                        break;
+                    }
+                }
+            }
+
+            archive.seek(SeekFrom::Start(start)).unwrap();
+        }
+
+        if archive.seek(SeekFrom::Current((size + 1) & !1)).unwrap() >= len {
+            break;
+        }
+    }
+    archive.flush().unwrap();
+    drop(archive);
 }
 
 fn build_mri(
