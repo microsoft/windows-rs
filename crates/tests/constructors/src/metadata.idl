@@ -6,6 +6,7 @@ namespace test_constructors
 
         [method_name("WithValue")]
         Activatable(Int32 arg);
+
         Int32 Property { get; };
     }
 
