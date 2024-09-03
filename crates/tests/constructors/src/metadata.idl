@@ -1,14 +1,14 @@
 namespace Namespace
 {
-    runtimeclass ActivatableType
+    runtimeclass Activatable
     {
-        ActivatableType(Int32 arg);
-        Int32 Value{ get; };
-    };
+        Activatable(Int32 arg);
+        Int32 Property { get; };
+    }
 
-    //unsealed runtimeclass ComposableType
-    //{
-    //    ComposableType(Int32 arg);
-    //    Int32 Value{ get; };
-    //};
+    unsealed runtimeclass Composable
+    {
+        Composable(Int32 arg);
+        Int32 Property { get; };
+    }
 }

@@ -22,12 +22,12 @@ fn main() {
         "--in",
         "metadata.winmd",
         "--out",
-        "src/activatable.rs",
+        "src/bindings.rs",
         "--filter",
-        "Namespace.ActivatableType",
+        "Namespace", // TODO: this doesn't work when specifying type directly
         "--config",
         "implement",
-        "flatten",
+        // "flatten", TODO: this does more than just remove the namespace
     ])
     .unwrap();
 }
