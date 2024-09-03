@@ -157,6 +157,8 @@ jobs:
         run:  cargo clippy -p test_const_ptrs
       - name: Clippy test_constructors
         run:  cargo clippy -p test_constructors
+      - name: Clippy test_constructors_client
+        run:  cargo clippy -p test_constructors_client
       - name: Clippy test_core
         run:  cargo clippy -p test_core
       - name: Clippy test_debug

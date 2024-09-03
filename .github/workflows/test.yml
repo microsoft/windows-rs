@@ -183,6 +183,8 @@ jobs:
         run:  cargo test -p test_const_ptrs --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_constructors
         run:  cargo test -p test_constructors --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_constructors_client
+        run:  cargo test -p test_constructors_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_core
         run:  cargo test -p test_core --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_debug
@@ -253,10 +255,10 @@ jobs:
         run:  cargo test -p test_resources --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_result
         run:  cargo test -p test_result --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_return_handle
-        run:  cargo test -p test_return_handle --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_return_handle
+        run:  cargo test -p test_return_handle --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_return_struct
         run:  cargo test -p test_return_struct --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_riddle
