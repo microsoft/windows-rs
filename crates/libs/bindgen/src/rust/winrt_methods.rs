@@ -158,15 +158,7 @@ pub fn writer(
                 }
             }
         }
-        metadata::InterfaceKind::Static => {
-            quote! {
-                #features
-                pub fn #name<#generics>(#params) #return_type_tokens #where_clause {
-                    Self::#interface_name(|this| unsafe { #vcall })
-                }
-            }
-        }
-        metadata::InterfaceKind::Composable => {
+        metadata::InterfaceKind::Static | metadata::InterfaceKind::Composable => {
             quote! {
                 #features
                 pub fn #name<#generics>(#params) #return_type_tokens #where_clause {
