@@ -1,4 +1,4 @@
-namespace Namespace
+namespace test_constructors
 {
     runtimeclass Activatable
     {

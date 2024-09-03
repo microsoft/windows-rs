@@ -24,11 +24,11 @@ fn main() {
         "--out",
         "src/bindings.rs",
         "--filter",
-        "Namespace", // TODO: this doesn't work when specifying type directly
+        "test_constructors", // TODO: this doesn't work when specifying type directly
         "--config",
         "implement",
+        "no-bindgen-comment",
         // "flatten", TODO: this does more than just remove the namespace
     ])
     .unwrap();
 }
-

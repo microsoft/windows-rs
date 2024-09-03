@@ -1,0 +1,28 @@
+[package]
+name = "test_constructors_client"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[build-dependencies.windows-bindgen]
+path = "../../libs/bindgen"
+
+[dependencies.windows-core]
+path = "../../libs/core"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "implement",
+    "Foundation",
+    "Win32_Foundation",
+]
+
+# TODO: this causes a warning about lack of linkage target. The point is to ensure that this binary dependency is built first but 
+# Cargo doesn't respect cdylib targets. https://github.com/rust-lang/cargo/issues/7825
+[dependencies.test_constructors]
+path = "../constructors"
