@@ -23,7 +23,7 @@ pub struct IActivatable_Vtbl {
 windows_core::imp::define_interface!(
     IActivatableFactory,
     IActivatableFactory_Vtbl,
-    0xf373eb34_0def_545a_8c29_4402265086d3
+    0xafc5aee9_aa78_5da6_85a2_69e67b45c620
 );
 impl windows_core::RuntimeType for IActivatableFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -32,7 +32,7 @@ impl windows_core::RuntimeType for IActivatableFactory {
 #[repr(C)]
 pub struct IActivatableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(
+    pub WithValue: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         i32,
         *mut *mut core::ffi::c_void,
@@ -56,7 +56,7 @@ pub struct IComposable_Vtbl {
 windows_core::imp::define_interface!(
     IComposableFactory,
     IComposableFactory_Vtbl,
-    0xbc01506a_d92d_5a6e_843b_6fe14f06b943
+    0x6a461099_83c0_5810_9e20_2e8b9521d143
 );
 impl windows_core::RuntimeType for IComposableFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -66,6 +66,12 @@ impl windows_core::RuntimeType for IComposableFactory {
 pub struct IComposableFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub WithValue: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         i32,
         *mut core::ffi::c_void,
@@ -82,6 +88,21 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Activatable {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            Activatable,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
     pub fn Property(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
@@ -93,10 +114,10 @@ impl Activatable {
             .map(|| result__)
         }
     }
-    pub fn CreateInstance(arg: i32) -> windows_core::Result<Activatable> {
+    pub fn WithValue(arg: i32) -> windows_core::Result<Activatable> {
         Self::IActivatableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(
+            (windows_core::Interface::vtable(this).WithValue)(
                 windows_core::Interface::as_raw(this),
                 arg,
                 &mut result__,
@@ -146,10 +167,22 @@ impl Composable {
             .map(|| result__)
         }
     }
-    pub fn CreateInstance(arg: i32) -> windows_core::Result<Composable> {
+    pub fn new() -> windows_core::Result<Composable> {
         Self::IComposableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                &mut core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn WithValue(arg: i32) -> windows_core::Result<Composable> {
+        Self::IComposableFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WithValue)(
                 windows_core::Interface::as_raw(this),
                 arg,
                 core::ptr::null_mut(),

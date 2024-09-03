@@ -235,7 +235,6 @@ fn gen_conversions(
 fn type_def_has_default_constructor(row: metadata::TypeDef) -> bool {
     for attribute in row.attributes() {
         if attribute.name() == "ActivatableAttribute" {
-            // TODO: what about composable default constructors?
             if attribute
                 .args()
                 .iter()

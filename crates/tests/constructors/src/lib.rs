@@ -21,14 +21,14 @@ unsafe extern "system" fn DllGetActivationFactory(
 struct ActivatableFactory;
 
 impl IActivationFactory_Impl for ActivatableFactory_Impl {
+    // Activatable types implement their default constructors using `IActivationFactory::ActivateInstance`.
     fn ActivateInstance(&self) -> Result<IInspectable> {
-        // `Activatable` doesn't have a default constructor so this should never get called.
-        Err(E_NOTIMPL.into())
+        Ok(Activatable::new(0).into())
     }
 }
 
 impl bindings::IActivatableFactory_Impl for ActivatableFactory_Impl {
-    fn CreateInstance(&self, arg: i32) -> Result<bindings::Activatable> {
+    fn WithValue(&self, arg: i32) -> Result<bindings::Activatable> {
         Ok(Activatable::new(arg).into())
     }
 }
@@ -52,14 +52,28 @@ impl Activatable {
 struct ComposableFactory;
 
 impl IActivationFactory_Impl for ComposableFactory_Impl {
+    // Composable types implement their default constructors using custom composable factory interfaces.
+    // `IComposableFactory::CreateInstance` in this case.
     fn ActivateInstance(&self) -> Result<IInspectable> {
-        // `Composable` doesn't have a default constructor so this should never get called.
         Err(E_NOTIMPL.into())
     }
 }
 
 impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
     fn CreateInstance(
+        &self,
+        base: Option<&windows_core::IInspectable>,
+        inner: &mut Option<windows_core::IInspectable>,
+    ) -> Result<bindings::Composable> {
+        // windows-rs doesn't support binary composition
+        if base.is_some() || inner.is_some() {
+            Err(CLASS_E_NOAGGREGATION.into())
+        } else {
+            Ok(Composable::new(0).into())
+        }
+    }
+
+    fn WithValue(
         &self,
         arg: i32,
         base: Option<&windows_core::IInspectable>,

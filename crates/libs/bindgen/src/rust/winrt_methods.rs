@@ -17,7 +17,12 @@ pub fn writer(
         &signature.params
     };
 
-    let name = method_names.add(method);
+    let name = if kind == metadata::InterfaceKind::Composable && params.is_empty() {
+        quote!(new)
+    } else {
+        method_names.add(method)
+    };
+
     let interface_name = writer.type_def_name(def, generic_types);
     let vname = virtual_names.add(method);
     let generics = writer.constraint_generics(params);
