@@ -67,7 +67,7 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     }
 
     let factories = interfaces.iter().filter_map(|interface| match interface.kind {
-        metadata::InterfaceKind::Static => {
+        metadata::InterfaceKind::Static | metadata::InterfaceKind::Composable => {
             if let metadata::Type::TypeDef(def, generics) = &interface.ty {
                 if def.methods().next().is_some() {
                     let interface_type = writer.type_name(&interface.ty);
@@ -235,6 +235,7 @@ fn gen_conversions(
 fn type_def_has_default_constructor(row: metadata::TypeDef) -> bool {
     for attribute in row.attributes() {
         if attribute.name() == "ActivatableAttribute" {
+            // TODO: what about composable default constructors?
             if attribute
                 .args()
                 .iter()

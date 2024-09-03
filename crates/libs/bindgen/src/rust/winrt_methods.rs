@@ -11,7 +11,12 @@ pub fn writer(
     virtual_names: &mut MethodNames,
 ) -> TokenStream {
     let signature = metadata::method_def_signature(def.namespace(), method, generic_types);
-    let params = &signature.params;
+    let params = if kind == metadata::InterfaceKind::Composable {
+        &signature.params[..signature.params.len() - 2]
+    } else {
+        &signature.params
+    };
+
     let name = method_names.add(method);
     let interface_name = writer.type_def_name(def, generic_types);
     let vname = virtual_names.add(method);
@@ -20,7 +25,14 @@ pub fn writer(
     let mut cfg = cfg::signature_cfg(writer, method);
     cfg::type_def_cfg_combine(writer, def, generic_types, &mut cfg);
     let features = writer.cfg_features(&cfg);
-    let args = gen_winrt_abi_args(writer, params);
+
+    let args = if kind == metadata::InterfaceKind::Composable {
+        let args = gen_winrt_abi_args(writer, params);
+        quote! { #args core::ptr::null_mut(), &mut core::ptr::null_mut(), }
+    } else {
+        gen_winrt_abi_args(writer, params)
+    };
+
     let params = gen_winrt_params(writer, params);
     let noexcept = metadata::method_def_is_noexcept(method);
 
@@ -142,6 +154,14 @@ pub fn writer(
             }
         }
         metadata::InterfaceKind::Static => {
+            quote! {
+                #features
+                pub fn #name<#generics>(#params) #return_type_tokens #where_clause {
+                    Self::#interface_name(|this| unsafe { #vcall })
+                }
+            }
+        }
+        metadata::InterfaceKind::Composable => {
             quote! {
                 #features
                 pub fn #name<#generics>(#params) #return_type_tokens #where_clause {

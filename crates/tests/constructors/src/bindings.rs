@@ -146,6 +146,27 @@ impl Composable {
             .map(|| result__)
         }
     }
+    pub fn CreateInstance(arg: i32) -> windows_core::Result<Composable> {
+        Self::IComposableFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                arg,
+                core::ptr::null_mut(),
+                &mut core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[doc(hidden)]
+    pub fn IComposableFactory<R, F: FnOnce(&IComposableFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Composable, IComposableFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
 impl windows_core::RuntimeType for Composable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
