@@ -1,0 +1,24 @@
+[package]
+name = "test_constructors"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+doc = false
+doctest = false
+
+[build-dependencies.windows-bindgen]
+path = "../../libs/bindgen"
+
+[dependencies.windows-core]
+path = "../../libs/core"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "implement",
+    "Foundation",
+    "Win32_System_WinRT",
+]
