@@ -374,7 +374,7 @@ impl Writer {
     pub fn generic_params<'b>(
         &'b self,
         params: &'b [metadata::SignatureParam],
-    ) -> impl Iterator<Item = (usize, &metadata::SignatureParam)> + 'b {
+    ) -> impl Iterator<Item = (usize, &'b metadata::SignatureParam)> + 'b {
         params
             .iter()
             .filter(move |param| param.is_convertible())
