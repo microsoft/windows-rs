@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies.windows]
-path = "../../../libs/windows"
+workspace = true
 features = [
     "Win32_System_Com",
     "Win32_Globalization",

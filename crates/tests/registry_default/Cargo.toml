@@ -9,4 +9,4 @@ doc = false
 doctest = false
 
 [dependencies.windows-registry]
-path = "../../libs/registry"
+workspace = true

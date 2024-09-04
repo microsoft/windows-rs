@@ -28,8 +28,7 @@ path = "../../libs/sys"
 default-features = false
 
 [dependencies.windows-targets]
-path = "../../libs/targets"
-default-features = false
+workspace = true
 
 [dependencies.windows-version]
 path = "../../libs/version"

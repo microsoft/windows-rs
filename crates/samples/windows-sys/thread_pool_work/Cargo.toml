@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies.windows-sys]
-path = "../../../libs/sys"
+workspace = true
 features = [
     "Win32_System_Threading",
 ]

@@ -9,10 +9,10 @@ doc = false
 doctest = false
 
 [dependencies.windows-core]
-path = "../../libs/core"
+workspace = true
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "Foundation",
     "Win32_System_Com_Events",

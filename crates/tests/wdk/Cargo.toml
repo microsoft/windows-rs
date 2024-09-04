@@ -9,14 +9,14 @@ doc = false
 doctest = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "Wdk_System_SystemServices",
     "Wdk_System_OfflineRegistry",
 ]
 
 [dependencies.windows-sys]
-path = "../../libs/sys"
+workspace = true
 features = [
     "Wdk_System_SystemServices",
     "Wdk_System_OfflineRegistry",

@@ -5,16 +5,16 @@ edition = "2021"
 publish = false
 
 [dev-dependencies.windows-core]
-path = "../../../libs/core"
+workspace = true
 
 [dev-dependencies.windows]
-path = "../../../libs/windows"
+workspace = true
 features = [
     "Win32_Foundation",
 ]
 
 [build-dependencies.windows-bindgen]
-path = "../../../libs/bindgen"
+workspace = true
 
 # TODO: this causes a warning about lack of linkage target. The point is to ensure that this binary dependency is built first but 
 # Cargo doesn't respect cdylib targets. https://github.com/rust-lang/cargo/issues/7825

@@ -9,7 +9,7 @@ doc = false
 doctest = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "Win32_System_Com_StructuredStorage",
     "Win32_System_Variant",

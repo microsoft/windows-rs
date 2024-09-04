@@ -9,7 +9,7 @@ doc = false
 doctest = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "Win32_Graphics_Direct3D_Fxc",
     "Win32_Graphics_Direct3D11",
@@ -19,7 +19,7 @@ features = [
 ]
 
 [dependencies.windows-sys]
-path = "../../libs/sys"
+workspace = true
 features = [
     "Win32_Graphics_Gdi",
     "Win32_Security",
@@ -29,4 +29,4 @@ features = [
 ]
 
 [dependencies.windows-targets]
-path = "../../libs/targets"
+workspace = true

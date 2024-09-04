@@ -9,7 +9,7 @@ doc = false
 doctest = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "implement",
     "Win32_System_WinRT",
@@ -19,10 +19,10 @@ features = [
 ]
 
 [dependencies.windows-core]
-path = "../../libs/core"
+workspace = true
 
 [dependencies.windows-targets]
-path = "../../libs/targets"
+workspace = true
 
 [dev-dependencies]
 helpers = { package = "test_helpers", path = "../helpers" }

@@ -1,6 +1,7 @@
 use regex::Regex;
 use std::collections::BTreeMap;
 use std::path::Path;
+use windows_metadata as metadata;
 
 pub enum CallingConvention {
     Stdcall(usize),

@@ -9,11 +9,11 @@ doc = false
 doctest = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "implement",
     "Foundation",
 ]
 
 [dependencies.windows-core]
-path = "../../libs/core"
+workspace = true

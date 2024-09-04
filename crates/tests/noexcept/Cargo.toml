@@ -9,13 +9,13 @@ doc = false
 doctest = false
 
 [dependencies.windows-core]
-path = "../../libs/core"
+workspace = true
 
 [build-dependencies.windows-bindgen]
-path = "../../libs/bindgen"
+workspace = true
 
 [build-dependencies]
 cc = "1.0"
 
 [build-dependencies.cppwinrt]
-path = "../../libs/cppwinrt"
+workspace = true

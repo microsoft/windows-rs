@@ -9,13 +9,13 @@ doc = false
 doctest = false
 
 [dependencies.windows-core]
-path = "../../libs/core"
+workspace = true
 
 [dependencies.windows-metadata]
-path = "../../libs/metadata"
+workspace = true
 
 [dependencies.tool_lib]
 path = "../../tools/lib"
 
 [dependencies.windows-bindgen]
-path = "../../libs/bindgen"
+workspace = true

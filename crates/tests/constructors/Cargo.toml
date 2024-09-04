@@ -10,13 +10,13 @@ doc = false
 doctest = false
 
 [build-dependencies.windows-bindgen]
-path = "../../libs/bindgen"
+workspace = true
 
 [dependencies.windows-core]
-path = "../../libs/core"
+workspace = true
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "implement",
     "Foundation",

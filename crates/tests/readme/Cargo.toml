@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "Data_Xml_Dom",
     "Win32_Security",
@@ -14,7 +14,7 @@ features = [
 ]
 
 [dependencies.windows-sys]
-path = "../../libs/sys"
+workspace = true
 features = [
     "Win32_Security",
     "Win32_System_Threading",
@@ -22,22 +22,22 @@ features = [
 ]
 
 [dependencies.windows-targets]
-path = "../../libs/targets"
+workspace = true
 
 [dependencies.windows-metadata]
-path = "../../libs/metadata"
+workspace = true
 
 [dev-dependencies.windows-result]
-path = "../../libs/result"
+workspace = true
 
 [dev-dependencies.windows-registry]
-path = "../../libs/registry"
+workspace = true
 
 [dev-dependencies.windows-version]
-path = "../../libs/version"
+workspace = true
 
 [dev-dependencies.windows-strings]
-path = "../../libs/strings"
+workspace = true
 
 [dev-dependencies.cppwinrt]
-path = "../../libs/cppwinrt"
+workspace = true

@@ -9,13 +9,13 @@ doc = false
 doctest = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "Win32_System_Diagnostics_Debug",
 ]
 
 [dependencies.windows-sys]
-path = "../../libs/sys"
+workspace = true
 features = [
     "Win32_System_Diagnostics_Debug",
 ]

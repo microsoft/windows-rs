@@ -8,7 +8,7 @@ publish = false
 cc = "1.0"
 
 [dependencies.windows-targets]
-path = "../../../../crates/libs/targets"
+workspace = true
 
 # TODO: this causes a warning about lack of linkage target. The point is to ensure that this binary dependency is built first but 
 # Cargo doesn't respect cdylib targets. https://github.com/rust-lang/cargo/issues/7825

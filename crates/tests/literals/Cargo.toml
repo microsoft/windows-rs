@@ -9,7 +9,7 @@ doc = false
 doctest = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 
 [dependencies.windows-sys]
-path = "../../libs/sys"
+workspace = true

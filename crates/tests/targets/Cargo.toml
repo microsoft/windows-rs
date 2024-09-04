@@ -9,14 +9,14 @@ doc = false
 doctest = false
 
 [dependencies.windows-targets]
-path = "../../libs/targets"
+workspace = true
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [ "Win32_Security_Authentication_Identity" ]
 
 [dependencies.windows-sys]
-path = "../../libs/sys"
+workspace = true
 features = [ "Win32_Security_Authentication_Identity" ]
 
 [dependencies.tool_lib]

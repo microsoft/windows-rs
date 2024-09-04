@@ -17,3 +17,16 @@ exclude = [
 rust_2018_idioms = { level = "warn", priority = -1 }
 missing_docs = "warn"
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_debugger_visualizer, windows_slim_errors)'] }
+
+[workspace.dependencies]
+cppwinrt = { path = "crates/libs/cppwinrt" }
+windows = { path = "crates/libs/windows" }
+windows-bindgen = { path = "crates/libs/bindgen" }
+windows-core = { path = "crates/libs/core" }
+windows-metadata = { path = "crates/libs/metadata" }
+windows-registry = { path = "crates/libs/registry" }
+windows-result = { path = "crates/libs/result" }
+windows-strings = { path = "crates/libs/strings" }
+windows-sys = { path = "crates/libs/sys" }
+windows-targets = { path = "crates/libs/targets" }
+windows-version = { path = "crates/libs/version" }

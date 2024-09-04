@@ -12,14 +12,14 @@ doctest = false
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_debugger_visualizer)'] }
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "implement",
     "Win32_System_Com",
 ]
 
 [dependencies.windows-core]
-path = "../../libs/core"
+workspace = true
 
 [dev-dependencies]
 debugger_test = "0.1.0"
