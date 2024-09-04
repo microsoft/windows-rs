@@ -1,0 +1,22 @@
+namespace test_constructors
+{
+    runtimeclass Activatable
+    {
+        Activatable();
+
+        [method_name("WithValue")]
+        Activatable(Int32 arg);
+
+        Int32 Property { get; };
+    }
+
+    unsealed runtimeclass Composable
+    {
+        Composable();
+
+        [method_name("WithValue")]
+        Composable(Int32 arg);
+
+        Int32 Property { get; };
+    }
+}
