@@ -9,7 +9,7 @@ doc = false
 doctest = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "Media_Control",
     "Foundation_Collections"

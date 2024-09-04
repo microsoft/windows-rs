@@ -9,18 +9,18 @@ doc = false
 doctest = false
 
 [dependencies.windows-registry]
-path = "../../libs/registry"
+workspace = true
 
 [dependencies.windows-result]
-path = "../../libs/result"
+workspace = true
 
 [dependencies.windows-sys]
-path = "../../libs/sys"
+workspace = true
 features = ["Win32_System_Registry"]
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = ["Win32_System_Registry"]
 
 [dependencies.windows-strings]
-path = "../../libs/strings"
+workspace = true

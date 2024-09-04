@@ -9,7 +9,7 @@ doc = false
 doctest = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "Win32_System_Diagnostics_Debug",
     "Win32_System_SystemServices",
@@ -18,7 +18,7 @@ features = [
 ]
 
 [dependencies.windows-sys]
-path = "../../libs/sys"
+workspace = true
 features = [
     "Win32_System_Diagnostics_Debug",
     "Win32_System_SystemServices",

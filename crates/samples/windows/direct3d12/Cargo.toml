@@ -8,7 +8,7 @@ publish = false
 array-init = "2.0.0"
 
 [dependencies.windows]
-path = "../../../libs/windows"
+workspace = true
 features = [
     "Win32_Graphics_Direct3D_Fxc",
     "Win32_Graphics_Direct3D12",

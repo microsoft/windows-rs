@@ -9,7 +9,7 @@ doc = false
 doctest = false
 
 [dependencies.windows-result]
-path = "../../libs/result"
+workspace = true
 
 [dependencies.windows-core]
-path = "../../libs/core"
+workspace = true

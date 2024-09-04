@@ -9,14 +9,14 @@ doc = false
 doctest = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "Win32_Graphics_Direct3D12",
     "Win32_System_IO",
 ]
 
 [dependencies.windows-sys]
-path = "../../libs/sys"
+workspace = true
 features = [
     "Win32_System_IO",
 ]

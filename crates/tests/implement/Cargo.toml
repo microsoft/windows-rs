@@ -9,7 +9,7 @@ doc = false
 doctest = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "implement",
     "ApplicationModel_Activation",
@@ -27,7 +27,7 @@ features = [
 ]
 
 [dependencies.windows-core]
-path = "../../libs/core"
+workspace = true
 
 [dependencies]
 static_assertions = "1.1"

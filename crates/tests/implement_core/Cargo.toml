@@ -8,7 +8,7 @@ doc = false
 doctest = false
 
 [dependencies.windows-core]
-path = "../../libs/core"
+workspace = true
 
 [dependencies]
 static_assertions = "1.1"

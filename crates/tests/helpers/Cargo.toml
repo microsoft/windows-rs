@@ -9,4 +9,4 @@ doc = false
 doctest = false
 
 [dependencies.windows-targets]
-path = "../../libs/targets"
+workspace = true

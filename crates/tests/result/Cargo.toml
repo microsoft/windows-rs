@@ -9,10 +9,10 @@ doc = false
 doctest = false
 
 [dependencies.windows-result]
-path = "../../libs/result"
+workspace = true
 
 [dependencies.windows-targets]
-path = "../../libs/targets"
+workspace = true
 
 [dependencies]
 helpers = { package = "test_helpers", path = "../helpers" }

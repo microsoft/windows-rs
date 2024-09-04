@@ -8,7 +8,7 @@ publish = false
 rand = "0.8.5"
 
 [dependencies.windows]
-path = "../../../libs/windows"
+workspace = true
 features = [
     "Foundation_Numerics",
     "Win32_Graphics_Direct2D_Common",

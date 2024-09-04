@@ -1,4 +1,4 @@
-use metadata::*;
+use windows_metadata::*;
 
 #[test]
 fn test() {

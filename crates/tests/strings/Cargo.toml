@@ -9,13 +9,13 @@ doc = false
 doctest = false
 
 [dependencies.windows-strings]
-path = "../../libs/strings"
+workspace = true
 
 [dependencies.windows-targets]
-path = "../../libs/targets"
+workspace = true
 
 [dependencies.windows]
-path = "../../libs/windows"
+workspace = true
 features = [
     "Win32_Foundation",
     "Win32_System_WinRT",

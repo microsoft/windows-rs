@@ -13,14 +13,14 @@ jsonschema = { version = "0.18", default-features = false }
 serde_json = {version = "1.0", default-features = false }
 
 [dependencies.windows]
-path = "../../../libs/windows"
+workspace = true
 features = [
     "implement",
     "Win32_System_WinRT",
 ]
 
 [dependencies.windows-core]
-path = "../../../libs/core"
+workspace = true
 
 [build-dependencies.windows-bindgen]
-path = "../../../libs/bindgen"
+workspace = true
