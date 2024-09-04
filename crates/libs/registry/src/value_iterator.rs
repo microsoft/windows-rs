@@ -80,3 +80,9 @@ impl<'a> Iterator for ValueIterator<'a> {
         })
     }
 }
+
+impl<'a> ExactSizeIterator for ValueIterator<'a> {
+    fn len(&self) -> usize {
+        self.range.len()
+    }
+}

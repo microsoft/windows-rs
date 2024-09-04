@@ -14,6 +14,10 @@ fn keys() -> Result<()> {
     let names: Vec<String> = key.keys()?.collect();
     assert_eq!(names, ["one", "three", "two"]);
 
+    // The "keys" iterator implements `ExactSizeIterator`.
+    let iter = key.keys()?;
+    assert_eq!(iter.len(), 3);
+
     let err = key.open("missing").unwrap_err();
     assert_eq!(err.code(), HRESULT(0x80070002u32 as i32)); // HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)
     assert_eq!(err.message(), "The system cannot find the file specified.");

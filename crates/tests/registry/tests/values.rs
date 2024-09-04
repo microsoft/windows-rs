@@ -22,5 +22,9 @@ fn values() -> Result<()> {
         ]
     );
 
+    // The "values" iterator implements `ExactSizeIterator`.
+    let iter = key.values()?;
+    assert_eq!(iter.len(), 3);
+
     Ok(())
 }

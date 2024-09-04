@@ -66,3 +66,9 @@ impl<'a> Iterator for KeyIterator<'a> {
         })
     }
 }
+
+impl<'a> ExactSizeIterator for KeyIterator<'a> {
+    fn len(&self) -> usize {
+        self.range.len()
+    }
+}
