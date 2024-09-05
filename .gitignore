@@ -3,4 +3,3 @@
 /target
 *.lock
 *.winmd
-**/src/winrt
