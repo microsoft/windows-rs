@@ -3,14 +3,8 @@
 
 namespace test_reference_float
 {
-    struct WithFloat
-    {
-        Single Value;
-    };
-
     struct RefWithFloat
     {
-        Windows.Foundation.IReference<Single> ReferenceFloat; 
-        Windows.Foundation.IReference<WithFloat> ReferenceWithFloat; 
+        Windows.Foundation.IReference<Single> Value; 
     };
 }
