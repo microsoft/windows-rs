@@ -12,10 +12,14 @@ pub fn default_metadata() -> Vec<metadata::File> {
     vec![
         metadata::File::new(std::include_bytes!("../../bindgen/default/Windows.winmd").to_vec())
             .expect("invalid winmd"),
-        metadata::File::new(std::include_bytes!("../../bindgen/default/Windows.Win32.winmd").to_vec())
-            .expect("invalid winmd"),
-        metadata::File::new(std::include_bytes!("../../bindgen/default/Windows.Wdk.winmd").to_vec())
-            .expect("invalid winmd"),
+        metadata::File::new(
+            std::include_bytes!("../../bindgen/default/Windows.Win32.winmd").to_vec(),
+        )
+        .expect("invalid winmd"),
+        metadata::File::new(
+            std::include_bytes!("../../bindgen/default/Windows.Wdk.winmd").to_vec(),
+        )
+        .expect("invalid winmd"),
     ]
 }
 
