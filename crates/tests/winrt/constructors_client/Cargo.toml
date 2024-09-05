@@ -26,3 +26,9 @@ features = [
 # Cargo doesn't understand cdylib targets. https://github.com/rust-lang/cargo/issues/7825
 [dependencies.test_constructors]
 path = "../constructors"
+
+[build-dependencies]
+cc = "1.0"
+
+[build-dependencies.cppwinrt]
+workspace = true
