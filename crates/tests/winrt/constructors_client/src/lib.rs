@@ -1,3 +1,4 @@
+#![cfg(target_env = "msvc")]
 #![cfg(test)]
 
 mod bindings;
