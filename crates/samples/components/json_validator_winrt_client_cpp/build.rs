@@ -6,12 +6,14 @@ fn main() {
     println!("cargo:rerun-if-changed=src/client.cpp");
     println!("cargo:rustc-link-lib=windows.0.52.0");
 
+    let include = std::env::var("OUT_DIR").unwrap();
+
     cppwinrt::cppwinrt([
         "-in",
         "../json_validator_winrt/sample.winmd",
         &format!("{}\\System32\\WinMetadata", env!("windir")),
         "-out",
-        "src",
+        &include,
     ])
     .unwrap();
 
@@ -20,5 +22,6 @@ fn main() {
         .std("c++20")
         .flag("/EHsc")
         .file("src/client.cpp")
+        .include(include)
         .compile("client");
 }

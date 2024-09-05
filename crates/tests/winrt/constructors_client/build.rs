@@ -13,12 +13,14 @@ fn main() {
     ])
     .unwrap();
 
+    let include = std::env::var("OUT_DIR").unwrap();
+
     cppwinrt::cppwinrt([
         "-in",
         "../constructors/metadata.winmd",
         &format!("{}\\System32\\WinMetadata", env!("windir")),
         "-out",
-        "src",
+        &include,
     ])
     .unwrap();
 
@@ -27,5 +29,6 @@ fn main() {
         .std("c++20")
         .flag("/EHsc")
         .file("src/interop.cpp")
+        .include(include)
         .compile("interop");
 }
