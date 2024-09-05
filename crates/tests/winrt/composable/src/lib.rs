@@ -35,7 +35,6 @@ impl bindings::ICompositor_Impl for Compositor_Impl {
     }
 }
 
-// TODO: ContainerVisual's trait should require Visual's trait automatically
 #[implement(bindings::ContainerVisual, bindings::Visual)]
 struct ContainerVisual {
     compositor: ComObject<Compositor>,
@@ -63,7 +62,6 @@ impl bindings::IVisual_Impl for ContainerVisual_Impl {
     }
 }
 
-// TODO: SpriteVisual's trait should require ContainerVisual and Visual's trait automatically
 #[implement(bindings::SpriteVisual, bindings::ContainerVisual, bindings::Visual)]
 struct SpriteVisual {
     container: ContainerVisual,
