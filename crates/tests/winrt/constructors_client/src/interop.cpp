@@ -1,4 +1,5 @@
 #include <windows.h>
+#include <assert.h>
 #include "winrt/test_constructors.h"
 
 using namespace winrt;
