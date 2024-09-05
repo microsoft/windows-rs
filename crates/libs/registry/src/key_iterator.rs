@@ -50,7 +50,7 @@ impl<'a> Iterator for KeyIterator<'a> {
             return self.next();
         }
 
-        if result != 0 {
+        if result != ERROR_SUCCESS {
             debug_assert_eq!(result, ERROR_NO_MORE_ITEMS);
             return None;
         }
