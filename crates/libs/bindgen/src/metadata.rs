@@ -551,7 +551,9 @@ pub fn type_has_float(ty: &Type) -> bool {
     match ty {
         Type::F32 | Type::F64 => true,
         Type::Win32Array(ty, _) => type_has_float(ty),
-        Type::TypeDef(def, _) => type_def_has_float(*def),
+        Type::TypeDef(def, generics) => {
+            type_def_has_float(*def) || generics.iter().any(type_has_float)
+        }
         _ => false,
     }
 }
