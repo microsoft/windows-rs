@@ -1,3 +1,5 @@
+#![cfg(test)]
+
 mod bindings;
 use bindings::*;
 use windows::{core::*, Foundation::*};
