@@ -20,7 +20,9 @@ windows_targets::link!("kernel32.dll" "system" fn HeapAlloc(hheap : HANDLE, dwfl
 windows_targets::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : HEAP_FLAGS, lpmem : *const core::ffi::c_void) -> BOOL);
 pub type BOOL = i32;
 pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;
+pub const ERROR_MORE_DATA: WIN32_ERROR = 234u32;
 pub const ERROR_NO_MORE_ITEMS: WIN32_ERROR = 259u32;
+pub const ERROR_SUCCESS: WIN32_ERROR = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct FILETIME {

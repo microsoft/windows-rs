@@ -22,5 +22,23 @@ fn values() -> Result<()> {
         ]
     );
 
+    let mut names = Vec::<(String, Value)>::new();
+    let iterator = key.values()?;
+    for (name, value) in iterator {
+        if name == "string" {
+            key.set_string("string-two", "hello world two")?;
+        }
+        names.push((name, value));
+    }
+    assert_eq!(
+        names,
+        [
+            ("u32".to_string(), Value::from(123u32)),
+            ("u64".to_string(), Value::from(456u64)),
+            ("string".to_string(), Value::from("hello world")),
+            ("string-two".to_string(), Value::from("hello world two")),
+        ]
+    );
+
     Ok(())
 }

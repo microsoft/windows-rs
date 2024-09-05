@@ -14,6 +14,17 @@ fn keys() -> Result<()> {
     let names: Vec<String> = key.keys()?.collect();
     assert_eq!(names, ["one", "three", "two"]);
 
+    let mut names = Vec::<String>::new();
+    let iterator = key.keys()?;
+    for name in iterator {
+        if name == "one" {
+            key.remove_tree("three")?;
+            key.create("seventy")?;
+        }
+        names.push(name.clone());
+    }
+    assert_eq!(names, ["one", "seventy", "two"]);
+
     let err = key.open("missing").unwrap_err();
     assert_eq!(err.code(), HRESULT(0x80070002u32 as i32)); // HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND)
     assert_eq!(err.message(), "The system cannot find the file specified.");

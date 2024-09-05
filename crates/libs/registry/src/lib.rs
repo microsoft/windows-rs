@@ -78,3 +78,43 @@ fn from_le_bytes(ty: Type, from: &[u8]) -> Result<u64> {
 fn as_bytes(value: &HSTRING) -> &[u8] {
     unsafe { core::slice::from_raw_parts(value.as_ptr() as *const _, (value.len() + 1) * 2) }
 }
+
+struct KeyInfo {
+    /// Size of the key's subkey with the longest name, in Unicode characters, not including the terminating null character.
+    subkey_name_max: u32,
+
+    /// Size of the key's longest value name, in Unicode characters. The size does not include the terminating null character.
+    value_name_max: u32,
+
+    /// Size of the longest data component among the key's values, in bytes.
+    value_data_max: u32,
+}
+
+fn get_key_info(key: &Key) -> Result<KeyInfo> {
+    let mut subkey_name_max = 0;
+    let mut value_name_max = 0;
+    let mut value_data_max = 0;
+
+    let result = unsafe {
+        RegQueryInfoKeyW(
+            key.0,
+            null_mut(),
+            null_mut(),
+            null_mut(),
+            null_mut(),
+            &mut subkey_name_max,
+            null_mut(),
+            null_mut(),
+            &mut value_name_max,
+            &mut value_data_max,
+            null_mut(),
+            null_mut(),
+        )
+    };
+
+    win32_error(result).map(|_| KeyInfo {
+        subkey_name_max,
+        value_name_max,
+        value_data_max,
+    })
+}
