@@ -1,0 +1,25 @@
+namespace test_composable
+{
+    runtimeclass Compositor
+    {
+        Compositor();
+
+        SpriteVisual CreateSpriteVisual();
+        ContainerVisual CreateContainerVisual();
+    }
+
+    unsealed runtimeclass Visual
+    {
+        Compositor Compositor;
+    }
+
+    unsealed runtimeclass ContainerVisual : Visual
+    {
+        Int32 Children;
+    }
+
+    unsealed runtimeclass SpriteVisual : ContainerVisual
+    {
+        Int32 Brush;
+    }
+}

@@ -22,7 +22,7 @@ fn main() {
     cppwinrt::cppwinrt([
         "-in",
         "../constructors/metadata.winmd",
-        &format!("{}\\System32\\WinMetadata", env!("windir")),
+        "../../../libs/bindgen/default",
         "-out",
         &include,
     ])
