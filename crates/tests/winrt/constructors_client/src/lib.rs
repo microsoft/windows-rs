@@ -1,11 +1,18 @@
+#![cfg(target_env = "msvc")]
 #![cfg(test)]
 
 mod bindings;
 use bindings::*;
 use windows::core::*;
 
+extern "system" {
+    fn interop() -> HRESULT;
+}
+
 #[test]
 fn test() -> Result<()> {
+    unsafe { interop().ok()? };
+
     let activatable = Activatable::new()?;
     assert_eq!(activatable.Property()?, 0);
 
