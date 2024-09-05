@@ -151,6 +151,8 @@ jobs:
         run:  cargo clippy -p test_component
       - name: Clippy test_component_client
         run:  cargo clippy -p test_component_client
+      - name: Clippy test_composable
+        run:  cargo clippy -p test_composable
       - name: Clippy test_const_fields
         run:  cargo clippy -p test_const_fields
       - name: Clippy test_const_params
