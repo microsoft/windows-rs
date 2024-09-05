@@ -22,11 +22,7 @@ features = [
     "Win32_Foundation",
 ]
 
-# The build script needs the output (.winmd) of the component.
-[build-dependencies.test_constructors]
-path = "../constructors"
-
-# The build itself needs the output (.dll) of the component. This causes a warning about lack of linkage target.
+# The build needs the output (.dll) of the component. This causes a warning about lack of linkage target.
 # Cargo doesn't understand cdylib targets. https://github.com/rust-lang/cargo/issues/7825
 [dependencies.test_constructors]
 path = "../constructors"
