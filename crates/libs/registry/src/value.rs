@@ -142,9 +142,10 @@ impl<const N: usize> From<[u8; N]> for Value {
 }
 
 fn trim(mut wide: &[u16]) -> &[u16] {
-    while wide.last() == Some(&0) {
-        wide = &wide[..wide.len() - 1];
+    let index = wide.iter().position(|&x| x == 0u16);
+    if index.is_some() {
+        wide = &wide[..index.unwrap()];
     }
-
+    
     wide
 }
