@@ -5,7 +5,7 @@ fn size() {
     // Note: you can double check these export names from a Visual Studio x86 command prompt as follows:
     // dumpbin /exports kernel32.lib | findstr /i RtmConvertIpv6AddressAndLengthToNetAddress
 
-    let files = tool_lib::default_metadata();
+    let files = helpers::default_metadata();
     let reader = Reader::new(files);
 
     assert_eq!(

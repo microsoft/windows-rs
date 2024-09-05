@@ -65,7 +65,7 @@ jobs:
     // This unrolling is required since "cargo test --all" consumes too much memory for the GitHub hosted runners
     // and the occasional "cargo clean" is required to avoid running out of disk space in the same runners.
 
-    for (count, (name, _)) in lib::crates("crates").iter().enumerate() {
+    for (count, (name, _)) in helpers::crates("crates").iter().enumerate() {
         if count % 50 == 0 {
             write!(
                 &mut yml,
@@ -136,7 +136,7 @@ jobs:
 
     // This unrolling is required since "cargo clippy --all" consumes too much memory for the GitHub hosted runners.
 
-    for (name, _) in lib::crates("crates") {
+    for (name, _) in helpers::crates("crates") {
         write!(
             &mut yml,
             r"
@@ -181,7 +181,7 @@ jobs:
         uses: ./.github/actions/fix-environment"
         .to_string();
 
-    for (name, _) in lib::crates("crates/libs") {
+    for (name, _) in helpers::crates("crates/libs") {
         write!(
             &mut yml,
             r"

@@ -19,5 +19,5 @@ features = [ "Win32_Security_Authentication_Identity" ]
 workspace = true
 features = [ "Win32_Security_Authentication_Identity" ]
 
-[dependencies.tool_lib]
-path = "../../tools/lib"
+[dependencies.helpers]
+workspace = true

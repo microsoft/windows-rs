@@ -2,7 +2,7 @@ use windows_metadata::*;
 
 #[test]
 fn attribute_enum() {
-    let files = tool_lib::default_metadata();
+    let files = helpers::default_metadata();
     let reader = Reader::new(files);
 
     let (method, _) = reader

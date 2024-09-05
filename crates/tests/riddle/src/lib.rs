@@ -64,7 +64,7 @@ pub fn run_riddle(name: &str, dialect: &str, etc: &[&str]) -> Vec<windows_metada
     run_one_bindgen(&command);
 
     // Return winmd file for validation
-    let mut files = tool_lib::default_metadata();
+    let mut files = helpers::default_metadata();
     let winmd_bytes =
         std::fs::read(&winmd).unwrap_or_else(|e| panic!("Failed to read winmd: {winmd} : {e:?}"));
     files.push(

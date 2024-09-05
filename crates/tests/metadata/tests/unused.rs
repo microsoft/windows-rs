@@ -2,7 +2,7 @@ use windows_metadata::*;
 
 #[test]
 fn test() {
-    let files = tool_lib::default_metadata();
+    let files = helpers::default_metadata();
     let reader = Reader::filter(
         files,
         &["Windows", "BadNamespace", "Windows.AI"],

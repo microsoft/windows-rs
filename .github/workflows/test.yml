@@ -55,6 +55,8 @@ jobs:
         run:  cargo clean
       - name: Test cppwinrt
         run:  cargo test -p cppwinrt --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test helpers
+        run:  cargo test -p helpers --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test riddle
         run:  cargo test -p riddle --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_bits
@@ -151,10 +153,10 @@ jobs:
         run:  cargo test -p test_agile_reference --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_alternate_success_code
         run:  cargo test -p test_alternate_success_code --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_arch
-        run:  cargo test -p test_arch --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_arch
+        run:  cargo test -p test_arch --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_arch_feature
         run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_array
@@ -253,10 +255,10 @@ jobs:
         run:  cargo test -p test_reserved --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_resources
         run:  cargo test -p test_resources --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_result
-        run:  cargo test -p test_result --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_result
+        run:  cargo test -p test_result --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_return_handle
         run:  cargo test -p test_return_handle --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_return_struct
@@ -297,8 +299,6 @@ jobs:
         run:  cargo test -p tool_bindings --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_gnu
         run:  cargo test -p tool_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test tool_lib
-        run:  cargo test -p tool_lib --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_license
         run:  cargo test -p tool_license --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test tool_msvc

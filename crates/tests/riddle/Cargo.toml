@@ -14,8 +14,8 @@ workspace = true
 [dependencies.windows-metadata]
 workspace = true
 
-[dependencies.tool_lib]
-path = "../../tools/lib"
+[dependencies.helpers]
+workspace = true
 
 [dependencies.windows-bindgen]
 workspace = true

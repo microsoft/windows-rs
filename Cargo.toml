@@ -30,3 +30,4 @@ windows-strings = { path = "crates/libs/strings" }
 windows-sys = { path = "crates/libs/sys" }
 windows-targets = { path = "crates/libs/targets" }
 windows-version = { path = "crates/libs/version" }
+helpers = { path = "crates/libs/helpers" }

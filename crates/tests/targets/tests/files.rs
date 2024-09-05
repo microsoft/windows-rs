@@ -3,7 +3,7 @@
 
 #[test]
 fn test() {
-    let targets = tool_lib::crates("../../targets");
+    let targets = helpers::crates("../../targets");
     assert_eq!(8, targets.len());
     assert!(targets.iter().all(|(_, version)| version == "0.52.6"));
 
