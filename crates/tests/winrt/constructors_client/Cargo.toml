@@ -1,22 +1,28 @@
 [package]
-name = "sample_component_json_validator_winrt_client"
+name = "test_constructors_client"
 version = "0.0.0"
 edition = "2021"
 publish = false
 
-[dev-dependencies.windows-core]
-workspace = true
-
-[dev-dependencies.windows]
-workspace = true
-features = [
-    "Win32_Foundation",
-]
+[lib]
+doc = false
+doctest = false
 
 [build-dependencies.windows-bindgen]
 workspace = true
 
+[dependencies.windows-core]
+workspace = true
+
+[dependencies.windows]
+workspace = true
+features = [
+    "implement",
+    "Foundation",
+    "Win32_Foundation",
+]
+
 # The build needs the output (.dll) of the component. This causes a warning about lack of linkage target.
 # Cargo doesn't understand cdylib targets. https://github.com/rust-lang/cargo/issues/7825
-[dependencies.sample_component_json_validator_winrt]
-path = "../json_validator_winrt"
+[dependencies.test_constructors]
+path = "../constructors"

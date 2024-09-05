@@ -1,9 +1,0 @@
-[package]
-name = "tool_lib"
-version = "0.0.0"
-edition = "2021"
-publish = false
-
-[dependencies]
-regex = "1.7"
-windows-metadata = { workspace = true }

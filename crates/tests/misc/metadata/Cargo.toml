@@ -1,0 +1,29 @@
+[package]
+name = "test_metadata"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies]
+windows-metadata = { workspace = true }
+
+[dependencies.windows]
+workspace = true
+features = [
+    "Win32_Graphics_Gdi",
+    "Win32_System_SystemServices",
+]
+
+[dependencies.windows-sys]
+workspace = true
+features = [
+    "Win32_Graphics_Gdi",
+    "Win32_System_SystemServices",
+]
+
+[dependencies.helpers]
+workspace = true

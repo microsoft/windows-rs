@@ -31,6 +31,8 @@ jobs:
         uses: ./.github/actions/fix-environment
       - name: Clippy cppwinrt
         run:  cargo clippy -p cppwinrt
+      - name: Clippy helpers
+        run:  cargo clippy -p helpers
       - name: Clippy riddle
         run:  cargo clippy -p riddle
       - name: Clippy sample_bits
@@ -269,8 +271,6 @@ jobs:
         run:  cargo clippy -p tool_bindings
       - name: Clippy tool_gnu
         run:  cargo clippy -p tool_gnu
-      - name: Clippy tool_lib
-        run:  cargo clippy -p tool_lib
       - name: Clippy tool_license
         run:  cargo clippy -p tool_license
       - name: Clippy tool_msvc

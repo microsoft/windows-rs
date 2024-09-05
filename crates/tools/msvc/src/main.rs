@@ -19,7 +19,7 @@ fn main() {
         return;
     };
 
-    let libraries = lib::libraries();
+    let libraries = helpers::libraries();
     let output = std::path::PathBuf::from("crates/targets/baseline");
     _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();
@@ -71,7 +71,7 @@ changes can sneak in undetected.
 fn build_library(
     output: &std::path::Path,
     library: &str,
-    functions: &BTreeMap<String, lib::CallingConvention>,
+    functions: &BTreeMap<String, helpers::CallingConvention>,
 ) {
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
 
@@ -96,7 +96,7 @@ EXPORTS
 
     for (function, calling_convention) in functions {
         let buffer = match calling_convention {
-            lib::CallingConvention::Stdcall(size) => {
+            helpers::CallingConvention::Stdcall(size) => {
                 let mut buffer = format!("void __stdcall {function}(");
 
                 for param in 0..(*size / 4) {
@@ -111,7 +111,7 @@ EXPORTS
                 buffer.push_str(") {}\n");
                 buffer
             }
-            lib::CallingConvention::Cdecl => {
+            helpers::CallingConvention::Cdecl => {
                 format!("void __cdecl {function}() {{}}\n")
             }
         };

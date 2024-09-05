@@ -13,7 +13,7 @@ workspace = true
 [dependencies.windows-targets]
 workspace = true
 
-# TODO: this causes a warning about lack of linkage target. The point is to ensure that this binary dependency is built first but 
-# Cargo doesn't respect cdylib targets. https://github.com/rust-lang/cargo/issues/7825
+# The build needs the output (.dll) of the component. This causes a warning about lack of linkage target.
+# Cargo doesn't understand cdylib targets. https://github.com/rust-lang/cargo/issues/7825
 [dependencies.sample_component_json_validator_winrt]
 path = "../json_validator_winrt"

@@ -3,12 +3,12 @@
 use std::path::Path;
 
 fn main() {
-    if !Path::new("crates/tests/standalone/Cargo.toml").exists() {
+    if !Path::new("crates/tests/misc/standalone/Cargo.toml").exists() {
         println!("This tool must be run from the root of the repo.");
         std::process::exit(1);
     }
 
-    let src = Path::new("crates/tests/standalone/src");
+    let src = Path::new("crates/tests/misc/standalone/src");
 
     write_sys(
         &src.join("b_none.rs"),

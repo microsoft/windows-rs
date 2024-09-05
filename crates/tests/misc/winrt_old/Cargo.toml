@@ -1,0 +1,32 @@
+[package]
+name = "test_winrt"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows]
+workspace = true
+features = [
+    "implement",
+    "AI_MachineLearning",
+    "ApplicationModel_Activation",
+    "ApplicationModel_Appointments",
+    "ApplicationModel_Email",
+    "Data_Xml_Dom",
+    "Devices_Enumeration",
+    "Devices_WiFiDirect",
+    "Foundation_Collections",
+    "Foundation_Numerics",
+    "Storage_Streams",
+    "System",
+    "UI_Composition",
+    "Win32_System_Com",
+    "Win32_System_WinRT",
+]
+
+[dev-dependencies]
+helpers = { package = "test_helpers", path = "../helpers" }

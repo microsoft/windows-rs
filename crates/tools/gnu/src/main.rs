@@ -51,7 +51,7 @@ fn main() {
 fn build_platform(platform: &str, dlltool: &str, ar: &str) {
     println!("Platform: {platform}");
 
-    let libraries = lib::libraries();
+    let libraries = helpers::libraries();
     let output = std::path::PathBuf::from(format!("crates/targets/{platform}/lib"));
     std::fs::create_dir_all(&output).unwrap();
     std::fs::create_dir_all(&output).unwrap();
@@ -71,7 +71,7 @@ fn build_library(
     output: &std::path::Path,
     dlltool: &str,
     library: &str,
-    functions: &BTreeMap<String, lib::CallingConvention>,
+    functions: &BTreeMap<String, helpers::CallingConvention>,
     platform: &str,
 ) {
     println!("{library}");
@@ -94,7 +94,7 @@ EXPORTS
 
     for (function, calling_convention) in functions {
         match calling_convention {
-            lib::CallingConvention::Stdcall(params) if platform.starts_with("i686_gnu") => def
+            helpers::CallingConvention::Stdcall(params) if platform.starts_with("i686_gnu") => def
                 .write_all(format!("{function}@{params} @ 0\n").as_bytes())
                 .unwrap(),
             _ => def
@@ -168,7 +168,7 @@ EXPORTS
 fn build_mri(
     output: &std::path::Path,
     ar: &str,
-    libraries: &BTreeMap<String, BTreeMap<String, lib::CallingConvention>>,
+    libraries: &BTreeMap<String, BTreeMap<String, helpers::CallingConvention>>,
 ) {
     let mri_path = output.join("unified.mri");
     let mut mri = std::fs::File::create(&mri_path).unwrap();

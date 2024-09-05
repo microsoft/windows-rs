@@ -1,0 +1,23 @@
+[package]
+name = "test_targets"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows-targets]
+workspace = true
+
+[dependencies.windows]
+workspace = true
+features = [ "Win32_Security_Authentication_Identity" ]
+
+[dependencies.windows-sys]
+workspace = true
+features = [ "Win32_Security_Authentication_Identity" ]
+
+[dependencies.helpers]
+workspace = true
