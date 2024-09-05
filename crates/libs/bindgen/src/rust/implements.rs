@@ -71,10 +71,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                 requires.combine(&gen_required_trait(writer, def, &generics));
             }
         }
-
-        if let Some(def) = metadata::type_def_bases(def).first() {
-            requires.combine(&gen_required_trait(writer, *def, &[]));
-        }
     }
 
     let runtime_name =
