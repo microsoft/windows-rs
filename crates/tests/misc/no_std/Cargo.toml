@@ -8,34 +8,34 @@ doc = false
 doctest = false
 
 [dependencies.windows-core]
-path = "../../libs/core"
+path = "../../../libs/core"
 default-features = false
 
 [dependencies.windows-registry]
-path = "../../libs/registry"
+path = "../../../libs/registry"
 default-features = false
 
 [dependencies.windows-result]
-path = "../../libs/result"
+path = "../../../libs/result"
 default-features = false
 
 [dependencies.windows-strings]
-path = "../../libs/strings"
+path = "../../../libs/strings"
 default-features = false
 
 [dependencies.windows-sys]
-path = "../../libs/sys"
+path = "../../../libs/sys"
 default-features = false
 
 [dependencies.windows-targets]
 workspace = true
 
 [dependencies.windows-version]
-path = "../../libs/version"
+path = "../../../libs/version"
 default-features = false
 
 [dependencies.windows]
-path = "../../libs/windows"
+path = "../../../libs/windows"
 default-features = false
 features = ["implement"]
 
