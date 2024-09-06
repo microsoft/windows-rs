@@ -1,0 +1,10 @@
+// This tests that windows-bindgen avoids deriving `Eq` for types with floating point fields.
+// https://github.com/microsoft/windows-rs/issues/3220
+
+namespace test_reference_float
+{
+    struct RefWithFloat
+    {
+        Windows.Foundation.IReference<Single> Value; 
+    };
+}
