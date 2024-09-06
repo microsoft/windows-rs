@@ -20,11 +20,11 @@ namespace test_composable
 
     unsealed runtimeclass ContainerVisual : Visual
     {
-        Int32 Children {get;};
+        [noexcept] Int32 Children {get;};
     }
 
     runtimeclass SpriteVisual : ContainerVisual
     {
-        Int32 Brush {get;};
+        [noexcept] Int32 Brush {get;};
     }
 }

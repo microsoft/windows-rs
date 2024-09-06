@@ -148,10 +148,16 @@ pub fn writer(
         metadata::InterfaceKind::None
         | metadata::InterfaceKind::Base
         | metadata::InterfaceKind::Overridable => {
+            let unwrap = if noexcept {
+                quote! { .unwrap() }
+            } else {
+                quote! { ? }
+            };
+
             quote! {
                 #features
                 pub fn #name<#generics>(&self, #params) #return_type_tokens #where_clause {
-                    let this = &windows_core::Interface::cast::<#interface_name>(self)?;
+                    let this = &windows_core::Interface::cast::<#interface_name>(self)#unwrap;
                     unsafe {
                         #vcall
                     }

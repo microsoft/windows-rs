@@ -51,8 +51,8 @@ impl ContainerVisual {
 }
 
 impl bindings::IContainerVisual_Impl for ContainerVisual_Impl {
-    fn Children(&self) -> Result<i32> {
-        Ok(self.children)
+    fn Children(&self) -> i32 {
+        self.children
     }
 }
 
@@ -75,14 +75,14 @@ impl SpriteVisual {
 }
 
 impl bindings::ISpriteVisual_Impl for SpriteVisual_Impl {
-    fn Brush(&self) -> Result<i32> {
-        Ok(self.brush)
+    fn Brush(&self) -> i32 {
+        self.brush
     }
 }
 
 impl bindings::IContainerVisual_Impl for SpriteVisual_Impl {
-    fn Children(&self) -> Result<i32> {
-        Ok(self.container.children)
+    fn Children(&self) -> i32 {
+        self.container.children
     }
 }
 
