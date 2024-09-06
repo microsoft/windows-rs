@@ -514,8 +514,7 @@ impl SpatialAnchor {
             (windows_core::Interface::vtable(this).TryCreateWithPositionAndOrientationRelativeTo)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position, orientation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialAnchorStatics<R, F: FnOnce(&ISpatialAnchorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAnchorStatics<R, F: FnOnce(&ISpatialAnchorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAnchor, ISpatialAnchorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -610,8 +609,7 @@ impl SpatialAnchorExporter {
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialAnchorExporterStatics<R, F: FnOnce(&ISpatialAnchorExporterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAnchorExporterStatics<R, F: FnOnce(&ISpatialAnchorExporterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAnchorExporter, ISpatialAnchorExporterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -636,8 +634,7 @@ impl SpatialAnchorManager {
             (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialAnchorManagerStatics<R, F: FnOnce(&ISpatialAnchorManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAnchorManagerStatics<R, F: FnOnce(&ISpatialAnchorManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAnchorManager, ISpatialAnchorManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -747,9 +744,8 @@ impl SpatialAnchorTransferManager {
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn ISpatialAnchorTransferManagerStatics<R, F: FnOnce(&ISpatialAnchorTransferManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAnchorTransferManagerStatics<R, F: FnOnce(&ISpatialAnchorTransferManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAnchorTransferManager, ISpatialAnchorTransferManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -803,8 +799,7 @@ impl SpatialBoundingVolume {
             (windows_core::Interface::vtable(this).FromFrustum)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), frustum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialBoundingVolumeStatics<R, F: FnOnce(&ISpatialBoundingVolumeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialBoundingVolumeStatics<R, F: FnOnce(&ISpatialBoundingVolumeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialBoundingVolume, ISpatialBoundingVolumeStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -897,8 +892,7 @@ impl SpatialEntity {
             (windows_core::Interface::vtable(this).CreateWithSpatialAnchorAndProperties)(windows_core::Interface::as_raw(this), spatialanchor.param().abi(), propertyset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialEntityFactory<R, F: FnOnce(&ISpatialEntityFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialEntityFactory<R, F: FnOnce(&ISpatialEntityFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialEntity, ISpatialEntityFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1013,8 +1007,7 @@ impl SpatialEntityStore {
             (windows_core::Interface::vtable(this).TryGetForRemoteSystemSession)(windows_core::Interface::as_raw(this), session.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialEntityStoreStatics<R, F: FnOnce(&ISpatialEntityStoreStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialEntityStoreStatics<R, F: FnOnce(&ISpatialEntityStoreStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialEntityStore, ISpatialEntityStoreStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1346,8 +1339,7 @@ impl SpatialLocator {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialLocatorStatics<R, F: FnOnce(&ISpatialLocatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialLocatorStatics<R, F: FnOnce(&ISpatialLocatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialLocator, ISpatialLocatorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1532,8 +1524,7 @@ impl SpatialStageFrameOfReference {
             (windows_core::Interface::vtable(this).RequestNewStageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialStageFrameOfReferenceStatics<R, F: FnOnce(&ISpatialStageFrameOfReferenceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialStageFrameOfReferenceStatics<R, F: FnOnce(&ISpatialStageFrameOfReferenceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialStageFrameOfReference, ISpatialStageFrameOfReferenceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

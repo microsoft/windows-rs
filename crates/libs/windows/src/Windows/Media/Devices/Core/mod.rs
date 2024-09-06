@@ -395,8 +395,7 @@ impl CameraIntrinsics {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), focallength, principalpoint, radialdistortion, tangentialdistortion, imagewidth, imageheight, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICameraIntrinsicsFactory<R, F: FnOnce(&ICameraIntrinsicsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICameraIntrinsicsFactory<R, F: FnOnce(&ICameraIntrinsicsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CameraIntrinsics, ICameraIntrinsicsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

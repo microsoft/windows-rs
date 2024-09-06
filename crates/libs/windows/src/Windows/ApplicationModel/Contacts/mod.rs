@@ -2754,8 +2754,7 @@ impl ContactField {
             (windows_core::Interface::vtable(this).CreateField_Custom)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), r#type, category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IContactFieldFactory<R, F: FnOnce(&IContactFieldFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContactFieldFactory<R, F: FnOnce(&IContactFieldFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContactField, IContactFieldFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3043,8 +3042,7 @@ impl ContactInstantMessageField {
             (windows_core::Interface::vtable(this).CreateInstantMessage_All)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), category, core::mem::transmute_copy(service), core::mem::transmute_copy(displaytext), verb.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IContactInstantMessageFieldFactory<R, F: FnOnce(&IContactInstantMessageFieldFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContactInstantMessageFieldFactory<R, F: FnOnce(&IContactInstantMessageFieldFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContactInstantMessageField, IContactInstantMessageFieldFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3206,8 +3204,7 @@ impl ContactLaunchActionVerbs {
             (windows_core::Interface::vtable(this).VideoCall)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IContactLaunchActionVerbsStatics<R, F: FnOnce(&IContactLaunchActionVerbsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContactLaunchActionVerbsStatics<R, F: FnOnce(&IContactLaunchActionVerbsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContactLaunchActionVerbs, IContactLaunchActionVerbsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4045,8 +4042,7 @@ impl ContactLocationField {
             (windows_core::Interface::vtable(this).CreateLocation_All)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(unstructuredaddress), category, core::mem::transmute_copy(street), core::mem::transmute_copy(city), core::mem::transmute_copy(region), core::mem::transmute_copy(country), core::mem::transmute_copy(postalcode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IContactLocationFieldFactory<R, F: FnOnce(&IContactLocationFieldFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContactLocationFieldFactory<R, F: FnOnce(&IContactLocationFieldFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContactLocationField, IContactLocationFieldFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4217,28 +4213,23 @@ impl ContactManager {
     pub fn SetIncludeMiddleNameInSystemDisplayAndSort(value: bool) -> windows_core::Result<()> {
         Self::IContactManagerStatics5(|this| unsafe { (windows_core::Interface::vtable(this).SetIncludeMiddleNameInSystemDisplayAndSort)(windows_core::Interface::as_raw(this), value).ok() })
     }
-    #[doc(hidden)]
-    pub fn IContactManagerStatics<R, F: FnOnce(&IContactManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContactManagerStatics<R, F: FnOnce(&IContactManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContactManager, IContactManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IContactManagerStatics2<R, F: FnOnce(&IContactManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContactManagerStatics2<R, F: FnOnce(&IContactManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContactManager, IContactManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IContactManagerStatics3<R, F: FnOnce(&IContactManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContactManagerStatics3<R, F: FnOnce(&IContactManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContactManager, IContactManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IContactManagerStatics4<R, F: FnOnce(&IContactManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContactManagerStatics4<R, F: FnOnce(&IContactManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContactManager, IContactManagerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IContactManagerStatics5<R, F: FnOnce(&IContactManagerStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContactManagerStatics5<R, F: FnOnce(&IContactManagerStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContactManager, IContactManagerStatics5> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4671,8 +4662,7 @@ impl ContactPicker {
             (windows_core::Interface::vtable(this).IsSupportedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IContactPickerStatics<R, F: FnOnce(&IContactPickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContactPickerStatics<R, F: FnOnce(&IContactPickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContactPicker, IContactPickerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4767,8 +4757,7 @@ impl ContactQueryOptions {
             (windows_core::Interface::vtable(this).CreateWithTextAndFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), fields, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IContactQueryOptionsFactory<R, F: FnOnce(&IContactQueryOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContactQueryOptionsFactory<R, F: FnOnce(&IContactQueryOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContactQueryOptions, IContactQueryOptionsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5221,9 +5210,8 @@ impl KnownContactField {
             (windows_core::Interface::vtable(this).ConvertTypeToName)(windows_core::Interface::as_raw(this), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IKnownContactFieldStatics<R, F: FnOnce(&IKnownContactFieldStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownContactFieldStatics<R, F: FnOnce(&IKnownContactFieldStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownContactField, IKnownContactFieldStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5355,8 +5343,7 @@ impl PinnedContactManager {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IPinnedContactManagerStatics<R, F: FnOnce(&IPinnedContactManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPinnedContactManagerStatics<R, F: FnOnce(&IPinnedContactManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PinnedContactManager, IPinnedContactManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

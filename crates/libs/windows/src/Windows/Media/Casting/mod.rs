@@ -317,8 +317,7 @@ impl CastingDevice {
             (windows_core::Interface::vtable(this).DeviceInfoSupportsCastingAsync)(windows_core::Interface::as_raw(this), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICastingDeviceStatics<R, F: FnOnce(&ICastingDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICastingDeviceStatics<R, F: FnOnce(&ICastingDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CastingDevice, ICastingDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

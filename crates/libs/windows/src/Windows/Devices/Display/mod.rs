@@ -226,8 +226,7 @@ impl DisplayMonitor {
             (windows_core::Interface::vtable(this).FromInterfaceIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDisplayMonitorStatics<R, F: FnOnce(&IDisplayMonitorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayMonitorStatics<R, F: FnOnce(&IDisplayMonitorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayMonitor, IDisplayMonitorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

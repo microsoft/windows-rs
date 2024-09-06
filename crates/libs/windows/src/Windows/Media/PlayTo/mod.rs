@@ -715,9 +715,8 @@ impl PlayToManager {
     pub fn ShowPlayToUI() -> windows_core::Result<()> {
         Self::IPlayToManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowPlayToUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IPlayToManagerStatics<R, F: FnOnce(&IPlayToManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayToManagerStatics<R, F: FnOnce(&IPlayToManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayToManager, IPlayToManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

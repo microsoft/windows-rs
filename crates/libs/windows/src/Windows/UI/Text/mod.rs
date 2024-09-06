@@ -1953,8 +1953,7 @@ impl FontWeights {
             (windows_core::Interface::vtable(this).Thin)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IFontWeightsStatics<R, F: FnOnce(&IFontWeightsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFontWeightsStatics<R, F: FnOnce(&IFontWeightsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FontWeights, IFontWeightsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2586,8 +2585,7 @@ impl TextConstants {
             (windows_core::Interface::vtable(this).UndefinedFontStyle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn ITextConstantsStatics<R, F: FnOnce(&ITextConstantsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITextConstantsStatics<R, F: FnOnce(&ITextConstantsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TextConstants, ITextConstantsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

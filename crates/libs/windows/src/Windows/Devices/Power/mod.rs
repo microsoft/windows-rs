@@ -123,8 +123,7 @@ impl Battery {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBatteryStatics<R, F: FnOnce(&IBatteryStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBatteryStatics<R, F: FnOnce(&IBatteryStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Battery, IBatteryStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -272,8 +271,7 @@ impl PowerGridForecast {
     pub fn RemoveForecastUpdated(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IPowerGridForecastStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveForecastUpdated)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn IPowerGridForecastStatics<R, F: FnOnce(&IPowerGridForecastStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPowerGridForecastStatics<R, F: FnOnce(&IPowerGridForecastStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PowerGridForecast, IPowerGridForecastStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

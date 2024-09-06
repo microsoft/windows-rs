@@ -512,13 +512,11 @@ impl ArcadeStick {
             (windows_core::Interface::vtable(this).TryGetBatteryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IArcadeStickStatics<R, F: FnOnce(&IArcadeStickStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IArcadeStickStatics<R, F: FnOnce(&IArcadeStickStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ArcadeStick, IArcadeStickStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IArcadeStickStatics2<R, F: FnOnce(&IArcadeStickStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IArcadeStickStatics2<R, F: FnOnce(&IArcadeStickStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ArcadeStick, IArcadeStickStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -675,8 +673,7 @@ impl FlightStick {
             (windows_core::Interface::vtable(this).TryGetBatteryReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IFlightStickStatics<R, F: FnOnce(&IFlightStickStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFlightStickStatics<R, F: FnOnce(&IFlightStickStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FlightStick, IFlightStickStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -837,13 +834,11 @@ impl Gamepad {
             (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), gamecontroller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGamepadStatics<R, F: FnOnce(&IGamepadStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGamepadStatics<R, F: FnOnce(&IGamepadStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Gamepad, IGamepadStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGamepadStatics2<R, F: FnOnce(&IGamepadStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGamepadStatics2<R, F: FnOnce(&IGamepadStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Gamepad, IGamepadStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1077,13 +1072,11 @@ impl RacingWheel {
             (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), gamecontroller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRacingWheelStatics<R, F: FnOnce(&IRacingWheelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRacingWheelStatics<R, F: FnOnce(&IRacingWheelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RacingWheel, IRacingWheelStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IRacingWheelStatics2<R, F: FnOnce(&IRacingWheelStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRacingWheelStatics2<R, F: FnOnce(&IRacingWheelStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RacingWheel, IRacingWheelStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1305,8 +1298,7 @@ impl RawGameController {
             (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), gamecontroller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRawGameControllerStatics<R, F: FnOnce(&IRawGameControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRawGameControllerStatics<R, F: FnOnce(&IRawGameControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RawGameController, IRawGameControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1463,13 +1455,11 @@ impl UINavigationController {
             (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), gamecontroller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUINavigationControllerStatics<R, F: FnOnce(&IUINavigationControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUINavigationControllerStatics<R, F: FnOnce(&IUINavigationControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UINavigationController, IUINavigationControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IUINavigationControllerStatics2<R, F: FnOnce(&IUINavigationControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUINavigationControllerStatics2<R, F: FnOnce(&IUINavigationControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UINavigationController, IUINavigationControllerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

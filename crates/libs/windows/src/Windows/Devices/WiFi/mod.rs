@@ -304,8 +304,7 @@ impl WiFiAdapter {
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWiFiAdapterStatics<R, F: FnOnce(&IWiFiAdapterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWiFiAdapterStatics<R, F: FnOnce(&IWiFiAdapterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WiFiAdapter, IWiFiAdapterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -576,8 +575,7 @@ impl WiFiOnDemandHotspotNetwork {
             (windows_core::Interface::vtable(this).GetOrCreateById)(windows_core::Interface::as_raw(this), networkid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWiFiOnDemandHotspotNetworkStatics<R, F: FnOnce(&IWiFiOnDemandHotspotNetworkStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWiFiOnDemandHotspotNetworkStatics<R, F: FnOnce(&IWiFiOnDemandHotspotNetworkStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WiFiOnDemandHotspotNetwork, IWiFiOnDemandHotspotNetworkStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

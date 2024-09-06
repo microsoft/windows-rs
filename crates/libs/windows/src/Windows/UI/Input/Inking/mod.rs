@@ -1085,8 +1085,7 @@ impl InkDrawingAttributes {
             (windows_core::Interface::vtable(this).CreateForPencil)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IInkDrawingAttributesStatics<R, F: FnOnce(&IInkDrawingAttributesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInkDrawingAttributesStatics<R, F: FnOnce(&IInkDrawingAttributesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InkDrawingAttributes, IInkDrawingAttributesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1539,13 +1538,11 @@ impl InkPoint {
             (windows_core::Interface::vtable(this).CreateInkPointWithTiltAndTimestamp)(windows_core::Interface::as_raw(this), position, pressure, tiltx, tilty, timestamp, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IInkPointFactory<R, F: FnOnce(&IInkPointFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInkPointFactory<R, F: FnOnce(&IInkPointFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InkPoint, IInkPointFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IInkPointFactory2<R, F: FnOnce(&IInkPointFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInkPointFactory2<R, F: FnOnce(&IInkPointFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InkPoint, IInkPointFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1855,8 +1852,7 @@ impl InkPresenterProtractor {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransform)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn IInkPresenterProtractorFactory<R, F: FnOnce(&IInkPresenterProtractorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInkPresenterProtractorFactory<R, F: FnOnce(&IInkPresenterProtractorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InkPresenterProtractor, IInkPresenterProtractorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1985,8 +1981,7 @@ impl InkPresenterRuler {
         let this = &windows_core::Interface::cast::<IInkPresenterStencil>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTransform)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn IInkPresenterRulerFactory<R, F: FnOnce(&IInkPresenterRulerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInkPresenterRulerFactory<R, F: FnOnce(&IInkPresenterRulerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InkPresenterRuler, IInkPresenterRulerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2921,8 +2916,7 @@ impl PenAndInkSettings {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPenAndInkSettingsStatics<R, F: FnOnce(&IPenAndInkSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPenAndInkSettingsStatics<R, F: FnOnce(&IPenAndInkSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PenAndInkSettings, IPenAndInkSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -627,8 +627,7 @@ impl Print3DManager {
             (windows_core::Interface::vtable(this).ShowPrintUIAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrint3DManagerStatics<R, F: FnOnce(&IPrint3DManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrint3DManagerStatics<R, F: FnOnce(&IPrint3DManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Print3DManager, IPrint3DManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -963,8 +962,7 @@ impl Printing3D3MFPackage {
             (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrinting3D3MFPackageStatics<R, F: FnOnce(&IPrinting3D3MFPackageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrinting3D3MFPackageStatics<R, F: FnOnce(&IPrinting3D3MFPackageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Printing3D3MFPackage, IPrinting3D3MFPackageStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1030,8 +1028,7 @@ impl Printing3DBaseMaterial {
             (windows_core::Interface::vtable(this).Pla)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrinting3DBaseMaterialStatics<R, F: FnOnce(&IPrinting3DBaseMaterialStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrinting3DBaseMaterialStatics<R, F: FnOnce(&IPrinting3DBaseMaterialStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Printing3DBaseMaterial, IPrinting3DBaseMaterialStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1074,8 +1071,7 @@ impl Printing3DBaseMaterialGroup {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), materialgroupid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrinting3DBaseMaterialGroupFactory<R, F: FnOnce(&IPrinting3DBaseMaterialGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrinting3DBaseMaterialGroupFactory<R, F: FnOnce(&IPrinting3DBaseMaterialGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Printing3DBaseMaterialGroup, IPrinting3DBaseMaterialGroupFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1167,8 +1163,7 @@ impl Printing3DColorMaterialGroup {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), materialgroupid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrinting3DColorMaterialGroupFactory<R, F: FnOnce(&IPrinting3DColorMaterialGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrinting3DColorMaterialGroupFactory<R, F: FnOnce(&IPrinting3DColorMaterialGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Printing3DColorMaterialGroup, IPrinting3DColorMaterialGroupFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1412,8 +1407,7 @@ impl Printing3DCompositeMaterialGroup {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), materialgroupid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrinting3DCompositeMaterialGroupFactory<R, F: FnOnce(&IPrinting3DCompositeMaterialGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrinting3DCompositeMaterialGroupFactory<R, F: FnOnce(&IPrinting3DCompositeMaterialGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Printing3DCompositeMaterialGroup, IPrinting3DCompositeMaterialGroupFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2061,8 +2055,7 @@ impl Printing3DMultiplePropertyMaterialGroup {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), materialgroupid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrinting3DMultiplePropertyMaterialGroupFactory<R, F: FnOnce(&IPrinting3DMultiplePropertyMaterialGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrinting3DMultiplePropertyMaterialGroupFactory<R, F: FnOnce(&IPrinting3DMultiplePropertyMaterialGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Printing3DMultiplePropertyMaterialGroup, IPrinting3DMultiplePropertyMaterialGroupFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2180,8 +2173,7 @@ impl Printing3DTexture2CoordMaterialGroup {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), materialgroupid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrinting3DTexture2CoordMaterialGroupFactory<R, F: FnOnce(&IPrinting3DTexture2CoordMaterialGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrinting3DTexture2CoordMaterialGroupFactory<R, F: FnOnce(&IPrinting3DTexture2CoordMaterialGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Printing3DTexture2CoordMaterialGroup, IPrinting3DTexture2CoordMaterialGroupFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

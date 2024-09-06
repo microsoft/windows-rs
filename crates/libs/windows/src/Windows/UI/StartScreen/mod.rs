@@ -423,8 +423,7 @@ impl JumpList {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IJumpListStatics<R, F: FnOnce(&IJumpListStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJumpListStatics<R, F: FnOnce(&IJumpListStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<JumpList, IJumpListStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -526,8 +525,7 @@ impl JumpListItem {
             (windows_core::Interface::vtable(this).CreateSeparator)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IJumpListItemStatics<R, F: FnOnce(&IJumpListItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJumpListItemStatics<R, F: FnOnce(&IJumpListItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<JumpListItem, IJumpListItemStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -885,18 +883,15 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).FindAllForPackageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISecondaryTileFactory<R, F: FnOnce(&ISecondaryTileFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISecondaryTileFactory<R, F: FnOnce(&ISecondaryTileFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SecondaryTile, ISecondaryTileFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISecondaryTileFactory2<R, F: FnOnce(&ISecondaryTileFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISecondaryTileFactory2<R, F: FnOnce(&ISecondaryTileFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SecondaryTile, ISecondaryTileFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISecondaryTileStatics<R, F: FnOnce(&ISecondaryTileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISecondaryTileStatics<R, F: FnOnce(&ISecondaryTileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SecondaryTile, ISecondaryTileStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1171,8 +1166,7 @@ impl StartScreenManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStartScreenManagerStatics<R, F: FnOnce(&IStartScreenManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStartScreenManagerStatics<R, F: FnOnce(&IStartScreenManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StartScreenManager, IStartScreenManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

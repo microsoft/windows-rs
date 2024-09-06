@@ -1612,8 +1612,7 @@ impl ActivitySensorTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), reportintervalinmilliseconds, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IActivitySensorTriggerFactory<R, F: FnOnce(&IActivitySensorTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivitySensorTriggerFactory<R, F: FnOnce(&IActivitySensorTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ActivitySensorTrigger, IActivitySensorTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1644,8 +1643,7 @@ impl AlarmApplicationManager {
             (windows_core::Interface::vtable(this).GetAccessStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IAlarmApplicationManagerStatics<R, F: FnOnce(&IAlarmApplicationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAlarmApplicationManagerStatics<R, F: FnOnce(&IAlarmApplicationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AlarmApplicationManager, IAlarmApplicationManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1679,8 +1677,7 @@ impl AppBroadcastTrigger {
             (windows_core::Interface::vtable(this).CreateAppBroadcastTrigger)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(providerkey), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppBroadcastTriggerFactory<R, F: FnOnce(&IAppBroadcastTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppBroadcastTriggerFactory<R, F: FnOnce(&IAppBroadcastTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppBroadcastTrigger, IAppBroadcastTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1933,18 +1930,15 @@ impl BackgroundExecutionManager {
             (windows_core::Interface::vtable(this).GetAccessStatusForModernStandbyForApplication)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IBackgroundExecutionManagerStatics<R, F: FnOnce(&IBackgroundExecutionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundExecutionManagerStatics<R, F: FnOnce(&IBackgroundExecutionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundExecutionManager, IBackgroundExecutionManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBackgroundExecutionManagerStatics2<R, F: FnOnce(&IBackgroundExecutionManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundExecutionManagerStatics2<R, F: FnOnce(&IBackgroundExecutionManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundExecutionManager, IBackgroundExecutionManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBackgroundExecutionManagerStatics3<R, F: FnOnce(&IBackgroundExecutionManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundExecutionManagerStatics3<R, F: FnOnce(&IBackgroundExecutionManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundExecutionManager, IBackgroundExecutionManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2078,8 +2072,7 @@ impl BackgroundTaskBuilder {
             (windows_core::Interface::vtable(this).IsRunningTaskInStandbySupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IBackgroundTaskBuilderStatics<R, F: FnOnce(&IBackgroundTaskBuilderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundTaskBuilderStatics<R, F: FnOnce(&IBackgroundTaskBuilderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundTaskBuilder, IBackgroundTaskBuilderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2277,13 +2270,11 @@ impl BackgroundTaskRegistration {
             (windows_core::Interface::vtable(this).GetTaskGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(groupid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBackgroundTaskRegistrationStatics<R, F: FnOnce(&IBackgroundTaskRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundTaskRegistrationStatics<R, F: FnOnce(&IBackgroundTaskRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundTaskRegistration, IBackgroundTaskRegistrationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBackgroundTaskRegistrationStatics2<R, F: FnOnce(&IBackgroundTaskRegistrationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundTaskRegistrationStatics2<R, F: FnOnce(&IBackgroundTaskRegistrationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundTaskRegistration, IBackgroundTaskRegistrationStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2354,8 +2345,7 @@ impl BackgroundTaskRegistrationGroup {
             (windows_core::Interface::vtable(this).CreateWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBackgroundTaskRegistrationGroupFactory<R, F: FnOnce(&IBackgroundTaskRegistrationGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundTaskRegistrationGroupFactory<R, F: FnOnce(&IBackgroundTaskRegistrationGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundTaskRegistrationGroup, IBackgroundTaskRegistrationGroupFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2398,13 +2388,11 @@ impl BackgroundWorkCost {
             (windows_core::Interface::vtable(this).AppLastThrottledInStandbyTimestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IBackgroundWorkCostStatics<R, F: FnOnce(&IBackgroundWorkCostStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundWorkCostStatics<R, F: FnOnce(&IBackgroundWorkCostStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundWorkCost, IBackgroundWorkCostStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBackgroundWorkCostStatics2<R, F: FnOnce(&IBackgroundWorkCostStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundWorkCostStatics2<R, F: FnOnce(&IBackgroundWorkCostStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundWorkCost, IBackgroundWorkCostStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2787,8 +2775,7 @@ impl ContentPrefetchTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), waitinterval, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IContentPrefetchTriggerFactory<R, F: FnOnce(&IContentPrefetchTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContentPrefetchTriggerFactory<R, F: FnOnce(&IContentPrefetchTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContentPrefetchTrigger, IContentPrefetchTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2852,8 +2839,7 @@ impl CustomSystemEventTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(triggerid), recurrence, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICustomSystemEventTriggerFactory<R, F: FnOnce(&ICustomSystemEventTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICustomSystemEventTriggerFactory<R, F: FnOnce(&ICustomSystemEventTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CustomSystemEventTrigger, ICustomSystemEventTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2905,8 +2891,7 @@ impl DeviceConnectionChangeTrigger {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDeviceConnectionChangeTriggerStatics<R, F: FnOnce(&IDeviceConnectionChangeTriggerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDeviceConnectionChangeTriggerStatics<R, F: FnOnce(&IDeviceConnectionChangeTriggerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DeviceConnectionChangeTrigger, IDeviceConnectionChangeTriggerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2956,9 +2941,8 @@ impl DeviceManufacturerNotificationTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(triggerqualifier), oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IDeviceManufacturerNotificationTriggerFactory<R, F: FnOnce(&IDeviceManufacturerNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDeviceManufacturerNotificationTriggerFactory<R, F: FnOnce(&IDeviceManufacturerNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DeviceManufacturerNotificationTrigger, IDeviceManufacturerNotificationTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3140,13 +3124,11 @@ impl GattCharacteristicNotificationTrigger {
             (windows_core::Interface::vtable(this).CreateWithEventTriggeringMode)(windows_core::Interface::as_raw(this), characteristic.param().abi(), eventtriggeringmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGattCharacteristicNotificationTriggerFactory<R, F: FnOnce(&IGattCharacteristicNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattCharacteristicNotificationTriggerFactory<R, F: FnOnce(&IGattCharacteristicNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattCharacteristicNotificationTrigger, IGattCharacteristicNotificationTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGattCharacteristicNotificationTriggerFactory2<R, F: FnOnce(&IGattCharacteristicNotificationTriggerFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattCharacteristicNotificationTriggerFactory2<R, F: FnOnce(&IGattCharacteristicNotificationTriggerFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattCharacteristicNotificationTrigger, IGattCharacteristicNotificationTriggerFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3206,8 +3188,7 @@ impl GattServiceProviderTrigger {
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(triggerid), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGattServiceProviderTriggerStatics<R, F: FnOnce(&IGattServiceProviderTriggerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattServiceProviderTriggerStatics<R, F: FnOnce(&IGattServiceProviderTriggerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattServiceProviderTrigger, IGattServiceProviderTriggerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3315,8 +3296,7 @@ impl LocationTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILocationTriggerFactory<R, F: FnOnce(&ILocationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILocationTriggerFactory<R, F: FnOnce(&ILocationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LocationTrigger, ILocationTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3359,8 +3339,7 @@ impl MaintenanceTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), freshnesstime, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMaintenanceTriggerFactory<R, F: FnOnce(&IMaintenanceTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMaintenanceTriggerFactory<R, F: FnOnce(&IMaintenanceTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MaintenanceTrigger, IMaintenanceTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3610,8 +3589,7 @@ impl NetworkOperatorNotificationTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn INetworkOperatorNotificationTriggerFactory<R, F: FnOnce(&INetworkOperatorNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INetworkOperatorNotificationTriggerFactory<R, F: FnOnce(&INetworkOperatorNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NetworkOperatorNotificationTrigger, INetworkOperatorNotificationTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3679,8 +3657,7 @@ impl PhoneTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), r#type, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPhoneTriggerFactory<R, F: FnOnce(&IPhoneTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPhoneTriggerFactory<R, F: FnOnce(&IPhoneTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PhoneTrigger, IPhoneTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3715,8 +3692,7 @@ impl PushNotificationTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPushNotificationTriggerFactory<R, F: FnOnce(&IPushNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPushNotificationTriggerFactory<R, F: FnOnce(&IPushNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PushNotificationTrigger, IPushNotificationTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3888,8 +3864,7 @@ impl SensorDataThresholdTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), threshold.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISensorDataThresholdTriggerFactory<R, F: FnOnce(&ISensorDataThresholdTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISensorDataThresholdTriggerFactory<R, F: FnOnce(&ISensorDataThresholdTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SensorDataThresholdTrigger, ISensorDataThresholdTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3927,8 +3902,7 @@ impl SmartCardTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISmartCardTriggerFactory<R, F: FnOnce(&ISmartCardTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmartCardTriggerFactory<R, F: FnOnce(&ISmartCardTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmartCardTrigger, ISmartCardTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3958,8 +3932,7 @@ impl SmsMessageReceivedTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), filterrules.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISmsMessageReceivedTriggerFactory<R, F: FnOnce(&ISmsMessageReceivedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsMessageReceivedTriggerFactory<R, F: FnOnce(&ISmsMessageReceivedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmsMessageReceivedTrigger, ISmsMessageReceivedTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4023,8 +3996,7 @@ impl StorageLibraryChangeTrackerTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), tracker.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStorageLibraryChangeTrackerTriggerFactory<R, F: FnOnce(&IStorageLibraryChangeTrackerTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorageLibraryChangeTrackerTriggerFactory<R, F: FnOnce(&IStorageLibraryChangeTrackerTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StorageLibraryChangeTrackerTrigger, IStorageLibraryChangeTrackerTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4067,8 +4039,7 @@ impl StorageLibraryContentChangedTrigger {
             (windows_core::Interface::vtable(this).CreateFromLibraries)(windows_core::Interface::as_raw(this), storagelibraries.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStorageLibraryContentChangedTriggerStatics<R, F: FnOnce(&IStorageLibraryContentChangedTriggerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorageLibraryContentChangedTriggerStatics<R, F: FnOnce(&IStorageLibraryContentChangedTriggerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StorageLibraryContentChangedTrigger, IStorageLibraryContentChangedTriggerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4102,8 +4073,7 @@ impl SystemCondition {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), conditiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISystemConditionFactory<R, F: FnOnce(&ISystemConditionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemConditionFactory<R, F: FnOnce(&ISystemConditionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemCondition, ISystemConditionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4144,8 +4114,7 @@ impl SystemTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), triggertype, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISystemTriggerFactory<R, F: FnOnce(&ISystemTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemTriggerFactory<R, F: FnOnce(&ISystemTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemTrigger, ISystemTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4211,8 +4180,7 @@ impl TimeTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), freshnesstime, oneshot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITimeTriggerFactory<R, F: FnOnce(&ITimeTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITimeTriggerFactory<R, F: FnOnce(&ITimeTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TimeTrigger, ITimeTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4245,8 +4213,7 @@ impl ToastNotificationActionTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IToastNotificationActionTriggerFactory<R, F: FnOnce(&IToastNotificationActionTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationActionTriggerFactory<R, F: FnOnce(&IToastNotificationActionTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationActionTrigger, IToastNotificationActionTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4281,8 +4248,7 @@ impl ToastNotificationHistoryChangedTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IToastNotificationHistoryChangedTriggerFactory<R, F: FnOnce(&IToastNotificationHistoryChangedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationHistoryChangedTriggerFactory<R, F: FnOnce(&IToastNotificationHistoryChangedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationHistoryChangedTrigger, IToastNotificationHistoryChangedTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4311,8 +4277,7 @@ impl UserNotificationChangedTrigger {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), notificationkinds, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUserNotificationChangedTriggerFactory<R, F: FnOnce(&IUserNotificationChangedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserNotificationChangedTriggerFactory<R, F: FnOnce(&IUserNotificationChangedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserNotificationChangedTrigger, IUserNotificationChangedTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -107,13 +107,11 @@ impl WebAuthenticationBroker {
             (windows_core::Interface::vtable(this).AuthenticateSilentlyWithOptionsAsync)(windows_core::Interface::as_raw(this), requesturi.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebAuthenticationBrokerStatics<R, F: FnOnce(&IWebAuthenticationBrokerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationBrokerStatics<R, F: FnOnce(&IWebAuthenticationBrokerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationBroker, IWebAuthenticationBrokerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebAuthenticationBrokerStatics2<R, F: FnOnce(&IWebAuthenticationBrokerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationBrokerStatics2<R, F: FnOnce(&IWebAuthenticationBrokerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationBroker, IWebAuthenticationBrokerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

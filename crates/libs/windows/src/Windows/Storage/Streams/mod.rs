@@ -999,13 +999,11 @@ impl Buffer {
             (windows_core::Interface::vtable(this).CreateMemoryBufferOverIBuffer)(windows_core::Interface::as_raw(this), input.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBufferFactory<R, F: FnOnce(&IBufferFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBufferFactory<R, F: FnOnce(&IBufferFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Buffer, IBufferFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBufferStatics<R, F: FnOnce(&IBufferStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBufferStatics<R, F: FnOnce(&IBufferStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Buffer, IBufferStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1220,13 +1218,11 @@ impl DataReader {
             (windows_core::Interface::vtable(this).FromBuffer)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDataReaderFactory<R, F: FnOnce(&IDataReaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataReaderFactory<R, F: FnOnce(&IDataReaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataReader, IDataReaderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDataReaderStatics<R, F: FnOnce(&IDataReaderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataReaderStatics<R, F: FnOnce(&IDataReaderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataReader, IDataReaderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1411,8 +1407,7 @@ impl DataWriter {
             (windows_core::Interface::vtable(this).CreateDataWriter)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDataWriterFactory<R, F: FnOnce(&IDataWriterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataWriterFactory<R, F: FnOnce(&IDataWriterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataWriter, IDataWriterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1661,8 +1656,7 @@ impl FileRandomAccessStream {
             (windows_core::Interface::vtable(this).CanWrite)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[doc(hidden)]
-    pub fn IFileRandomAccessStreamStatics<R, F: FnOnce(&IFileRandomAccessStreamStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileRandomAccessStreamStatics<R, F: FnOnce(&IFileRandomAccessStreamStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FileRandomAccessStream, IFileRandomAccessStreamStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1898,8 +1892,7 @@ impl RandomAccessStream {
             (windows_core::Interface::vtable(this).CopyAndCloseAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRandomAccessStreamStatics<R, F: FnOnce(&IRandomAccessStreamStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRandomAccessStreamStatics<R, F: FnOnce(&IRandomAccessStreamStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RandomAccessStream, IRandomAccessStreamStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2053,8 +2046,7 @@ impl RandomAccessStreamReference {
             (windows_core::Interface::vtable(this).CreateFromStream)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRandomAccessStreamReferenceStatics<R, F: FnOnce(&IRandomAccessStreamReferenceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRandomAccessStreamReferenceStatics<R, F: FnOnce(&IRandomAccessStreamReferenceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RandomAccessStreamReference, IRandomAccessStreamReferenceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

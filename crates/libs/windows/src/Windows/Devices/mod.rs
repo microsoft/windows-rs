@@ -222,8 +222,7 @@ impl LowLevelDevicesAggregateProvider {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), adc.param().abi(), pwm.param().abi(), gpio.param().abi(), i2c.param().abi(), spi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILowLevelDevicesAggregateProviderFactory<R, F: FnOnce(&ILowLevelDevicesAggregateProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILowLevelDevicesAggregateProviderFactory<R, F: FnOnce(&ILowLevelDevicesAggregateProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProviderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -257,8 +256,7 @@ impl LowLevelDevicesController {
     {
         Self::ILowLevelDevicesControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetDefaultProvider)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
-    #[doc(hidden)]
-    pub fn ILowLevelDevicesControllerStatics<R, F: FnOnce(&ILowLevelDevicesControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILowLevelDevicesControllerStatics<R, F: FnOnce(&ILowLevelDevicesControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LowLevelDevicesController, ILowLevelDevicesControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

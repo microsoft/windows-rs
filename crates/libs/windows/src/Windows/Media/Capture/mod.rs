@@ -2591,8 +2591,7 @@ impl AppBroadcastManager {
     {
         Self::IAppBroadcastManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ApplyProviderSettings)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
-    #[doc(hidden)]
-    pub fn IAppBroadcastManagerStatics<R, F: FnOnce(&IAppBroadcastManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppBroadcastManagerStatics<R, F: FnOnce(&IAppBroadcastManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppBroadcastManager, IAppBroadcastManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2729,8 +2728,7 @@ impl AppBroadcastPlugInManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppBroadcastPlugInManagerStatics<R, F: FnOnce(&IAppBroadcastPlugInManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppBroadcastPlugInManagerStatics<R, F: FnOnce(&IAppBroadcastPlugInManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppBroadcastPlugInManager, IAppBroadcastPlugInManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3889,13 +3887,11 @@ impl AppCapture {
             (windows_core::Interface::vtable(this).SetAllowedAsync)(windows_core::Interface::as_raw(this), allowed, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppCaptureStatics<R, F: FnOnce(&IAppCaptureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppCaptureStatics<R, F: FnOnce(&IAppCaptureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppCapture, IAppCaptureStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAppCaptureStatics2<R, F: FnOnce(&IAppCaptureStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppCaptureStatics2<R, F: FnOnce(&IAppCaptureStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppCapture, IAppCaptureStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4199,8 +4195,7 @@ impl AppCaptureManager {
     {
         Self::IAppCaptureManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ApplySettings)(windows_core::Interface::as_raw(this), appcapturesettings.param().abi()).ok() })
     }
-    #[doc(hidden)]
-    pub fn IAppCaptureManagerStatics<R, F: FnOnce(&IAppCaptureManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppCaptureManagerStatics<R, F: FnOnce(&IAppCaptureManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppCaptureManager, IAppCaptureManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5099,8 +5094,7 @@ impl CameraOptionsUI {
     {
         Self::ICameraOptionsUIStatics(|this| unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this), mediacapture.param().abi()).ok() })
     }
-    #[doc(hidden)]
-    pub fn ICameraOptionsUIStatics<R, F: FnOnce(&ICameraOptionsUIStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICameraOptionsUIStatics<R, F: FnOnce(&ICameraOptionsUIStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CameraOptionsUI, ICameraOptionsUIStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5556,8 +5550,7 @@ impl GameBarServicesManager {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGameBarServicesManagerStatics<R, F: FnOnce(&IGameBarServicesManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameBarServicesManagerStatics<R, F: FnOnce(&IGameBarServicesManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameBarServicesManager, IGameBarServicesManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -6418,8 +6411,7 @@ impl MediaCapture {
             (windows_core::Interface::vtable(this).StopPreviewAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IMediaCaptureStatics<R, F: FnOnce(&IMediaCaptureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaCaptureStatics<R, F: FnOnce(&IMediaCaptureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaCapture, IMediaCaptureStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -7326,8 +7318,7 @@ impl ScreenCapture {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IScreenCaptureStatics<R, F: FnOnce(&IScreenCaptureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IScreenCaptureStatics<R, F: FnOnce(&IScreenCaptureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ScreenCapture, IScreenCaptureStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

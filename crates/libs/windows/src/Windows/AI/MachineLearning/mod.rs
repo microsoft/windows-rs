@@ -1131,8 +1131,7 @@ impl ImageFeatureValue {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[doc(hidden)]
-    pub fn IImageFeatureValueStatics<R, F: FnOnce(&IImageFeatureValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IImageFeatureValueStatics<R, F: FnOnce(&IImageFeatureValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ImageFeatureValue, IImageFeatureValueStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1296,8 +1295,7 @@ impl LearningModel {
             (windows_core::Interface::vtable(this).LoadFromStreamWithOperatorProvider)(windows_core::Interface::as_raw(this), modelstream.param().abi(), operatorprovider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILearningModelStatics<R, F: FnOnce(&ILearningModelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelStatics<R, F: FnOnce(&ILearningModelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LearningModel, ILearningModelStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1387,8 +1385,7 @@ impl LearningModelBinding {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
-    #[doc(hidden)]
-    pub fn ILearningModelBindingFactory<R, F: FnOnce(&ILearningModelBindingFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelBindingFactory<R, F: FnOnce(&ILearningModelBindingFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LearningModelBinding, ILearningModelBindingFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1458,13 +1455,11 @@ impl LearningModelDevice {
             (windows_core::Interface::vtable(this).CreateFromDirect3D11Device)(windows_core::Interface::as_raw(this), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILearningModelDeviceFactory<R, F: FnOnce(&ILearningModelDeviceFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelDeviceFactory<R, F: FnOnce(&ILearningModelDeviceFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LearningModelDevice, ILearningModelDeviceFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILearningModelDeviceStatics<R, F: FnOnce(&ILearningModelDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelDeviceStatics<R, F: FnOnce(&ILearningModelDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LearningModelDevice, ILearningModelDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1632,13 +1627,11 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).CreateFromModelOnDeviceWithSessionOptions)(windows_core::Interface::as_raw(this), model.param().abi(), devicetorunon.param().abi(), learningmodelsessionoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILearningModelSessionFactory<R, F: FnOnce(&ILearningModelSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelSessionFactory<R, F: FnOnce(&ILearningModelSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LearningModelSession, ILearningModelSessionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILearningModelSessionFactory2<R, F: FnOnce(&ILearningModelSessionFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelSessionFactory2<R, F: FnOnce(&ILearningModelSessionFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LearningModelSession, ILearningModelSessionFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1921,13 +1914,11 @@ impl TensorBoolean {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorBooleanStatics<R, F: FnOnce(&ITensorBooleanStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorBooleanStatics<R, F: FnOnce(&ITensorBooleanStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorBoolean, ITensorBooleanStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorBooleanStatics2<R, F: FnOnce(&ITensorBooleanStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorBooleanStatics2<R, F: FnOnce(&ITensorBooleanStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorBoolean, ITensorBooleanStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2044,13 +2035,11 @@ impl TensorDouble {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorDoubleStatics<R, F: FnOnce(&ITensorDoubleStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorDoubleStatics<R, F: FnOnce(&ITensorDoubleStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorDouble, ITensorDoubleStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorDoubleStatics2<R, F: FnOnce(&ITensorDoubleStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorDoubleStatics2<R, F: FnOnce(&ITensorDoubleStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorDouble, ITensorDoubleStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2229,13 +2218,11 @@ impl TensorFloat {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorFloatStatics<R, F: FnOnce(&ITensorFloatStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorFloatStatics<R, F: FnOnce(&ITensorFloatStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorFloat, ITensorFloatStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorFloatStatics2<R, F: FnOnce(&ITensorFloatStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorFloatStatics2<R, F: FnOnce(&ITensorFloatStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorFloat, ITensorFloatStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2352,13 +2339,11 @@ impl TensorFloat16Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorFloat16BitStatics<R, F: FnOnce(&ITensorFloat16BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorFloat16BitStatics<R, F: FnOnce(&ITensorFloat16BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorFloat16Bit, ITensorFloat16BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorFloat16BitStatics2<R, F: FnOnce(&ITensorFloat16BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorFloat16BitStatics2<R, F: FnOnce(&ITensorFloat16BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorFloat16Bit, ITensorFloat16BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2475,13 +2460,11 @@ impl TensorInt16Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorInt16BitStatics<R, F: FnOnce(&ITensorInt16BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt16BitStatics<R, F: FnOnce(&ITensorInt16BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt16Bit, ITensorInt16BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorInt16BitStatics2<R, F: FnOnce(&ITensorInt16BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt16BitStatics2<R, F: FnOnce(&ITensorInt16BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt16Bit, ITensorInt16BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2598,13 +2581,11 @@ impl TensorInt32Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorInt32BitStatics<R, F: FnOnce(&ITensorInt32BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt32BitStatics<R, F: FnOnce(&ITensorInt32BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt32Bit, ITensorInt32BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorInt32BitStatics2<R, F: FnOnce(&ITensorInt32BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt32BitStatics2<R, F: FnOnce(&ITensorInt32BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt32Bit, ITensorInt32BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2721,13 +2702,11 @@ impl TensorInt64Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorInt64BitStatics<R, F: FnOnce(&ITensorInt64BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt64BitStatics<R, F: FnOnce(&ITensorInt64BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt64Bit, ITensorInt64BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorInt64BitStatics2<R, F: FnOnce(&ITensorInt64BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt64BitStatics2<R, F: FnOnce(&ITensorInt64BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt64Bit, ITensorInt64BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2844,13 +2823,11 @@ impl TensorInt8Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorInt8BitStatics<R, F: FnOnce(&ITensorInt8BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt8BitStatics<R, F: FnOnce(&ITensorInt8BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt8Bit, ITensorInt8BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorInt8BitStatics2<R, F: FnOnce(&ITensorInt8BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt8BitStatics2<R, F: FnOnce(&ITensorInt8BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt8Bit, ITensorInt8BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2957,13 +2934,11 @@ impl TensorString {
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorStringStatics<R, F: FnOnce(&ITensorStringStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorStringStatics<R, F: FnOnce(&ITensorStringStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorString, ITensorStringStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorStringStatics2<R, F: FnOnce(&ITensorStringStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorStringStatics2<R, F: FnOnce(&ITensorStringStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorString, ITensorStringStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3080,13 +3055,11 @@ impl TensorUInt16Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorUInt16BitStatics<R, F: FnOnce(&ITensorUInt16BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt16BitStatics<R, F: FnOnce(&ITensorUInt16BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt16Bit, ITensorUInt16BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorUInt16BitStatics2<R, F: FnOnce(&ITensorUInt16BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt16BitStatics2<R, F: FnOnce(&ITensorUInt16BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt16Bit, ITensorUInt16BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3203,13 +3176,11 @@ impl TensorUInt32Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorUInt32BitStatics<R, F: FnOnce(&ITensorUInt32BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt32BitStatics<R, F: FnOnce(&ITensorUInt32BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt32Bit, ITensorUInt32BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorUInt32BitStatics2<R, F: FnOnce(&ITensorUInt32BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt32BitStatics2<R, F: FnOnce(&ITensorUInt32BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt32Bit, ITensorUInt32BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3326,13 +3297,11 @@ impl TensorUInt64Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorUInt64BitStatics<R, F: FnOnce(&ITensorUInt64BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt64BitStatics<R, F: FnOnce(&ITensorUInt64BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt64Bit, ITensorUInt64BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorUInt64BitStatics2<R, F: FnOnce(&ITensorUInt64BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt64BitStatics2<R, F: FnOnce(&ITensorUInt64BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt64Bit, ITensorUInt64BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3449,13 +3418,11 @@ impl TensorUInt8Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITensorUInt8BitStatics<R, F: FnOnce(&ITensorUInt8BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt8BitStatics<R, F: FnOnce(&ITensorUInt8BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt8Bit, ITensorUInt8BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITensorUInt8BitStatics2<R, F: FnOnce(&ITensorUInt8BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt8BitStatics2<R, F: FnOnce(&ITensorUInt8BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt8Bit, ITensorUInt8BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

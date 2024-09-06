@@ -595,8 +595,7 @@ impl WebAccountClientView {
             (windows_core::Interface::vtable(this).CreateWithPairwiseId)(windows_core::Interface::as_raw(this), viewtype, applicationcallbackuri.param().abi(), core::mem::transmute_copy(accountpairwiseid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebAccountClientViewFactory<R, F: FnOnce(&IWebAccountClientViewFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAccountClientViewFactory<R, F: FnOnce(&IWebAccountClientViewFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAccountClientView, IWebAccountClientViewFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -852,33 +851,27 @@ impl WebAccountManager {
             (windows_core::Interface::vtable(this).GetScope)(windows_core::Interface::as_raw(this), webaccount.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IWebAccountManagerStatics<R, F: FnOnce(&IWebAccountManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAccountManagerStatics<R, F: FnOnce(&IWebAccountManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebAccountManagerStatics2<R, F: FnOnce(&IWebAccountManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAccountManagerStatics2<R, F: FnOnce(&IWebAccountManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebAccountManagerStatics3<R, F: FnOnce(&IWebAccountManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAccountManagerStatics3<R, F: FnOnce(&IWebAccountManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebAccountManagerStatics4<R, F: FnOnce(&IWebAccountManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAccountManagerStatics4<R, F: FnOnce(&IWebAccountManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebAccountMapManagerStatics<R, F: FnOnce(&IWebAccountMapManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAccountMapManagerStatics<R, F: FnOnce(&IWebAccountMapManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountMapManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebAccountScopeManagerStatics<R, F: FnOnce(&IWebAccountScopeManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAccountScopeManagerStatics<R, F: FnOnce(&IWebAccountScopeManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountScopeManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1426,8 +1419,7 @@ impl WebProviderTokenResponse {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), webtokenresponse.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebProviderTokenResponseFactory<R, F: FnOnce(&IWebProviderTokenResponseFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebProviderTokenResponseFactory<R, F: FnOnce(&IWebProviderTokenResponseFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebProviderTokenResponse, IWebProviderTokenResponseFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

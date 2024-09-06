@@ -1902,8 +1902,7 @@ impl ESimManager {
     pub fn RemoveServiceInfoChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IESimManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveServiceInfoChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn IESimManagerStatics<R, F: FnOnce(&IESimManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IESimManagerStatics<R, F: FnOnce(&IESimManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ESimManager, IESimManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2399,8 +2398,7 @@ impl FdnAccessManager {
             (windows_core::Interface::vtable(this).RequestUnlockAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contactlistid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IFdnAccessManagerStatics<R, F: FnOnce(&IFdnAccessManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFdnAccessManagerStatics<R, F: FnOnce(&IFdnAccessManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FdnAccessManager, IFdnAccessManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2479,8 +2477,7 @@ impl HotspotAuthenticationContext {
             (windows_core::Interface::vtable(this).TryGetAuthenticationContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventoken), context as *mut _ as _, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IHotspotAuthenticationContextStatics<R, F: FnOnce(&IHotspotAuthenticationContextStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHotspotAuthenticationContextStatics<R, F: FnOnce(&IHotspotAuthenticationContextStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HotspotAuthenticationContext, IHotspotAuthenticationContextStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2586,8 +2583,7 @@ impl KnownCSimFilePaths {
             (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownCSimFilePathsStatics<R, F: FnOnce(&IKnownCSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownCSimFilePathsStatics<R, F: FnOnce(&IKnownCSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownCSimFilePaths, IKnownCSimFilePathsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2618,8 +2614,7 @@ impl KnownRuimFilePaths {
             (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownRuimFilePathsStatics<R, F: FnOnce(&IKnownRuimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownRuimFilePathsStatics<R, F: FnOnce(&IKnownRuimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownRuimFilePaths, IKnownRuimFilePathsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2657,8 +2652,7 @@ impl KnownSimFilePaths {
             (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownSimFilePathsStatics<R, F: FnOnce(&IKnownSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownSimFilePathsStatics<R, F: FnOnce(&IKnownSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownSimFilePaths, IKnownSimFilePathsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2703,8 +2697,7 @@ impl KnownUSimFilePaths {
             (windows_core::Interface::vtable(this).Gid2)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownUSimFilePathsStatics<R, F: FnOnce(&IKnownUSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownUSimFilePathsStatics<R, F: FnOnce(&IKnownUSimFilePathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownUSimFilePaths, IKnownUSimFilePathsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2780,8 +2773,7 @@ impl MobileBroadbandAccount {
             (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMobileBroadbandAccountStatics<R, F: FnOnce(&IMobileBroadbandAccountStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMobileBroadbandAccountStatics<R, F: FnOnce(&IMobileBroadbandAccountStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MobileBroadbandAccount, IMobileBroadbandAccountStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2989,8 +2981,7 @@ impl MobileBroadbandAntennaSar {
             (windows_core::Interface::vtable(this).CreateWithIndex)(windows_core::Interface::as_raw(this), antennaindex, sarbackoffindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMobileBroadbandAntennaSarFactory<R, F: FnOnce(&IMobileBroadbandAntennaSarFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMobileBroadbandAntennaSarFactory<R, F: FnOnce(&IMobileBroadbandAntennaSarFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MobileBroadbandAntennaSar, IMobileBroadbandAntennaSarFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4263,8 +4254,7 @@ impl MobileBroadbandModem {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMobileBroadbandModemStatics<R, F: FnOnce(&IMobileBroadbandModemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMobileBroadbandModemStatics<R, F: FnOnce(&IMobileBroadbandModemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MobileBroadbandModem, IMobileBroadbandModemStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4365,8 +4355,7 @@ impl MobileBroadbandModemIsolation {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(modemdeviceid), core::mem::transmute_copy(rulegroupid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMobileBroadbandModemIsolationFactory<R, F: FnOnce(&IMobileBroadbandModemIsolationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMobileBroadbandModemIsolationFactory<R, F: FnOnce(&IMobileBroadbandModemIsolationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MobileBroadbandModemIsolation, IMobileBroadbandModemIsolationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5763,23 +5752,19 @@ impl NetworkOperatorTetheringManager {
             (windows_core::Interface::vtable(this).DisableNoConnectionsTimeoutAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn INetworkOperatorTetheringManagerStatics<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INetworkOperatorTetheringManagerStatics<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn INetworkOperatorTetheringManagerStatics2<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INetworkOperatorTetheringManagerStatics2<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn INetworkOperatorTetheringManagerStatics3<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INetworkOperatorTetheringManagerStatics3<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn INetworkOperatorTetheringManagerStatics4<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INetworkOperatorTetheringManagerStatics4<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -6019,8 +6004,7 @@ impl ProvisioningAgent {
             (windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IProvisioningAgentStaticMethods<R, F: FnOnce(&IProvisioningAgentStaticMethods) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProvisioningAgentStaticMethods<R, F: FnOnce(&IProvisioningAgentStaticMethods) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProvisioningAgent, IProvisioningAgentStaticMethods> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -6112,8 +6096,7 @@ impl UssdMessage {
             (windows_core::Interface::vtable(this).CreateMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetext), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUssdMessageFactory<R, F: FnOnce(&IUssdMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUssdMessageFactory<R, F: FnOnce(&IUssdMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UssdMessage, IUssdMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -6191,8 +6174,7 @@ impl UssdSession {
             (windows_core::Interface::vtable(this).CreateFromNetworkInterfaceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUssdSessionStatics<R, F: FnOnce(&IUssdSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUssdSessionStatics<R, F: FnOnce(&IUssdSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UssdSession, IUssdSessionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

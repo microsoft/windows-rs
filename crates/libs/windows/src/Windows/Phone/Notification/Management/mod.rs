@@ -736,18 +736,15 @@ impl AccessoryManager {
     pub fn DismissReminderByInstanceId(instanceid: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::IAccessoryManager3(|this| unsafe { (windows_core::Interface::vtable(this).DismissReminderByInstanceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(instanceid)).ok() })
     }
-    #[doc(hidden)]
-    pub fn IAccessoryManager<R, F: FnOnce(&IAccessoryManager) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAccessoryManager<R, F: FnOnce(&IAccessoryManager) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AccessoryManager, IAccessoryManager> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAccessoryManager2<R, F: FnOnce(&IAccessoryManager2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAccessoryManager2<R, F: FnOnce(&IAccessoryManager2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AccessoryManager, IAccessoryManager2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAccessoryManager3<R, F: FnOnce(&IAccessoryManager3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAccessoryManager3<R, F: FnOnce(&IAccessoryManager3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AccessoryManager, IAccessoryManager3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

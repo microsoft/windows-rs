@@ -757,13 +757,11 @@ impl AudioEncodingProperties {
             (windows_core::Interface::vtable(this).Subtype)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IAudioEncodingPropertiesStatics<R, F: FnOnce(&IAudioEncodingPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioEncodingPropertiesStatics<R, F: FnOnce(&IAudioEncodingPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioEncodingProperties, IAudioEncodingPropertiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAudioEncodingPropertiesStatics2<R, F: FnOnce(&IAudioEncodingPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioEncodingPropertiesStatics2<R, F: FnOnce(&IAudioEncodingPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioEncodingProperties, IAudioEncodingPropertiesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -854,8 +852,7 @@ impl Av1ProfileIds {
             (windows_core::Interface::vtable(this).ProfessionalChromaSubsampling422BitDepth12)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IAv1ProfileIdsStatics<R, F: FnOnce(&IAv1ProfileIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAv1ProfileIdsStatics<R, F: FnOnce(&IAv1ProfileIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Av1ProfileIds, IAv1ProfileIdsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -984,8 +981,7 @@ impl H264ProfileIds {
             (windows_core::Interface::vtable(this).MultiviewHigh)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IH264ProfileIdsStatics<R, F: FnOnce(&IH264ProfileIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IH264ProfileIdsStatics<R, F: FnOnce(&IH264ProfileIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<H264ProfileIds, IH264ProfileIdsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1127,8 +1123,7 @@ impl HevcProfileIds {
             (windows_core::Interface::vtable(this).MainStillChromaSubsampling444BitDepth16)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IHevcProfileIdsStatics<R, F: FnOnce(&IHevcProfileIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHevcProfileIdsStatics<R, F: FnOnce(&IHevcProfileIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HevcProfileIds, IHevcProfileIdsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1240,18 +1235,15 @@ impl ImageEncodingProperties {
             (windows_core::Interface::vtable(this).Subtype)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IImageEncodingPropertiesStatics<R, F: FnOnce(&IImageEncodingPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IImageEncodingPropertiesStatics<R, F: FnOnce(&IImageEncodingPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ImageEncodingProperties, IImageEncodingPropertiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IImageEncodingPropertiesStatics2<R, F: FnOnce(&IImageEncodingPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IImageEncodingPropertiesStatics2<R, F: FnOnce(&IImageEncodingPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ImageEncodingProperties, IImageEncodingPropertiesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IImageEncodingPropertiesStatics3<R, F: FnOnce(&IImageEncodingPropertiesStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IImageEncodingPropertiesStatics3<R, F: FnOnce(&IImageEncodingPropertiesStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ImageEncodingProperties, IImageEncodingPropertiesStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1462,23 +1454,19 @@ impl MediaEncodingProfile {
             (windows_core::Interface::vtable(this).CreateAv1)(windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaEncodingProfileStatics<R, F: FnOnce(&IMediaEncodingProfileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaEncodingProfileStatics<R, F: FnOnce(&IMediaEncodingProfileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaEncodingProfileStatics2<R, F: FnOnce(&IMediaEncodingProfileStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaEncodingProfileStatics2<R, F: FnOnce(&IMediaEncodingProfileStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaEncodingProfileStatics3<R, F: FnOnce(&IMediaEncodingProfileStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaEncodingProfileStatics3<R, F: FnOnce(&IMediaEncodingProfileStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaEncodingProfileStatics4<R, F: FnOnce(&IMediaEncodingProfileStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaEncodingProfileStatics4<R, F: FnOnce(&IMediaEncodingProfileStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1815,38 +1803,31 @@ impl MediaEncodingSubtypes {
             (windows_core::Interface::vtable(this).Av1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaEncodingSubtypesStatics<R, F: FnOnce(&IMediaEncodingSubtypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaEncodingSubtypesStatics<R, F: FnOnce(&IMediaEncodingSubtypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaEncodingSubtypesStatics2<R, F: FnOnce(&IMediaEncodingSubtypesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaEncodingSubtypesStatics2<R, F: FnOnce(&IMediaEncodingSubtypesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaEncodingSubtypesStatics3<R, F: FnOnce(&IMediaEncodingSubtypesStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaEncodingSubtypesStatics3<R, F: FnOnce(&IMediaEncodingSubtypesStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaEncodingSubtypesStatics4<R, F: FnOnce(&IMediaEncodingSubtypesStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaEncodingSubtypesStatics4<R, F: FnOnce(&IMediaEncodingSubtypesStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaEncodingSubtypesStatics5<R, F: FnOnce(&IMediaEncodingSubtypesStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaEncodingSubtypesStatics5<R, F: FnOnce(&IMediaEncodingSubtypesStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics5> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaEncodingSubtypesStatics6<R, F: FnOnce(&IMediaEncodingSubtypesStatics6) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaEncodingSubtypesStatics6<R, F: FnOnce(&IMediaEncodingSubtypesStatics6) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics6> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaEncodingSubtypesStatics7<R, F: FnOnce(&IMediaEncodingSubtypesStatics7) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaEncodingSubtypesStatics7<R, F: FnOnce(&IMediaEncodingSubtypesStatics7) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingSubtypes, IMediaEncodingSubtypesStatics7> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2038,8 +2019,7 @@ impl Mpeg2ProfileIds {
             (windows_core::Interface::vtable(this).High)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IMpeg2ProfileIdsStatics<R, F: FnOnce(&IMpeg2ProfileIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMpeg2ProfileIdsStatics<R, F: FnOnce(&IMpeg2ProfileIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Mpeg2ProfileIds, IMpeg2ProfileIdsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2124,8 +2104,7 @@ impl TimedMetadataEncodingProperties {
             (windows_core::Interface::vtable(this).CreateVobSub)(windows_core::Interface::as_raw(this), formatuserdata.len().try_into().unwrap(), formatuserdata.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITimedMetadataEncodingPropertiesStatics<R, F: FnOnce(&ITimedMetadataEncodingPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITimedMetadataEncodingPropertiesStatics<R, F: FnOnce(&ITimedMetadataEncodingPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TimedMetadataEncodingProperties, ITimedMetadataEncodingPropertiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2304,18 +2283,15 @@ impl VideoEncodingProperties {
             (windows_core::Interface::vtable(this).CreateAv1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVideoEncodingPropertiesStatics<R, F: FnOnce(&IVideoEncodingPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVideoEncodingPropertiesStatics<R, F: FnOnce(&IVideoEncodingPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoEncodingProperties, IVideoEncodingPropertiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IVideoEncodingPropertiesStatics2<R, F: FnOnce(&IVideoEncodingPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVideoEncodingPropertiesStatics2<R, F: FnOnce(&IVideoEncodingPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoEncodingProperties, IVideoEncodingPropertiesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IVideoEncodingPropertiesStatics3<R, F: FnOnce(&IVideoEncodingPropertiesStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVideoEncodingPropertiesStatics3<R, F: FnOnce(&IVideoEncodingPropertiesStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoEncodingProperties, IVideoEncodingPropertiesStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2352,8 +2328,7 @@ impl Vp9ProfileIds {
             (windows_core::Interface::vtable(this).Profile2ChromaSubsampling420BitDepth12)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IVp9ProfileIdsStatics<R, F: FnOnce(&IVp9ProfileIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVp9ProfileIdsStatics<R, F: FnOnce(&IVp9ProfileIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Vp9ProfileIds, IVp9ProfileIdsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

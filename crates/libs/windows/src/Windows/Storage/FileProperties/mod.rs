@@ -433,8 +433,7 @@ impl GeotagHelper {
             (windows_core::Interface::vtable(this).SetGeotagAsync)(windows_core::Interface::as_raw(this), file.param().abi(), geopoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGeotagHelperStatics<R, F: FnOnce(&IGeotagHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeotagHelperStatics<R, F: FnOnce(&IGeotagHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GeotagHelper, IGeotagHelperStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

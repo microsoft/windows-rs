@@ -78,8 +78,7 @@ impl ApiInformation {
             (windows_core::Interface::vtable(this).IsApiContractPresentByMajorAndMinor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contractname), majorversion, minorversion, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IApiInformationStatics<R, F: FnOnce(&IApiInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApiInformationStatics<R, F: FnOnce(&IApiInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApiInformation, IApiInformationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

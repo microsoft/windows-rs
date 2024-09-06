@@ -602,48 +602,39 @@ impl CoreApplication {
             (windows_core::Interface::vtable(this).CreateNewViewWithViewSource)(windows_core::Interface::as_raw(this), viewsource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICoreApplication<R, F: FnOnce(&ICoreApplication) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreApplication<R, F: FnOnce(&ICoreApplication) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreApplication, ICoreApplication> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICoreApplication2<R, F: FnOnce(&ICoreApplication2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreApplication2<R, F: FnOnce(&ICoreApplication2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreApplication, ICoreApplication2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICoreApplication3<R, F: FnOnce(&ICoreApplication3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreApplication3<R, F: FnOnce(&ICoreApplication3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreApplication, ICoreApplication3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICoreApplicationExit<R, F: FnOnce(&ICoreApplicationExit) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreApplicationExit<R, F: FnOnce(&ICoreApplicationExit) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreApplication, ICoreApplicationExit> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICoreApplicationUnhandledError<R, F: FnOnce(&ICoreApplicationUnhandledError) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreApplicationUnhandledError<R, F: FnOnce(&ICoreApplicationUnhandledError) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreApplication, ICoreApplicationUnhandledError> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICoreApplicationUseCount<R, F: FnOnce(&ICoreApplicationUseCount) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreApplicationUseCount<R, F: FnOnce(&ICoreApplicationUseCount) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreApplication, ICoreApplicationUseCount> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICoreImmersiveApplication<R, F: FnOnce(&ICoreImmersiveApplication) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreImmersiveApplication<R, F: FnOnce(&ICoreImmersiveApplication) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreApplication, ICoreImmersiveApplication> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICoreImmersiveApplication2<R, F: FnOnce(&ICoreImmersiveApplication2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreImmersiveApplication2<R, F: FnOnce(&ICoreImmersiveApplication2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreApplication, ICoreImmersiveApplication2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICoreImmersiveApplication3<R, F: FnOnce(&ICoreImmersiveApplication3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreImmersiveApplication3<R, F: FnOnce(&ICoreImmersiveApplication3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreApplication, ICoreImmersiveApplication3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

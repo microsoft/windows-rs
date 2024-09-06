@@ -136,13 +136,11 @@ impl HardwareButtons {
     pub fn RemoveCameraReleased(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IHardwareButtonsStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveCameraReleased)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn IHardwareButtonsStatics<R, F: FnOnce(&IHardwareButtonsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHardwareButtonsStatics<R, F: FnOnce(&IHardwareButtonsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HardwareButtons, IHardwareButtonsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IHardwareButtonsStatics2<R, F: FnOnce(&IHardwareButtonsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHardwareButtonsStatics2<R, F: FnOnce(&IHardwareButtonsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HardwareButtons, IHardwareButtonsStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

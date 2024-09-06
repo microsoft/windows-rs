@@ -908,9 +908,8 @@ impl IsolatedWindowsEnvironment {
             (windows_core::Interface::vtable(this).FindByOwnerId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(environmentownerid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IIsolatedWindowsEnvironmentFactory<R, F: FnOnce(&IIsolatedWindowsEnvironmentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIsolatedWindowsEnvironmentFactory<R, F: FnOnce(&IIsolatedWindowsEnvironmentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IsolatedWindowsEnvironment, IIsolatedWindowsEnvironmentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1068,9 +1067,8 @@ impl IsolatedWindowsEnvironmentHost {
             (windows_core::Interface::vtable(this).HostErrors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IIsolatedWindowsEnvironmentHostStatics<R, F: FnOnce(&IIsolatedWindowsEnvironmentHostStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIsolatedWindowsEnvironmentHostStatics<R, F: FnOnce(&IIsolatedWindowsEnvironmentHostStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IsolatedWindowsEnvironmentHost, IIsolatedWindowsEnvironmentHostStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1344,9 +1342,8 @@ impl IsolatedWindowsEnvironmentOwnerRegistration {
     pub fn Unregister(ownername: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe { (windows_core::Interface::vtable(this).Unregister)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(ownername)).ok() })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IIsolatedWindowsEnvironmentOwnerRegistrationStatics<R, F: FnOnce(&IIsolatedWindowsEnvironmentOwnerRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIsolatedWindowsEnvironmentOwnerRegistrationStatics<R, F: FnOnce(&IIsolatedWindowsEnvironmentOwnerRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IsolatedWindowsEnvironmentOwnerRegistration, IIsolatedWindowsEnvironmentOwnerRegistrationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1931,15 +1928,13 @@ impl IsolatedWindowsHostMessenger {
     pub fn UnregisterHostMessageReceiver(receiverid: windows_core::GUID) -> windows_core::Result<()> {
         Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).UnregisterHostMessageReceiver)(windows_core::Interface::as_raw(this), receiverid).ok() })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IIsolatedWindowsHostMessengerStatics<R, F: FnOnce(&IIsolatedWindowsHostMessengerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIsolatedWindowsHostMessengerStatics<R, F: FnOnce(&IIsolatedWindowsHostMessengerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IsolatedWindowsHostMessenger, IIsolatedWindowsHostMessengerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IIsolatedWindowsHostMessengerStatics2<R, F: FnOnce(&IIsolatedWindowsHostMessengerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIsolatedWindowsHostMessengerStatics2<R, F: FnOnce(&IIsolatedWindowsHostMessengerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IsolatedWindowsHostMessenger, IIsolatedWindowsHostMessengerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

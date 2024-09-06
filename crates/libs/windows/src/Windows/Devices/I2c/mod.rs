@@ -149,8 +149,7 @@ impl I2cConnectionSettings {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), slaveaddress, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn II2cConnectionSettingsFactory<R, F: FnOnce(&II2cConnectionSettingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn II2cConnectionSettingsFactory<R, F: FnOnce(&II2cConnectionSettingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<I2cConnectionSettings, II2cConnectionSettingsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -198,8 +197,7 @@ impl I2cController {
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn II2cControllerStatics<R, F: FnOnce(&II2cControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn II2cControllerStatics<R, F: FnOnce(&II2cControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<I2cController, II2cControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -294,8 +292,7 @@ impl I2cDevice {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn II2cDeviceStatics<R, F: FnOnce(&II2cDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn II2cDeviceStatics<R, F: FnOnce(&II2cDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<I2cDevice, II2cDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -248,8 +248,7 @@ impl PrintExtensionContext {
             (windows_core::Interface::vtable(this).FromDeviceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrintExtensionContextStatic<R, F: FnOnce(&IPrintExtensionContextStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrintExtensionContextStatic<R, F: FnOnce(&IPrintExtensionContextStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PrintExtensionContext, IPrintExtensionContextStatic> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

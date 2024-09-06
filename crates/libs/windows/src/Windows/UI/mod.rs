@@ -243,13 +243,11 @@ impl ColorHelper {
             (windows_core::Interface::vtable(this).ToDisplayName)(windows_core::Interface::as_raw(this), color, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IColorHelperStatics<R, F: FnOnce(&IColorHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IColorHelperStatics<R, F: FnOnce(&IColorHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ColorHelper, IColorHelperStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IColorHelperStatics2<R, F: FnOnce(&IColorHelperStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IColorHelperStatics2<R, F: FnOnce(&IColorHelperStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ColorHelper, IColorHelperStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1117,8 +1115,7 @@ impl Colors {
             (windows_core::Interface::vtable(this).YellowGreen)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IColorsStatics<R, F: FnOnce(&IColorsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IColorsStatics<R, F: FnOnce(&IColorsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Colors, IColorsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

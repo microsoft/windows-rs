@@ -498,8 +498,7 @@ impl GazeInputSourcePreview {
             (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGazeInputSourcePreviewStatics<R, F: FnOnce(&IGazeInputSourcePreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGazeInputSourcePreviewStatics<R, F: FnOnce(&IGazeInputSourcePreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GazeInputSourcePreview, IGazeInputSourcePreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

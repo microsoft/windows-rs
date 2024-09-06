@@ -95,8 +95,7 @@ impl DataProtectionProvider {
             (windows_core::Interface::vtable(this).CreateOverloadExplicit)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(protectiondescriptor), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDataProtectionProviderFactory<R, F: FnOnce(&IDataProtectionProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataProtectionProviderFactory<R, F: FnOnce(&IDataProtectionProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataProtectionProvider, IDataProtectionProviderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -962,8 +962,7 @@ impl IppAttributeValue {
             (windows_core::Interface::vtable(this).CreateMimeMediaArray)(windows_core::Interface::as_raw(this), values.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IIppAttributeValueStatics<R, F: FnOnce(&IIppAttributeValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIppAttributeValueStatics<R, F: FnOnce(&IIppAttributeValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IppAttributeValue, IIppAttributeValueStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1005,8 +1004,7 @@ impl IppIntegerRange {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), start, end, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IIppIntegerRangeFactory<R, F: FnOnce(&IIppIntegerRangeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIppIntegerRangeFactory<R, F: FnOnce(&IIppIntegerRangeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IppIntegerRange, IIppIntegerRangeFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1186,8 +1184,7 @@ impl IppPrintDevice {
             (windows_core::Interface::vtable(this).IsIppPrinter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IIppPrintDeviceStatics<R, F: FnOnce(&IIppPrintDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIppPrintDeviceStatics<R, F: FnOnce(&IIppPrintDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IppPrintDevice, IIppPrintDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1236,8 +1233,7 @@ impl IppResolution {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), width, height, unit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IIppResolutionFactory<R, F: FnOnce(&IIppResolutionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIppResolutionFactory<R, F: FnOnce(&IIppResolutionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IppResolution, IIppResolutionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1312,8 +1308,7 @@ impl IppTextWithLanguage {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(language), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IIppTextWithLanguageFactory<R, F: FnOnce(&IIppTextWithLanguageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIppTextWithLanguageFactory<R, F: FnOnce(&IIppTextWithLanguageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IppTextWithLanguage, IIppTextWithLanguageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1493,8 +1488,7 @@ impl Print3DDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrint3DDeviceStatics<R, F: FnOnce(&IPrint3DDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrint3DDeviceStatics<R, F: FnOnce(&IPrint3DDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Print3DDevice, IPrint3DDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

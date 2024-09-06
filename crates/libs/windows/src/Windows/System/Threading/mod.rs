@@ -63,8 +63,7 @@ impl ThreadPool {
             (windows_core::Interface::vtable(this).RunWithPriorityAndOptionsAsync)(windows_core::Interface::as_raw(this), handler.param().abi(), priority, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IThreadPoolStatics<R, F: FnOnce(&IThreadPoolStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IThreadPoolStatics<R, F: FnOnce(&IThreadPoolStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ThreadPool, IThreadPoolStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -133,8 +132,7 @@ impl ThreadPoolTimer {
             (windows_core::Interface::vtable(this).CreateTimerWithCompletion)(windows_core::Interface::as_raw(this), handler.param().abi(), delay, destroyed.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IThreadPoolTimerStatics<R, F: FnOnce(&IThreadPoolTimerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IThreadPoolTimerStatics<R, F: FnOnce(&IThreadPoolTimerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ThreadPoolTimer, IThreadPoolTimerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

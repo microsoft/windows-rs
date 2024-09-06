@@ -15,8 +15,7 @@ impl ApplicationProfile {
             (windows_core::Interface::vtable(this).Modes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IApplicationProfileStatics<R, F: FnOnce(&IApplicationProfileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationProfileStatics<R, F: FnOnce(&IApplicationProfileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationProfile, IApplicationProfileStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -771,8 +771,7 @@ impl KnownRemoteSystemCapabilities {
             (windows_core::Interface::vtable(this).SpatialEntity)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownRemoteSystemCapabilitiesStatics<R, F: FnOnce(&IKnownRemoteSystemCapabilitiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownRemoteSystemCapabilitiesStatics<R, F: FnOnce(&IKnownRemoteSystemCapabilitiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownRemoteSystemCapabilities, IKnownRemoteSystemCapabilitiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -928,18 +927,15 @@ impl RemoteSystem {
             (windows_core::Interface::vtable(this).CreateWatcherWithFiltersForUser)(windows_core::Interface::as_raw(this), user.param().abi(), filters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemStatics<R, F: FnOnce(&IRemoteSystemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemStatics<R, F: FnOnce(&IRemoteSystemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystem, IRemoteSystemStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemStatics2<R, F: FnOnce(&IRemoteSystemStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemStatics2<R, F: FnOnce(&IRemoteSystemStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystem, IRemoteSystemStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemStatics3<R, F: FnOnce(&IRemoteSystemStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemStatics3<R, F: FnOnce(&IRemoteSystemStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystem, IRemoteSystemStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1091,8 +1087,7 @@ impl RemoteSystemAppRegistration {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemAppRegistrationStatics<R, F: FnOnce(&IRemoteSystemAppRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemAppRegistrationStatics<R, F: FnOnce(&IRemoteSystemAppRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemAppRegistration, IRemoteSystemAppRegistrationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1128,8 +1123,7 @@ impl RemoteSystemAuthorizationKindFilter {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), remotesystemauthorizationkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemAuthorizationKindFilterFactory<R, F: FnOnce(&IRemoteSystemAuthorizationKindFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemAuthorizationKindFilterFactory<R, F: FnOnce(&IRemoteSystemAuthorizationKindFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemAuthorizationKindFilter, IRemoteSystemAuthorizationKindFilterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1168,8 +1162,7 @@ impl RemoteSystemConnectionInfo {
             (windows_core::Interface::vtable(this).TryCreateFromAppServiceConnection)(windows_core::Interface::as_raw(this), connection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemConnectionInfoStatics<R, F: FnOnce(&IRemoteSystemConnectionInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemConnectionInfoStatics<R, F: FnOnce(&IRemoteSystemConnectionInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemConnectionInfo, IRemoteSystemConnectionInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1245,18 +1238,15 @@ impl RemoteSystemConnectionRequest {
             (windows_core::Interface::vtable(this).CreateFromConnectionTokenForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(connectiontoken), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemConnectionRequestFactory<R, F: FnOnce(&IRemoteSystemConnectionRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemConnectionRequestFactory<R, F: FnOnce(&IRemoteSystemConnectionRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemConnectionRequest, IRemoteSystemConnectionRequestFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemConnectionRequestStatics<R, F: FnOnce(&IRemoteSystemConnectionRequestStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemConnectionRequestStatics<R, F: FnOnce(&IRemoteSystemConnectionRequestStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemConnectionRequest, IRemoteSystemConnectionRequestStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemConnectionRequestStatics2<R, F: FnOnce(&IRemoteSystemConnectionRequestStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemConnectionRequestStatics2<R, F: FnOnce(&IRemoteSystemConnectionRequestStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemConnectionRequest, IRemoteSystemConnectionRequestStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1292,8 +1282,7 @@ impl RemoteSystemDiscoveryTypeFilter {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), discoverytype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemDiscoveryTypeFilterFactory<R, F: FnOnce(&IRemoteSystemDiscoveryTypeFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemDiscoveryTypeFilterFactory<R, F: FnOnce(&IRemoteSystemDiscoveryTypeFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemDiscoveryTypeFilter, IRemoteSystemDiscoveryTypeFilterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1351,8 +1340,7 @@ impl RemoteSystemKindFilter {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), remotesystemkinds.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemKindFilterFactory<R, F: FnOnce(&IRemoteSystemKindFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemKindFilterFactory<R, F: FnOnce(&IRemoteSystemKindFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemKindFilter, IRemoteSystemKindFilterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1419,13 +1407,11 @@ impl RemoteSystemKinds {
             (windows_core::Interface::vtable(this).Laptop)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemKindStatics<R, F: FnOnce(&IRemoteSystemKindStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemKindStatics<R, F: FnOnce(&IRemoteSystemKindStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemKinds, IRemoteSystemKindStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemKindStatics2<R, F: FnOnce(&IRemoteSystemKindStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemKindStatics2<R, F: FnOnce(&IRemoteSystemKindStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemKinds, IRemoteSystemKindStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1526,8 +1512,7 @@ impl RemoteSystemSession {
             (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemSessionStatics<R, F: FnOnce(&IRemoteSystemSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemSessionStatics<R, F: FnOnce(&IRemoteSystemSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemSession, IRemoteSystemSessionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1620,8 +1605,7 @@ impl RemoteSystemSessionController {
             (windows_core::Interface::vtable(this).CreateControllerWithSessionOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayname), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemSessionControllerFactory<R, F: FnOnce(&IRemoteSystemSessionControllerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemSessionControllerFactory<R, F: FnOnce(&IRemoteSystemSessionControllerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemSessionController, IRemoteSystemSessionControllerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2002,8 +1986,7 @@ impl RemoteSystemSessionMessageChannel {
             (windows_core::Interface::vtable(this).CreateWithReliability)(windows_core::Interface::as_raw(this), session.param().abi(), core::mem::transmute_copy(channelname), reliability, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemSessionMessageChannelFactory<R, F: FnOnce(&IRemoteSystemSessionMessageChannelFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemSessionMessageChannelFactory<R, F: FnOnce(&IRemoteSystemSessionMessageChannelFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemSessionMessageChannel, IRemoteSystemSessionMessageChannelFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2391,8 +2374,7 @@ impl RemoteSystemStatusTypeFilter {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), remotesystemstatustype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemStatusTypeFilterFactory<R, F: FnOnce(&IRemoteSystemStatusTypeFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemStatusTypeFilterFactory<R, F: FnOnce(&IRemoteSystemStatusTypeFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemStatusTypeFilter, IRemoteSystemStatusTypeFilterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2586,8 +2568,7 @@ impl RemoteSystemWebAccountFilter {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), account.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteSystemWebAccountFilterFactory<R, F: FnOnce(&IRemoteSystemWebAccountFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteSystemWebAccountFilterFactory<R, F: FnOnce(&IRemoteSystemWebAccountFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemWebAccountFilter, IRemoteSystemWebAccountFilterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

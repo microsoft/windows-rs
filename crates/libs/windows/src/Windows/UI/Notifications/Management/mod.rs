@@ -88,8 +88,7 @@ impl UserNotificationListener {
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUserNotificationListenerStatics<R, F: FnOnce(&IUserNotificationListenerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserNotificationListenerStatics<R, F: FnOnce(&IUserNotificationListenerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserNotificationListener, IUserNotificationListenerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

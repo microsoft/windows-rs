@@ -1255,9 +1255,8 @@ impl BackgroundMediaPlayer {
     pub fn Shutdown() -> windows_core::Result<()> {
         Self::IBackgroundMediaPlayerStatics(|this| unsafe { (windows_core::Interface::vtable(this).Shutdown)(windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IBackgroundMediaPlayerStatics<R, F: FnOnce(&IBackgroundMediaPlayerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundMediaPlayerStatics<R, F: FnOnce(&IBackgroundMediaPlayerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundMediaPlayer, IBackgroundMediaPlayerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1362,8 +1361,7 @@ impl MediaBreak {
             (windows_core::Interface::vtable(this).CreateWithPresentationPosition)(windows_core::Interface::as_raw(this), insertionmethod, presentationposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaBreakFactory<R, F: FnOnce(&IMediaBreakFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaBreakFactory<R, F: FnOnce(&IMediaBreakFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaBreak, IMediaBreakFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2751,18 +2749,15 @@ impl MediaPlaybackItem {
             (windows_core::Interface::vtable(this).FindFromMediaSource)(windows_core::Interface::as_raw(this), source.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaPlaybackItemFactory<R, F: FnOnce(&IMediaPlaybackItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaPlaybackItemFactory<R, F: FnOnce(&IMediaPlaybackItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaPlaybackItem, IMediaPlaybackItemFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaPlaybackItemFactory2<R, F: FnOnce(&IMediaPlaybackItemFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaPlaybackItemFactory2<R, F: FnOnce(&IMediaPlaybackItemFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaPlaybackItem, IMediaPlaybackItemFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaPlaybackItemStatics<R, F: FnOnce(&IMediaPlaybackItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaPlaybackItemStatics<R, F: FnOnce(&IMediaPlaybackItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaPlaybackItem, IMediaPlaybackItemStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4663,8 +4658,7 @@ impl PlaybackMediaMarker {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), value, core::mem::transmute_copy(mediamarkettype), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPlaybackMediaMarkerFactory<R, F: FnOnce(&IPlaybackMediaMarkerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlaybackMediaMarkerFactory<R, F: FnOnce(&IPlaybackMediaMarkerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlaybackMediaMarker, IPlaybackMediaMarkerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

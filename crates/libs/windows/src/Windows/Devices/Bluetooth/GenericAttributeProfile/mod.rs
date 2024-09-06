@@ -1149,8 +1149,7 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGattCharacteristicStatics<R, F: FnOnce(&IGattCharacteristicStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattCharacteristicStatics<R, F: FnOnce(&IGattCharacteristicStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattCharacteristic, IGattCharacteristicStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1655,13 +1654,11 @@ impl GattCharacteristicUuids {
             (windows_core::Interface::vtable(this).UnreadAlertStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGattCharacteristicUuidsStatics<R, F: FnOnce(&IGattCharacteristicUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattCharacteristicUuidsStatics<R, F: FnOnce(&IGattCharacteristicUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattCharacteristicUuids, IGattCharacteristicUuidsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGattCharacteristicUuidsStatics2<R, F: FnOnce(&IGattCharacteristicUuidsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattCharacteristicUuidsStatics2<R, F: FnOnce(&IGattCharacteristicUuidsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattCharacteristicUuids, IGattCharacteristicUuidsStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1828,8 +1825,7 @@ impl GattDescriptor {
             (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGattDescriptorStatics<R, F: FnOnce(&IGattDescriptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattDescriptorStatics<R, F: FnOnce(&IGattDescriptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattDescriptor, IGattDescriptorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1884,8 +1880,7 @@ impl GattDescriptorUuids {
             (windows_core::Interface::vtable(this).ServerCharacteristicConfiguration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGattDescriptorUuidsStatics<R, F: FnOnce(&IGattDescriptorUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattDescriptorUuidsStatics<R, F: FnOnce(&IGattDescriptorUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattDescriptorUuids, IGattDescriptorUuidsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2173,13 +2168,11 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(windows_core::Interface::as_raw(this), bluetoothdeviceid.param().abi(), serviceuuid, cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGattDeviceServiceStatics<R, F: FnOnce(&IGattDeviceServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattDeviceServiceStatics<R, F: FnOnce(&IGattDeviceServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattDeviceService, IGattDeviceServiceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGattDeviceServiceStatics2<R, F: FnOnce(&IGattDeviceServiceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattDeviceServiceStatics2<R, F: FnOnce(&IGattDeviceServiceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattDeviceService, IGattDeviceServiceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2786,13 +2779,11 @@ impl GattPresentationFormat {
             (windows_core::Interface::vtable(this).FromParts)(windows_core::Interface::as_raw(this), formattype, exponent, unit, namespaceid, description, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGattPresentationFormatStatics<R, F: FnOnce(&IGattPresentationFormatStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattPresentationFormatStatics<R, F: FnOnce(&IGattPresentationFormatStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattPresentationFormat, IGattPresentationFormatStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGattPresentationFormatStatics2<R, F: FnOnce(&IGattPresentationFormatStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattPresentationFormatStatics2<R, F: FnOnce(&IGattPresentationFormatStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattPresentationFormat, IGattPresentationFormatStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2973,8 +2964,7 @@ impl GattPresentationFormatTypes {
             (windows_core::Interface::vtable(this).Struct)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGattPresentationFormatTypesStatics<R, F: FnOnce(&IGattPresentationFormatTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattPresentationFormatTypesStatics<R, F: FnOnce(&IGattPresentationFormatTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattPresentationFormatTypes, IGattPresentationFormatTypesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3086,8 +3076,7 @@ impl GattProtocolError {
             (windows_core::Interface::vtable(this).InsufficientResources)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGattProtocolErrorStatics<R, F: FnOnce(&IGattProtocolErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattProtocolErrorStatics<R, F: FnOnce(&IGattProtocolErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattProtocolError, IGattProtocolErrorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3412,8 +3401,7 @@ impl GattServiceProvider {
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGattServiceProviderStatics<R, F: FnOnce(&IGattServiceProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattServiceProviderStatics<R, F: FnOnce(&IGattServiceProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattServiceProvider, IGattServiceProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3691,13 +3679,11 @@ impl GattServiceUuids {
             (windows_core::Interface::vtable(this).TxPower)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGattServiceUuidsStatics<R, F: FnOnce(&IGattServiceUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattServiceUuidsStatics<R, F: FnOnce(&IGattServiceUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattServiceUuids, IGattServiceUuidsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGattServiceUuidsStatics2<R, F: FnOnce(&IGattServiceUuidsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattServiceUuidsStatics2<R, F: FnOnce(&IGattServiceUuidsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattServiceUuids, IGattServiceUuidsStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3791,8 +3777,7 @@ impl GattSession {
             (windows_core::Interface::vtable(this).FromDeviceIdAsync)(windows_core::Interface::as_raw(this), deviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGattSessionStatics<R, F: FnOnce(&IGattSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattSessionStatics<R, F: FnOnce(&IGattSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattSession, IGattSessionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -916,8 +916,7 @@ impl CoreTextServicesConstants {
             (windows_core::Interface::vtable(this).HiddenCharacter)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn ICoreTextServicesStatics<R, F: FnOnce(&ICoreTextServicesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreTextServicesStatics<R, F: FnOnce(&ICoreTextServicesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreTextServicesConstants, ICoreTextServicesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -965,8 +964,7 @@ impl CoreTextServicesManager {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICoreTextServicesManagerStatics<R, F: FnOnce(&ICoreTextServicesManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreTextServicesManagerStatics<R, F: FnOnce(&ICoreTextServicesManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreTextServicesManager, ICoreTextServicesManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

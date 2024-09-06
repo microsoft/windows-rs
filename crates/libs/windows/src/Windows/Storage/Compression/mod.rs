@@ -116,8 +116,7 @@ impl Compressor {
             (windows_core::Interface::vtable(this).FlushAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn ICompressorFactory<R, F: FnOnce(&ICompressorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICompressorFactory<R, F: FnOnce(&ICompressorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Compressor, ICompressorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -174,8 +173,7 @@ impl Decompressor {
             (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IDecompressorFactory<R, F: FnOnce(&IDecompressorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDecompressorFactory<R, F: FnOnce(&IDecompressorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Decompressor, IDecompressorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

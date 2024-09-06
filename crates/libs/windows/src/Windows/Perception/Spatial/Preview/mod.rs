@@ -144,13 +144,11 @@ impl SpatialGraphInteropPreview {
             (windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPositionAndOrientation)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), relativeposition, relativeorientation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialGraphInteropPreviewStatics<R, F: FnOnce(&ISpatialGraphInteropPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialGraphInteropPreviewStatics<R, F: FnOnce(&ISpatialGraphInteropPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialGraphInteropPreview, ISpatialGraphInteropPreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISpatialGraphInteropPreviewStatics2<R, F: FnOnce(&ISpatialGraphInteropPreviewStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialGraphInteropPreviewStatics2<R, F: FnOnce(&ISpatialGraphInteropPreviewStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialGraphInteropPreview, ISpatialGraphInteropPreviewStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

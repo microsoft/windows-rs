@@ -658,8 +658,7 @@ impl DeviceAccessInformation {
             (windows_core::Interface::vtable(this).CreateFromDeviceClass)(windows_core::Interface::as_raw(this), deviceclass, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDeviceAccessInformationStatics<R, F: FnOnce(&IDeviceAccessInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDeviceAccessInformationStatics<R, F: FnOnce(&IDeviceAccessInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DeviceAccessInformation, IDeviceAccessInformationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -955,18 +954,15 @@ impl DeviceInformation {
             (windows_core::Interface::vtable(this).CreateWatcherWithAqsFilterAdditionalPropertiesKindAndSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), additionalproperties.param().abi(), kind, settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDeviceInformationStatics<R, F: FnOnce(&IDeviceInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDeviceInformationStatics<R, F: FnOnce(&IDeviceInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DeviceInformation, IDeviceInformationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDeviceInformationStatics2<R, F: FnOnce(&IDeviceInformationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDeviceInformationStatics2<R, F: FnOnce(&IDeviceInformationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DeviceInformation, IDeviceInformationStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDeviceInformationStatics3<R, F: FnOnce(&IDeviceInformationStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDeviceInformationStatics3<R, F: FnOnce(&IDeviceInformationStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DeviceInformation, IDeviceInformationStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1223,13 +1219,11 @@ impl DeviceInformationPairing {
             (windows_core::Interface::vtable(this).TryRegisterForAllInboundPairingRequestsWithProtectionLevel)(windows_core::Interface::as_raw(this), pairingkindssupported, minprotectionlevel, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IDeviceInformationPairingStatics<R, F: FnOnce(&IDeviceInformationPairingStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDeviceInformationPairingStatics<R, F: FnOnce(&IDeviceInformationPairingStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DeviceInformationPairing, IDeviceInformationPairingStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDeviceInformationPairingStatics2<R, F: FnOnce(&IDeviceInformationPairingStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDeviceInformationPairingStatics2<R, F: FnOnce(&IDeviceInformationPairingStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DeviceInformationPairing, IDeviceInformationPairingStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

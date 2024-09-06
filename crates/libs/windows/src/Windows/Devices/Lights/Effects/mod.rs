@@ -335,8 +335,7 @@ impl LampArrayBitmapEffect {
         let this = &windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetZIndex)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn ILampArrayBitmapEffectFactory<R, F: FnOnce(&ILampArrayBitmapEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILampArrayBitmapEffectFactory<R, F: FnOnce(&ILampArrayBitmapEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LampArrayBitmapEffect, ILampArrayBitmapEffectFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -502,8 +501,7 @@ impl LampArrayBlinkEffect {
         let this = &windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetZIndex)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn ILampArrayBlinkEffectFactory<R, F: FnOnce(&ILampArrayBlinkEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILampArrayBlinkEffectFactory<R, F: FnOnce(&ILampArrayBlinkEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LampArrayBlinkEffect, ILampArrayBlinkEffectFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -592,8 +590,7 @@ impl LampArrayColorRampEffect {
         let this = &windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetZIndex)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn ILampArrayColorRampEffectFactory<R, F: FnOnce(&ILampArrayColorRampEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILampArrayColorRampEffectFactory<R, F: FnOnce(&ILampArrayColorRampEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LampArrayColorRampEffect, ILampArrayColorRampEffectFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -672,8 +669,7 @@ impl LampArrayCustomEffect {
         let this = &windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetZIndex)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn ILampArrayCustomEffectFactory<R, F: FnOnce(&ILampArrayCustomEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILampArrayCustomEffectFactory<R, F: FnOnce(&ILampArrayCustomEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LampArrayCustomEffect, ILampArrayCustomEffectFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -824,8 +820,7 @@ impl LampArrayEffectPlaylist {
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
-    #[doc(hidden)]
-    pub fn ILampArrayEffectPlaylistStatics<R, F: FnOnce(&ILampArrayEffectPlaylistStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILampArrayEffectPlaylistStatics<R, F: FnOnce(&ILampArrayEffectPlaylistStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LampArrayEffectPlaylist, ILampArrayEffectPlaylistStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -930,8 +925,7 @@ impl LampArraySolidEffect {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILampArraySolidEffectFactory<R, F: FnOnce(&ILampArraySolidEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILampArraySolidEffectFactory<R, F: FnOnce(&ILampArraySolidEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LampArraySolidEffect, ILampArraySolidEffectFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

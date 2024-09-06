@@ -392,8 +392,7 @@ impl SpatialSurfaceMeshOptions {
             (windows_core::Interface::vtable(this).SupportedVertexNormalFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialSurfaceMeshOptionsStatics<R, F: FnOnce(&ISpatialSurfaceMeshOptionsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialSurfaceMeshOptionsStatics<R, F: FnOnce(&ISpatialSurfaceMeshOptionsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialSurfaceMeshOptions, ISpatialSurfaceMeshOptionsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -471,13 +470,11 @@ impl SpatialSurfaceObserver {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialSurfaceObserverStatics<R, F: FnOnce(&ISpatialSurfaceObserverStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialSurfaceObserverStatics<R, F: FnOnce(&ISpatialSurfaceObserverStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialSurfaceObserver, ISpatialSurfaceObserverStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISpatialSurfaceObserverStatics2<R, F: FnOnce(&ISpatialSurfaceObserverStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialSurfaceObserverStatics2<R, F: FnOnce(&ISpatialSurfaceObserverStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialSurfaceObserver, ISpatialSurfaceObserverStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

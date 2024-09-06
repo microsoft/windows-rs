@@ -1969,18 +1969,15 @@ impl Accelerometer {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), readingtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAccelerometerStatics<R, F: FnOnce(&IAccelerometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAccelerometerStatics<R, F: FnOnce(&IAccelerometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Accelerometer, IAccelerometerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAccelerometerStatics2<R, F: FnOnce(&IAccelerometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAccelerometerStatics2<R, F: FnOnce(&IAccelerometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Accelerometer, IAccelerometerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAccelerometerStatics3<R, F: FnOnce(&IAccelerometerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAccelerometerStatics3<R, F: FnOnce(&IAccelerometerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Accelerometer, IAccelerometerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2254,8 +2251,7 @@ impl ActivitySensor {
             (windows_core::Interface::vtable(this).GetSystemHistoryWithDurationAsync)(windows_core::Interface::as_raw(this), fromtime, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IActivitySensorStatics<R, F: FnOnce(&IActivitySensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivitySensorStatics<R, F: FnOnce(&IActivitySensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ActivitySensor, IActivitySensorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2491,8 +2487,7 @@ impl Altimeter {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAltimeterStatics<R, F: FnOnce(&IAltimeterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAltimeterStatics<R, F: FnOnce(&IAltimeterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Altimeter, IAltimeterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2675,13 +2670,11 @@ impl Barometer {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBarometerStatics<R, F: FnOnce(&IBarometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBarometerStatics<R, F: FnOnce(&IBarometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Barometer, IBarometerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBarometerStatics2<R, F: FnOnce(&IBarometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBarometerStatics2<R, F: FnOnce(&IBarometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Barometer, IBarometerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2906,13 +2899,11 @@ impl Compass {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICompassStatics<R, F: FnOnce(&ICompassStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICompassStatics<R, F: FnOnce(&ICompassStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Compass, ICompassStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICompassStatics2<R, F: FnOnce(&ICompassStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICompassStatics2<R, F: FnOnce(&ICompassStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Compass, ICompassStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3204,13 +3195,11 @@ impl Gyrometer {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGyrometerStatics<R, F: FnOnce(&IGyrometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGyrometerStatics<R, F: FnOnce(&IGyrometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Gyrometer, IGyrometerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGyrometerStatics2<R, F: FnOnce(&IGyrometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGyrometerStatics2<R, F: FnOnce(&IGyrometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Gyrometer, IGyrometerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3550,8 +3539,7 @@ impl HingeAngleSensor {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IHingeAngleSensorStatics<R, F: FnOnce(&IHingeAngleSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHingeAngleSensorStatics<R, F: FnOnce(&IHingeAngleSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HingeAngleSensor, IHingeAngleSensorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3781,13 +3769,11 @@ impl HumanPresenceSensor {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IHumanPresenceSensorStatics<R, F: FnOnce(&IHumanPresenceSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHumanPresenceSensorStatics<R, F: FnOnce(&IHumanPresenceSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HumanPresenceSensor, IHumanPresenceSensorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IHumanPresenceSensorStatics2<R, F: FnOnce(&IHumanPresenceSensorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHumanPresenceSensorStatics2<R, F: FnOnce(&IHumanPresenceSensorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HumanPresenceSensor, IHumanPresenceSensorStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4159,8 +4145,7 @@ impl HumanPresenceSettings {
     pub fn RemoveSettingsChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IHumanPresenceSettingsStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveSettingsChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn IHumanPresenceSettingsStatics<R, F: FnOnce(&IHumanPresenceSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHumanPresenceSettingsStatics<R, F: FnOnce(&IHumanPresenceSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HumanPresenceSettings, IHumanPresenceSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4303,23 +4288,19 @@ impl Inclinometer {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IInclinometerStatics<R, F: FnOnce(&IInclinometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInclinometerStatics<R, F: FnOnce(&IInclinometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Inclinometer, IInclinometerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IInclinometerStatics2<R, F: FnOnce(&IInclinometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInclinometerStatics2<R, F: FnOnce(&IInclinometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Inclinometer, IInclinometerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IInclinometerStatics3<R, F: FnOnce(&IInclinometerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInclinometerStatics3<R, F: FnOnce(&IInclinometerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Inclinometer, IInclinometerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IInclinometerStatics4<R, F: FnOnce(&IInclinometerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInclinometerStatics4<R, F: FnOnce(&IInclinometerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Inclinometer, IInclinometerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4574,13 +4555,11 @@ impl LightSensor {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILightSensorStatics<R, F: FnOnce(&ILightSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILightSensorStatics<R, F: FnOnce(&ILightSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LightSensor, ILightSensorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILightSensorStatics2<R, F: FnOnce(&ILightSensorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILightSensorStatics2<R, F: FnOnce(&ILightSensorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LightSensor, ILightSensorStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4845,13 +4824,11 @@ impl Magnetometer {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMagnetometerStatics<R, F: FnOnce(&IMagnetometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMagnetometerStatics<R, F: FnOnce(&IMagnetometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Magnetometer, IMagnetometerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMagnetometerStatics2<R, F: FnOnce(&IMagnetometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMagnetometerStatics2<R, F: FnOnce(&IMagnetometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Magnetometer, IMagnetometerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5143,23 +5120,19 @@ impl OrientationSensor {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IOrientationSensorStatics<R, F: FnOnce(&IOrientationSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IOrientationSensorStatics<R, F: FnOnce(&IOrientationSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<OrientationSensor, IOrientationSensorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IOrientationSensorStatics2<R, F: FnOnce(&IOrientationSensorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IOrientationSensorStatics2<R, F: FnOnce(&IOrientationSensorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<OrientationSensor, IOrientationSensorStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IOrientationSensorStatics3<R, F: FnOnce(&IOrientationSensorStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IOrientationSensorStatics3<R, F: FnOnce(&IOrientationSensorStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<OrientationSensor, IOrientationSensorStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IOrientationSensorStatics4<R, F: FnOnce(&IOrientationSensorStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IOrientationSensorStatics4<R, F: FnOnce(&IOrientationSensorStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<OrientationSensor, IOrientationSensorStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5363,13 +5336,11 @@ impl Pedometer {
             (windows_core::Interface::vtable(this).GetReadingsFromTriggerDetails)(windows_core::Interface::as_raw(this), triggerdetails.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPedometerStatics<R, F: FnOnce(&IPedometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPedometerStatics<R, F: FnOnce(&IPedometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Pedometer, IPedometerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IPedometerStatics2<R, F: FnOnce(&IPedometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPedometerStatics2<R, F: FnOnce(&IPedometerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Pedometer, IPedometerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5400,8 +5371,7 @@ impl PedometerDataThreshold {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), sensor.param().abi(), stepgoal, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPedometerDataThresholdFactory<R, F: FnOnce(&IPedometerDataThresholdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPedometerDataThresholdFactory<R, F: FnOnce(&IPedometerDataThresholdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PedometerDataThreshold, IPedometerDataThresholdFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5565,13 +5535,11 @@ impl ProximitySensor {
             (windows_core::Interface::vtable(this).GetReadingsFromTriggerDetails)(windows_core::Interface::as_raw(this), triggerdetails.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IProximitySensorStatics<R, F: FnOnce(&IProximitySensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProximitySensorStatics<R, F: FnOnce(&IProximitySensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProximitySensor, IProximitySensorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IProximitySensorStatics2<R, F: FnOnce(&IProximitySensorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProximitySensorStatics2<R, F: FnOnce(&IProximitySensorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProximitySensor, IProximitySensorStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5602,8 +5570,7 @@ impl ProximitySensorDataThreshold {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), sensor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IProximitySensorDataThresholdFactory<R, F: FnOnce(&IProximitySensorDataThresholdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProximitySensorDataThresholdFactory<R, F: FnOnce(&IProximitySensorDataThresholdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProximitySensorDataThreshold, IProximitySensorDataThresholdFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5929,13 +5896,11 @@ impl SimpleOrientationSensor {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISimpleOrientationSensorStatics<R, F: FnOnce(&ISimpleOrientationSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISimpleOrientationSensorStatics<R, F: FnOnce(&ISimpleOrientationSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SimpleOrientationSensor, ISimpleOrientationSensorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISimpleOrientationSensorStatics2<R, F: FnOnce(&ISimpleOrientationSensorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISimpleOrientationSensorStatics2<R, F: FnOnce(&ISimpleOrientationSensorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SimpleOrientationSensor, ISimpleOrientationSensorStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

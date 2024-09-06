@@ -26,8 +26,7 @@ impl WindowManagementPreview {
     {
         Self::IWindowManagementPreviewStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetPreferredMinSize)(windows_core::Interface::as_raw(this), window.param().abi(), preferredframeminsize).ok() })
     }
-    #[doc(hidden)]
-    pub fn IWindowManagementPreviewStatics<R, F: FnOnce(&IWindowManagementPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowManagementPreviewStatics<R, F: FnOnce(&IWindowManagementPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowManagementPreview, IWindowManagementPreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

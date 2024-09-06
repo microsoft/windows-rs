@@ -271,8 +271,7 @@ impl CoreFrameworkInputView {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICoreFrameworkInputViewStatics<R, F: FnOnce(&ICoreFrameworkInputViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreFrameworkInputViewStatics<R, F: FnOnce(&ICoreFrameworkInputViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreFrameworkInputView, ICoreFrameworkInputViewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -537,13 +536,11 @@ impl CoreInputView {
             (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICoreInputViewStatics<R, F: FnOnce(&ICoreInputViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreInputViewStatics<R, F: FnOnce(&ICoreInputViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreInputView, ICoreInputViewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICoreInputViewStatics2<R, F: FnOnce(&ICoreInputViewStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreInputViewStatics2<R, F: FnOnce(&ICoreInputViewStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreInputView, ICoreInputViewStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -808,8 +805,7 @@ impl UISettingsController {
             (windows_core::Interface::vtable(this).RequestDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUISettingsControllerStatics<R, F: FnOnce(&IUISettingsControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUISettingsControllerStatics<R, F: FnOnce(&IUISettingsControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UISettingsController, IUISettingsControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

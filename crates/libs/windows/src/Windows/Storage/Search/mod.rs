@@ -701,8 +701,7 @@ impl ContentIndexer {
             (windows_core::Interface::vtable(this).GetIndexer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IContentIndexerStatics<R, F: FnOnce(&IContentIndexerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContentIndexerStatics<R, F: FnOnce(&IContentIndexerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContentIndexer, IContentIndexerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -999,8 +998,7 @@ impl QueryOptions {
             (windows_core::Interface::vtable(this).StorageProviderIdFilter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IQueryOptionsFactory<R, F: FnOnce(&IQueryOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IQueryOptionsFactory<R, F: FnOnce(&IQueryOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<QueryOptions, IQueryOptionsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

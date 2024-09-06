@@ -56,8 +56,7 @@ impl NamedPolicy {
             (windows_core::Interface::vtable(this).GetPolicyFromPathForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(area), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn INamedPolicyStatics<R, F: FnOnce(&INamedPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INamedPolicyStatics<R, F: FnOnce(&INamedPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NamedPolicy, INamedPolicyStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

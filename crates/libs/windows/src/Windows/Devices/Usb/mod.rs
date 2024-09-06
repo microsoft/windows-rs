@@ -702,8 +702,7 @@ impl UsbConfigurationDescriptor {
             (windows_core::Interface::vtable(this).Parse)(windows_core::Interface::as_raw(this), descriptor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUsbConfigurationDescriptorStatics<R, F: FnOnce(&IUsbConfigurationDescriptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUsbConfigurationDescriptorStatics<R, F: FnOnce(&IUsbConfigurationDescriptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UsbConfigurationDescriptor, IUsbConfigurationDescriptorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -938,8 +937,7 @@ impl UsbDevice {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUsbDeviceStatics<R, F: FnOnce(&IUsbDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUsbDeviceStatics<R, F: FnOnce(&IUsbDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UsbDevice, IUsbDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1079,8 +1077,7 @@ impl UsbDeviceClasses {
             (windows_core::Interface::vtable(this).VendorSpecific)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUsbDeviceClassesStatics<R, F: FnOnce(&IUsbDeviceClassesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUsbDeviceClassesStatics<R, F: FnOnce(&IUsbDeviceClassesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UsbDeviceClasses, IUsbDeviceClassesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1229,8 +1226,7 @@ impl UsbEndpointDescriptor {
             (windows_core::Interface::vtable(this).Parse)(windows_core::Interface::as_raw(this), descriptor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUsbEndpointDescriptorStatics<R, F: FnOnce(&IUsbEndpointDescriptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUsbEndpointDescriptorStatics<R, F: FnOnce(&IUsbEndpointDescriptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UsbEndpointDescriptor, IUsbEndpointDescriptorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1378,8 +1374,7 @@ impl UsbInterfaceDescriptor {
             (windows_core::Interface::vtable(this).Parse)(windows_core::Interface::as_raw(this), descriptor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUsbInterfaceDescriptorStatics<R, F: FnOnce(&IUsbInterfaceDescriptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUsbInterfaceDescriptorStatics<R, F: FnOnce(&IUsbInterfaceDescriptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UsbInterfaceDescriptor, IUsbInterfaceDescriptorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1770,8 +1765,7 @@ impl UsbSetupPacket {
             (windows_core::Interface::vtable(this).CreateWithEightByteBuffer)(windows_core::Interface::as_raw(this), eightbytebuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUsbSetupPacketFactory<R, F: FnOnce(&IUsbSetupPacketFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUsbSetupPacketFactory<R, F: FnOnce(&IUsbSetupPacketFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UsbSetupPacket, IUsbSetupPacketFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

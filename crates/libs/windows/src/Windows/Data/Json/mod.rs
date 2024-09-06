@@ -376,8 +376,7 @@ impl JsonArray {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
-    #[doc(hidden)]
-    pub fn IJsonArrayStatics<R, F: FnOnce(&IJsonArrayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJsonArrayStatics<R, F: FnOnce(&IJsonArrayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<JsonArray, IJsonArrayStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -418,8 +417,7 @@ impl JsonError {
             (windows_core::Interface::vtable(this).GetJsonStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IJsonErrorStatics2<R, F: FnOnce(&IJsonErrorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJsonErrorStatics2<R, F: FnOnce(&IJsonErrorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<JsonError, IJsonErrorStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -670,8 +668,7 @@ impl JsonObject {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IJsonObjectStatics<R, F: FnOnce(&IJsonObjectStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJsonObjectStatics<R, F: FnOnce(&IJsonObjectStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<JsonObject, IJsonObjectStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -802,13 +799,11 @@ impl JsonValue {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IJsonValueStatics<R, F: FnOnce(&IJsonValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJsonValueStatics<R, F: FnOnce(&IJsonValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<JsonValue, IJsonValueStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IJsonValueStatics2<R, F: FnOnce(&IJsonValueStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJsonValueStatics2<R, F: FnOnce(&IJsonValueStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<JsonValue, IJsonValueStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

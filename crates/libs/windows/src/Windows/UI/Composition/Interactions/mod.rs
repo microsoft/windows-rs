@@ -797,8 +797,7 @@ impl CompositionConditionalValue {
         let this = &windows_core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    #[doc(hidden)]
-    pub fn ICompositionConditionalValueStatics<R, F: FnOnce(&ICompositionConditionalValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICompositionConditionalValueStatics<R, F: FnOnce(&ICompositionConditionalValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CompositionConditionalValue, ICompositionConditionalValueStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1588,13 +1587,11 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(this).GetBindingMode)(windows_core::Interface::as_raw(this), boundtracker1.param().abi(), boundtracker2.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IInteractionTrackerStatics<R, F: FnOnce(&IInteractionTrackerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInteractionTrackerStatics<R, F: FnOnce(&IInteractionTrackerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InteractionTracker, IInteractionTrackerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IInteractionTrackerStatics2<R, F: FnOnce(&IInteractionTrackerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInteractionTrackerStatics2<R, F: FnOnce(&IInteractionTrackerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InteractionTracker, IInteractionTrackerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1949,8 +1946,7 @@ impl InteractionTrackerInertiaMotion {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IInteractionTrackerInertiaMotionStatics<R, F: FnOnce(&IInteractionTrackerInertiaMotionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInteractionTrackerInertiaMotionStatics<R, F: FnOnce(&IInteractionTrackerInertiaMotionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InteractionTrackerInertiaMotion, IInteractionTrackerInertiaMotionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2116,8 +2112,7 @@ impl InteractionTrackerInertiaNaturalMotion {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IInteractionTrackerInertiaNaturalMotionStatics<R, F: FnOnce(&IInteractionTrackerInertiaNaturalMotionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInteractionTrackerInertiaNaturalMotionStatics<R, F: FnOnce(&IInteractionTrackerInertiaNaturalMotionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InteractionTrackerInertiaNaturalMotion, IInteractionTrackerInertiaNaturalMotionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2283,8 +2278,7 @@ impl InteractionTrackerInertiaRestingValue {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IInteractionTrackerInertiaRestingValueStatics<R, F: FnOnce(&IInteractionTrackerInertiaRestingValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInteractionTrackerInertiaRestingValueStatics<R, F: FnOnce(&IInteractionTrackerInertiaRestingValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InteractionTrackerInertiaRestingValue, IInteractionTrackerInertiaRestingValueStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2756,8 +2750,7 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IInteractionTrackerVector2InertiaNaturalMotionStatics<R, F: FnOnce(&IInteractionTrackerVector2InertiaNaturalMotionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInteractionTrackerVector2InertiaNaturalMotionStatics<R, F: FnOnce(&IInteractionTrackerVector2InertiaNaturalMotionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InteractionTrackerVector2InertiaNaturalMotion, IInteractionTrackerVector2InertiaNaturalMotionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3110,13 +3103,11 @@ impl VisualInteractionSource {
             (windows_core::Interface::vtable(this).CreateFromIVisualElement)(windows_core::Interface::as_raw(this), source.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVisualInteractionSourceStatics<R, F: FnOnce(&IVisualInteractionSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVisualInteractionSourceStatics<R, F: FnOnce(&IVisualInteractionSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VisualInteractionSource, IVisualInteractionSourceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IVisualInteractionSourceStatics2<R, F: FnOnce(&IVisualInteractionSourceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVisualInteractionSourceStatics2<R, F: FnOnce(&IVisualInteractionSourceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VisualInteractionSource, IVisualInteractionSourceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

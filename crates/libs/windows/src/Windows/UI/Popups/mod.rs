@@ -206,8 +206,7 @@ impl MessageDialog {
             (windows_core::Interface::vtable(this).CreateWithTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(content), core::mem::transmute_copy(title), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMessageDialogFactory<R, F: FnOnce(&IMessageDialogFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMessageDialogFactory<R, F: FnOnce(&IMessageDialogFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MessageDialog, IMessageDialogFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -350,8 +349,7 @@ impl UICommand {
             (windows_core::Interface::vtable(this).CreateWithHandlerAndId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), action.param().abi(), commandid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUICommandFactory<R, F: FnOnce(&IUICommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUICommandFactory<R, F: FnOnce(&IUICommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UICommand, IUICommandFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

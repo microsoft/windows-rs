@@ -316,8 +316,7 @@ impl DiagnosticInvoker {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IDiagnosticInvokerStatics<R, F: FnOnce(&IDiagnosticInvokerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDiagnosticInvokerStatics<R, F: FnOnce(&IDiagnosticInvokerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DiagnosticInvoker, IDiagnosticInvokerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -479,13 +478,11 @@ impl ProcessDiagnosticInfo {
             (windows_core::Interface::vtable(this).TryGetForProcessId)(windows_core::Interface::as_raw(this), processid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IProcessDiagnosticInfoStatics<R, F: FnOnce(&IProcessDiagnosticInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProcessDiagnosticInfoStatics<R, F: FnOnce(&IProcessDiagnosticInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProcessDiagnosticInfo, IProcessDiagnosticInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IProcessDiagnosticInfoStatics2<R, F: FnOnce(&IProcessDiagnosticInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProcessDiagnosticInfoStatics2<R, F: FnOnce(&IProcessDiagnosticInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProcessDiagnosticInfo, IProcessDiagnosticInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -815,13 +812,11 @@ impl SystemDiagnosticInfo {
             (windows_core::Interface::vtable(this).PreferredArchitecture)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn ISystemDiagnosticInfoStatics<R, F: FnOnce(&ISystemDiagnosticInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemDiagnosticInfoStatics<R, F: FnOnce(&ISystemDiagnosticInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemDiagnosticInfo, ISystemDiagnosticInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISystemDiagnosticInfoStatics2<R, F: FnOnce(&ISystemDiagnosticInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemDiagnosticInfoStatics2<R, F: FnOnce(&ISystemDiagnosticInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemDiagnosticInfo, ISystemDiagnosticInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

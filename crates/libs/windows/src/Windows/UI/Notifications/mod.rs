@@ -1016,8 +1016,7 @@ impl BadgeNotification {
             (windows_core::Interface::vtable(this).CreateBadgeNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBadgeNotificationFactory<R, F: FnOnce(&IBadgeNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBadgeNotificationFactory<R, F: FnOnce(&IBadgeNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BadgeNotification, IBadgeNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1071,13 +1070,11 @@ impl BadgeUpdateManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBadgeUpdateManagerStatics<R, F: FnOnce(&IBadgeUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBadgeUpdateManagerStatics<R, F: FnOnce(&IBadgeUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBadgeUpdateManagerStatics2<R, F: FnOnce(&IBadgeUpdateManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBadgeUpdateManagerStatics2<R, F: FnOnce(&IBadgeUpdateManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1217,8 +1214,7 @@ impl KnownAdaptiveNotificationHints {
             (windows_core::Interface::vtable(this).Align)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownAdaptiveNotificationHintsStatics<R, F: FnOnce(&IKnownAdaptiveNotificationHintsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownAdaptiveNotificationHintsStatics<R, F: FnOnce(&IKnownAdaptiveNotificationHintsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownAdaptiveNotificationHints, IKnownAdaptiveNotificationHintsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1342,8 +1338,7 @@ impl KnownAdaptiveNotificationTextStyles {
             (windows_core::Interface::vtable(this).HeaderNumeralSubtle)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownAdaptiveNotificationTextStylesStatics<R, F: FnOnce(&IKnownAdaptiveNotificationTextStylesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownAdaptiveNotificationTextStylesStatics<R, F: FnOnce(&IKnownAdaptiveNotificationTextStylesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownAdaptiveNotificationTextStyles, IKnownAdaptiveNotificationTextStylesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1359,8 +1354,7 @@ impl KnownNotificationBindings {
             (windows_core::Interface::vtable(this).ToastGeneric)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownNotificationBindingsStatics<R, F: FnOnce(&IKnownNotificationBindingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownNotificationBindingsStatics<R, F: FnOnce(&IKnownNotificationBindingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownNotificationBindings, IKnownNotificationBindingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1528,8 +1522,7 @@ impl NotificationData {
             (windows_core::Interface::vtable(this).CreateNotificationDataWithValues)(windows_core::Interface::as_raw(this), initialvalues.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn INotificationDataFactory<R, F: FnOnce(&INotificationDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INotificationDataFactory<R, F: FnOnce(&INotificationDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NotificationData, INotificationDataFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1656,8 +1649,7 @@ impl ScheduledTileNotification {
             (windows_core::Interface::vtable(this).CreateScheduledTileNotification)(windows_core::Interface::as_raw(this), content.param().abi(), deliverytime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IScheduledTileNotificationFactory<R, F: FnOnce(&IScheduledTileNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IScheduledTileNotificationFactory<R, F: FnOnce(&IScheduledTileNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ScheduledTileNotification, IScheduledTileNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1808,8 +1800,7 @@ impl ScheduledToastNotification {
             (windows_core::Interface::vtable(this).CreateScheduledToastNotificationRecurring)(windows_core::Interface::as_raw(this), content.param().abi(), deliverytime, snoozeinterval, maximumsnoozecount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IScheduledToastNotificationFactory<R, F: FnOnce(&IScheduledToastNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IScheduledToastNotificationFactory<R, F: FnOnce(&IScheduledToastNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ScheduledToastNotification, IScheduledToastNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1931,8 +1922,7 @@ impl TileFlyoutNotification {
             (windows_core::Interface::vtable(this).CreateTileFlyoutNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITileFlyoutNotificationFactory<R, F: FnOnce(&ITileFlyoutNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITileFlyoutNotificationFactory<R, F: FnOnce(&ITileFlyoutNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TileFlyoutNotification, ITileFlyoutNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1976,8 +1966,7 @@ impl TileFlyoutUpdateManager {
             (windows_core::Interface::vtable(this).GetTemplateContent)(windows_core::Interface::as_raw(this), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITileFlyoutUpdateManagerStatics<R, F: FnOnce(&ITileFlyoutUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITileFlyoutUpdateManagerStatics<R, F: FnOnce(&ITileFlyoutUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TileFlyoutUpdateManager, ITileFlyoutUpdateManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2085,8 +2074,7 @@ impl TileNotification {
             (windows_core::Interface::vtable(this).CreateTileNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITileNotificationFactory<R, F: FnOnce(&ITileNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITileNotificationFactory<R, F: FnOnce(&ITileNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TileNotification, ITileNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2140,13 +2128,11 @@ impl TileUpdateManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITileUpdateManagerStatics<R, F: FnOnce(&ITileUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITileUpdateManagerStatics<R, F: FnOnce(&ITileUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TileUpdateManager, ITileUpdateManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITileUpdateManagerStatics2<R, F: FnOnce(&ITileUpdateManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITileUpdateManagerStatics2<R, F: FnOnce(&ITileUpdateManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TileUpdateManager, ITileUpdateManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2397,8 +2383,7 @@ impl ToastCollection {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(collectionid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(launchargs), iconuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IToastCollectionFactory<R, F: FnOnce(&IToastCollectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastCollectionFactory<R, F: FnOnce(&IToastCollectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastCollection, IToastCollectionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2707,8 +2692,7 @@ impl ToastNotification {
             (windows_core::Interface::vtable(this).CreateToastNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IToastNotificationFactory<R, F: FnOnce(&IToastNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationFactory<R, F: FnOnce(&IToastNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotification, IToastNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2892,23 +2876,19 @@ impl ToastNotificationManager {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IToastNotificationManagerStatics<R, F: FnOnce(&IToastNotificationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationManagerStatics<R, F: FnOnce(&IToastNotificationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IToastNotificationManagerStatics2<R, F: FnOnce(&IToastNotificationManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationManagerStatics2<R, F: FnOnce(&IToastNotificationManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IToastNotificationManagerStatics4<R, F: FnOnce(&IToastNotificationManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationManagerStatics4<R, F: FnOnce(&IToastNotificationManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IToastNotificationManagerStatics5<R, F: FnOnce(&IToastNotificationManagerStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationManagerStatics5<R, F: FnOnce(&IToastNotificationManagerStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics5> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

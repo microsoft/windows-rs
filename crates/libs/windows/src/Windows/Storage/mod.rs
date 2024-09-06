@@ -1892,8 +1892,7 @@ impl AppDataPaths {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppDataPathsStatics<R, F: FnOnce(&IAppDataPathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppDataPathsStatics<R, F: FnOnce(&IAppDataPathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppDataPaths, IAppDataPathsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2055,13 +2054,11 @@ impl ApplicationData {
         let this = &windows_core::Interface::cast::<super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IApplicationDataStatics<R, F: FnOnce(&IApplicationDataStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationDataStatics<R, F: FnOnce(&IApplicationDataStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationData, IApplicationDataStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IApplicationDataStatics2<R, F: FnOnce(&IApplicationDataStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationDataStatics2<R, F: FnOnce(&IApplicationDataStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationData, IApplicationDataStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2409,8 +2406,7 @@ impl CachedFileManager {
             (windows_core::Interface::vtable(this).CompleteUpdatesAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICachedFileManagerStatics<R, F: FnOnce(&ICachedFileManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICachedFileManagerStatics<R, F: FnOnce(&ICachedFileManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CachedFileManager, ICachedFileManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2484,13 +2480,11 @@ impl DownloadsFolder {
             (windows_core::Interface::vtable(this).CreateFolderForUserWithCollisionOptionAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDownloadsFolderStatics<R, F: FnOnce(&IDownloadsFolderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDownloadsFolderStatics<R, F: FnOnce(&IDownloadsFolderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DownloadsFolder, IDownloadsFolderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDownloadsFolderStatics2<R, F: FnOnce(&IDownloadsFolderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDownloadsFolderStatics2<R, F: FnOnce(&IDownloadsFolderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DownloadsFolder, IDownloadsFolderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2651,8 +2645,7 @@ impl FileIO {
             (windows_core::Interface::vtable(this).WriteBytesAsync)(windows_core::Interface::as_raw(this), file.param().abi(), buffer.len().try_into().unwrap(), buffer.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IFileIOStatics<R, F: FnOnce(&IFileIOStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileIOStatics<R, F: FnOnce(&IFileIOStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FileIO, IFileIOStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2772,38 +2765,31 @@ impl KnownFolders {
             (windows_core::Interface::vtable(this).GetFolderAsync)(windows_core::Interface::as_raw(this), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownFoldersCameraRollStatics<R, F: FnOnce(&IKnownFoldersCameraRollStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownFoldersCameraRollStatics<R, F: FnOnce(&IKnownFoldersCameraRollStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersCameraRollStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IKnownFoldersPlaylistsStatics<R, F: FnOnce(&IKnownFoldersPlaylistsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownFoldersPlaylistsStatics<R, F: FnOnce(&IKnownFoldersPlaylistsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersPlaylistsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IKnownFoldersSavedPicturesStatics<R, F: FnOnce(&IKnownFoldersSavedPicturesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownFoldersSavedPicturesStatics<R, F: FnOnce(&IKnownFoldersSavedPicturesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersSavedPicturesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IKnownFoldersStatics<R, F: FnOnce(&IKnownFoldersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownFoldersStatics<R, F: FnOnce(&IKnownFoldersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IKnownFoldersStatics2<R, F: FnOnce(&IKnownFoldersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownFoldersStatics2<R, F: FnOnce(&IKnownFoldersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IKnownFoldersStatics3<R, F: FnOnce(&IKnownFoldersStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownFoldersStatics3<R, F: FnOnce(&IKnownFoldersStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IKnownFoldersStatics4<R, F: FnOnce(&IKnownFoldersStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownFoldersStatics4<R, F: FnOnce(&IKnownFoldersStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownFolders, IKnownFoldersStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2929,8 +2915,7 @@ impl PathIO {
             (windows_core::Interface::vtable(this).WriteBytesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), buffer.len().try_into().unwrap(), buffer.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPathIOStatics<R, F: FnOnce(&IPathIOStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPathIOStatics<R, F: FnOnce(&IPathIOStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PathIO, IPathIOStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3396,13 +3381,11 @@ impl StorageFile {
             (windows_core::Interface::vtable(this).Provider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IStorageFileStatics<R, F: FnOnce(&IStorageFileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorageFileStatics<R, F: FnOnce(&IStorageFileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StorageFile, IStorageFileStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IStorageFileStatics2<R, F: FnOnce(&IStorageFileStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorageFileStatics2<R, F: FnOnce(&IStorageFileStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StorageFile, IStorageFileStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3847,13 +3830,11 @@ impl StorageFolder {
             (windows_core::Interface::vtable(this).Provider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IStorageFolderStatics<R, F: FnOnce(&IStorageFolderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorageFolderStatics<R, F: FnOnce(&IStorageFolderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StorageFolder, IStorageFolderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IStorageFolderStatics2<R, F: FnOnce(&IStorageFolderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorageFolderStatics2<R, F: FnOnce(&IStorageFolderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StorageFolder, IStorageFolderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3949,13 +3930,11 @@ impl StorageLibrary {
             (windows_core::Interface::vtable(this).GetLibraryForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), libraryid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStorageLibraryStatics<R, F: FnOnce(&IStorageLibraryStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorageLibraryStatics<R, F: FnOnce(&IStorageLibraryStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StorageLibrary, IStorageLibraryStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IStorageLibraryStatics2<R, F: FnOnce(&IStorageLibraryStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorageLibraryStatics2<R, F: FnOnce(&IStorageLibraryStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StorageLibrary, IStorageLibraryStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4154,8 +4133,7 @@ impl StorageLibraryLastChangeId {
             (windows_core::Interface::vtable(this).Unknown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IStorageLibraryLastChangeIdStatics<R, F: FnOnce(&IStorageLibraryLastChangeIdStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorageLibraryLastChangeIdStatics<R, F: FnOnce(&IStorageLibraryLastChangeIdStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StorageLibraryLastChangeId, IStorageLibraryLastChangeIdStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4444,8 +4422,7 @@ impl SystemDataPaths {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISystemDataPathsStatics<R, F: FnOnce(&ISystemDataPathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemDataPathsStatics<R, F: FnOnce(&ISystemDataPathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemDataPaths, ISystemDataPathsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4793,8 +4770,7 @@ impl SystemProperties {
             (windows_core::Interface::vtable(this).Image)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISystemProperties<R, F: FnOnce(&ISystemProperties) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemProperties<R, F: FnOnce(&ISystemProperties) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemProperties, ISystemProperties> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5009,8 +4985,7 @@ impl UserDataPaths {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUserDataPathsStatics<R, F: FnOnce(&IUserDataPathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserDataPathsStatics<R, F: FnOnce(&IUserDataPathsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserDataPaths, IUserDataPathsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

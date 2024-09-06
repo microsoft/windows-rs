@@ -166,8 +166,7 @@ impl CustomDevice {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), desiredaccess, sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICustomDeviceStatics<R, F: FnOnce(&ICustomDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICustomDeviceStatics<R, F: FnOnce(&ICustomDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CustomDevice, ICustomDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -230,8 +229,7 @@ impl IOControlCode {
             (windows_core::Interface::vtable(this).CreateIOControlCode)(windows_core::Interface::as_raw(this), devicetype, function, accessmode, bufferingmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IIOControlCodeFactory<R, F: FnOnce(&IIOControlCodeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IIOControlCodeFactory<R, F: FnOnce(&IIOControlCodeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IOControlCode, IIOControlCodeFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -256,8 +254,7 @@ impl KnownDeviceTypes {
             (windows_core::Interface::vtable(this).Unknown)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownDeviceTypesStatics<R, F: FnOnce(&IKnownDeviceTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownDeviceTypesStatics<R, F: FnOnce(&IKnownDeviceTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownDeviceTypes, IKnownDeviceTypesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

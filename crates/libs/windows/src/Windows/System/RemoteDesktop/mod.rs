@@ -19,8 +19,7 @@ impl InteractiveSession {
             (windows_core::Interface::vtable(this).IsRemote)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IInteractiveSessionStatics<R, F: FnOnce(&IInteractiveSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInteractiveSessionStatics<R, F: FnOnce(&IInteractiveSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InteractiveSession, IInteractiveSessionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

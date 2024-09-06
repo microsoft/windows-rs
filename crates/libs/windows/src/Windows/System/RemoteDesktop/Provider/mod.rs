@@ -145,8 +145,7 @@ impl RemoteDesktopConnectionInfo {
             (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteDesktopConnectionInfoStatics<R, F: FnOnce(&IRemoteDesktopConnectionInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteDesktopConnectionInfoStatics<R, F: FnOnce(&IRemoteDesktopConnectionInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteDesktopConnectionInfo, IRemoteDesktopConnectionInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -220,8 +219,7 @@ impl RemoteDesktopConnectionRemoteInfo {
             (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteDesktopConnectionRemoteInfoStatics<R, F: FnOnce(&IRemoteDesktopConnectionRemoteInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteDesktopConnectionRemoteInfoStatics<R, F: FnOnce(&IRemoteDesktopConnectionRemoteInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteDesktopConnectionRemoteInfo, IRemoteDesktopConnectionRemoteInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -263,8 +261,7 @@ impl RemoteDesktopInfo {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteDesktopInfoFactory<R, F: FnOnce(&IRemoteDesktopInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteDesktopInfoFactory<R, F: FnOnce(&IRemoteDesktopInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteDesktopInfo, IRemoteDesktopInfoFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -296,8 +293,7 @@ impl RemoteDesktopRegistrar {
             (windows_core::Interface::vtable(this).IsSwitchToLocalSessionEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteDesktopRegistrarStatics<R, F: FnOnce(&IRemoteDesktopRegistrarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteDesktopRegistrarStatics<R, F: FnOnce(&IRemoteDesktopRegistrarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteDesktopRegistrar, IRemoteDesktopRegistrarStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

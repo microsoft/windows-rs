@@ -180,8 +180,7 @@ impl GpioChangeCounter {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), pin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGpioChangeCounterFactory<R, F: FnOnce(&IGpioChangeCounterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGpioChangeCounterFactory<R, F: FnOnce(&IGpioChangeCounterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GpioChangeCounter, IGpioChangeCounterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -313,8 +312,7 @@ impl GpioChangeReader {
             (windows_core::Interface::vtable(this).CreateWithCapacity)(windows_core::Interface::as_raw(this), pin.param().abi(), mincapacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGpioChangeReaderFactory<R, F: FnOnce(&IGpioChangeReaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGpioChangeReaderFactory<R, F: FnOnce(&IGpioChangeReaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GpioChangeReader, IGpioChangeReaderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -386,13 +384,11 @@ impl GpioController {
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGpioControllerStatics<R, F: FnOnce(&IGpioControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGpioControllerStatics<R, F: FnOnce(&IGpioControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GpioController, IGpioControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGpioControllerStatics2<R, F: FnOnce(&IGpioControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGpioControllerStatics2<R, F: FnOnce(&IGpioControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GpioController, IGpioControllerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

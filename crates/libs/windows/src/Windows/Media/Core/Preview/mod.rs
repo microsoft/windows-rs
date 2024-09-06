@@ -29,8 +29,7 @@ impl SoundLevelBroker {
     pub fn RemoveSoundLevelChanged(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::ISoundLevelBrokerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveSoundLevelChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn ISoundLevelBrokerStatics<R, F: FnOnce(&ISoundLevelBrokerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISoundLevelBrokerStatics<R, F: FnOnce(&ISoundLevelBrokerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SoundLevelBroker, ISoundLevelBrokerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

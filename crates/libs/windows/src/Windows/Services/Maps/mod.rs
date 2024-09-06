@@ -522,8 +522,7 @@ impl EnhancedWaypoint {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), point.param().abi(), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEnhancedWaypointFactory<R, F: FnOnce(&IEnhancedWaypointFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEnhancedWaypointFactory<R, F: FnOnce(&IEnhancedWaypointFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EnhancedWaypoint, IEnhancedWaypointFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -791,13 +790,11 @@ impl MapLocationFinder {
             (windows_core::Interface::vtable(this).FindLocationsAtWithAccuracyAsync)(windows_core::Interface::as_raw(this), querypoint.param().abi(), accuracy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMapLocationFinderStatics<R, F: FnOnce(&IMapLocationFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapLocationFinderStatics<R, F: FnOnce(&IMapLocationFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapLocationFinder, IMapLocationFinderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMapLocationFinderStatics2<R, F: FnOnce(&IMapLocationFinderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapLocationFinderStatics2<R, F: FnOnce(&IMapLocationFinderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapLocationFinder, IMapLocationFinderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -846,8 +843,7 @@ impl MapManager {
     pub fn ShowMapsUpdateUI() -> windows_core::Result<()> {
         Self::IMapManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowMapsUpdateUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc(hidden)]
-    pub fn IMapManagerStatics<R, F: FnOnce(&IMapManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapManagerStatics<R, F: FnOnce(&IMapManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapManager, IMapManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1179,18 +1175,15 @@ impl MapRouteFinder {
             (windows_core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMapRouteFinderStatics<R, F: FnOnce(&IMapRouteFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapRouteFinderStatics<R, F: FnOnce(&IMapRouteFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapRouteFinder, IMapRouteFinderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMapRouteFinderStatics2<R, F: FnOnce(&IMapRouteFinderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapRouteFinderStatics2<R, F: FnOnce(&IMapRouteFinderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapRouteFinder, IMapRouteFinderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMapRouteFinderStatics3<R, F: FnOnce(&IMapRouteFinderStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapRouteFinderStatics3<R, F: FnOnce(&IMapRouteFinderStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapRouteFinder, IMapRouteFinderStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1430,23 +1423,19 @@ impl MapService {
             (windows_core::Interface::vtable(this).DataUsagePreference)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IMapServiceStatics<R, F: FnOnce(&IMapServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapServiceStatics<R, F: FnOnce(&IMapServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapService, IMapServiceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMapServiceStatics2<R, F: FnOnce(&IMapServiceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapServiceStatics2<R, F: FnOnce(&IMapServiceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapService, IMapServiceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMapServiceStatics3<R, F: FnOnce(&IMapServiceStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapServiceStatics3<R, F: FnOnce(&IMapServiceStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapService, IMapServiceStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMapServiceStatics4<R, F: FnOnce(&IMapServiceStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapServiceStatics4<R, F: FnOnce(&IMapServiceStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapService, IMapServiceStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1562,13 +1551,11 @@ impl PlaceInfo {
             (windows_core::Interface::vtable(this).CreateFromAddressWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayaddress), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPlaceInfoStatics<R, F: FnOnce(&IPlaceInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlaceInfoStatics<R, F: FnOnce(&IPlaceInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlaceInfo, IPlaceInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IPlaceInfoStatics2<R, F: FnOnce(&IPlaceInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlaceInfoStatics2<R, F: FnOnce(&IPlaceInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlaceInfo, IPlaceInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

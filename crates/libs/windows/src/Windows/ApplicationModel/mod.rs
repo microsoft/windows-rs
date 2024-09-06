@@ -1050,8 +1050,7 @@ impl AppInfo {
             (windows_core::Interface::vtable(this).GetFromAppUserModelIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(appusermodelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppInfoStatics<R, F: FnOnce(&IAppInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppInfoStatics<R, F: FnOnce(&IAppInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppInfo, IAppInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1254,8 +1253,7 @@ impl AppInstance {
             (windows_core::Interface::vtable(this).GetInstances)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppInstanceStatics<R, F: FnOnce(&IAppInstanceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppInstanceStatics<R, F: FnOnce(&IAppInstanceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppInstance, IAppInstanceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1277,8 +1275,7 @@ impl CameraApplicationManager {
     pub fn ShowInstalledApplicationsUI() -> windows_core::Result<()> {
         Self::ICameraApplicationManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowInstalledApplicationsUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc(hidden)]
-    pub fn ICameraApplicationManagerStatics<R, F: FnOnce(&ICameraApplicationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICameraApplicationManagerStatics<R, F: FnOnce(&ICameraApplicationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CameraApplicationManager, ICameraApplicationManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1300,13 +1297,11 @@ impl DesignMode {
             (windows_core::Interface::vtable(this).DesignMode2Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IDesignModeStatics<R, F: FnOnce(&IDesignModeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDesignModeStatics<R, F: FnOnce(&IDesignModeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DesignMode, IDesignModeStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDesignModeStatics2<R, F: FnOnce(&IDesignModeStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDesignModeStatics2<R, F: FnOnce(&IDesignModeStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DesignMode, IDesignModeStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1405,8 +1400,7 @@ impl FindRelatedPackagesOptions {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), relationship, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IFindRelatedPackagesOptionsFactory<R, F: FnOnce(&IFindRelatedPackagesOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFindRelatedPackagesOptionsFactory<R, F: FnOnce(&IFindRelatedPackagesOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FindRelatedPackagesOptions, IFindRelatedPackagesOptionsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1493,13 +1487,11 @@ impl FullTrustProcessLauncher {
             (windows_core::Interface::vtable(this).LaunchFullTrustProcessForAppWithArgumentsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(fulltrustpackagerelativeappid), core::mem::transmute_copy(commandline), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IFullTrustProcessLauncherStatics<R, F: FnOnce(&IFullTrustProcessLauncherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFullTrustProcessLauncherStatics<R, F: FnOnce(&IFullTrustProcessLauncherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FullTrustProcessLauncher, IFullTrustProcessLauncherStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IFullTrustProcessLauncherStatics2<R, F: FnOnce(&IFullTrustProcessLauncherStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFullTrustProcessLauncherStatics2<R, F: FnOnce(&IFullTrustProcessLauncherStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FullTrustProcessLauncher, IFullTrustProcessLauncherStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1579,8 +1571,7 @@ impl LimitedAccessFeatures {
             (windows_core::Interface::vtable(this).TryUnlockFeature)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(featureid), core::mem::transmute_copy(token), core::mem::transmute_copy(attestation), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILimitedAccessFeaturesStatics<R, F: FnOnce(&ILimitedAccessFeaturesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILimitedAccessFeaturesStatics<R, F: FnOnce(&ILimitedAccessFeaturesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LimitedAccessFeatures, ILimitedAccessFeaturesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1921,8 +1912,7 @@ impl Package {
         let this = &windows_core::Interface::cast::<IPackageWithMetadata>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Launch)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(parameters)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IPackageStatics<R, F: FnOnce(&IPackageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPackageStatics<R, F: FnOnce(&IPackageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Package, IPackageStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2085,13 +2075,11 @@ impl PackageCatalog {
             (windows_core::Interface::vtable(this).OpenForPackage)(windows_core::Interface::as_raw(this), package.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPackageCatalogStatics<R, F: FnOnce(&IPackageCatalogStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPackageCatalogStatics<R, F: FnOnce(&IPackageCatalogStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PackageCatalog, IPackageCatalogStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IPackageCatalogStatics2<R, F: FnOnce(&IPackageCatalogStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPackageCatalogStatics2<R, F: FnOnce(&IPackageCatalogStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PackageCatalog, IPackageCatalogStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2278,8 +2266,7 @@ impl PackageContentGroup {
             (windows_core::Interface::vtable(this).RequiredGroupName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPackageContentGroupStatics<R, F: FnOnce(&IPackageContentGroupStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPackageContentGroupStatics<R, F: FnOnce(&IPackageContentGroupStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PackageContentGroup, IPackageContentGroupStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2880,8 +2867,7 @@ impl StartupTask {
             (windows_core::Interface::vtable(this).GetAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(taskid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStartupTaskStatics<R, F: FnOnce(&IStartupTaskStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStartupTaskStatics<R, F: FnOnce(&IStartupTaskStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StartupTask, IStartupTaskStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

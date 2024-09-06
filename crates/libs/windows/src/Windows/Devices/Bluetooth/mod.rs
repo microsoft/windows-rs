@@ -635,8 +635,7 @@ impl BluetoothAdapter {
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothAdapterStatics<R, F: FnOnce(&IBluetoothAdapterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothAdapterStatics<R, F: FnOnce(&IBluetoothAdapterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothAdapter, IBluetoothAdapterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -698,8 +697,7 @@ impl BluetoothClassOfDevice {
             (windows_core::Interface::vtable(this).FromParts)(windows_core::Interface::as_raw(this), majorclass, minorclass, servicecapabilities, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothClassOfDeviceStatics<R, F: FnOnce(&IBluetoothClassOfDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothClassOfDeviceStatics<R, F: FnOnce(&IBluetoothClassOfDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothClassOfDevice, IBluetoothClassOfDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -964,13 +962,11 @@ impl BluetoothDevice {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IBluetoothDeviceStatics<R, F: FnOnce(&IBluetoothDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothDeviceStatics<R, F: FnOnce(&IBluetoothDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothDevice, IBluetoothDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBluetoothDeviceStatics2<R, F: FnOnce(&IBluetoothDeviceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothDeviceStatics2<R, F: FnOnce(&IBluetoothDeviceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothDevice, IBluetoothDeviceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1019,8 +1015,7 @@ impl BluetoothDeviceId {
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothDeviceIdStatics<R, F: FnOnce(&IBluetoothDeviceIdStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothDeviceIdStatics<R, F: FnOnce(&IBluetoothDeviceIdStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothDeviceId, IBluetoothDeviceIdStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1075,8 +1070,7 @@ impl BluetoothLEAppearance {
             (windows_core::Interface::vtable(this).FromParts)(windows_core::Interface::as_raw(this), appearancecategory, appearancesubcategory, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEAppearanceStatics<R, F: FnOnce(&IBluetoothLEAppearanceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAppearanceStatics<R, F: FnOnce(&IBluetoothLEAppearanceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAppearance, IBluetoothLEAppearanceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1227,8 +1221,7 @@ impl BluetoothLEAppearanceCategories {
             (windows_core::Interface::vtable(this).OutdoorSportActivity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEAppearanceCategoriesStatics<R, F: FnOnce(&IBluetoothLEAppearanceCategoriesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAppearanceCategoriesStatics<R, F: FnOnce(&IBluetoothLEAppearanceCategoriesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAppearanceCategories, IBluetoothLEAppearanceCategoriesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1406,8 +1399,7 @@ impl BluetoothLEAppearanceSubcategories {
             (windows_core::Interface::vtable(this).LocationNavigationPod)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEAppearanceSubcategoriesStatics<R, F: FnOnce(&IBluetoothLEAppearanceSubcategoriesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAppearanceSubcategoriesStatics<R, F: FnOnce(&IBluetoothLEAppearanceSubcategoriesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAppearanceSubcategories, IBluetoothLEAppearanceSubcategoriesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1820,13 +1812,11 @@ impl BluetoothLEDevice {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEDeviceStatics<R, F: FnOnce(&IBluetoothLEDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEDeviceStatics<R, F: FnOnce(&IBluetoothLEDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEDevice, IBluetoothLEDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEDeviceStatics2<R, F: FnOnce(&IBluetoothLEDeviceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEDeviceStatics2<R, F: FnOnce(&IBluetoothLEDeviceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEDevice, IBluetoothLEDeviceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1894,8 +1884,7 @@ impl BluetoothLEPreferredConnectionParameters {
             (windows_core::Interface::vtable(this).PowerOptimized)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEPreferredConnectionParametersStatics<R, F: FnOnce(&IBluetoothLEPreferredConnectionParametersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEPreferredConnectionParametersStatics<R, F: FnOnce(&IBluetoothLEPreferredConnectionParametersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEPreferredConnectionParameters, IBluetoothLEPreferredConnectionParametersStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2037,8 +2026,7 @@ impl BluetoothUuidHelper {
             (windows_core::Interface::vtable(this).TryGetShortId)(windows_core::Interface::as_raw(this), uuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothUuidHelperStatics<R, F: FnOnce(&IBluetoothUuidHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothUuidHelperStatics<R, F: FnOnce(&IBluetoothUuidHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothUuidHelper, IBluetoothUuidHelperStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

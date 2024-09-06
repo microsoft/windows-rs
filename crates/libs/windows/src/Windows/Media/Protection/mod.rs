@@ -215,8 +215,7 @@ impl ComponentRenewal {
             (windows_core::Interface::vtable(this).RenewSystemComponentsAsync)(windows_core::Interface::as_raw(this), information.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IComponentRenewalStatics<R, F: FnOnce(&IComponentRenewalStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IComponentRenewalStatics<R, F: FnOnce(&IComponentRenewalStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ComponentRenewal, IComponentRenewalStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -387,8 +386,7 @@ impl MediaProtectionPMPServer {
             (windows_core::Interface::vtable(this).CreatePMPServer)(windows_core::Interface::as_raw(this), pproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaProtectionPMPServerFactory<R, F: FnOnce(&IMediaProtectionPMPServerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaProtectionPMPServerFactory<R, F: FnOnce(&IMediaProtectionPMPServerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaProtectionPMPServer, IMediaProtectionPMPServerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

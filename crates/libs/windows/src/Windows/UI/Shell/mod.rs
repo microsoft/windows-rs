@@ -332,8 +332,7 @@ impl AdaptiveCardBuilder {
             (windows_core::Interface::vtable(this).CreateAdaptiveCardFromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAdaptiveCardBuilderStatics<R, F: FnOnce(&IAdaptiveCardBuilderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAdaptiveCardBuilderStatics<R, F: FnOnce(&IAdaptiveCardBuilderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AdaptiveCardBuilder, IAdaptiveCardBuilderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -433,8 +432,7 @@ impl FocusSessionManager {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IFocusSessionManagerStatics<R, F: FnOnce(&IFocusSessionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFocusSessionManagerStatics<R, F: FnOnce(&IFocusSessionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FocusSessionManager, IFocusSessionManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -584,8 +582,7 @@ impl ShareWindowCommandSource {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IShareWindowCommandSourceStatics<R, F: FnOnce(&IShareWindowCommandSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IShareWindowCommandSourceStatics<R, F: FnOnce(&IShareWindowCommandSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ShareWindowCommandSource, IShareWindowCommandSourceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -688,8 +685,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITaskbarManagerStatics<R, F: FnOnce(&ITaskbarManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITaskbarManagerStatics<R, F: FnOnce(&ITaskbarManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TaskbarManager, ITaskbarManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1042,8 +1038,7 @@ impl WindowTabIcon {
             (windows_core::Interface::vtable(this).CreateFromImage)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWindowTabIconStatics<R, F: FnOnce(&IWindowTabIconStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowTabIconStatics<R, F: FnOnce(&IWindowTabIconStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowTabIcon, IWindowTabIconStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1153,8 +1148,7 @@ impl WindowTabManager {
             (windows_core::Interface::vtable(this).IsTabTearOutSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IWindowTabManagerStatics<R, F: FnOnce(&IWindowTabManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowTabManagerStatics<R, F: FnOnce(&IWindowTabManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowTabManager, IWindowTabManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

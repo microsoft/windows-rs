@@ -74,9 +74,8 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                     let features = writer.cfg_features(&cfg::type_def_cfg(writer, *def, generics));
 
                     return Some(quote! {
-                        #[doc(hidden)]
                         #features
-                        pub fn #interface_type<R, F: FnOnce(&#interface_type) -> windows_core::Result<R>>(
+                        fn #interface_type<R, F: FnOnce(&#interface_type) -> windows_core::Result<R>>(
                             callback: F,
                         ) -> windows_core::Result<R> {
                             static SHARED: windows_core::imp::FactoryCache<#name, #interface_type> =

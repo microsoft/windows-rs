@@ -538,23 +538,19 @@ impl WebAuthenticationCoreManager {
             (windows_core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), core::mem::transmute_copy(authority), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebAuthenticationCoreManagerStatics<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationCoreManagerStatics<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebAuthenticationCoreManagerStatics2<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationCoreManagerStatics2<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebAuthenticationCoreManagerStatics3<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationCoreManagerStatics3<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebAuthenticationCoreManagerStatics4<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAuthenticationCoreManagerStatics4<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -595,8 +591,7 @@ impl WebProviderError {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), errorcode, core::mem::transmute_copy(errormessage), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebProviderErrorFactory<R, F: FnOnce(&IWebProviderErrorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebProviderErrorFactory<R, F: FnOnce(&IWebProviderErrorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebProviderError, IWebProviderErrorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -714,8 +709,7 @@ impl WebTokenRequest {
             (windows_core::Interface::vtable(this).CreateWithScope)(windows_core::Interface::as_raw(this), provider.param().abi(), core::mem::transmute_copy(scope), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebTokenRequestFactory<R, F: FnOnce(&IWebTokenRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebTokenRequestFactory<R, F: FnOnce(&IWebTokenRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebTokenRequest, IWebTokenRequestFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -848,8 +842,7 @@ impl WebTokenResponse {
             (windows_core::Interface::vtable(this).CreateWithTokenAccountAndError)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), webaccount.param().abi(), error.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebTokenResponseFactory<R, F: FnOnce(&IWebTokenResponseFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebTokenResponseFactory<R, F: FnOnce(&IWebTokenResponseFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebTokenResponse, IWebTokenResponseFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

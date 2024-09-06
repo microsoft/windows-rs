@@ -297,13 +297,11 @@ impl DateTimeFormatter {
             (windows_core::Interface::vtable(this).ShortTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDateTimeFormatterFactory<R, F: FnOnce(&IDateTimeFormatterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDateTimeFormatterFactory<R, F: FnOnce(&IDateTimeFormatterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DateTimeFormatter, IDateTimeFormatterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDateTimeFormatterStatics<R, F: FnOnce(&IDateTimeFormatterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDateTimeFormatterStatics<R, F: FnOnce(&IDateTimeFormatterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DateTimeFormatter, IDateTimeFormatterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

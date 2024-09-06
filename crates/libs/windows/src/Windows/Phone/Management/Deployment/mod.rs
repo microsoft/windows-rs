@@ -198,8 +198,7 @@ impl EnterpriseEnrollmentManager {
             (windows_core::Interface::vtable(this).RequestUnenrollmentAsync)(windows_core::Interface::as_raw(this), enterprise.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEnterpriseEnrollmentManager<R, F: FnOnce(&IEnterpriseEnrollmentManager) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEnterpriseEnrollmentManager<R, F: FnOnce(&IEnterpriseEnrollmentManager) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EnterpriseEnrollmentManager, IEnterpriseEnrollmentManager> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -304,13 +303,11 @@ impl InstallationManager {
             (windows_core::Interface::vtable(this).FindPackagesByNamePublisher)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagename), core::mem::transmute_copy(packagepublisher), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IInstallationManagerStatics<R, F: FnOnce(&IInstallationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInstallationManagerStatics<R, F: FnOnce(&IInstallationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InstallationManager, IInstallationManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IInstallationManagerStatics2<R, F: FnOnce(&IInstallationManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInstallationManagerStatics2<R, F: FnOnce(&IInstallationManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InstallationManager, IInstallationManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

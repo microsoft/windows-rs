@@ -15,8 +15,7 @@ impl CorePerceptionAutomation {
     {
         Self::ICorePerceptionAutomationStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetActivationFactoryProvider)(windows_core::Interface::as_raw(this), provider.param().abi()).ok() })
     }
-    #[doc(hidden)]
-    pub fn ICorePerceptionAutomationStatics<R, F: FnOnce(&ICorePerceptionAutomationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICorePerceptionAutomationStatics<R, F: FnOnce(&ICorePerceptionAutomationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CorePerceptionAutomation, ICorePerceptionAutomationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

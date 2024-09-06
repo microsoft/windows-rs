@@ -35,8 +35,7 @@ impl ServiceDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromServiceId)(windows_core::Interface::as_raw(this), serviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IServiceDeviceStatics<R, F: FnOnce(&IServiceDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IServiceDeviceStatics<R, F: FnOnce(&IServiceDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ServiceDevice, IServiceDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -59,8 +58,7 @@ impl StorageDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStorageDeviceStatics<R, F: FnOnce(&IStorageDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorageDeviceStatics<R, F: FnOnce(&IStorageDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StorageDevice, IStorageDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

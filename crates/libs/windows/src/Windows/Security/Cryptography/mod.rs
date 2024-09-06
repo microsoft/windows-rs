@@ -144,8 +144,7 @@ impl CryptographicBuffer {
             (windows_core::Interface::vtable(this).ConvertBinaryToString)(windows_core::Interface::as_raw(this), encoding, buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICryptographicBufferStatics<R, F: FnOnce(&ICryptographicBufferStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICryptographicBufferStatics<R, F: FnOnce(&ICryptographicBufferStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CryptographicBuffer, ICryptographicBufferStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

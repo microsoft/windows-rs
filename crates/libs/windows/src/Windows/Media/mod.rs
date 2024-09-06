@@ -1021,8 +1021,7 @@ impl AudioFrame {
             (windows_core::Interface::vtable(this).ExtendedProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IAudioFrameFactory<R, F: FnOnce(&IAudioFrameFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioFrameFactory<R, F: FnOnce(&IAudioFrameFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioFrame, IAudioFrameFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1330,9 +1329,8 @@ impl MediaControl {
             (windows_core::Interface::vtable(this).AlbumArt)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IMediaControl<R, F: FnOnce(&IMediaControl) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaControl<R, F: FnOnce(&IMediaControl) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaControl, IMediaControl> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1455,8 +1453,7 @@ impl MediaMarkerTypes {
             (windows_core::Interface::vtable(this).Bookmark)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaMarkerTypesStatics<R, F: FnOnce(&IMediaMarkerTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaMarkerTypesStatics<R, F: FnOnce(&IMediaMarkerTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaMarkerTypes, IMediaMarkerTypesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2110,8 +2107,7 @@ impl SystemMediaTransportControls {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISystemMediaTransportControlsStatics<R, F: FnOnce(&ISystemMediaTransportControlsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemMediaTransportControlsStatics<R, F: FnOnce(&ISystemMediaTransportControlsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemMediaTransportControls, ISystemMediaTransportControlsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2410,8 +2406,7 @@ impl VideoEffects {
             (windows_core::Interface::vtable(this).VideoStabilization)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVideoEffectsStatics<R, F: FnOnce(&IVideoEffectsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVideoEffectsStatics<R, F: FnOnce(&IVideoEffectsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoEffects, IVideoEffectsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2594,13 +2589,11 @@ impl VideoFrame {
             (windows_core::Interface::vtable(this).CreateWithDirect3D11Surface)(windows_core::Interface::as_raw(this), surface.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVideoFrameFactory<R, F: FnOnce(&IVideoFrameFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVideoFrameFactory<R, F: FnOnce(&IVideoFrameFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoFrame, IVideoFrameFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IVideoFrameStatics<R, F: FnOnce(&IVideoFrameStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVideoFrameStatics<R, F: FnOnce(&IVideoFrameStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoFrame, IVideoFrameStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

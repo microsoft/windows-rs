@@ -304,8 +304,7 @@ impl WebUICommandBar {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebUICommandBarStatics<R, F: FnOnce(&IWebUICommandBarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUICommandBarStatics<R, F: FnOnce(&IWebUICommandBarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebUICommandBar, IWebUICommandBarStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -358,8 +357,7 @@ impl WebUICommandBarBitmapIcon {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebUICommandBarBitmapIconFactory<R, F: FnOnce(&IWebUICommandBarBitmapIconFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUICommandBarBitmapIconFactory<R, F: FnOnce(&IWebUICommandBarBitmapIconFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebUICommandBarBitmapIcon, IWebUICommandBarBitmapIconFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -605,8 +603,7 @@ impl WebUICommandBarSymbolIcon {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(symbol), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebUICommandBarSymbolIconFactory<R, F: FnOnce(&IWebUICommandBarSymbolIconFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUICommandBarSymbolIconFactory<R, F: FnOnce(&IWebUICommandBarSymbolIconFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebUICommandBarSymbolIcon, IWebUICommandBarSymbolIconFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -1124,8 +1124,7 @@ impl ConnectivityManager {
     {
         Self::IConnectivityManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveHttpRoutePolicy)(windows_core::Interface::as_raw(this), routepolicy.param().abi()).ok() })
     }
-    #[doc(hidden)]
-    pub fn IConnectivityManagerStatics<R, F: FnOnce(&IConnectivityManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IConnectivityManagerStatics<R, F: FnOnce(&IConnectivityManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ConnectivityManager, IConnectivityManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1501,13 +1500,11 @@ impl NetworkInformation {
             (windows_core::Interface::vtable(this).FindConnectionProfilesAsync)(windows_core::Interface::as_raw(this), pprofilefilter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn INetworkInformationStatics<R, F: FnOnce(&INetworkInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INetworkInformationStatics<R, F: FnOnce(&INetworkInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NetworkInformation, INetworkInformationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn INetworkInformationStatics2<R, F: FnOnce(&INetworkInformationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INetworkInformationStatics2<R, F: FnOnce(&INetworkInformationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NetworkInformation, INetworkInformationStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1800,8 +1797,7 @@ impl RoutePolicy {
             (windows_core::Interface::vtable(this).CreateRoutePolicy)(windows_core::Interface::as_raw(this), connectionprofile.param().abi(), hostname.param().abi(), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRoutePolicyFactory<R, F: FnOnce(&IRoutePolicyFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRoutePolicyFactory<R, F: FnOnce(&IRoutePolicyFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RoutePolicy, IRoutePolicyFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

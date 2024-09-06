@@ -843,13 +843,11 @@ impl ChatCapabilitiesManager {
             (windows_core::Interface::vtable(this).GetCapabilitiesFromNetworkForTransportAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(address), core::mem::transmute_copy(transportid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IChatCapabilitiesManagerStatics<R, F: FnOnce(&IChatCapabilitiesManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IChatCapabilitiesManagerStatics<R, F: FnOnce(&IChatCapabilitiesManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ChatCapabilitiesManager, IChatCapabilitiesManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IChatCapabilitiesManagerStatics2<R, F: FnOnce(&IChatCapabilitiesManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IChatCapabilitiesManagerStatics2<R, F: FnOnce(&IChatCapabilitiesManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ChatCapabilitiesManager, IChatCapabilitiesManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1538,8 +1536,7 @@ impl ChatMessageAttachment {
             (windows_core::Interface::vtable(this).CreateChatMessageAttachment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(mimetype), datastreamreference.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IChatMessageAttachmentFactory<R, F: FnOnce(&IChatMessageAttachmentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IChatMessageAttachmentFactory<R, F: FnOnce(&IChatMessageAttachmentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ChatMessageAttachment, IChatMessageAttachmentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1564,8 +1561,7 @@ impl ChatMessageBlocking {
             (windows_core::Interface::vtable(this).MarkMessageAsBlockedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localchatmessageid), blocked, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IChatMessageBlockingStatic<R, F: FnOnce(&IChatMessageBlockingStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IChatMessageBlockingStatic<R, F: FnOnce(&IChatMessageBlockingStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ChatMessageBlocking, IChatMessageBlockingStatic> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1767,18 +1763,15 @@ impl ChatMessageManager {
             (windows_core::Interface::vtable(this).RequestSyncManagerAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IChatMessageManager2Statics<R, F: FnOnce(&IChatMessageManager2Statics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IChatMessageManager2Statics<R, F: FnOnce(&IChatMessageManager2Statics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ChatMessageManager, IChatMessageManager2Statics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IChatMessageManagerStatic<R, F: FnOnce(&IChatMessageManagerStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IChatMessageManagerStatic<R, F: FnOnce(&IChatMessageManagerStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ChatMessageManager, IChatMessageManagerStatic> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IChatMessageManagerStatics3<R, F: FnOnce(&IChatMessageManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IChatMessageManagerStatics3<R, F: FnOnce(&IChatMessageManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ChatMessageManager, IChatMessageManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2850,13 +2843,11 @@ impl RcsManager {
     pub fn RemoveTransportListChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IRcsManagerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveTransportListChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn IRcsManagerStatics<R, F: FnOnce(&IRcsManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRcsManagerStatics<R, F: FnOnce(&IRcsManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RcsManager, IRcsManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IRcsManagerStatics2<R, F: FnOnce(&IRcsManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRcsManagerStatics2<R, F: FnOnce(&IRcsManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RcsManager, IRcsManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

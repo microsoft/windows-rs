@@ -96,13 +96,11 @@ impl GameService {
             (windows_core::Interface::vtable(this).GetAuthenticationStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGameService<R, F: FnOnce(&IGameService) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameService<R, F: FnOnce(&IGameService) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameService, IGameService> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGameService2<R, F: FnOnce(&IGameService2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameService2<R, F: FnOnce(&IGameService2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameService, IGameService2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

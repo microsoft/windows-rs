@@ -419,8 +419,7 @@ impl TargetedContentContainer {
             (windows_core::Interface::vtable(this).GetAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contentid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITargetedContentContainerStatics<R, F: FnOnce(&ITargetedContentContainerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITargetedContentContainerStatics<R, F: FnOnce(&ITargetedContentContainerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TargetedContentContainer, ITargetedContentContainerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -745,8 +744,7 @@ impl TargetedContentSubscription {
             (windows_core::Interface::vtable(this).GetOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(subscriptionid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITargetedContentSubscriptionStatics<R, F: FnOnce(&ITargetedContentSubscriptionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITargetedContentSubscriptionStatics<R, F: FnOnce(&ITargetedContentSubscriptionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TargetedContentSubscription, ITargetedContentSubscriptionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

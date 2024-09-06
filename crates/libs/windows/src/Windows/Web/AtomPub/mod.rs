@@ -337,8 +337,7 @@ impl AtomPubClient {
             (windows_core::Interface::vtable(this).RetrieveFeedAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IAtomPubClientFactory<R, F: FnOnce(&IAtomPubClientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAtomPubClientFactory<R, F: FnOnce(&IAtomPubClientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AtomPubClient, IAtomPubClientFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

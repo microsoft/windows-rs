@@ -890,13 +890,11 @@ impl BitmapDecoder {
             (windows_core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.param().abi(), exiforientationmode, colormanagementmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IBitmapDecoderStatics<R, F: FnOnce(&IBitmapDecoderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBitmapDecoderStatics<R, F: FnOnce(&IBitmapDecoderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BitmapDecoder, IBitmapDecoderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBitmapDecoderStatics2<R, F: FnOnce(&IBitmapDecoderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBitmapDecoderStatics2<R, F: FnOnce(&IBitmapDecoderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BitmapDecoder, IBitmapDecoderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1105,13 +1103,11 @@ impl BitmapEncoder {
         let this = &windows_core::Interface::cast::<IBitmapEncoderWithSoftwareBitmap>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSoftwareBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi()).ok() }
     }
-    #[doc(hidden)]
-    pub fn IBitmapEncoderStatics<R, F: FnOnce(&IBitmapEncoderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBitmapEncoderStatics<R, F: FnOnce(&IBitmapEncoderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BitmapEncoder, IBitmapEncoderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBitmapEncoderStatics2<R, F: FnOnce(&IBitmapEncoderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBitmapEncoderStatics2<R, F: FnOnce(&IBitmapEncoderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BitmapEncoder, IBitmapEncoderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1560,8 +1556,7 @@ impl BitmapTypedValue {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), value.param().abi(), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBitmapTypedValueFactory<R, F: FnOnce(&IBitmapTypedValueFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBitmapTypedValueFactory<R, F: FnOnce(&IBitmapTypedValueFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BitmapTypedValue, IBitmapTypedValueFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1922,13 +1917,11 @@ impl SoftwareBitmap {
             (windows_core::Interface::vtable(this).CreateCopyWithAlphaFromSurfaceAsync)(windows_core::Interface::as_raw(this), surface.param().abi(), alpha, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISoftwareBitmapFactory<R, F: FnOnce(&ISoftwareBitmapFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISoftwareBitmapFactory<R, F: FnOnce(&ISoftwareBitmapFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SoftwareBitmap, ISoftwareBitmapFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISoftwareBitmapStatics<R, F: FnOnce(&ISoftwareBitmapStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISoftwareBitmapStatics<R, F: FnOnce(&ISoftwareBitmapStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SoftwareBitmap, ISoftwareBitmapStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -726,8 +726,7 @@ impl DisplayAdapter {
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDisplayAdapterStatics<R, F: FnOnce(&IDisplayAdapterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayAdapterStatics<R, F: FnOnce(&IDisplayAdapterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayAdapter, IDisplayAdapterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1045,8 +1044,7 @@ impl DisplayManager {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDisplayManagerStatics<R, F: FnOnce(&IDisplayManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayManagerStatics<R, F: FnOnce(&IDisplayManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayManager, IDisplayManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1439,8 +1437,7 @@ impl DisplayMuxDevice {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDisplayMuxDeviceStatics<R, F: FnOnce(&IDisplayMuxDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayMuxDeviceStatics<R, F: FnOnce(&IDisplayMuxDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayMuxDevice, IDisplayMuxDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1732,13 +1729,11 @@ impl DisplayPrimaryDescription {
             (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), extraproperties.param().abi(), width, height, pixelformat, colorspace, isstereo, multisampledescription, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDisplayPrimaryDescriptionFactory<R, F: FnOnce(&IDisplayPrimaryDescriptionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayPrimaryDescriptionFactory<R, F: FnOnce(&IDisplayPrimaryDescriptionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayPrimaryDescription, IDisplayPrimaryDescriptionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDisplayPrimaryDescriptionStatics<R, F: FnOnce(&IDisplayPrimaryDescriptionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayPrimaryDescriptionStatics<R, F: FnOnce(&IDisplayPrimaryDescriptionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayPrimaryDescription, IDisplayPrimaryDescriptionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2384,13 +2379,11 @@ impl DisplayWireFormat {
             (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), extraproperties.param().abi(), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDisplayWireFormatFactory<R, F: FnOnce(&IDisplayWireFormatFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayWireFormatFactory<R, F: FnOnce(&IDisplayWireFormatFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayWireFormat, IDisplayWireFormatFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDisplayWireFormatStatics<R, F: FnOnce(&IDisplayWireFormatStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayWireFormatStatics<R, F: FnOnce(&IDisplayWireFormatStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayWireFormat, IDisplayWireFormatStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

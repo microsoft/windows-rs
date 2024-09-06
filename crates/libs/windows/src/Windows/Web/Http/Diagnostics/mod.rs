@@ -166,8 +166,7 @@ impl HttpDiagnosticProvider {
             (windows_core::Interface::vtable(this).CreateFromProcessDiagnosticInfo)(windows_core::Interface::as_raw(this), processdiagnosticinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IHttpDiagnosticProviderStatics<R, F: FnOnce(&IHttpDiagnosticProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpDiagnosticProviderStatics<R, F: FnOnce(&IHttpDiagnosticProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpDiagnosticProvider, IHttpDiagnosticProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

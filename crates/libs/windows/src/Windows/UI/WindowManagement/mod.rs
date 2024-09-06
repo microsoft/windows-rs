@@ -528,8 +528,7 @@ impl AppWindow {
     pub fn ClearPersistedState(key: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::IAppWindowStatics(|this| unsafe { (windows_core::Interface::vtable(this).ClearPersistedState)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key)).ok() })
     }
-    #[doc(hidden)]
-    pub fn IAppWindowStatics<R, F: FnOnce(&IAppWindowStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppWindowStatics<R, F: FnOnce(&IAppWindowStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppWindow, IAppWindowStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1265,8 +1264,7 @@ impl WindowServices {
             (windows_core::Interface::vtable(this).FindAllTopLevelWindowIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWindowServicesStatics<R, F: FnOnce(&IWindowServicesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowServicesStatics<R, F: FnOnce(&IWindowServicesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowServices, IWindowServicesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1329,8 +1327,7 @@ impl WindowingEnvironment {
             (windows_core::Interface::vtable(this).FindAllWithKind)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWindowingEnvironmentStatics<R, F: FnOnce(&IWindowingEnvironmentStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowingEnvironmentStatics<R, F: FnOnce(&IWindowingEnvironmentStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowingEnvironment, IWindowingEnvironmentStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

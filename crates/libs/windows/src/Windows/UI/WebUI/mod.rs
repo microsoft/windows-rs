@@ -800,23 +800,19 @@ impl WebUIApplication {
     pub fn RemoveBackgroundActivated(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IWebUIActivationStatics4(|this| unsafe { (windows_core::Interface::vtable(this).RemoveBackgroundActivated)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn IWebUIActivationStatics<R, F: FnOnce(&IWebUIActivationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIActivationStatics<R, F: FnOnce(&IWebUIActivationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebUIActivationStatics2<R, F: FnOnce(&IWebUIActivationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIActivationStatics2<R, F: FnOnce(&IWebUIActivationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebUIActivationStatics3<R, F: FnOnce(&IWebUIActivationStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIActivationStatics3<R, F: FnOnce(&IWebUIActivationStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWebUIActivationStatics4<R, F: FnOnce(&IWebUIActivationStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIActivationStatics4<R, F: FnOnce(&IWebUIActivationStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebUIApplication, IWebUIActivationStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1251,8 +1247,7 @@ impl WebUIBackgroundTaskInstance {
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebUIBackgroundTaskInstanceStatics<R, F: FnOnce(&IWebUIBackgroundTaskInstanceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIBackgroundTaskInstanceStatics<R, F: FnOnce(&IWebUIBackgroundTaskInstanceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebUIBackgroundTaskInstance, IWebUIBackgroundTaskInstanceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4780,8 +4775,7 @@ impl WebUIView {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).AddInitializeScript)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(script)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IWebUIViewStatics<R, F: FnOnce(&IWebUIViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUIViewStatics<R, F: FnOnce(&IWebUIViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebUIView, IWebUIViewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

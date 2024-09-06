@@ -150,8 +150,7 @@ impl AppCapability {
             (windows_core::Interface::vtable(this).CreateWithProcessIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(capabilityname), pid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppCapabilityStatics<R, F: FnOnce(&IAppCapabilityStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppCapabilityStatics<R, F: FnOnce(&IAppCapabilityStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppCapability, IAppCapabilityStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

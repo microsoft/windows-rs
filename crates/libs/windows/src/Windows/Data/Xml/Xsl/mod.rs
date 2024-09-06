@@ -71,8 +71,7 @@ impl XsltProcessor {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), document.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IXsltProcessorFactory<R, F: FnOnce(&IXsltProcessorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IXsltProcessorFactory<R, F: FnOnce(&IXsltProcessorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<XsltProcessor, IXsltProcessorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

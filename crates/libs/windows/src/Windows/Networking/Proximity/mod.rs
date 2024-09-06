@@ -340,13 +340,11 @@ impl PeerFinder {
             (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPeerFinderStatics<R, F: FnOnce(&IPeerFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPeerFinderStatics<R, F: FnOnce(&IPeerFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PeerFinder, IPeerFinderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IPeerFinderStatics2<R, F: FnOnce(&IPeerFinderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPeerFinderStatics2<R, F: FnOnce(&IPeerFinderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PeerFinder, IPeerFinderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -662,8 +660,7 @@ impl ProximityDevice {
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IProximityDeviceStatics<R, F: FnOnce(&IProximityDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProximityDeviceStatics<R, F: FnOnce(&IProximityDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProximityDevice, IProximityDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

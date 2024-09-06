@@ -79,8 +79,7 @@ impl PreallocatedWorkItem {
             (windows_core::Interface::vtable(this).CreateWorkItemWithPriorityAndOptions)(windows_core::Interface::as_raw(this), handler.param().abi(), priority, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPreallocatedWorkItemFactory<R, F: FnOnce(&IPreallocatedWorkItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPreallocatedWorkItemFactory<R, F: FnOnce(&IPreallocatedWorkItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PreallocatedWorkItem, IPreallocatedWorkItemFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -146,8 +145,7 @@ impl SignalNotifier {
             (windows_core::Interface::vtable(this).AttachToSemaphoreWithTimeout)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), handler.param().abi(), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISignalNotifierStatics<R, F: FnOnce(&ISignalNotifierStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISignalNotifierStatics<R, F: FnOnce(&ISignalNotifierStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SignalNotifier, ISignalNotifierStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

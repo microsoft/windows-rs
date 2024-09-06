@@ -620,8 +620,7 @@ impl PaymentCanMakePaymentResult {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPaymentCanMakePaymentResultFactory<R, F: FnOnce(&IPaymentCanMakePaymentResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentCanMakePaymentResultFactory<R, F: FnOnce(&IPaymentCanMakePaymentResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentCanMakePaymentResult, IPaymentCanMakePaymentResultFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -688,8 +687,7 @@ impl PaymentCurrencyAmount {
             (windows_core::Interface::vtable(this).CreateWithCurrencySystem)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), core::mem::transmute_copy(currency), core::mem::transmute_copy(currencysystem), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPaymentCurrencyAmountFactory<R, F: FnOnce(&IPaymentCurrencyAmountFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentCurrencyAmountFactory<R, F: FnOnce(&IPaymentCurrencyAmountFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentCurrencyAmount, IPaymentCurrencyAmountFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -800,8 +798,7 @@ impl PaymentDetails {
             (windows_core::Interface::vtable(this).CreateWithDisplayItems)(windows_core::Interface::as_raw(this), total.param().abi(), displayitems.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPaymentDetailsFactory<R, F: FnOnce(&IPaymentDetailsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentDetailsFactory<R, F: FnOnce(&IPaymentDetailsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentDetails, IPaymentDetailsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -888,8 +885,7 @@ impl PaymentDetailsModifier {
             (windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItemsAndJsonData)(windows_core::Interface::as_raw(this), supportedmethodids.param().abi(), total.param().abi(), additionaldisplayitems.param().abi(), core::mem::transmute_copy(jsondata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPaymentDetailsModifierFactory<R, F: FnOnce(&IPaymentDetailsModifierFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentDetailsModifierFactory<R, F: FnOnce(&IPaymentDetailsModifierFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentDetailsModifier, IPaymentDetailsModifierFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -956,8 +952,7 @@ impl PaymentItem {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), amount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPaymentItemFactory<R, F: FnOnce(&IPaymentItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentItemFactory<R, F: FnOnce(&IPaymentItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentItem, IPaymentItemFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1073,8 +1068,7 @@ impl PaymentMerchantInfo {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPaymentMerchantInfoFactory<R, F: FnOnce(&IPaymentMerchantInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentMerchantInfoFactory<R, F: FnOnce(&IPaymentMerchantInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentMerchantInfo, IPaymentMerchantInfoFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1131,8 +1125,7 @@ impl PaymentMethodData {
             (windows_core::Interface::vtable(this).CreateWithJsonData)(windows_core::Interface::as_raw(this), supportedmethodids.param().abi(), core::mem::transmute_copy(jsondata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPaymentMethodDataFactory<R, F: FnOnce(&IPaymentMethodDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentMethodDataFactory<R, F: FnOnce(&IPaymentMethodDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentMethodData, IPaymentMethodDataFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1319,13 +1312,11 @@ impl PaymentRequest {
             (windows_core::Interface::vtable(this).CreateWithMerchantInfoOptionsAndId)(windows_core::Interface::as_raw(this), details.param().abi(), methoddata.param().abi(), merchantinfo.param().abi(), options.param().abi(), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPaymentRequestFactory<R, F: FnOnce(&IPaymentRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentRequestFactory<R, F: FnOnce(&IPaymentRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentRequest, IPaymentRequestFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IPaymentRequestFactory2<R, F: FnOnce(&IPaymentRequestFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentRequestFactory2<R, F: FnOnce(&IPaymentRequestFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentRequest, IPaymentRequestFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1444,8 +1435,7 @@ impl PaymentRequestChangedResult {
             (windows_core::Interface::vtable(this).CreateWithPaymentDetails)(windows_core::Interface::as_raw(this), changeacceptedbymerchant, updatedpaymentdetails.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPaymentRequestChangedResultFactory<R, F: FnOnce(&IPaymentRequestChangedResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentRequestChangedResultFactory<R, F: FnOnce(&IPaymentRequestChangedResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentRequestChangedResult, IPaymentRequestChangedResultFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1640,8 +1630,7 @@ impl PaymentShippingOption {
             (windows_core::Interface::vtable(this).CreateWithSelectedAndTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), amount.param().abi(), selected, core::mem::transmute_copy(tag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPaymentShippingOptionFactory<R, F: FnOnce(&IPaymentShippingOptionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentShippingOptionFactory<R, F: FnOnce(&IPaymentShippingOptionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentShippingOption, IPaymentShippingOptionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1689,8 +1678,7 @@ impl PaymentToken {
             (windows_core::Interface::vtable(this).CreateWithJsonDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(paymentmethodid), core::mem::transmute_copy(jsondetails), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPaymentTokenFactory<R, F: FnOnce(&IPaymentTokenFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPaymentTokenFactory<R, F: FnOnce(&IPaymentTokenFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PaymentToken, IPaymentTokenFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -28,8 +28,7 @@ impl CoreUserActivityManager {
             (windows_core::Interface::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(windows_core::Interface::as_raw(this), channel.param().abi(), starttime, endtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICoreUserActivityManagerStatics<R, F: FnOnce(&ICoreUserActivityManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreUserActivityManagerStatics<R, F: FnOnce(&ICoreUserActivityManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreUserActivityManager, ICoreUserActivityManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

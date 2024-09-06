@@ -484,8 +484,7 @@ impl ImageScanner {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IImageScannerStatics<R, F: FnOnce(&IImageScannerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IImageScannerStatics<R, F: FnOnce(&IImageScannerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ImageScanner, IImageScannerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

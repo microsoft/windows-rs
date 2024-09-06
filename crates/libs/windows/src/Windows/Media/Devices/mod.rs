@@ -1329,8 +1329,7 @@ impl AudioDeviceModulesManager {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAudioDeviceModulesManagerFactory<R, F: FnOnce(&IAudioDeviceModulesManagerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioDeviceModulesManagerFactory<R, F: FnOnce(&IAudioDeviceModulesManagerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioDeviceModulesManager, IAudioDeviceModulesManagerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1477,8 +1476,7 @@ impl CallControl {
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICallControlStatics<R, F: FnOnce(&ICallControlStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICallControlStatics<R, F: FnOnce(&ICallControlStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CallControl, ICallControlStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2904,8 +2902,7 @@ impl MediaDevice {
     pub fn RemoveDefaultAudioRenderDeviceChanged(cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IMediaDeviceStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveDefaultAudioRenderDeviceChanged)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[doc(hidden)]
-    pub fn IMediaDeviceStatics<R, F: FnOnce(&IMediaDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaDeviceStatics<R, F: FnOnce(&IMediaDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaDevice, IMediaDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -482,13 +482,11 @@ impl FileOpenPicker {
             (windows_core::Interface::vtable(this).PickSingleFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pickeroperationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IFileOpenPickerStatics<R, F: FnOnce(&IFileOpenPickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileOpenPickerStatics<R, F: FnOnce(&IFileOpenPickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FileOpenPicker, IFileOpenPickerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IFileOpenPickerStatics2<R, F: FnOnce(&IFileOpenPickerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileOpenPickerStatics2<R, F: FnOnce(&IFileOpenPickerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FileOpenPicker, IFileOpenPickerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -835,8 +833,7 @@ impl FileSavePicker {
             (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IFileSavePickerStatics<R, F: FnOnce(&IFileSavePickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileSavePickerStatics<R, F: FnOnce(&IFileSavePickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FileSavePicker, IFileSavePickerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -955,8 +952,7 @@ impl FolderPicker {
             (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IFolderPickerStatics<R, F: FnOnce(&IFolderPickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFolderPickerStatics<R, F: FnOnce(&IFolderPickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FolderPicker, IFolderPickerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
