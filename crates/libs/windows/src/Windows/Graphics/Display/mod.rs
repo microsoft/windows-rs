@@ -532,8 +532,7 @@ impl BrightnessOverride {
             (windows_core::Interface::vtable(this).SaveForSystemAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBrightnessOverrideStatics<R, F: FnOnce(&IBrightnessOverrideStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBrightnessOverrideStatics<R, F: FnOnce(&IBrightnessOverrideStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BrightnessOverride, IBrightnessOverrideStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -587,8 +586,7 @@ impl BrightnessOverrideSettings {
             (windows_core::Interface::vtable(this).CreateFromDisplayBrightnessOverrideScenario)(windows_core::Interface::as_raw(this), overridescenario, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBrightnessOverrideSettingsStatics<R, F: FnOnce(&IBrightnessOverrideSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBrightnessOverrideSettingsStatics<R, F: FnOnce(&IBrightnessOverrideSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BrightnessOverrideSettings, IBrightnessOverrideSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -623,8 +621,7 @@ impl ColorOverrideSettings {
             (windows_core::Interface::vtable(this).CreateFromDisplayColorOverrideScenario)(windows_core::Interface::as_raw(this), overridescenario, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IColorOverrideSettingsStatics<R, F: FnOnce(&IColorOverrideSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IColorOverrideSettingsStatics<R, F: FnOnce(&IColorOverrideSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ColorOverrideSettings, IColorOverrideSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -751,8 +748,7 @@ impl DisplayEnhancementOverride {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDisplayEnhancementOverrideStatics<R, F: FnOnce(&IDisplayEnhancementOverrideStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayEnhancementOverrideStatics<R, F: FnOnce(&IDisplayEnhancementOverrideStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayEnhancementOverride, IDisplayEnhancementOverrideStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1028,8 +1024,7 @@ impl DisplayInformation {
     pub fn RemoveDisplayContentsInvalidated(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IDisplayInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveDisplayContentsInvalidated)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn IDisplayInformationStatics<R, F: FnOnce(&IDisplayInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayInformationStatics<R, F: FnOnce(&IDisplayInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayInformation, IDisplayInformationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1173,9 +1168,8 @@ impl DisplayProperties {
     pub fn RemoveDisplayContentsInvalidated(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveDisplayContentsInvalidated)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IDisplayPropertiesStatics<R, F: FnOnce(&IDisplayPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayPropertiesStatics<R, F: FnOnce(&IDisplayPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayProperties, IDisplayPropertiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1195,8 +1189,7 @@ impl DisplayServices {
             (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), windows_core::Array::<super::DisplayId>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         })
     }
-    #[doc(hidden)]
-    pub fn IDisplayServicesStatics<R, F: FnOnce(&IDisplayServicesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDisplayServicesStatics<R, F: FnOnce(&IDisplayServicesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayServices, IDisplayServicesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

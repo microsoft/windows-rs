@@ -1294,8 +1294,7 @@ impl ControlChannelTrigger {
             (windows_core::Interface::vtable(this).CreateControlChannelTriggerEx)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(channelid), serverkeepaliveintervalinminutes, resourcerequesttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IControlChannelTriggerFactory<R, F: FnOnce(&IControlChannelTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IControlChannelTriggerFactory<R, F: FnOnce(&IControlChannelTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ControlChannelTrigger, IControlChannelTriggerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1495,8 +1494,7 @@ impl DatagramSocket {
             (windows_core::Interface::vtable(this).GetEndpointPairsWithSortOptionsAsync)(windows_core::Interface::as_raw(this), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), sortoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDatagramSocketStatics<R, F: FnOnce(&IDatagramSocketStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDatagramSocketStatics<R, F: FnOnce(&IDatagramSocketStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DatagramSocket, IDatagramSocketStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2356,8 +2354,7 @@ impl SocketActivityContext {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISocketActivityContextFactory<R, F: FnOnce(&ISocketActivityContextFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISocketActivityContextFactory<R, F: FnOnce(&ISocketActivityContextFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SocketActivityContext, ISocketActivityContextFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2435,8 +2432,7 @@ impl SocketActivityInformation {
             (windows_core::Interface::vtable(this).AllSockets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISocketActivityInformationStatics<R, F: FnOnce(&ISocketActivityInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISocketActivityInformationStatics<R, F: FnOnce(&ISocketActivityInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SocketActivityInformation, ISocketActivityInformationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2493,8 +2489,7 @@ impl SocketError {
             (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn ISocketErrorStatics<R, F: FnOnce(&ISocketErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISocketErrorStatics<R, F: FnOnce(&ISocketErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SocketError, ISocketErrorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2664,8 +2659,7 @@ impl StreamSocket {
             (windows_core::Interface::vtable(this).GetEndpointPairsWithSortOptionsAsync)(windows_core::Interface::as_raw(this), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), sortoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStreamSocketStatics<R, F: FnOnce(&IStreamSocketStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStreamSocketStatics<R, F: FnOnce(&IStreamSocketStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StreamSocket, IStreamSocketStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3504,8 +3498,7 @@ impl WebSocketError {
             (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IWebSocketErrorStatics<R, F: FnOnce(&IWebSocketErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebSocketErrorStatics<R, F: FnOnce(&IWebSocketErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebSocketError, IWebSocketErrorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

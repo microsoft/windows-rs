@@ -1029,35 +1029,29 @@ impl ApplicationView {
             (windows_core::Interface::vtable(this).UIContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IApplicationViewFullscreenStatics<R, F: FnOnce(&IApplicationViewFullscreenStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationViewFullscreenStatics<R, F: FnOnce(&IApplicationViewFullscreenStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationView, IApplicationViewFullscreenStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IApplicationViewInteropStatics<R, F: FnOnce(&IApplicationViewInteropStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationViewInteropStatics<R, F: FnOnce(&IApplicationViewInteropStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationView, IApplicationViewInteropStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IApplicationViewStatics<R, F: FnOnce(&IApplicationViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationViewStatics<R, F: FnOnce(&IApplicationViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationView, IApplicationViewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IApplicationViewStatics2<R, F: FnOnce(&IApplicationViewStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationViewStatics2<R, F: FnOnce(&IApplicationViewStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationView, IApplicationViewStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IApplicationViewStatics3<R, F: FnOnce(&IApplicationViewStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationViewStatics3<R, F: FnOnce(&IApplicationViewStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationView, IApplicationViewStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IApplicationViewStatics4<R, F: FnOnce(&IApplicationViewStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationViewStatics4<R, F: FnOnce(&IApplicationViewStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationView, IApplicationViewStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1123,8 +1117,7 @@ impl ApplicationViewScaling {
             (windows_core::Interface::vtable(this).TrySetDisableLayoutScaling)(windows_core::Interface::as_raw(this), disablelayoutscaling, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IApplicationViewScalingStatics<R, F: FnOnce(&IApplicationViewScalingStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationViewScalingStatics<R, F: FnOnce(&IApplicationViewScalingStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationViewScaling, IApplicationViewScalingStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1204,18 +1197,15 @@ impl ApplicationViewSwitcher {
             (windows_core::Interface::vtable(this).TryShowAsViewModeWithPreferencesAsync)(windows_core::Interface::as_raw(this), viewid, viewmode, viewmodepreferences.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IApplicationViewSwitcherStatics<R, F: FnOnce(&IApplicationViewSwitcherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationViewSwitcherStatics<R, F: FnOnce(&IApplicationViewSwitcherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IApplicationViewSwitcherStatics2<R, F: FnOnce(&IApplicationViewSwitcherStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationViewSwitcherStatics2<R, F: FnOnce(&IApplicationViewSwitcherStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IApplicationViewSwitcherStatics3<R, F: FnOnce(&IApplicationViewSwitcherStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationViewSwitcherStatics3<R, F: FnOnce(&IApplicationViewSwitcherStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationViewSwitcher, IApplicationViewSwitcherStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1438,8 +1428,7 @@ impl ApplicationViewTransferContext {
             (windows_core::Interface::vtable(this).DataPackageFormatId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IApplicationViewTransferContextStatics<R, F: FnOnce(&IApplicationViewTransferContextStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationViewTransferContextStatics<R, F: FnOnce(&IApplicationViewTransferContextStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationViewTransferContext, IApplicationViewTransferContextStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1534,13 +1523,11 @@ impl InputPane {
             (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IInputPaneStatics<R, F: FnOnce(&IInputPaneStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInputPaneStatics<R, F: FnOnce(&IInputPaneStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InputPane, IInputPaneStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IInputPaneStatics2<R, F: FnOnce(&IInputPaneStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInputPaneStatics2<R, F: FnOnce(&IInputPaneStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InputPane, IInputPaneStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1656,13 +1643,11 @@ impl ProjectionManager {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IProjectionManagerStatics<R, F: FnOnce(&IProjectionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProjectionManagerStatics<R, F: FnOnce(&IProjectionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProjectionManager, IProjectionManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IProjectionManagerStatics2<R, F: FnOnce(&IProjectionManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProjectionManagerStatics2<R, F: FnOnce(&IProjectionManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProjectionManager, IProjectionManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1776,8 +1761,7 @@ impl StatusBar {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStatusBarStatics<R, F: FnOnce(&IStatusBarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStatusBarStatics<R, F: FnOnce(&IStatusBarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StatusBar, IStatusBarStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2148,8 +2132,7 @@ impl UIViewSettings {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUIViewSettingsStatics<R, F: FnOnce(&IUIViewSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUIViewSettingsStatics<R, F: FnOnce(&IUIViewSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UIViewSettings, IUIViewSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2199,8 +2182,7 @@ impl ViewModePreferences {
             (windows_core::Interface::vtable(this).CreateDefault)(windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IViewModePreferencesStatics<R, F: FnOnce(&IViewModePreferencesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IViewModePreferencesStatics<R, F: FnOnce(&IViewModePreferencesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ViewModePreferences, IViewModePreferencesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

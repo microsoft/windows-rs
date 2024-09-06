@@ -1020,8 +1020,7 @@ impl HolographicDisplay {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IHolographicDisplayStatics<R, F: FnOnce(&IHolographicDisplayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHolographicDisplayStatics<R, F: FnOnce(&IHolographicDisplayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HolographicDisplay, IHolographicDisplayStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1450,8 +1449,7 @@ impl HolographicQuadLayer {
             (windows_core::Interface::vtable(this).CreateWithPixelFormat)(windows_core::Interface::as_raw(this), size, pixelformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IHolographicQuadLayerFactory<R, F: FnOnce(&IHolographicQuadLayerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHolographicQuadLayerFactory<R, F: FnOnce(&IHolographicQuadLayerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HolographicQuadLayer, IHolographicQuadLayerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1674,18 +1672,15 @@ impl HolographicSpace {
             (windows_core::Interface::vtable(this).IsConfigured)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IHolographicSpaceStatics<R, F: FnOnce(&IHolographicSpaceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHolographicSpaceStatics<R, F: FnOnce(&IHolographicSpaceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HolographicSpace, IHolographicSpaceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IHolographicSpaceStatics2<R, F: FnOnce(&IHolographicSpaceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHolographicSpaceStatics2<R, F: FnOnce(&IHolographicSpaceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HolographicSpace, IHolographicSpaceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IHolographicSpaceStatics3<R, F: FnOnce(&IHolographicSpaceStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHolographicSpaceStatics3<R, F: FnOnce(&IHolographicSpaceStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HolographicSpace, IHolographicSpaceStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

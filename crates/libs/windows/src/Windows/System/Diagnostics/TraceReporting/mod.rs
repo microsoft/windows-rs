@@ -103,8 +103,7 @@ impl PlatformDiagnosticActions {
             (windows_core::Interface::vtable(this).GetKnownTraceList)(windows_core::Interface::as_raw(this), slottype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPlatformDiagnosticActionsStatics<R, F: FnOnce(&IPlatformDiagnosticActionsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlatformDiagnosticActionsStatics<R, F: FnOnce(&IPlatformDiagnosticActionsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlatformDiagnosticActions, IPlatformDiagnosticActionsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

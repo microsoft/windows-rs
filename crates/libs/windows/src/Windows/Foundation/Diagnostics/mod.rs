@@ -712,8 +712,7 @@ impl AsyncCausalityTracer {
     pub fn RemoveTracingStatusChanged(cookie: super::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IAsyncCausalityTracerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveTracingStatusChanged)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[doc(hidden)]
-    pub fn IAsyncCausalityTracerStatics<R, F: FnOnce(&IAsyncCausalityTracerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAsyncCausalityTracerStatics<R, F: FnOnce(&IAsyncCausalityTracerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AsyncCausalityTracer, IAsyncCausalityTracerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -753,8 +752,7 @@ impl ErrorDetails {
             (windows_core::Interface::vtable(this).CreateFromHResultAsync)(windows_core::Interface::as_raw(this), errorcode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IErrorDetailsStatics<R, F: FnOnce(&IErrorDetailsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IErrorDetailsStatics<R, F: FnOnce(&IErrorDetailsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ErrorDetails, IErrorDetailsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -837,8 +835,7 @@ impl FileLoggingSession {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IFileLoggingSessionFactory<R, F: FnOnce(&IFileLoggingSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileLoggingSessionFactory<R, F: FnOnce(&IFileLoggingSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FileLoggingSession, IFileLoggingSessionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1034,8 +1031,7 @@ impl LoggingActivity {
             (windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn ILoggingActivityFactory<R, F: FnOnce(&ILoggingActivityFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILoggingActivityFactory<R, F: FnOnce(&ILoggingActivityFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LoggingActivity, ILoggingActivityFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1230,13 +1226,11 @@ impl LoggingChannel {
             (windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(starteventname), fields.param().abi(), level, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn ILoggingChannelFactory<R, F: FnOnce(&ILoggingChannelFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILoggingChannelFactory<R, F: FnOnce(&ILoggingChannelFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LoggingChannel, ILoggingChannelFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILoggingChannelFactory2<R, F: FnOnce(&ILoggingChannelFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILoggingChannelFactory2<R, F: FnOnce(&ILoggingChannelFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LoggingChannel, ILoggingChannelFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1282,8 +1276,7 @@ impl LoggingChannelOptions {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), group, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILoggingChannelOptionsFactory<R, F: FnOnce(&ILoggingChannelOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILoggingChannelOptionsFactory<R, F: FnOnce(&ILoggingChannelOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LoggingChannelOptions, ILoggingChannelOptionsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1869,8 +1862,7 @@ impl LoggingOptions {
             (windows_core::Interface::vtable(this).CreateWithKeywords)(windows_core::Interface::as_raw(this), keywords, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILoggingOptionsFactory<R, F: FnOnce(&ILoggingOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILoggingOptionsFactory<R, F: FnOnce(&ILoggingOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LoggingOptions, ILoggingOptionsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1942,8 +1934,7 @@ impl LoggingSession {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILoggingSessionFactory<R, F: FnOnce(&ILoggingSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILoggingSessionFactory<R, F: FnOnce(&ILoggingSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LoggingSession, ILoggingSessionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

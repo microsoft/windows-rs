@@ -196,8 +196,7 @@ impl ConditionForceEffect {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IConditionForceEffectFactory<R, F: FnOnce(&IConditionForceEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IConditionForceEffectFactory<R, F: FnOnce(&IConditionForceEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ConditionForceEffect, IConditionForceEffectFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -432,8 +431,7 @@ impl PeriodicForceEffect {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), effectkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPeriodicForceEffectFactory<R, F: FnOnce(&IPeriodicForceEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPeriodicForceEffectFactory<R, F: FnOnce(&IPeriodicForceEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PeriodicForceEffect, IPeriodicForceEffectFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

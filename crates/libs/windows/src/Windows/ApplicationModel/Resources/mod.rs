@@ -155,28 +155,23 @@ impl ResourceLoader {
             (windows_core::Interface::vtable(this).GetDefaultPriPath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IResourceLoaderFactory<R, F: FnOnce(&IResourceLoaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceLoaderFactory<R, F: FnOnce(&IResourceLoaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, IResourceLoaderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IResourceLoaderStatics<R, F: FnOnce(&IResourceLoaderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceLoaderStatics<R, F: FnOnce(&IResourceLoaderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, IResourceLoaderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IResourceLoaderStatics2<R, F: FnOnce(&IResourceLoaderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceLoaderStatics2<R, F: FnOnce(&IResourceLoaderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, IResourceLoaderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IResourceLoaderStatics3<R, F: FnOnce(&IResourceLoaderStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceLoaderStatics3<R, F: FnOnce(&IResourceLoaderStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, IResourceLoaderStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IResourceLoaderStatics4<R, F: FnOnce(&IResourceLoaderStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceLoaderStatics4<R, F: FnOnce(&IResourceLoaderStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, IResourceLoaderStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

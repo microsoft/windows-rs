@@ -158,8 +158,7 @@ impl Geofence {
             (windows_core::Interface::vtable(this).CreateWithMonitorStatesDwellTimeStartTimeAndDuration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), geoshape.param().abi(), monitoredstates, singleuse, dwelltime, starttime, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGeofenceFactory<R, F: FnOnce(&IGeofenceFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeofenceFactory<R, F: FnOnce(&IGeofenceFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Geofence, IGeofenceFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -245,8 +244,7 @@ impl GeofenceMonitor {
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGeofenceMonitorStatics<R, F: FnOnce(&IGeofenceMonitorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeofenceMonitorStatics<R, F: FnOnce(&IGeofenceMonitorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GeofenceMonitor, IGeofenceMonitorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

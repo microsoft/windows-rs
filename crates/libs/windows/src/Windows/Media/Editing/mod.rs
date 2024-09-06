@@ -383,8 +383,7 @@ impl BackgroundAudioTrack {
             (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBackgroundAudioTrackStatics<R, F: FnOnce(&IBackgroundAudioTrackStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundAudioTrackStatics<R, F: FnOnce(&IBackgroundAudioTrackStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundAudioTrack, IBackgroundAudioTrackStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -588,13 +587,11 @@ impl MediaClip {
             (windows_core::Interface::vtable(this).CreateFromSurface)(windows_core::Interface::as_raw(this), surface.param().abi(), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaClipStatics<R, F: FnOnce(&IMediaClipStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaClipStatics<R, F: FnOnce(&IMediaClipStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaClip, IMediaClipStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaClipStatics2<R, F: FnOnce(&IMediaClipStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaClipStatics2<R, F: FnOnce(&IMediaClipStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaClip, IMediaClipStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -778,8 +775,7 @@ impl MediaComposition {
             (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaCompositionStatics<R, F: FnOnce(&IMediaCompositionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaCompositionStatics<R, F: FnOnce(&IMediaCompositionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaComposition, IMediaCompositionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -877,8 +873,7 @@ impl MediaOverlay {
             (windows_core::Interface::vtable(this).CreateWithPositionAndOpacity)(windows_core::Interface::as_raw(this), clip.param().abi(), position, opacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaOverlayFactory<R, F: FnOnce(&IMediaOverlayFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaOverlayFactory<R, F: FnOnce(&IMediaOverlayFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaOverlay, IMediaOverlayFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -940,8 +935,7 @@ impl MediaOverlayLayer {
             (windows_core::Interface::vtable(this).CreateWithCompositorDefinition)(windows_core::Interface::as_raw(this), compositordefinition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaOverlayLayerFactory<R, F: FnOnce(&IMediaOverlayLayerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaOverlayLayerFactory<R, F: FnOnce(&IMediaOverlayLayerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaOverlayLayer, IMediaOverlayLayerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

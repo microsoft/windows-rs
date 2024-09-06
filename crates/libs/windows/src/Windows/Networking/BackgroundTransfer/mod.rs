@@ -1028,24 +1028,20 @@ impl BackgroundDownloader {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCostPolicy)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn IBackgroundDownloaderFactory<R, F: FnOnce(&IBackgroundDownloaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundDownloaderFactory<R, F: FnOnce(&IBackgroundDownloaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundDownloader, IBackgroundDownloaderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBackgroundDownloaderStaticMethods<R, F: FnOnce(&IBackgroundDownloaderStaticMethods) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundDownloaderStaticMethods<R, F: FnOnce(&IBackgroundDownloaderStaticMethods) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundDownloader, IBackgroundDownloaderStaticMethods> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBackgroundDownloaderStaticMethods2<R, F: FnOnce(&IBackgroundDownloaderStaticMethods2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundDownloaderStaticMethods2<R, F: FnOnce(&IBackgroundDownloaderStaticMethods2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundDownloader, IBackgroundDownloaderStaticMethods2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IBackgroundDownloaderUserConsent<R, F: FnOnce(&IBackgroundDownloaderUserConsent) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundDownloaderUserConsent<R, F: FnOnce(&IBackgroundDownloaderUserConsent) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundDownloader, IBackgroundDownloaderUserConsent> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1180,8 +1176,7 @@ impl BackgroundTransferContentPart {
             (windows_core::Interface::vtable(this).CreateWithNameAndFileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(filename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBackgroundTransferContentPartFactory<R, F: FnOnce(&IBackgroundTransferContentPartFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundTransferContentPartFactory<R, F: FnOnce(&IBackgroundTransferContentPartFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundTransferContentPart, IBackgroundTransferContentPartFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1207,8 +1202,7 @@ impl BackgroundTransferError {
             (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IBackgroundTransferErrorStaticMethods<R, F: FnOnce(&IBackgroundTransferErrorStaticMethods) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundTransferErrorStaticMethods<R, F: FnOnce(&IBackgroundTransferErrorStaticMethods) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundTransferError, IBackgroundTransferErrorStaticMethods> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1245,8 +1239,7 @@ impl BackgroundTransferGroup {
             (windows_core::Interface::vtable(this).CreateGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBackgroundTransferGroupStatics<R, F: FnOnce(&IBackgroundTransferGroupStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundTransferGroupStatics<R, F: FnOnce(&IBackgroundTransferGroupStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundTransferGroup, IBackgroundTransferGroupStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1575,24 +1568,20 @@ impl BackgroundUploader {
             (windows_core::Interface::vtable(this).RequestUnconstrainedUploadsAsync)(windows_core::Interface::as_raw(this), operations.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBackgroundUploaderFactory<R, F: FnOnce(&IBackgroundUploaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundUploaderFactory<R, F: FnOnce(&IBackgroundUploaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundUploader, IBackgroundUploaderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBackgroundUploaderStaticMethods<R, F: FnOnce(&IBackgroundUploaderStaticMethods) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundUploaderStaticMethods<R, F: FnOnce(&IBackgroundUploaderStaticMethods) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundUploader, IBackgroundUploaderStaticMethods> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBackgroundUploaderStaticMethods2<R, F: FnOnce(&IBackgroundUploaderStaticMethods2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundUploaderStaticMethods2<R, F: FnOnce(&IBackgroundUploaderStaticMethods2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundUploader, IBackgroundUploaderStaticMethods2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IBackgroundUploaderUserConsent<R, F: FnOnce(&IBackgroundUploaderUserConsent) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundUploaderUserConsent<R, F: FnOnce(&IBackgroundUploaderUserConsent) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundUploader, IBackgroundUploaderUserConsent> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1636,13 +1625,11 @@ impl ContentPrefetcher {
             (windows_core::Interface::vtable(this).LastSuccessfulPrefetchTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IContentPrefetcher<R, F: FnOnce(&IContentPrefetcher) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContentPrefetcher<R, F: FnOnce(&IContentPrefetcher) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContentPrefetcher, IContentPrefetcher> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IContentPrefetcherTime<R, F: FnOnce(&IContentPrefetcherTime) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IContentPrefetcherTime<R, F: FnOnce(&IContentPrefetcherTime) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ContentPrefetcher, IContentPrefetcherTime> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

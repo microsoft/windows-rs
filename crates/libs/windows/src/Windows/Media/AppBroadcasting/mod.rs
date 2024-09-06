@@ -242,8 +242,7 @@ impl AppBroadcastingUI {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppBroadcastingUIStatics<R, F: FnOnce(&IAppBroadcastingUIStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppBroadcastingUIStatics<R, F: FnOnce(&IAppBroadcastingUIStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppBroadcastingUI, IAppBroadcastingUIStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

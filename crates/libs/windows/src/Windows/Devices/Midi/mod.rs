@@ -463,8 +463,7 @@ impl MidiChannelPressureMessage {
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[doc(hidden)]
-    pub fn IMidiChannelPressureMessageFactory<R, F: FnOnce(&IMidiChannelPressureMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiChannelPressureMessageFactory<R, F: FnOnce(&IMidiChannelPressureMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiChannelPressureMessage, IMidiChannelPressureMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -583,8 +582,7 @@ impl MidiControlChangeMessage {
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[doc(hidden)]
-    pub fn IMidiControlChangeMessageFactory<R, F: FnOnce(&IMidiControlChangeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiControlChangeMessageFactory<R, F: FnOnce(&IMidiControlChangeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiControlChangeMessage, IMidiControlChangeMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -644,8 +642,7 @@ impl MidiInPort {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiInPortStatics<R, F: FnOnce(&IMidiInPortStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiInPortStatics<R, F: FnOnce(&IMidiInPortStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiInPort, IMidiInPortStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -742,8 +739,7 @@ impl MidiNoteOffMessage {
             (windows_core::Interface::vtable(this).CreateMidiNoteOffMessage)(windows_core::Interface::as_raw(this), channel, note, velocity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiNoteOffMessageFactory<R, F: FnOnce(&IMidiNoteOffMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiNoteOffMessageFactory<R, F: FnOnce(&IMidiNoteOffMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiNoteOffMessage, IMidiNoteOffMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -815,8 +811,7 @@ impl MidiNoteOnMessage {
             (windows_core::Interface::vtable(this).CreateMidiNoteOnMessage)(windows_core::Interface::as_raw(this), channel, note, velocity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiNoteOnMessageFactory<R, F: FnOnce(&IMidiNoteOnMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiNoteOnMessageFactory<R, F: FnOnce(&IMidiNoteOnMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiNoteOnMessage, IMidiNoteOnMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -877,8 +872,7 @@ impl MidiOutPort {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiOutPortStatics<R, F: FnOnce(&IMidiOutPortStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiOutPortStatics<R, F: FnOnce(&IMidiOutPortStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiOutPort, IMidiOutPortStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -943,8 +937,7 @@ impl MidiPitchBendChangeMessage {
             (windows_core::Interface::vtable(this).CreateMidiPitchBendChangeMessage)(windows_core::Interface::as_raw(this), channel, bend, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiPitchBendChangeMessageFactory<R, F: FnOnce(&IMidiPitchBendChangeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiPitchBendChangeMessageFactory<R, F: FnOnce(&IMidiPitchBendChangeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiPitchBendChangeMessage, IMidiPitchBendChangeMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1016,8 +1009,7 @@ impl MidiPolyphonicKeyPressureMessage {
             (windows_core::Interface::vtable(this).CreateMidiPolyphonicKeyPressureMessage)(windows_core::Interface::as_raw(this), channel, note, pressure, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiPolyphonicKeyPressureMessageFactory<R, F: FnOnce(&IMidiPolyphonicKeyPressureMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiPolyphonicKeyPressureMessageFactory<R, F: FnOnce(&IMidiPolyphonicKeyPressureMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiPolyphonicKeyPressureMessage, IMidiPolyphonicKeyPressureMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1082,8 +1074,7 @@ impl MidiProgramChangeMessage {
             (windows_core::Interface::vtable(this).CreateMidiProgramChangeMessage)(windows_core::Interface::as_raw(this), channel, program, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiProgramChangeMessageFactory<R, F: FnOnce(&IMidiProgramChangeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiProgramChangeMessageFactory<R, F: FnOnce(&IMidiProgramChangeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiProgramChangeMessage, IMidiProgramChangeMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1141,8 +1132,7 @@ impl MidiSongPositionPointerMessage {
             (windows_core::Interface::vtable(this).CreateMidiSongPositionPointerMessage)(windows_core::Interface::as_raw(this), beats, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiSongPositionPointerMessageFactory<R, F: FnOnce(&IMidiSongPositionPointerMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiSongPositionPointerMessageFactory<R, F: FnOnce(&IMidiSongPositionPointerMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiSongPositionPointerMessage, IMidiSongPositionPointerMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1200,8 +1190,7 @@ impl MidiSongSelectMessage {
             (windows_core::Interface::vtable(this).CreateMidiSongSelectMessage)(windows_core::Interface::as_raw(this), song, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiSongSelectMessageFactory<R, F: FnOnce(&IMidiSongSelectMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiSongSelectMessageFactory<R, F: FnOnce(&IMidiSongSelectMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiSongSelectMessage, IMidiSongSelectMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1389,8 +1378,7 @@ impl MidiSynthesizer {
             (windows_core::Interface::vtable(this).IsSynthesizer)(windows_core::Interface::as_raw(this), mididevice.param().abi(), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiSynthesizerStatics<R, F: FnOnce(&IMidiSynthesizerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiSynthesizerStatics<R, F: FnOnce(&IMidiSynthesizerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiSynthesizer, IMidiSynthesizerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1444,8 +1432,7 @@ impl MidiSystemExclusiveMessage {
             (windows_core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(windows_core::Interface::as_raw(this), rawdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiSystemExclusiveMessageFactory<R, F: FnOnce(&IMidiSystemExclusiveMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiSystemExclusiveMessageFactory<R, F: FnOnce(&IMidiSystemExclusiveMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiSystemExclusiveMessage, IMidiSystemExclusiveMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1557,8 +1544,7 @@ impl MidiTimeCodeMessage {
             (windows_core::Interface::vtable(this).CreateMidiTimeCodeMessage)(windows_core::Interface::as_raw(this), frametype, values, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMidiTimeCodeMessageFactory<R, F: FnOnce(&IMidiTimeCodeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiTimeCodeMessageFactory<R, F: FnOnce(&IMidiTimeCodeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiTimeCodeMessage, IMidiTimeCodeMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

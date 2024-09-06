@@ -458,8 +458,7 @@ impl VoiceCommandDefinitionManager {
             (windows_core::Interface::vtable(this).InstalledCommandDefinitions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVoiceCommandDefinitionManagerStatics<R, F: FnOnce(&IVoiceCommandDefinitionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVoiceCommandDefinitionManagerStatics<R, F: FnOnce(&IVoiceCommandDefinitionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VoiceCommandDefinitionManager, IVoiceCommandDefinitionManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -592,8 +591,7 @@ impl VoiceCommandResponse {
             (windows_core::Interface::vtable(this).CreateResponseForPromptWithTiles)(windows_core::Interface::as_raw(this), message.param().abi(), repeatmessage.param().abi(), contenttiles.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVoiceCommandResponseStatics<R, F: FnOnce(&IVoiceCommandResponseStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVoiceCommandResponseStatics<R, F: FnOnce(&IVoiceCommandResponseStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VoiceCommandResponse, IVoiceCommandResponseStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -714,8 +712,7 @@ impl VoiceCommandServiceConnection {
             (windows_core::Interface::vtable(this).FromAppServiceTriggerDetails)(windows_core::Interface::as_raw(this), triggerdetails.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVoiceCommandServiceConnectionStatics<R, F: FnOnce(&IVoiceCommandServiceConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVoiceCommandServiceConnectionStatics<R, F: FnOnce(&IVoiceCommandServiceConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VoiceCommandServiceConnection, IVoiceCommandServiceConnectionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

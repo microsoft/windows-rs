@@ -1265,8 +1265,7 @@ impl VpnAppId {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), r#type, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVpnAppIdFactory<R, F: FnOnce(&IVpnAppIdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVpnAppIdFactory<R, F: FnOnce(&IVpnAppIdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VpnAppId, IVpnAppIdFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1605,8 +1604,7 @@ impl VpnChannel {
     {
         Self::IVpnChannelStatics(|this| unsafe { (windows_core::Interface::vtable(this).ProcessEventAsync)(windows_core::Interface::as_raw(this), thirdpartyplugin.param().abi(), event.param().abi()).ok() })
     }
-    #[doc(hidden)]
-    pub fn IVpnChannelStatics<R, F: FnOnce(&IVpnChannelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVpnChannelStatics<R, F: FnOnce(&IVpnChannelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VpnChannel, IVpnChannelStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2567,8 +2565,7 @@ impl VpnDomainNameInfo {
             (windows_core::Interface::vtable(this).CreateVpnDomainNameInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), nametype, dnsserverlist.param().abi(), proxyserverlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVpnDomainNameInfoFactory<R, F: FnOnce(&IVpnDomainNameInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVpnDomainNameInfoFactory<R, F: FnOnce(&IVpnDomainNameInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VpnDomainNameInfo, IVpnDomainNameInfoFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2700,8 +2697,7 @@ impl VpnInterfaceId {
             (windows_core::Interface::vtable(this).CreateVpnInterfaceId)(windows_core::Interface::as_raw(this), address.len().try_into().unwrap(), address.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVpnInterfaceIdFactory<R, F: FnOnce(&IVpnInterfaceIdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVpnInterfaceIdFactory<R, F: FnOnce(&IVpnInterfaceIdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VpnInterfaceId, IVpnInterfaceIdFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2941,8 +2937,7 @@ impl VpnNamespaceInfo {
             (windows_core::Interface::vtable(this).CreateVpnNamespaceInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), dnsserverlist.param().abi(), proxyserverlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVpnNamespaceInfoFactory<R, F: FnOnce(&IVpnNamespaceInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVpnNamespaceInfoFactory<R, F: FnOnce(&IVpnNamespaceInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VpnNamespaceInfo, IVpnNamespaceInfoFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3196,8 +3191,7 @@ impl VpnPacketBuffer {
             (windows_core::Interface::vtable(this).CreateVpnPacketBuffer)(windows_core::Interface::as_raw(this), parentbuffer.param().abi(), offset, length, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVpnPacketBufferFactory<R, F: FnOnce(&IVpnPacketBufferFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVpnPacketBufferFactory<R, F: FnOnce(&IVpnPacketBufferFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VpnPacketBuffer, IVpnPacketBufferFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3527,8 +3521,7 @@ impl VpnRoute {
             (windows_core::Interface::vtable(this).CreateVpnRoute)(windows_core::Interface::as_raw(this), address.param().abi(), prefixsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVpnRouteFactory<R, F: FnOnce(&IVpnRouteFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVpnRouteFactory<R, F: FnOnce(&IVpnRouteFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VpnRoute, IVpnRouteFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3761,8 +3754,7 @@ impl VpnTrafficFilter {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), appid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVpnTrafficFilterFactory<R, F: FnOnce(&IVpnTrafficFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVpnTrafficFilterFactory<R, F: FnOnce(&IVpnTrafficFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VpnTrafficFilter, IVpnTrafficFilterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

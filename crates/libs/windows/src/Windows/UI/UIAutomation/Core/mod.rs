@@ -242,8 +242,7 @@ impl CoreAutomationRegistrar {
     pub fn UnregisterAnnotationType(registration: AutomationAnnotationTypeRegistration) -> windows_core::Result<()> {
         Self::ICoreAutomationRegistrarStatics(|this| unsafe { (windows_core::Interface::vtable(this).UnregisterAnnotationType)(windows_core::Interface::as_raw(this), registration).ok() })
     }
-    #[doc(hidden)]
-    pub fn ICoreAutomationRegistrarStatics<R, F: FnOnce(&ICoreAutomationRegistrarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreAutomationRegistrarStatics<R, F: FnOnce(&ICoreAutomationRegistrarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreAutomationRegistrar, ICoreAutomationRegistrarStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -424,8 +423,7 @@ impl RemoteAutomationClientSession {
             (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), sessionid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteAutomationClientSessionFactory<R, F: FnOnce(&IRemoteAutomationClientSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteAutomationClientSessionFactory<R, F: FnOnce(&IRemoteAutomationClientSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteAutomationClientSession, IRemoteAutomationClientSessionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -504,8 +502,7 @@ impl RemoteAutomationServer {
     pub fn ReportSession(sessionid: windows_core::GUID) -> windows_core::Result<()> {
         Self::IRemoteAutomationServerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ReportSession)(windows_core::Interface::as_raw(this), sessionid).ok() })
     }
-    #[doc(hidden)]
-    pub fn IRemoteAutomationServerStatics<R, F: FnOnce(&IRemoteAutomationServerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteAutomationServerStatics<R, F: FnOnce(&IRemoteAutomationServerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteAutomationServer, IRemoteAutomationServerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -1208,8 +1208,7 @@ impl PrintWorkflowObjectModelSourceFileContent {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), xpsstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrintWorkflowObjectModelSourceFileContentFactory<R, F: FnOnce(&IPrintWorkflowObjectModelSourceFileContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrintWorkflowObjectModelSourceFileContentFactory<R, F: FnOnce(&IPrintWorkflowObjectModelSourceFileContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PrintWorkflowObjectModelSourceFileContent, IPrintWorkflowObjectModelSourceFileContentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

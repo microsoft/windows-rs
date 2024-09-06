@@ -1472,15 +1472,13 @@ impl SmsDevice {
             (windows_core::Interface::vtable(this).FromNetworkAccountIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn ISmsDeviceStatics<R, F: FnOnce(&ISmsDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsDeviceStatics<R, F: FnOnce(&ISmsDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmsDevice, ISmsDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn ISmsDeviceStatics2<R, F: FnOnce(&ISmsDeviceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsDeviceStatics2<R, F: FnOnce(&ISmsDeviceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmsDevice, ISmsDeviceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1607,8 +1605,7 @@ impl SmsDevice2 {
             (windows_core::Interface::vtable(this).FromParentId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(parentdeviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISmsDevice2Statics<R, F: FnOnce(&ISmsDevice2Statics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsDevice2Statics<R, F: FnOnce(&ISmsDevice2Statics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmsDevice2, ISmsDevice2Statics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1802,8 +1799,7 @@ impl SmsFilterRule {
             (windows_core::Interface::vtable(this).CreateFilterRule)(windows_core::Interface::as_raw(this), messagetype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISmsFilterRuleFactory<R, F: FnOnce(&ISmsFilterRuleFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsFilterRuleFactory<R, F: FnOnce(&ISmsFilterRuleFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmsFilterRule, ISmsFilterRuleFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1846,8 +1842,7 @@ impl SmsFilterRules {
             (windows_core::Interface::vtable(this).CreateFilterRules)(windows_core::Interface::as_raw(this), actiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISmsFilterRulesFactory<R, F: FnOnce(&ISmsFilterRulesFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsFilterRulesFactory<R, F: FnOnce(&ISmsFilterRulesFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmsFilterRules, ISmsFilterRulesFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2023,8 +2018,7 @@ impl SmsMessageRegistration {
             (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), filterrules.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISmsMessageRegistrationStatics<R, F: FnOnce(&ISmsMessageRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsMessageRegistrationStatics<R, F: FnOnce(&ISmsMessageRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmsMessageRegistration, ISmsMessageRegistrationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2408,9 +2402,8 @@ impl SmsTextMessage {
             (windows_core::Interface::vtable(this).FromBinaryData)(windows_core::Interface::as_raw(this), format, value.len().try_into().unwrap(), value.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn ISmsTextMessageStatics<R, F: FnOnce(&ISmsTextMessageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmsTextMessageStatics<R, F: FnOnce(&ISmsTextMessageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmsTextMessage, ISmsTextMessageStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

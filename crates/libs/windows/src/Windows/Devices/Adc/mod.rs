@@ -166,13 +166,11 @@ impl AdcController {
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAdcControllerStatics<R, F: FnOnce(&IAdcControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAdcControllerStatics<R, F: FnOnce(&IAdcControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AdcController, IAdcControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAdcControllerStatics2<R, F: FnOnce(&IAdcControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAdcControllerStatics2<R, F: FnOnce(&IAdcControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AdcController, IAdcControllerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

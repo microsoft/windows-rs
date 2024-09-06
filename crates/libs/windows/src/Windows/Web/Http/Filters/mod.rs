@@ -383,8 +383,7 @@ impl HttpBaseProtocolFilter {
             (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpBaseProtocolFilterStatics<R, F: FnOnce(&IHttpBaseProtocolFilterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpBaseProtocolFilterStatics<R, F: FnOnce(&IHttpBaseProtocolFilterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpBaseProtocolFilter, IHttpBaseProtocolFilterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

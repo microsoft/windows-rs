@@ -160,8 +160,7 @@ impl AppRecordingManager {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppRecordingManagerStatics<R, F: FnOnce(&IAppRecordingManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppRecordingManagerStatics<R, F: FnOnce(&IAppRecordingManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppRecordingManager, IAppRecordingManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

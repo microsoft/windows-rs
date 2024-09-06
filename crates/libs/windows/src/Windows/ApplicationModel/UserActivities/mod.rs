@@ -438,13 +438,11 @@ impl UserActivity {
             (windows_core::Interface::vtable(this).ToJsonArray)(windows_core::Interface::as_raw(this), activities.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUserActivityFactory<R, F: FnOnce(&IUserActivityFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserActivityFactory<R, F: FnOnce(&IUserActivityFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserActivity, IUserActivityFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IUserActivityStatics<R, F: FnOnce(&IUserActivityStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserActivityStatics<R, F: FnOnce(&IUserActivityStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserActivity, IUserActivityStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -518,8 +516,7 @@ impl UserActivityAttribution {
             (windows_core::Interface::vtable(this).CreateWithUri)(windows_core::Interface::as_raw(this), iconuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUserActivityAttributionFactory<R, F: FnOnce(&IUserActivityAttributionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserActivityAttributionFactory<R, F: FnOnce(&IUserActivityAttributionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserActivityAttribution, IUserActivityAttributionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -607,18 +604,15 @@ impl UserActivityChannel {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUserActivityChannelStatics<R, F: FnOnce(&IUserActivityChannelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserActivityChannelStatics<R, F: FnOnce(&IUserActivityChannelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserActivityChannel, IUserActivityChannelStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IUserActivityChannelStatics2<R, F: FnOnce(&IUserActivityChannelStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserActivityChannelStatics2<R, F: FnOnce(&IUserActivityChannelStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserActivityChannel, IUserActivityChannelStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IUserActivityChannelStatics3<R, F: FnOnce(&IUserActivityChannelStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserActivityChannelStatics3<R, F: FnOnce(&IUserActivityChannelStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserActivityChannel, IUserActivityChannelStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -653,8 +647,7 @@ impl UserActivityContentInfo {
             (windows_core::Interface::vtable(this).FromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUserActivityContentInfoStatics<R, F: FnOnce(&IUserActivityContentInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserActivityContentInfoStatics<R, F: FnOnce(&IUserActivityContentInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserActivityContentInfo, IUserActivityContentInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -721,8 +714,7 @@ impl UserActivityRequestManager {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUserActivityRequestManagerStatics<R, F: FnOnce(&IUserActivityRequestManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserActivityRequestManagerStatics<R, F: FnOnce(&IUserActivityRequestManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserActivityRequestManager, IUserActivityRequestManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

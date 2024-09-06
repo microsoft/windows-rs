@@ -98,8 +98,7 @@ impl GameControllerProviderInfo {
             (windows_core::Interface::vtable(this).GetProviderId)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGameControllerProviderInfoStatics<R, F: FnOnce(&IGameControllerProviderInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameControllerProviderInfoStatics<R, F: FnOnce(&IGameControllerProviderInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameControllerProviderInfo, IGameControllerProviderInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -275,8 +274,7 @@ impl LegacyGipGameControllerProvider {
             (windows_core::Interface::vtable(this).IsCopilot)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(controllerproviderid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILegacyGipGameControllerProviderStatics<R, F: FnOnce(&ILegacyGipGameControllerProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILegacyGipGameControllerProviderStatics<R, F: FnOnce(&ILegacyGipGameControllerProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LegacyGipGameControllerProvider, ILegacyGipGameControllerProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

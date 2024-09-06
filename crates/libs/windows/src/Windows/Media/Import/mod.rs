@@ -954,8 +954,7 @@ impl PhotoImportManager {
             (windows_core::Interface::vtable(this).GetPendingOperations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPhotoImportManagerStatics<R, F: FnOnce(&IPhotoImportManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPhotoImportManagerStatics<R, F: FnOnce(&IPhotoImportManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PhotoImportManager, IPhotoImportManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1337,8 +1336,7 @@ impl PhotoImportSource {
             (windows_core::Interface::vtable(this).FromFolderAsync)(windows_core::Interface::as_raw(this), sourcerootfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPhotoImportSourceStatics<R, F: FnOnce(&IPhotoImportSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPhotoImportSourceStatics<R, F: FnOnce(&IPhotoImportSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PhotoImportSource, IPhotoImportSourceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

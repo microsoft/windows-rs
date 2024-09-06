@@ -99,8 +99,7 @@ impl SmbiosInformation {
             (windows_core::Interface::vtable(this).SerialNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISmbiosInformationStatics<R, F: FnOnce(&ISmbiosInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmbiosInformationStatics<R, F: FnOnce(&ISmbiosInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmbiosInformation, ISmbiosInformationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -195,13 +194,11 @@ impl SystemSupportInfo {
             (windows_core::Interface::vtable(this).LocalDeviceInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISystemSupportInfoStatics<R, F: FnOnce(&ISystemSupportInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemSupportInfoStatics<R, F: FnOnce(&ISystemSupportInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISystemSupportInfoStatics2<R, F: FnOnce(&ISystemSupportInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemSupportInfoStatics2<R, F: FnOnce(&ISystemSupportInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

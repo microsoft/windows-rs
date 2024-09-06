@@ -566,23 +566,19 @@ impl ResourceContext {
             (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IResourceContextStatics<R, F: FnOnce(&IResourceContextStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceContextStatics<R, F: FnOnce(&IResourceContextStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceContext, IResourceContextStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IResourceContextStatics2<R, F: FnOnce(&IResourceContextStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceContextStatics2<R, F: FnOnce(&IResourceContextStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceContext, IResourceContextStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IResourceContextStatics3<R, F: FnOnce(&IResourceContextStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceContextStatics3<R, F: FnOnce(&IResourceContextStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceContext, IResourceContextStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IResourceContextStatics4<R, F: FnOnce(&IResourceContextStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceContextStatics4<R, F: FnOnce(&IResourceContextStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceContext, IResourceContextStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -754,8 +750,7 @@ impl ResourceManager {
             (windows_core::Interface::vtable(this).IsResourceReference)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resourcereference), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IResourceManagerStatics<R, F: FnOnce(&IResourceManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceManagerStatics<R, F: FnOnce(&IResourceManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceManager, IResourceManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

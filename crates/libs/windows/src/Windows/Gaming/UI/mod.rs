@@ -110,8 +110,7 @@ impl GameBar {
             (windows_core::Interface::vtable(this).IsInputRedirected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGameBarStatics<R, F: FnOnce(&IGameBarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameBarStatics<R, F: FnOnce(&IGameBarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameBar, IGameBarStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -198,8 +197,7 @@ impl GameChatOverlay {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGameChatOverlayStatics<R, F: FnOnce(&IGameChatOverlayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameChatOverlayStatics<R, F: FnOnce(&IGameChatOverlayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameChatOverlay, IGameChatOverlayStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

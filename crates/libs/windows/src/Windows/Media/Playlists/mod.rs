@@ -90,8 +90,7 @@ impl Playlist {
             (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPlaylistStatics<R, F: FnOnce(&IPlaylistStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlaylistStatics<R, F: FnOnce(&IPlaylistStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Playlist, IPlaylistStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

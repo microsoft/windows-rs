@@ -143,18 +143,15 @@ impl PwmController {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPwmControllerStatics<R, F: FnOnce(&IPwmControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPwmControllerStatics<R, F: FnOnce(&IPwmControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PwmController, IPwmControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IPwmControllerStatics2<R, F: FnOnce(&IPwmControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPwmControllerStatics2<R, F: FnOnce(&IPwmControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PwmController, IPwmControllerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IPwmControllerStatics3<R, F: FnOnce(&IPwmControllerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPwmControllerStatics3<R, F: FnOnce(&IPwmControllerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PwmController, IPwmControllerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

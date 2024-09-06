@@ -315,8 +315,7 @@ impl SystemUpdateManager {
     pub fn StartCancelUpdates() -> windows_core::Result<()> {
         Self::ISystemUpdateManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).StartCancelUpdates)(windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc(hidden)]
-    pub fn ISystemUpdateManagerStatics<R, F: FnOnce(&ISystemUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemUpdateManagerStatics<R, F: FnOnce(&ISystemUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemUpdateManager, ISystemUpdateManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

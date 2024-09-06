@@ -93,13 +93,11 @@ impl RemoteTextConnection {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), connectionid, pduforwarder.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteTextConnectionFactory<R, F: FnOnce(&IRemoteTextConnectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteTextConnectionFactory<R, F: FnOnce(&IRemoteTextConnectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteTextConnection, IRemoteTextConnectionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IRemoteTextConnectionFactory2<R, F: FnOnce(&IRemoteTextConnectionFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteTextConnectionFactory2<R, F: FnOnce(&IRemoteTextConnectionFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteTextConnection, IRemoteTextConnectionFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

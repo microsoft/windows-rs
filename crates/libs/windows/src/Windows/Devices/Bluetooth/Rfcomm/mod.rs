@@ -294,13 +294,11 @@ impl RfcommDeviceService {
             (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode)(windows_core::Interface::as_raw(this), bluetoothdevice.param().abi(), serviceid.param().abi(), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRfcommDeviceServiceStatics<R, F: FnOnce(&IRfcommDeviceServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRfcommDeviceServiceStatics<R, F: FnOnce(&IRfcommDeviceServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RfcommDeviceService, IRfcommDeviceServiceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IRfcommDeviceServiceStatics2<R, F: FnOnce(&IRfcommDeviceServiceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRfcommDeviceServiceStatics2<R, F: FnOnce(&IRfcommDeviceServiceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RfcommDeviceService, IRfcommDeviceServiceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -424,8 +422,7 @@ impl RfcommServiceId {
             (windows_core::Interface::vtable(this).GenericFileTransfer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRfcommServiceIdStatics<R, F: FnOnce(&IRfcommServiceIdStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRfcommServiceIdStatics<R, F: FnOnce(&IRfcommServiceIdStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RfcommServiceId, IRfcommServiceIdStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -491,8 +488,7 @@ impl RfcommServiceProvider {
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), serviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRfcommServiceProviderStatics<R, F: FnOnce(&IRfcommServiceProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRfcommServiceProviderStatics<R, F: FnOnce(&IRfcommServiceProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RfcommServiceProvider, IRfcommServiceProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

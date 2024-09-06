@@ -1690,8 +1690,7 @@ impl AudioEffectsPackConfiguration {
             (windows_core::Interface::vtable(this).IsDeviceIdSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(effectspackid), core::mem::transmute_copy(deviceid), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IAudioEffectsPackConfigurationStatics<R, F: FnOnce(&IAudioEffectsPackConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioEffectsPackConfigurationStatics<R, F: FnOnce(&IAudioEffectsPackConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioEffectsPackConfiguration, IAudioEffectsPackConfigurationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2664,8 +2663,7 @@ impl AudioGraph {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IAudioGraphStatics<R, F: FnOnce(&IAudioGraphStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioGraphStatics<R, F: FnOnce(&IAudioGraphStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioGraph, IAudioGraphStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2841,8 +2839,7 @@ impl AudioGraphSettings {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audiorendercategory, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAudioGraphSettingsFactory<R, F: FnOnce(&IAudioGraphSettingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioGraphSettingsFactory<R, F: FnOnce(&IAudioGraphSettingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioGraphSettings, IAudioGraphSettingsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3010,8 +3007,7 @@ impl AudioNodeEmitter {
             (windows_core::Interface::vtable(this).CreateAudioNodeEmitter)(windows_core::Interface::as_raw(this), shape.param().abi(), decaymodel.param().abi(), settings, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAudioNodeEmitterFactory<R, F: FnOnce(&IAudioNodeEmitterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioNodeEmitterFactory<R, F: FnOnce(&IAudioNodeEmitterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioNodeEmitter, IAudioNodeEmitterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3112,8 +3108,7 @@ impl AudioNodeEmitterDecayModel {
             (windows_core::Interface::vtable(this).CreateCustom)(windows_core::Interface::as_raw(this), mingain, maxgain, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAudioNodeEmitterDecayModelStatics<R, F: FnOnce(&IAudioNodeEmitterDecayModelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioNodeEmitterDecayModelStatics<R, F: FnOnce(&IAudioNodeEmitterDecayModelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioNodeEmitterDecayModel, IAudioNodeEmitterDecayModelStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3193,8 +3188,7 @@ impl AudioNodeEmitterShape {
             (windows_core::Interface::vtable(this).CreateOmnidirectional)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAudioNodeEmitterShapeStatics<R, F: FnOnce(&IAudioNodeEmitterShapeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioNodeEmitterShapeStatics<R, F: FnOnce(&IAudioNodeEmitterShapeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioNodeEmitterShape, IAudioNodeEmitterShapeStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3361,8 +3355,7 @@ impl AudioPlaybackConnection {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IAudioPlaybackConnectionStatics<R, F: FnOnce(&IAudioPlaybackConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioPlaybackConnectionStatics<R, F: FnOnce(&IAudioPlaybackConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioPlaybackConnection, IAudioPlaybackConnectionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3491,8 +3484,7 @@ impl AudioStateMonitor {
             (windows_core::Interface::vtable(this).CreateForCaptureMonitoringWithCategoryAndDeviceId)(windows_core::Interface::as_raw(this), category, core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAudioStateMonitorStatics<R, F: FnOnce(&IAudioStateMonitorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioStateMonitorStatics<R, F: FnOnce(&IAudioStateMonitorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioStateMonitor, IAudioStateMonitorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3933,8 +3925,7 @@ impl EchoEffectDefinition {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audiograph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEchoEffectDefinitionFactory<R, F: FnOnce(&IEchoEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEchoEffectDefinitionFactory<R, F: FnOnce(&IEchoEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EchoEffectDefinition, IEchoEffectDefinitionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4042,8 +4033,7 @@ impl EqualizerEffectDefinition {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audiograph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEqualizerEffectDefinitionFactory<R, F: FnOnce(&IEqualizerEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEqualizerEffectDefinitionFactory<R, F: FnOnce(&IEqualizerEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EqualizerEffectDefinition, IEqualizerEffectDefinitionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4139,8 +4129,7 @@ impl LimiterEffectDefinition {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audiograph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILimiterEffectDefinitionFactory<R, F: FnOnce(&ILimiterEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILimiterEffectDefinitionFactory<R, F: FnOnce(&ILimiterEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LimiterEffectDefinition, ILimiterEffectDefinitionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4660,8 +4649,7 @@ impl ReverbEffectDefinition {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audiograph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IReverbEffectDefinitionFactory<R, F: FnOnce(&IReverbEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IReverbEffectDefinitionFactory<R, F: FnOnce(&IReverbEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ReverbEffectDefinition, IReverbEffectDefinitionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4770,8 +4758,7 @@ impl SpatialAudioDeviceConfiguration {
             (windows_core::Interface::vtable(this).GetForDeviceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialAudioDeviceConfigurationStatics<R, F: FnOnce(&ISpatialAudioDeviceConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAudioDeviceConfigurationStatics<R, F: FnOnce(&ISpatialAudioDeviceConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAudioDeviceConfiguration, ISpatialAudioDeviceConfigurationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4824,8 +4811,7 @@ impl SpatialAudioFormatConfiguration {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialAudioFormatConfigurationStatics<R, F: FnOnce(&ISpatialAudioFormatConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAudioFormatConfigurationStatics<R, F: FnOnce(&ISpatialAudioFormatConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAudioFormatConfiguration, ISpatialAudioFormatConfigurationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4886,13 +4872,11 @@ impl SpatialAudioFormatSubtype {
             (windows_core::Interface::vtable(this).DTSXForHomeTheater)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialAudioFormatSubtypeStatics<R, F: FnOnce(&ISpatialAudioFormatSubtypeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAudioFormatSubtypeStatics<R, F: FnOnce(&ISpatialAudioFormatSubtypeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAudioFormatSubtype, ISpatialAudioFormatSubtypeStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISpatialAudioFormatSubtypeStatics2<R, F: FnOnce(&ISpatialAudioFormatSubtypeStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAudioFormatSubtypeStatics2<R, F: FnOnce(&ISpatialAudioFormatSubtypeStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAudioFormatSubtype, ISpatialAudioFormatSubtypeStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

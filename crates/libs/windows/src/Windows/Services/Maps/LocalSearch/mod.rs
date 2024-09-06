@@ -155,8 +155,7 @@ impl LocalCategories {
             (windows_core::Interface::vtable(this).Shop)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILocalCategoriesStatics<R, F: FnOnce(&ILocalCategoriesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILocalCategoriesStatics<R, F: FnOnce(&ILocalCategoriesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LocalCategories, ILocalCategoriesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -266,8 +265,7 @@ impl LocalLocationFinder {
             (windows_core::Interface::vtable(this).FindLocalLocationsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchterm), searcharea.param().abi(), core::mem::transmute_copy(localcategory), maxresults, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILocalLocationFinderStatics<R, F: FnOnce(&ILocalLocationFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILocalLocationFinderStatics<R, F: FnOnce(&ILocalLocationFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LocalLocationFinder, ILocalLocationFinderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -398,8 +396,7 @@ impl PlaceInfoHelper {
             (windows_core::Interface::vtable(this).CreateFromLocalLocation)(windows_core::Interface::as_raw(this), location.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPlaceInfoHelperStatics<R, F: FnOnce(&IPlaceInfoHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlaceInfoHelperStatics<R, F: FnOnce(&IPlaceInfoHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlaceInfoHelper, IPlaceInfoHelperStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

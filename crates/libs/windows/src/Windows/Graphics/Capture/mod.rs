@@ -332,13 +332,11 @@ impl Direct3D11CaptureFramePool {
             (windows_core::Interface::vtable(this).CreateFreeThreaded)(windows_core::Interface::as_raw(this), device.param().abi(), pixelformat, numberofbuffers, size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDirect3D11CaptureFramePoolStatics<R, F: FnOnce(&IDirect3D11CaptureFramePoolStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDirect3D11CaptureFramePoolStatics<R, F: FnOnce(&IDirect3D11CaptureFramePoolStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Direct3D11CaptureFramePool, IDirect3D11CaptureFramePoolStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDirect3D11CaptureFramePoolStatics2<R, F: FnOnce(&IDirect3D11CaptureFramePoolStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDirect3D11CaptureFramePoolStatics2<R, F: FnOnce(&IDirect3D11CaptureFramePoolStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Direct3D11CaptureFramePool, IDirect3D11CaptureFramePoolStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -364,8 +362,7 @@ impl GraphicsCaptureAccess {
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), request, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGraphicsCaptureAccessStatics<R, F: FnOnce(&IGraphicsCaptureAccessStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGraphicsCaptureAccessStatics<R, F: FnOnce(&IGraphicsCaptureAccessStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCaptureAccess, IGraphicsCaptureAccessStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -429,13 +426,11 @@ impl GraphicsCaptureItem {
             (windows_core::Interface::vtable(this).TryCreateFromDisplayId)(windows_core::Interface::as_raw(this), displayid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGraphicsCaptureItemStatics<R, F: FnOnce(&IGraphicsCaptureItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGraphicsCaptureItemStatics<R, F: FnOnce(&IGraphicsCaptureItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCaptureItem, IGraphicsCaptureItemStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGraphicsCaptureItemStatics2<R, F: FnOnce(&IGraphicsCaptureItemStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGraphicsCaptureItemStatics2<R, F: FnOnce(&IGraphicsCaptureItemStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCaptureItem, IGraphicsCaptureItemStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -559,8 +554,7 @@ impl GraphicsCaptureSession {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGraphicsCaptureSessionStatics<R, F: FnOnce(&IGraphicsCaptureSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGraphicsCaptureSessionStatics<R, F: FnOnce(&IGraphicsCaptureSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCaptureSession, IGraphicsCaptureSessionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

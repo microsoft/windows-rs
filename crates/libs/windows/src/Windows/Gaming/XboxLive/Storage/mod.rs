@@ -613,8 +613,7 @@ impl GameSaveProvider {
             (windows_core::Interface::vtable(this).GetSyncOnDemandForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(serviceconfigid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGameSaveProviderStatics<R, F: FnOnce(&IGameSaveProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameSaveProviderStatics<R, F: FnOnce(&IGameSaveProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameSaveProvider, IGameSaveProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

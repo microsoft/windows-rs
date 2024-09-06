@@ -141,8 +141,7 @@ impl EndpointPair {
             (windows_core::Interface::vtable(this).CreateEndpointPair)(windows_core::Interface::as_raw(this), localhostname.param().abi(), core::mem::transmute_copy(localservicename), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEndpointPairFactory<R, F: FnOnce(&IEndpointPairFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEndpointPairFactory<R, F: FnOnce(&IEndpointPairFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EndpointPair, IEndpointPairFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -230,13 +229,11 @@ impl HostName {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHostNameFactory<R, F: FnOnce(&IHostNameFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHostNameFactory<R, F: FnOnce(&IHostNameFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HostName, IHostNameFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IHostNameStatics<R, F: FnOnce(&IHostNameStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHostNameStatics<R, F: FnOnce(&IHostNameStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HostName, IHostNameStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

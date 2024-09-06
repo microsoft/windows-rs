@@ -78,11 +78,7 @@ impl JsonValidator {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IJsonValidatorFactory<
-        R,
-        F: FnOnce(&IJsonValidatorFactory) -> windows_core::Result<R>,
-    >(
+    fn IJsonValidatorFactory<R, F: FnOnce(&IJsonValidatorFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<JsonValidator, IJsonValidatorFactory> =

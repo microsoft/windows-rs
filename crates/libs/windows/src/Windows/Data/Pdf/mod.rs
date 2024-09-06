@@ -160,8 +160,7 @@ impl PdfDocument {
             (windows_core::Interface::vtable(this).LoadFromStreamWithPasswordAsync)(windows_core::Interface::as_raw(this), inputstream.param().abi(), core::mem::transmute_copy(password), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPdfDocumentStatics<R, F: FnOnce(&IPdfDocumentStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPdfDocumentStatics<R, F: FnOnce(&IPdfDocumentStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PdfDocument, IPdfDocumentStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

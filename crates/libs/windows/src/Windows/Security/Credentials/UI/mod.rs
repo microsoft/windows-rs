@@ -94,8 +94,7 @@ impl CredentialPicker {
             (windows_core::Interface::vtable(this).PickWithCaptionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(targetname), core::mem::transmute_copy(message), core::mem::transmute_copy(caption), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICredentialPickerStatics<R, F: FnOnce(&ICredentialPickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICredentialPickerStatics<R, F: FnOnce(&ICredentialPickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CredentialPicker, ICredentialPickerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -321,8 +320,7 @@ impl UserConsentVerifier {
             (windows_core::Interface::vtable(this).RequestVerificationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUserConsentVerifierStatics<R, F: FnOnce(&IUserConsentVerifierStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserConsentVerifierStatics<R, F: FnOnce(&IUserConsentVerifierStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserConsentVerifier, IUserConsentVerifierStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

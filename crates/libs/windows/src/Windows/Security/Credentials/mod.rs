@@ -381,8 +381,7 @@ impl KeyCredentialManager {
             (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKeyCredentialManagerStatics<R, F: FnOnce(&IKeyCredentialManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyCredentialManagerStatics<R, F: FnOnce(&IKeyCredentialManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyCredentialManager, IKeyCredentialManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -518,8 +517,7 @@ impl PasswordCredential {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn ICredentialFactory<R, F: FnOnce(&ICredentialFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICredentialFactory<R, F: FnOnce(&ICredentialFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PasswordCredential, ICredentialFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -806,8 +804,7 @@ impl WebAccount {
             (windows_core::Interface::vtable(this).CreateWebAccount)(windows_core::Interface::as_raw(this), webaccountprovider.param().abi(), core::mem::transmute_copy(username), state, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebAccountFactory<R, F: FnOnce(&IWebAccountFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAccountFactory<R, F: FnOnce(&IWebAccountFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAccount, IWebAccountFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -889,8 +886,7 @@ impl WebAccountProvider {
             (windows_core::Interface::vtable(this).CreateWebAccountProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(displayname), iconuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebAccountProviderFactory<R, F: FnOnce(&IWebAccountProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAccountProviderFactory<R, F: FnOnce(&IWebAccountProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAccountProvider, IWebAccountProviderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

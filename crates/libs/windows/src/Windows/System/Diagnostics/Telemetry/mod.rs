@@ -46,8 +46,7 @@ impl PlatformTelemetryClient {
             (windows_core::Interface::vtable(this).RegisterWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPlatformTelemetryClientStatics<R, F: FnOnce(&IPlatformTelemetryClientStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlatformTelemetryClientStatics<R, F: FnOnce(&IPlatformTelemetryClientStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlatformTelemetryClient, IPlatformTelemetryClientStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

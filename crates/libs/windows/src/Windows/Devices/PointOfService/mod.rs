@@ -2357,13 +2357,11 @@ impl BarcodeScanner {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IBarcodeScannerStatics<R, F: FnOnce(&IBarcodeScannerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBarcodeScannerStatics<R, F: FnOnce(&IBarcodeScannerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BarcodeScanner, IBarcodeScannerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBarcodeScannerStatics2<R, F: FnOnce(&IBarcodeScannerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBarcodeScannerStatics2<R, F: FnOnce(&IBarcodeScannerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BarcodeScanner, IBarcodeScannerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2569,8 +2567,7 @@ impl BarcodeScannerReport {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), scandatatype, scandata.param().abi(), scandatalabel.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBarcodeScannerReportFactory<R, F: FnOnce(&IBarcodeScannerReportFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBarcodeScannerReportFactory<R, F: FnOnce(&IBarcodeScannerReportFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BarcodeScannerReport, IBarcodeScannerReportFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3191,13 +3188,11 @@ impl BarcodeSymbologies {
             (windows_core::Interface::vtable(this).Gs1DWCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IBarcodeSymbologiesStatics<R, F: FnOnce(&IBarcodeSymbologiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBarcodeSymbologiesStatics<R, F: FnOnce(&IBarcodeSymbologiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BarcodeSymbologies, IBarcodeSymbologiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IBarcodeSymbologiesStatics2<R, F: FnOnce(&IBarcodeSymbologiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBarcodeSymbologiesStatics2<R, F: FnOnce(&IBarcodeSymbologiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BarcodeSymbologies, IBarcodeSymbologiesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3407,13 +3402,11 @@ impl CashDrawer {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc(hidden)]
-    pub fn ICashDrawerStatics<R, F: FnOnce(&ICashDrawerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICashDrawerStatics<R, F: FnOnce(&ICashDrawerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CashDrawer, ICashDrawerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICashDrawerStatics2<R, F: FnOnce(&ICashDrawerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICashDrawerStatics2<R, F: FnOnce(&ICashDrawerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CashDrawer, ICashDrawerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4557,8 +4550,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IClaimedLineDisplayStatics<R, F: FnOnce(&IClaimedLineDisplayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IClaimedLineDisplayStatics<R, F: FnOnce(&IClaimedLineDisplayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ClaimedLineDisplay, IClaimedLineDisplayStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5757,13 +5749,11 @@ impl LineDisplay {
             (windows_core::Interface::vtable(this).StatisticsCategorySelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILineDisplayStatics<R, F: FnOnce(&ILineDisplayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILineDisplayStatics<R, F: FnOnce(&ILineDisplayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LineDisplay, ILineDisplayStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILineDisplayStatics2<R, F: FnOnce(&ILineDisplayStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILineDisplayStatics2<R, F: FnOnce(&ILineDisplayStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LineDisplay, ILineDisplayStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -6650,13 +6640,11 @@ impl MagneticStripeReader {
             (windows_core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(windows_core::Interface::as_raw(this), connectiontypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMagneticStripeReaderStatics<R, F: FnOnce(&IMagneticStripeReaderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMagneticStripeReaderStatics<R, F: FnOnce(&IMagneticStripeReaderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MagneticStripeReader, IMagneticStripeReaderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMagneticStripeReaderStatics2<R, F: FnOnce(&IMagneticStripeReaderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMagneticStripeReaderStatics2<R, F: FnOnce(&IMagneticStripeReaderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MagneticStripeReader, IMagneticStripeReaderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -7026,8 +7014,7 @@ impl MagneticStripeReaderCardTypes {
             (windows_core::Interface::vtable(this).ExtendedBase)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IMagneticStripeReaderCardTypesStatics<R, F: FnOnce(&IMagneticStripeReaderCardTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMagneticStripeReaderCardTypesStatics<R, F: FnOnce(&IMagneticStripeReaderCardTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MagneticStripeReaderCardTypes, IMagneticStripeReaderCardTypesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -7055,8 +7042,7 @@ impl MagneticStripeReaderEncryptionAlgorithms {
             (windows_core::Interface::vtable(this).ExtendedBase)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IMagneticStripeReaderEncryptionAlgorithmsStatics<R, F: FnOnce(&IMagneticStripeReaderEncryptionAlgorithmsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMagneticStripeReaderEncryptionAlgorithmsStatics<R, F: FnOnce(&IMagneticStripeReaderEncryptionAlgorithmsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MagneticStripeReaderEncryptionAlgorithms, IMagneticStripeReaderEncryptionAlgorithmsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -7432,13 +7418,11 @@ impl PosPrinter {
             (windows_core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(windows_core::Interface::as_raw(this), connectiontypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPosPrinterStatics<R, F: FnOnce(&IPosPrinterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPosPrinterStatics<R, F: FnOnce(&IPosPrinterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PosPrinter, IPosPrinterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IPosPrinterStatics2<R, F: FnOnce(&IPosPrinterStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPosPrinterStatics2<R, F: FnOnce(&IPosPrinterStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PosPrinter, IPosPrinterStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -7563,8 +7547,7 @@ impl PosPrinterCharacterSetIds {
             (windows_core::Interface::vtable(this).Ansi)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IPosPrinterCharacterSetIdsStatics<R, F: FnOnce(&IPosPrinterCharacterSetIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPosPrinterCharacterSetIdsStatics<R, F: FnOnce(&IPosPrinterCharacterSetIdsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PosPrinterCharacterSetIds, IPosPrinterCharacterSetIdsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -8670,8 +8653,7 @@ impl UnifiedPosErrorData {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message), severity, reason, extendedreason, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUnifiedPosErrorDataFactory<R, F: FnOnce(&IUnifiedPosErrorDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUnifiedPosErrorDataFactory<R, F: FnOnce(&IUnifiedPosErrorDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UnifiedPosErrorData, IUnifiedPosErrorDataFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

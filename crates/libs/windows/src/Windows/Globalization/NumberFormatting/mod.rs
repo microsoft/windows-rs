@@ -754,8 +754,7 @@ impl CurrencyFormatter {
         let this = &windows_core::Interface::cast::<ISignificantDigitsOption>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSignificantDigits)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn ICurrencyFormatterFactory<R, F: FnOnce(&ICurrencyFormatterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICurrencyFormatterFactory<R, F: FnOnce(&ICurrencyFormatterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CurrencyFormatter, ICurrencyFormatterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -978,8 +977,7 @@ impl DecimalFormatter {
         let this = &windows_core::Interface::cast::<ISignificantDigitsOption>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSignificantDigits)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn IDecimalFormatterFactory<R, F: FnOnce(&IDecimalFormatterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDecimalFormatterFactory<R, F: FnOnce(&IDecimalFormatterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DecimalFormatter, IDecimalFormatterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1140,8 +1138,7 @@ impl NumeralSystemTranslator {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), languages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn INumeralSystemTranslatorFactory<R, F: FnOnce(&INumeralSystemTranslatorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INumeralSystemTranslatorFactory<R, F: FnOnce(&INumeralSystemTranslatorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NumeralSystemTranslator, INumeralSystemTranslatorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1364,8 +1361,7 @@ impl PercentFormatter {
         let this = &windows_core::Interface::cast::<ISignificantDigitsOption>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSignificantDigits)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn IPercentFormatterFactory<R, F: FnOnce(&IPercentFormatterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPercentFormatterFactory<R, F: FnOnce(&IPercentFormatterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PercentFormatter, IPercentFormatterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1588,8 +1584,7 @@ impl PermilleFormatter {
         let this = &windows_core::Interface::cast::<ISignificantDigitsOption>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSignificantDigits)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn IPermilleFormatterFactory<R, F: FnOnce(&IPermilleFormatterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPermilleFormatterFactory<R, F: FnOnce(&IPermilleFormatterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PermilleFormatter, IPermilleFormatterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

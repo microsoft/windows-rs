@@ -337,18 +337,15 @@ impl AccountsSettingsPane {
             (windows_core::Interface::vtable(this).ShowAddAccountForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAccountsSettingsPaneStatics<R, F: FnOnce(&IAccountsSettingsPaneStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAccountsSettingsPaneStatics<R, F: FnOnce(&IAccountsSettingsPaneStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AccountsSettingsPane, IAccountsSettingsPaneStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAccountsSettingsPaneStatics2<R, F: FnOnce(&IAccountsSettingsPaneStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAccountsSettingsPaneStatics2<R, F: FnOnce(&IAccountsSettingsPaneStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AccountsSettingsPane, IAccountsSettingsPaneStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAccountsSettingsPaneStatics3<R, F: FnOnce(&IAccountsSettingsPaneStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAccountsSettingsPaneStatics3<R, F: FnOnce(&IAccountsSettingsPaneStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AccountsSettingsPane, IAccountsSettingsPaneStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -498,8 +495,7 @@ impl CredentialCommand {
             (windows_core::Interface::vtable(this).CreateCredentialCommandWithHandler)(windows_core::Interface::as_raw(this), passwordcredential.param().abi(), deleted.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICredentialCommandFactory<R, F: FnOnce(&ICredentialCommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICredentialCommandFactory<R, F: FnOnce(&ICredentialCommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CredentialCommand, ICredentialCommandFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -585,13 +581,11 @@ impl SettingsCommand {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[doc(hidden)]
-    pub fn ISettingsCommandFactory<R, F: FnOnce(&ISettingsCommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISettingsCommandFactory<R, F: FnOnce(&ISettingsCommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SettingsCommand, ISettingsCommandFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISettingsCommandStatics<R, F: FnOnce(&ISettingsCommandStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISettingsCommandStatics<R, F: FnOnce(&ISettingsCommandStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SettingsCommand, ISettingsCommandStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -651,9 +645,8 @@ impl SettingsPane {
             (windows_core::Interface::vtable(this).Edge)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn ISettingsPaneStatics<R, F: FnOnce(&ISettingsPaneStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISettingsPaneStatics<R, F: FnOnce(&ISettingsPaneStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SettingsPane, ISettingsPaneStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -769,8 +762,7 @@ impl WebAccountCommand {
             (windows_core::Interface::vtable(this).CreateWebAccountCommand)(windows_core::Interface::as_raw(this), webaccount.param().abi(), invoked.param().abi(), actions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebAccountCommandFactory<R, F: FnOnce(&IWebAccountCommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAccountCommandFactory<R, F: FnOnce(&IWebAccountCommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAccountCommand, IWebAccountCommandFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -839,8 +831,7 @@ impl WebAccountProviderCommand {
             (windows_core::Interface::vtable(this).CreateWebAccountProviderCommand)(windows_core::Interface::as_raw(this), webaccountprovider.param().abi(), invoked.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebAccountProviderCommandFactory<R, F: FnOnce(&IWebAccountProviderCommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebAccountProviderCommandFactory<R, F: FnOnce(&IWebAccountProviderCommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAccountProviderCommand, IWebAccountProviderCommandFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -476,8 +476,7 @@ impl WiFiDirectConnectionParameters {
             (windows_core::Interface::vtable(this).GetDevicePairingKinds)(windows_core::Interface::as_raw(this), configurationmethod, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IWiFiDirectConnectionParametersStatics<R, F: FnOnce(&IWiFiDirectConnectionParametersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWiFiDirectConnectionParametersStatics<R, F: FnOnce(&IWiFiDirectConnectionParametersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WiFiDirectConnectionParameters, IWiFiDirectConnectionParametersStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -623,13 +622,11 @@ impl WiFiDirectDevice {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), connectionparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWiFiDirectDeviceStatics<R, F: FnOnce(&IWiFiDirectDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWiFiDirectDeviceStatics<R, F: FnOnce(&IWiFiDirectDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WiFiDirectDevice, IWiFiDirectDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IWiFiDirectDeviceStatics2<R, F: FnOnce(&IWiFiDirectDeviceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWiFiDirectDeviceStatics2<R, F: FnOnce(&IWiFiDirectDeviceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WiFiDirectDevice, IWiFiDirectDeviceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -721,8 +718,7 @@ impl WiFiDirectInformationElement {
             (windows_core::Interface::vtable(this).CreateFromDeviceInformation)(windows_core::Interface::as_raw(this), deviceinformation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWiFiDirectInformationElementStatics<R, F: FnOnce(&IWiFiDirectInformationElementStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWiFiDirectInformationElementStatics<R, F: FnOnce(&IWiFiDirectInformationElementStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WiFiDirectInformationElement, IWiFiDirectInformationElementStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

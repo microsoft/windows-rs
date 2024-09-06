@@ -1223,13 +1223,11 @@ impl AppDiagnosticInfo {
             (windows_core::Interface::vtable(this).RequestInfoForAppUserModelId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appusermodelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppDiagnosticInfoStatics<R, F: FnOnce(&IAppDiagnosticInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppDiagnosticInfoStatics<R, F: FnOnce(&IAppDiagnosticInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppDiagnosticInfo, IAppDiagnosticInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAppDiagnosticInfoStatics2<R, F: FnOnce(&IAppDiagnosticInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppDiagnosticInfoStatics2<R, F: FnOnce(&IAppDiagnosticInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppDiagnosticInfo, IAppDiagnosticInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1886,8 +1884,7 @@ impl AppUriHandlerHost {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppUriHandlerHostFactory<R, F: FnOnce(&IAppUriHandlerHostFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppUriHandlerHostFactory<R, F: FnOnce(&IAppUriHandlerHostFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppUriHandlerHost, IAppUriHandlerHostFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2034,13 +2031,11 @@ impl AppUriHandlerRegistrationManager {
             (windows_core::Interface::vtable(this).GetForPackageForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppUriHandlerRegistrationManagerStatics<R, F: FnOnce(&IAppUriHandlerRegistrationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppUriHandlerRegistrationManagerStatics<R, F: FnOnce(&IAppUriHandlerRegistrationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppUriHandlerRegistrationManager, IAppUriHandlerRegistrationManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAppUriHandlerRegistrationManagerStatics2<R, F: FnOnce(&IAppUriHandlerRegistrationManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppUriHandlerRegistrationManagerStatics2<R, F: FnOnce(&IAppUriHandlerRegistrationManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppUriHandlerRegistrationManager, IAppUriHandlerRegistrationManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2062,8 +2057,7 @@ impl DateTimeSettings {
     pub fn SetSystemDateTime(utcdatetime: super::Foundation::DateTime) -> windows_core::Result<()> {
         Self::IDateTimeSettingsStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetSystemDateTime)(windows_core::Interface::as_raw(this), utcdatetime).ok() })
     }
-    #[doc(hidden)]
-    pub fn IDateTimeSettingsStatics<R, F: FnOnce(&IDateTimeSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDateTimeSettingsStatics<R, F: FnOnce(&IDateTimeSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DateTimeSettings, IDateTimeSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2144,8 +2138,7 @@ impl DispatcherQueue {
             (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDispatcherQueueStatics<R, F: FnOnce(&IDispatcherQueueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDispatcherQueueStatics<R, F: FnOnce(&IDispatcherQueueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DispatcherQueue, IDispatcherQueueStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2187,8 +2180,7 @@ impl DispatcherQueueController {
             (windows_core::Interface::vtable(this).CreateOnDedicatedThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDispatcherQueueControllerStatics<R, F: FnOnce(&IDispatcherQueueControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDispatcherQueueControllerStatics<R, F: FnOnce(&IDispatcherQueueControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DispatcherQueueController, IDispatcherQueueControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2408,13 +2400,11 @@ impl KnownUserProperties {
             (windows_core::Interface::vtable(this).AgeEnforcementRegion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownUserPropertiesStatics<R, F: FnOnce(&IKnownUserPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownUserPropertiesStatics<R, F: FnOnce(&IKnownUserPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownUserProperties, IKnownUserPropertiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IKnownUserPropertiesStatics2<R, F: FnOnce(&IKnownUserPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownUserPropertiesStatics2<R, F: FnOnce(&IKnownUserPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownUserProperties, IKnownUserPropertiesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2731,28 +2721,23 @@ impl Launcher {
             (windows_core::Interface::vtable(this).LaunchFolderPathWithOptionsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILauncherStatics<R, F: FnOnce(&ILauncherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILauncherStatics<R, F: FnOnce(&ILauncherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Launcher, ILauncherStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILauncherStatics2<R, F: FnOnce(&ILauncherStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILauncherStatics2<R, F: FnOnce(&ILauncherStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Launcher, ILauncherStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILauncherStatics3<R, F: FnOnce(&ILauncherStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILauncherStatics3<R, F: FnOnce(&ILauncherStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Launcher, ILauncherStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILauncherStatics4<R, F: FnOnce(&ILauncherStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILauncherStatics4<R, F: FnOnce(&ILauncherStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Launcher, ILauncherStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILauncherStatics5<R, F: FnOnce(&ILauncherStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILauncherStatics5<R, F: FnOnce(&ILauncherStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Launcher, ILauncherStatics5> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3063,23 +3048,19 @@ impl MemoryManager {
             (windows_core::Interface::vtable(this).ExpectedAppMemoryUsageLimit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IMemoryManagerStatics<R, F: FnOnce(&IMemoryManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMemoryManagerStatics<R, F: FnOnce(&IMemoryManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MemoryManager, IMemoryManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMemoryManagerStatics2<R, F: FnOnce(&IMemoryManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMemoryManagerStatics2<R, F: FnOnce(&IMemoryManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MemoryManager, IMemoryManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMemoryManagerStatics3<R, F: FnOnce(&IMemoryManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMemoryManagerStatics3<R, F: FnOnce(&IMemoryManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MemoryManager, IMemoryManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMemoryManagerStatics4<R, F: FnOnce(&IMemoryManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMemoryManagerStatics4<R, F: FnOnce(&IMemoryManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MemoryManager, IMemoryManagerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3104,8 +3085,7 @@ impl ProcessLauncher {
             (windows_core::Interface::vtable(this).RunToCompletionAsyncWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filename), core::mem::transmute_copy(args), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IProcessLauncherStatics<R, F: FnOnce(&IProcessLauncherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProcessLauncherStatics<R, F: FnOnce(&IProcessLauncherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProcessLauncher, IProcessLauncherStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3318,8 +3298,7 @@ impl RemoteLauncher {
             (windows_core::Interface::vtable(this).LaunchUriWithDataAsync)(windows_core::Interface::as_raw(this), remotesystemconnectionrequest.param().abi(), uri.param().abi(), options.param().abi(), inputdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRemoteLauncherStatics<R, F: FnOnce(&IRemoteLauncherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteLauncherStatics<R, F: FnOnce(&IRemoteLauncherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteLauncher, IRemoteLauncherStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3394,13 +3373,11 @@ impl ShutdownManager {
     pub fn EnterPowerStateWithTimeSpan(powerstate: PowerState, wakeupafter: super::Foundation::TimeSpan) -> windows_core::Result<()> {
         Self::IShutdownManagerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).EnterPowerStateWithTimeSpan)(windows_core::Interface::as_raw(this), powerstate, wakeupafter).ok() })
     }
-    #[doc(hidden)]
-    pub fn IShutdownManagerStatics<R, F: FnOnce(&IShutdownManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IShutdownManagerStatics<R, F: FnOnce(&IShutdownManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ShutdownManager, IShutdownManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IShutdownManagerStatics2<R, F: FnOnce(&IShutdownManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IShutdownManagerStatics2<R, F: FnOnce(&IShutdownManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ShutdownManager, IShutdownManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3438,13 +3415,11 @@ impl TimeZoneSettings {
             (windows_core::Interface::vtable(this).AutoUpdateTimeZoneAsync)(windows_core::Interface::as_raw(this), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITimeZoneSettingsStatics<R, F: FnOnce(&ITimeZoneSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITimeZoneSettingsStatics<R, F: FnOnce(&ITimeZoneSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TimeZoneSettings, ITimeZoneSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITimeZoneSettingsStatics2<R, F: FnOnce(&ITimeZoneSettingsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITimeZoneSettingsStatics2<R, F: FnOnce(&ITimeZoneSettingsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TimeZoneSettings, ITimeZoneSettingsStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3550,13 +3525,11 @@ impl User {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IUserStatics<R, F: FnOnce(&IUserStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserStatics<R, F: FnOnce(&IUserStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<User, IUserStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IUserStatics2<R, F: FnOnce(&IUserStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserStatics2<R, F: FnOnce(&IUserStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<User, IUserStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3694,8 +3667,7 @@ impl UserDeviceAssociation {
     pub fn RemoveUserDeviceAssociationChanged(token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IUserDeviceAssociationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveUserDeviceAssociationChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn IUserDeviceAssociationStatics<R, F: FnOnce(&IUserDeviceAssociationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserDeviceAssociationStatics<R, F: FnOnce(&IUserDeviceAssociationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserDeviceAssociation, IUserDeviceAssociationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3792,8 +3764,7 @@ impl UserPicker {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IUserPickerStatics<R, F: FnOnce(&IUserPickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserPickerStatics<R, F: FnOnce(&IUserPickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UserPicker, IUserPickerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

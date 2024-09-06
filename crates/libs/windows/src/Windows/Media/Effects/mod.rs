@@ -772,8 +772,7 @@ impl AudioEffectDefinition {
             (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAudioEffectDefinitionFactory<R, F: FnOnce(&IAudioEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioEffectDefinitionFactory<R, F: FnOnce(&IAudioEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioEffectDefinition, IAudioEffectDefinitionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -820,8 +819,7 @@ impl AudioEffectsManager {
             (windows_core::Interface::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), category, mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAudioEffectsManagerStatics<R, F: FnOnce(&IAudioEffectsManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioEffectsManagerStatics<R, F: FnOnce(&IAudioEffectsManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioEffectsManager, IAudioEffectsManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1093,8 +1091,7 @@ impl VideoCompositorDefinition {
             (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVideoCompositorDefinitionFactory<R, F: FnOnce(&IVideoCompositorDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVideoCompositorDefinitionFactory<R, F: FnOnce(&IVideoCompositorDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoCompositorDefinition, IVideoCompositorDefinitionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1147,8 +1144,7 @@ impl VideoEffectDefinition {
             (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVideoEffectDefinitionFactory<R, F: FnOnce(&IVideoEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVideoEffectDefinitionFactory<R, F: FnOnce(&IVideoEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoEffectDefinition, IVideoEffectDefinitionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

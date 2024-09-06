@@ -1410,8 +1410,7 @@ impl StoreContext {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStoreContextStatics<R, F: FnOnce(&IStoreContextStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStoreContextStatics<R, F: FnOnce(&IStoreContextStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StoreContext, IStoreContextStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2117,8 +2116,7 @@ impl StorePurchaseProperties {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStorePurchasePropertiesFactory<R, F: FnOnce(&IStorePurchasePropertiesFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorePurchasePropertiesFactory<R, F: FnOnce(&IStorePurchasePropertiesFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StorePurchaseProperties, IStorePurchasePropertiesFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2390,8 +2388,7 @@ impl StoreRequestHelper {
             (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), context.param().abi(), requestkind, core::mem::transmute_copy(parametersasjson), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStoreRequestHelperStatics<R, F: FnOnce(&IStoreRequestHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStoreRequestHelperStatics<R, F: FnOnce(&IStoreRequestHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StoreRequestHelper, IStoreRequestHelperStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

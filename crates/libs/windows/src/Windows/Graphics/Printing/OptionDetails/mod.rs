@@ -2505,8 +2505,7 @@ impl PrintTaskOptionDetails {
             (windows_core::Interface::vtable(this).DisplayedOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IPrintTaskOptionDetailsStatic<R, F: FnOnce(&IPrintTaskOptionDetailsStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrintTaskOptionDetailsStatic<R, F: FnOnce(&IPrintTaskOptionDetailsStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PrintTaskOptionDetails, IPrintTaskOptionDetailsStatic> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

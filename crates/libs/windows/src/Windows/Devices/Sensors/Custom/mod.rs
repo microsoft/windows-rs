@@ -146,8 +146,7 @@ impl CustomSensor {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sensorid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICustomSensorStatics<R, F: FnOnce(&ICustomSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICustomSensorStatics<R, F: FnOnce(&ICustomSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CustomSensor, ICustomSensorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

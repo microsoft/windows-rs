@@ -588,13 +588,11 @@ impl GeoboundingBox {
             (windows_core::Interface::vtable(this).AltitudeReferenceSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[doc(hidden)]
-    pub fn IGeoboundingBoxFactory<R, F: FnOnce(&IGeoboundingBoxFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeoboundingBoxFactory<R, F: FnOnce(&IGeoboundingBoxFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GeoboundingBox, IGeoboundingBoxFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGeoboundingBoxStatics<R, F: FnOnce(&IGeoboundingBoxStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeoboundingBoxStatics<R, F: FnOnce(&IGeoboundingBoxStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GeoboundingBox, IGeoboundingBoxStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -670,8 +668,7 @@ impl Geocircle {
             (windows_core::Interface::vtable(this).AltitudeReferenceSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[doc(hidden)]
-    pub fn IGeocircleFactory<R, F: FnOnce(&IGeocircleFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeocircleFactory<R, F: FnOnce(&IGeocircleFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Geocircle, IGeocircleFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1003,13 +1000,11 @@ impl Geolocator {
         let this = &windows_core::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDesiredAccuracyInMeters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[doc(hidden)]
-    pub fn IGeolocatorStatics<R, F: FnOnce(&IGeolocatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeolocatorStatics<R, F: FnOnce(&IGeolocatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Geolocator, IGeolocatorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGeolocatorStatics2<R, F: FnOnce(&IGeolocatorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeolocatorStatics2<R, F: FnOnce(&IGeolocatorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Geolocator, IGeolocatorStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1091,8 +1086,7 @@ impl Geopath {
             (windows_core::Interface::vtable(this).AltitudeReferenceSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[doc(hidden)]
-    pub fn IGeopathFactory<R, F: FnOnce(&IGeopathFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeopathFactory<R, F: FnOnce(&IGeopathFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Geopath, IGeopathFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1161,8 +1155,7 @@ impl Geopoint {
             (windows_core::Interface::vtable(this).AltitudeReferenceSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[doc(hidden)]
-    pub fn IGeopointFactory<R, F: FnOnce(&IGeopointFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeopointFactory<R, F: FnOnce(&IGeopointFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Geopoint, IGeopointFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1304,8 +1297,7 @@ impl GeovisitMonitor {
             (windows_core::Interface::vtable(this).GetLastReportAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGeovisitMonitorStatics<R, F: FnOnce(&IGeovisitMonitorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeovisitMonitorStatics<R, F: FnOnce(&IGeovisitMonitorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GeovisitMonitor, IGeovisitMonitorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

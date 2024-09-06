@@ -681,8 +681,7 @@ impl FileInformationFactory {
             (windows_core::Interface::vtable(this).CreateWithModeAndSizeAndOptionsAndFlags)(windows_core::Interface::as_raw(this), queryresult.param().abi(), mode, requestedthumbnailsize, thumbnailoptions, delayload, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IFileInformationFactoryFactory<R, F: FnOnce(&IFileInformationFactoryFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFileInformationFactoryFactory<R, F: FnOnce(&IFileInformationFactoryFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FileInformationFactory, IFileInformationFactoryFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -269,13 +269,11 @@ impl AnalyticsInfo {
             (windows_core::Interface::vtable(this).GetSystemPropertiesAsync)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAnalyticsInfoStatics<R, F: FnOnce(&IAnalyticsInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAnalyticsInfoStatics<R, F: FnOnce(&IAnalyticsInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IAnalyticsInfoStatics2<R, F: FnOnce(&IAnalyticsInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAnalyticsInfoStatics2<R, F: FnOnce(&IAnalyticsInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -334,8 +332,7 @@ impl AppApplicability {
             (windows_core::Interface::vtable(this).GetUnsupportedAppRequirements)(windows_core::Interface::as_raw(this), capabilities.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppApplicabilityStatics<R, F: FnOnce(&IAppApplicabilityStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppApplicabilityStatics<R, F: FnOnce(&IAppApplicabilityStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppApplicability, IAppApplicabilityStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -351,8 +348,7 @@ impl EducationSettings {
             (windows_core::Interface::vtable(this).IsEducationEnvironment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IEducationSettingsStatics<R, F: FnOnce(&IEducationSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEducationSettingsStatics<R, F: FnOnce(&IEducationSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EducationSettings, IEducationSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -372,8 +368,7 @@ impl HardwareIdentification {
             (windows_core::Interface::vtable(this).GetPackageSpecificToken)(windows_core::Interface::as_raw(this), nonce.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IHardwareIdentificationStatics<R, F: FnOnce(&IHardwareIdentificationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHardwareIdentificationStatics<R, F: FnOnce(&IHardwareIdentificationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HardwareIdentification, IHardwareIdentificationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -557,8 +552,7 @@ impl KnownRetailInfoProperties {
             (windows_core::Interface::vtable(this).WindowsEdition)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKnownRetailInfoPropertiesStatics<R, F: FnOnce(&IKnownRetailInfoPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownRetailInfoPropertiesStatics<R, F: FnOnce(&IKnownRetailInfoPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownRetailInfoProperties, IKnownRetailInfoPropertiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -574,8 +568,7 @@ impl PlatformAutomaticAppSignInManager {
             (windows_core::Interface::vtable(this).Policy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IPlatformAutomaticAppSignInManagerStatics<R, F: FnOnce(&IPlatformAutomaticAppSignInManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlatformAutomaticAppSignInManagerStatics<R, F: FnOnce(&IPlatformAutomaticAppSignInManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlatformAutomaticAppSignInManager, IPlatformAutomaticAppSignInManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -609,8 +602,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
             (windows_core::Interface::vtable(this).CanCollectDiagnostics)(windows_core::Interface::as_raw(this), level, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IPlatformDiagnosticsAndUsageDataSettingsStatics<R, F: FnOnce(&IPlatformDiagnosticsAndUsageDataSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlatformDiagnosticsAndUsageDataSettingsStatics<R, F: FnOnce(&IPlatformDiagnosticsAndUsageDataSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlatformDiagnosticsAndUsageDataSettings, IPlatformDiagnosticsAndUsageDataSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -633,8 +625,7 @@ impl RetailInfo {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRetailInfoStatics<R, F: FnOnce(&IRetailInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRetailInfoStatics<R, F: FnOnce(&IRetailInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RetailInfo, IRetailInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -656,13 +647,11 @@ impl SharedModeSettings {
             (windows_core::Interface::vtable(this).ShouldAvoidLocalStorage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn ISharedModeSettingsStatics<R, F: FnOnce(&ISharedModeSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISharedModeSettingsStatics<R, F: FnOnce(&ISharedModeSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SharedModeSettings, ISharedModeSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISharedModeSettingsStatics2<R, F: FnOnce(&ISharedModeSettingsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISharedModeSettingsStatics2<R, F: FnOnce(&ISharedModeSettingsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SharedModeSettings, ISharedModeSettingsStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -690,8 +679,7 @@ impl SmartAppControlPolicy {
     pub fn RemoveChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::ISmartAppControlPolicyStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn ISmartAppControlPolicyStatics<R, F: FnOnce(&ISmartAppControlPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmartAppControlPolicyStatics<R, F: FnOnce(&ISmartAppControlPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SmartAppControlPolicy, ISmartAppControlPolicyStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -716,8 +704,7 @@ impl SystemIdentification {
             (windows_core::Interface::vtable(this).GetSystemIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISystemIdentificationStatics<R, F: FnOnce(&ISystemIdentificationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemIdentificationStatics<R, F: FnOnce(&ISystemIdentificationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemIdentification, ISystemIdentificationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -778,8 +765,7 @@ impl SystemSetupInfo {
     pub fn RemoveOutOfBoxExperienceStateChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::ISystemSetupInfoStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveOutOfBoxExperienceStateChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn ISystemSetupInfoStatics<R, F: FnOnce(&ISystemSetupInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemSetupInfoStatics<R, F: FnOnce(&ISystemSetupInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemSetupInfo, ISystemSetupInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -857,8 +843,7 @@ impl WindowsIntegrityPolicy {
     pub fn RemovePolicyChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemovePolicyChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn IWindowsIntegrityPolicyStatics<R, F: FnOnce(&IWindowsIntegrityPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowsIntegrityPolicyStatics<R, F: FnOnce(&IWindowsIntegrityPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowsIntegrityPolicy, IWindowsIntegrityPolicyStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -776,8 +776,7 @@ impl WebViewControlProcess {
             (windows_core::Interface::vtable(this).CreateWithOptions)(windows_core::Interface::as_raw(this), processoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWebViewControlProcessFactory<R, F: FnOnce(&IWebViewControlProcessFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebViewControlProcessFactory<R, F: FnOnce(&IWebViewControlProcessFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebViewControlProcess, IWebViewControlProcessFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

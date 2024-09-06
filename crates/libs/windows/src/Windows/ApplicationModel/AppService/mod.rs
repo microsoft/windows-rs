@@ -180,8 +180,7 @@ impl AppServiceCatalog {
             (windows_core::Interface::vtable(this).FindAppServiceProvidersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IAppServiceCatalogStatics<R, F: FnOnce(&IAppServiceCatalogStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppServiceCatalogStatics<R, F: FnOnce(&IAppServiceCatalogStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppServiceCatalog, IAppServiceCatalogStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -338,8 +337,7 @@ impl AppServiceConnection {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IAppServiceConnectionStatics<R, F: FnOnce(&IAppServiceConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppServiceConnectionStatics<R, F: FnOnce(&IAppServiceConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppServiceConnection, IAppServiceConnectionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

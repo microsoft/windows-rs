@@ -724,13 +724,11 @@ impl GuidanceNavigator {
             (windows_core::Interface::vtable(this).UseAppProvidedVoice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGuidanceNavigatorStatics<R, F: FnOnce(&IGuidanceNavigatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGuidanceNavigatorStatics<R, F: FnOnce(&IGuidanceNavigatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GuidanceNavigator, IGuidanceNavigatorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGuidanceNavigatorStatics2<R, F: FnOnce(&IGuidanceNavigatorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGuidanceNavigatorStatics2<R, F: FnOnce(&IGuidanceNavigatorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GuidanceNavigator, IGuidanceNavigatorStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -993,8 +991,7 @@ impl GuidanceRoute {
             (windows_core::Interface::vtable(this).TryCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGuidanceRouteStatics<R, F: FnOnce(&IGuidanceRouteStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGuidanceRouteStatics<R, F: FnOnce(&IGuidanceRouteStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GuidanceRoute, IGuidanceRouteStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1059,8 +1056,7 @@ impl GuidanceTelemetryCollector {
             (windows_core::Interface::vtable(this).GetCurrent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGuidanceTelemetryCollectorStatics<R, F: FnOnce(&IGuidanceTelemetryCollectorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGuidanceTelemetryCollectorStatics<R, F: FnOnce(&IGuidanceTelemetryCollectorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GuidanceTelemetryCollector, IGuidanceTelemetryCollectorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

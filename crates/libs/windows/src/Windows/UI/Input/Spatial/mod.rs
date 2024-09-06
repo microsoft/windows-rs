@@ -843,8 +843,7 @@ impl SpatialGestureRecognizer {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), settings, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialGestureRecognizerFactory<R, F: FnOnce(&ISpatialGestureRecognizerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialGestureRecognizerFactory<R, F: FnOnce(&ISpatialGestureRecognizerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialGestureRecognizer, ISpatialGestureRecognizerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1278,13 +1277,11 @@ impl SpatialInteractionManager {
             (windows_core::Interface::vtable(this).IsSourceKindSupported)(windows_core::Interface::as_raw(this), kind, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialInteractionManagerStatics<R, F: FnOnce(&ISpatialInteractionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialInteractionManagerStatics<R, F: FnOnce(&ISpatialInteractionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialInteractionManager, ISpatialInteractionManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISpatialInteractionManagerStatics2<R, F: FnOnce(&ISpatialInteractionManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialInteractionManagerStatics2<R, F: FnOnce(&ISpatialInteractionManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialInteractionManager, ISpatialInteractionManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2060,8 +2057,7 @@ impl SpatialPointerPose {
             (windows_core::Interface::vtable(this).TryGetAtTimestamp)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), timestamp.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpatialPointerPoseStatics<R, F: FnOnce(&ISpatialPointerPoseStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialPointerPoseStatics<R, F: FnOnce(&ISpatialPointerPoseStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialPointerPose, ISpatialPointerPoseStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

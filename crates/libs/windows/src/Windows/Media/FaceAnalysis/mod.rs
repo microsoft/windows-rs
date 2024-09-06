@@ -211,8 +211,7 @@ impl FaceDetector {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IFaceDetectorStatics<R, F: FnOnce(&IFaceDetectorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFaceDetectorStatics<R, F: FnOnce(&IFaceDetectorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FaceDetector, IFaceDetectorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -297,8 +296,7 @@ impl FaceTracker {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IFaceTrackerStatics<R, F: FnOnce(&IFaceTrackerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFaceTrackerStatics<R, F: FnOnce(&IFaceTrackerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FaceTracker, IFaceTrackerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

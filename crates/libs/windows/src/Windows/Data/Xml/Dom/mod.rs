@@ -2980,8 +2980,7 @@ impl XmlDocument {
         let this = &windows_core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[doc(hidden)]
-    pub fn IXmlDocumentStatics<R, F: FnOnce(&IXmlDocumentStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IXmlDocumentStatics<R, F: FnOnce(&IXmlDocumentStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<XmlDocument, IXmlDocumentStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

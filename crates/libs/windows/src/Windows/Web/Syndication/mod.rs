@@ -747,8 +747,7 @@ impl SyndicationAttribute {
             (windows_core::Interface::vtable(this).CreateSyndicationAttribute)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(attributename), core::mem::transmute_copy(attributenamespace), core::mem::transmute_copy(attributevalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISyndicationAttributeFactory<R, F: FnOnce(&ISyndicationAttributeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationAttributeFactory<R, F: FnOnce(&ISyndicationAttributeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationAttribute, ISyndicationAttributeFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -905,8 +904,7 @@ impl SyndicationCategory {
             (windows_core::Interface::vtable(this).GetXmlDocument)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn ISyndicationCategoryFactory<R, F: FnOnce(&ISyndicationCategoryFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationCategoryFactory<R, F: FnOnce(&ISyndicationCategoryFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationCategory, ISyndicationCategoryFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1024,8 +1022,7 @@ impl SyndicationClient {
             (windows_core::Interface::vtable(this).CreateSyndicationClient)(windows_core::Interface::as_raw(this), servercredential.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISyndicationClientFactory<R, F: FnOnce(&ISyndicationClientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationClientFactory<R, F: FnOnce(&ISyndicationClientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationClient, ISyndicationClientFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1204,8 +1201,7 @@ impl SyndicationContent {
         let this = &windows_core::Interface::cast::<ISyndicationText>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetXml)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    #[doc(hidden)]
-    pub fn ISyndicationContentFactory<R, F: FnOnce(&ISyndicationContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationContentFactory<R, F: FnOnce(&ISyndicationContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationContent, ISyndicationContentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1230,8 +1226,7 @@ impl SyndicationError {
             (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn ISyndicationErrorStatics<R, F: FnOnce(&ISyndicationErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationErrorStatics<R, F: FnOnce(&ISyndicationErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationError, ISyndicationErrorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1536,8 +1531,7 @@ impl SyndicationFeed {
             (windows_core::Interface::vtable(this).GetXmlDocument)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn ISyndicationFeedFactory<R, F: FnOnce(&ISyndicationFeedFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationFeedFactory<R, F: FnOnce(&ISyndicationFeedFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationFeed, ISyndicationFeedFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1691,8 +1685,7 @@ impl SyndicationGenerator {
             (windows_core::Interface::vtable(this).GetXmlDocument)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn ISyndicationGeneratorFactory<R, F: FnOnce(&ISyndicationGeneratorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationGeneratorFactory<R, F: FnOnce(&ISyndicationGeneratorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationGenerator, ISyndicationGeneratorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2003,8 +1996,7 @@ impl SyndicationItem {
             (windows_core::Interface::vtable(this).GetXmlDocument)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn ISyndicationItemFactory<R, F: FnOnce(&ISyndicationItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationItemFactory<R, F: FnOnce(&ISyndicationItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationItem, ISyndicationItemFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2203,8 +2195,7 @@ impl SyndicationLink {
             (windows_core::Interface::vtable(this).GetXmlDocument)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn ISyndicationLinkFactory<R, F: FnOnce(&ISyndicationLinkFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationLinkFactory<R, F: FnOnce(&ISyndicationLinkFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationLink, ISyndicationLinkFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2321,8 +2312,7 @@ impl SyndicationNode {
             (windows_core::Interface::vtable(this).CreateSyndicationNode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(nodename), core::mem::transmute_copy(nodenamespace), core::mem::transmute_copy(nodevalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISyndicationNodeFactory<R, F: FnOnce(&ISyndicationNodeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationNodeFactory<R, F: FnOnce(&ISyndicationNodeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationNode, ISyndicationNodeFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2485,8 +2475,7 @@ impl SyndicationPerson {
             (windows_core::Interface::vtable(this).CreateSyndicationPersonEx)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(email), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISyndicationPersonFactory<R, F: FnOnce(&ISyndicationPersonFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationPersonFactory<R, F: FnOnce(&ISyndicationPersonFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationPerson, ISyndicationPersonFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2648,8 +2637,7 @@ impl SyndicationText {
             (windows_core::Interface::vtable(this).CreateSyndicationTextEx)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISyndicationTextFactory<R, F: FnOnce(&ISyndicationTextFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISyndicationTextFactory<R, F: FnOnce(&ISyndicationTextFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SyndicationText, ISyndicationTextFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

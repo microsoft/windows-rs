@@ -222,15 +222,13 @@ impl ResourceIndexer {
             (windows_core::Interface::vtable(this).CreateResourceIndexerWithExtension)(windows_core::Interface::as_raw(this), projectroot.param().abi(), extensiondllpath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IResourceIndexerFactory<R, F: FnOnce(&IResourceIndexerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceIndexerFactory<R, F: FnOnce(&IResourceIndexerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceIndexer, IResourceIndexerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IResourceIndexerFactory2<R, F: FnOnce(&IResourceIndexerFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceIndexerFactory2<R, F: FnOnce(&IResourceIndexerFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceIndexer, IResourceIndexerFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

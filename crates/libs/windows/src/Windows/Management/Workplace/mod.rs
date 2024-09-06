@@ -60,13 +60,11 @@ impl MdmPolicy {
             (windows_core::Interface::vtable(this).GetMessagingSyncPolicy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IMdmAllowPolicyStatics<R, F: FnOnce(&IMdmAllowPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMdmAllowPolicyStatics<R, F: FnOnce(&IMdmAllowPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MdmPolicy, IMdmAllowPolicyStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMdmPolicyStatics2<R, F: FnOnce(&IMdmPolicyStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMdmPolicyStatics2<R, F: FnOnce(&IMdmPolicyStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MdmPolicy, IMdmPolicyStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -82,8 +80,7 @@ impl WorkplaceSettings {
             (windows_core::Interface::vtable(this).IsMicrosoftAccountOptional)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IWorkplaceSettingsStatics<R, F: FnOnce(&IWorkplaceSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWorkplaceSettingsStatics<R, F: FnOnce(&IWorkplaceSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WorkplaceSettings, IWorkplaceSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

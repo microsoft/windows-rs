@@ -246,13 +246,11 @@ impl GameList {
             (windows_core::Interface::vtable(this).UnmergeEntryAsync)(windows_core::Interface::as_raw(this), mergedentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGameListStatics<R, F: FnOnce(&IGameListStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameListStatics<R, F: FnOnce(&IGameListStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameList, IGameListStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGameListStatics2<R, F: FnOnce(&IGameListStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameListStatics2<R, F: FnOnce(&IGameListStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameList, IGameListStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -545,8 +543,7 @@ impl GameModeUserConfiguration {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IGameModeUserConfigurationStatics<R, F: FnOnce(&IGameModeUserConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameModeUserConfigurationStatics<R, F: FnOnce(&IGameModeUserConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameModeUserConfiguration, IGameModeUserConfigurationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

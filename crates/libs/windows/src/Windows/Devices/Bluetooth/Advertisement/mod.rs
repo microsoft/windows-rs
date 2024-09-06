@@ -455,8 +455,7 @@ impl BluetoothLEAdvertisementBytePattern {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), datatype, offset, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEAdvertisementBytePatternFactory<R, F: FnOnce(&IBluetoothLEAdvertisementBytePatternFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAdvertisementBytePatternFactory<R, F: FnOnce(&IBluetoothLEAdvertisementBytePatternFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementBytePattern, IBluetoothLEAdvertisementBytePatternFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -522,8 +521,7 @@ impl BluetoothLEAdvertisementDataSection {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), datatype, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEAdvertisementDataSectionFactory<R, F: FnOnce(&IBluetoothLEAdvertisementDataSectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAdvertisementDataSectionFactory<R, F: FnOnce(&IBluetoothLEAdvertisementDataSectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementDataSection, IBluetoothLEAdvertisementDataSectionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -674,8 +672,7 @@ impl BluetoothLEAdvertisementDataTypes {
             (windows_core::Interface::vtable(this).ManufacturerSpecificData)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEAdvertisementDataTypesStatics<R, F: FnOnce(&IBluetoothLEAdvertisementDataTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAdvertisementDataTypesStatics<R, F: FnOnce(&IBluetoothLEAdvertisementDataTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementDataTypes, IBluetoothLEAdvertisementDataTypesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -834,8 +831,7 @@ impl BluetoothLEAdvertisementPublisher {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), advertisement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEAdvertisementPublisherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementPublisherFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAdvertisementPublisherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementPublisherFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementPublisher, IBluetoothLEAdvertisementPublisherFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1135,8 +1131,7 @@ impl BluetoothLEAdvertisementWatcher {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), advertisementfilter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEAdvertisementWatcherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementWatcherFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEAdvertisementWatcherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementWatcherFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementWatcher, IBluetoothLEAdvertisementWatcherFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1227,8 +1222,7 @@ impl BluetoothLEManufacturerData {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), companyid, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IBluetoothLEManufacturerDataFactory<R, F: FnOnce(&IBluetoothLEManufacturerDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBluetoothLEManufacturerDataFactory<R, F: FnOnce(&IBluetoothLEManufacturerDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEManufacturerData, IBluetoothLEManufacturerDataFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

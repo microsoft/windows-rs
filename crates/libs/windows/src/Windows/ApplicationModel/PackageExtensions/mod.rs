@@ -310,8 +310,7 @@ impl PackageExtensionCatalog {
             (windows_core::Interface::vtable(this).Open)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packageextensionname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPackageExtensionCatalogStatics<R, F: FnOnce(&IPackageExtensionCatalogStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPackageExtensionCatalogStatics<R, F: FnOnce(&IPackageExtensionCatalogStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PackageExtensionCatalog, IPackageExtensionCatalogStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

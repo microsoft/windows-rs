@@ -1898,8 +1898,7 @@ impl AudioStreamDescriptor {
             (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IAudioStreamDescriptorFactory<R, F: FnOnce(&IAudioStreamDescriptorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioStreamDescriptorFactory<R, F: FnOnce(&IAudioStreamDescriptorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioStreamDescriptor, IAudioStreamDescriptorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2546,8 +2545,7 @@ impl CodecSubtypes {
             (windows_core::Interface::vtable(this).AudioFormatWMAudioV9)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICodecSubtypesStatics<R, F: FnOnce(&ICodecSubtypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICodecSubtypesStatics<R, F: FnOnce(&ICodecSubtypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CodecSubtypes, ICodecSubtypesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3127,8 +3125,7 @@ impl LowLightFusion {
             (windows_core::Interface::vtable(this).FuseAsync)(windows_core::Interface::as_raw(this), frameset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILowLightFusionStatics<R, F: FnOnce(&ILowLightFusionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILowLightFusionStatics<R, F: FnOnce(&ILowLightFusionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LowLightFusion, ILowLightFusionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3579,23 +3576,19 @@ impl MediaSource {
             (windows_core::Interface::vtable(this).CreateFromDownloadOperation)(windows_core::Interface::as_raw(this), downloadoperation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaSourceStatics<R, F: FnOnce(&IMediaSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaSourceStatics<R, F: FnOnce(&IMediaSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaSource, IMediaSourceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaSourceStatics2<R, F: FnOnce(&IMediaSourceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaSourceStatics2<R, F: FnOnce(&IMediaSourceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaSource, IMediaSourceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaSourceStatics3<R, F: FnOnce(&IMediaSourceStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaSourceStatics3<R, F: FnOnce(&IMediaSourceStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaSource, IMediaSourceStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaSourceStatics4<R, F: FnOnce(&IMediaSourceStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaSourceStatics4<R, F: FnOnce(&IMediaSourceStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaSource, IMediaSourceStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3645,8 +3638,7 @@ impl MediaSourceAppServiceConnection {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), appserviceconnection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaSourceAppServiceConnectionFactory<R, F: FnOnce(&IMediaSourceAppServiceConnectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaSourceAppServiceConnectionFactory<R, F: FnOnce(&IMediaSourceAppServiceConnectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaSourceAppServiceConnection, IMediaSourceAppServiceConnectionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3874,13 +3866,11 @@ impl MediaStreamSample {
             (windows_core::Interface::vtable(this).CreateFromDirect3D11Surface)(windows_core::Interface::as_raw(this), surface.param().abi(), timestamp, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaStreamSampleStatics<R, F: FnOnce(&IMediaStreamSampleStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaStreamSampleStatics<R, F: FnOnce(&IMediaStreamSampleStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaStreamSample, IMediaStreamSampleStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IMediaStreamSampleStatics2<R, F: FnOnce(&IMediaStreamSampleStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaStreamSampleStatics2<R, F: FnOnce(&IMediaStreamSampleStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaStreamSample, IMediaStreamSampleStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4281,8 +4271,7 @@ impl MediaStreamSource {
             (windows_core::Interface::vtable(this).CreateFromDescriptors)(windows_core::Interface::as_raw(this), descriptor.param().abi(), descriptor2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMediaStreamSourceFactory<R, F: FnOnce(&IMediaStreamSourceFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaStreamSourceFactory<R, F: FnOnce(&IMediaStreamSourceFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaStreamSource, IMediaStreamSourceFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5007,8 +4996,7 @@ impl MseStreamSource {
             (windows_core::Interface::vtable(this).IsContentTypeSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contenttype), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IMseStreamSourceStatics<R, F: FnOnce(&IMseStreamSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMseStreamSourceStatics<R, F: FnOnce(&IMseStreamSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MseStreamSource, IMseStreamSourceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5447,8 +5435,7 @@ impl TimedMetadataStreamDescriptor {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITimedMetadataStreamDescriptorFactory<R, F: FnOnce(&ITimedMetadataStreamDescriptorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITimedMetadataStreamDescriptorFactory<R, F: FnOnce(&ITimedMetadataStreamDescriptorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TimedMetadataStreamDescriptor, ITimedMetadataStreamDescriptorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5610,8 +5597,7 @@ impl TimedMetadataTrack {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(language), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITimedMetadataTrackFactory<R, F: FnOnce(&ITimedMetadataTrackFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITimedMetadataTrackFactory<R, F: FnOnce(&ITimedMetadataTrackFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TimedMetadataTrack, ITimedMetadataTrackFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -6197,13 +6183,11 @@ impl TimedTextSource {
             (windows_core::Interface::vtable(this).CreateFromUriWithIndexAndLanguage)(windows_core::Interface::as_raw(this), uri.param().abi(), indexuri.param().abi(), core::mem::transmute_copy(defaultlanguage), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITimedTextSourceStatics<R, F: FnOnce(&ITimedTextSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITimedTextSourceStatics<R, F: FnOnce(&ITimedTextSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TimedTextSource, ITimedTextSourceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ITimedTextSourceStatics2<R, F: FnOnce(&ITimedTextSourceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITimedTextSourceStatics2<R, F: FnOnce(&ITimedTextSourceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TimedTextSource, ITimedTextSourceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -6766,8 +6750,7 @@ impl VideoStreamDescriptor {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVideoStreamDescriptorFactory<R, F: FnOnce(&IVideoStreamDescriptorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVideoStreamDescriptorFactory<R, F: FnOnce(&IVideoStreamDescriptorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoStreamDescriptor, IVideoStreamDescriptorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

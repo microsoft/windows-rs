@@ -168,9 +168,8 @@ impl WalletManagerSystem {
             (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn IWalletManagerSystemStatics<R, F: FnOnce(&IWalletManagerSystemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWalletManagerSystemStatics<R, F: FnOnce(&IWalletManagerSystemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WalletManagerSystem, IWalletManagerSystemStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

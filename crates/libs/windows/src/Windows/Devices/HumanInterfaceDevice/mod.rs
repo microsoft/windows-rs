@@ -558,8 +558,7 @@ impl HidDevice {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), accessmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IHidDeviceStatics<R, F: FnOnce(&IHidDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHidDeviceStatics<R, F: FnOnce(&IHidDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HidDevice, IHidDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

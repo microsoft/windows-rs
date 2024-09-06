@@ -128,8 +128,7 @@ impl CharacterGroupings {
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
-    #[doc(hidden)]
-    pub fn ICharacterGroupingsFactory<R, F: FnOnce(&ICharacterGroupingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICharacterGroupingsFactory<R, F: FnOnce(&ICharacterGroupingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CharacterGroupings, ICharacterGroupingsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

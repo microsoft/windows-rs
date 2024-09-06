@@ -685,13 +685,11 @@ impl ApplicationLanguages {
             (windows_core::Interface::vtable(this).GetLanguagesForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IApplicationLanguagesStatics<R, F: FnOnce(&IApplicationLanguagesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationLanguagesStatics<R, F: FnOnce(&IApplicationLanguagesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationLanguages, IApplicationLanguagesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IApplicationLanguagesStatics2<R, F: FnOnce(&IApplicationLanguagesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationLanguagesStatics2<R, F: FnOnce(&IApplicationLanguagesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationLanguages, IApplicationLanguagesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1378,13 +1376,11 @@ impl Calendar {
             (windows_core::Interface::vtable(this).TimeZoneAsString)(windows_core::Interface::as_raw(this), ideallength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn ICalendarFactory<R, F: FnOnce(&ICalendarFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICalendarFactory<R, F: FnOnce(&ICalendarFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Calendar, ICalendarFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICalendarFactory2<R, F: FnOnce(&ICalendarFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICalendarFactory2<R, F: FnOnce(&ICalendarFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Calendar, ICalendarFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1493,18 +1489,15 @@ impl CalendarIdentifiers {
             (windows_core::Interface::vtable(this).VietnameseLunar)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICalendarIdentifiersStatics<R, F: FnOnce(&ICalendarIdentifiersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICalendarIdentifiersStatics<R, F: FnOnce(&ICalendarIdentifiersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CalendarIdentifiers, ICalendarIdentifiersStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICalendarIdentifiersStatics2<R, F: FnOnce(&ICalendarIdentifiersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICalendarIdentifiersStatics2<R, F: FnOnce(&ICalendarIdentifiersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CalendarIdentifiers, ICalendarIdentifiersStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICalendarIdentifiersStatics3<R, F: FnOnce(&ICalendarIdentifiersStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICalendarIdentifiersStatics3<R, F: FnOnce(&ICalendarIdentifiersStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CalendarIdentifiers, ICalendarIdentifiersStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1526,8 +1519,7 @@ impl ClockIdentifiers {
             (windows_core::Interface::vtable(this).TwentyFourHour)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IClockIdentifiersStatics<R, F: FnOnce(&IClockIdentifiersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IClockIdentifiersStatics<R, F: FnOnce(&IClockIdentifiersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ClockIdentifiers, IClockIdentifiersStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1560,8 +1552,7 @@ impl CurrencyAmount {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(amount), core::mem::transmute_copy(currency), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICurrencyAmountFactory<R, F: FnOnce(&ICurrencyAmountFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICurrencyAmountFactory<R, F: FnOnce(&ICurrencyAmountFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CurrencyAmount, ICurrencyAmountFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2552,18 +2543,15 @@ impl CurrencyIdentifiers {
             (windows_core::Interface::vtable(this).VES)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICurrencyIdentifiersStatics<R, F: FnOnce(&ICurrencyIdentifiersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICurrencyIdentifiersStatics<R, F: FnOnce(&ICurrencyIdentifiersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CurrencyIdentifiers, ICurrencyIdentifiersStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICurrencyIdentifiersStatics2<R, F: FnOnce(&ICurrencyIdentifiersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICurrencyIdentifiersStatics2<R, F: FnOnce(&ICurrencyIdentifiersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CurrencyIdentifiers, ICurrencyIdentifiersStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICurrencyIdentifiersStatics3<R, F: FnOnce(&ICurrencyIdentifiersStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICurrencyIdentifiersStatics3<R, F: FnOnce(&ICurrencyIdentifiersStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CurrencyIdentifiers, ICurrencyIdentifiersStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2645,13 +2633,11 @@ impl GeographicRegion {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(geographicregioncode), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IGeographicRegionFactory<R, F: FnOnce(&IGeographicRegionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeographicRegionFactory<R, F: FnOnce(&IGeographicRegionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GeographicRegion, IGeographicRegionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IGeographicRegionStatics<R, F: FnOnce(&IGeographicRegionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGeographicRegionStatics<R, F: FnOnce(&IGeographicRegionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GeographicRegion, IGeographicRegionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2721,8 +2707,7 @@ impl JapanesePhoneticAnalyzer {
             (windows_core::Interface::vtable(this).GetWordsWithMonoRubyOption)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), monoruby, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IJapanesePhoneticAnalyzerStatics<R, F: FnOnce(&IJapanesePhoneticAnalyzerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJapanesePhoneticAnalyzerStatics<R, F: FnOnce(&IJapanesePhoneticAnalyzerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<JapanesePhoneticAnalyzer, IJapanesePhoneticAnalyzerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2819,23 +2804,19 @@ impl Language {
             (windows_core::Interface::vtable(this).GetMuiCompatibleLanguageListFromLanguageTags)(windows_core::Interface::as_raw(this), languagetags.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILanguageFactory<R, F: FnOnce(&ILanguageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILanguageFactory<R, F: FnOnce(&ILanguageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Language, ILanguageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILanguageStatics<R, F: FnOnce(&ILanguageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILanguageStatics<R, F: FnOnce(&ILanguageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Language, ILanguageStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILanguageStatics2<R, F: FnOnce(&ILanguageStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILanguageStatics2<R, F: FnOnce(&ILanguageStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Language, ILanguageStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ILanguageStatics3<R, F: FnOnce(&ILanguageStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILanguageStatics3<R, F: FnOnce(&ILanguageStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Language, ILanguageStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3142,13 +3123,11 @@ impl NumeralSystemIdentifiers {
             (windows_core::Interface::vtable(this).ZmthMono)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn INumeralSystemIdentifiersStatics<R, F: FnOnce(&INumeralSystemIdentifiersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INumeralSystemIdentifiersStatics<R, F: FnOnce(&INumeralSystemIdentifiersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NumeralSystemIdentifiers, INumeralSystemIdentifiersStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn INumeralSystemIdentifiersStatics2<R, F: FnOnce(&INumeralSystemIdentifiersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INumeralSystemIdentifiersStatics2<R, F: FnOnce(&INumeralSystemIdentifiersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NumeralSystemIdentifiers, INumeralSystemIdentifiersStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

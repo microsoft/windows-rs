@@ -185,8 +185,7 @@ impl RatedContentDescription {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(title), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRatedContentDescriptionFactory<R, F: FnOnce(&IRatedContentDescriptionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRatedContentDescriptionFactory<R, F: FnOnce(&IRatedContentDescriptionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RatedContentDescription, IRatedContentDescriptionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -262,8 +261,7 @@ impl RatedContentRestrictions {
             (windows_core::Interface::vtable(this).CreateWithMaxAgeRating)(windows_core::Interface::as_raw(this), maxagerating, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRatedContentRestrictionsFactory<R, F: FnOnce(&IRatedContentRestrictionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRatedContentRestrictionsFactory<R, F: FnOnce(&IRatedContentRestrictionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RatedContentRestrictions, IRatedContentRestrictionsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

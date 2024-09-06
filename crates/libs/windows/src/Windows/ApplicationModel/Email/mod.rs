@@ -1056,13 +1056,11 @@ impl EmailAttachment {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filename), data.param().abi(), core::mem::transmute_copy(mimetype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEmailAttachmentFactory<R, F: FnOnce(&IEmailAttachmentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEmailAttachmentFactory<R, F: FnOnce(&IEmailAttachmentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EmailAttachment, IEmailAttachmentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IEmailAttachmentFactory2<R, F: FnOnce(&IEmailAttachmentFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEmailAttachmentFactory2<R, F: FnOnce(&IEmailAttachmentFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EmailAttachment, IEmailAttachmentFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1615,8 +1613,7 @@ impl EmailIrmInfo {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), expiration, irmtemplate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEmailIrmInfoFactory<R, F: FnOnce(&IEmailIrmInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEmailIrmInfoFactory<R, F: FnOnce(&IEmailIrmInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EmailIrmInfo, IEmailIrmInfoFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1684,8 +1681,7 @@ impl EmailIrmTemplate {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(name), core::mem::transmute_copy(description), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEmailIrmTemplateFactory<R, F: FnOnce(&IEmailIrmTemplateFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEmailIrmTemplateFactory<R, F: FnOnce(&IEmailIrmTemplateFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EmailIrmTemplate, IEmailIrmTemplateFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2944,18 +2940,15 @@ impl EmailManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEmailManagerStatics<R, F: FnOnce(&IEmailManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEmailManagerStatics<R, F: FnOnce(&IEmailManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EmailManager, IEmailManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IEmailManagerStatics2<R, F: FnOnce(&IEmailManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEmailManagerStatics2<R, F: FnOnce(&IEmailManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EmailManager, IEmailManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IEmailManagerStatics3<R, F: FnOnce(&IEmailManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEmailManagerStatics3<R, F: FnOnce(&IEmailManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EmailManager, IEmailManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3737,8 +3730,7 @@ impl EmailQueryOptions {
             (windows_core::Interface::vtable(this).CreateWithTextAndFields)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), fields, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEmailQueryOptionsFactory<R, F: FnOnce(&IEmailQueryOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEmailQueryOptionsFactory<R, F: FnOnce(&IEmailQueryOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EmailQueryOptions, IEmailQueryOptionsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3852,8 +3844,7 @@ impl EmailRecipient {
             (windows_core::Interface::vtable(this).CreateWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(address), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEmailRecipientFactory<R, F: FnOnce(&IEmailRecipientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEmailRecipientFactory<R, F: FnOnce(&IEmailRecipientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EmailRecipient, IEmailRecipientFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -547,13 +547,11 @@ impl PrintManager {
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IPrintManagerStatic<R, F: FnOnce(&IPrintManagerStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrintManagerStatic<R, F: FnOnce(&IPrintManagerStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PrintManager, IPrintManagerStatic> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IPrintManagerStatic2<R, F: FnOnce(&IPrintManagerStatic2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrintManagerStatic2<R, F: FnOnce(&IPrintManagerStatic2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PrintManager, IPrintManagerStatic2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -681,8 +679,7 @@ impl PrintPageRange {
             (windows_core::Interface::vtable(this).CreateWithSinglePage)(windows_core::Interface::as_raw(this), page, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPrintPageRangeFactory<R, F: FnOnce(&IPrintPageRangeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrintPageRangeFactory<R, F: FnOnce(&IPrintPageRangeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PrintPageRange, IPrintPageRangeFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1377,18 +1374,15 @@ impl StandardPrintTaskOptions {
             (windows_core::Interface::vtable(this).CustomPageRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStandardPrintTaskOptionsStatic<R, F: FnOnce(&IStandardPrintTaskOptionsStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStandardPrintTaskOptionsStatic<R, F: FnOnce(&IStandardPrintTaskOptionsStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StandardPrintTaskOptions, IStandardPrintTaskOptionsStatic> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IStandardPrintTaskOptionsStatic2<R, F: FnOnce(&IStandardPrintTaskOptionsStatic2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStandardPrintTaskOptionsStatic2<R, F: FnOnce(&IStandardPrintTaskOptionsStatic2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StandardPrintTaskOptions, IStandardPrintTaskOptionsStatic2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IStandardPrintTaskOptionsStatic3<R, F: FnOnce(&IStandardPrintTaskOptionsStatic3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStandardPrintTaskOptionsStatic3<R, F: FnOnce(&IStandardPrintTaskOptionsStatic3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StandardPrintTaskOptions, IStandardPrintTaskOptionsStatic3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

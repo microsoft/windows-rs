@@ -126,13 +126,11 @@ impl ClosedCaptionProperties {
     pub fn RemovePropertiesChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IClosedCaptionPropertiesStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemovePropertiesChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn IClosedCaptionPropertiesStatics<R, F: FnOnce(&IClosedCaptionPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IClosedCaptionPropertiesStatics<R, F: FnOnce(&IClosedCaptionPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ClosedCaptionProperties, IClosedCaptionPropertiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IClosedCaptionPropertiesStatics2<R, F: FnOnce(&IClosedCaptionPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IClosedCaptionPropertiesStatics2<R, F: FnOnce(&IClosedCaptionPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ClosedCaptionProperties, IClosedCaptionPropertiesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

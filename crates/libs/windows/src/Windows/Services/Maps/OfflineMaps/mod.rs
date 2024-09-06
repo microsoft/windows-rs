@@ -139,8 +139,7 @@ impl OfflineMapPackage {
             (windows_core::Interface::vtable(this).FindPackagesInGeocircleAsync)(windows_core::Interface::as_raw(this), querycircle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IOfflineMapPackageStatics<R, F: FnOnce(&IOfflineMapPackageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IOfflineMapPackageStatics<R, F: FnOnce(&IOfflineMapPackageStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<OfflineMapPackage, IOfflineMapPackageStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

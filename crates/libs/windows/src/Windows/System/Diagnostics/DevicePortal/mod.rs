@@ -187,8 +187,7 @@ impl DevicePortalConnection {
             (windows_core::Interface::vtable(this).GetServerStreamWebSocketForRequest2)(windows_core::Interface::as_raw(this), request.param().abi(), core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, nodelay, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IDevicePortalConnectionStatics<R, F: FnOnce(&IDevicePortalConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDevicePortalConnectionStatics<R, F: FnOnce(&IDevicePortalConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DevicePortalConnection, IDevicePortalConnectionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -99,8 +99,7 @@ impl Radio {
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRadioStatics<R, F: FnOnce(&IRadioStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadioStatics<R, F: FnOnce(&IRadioStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Radio, IRadioStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

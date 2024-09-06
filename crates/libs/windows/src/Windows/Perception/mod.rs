@@ -94,13 +94,11 @@ impl PerceptionTimestampHelper {
             (windows_core::Interface::vtable(this).FromSystemRelativeTargetTime)(windows_core::Interface::as_raw(this), targettime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPerceptionTimestampHelperStatics<R, F: FnOnce(&IPerceptionTimestampHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPerceptionTimestampHelperStatics<R, F: FnOnce(&IPerceptionTimestampHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IPerceptionTimestampHelperStatics2<R, F: FnOnce(&IPerceptionTimestampHelperStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPerceptionTimestampHelperStatics2<R, F: FnOnce(&IPerceptionTimestampHelperStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

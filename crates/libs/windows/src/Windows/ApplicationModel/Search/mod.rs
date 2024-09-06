@@ -678,15 +678,13 @@ impl SearchPane {
     pub fn HideThisApplication() -> windows_core::Result<()> {
         Self::ISearchPaneStaticsWithHideThisApplication(|this| unsafe { (windows_core::Interface::vtable(this).HideThisApplication)(windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn ISearchPaneStatics<R, F: FnOnce(&ISearchPaneStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISearchPaneStatics<R, F: FnOnce(&ISearchPaneStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SearchPane, ISearchPaneStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
     #[cfg(feature = "deprecated")]
-    pub fn ISearchPaneStaticsWithHideThisApplication<R, F: FnOnce(&ISearchPaneStaticsWithHideThisApplication) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISearchPaneStaticsWithHideThisApplication<R, F: FnOnce(&ISearchPaneStaticsWithHideThisApplication) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SearchPane, ISearchPaneStaticsWithHideThisApplication> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1090,8 +1088,7 @@ impl SearchQueryLinguisticDetails {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), querytextalternatives.param().abi(), querytextcompositionstart, querytextcompositionlength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISearchQueryLinguisticDetailsFactory<R, F: FnOnce(&ISearchQueryLinguisticDetailsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISearchQueryLinguisticDetailsFactory<R, F: FnOnce(&ISearchQueryLinguisticDetailsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SearchQueryLinguisticDetails, ISearchQueryLinguisticDetailsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

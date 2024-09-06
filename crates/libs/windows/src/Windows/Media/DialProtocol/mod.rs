@@ -286,8 +286,7 @@ impl DialDevice {
             (windows_core::Interface::vtable(this).DeviceInfoSupportsDialAsync)(windows_core::Interface::as_raw(this), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDialDeviceStatics<R, F: FnOnce(&IDialDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDialDeviceStatics<R, F: FnOnce(&IDialDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DialDevice, IDialDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -534,8 +533,7 @@ impl DialReceiverApp {
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDialReceiverAppStatics<R, F: FnOnce(&IDialReceiverAppStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDialReceiverAppStatics<R, F: FnOnce(&IDialReceiverAppStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DialReceiverApp, IDialReceiverAppStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -328,8 +328,7 @@ impl XboxLiveDeviceAddress {
             (windows_core::Interface::vtable(this).MaxSnapshotBytesSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IXboxLiveDeviceAddressStatics<R, F: FnOnce(&IXboxLiveDeviceAddressStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IXboxLiveDeviceAddressStatics<R, F: FnOnce(&IXboxLiveDeviceAddressStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<XboxLiveDeviceAddress, IXboxLiveDeviceAddressStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -445,8 +444,7 @@ impl XboxLiveEndpointPair {
             (windows_core::Interface::vtable(this).FindEndpointPairByHostNamesAndPorts)(windows_core::Interface::as_raw(this), localhostname.param().abi(), core::mem::transmute_copy(localport), remotehostname.param().abi(), core::mem::transmute_copy(remoteport), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IXboxLiveEndpointPairStatics<R, F: FnOnce(&IXboxLiveEndpointPairStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IXboxLiveEndpointPairStatics<R, F: FnOnce(&IXboxLiveEndpointPairStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<XboxLiveEndpointPair, IXboxLiveEndpointPairStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -663,8 +661,7 @@ impl XboxLiveEndpointPairTemplate {
             (windows_core::Interface::vtable(this).Templates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IXboxLiveEndpointPairTemplateStatics<R, F: FnOnce(&IXboxLiveEndpointPairTemplateStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IXboxLiveEndpointPairTemplateStatics<R, F: FnOnce(&IXboxLiveEndpointPairTemplateStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<XboxLiveEndpointPairTemplate, IXboxLiveEndpointPairTemplateStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -889,8 +886,7 @@ impl XboxLiveQualityOfServiceMeasurement {
             (windows_core::Interface::vtable(this).MaxPrivatePayloadSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IXboxLiveQualityOfServiceMeasurementStatics<R, F: FnOnce(&IXboxLiveQualityOfServiceMeasurementStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IXboxLiveQualityOfServiceMeasurementStatics<R, F: FnOnce(&IXboxLiveQualityOfServiceMeasurementStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<XboxLiveQualityOfServiceMeasurement, IXboxLiveQualityOfServiceMeasurementStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

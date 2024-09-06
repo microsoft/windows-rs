@@ -454,8 +454,7 @@ impl DeploymentWorkload {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDeploymentWorkloadFactory<R, F: FnOnce(&IDeploymentWorkloadFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDeploymentWorkloadFactory<R, F: FnOnce(&IDeploymentWorkloadFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DeploymentWorkload, IDeploymentWorkloadFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -507,8 +506,7 @@ impl DeploymentWorkloadBatch {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IDeploymentWorkloadBatchFactory<R, F: FnOnce(&IDeploymentWorkloadBatchFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDeploymentWorkloadBatchFactory<R, F: FnOnce(&IDeploymentWorkloadBatchFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DeploymentWorkloadBatch, IDeploymentWorkloadBatchFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -624,8 +622,7 @@ impl MachineProvisioningProgressReporter {
             (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), heartbeathandler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMachineProvisioningProgressReporterStatics<R, F: FnOnce(&IMachineProvisioningProgressReporterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMachineProvisioningProgressReporterStatics<R, F: FnOnce(&IMachineProvisioningProgressReporterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MachineProvisioningProgressReporter, IMachineProvisioningProgressReporterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

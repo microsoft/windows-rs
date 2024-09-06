@@ -370,8 +370,7 @@ impl SelectableWordsSegmenter {
             (windows_core::Interface::vtable(this).CreateWithLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(language), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISelectableWordsSegmenterFactory<R, F: FnOnce(&ISelectableWordsSegmenterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISelectableWordsSegmenterFactory<R, F: FnOnce(&ISelectableWordsSegmenterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SelectableWordsSegmenter, ISelectableWordsSegmenterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -421,8 +420,7 @@ impl SemanticTextQuery {
             (windows_core::Interface::vtable(this).CreateWithLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), core::mem::transmute_copy(filterlanguage), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISemanticTextQueryFactory<R, F: FnOnce(&ISemanticTextQueryFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISemanticTextQueryFactory<R, F: FnOnce(&ISemanticTextQueryFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SemanticTextQuery, ISemanticTextQueryFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -480,8 +478,7 @@ impl TextConversionGenerator {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITextConversionGeneratorFactory<R, F: FnOnce(&ITextConversionGeneratorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITextConversionGeneratorFactory<R, F: FnOnce(&ITextConversionGeneratorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TextConversionGenerator, ITextConversionGeneratorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -606,8 +603,7 @@ impl TextPredictionGenerator {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITextPredictionGeneratorFactory<R, F: FnOnce(&ITextPredictionGeneratorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITextPredictionGeneratorFactory<R, F: FnOnce(&ITextPredictionGeneratorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TextPredictionGenerator, ITextPredictionGeneratorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -664,8 +660,7 @@ impl TextReverseConversionGenerator {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ITextReverseConversionGeneratorFactory<R, F: FnOnce(&ITextReverseConversionGeneratorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITextReverseConversionGeneratorFactory<R, F: FnOnce(&ITextReverseConversionGeneratorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TextReverseConversionGenerator, ITextReverseConversionGeneratorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -783,8 +778,7 @@ impl UnicodeCharacters {
             (windows_core::Interface::vtable(this).GetGeneralCategory)(windows_core::Interface::as_raw(this), codepoint, &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IUnicodeCharactersStatics<R, F: FnOnce(&IUnicodeCharactersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUnicodeCharactersStatics<R, F: FnOnce(&IUnicodeCharactersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UnicodeCharacters, IUnicodeCharactersStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -873,8 +867,7 @@ impl WordsSegmenter {
             (windows_core::Interface::vtable(this).CreateWithLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(language), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IWordsSegmenterFactory<R, F: FnOnce(&IWordsSegmenterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWordsSegmenterFactory<R, F: FnOnce(&IWordsSegmenterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WordsSegmenter, IWordsSegmenterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

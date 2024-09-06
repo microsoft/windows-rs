@@ -250,8 +250,7 @@ impl Lamp {
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILampStatics<R, F: FnOnce(&ILampStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILampStatics<R, F: FnOnce(&ILampStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Lamp, ILampStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -475,8 +474,7 @@ impl LampArray {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ILampArrayStatics<R, F: FnOnce(&ILampArrayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILampArrayStatics<R, F: FnOnce(&ILampArrayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LampArray, ILampArrayStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

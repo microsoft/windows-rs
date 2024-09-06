@@ -1313,8 +1313,7 @@ impl SceneMesh {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISceneMeshStatics<R, F: FnOnce(&ISceneMeshStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISceneMeshStatics<R, F: FnOnce(&ISceneMeshStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SceneMesh, ISceneMeshStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1694,8 +1693,7 @@ impl SceneMeshRendererComponent {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISceneMeshRendererComponentStatics<R, F: FnOnce(&ISceneMeshRendererComponentStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISceneMeshRendererComponentStatics<R, F: FnOnce(&ISceneMeshRendererComponentStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SceneMeshRendererComponent, ISceneMeshRendererComponentStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2006,8 +2004,7 @@ impl SceneMetallicRoughnessMaterial {
         let this = &windows_core::Interface::cast::<IScenePbrMaterial>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOcclusionStrength)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn ISceneMetallicRoughnessMaterialStatics<R, F: FnOnce(&ISceneMetallicRoughnessMaterialStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISceneMetallicRoughnessMaterialStatics<R, F: FnOnce(&ISceneMetallicRoughnessMaterialStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SceneMetallicRoughnessMaterial, ISceneMetallicRoughnessMaterialStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2381,8 +2378,7 @@ impl SceneNode {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISceneNodeStatics<R, F: FnOnce(&ISceneNodeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISceneNodeStatics<R, F: FnOnce(&ISceneNodeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SceneNode, ISceneNodeStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3304,8 +3300,7 @@ impl SceneSurfaceMaterialInput {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISceneSurfaceMaterialInputStatics<R, F: FnOnce(&ISceneSurfaceMaterialInputStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISceneSurfaceMaterialInputStatics<R, F: FnOnce(&ISceneSurfaceMaterialInputStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SceneSurfaceMaterialInput, ISceneSurfaceMaterialInputStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3728,8 +3723,7 @@ impl SceneVisual {
         let this = &windows_core::Interface::cast::<super::IVisual4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc(hidden)]
-    pub fn ISceneVisualStatics<R, F: FnOnce(&ISceneVisualStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISceneVisualStatics<R, F: FnOnce(&ISceneVisualStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SceneVisual, ISceneVisualStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -125,8 +125,7 @@ impl Activatable {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IActivatableFactory<R, F: FnOnce(&IActivatableFactory) -> windows_core::Result<R>>(
+    fn IActivatableFactory<R, F: FnOnce(&IActivatableFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Activatable, IActivatableFactory> =
@@ -192,8 +191,7 @@ impl Composable {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IComposableFactory<R, F: FnOnce(&IComposableFactory) -> windows_core::Result<R>>(
+    fn IComposableFactory<R, F: FnOnce(&IComposableFactory) -> windows_core::Result<R>>(
         callback: F,
     ) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Composable, IComposableFactory> =

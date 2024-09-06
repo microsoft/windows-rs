@@ -12,8 +12,7 @@ impl ToastOcclusionManagerPreview {
     pub fn SetToastWindowMargin(appwindowid: super::super::WindowId, margin: f64) -> windows_core::Result<()> {
         Self::IToastOcclusionManagerPreviewStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetToastWindowMargin)(windows_core::Interface::as_raw(this), appwindowid, margin).ok() })
     }
-    #[doc(hidden)]
-    pub fn IToastOcclusionManagerPreviewStatics<R, F: FnOnce(&IToastOcclusionManagerPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastOcclusionManagerPreviewStatics<R, F: FnOnce(&IToastOcclusionManagerPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastOcclusionManagerPreview, IToastOcclusionManagerPreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

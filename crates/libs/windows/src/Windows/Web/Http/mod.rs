@@ -592,8 +592,7 @@ impl HttpBufferContent {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpBufferContentFactory<R, F: FnOnce(&IHttpBufferContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpBufferContentFactory<R, F: FnOnce(&IHttpBufferContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpBufferContent, IHttpBufferContentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -869,8 +868,7 @@ impl HttpClient {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpClientFactory<R, F: FnOnce(&IHttpClientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpClientFactory<R, F: FnOnce(&IHttpClientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpClient, IHttpClientFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -974,8 +972,7 @@ impl HttpCookie {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpCookieFactory<R, F: FnOnce(&IHttpCookieFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpCookieFactory<R, F: FnOnce(&IHttpCookieFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpCookie, IHttpCookieFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1218,8 +1215,7 @@ impl HttpFormUrlEncodedContent {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpFormUrlEncodedContentFactory<R, F: FnOnce(&IHttpFormUrlEncodedContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpFormUrlEncodedContentFactory<R, F: FnOnce(&IHttpFormUrlEncodedContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpFormUrlEncodedContent, IHttpFormUrlEncodedContentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1501,13 +1497,11 @@ impl HttpMethod {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpMethodFactory<R, F: FnOnce(&IHttpMethodFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpMethodFactory<R, F: FnOnce(&IHttpMethodFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpMethod, IHttpMethodFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IHttpMethodStatics<R, F: FnOnce(&IHttpMethodStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpMethodStatics<R, F: FnOnce(&IHttpMethodStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpMethod, IHttpMethodStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1632,8 +1626,7 @@ impl HttpMultipartContent {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpMultipartContentFactory<R, F: FnOnce(&IHttpMultipartContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpMultipartContentFactory<R, F: FnOnce(&IHttpMultipartContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpMultipartContent, IHttpMultipartContentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1782,8 +1775,7 @@ impl HttpMultipartFormDataContent {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpMultipartFormDataContentFactory<R, F: FnOnce(&IHttpMultipartFormDataContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpMultipartFormDataContentFactory<R, F: FnOnce(&IHttpMultipartFormDataContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpMultipartFormDataContent, IHttpMultipartFormDataContentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1926,8 +1918,7 @@ impl HttpRequestMessage {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpRequestMessageFactory<R, F: FnOnce(&IHttpRequestMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpRequestMessageFactory<R, F: FnOnce(&IHttpRequestMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpRequestMessage, IHttpRequestMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2126,8 +2117,7 @@ impl HttpResponseMessage {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpResponseMessageFactory<R, F: FnOnce(&IHttpResponseMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpResponseMessageFactory<R, F: FnOnce(&IHttpResponseMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpResponseMessage, IHttpResponseMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2227,8 +2217,7 @@ impl HttpStreamContent {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpStreamContentFactory<R, F: FnOnce(&IHttpStreamContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpStreamContentFactory<R, F: FnOnce(&IHttpStreamContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpStreamContent, IHttpStreamContentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2338,8 +2327,7 @@ impl HttpStringContent {
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[doc(hidden)]
-    pub fn IHttpStringContentFactory<R, F: FnOnce(&IHttpStringContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHttpStringContentFactory<R, F: FnOnce(&IHttpStringContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HttpStringContent, IHttpStringContentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

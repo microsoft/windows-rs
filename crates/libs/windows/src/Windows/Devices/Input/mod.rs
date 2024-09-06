@@ -336,8 +336,7 @@ impl MouseDevice {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IMouseDeviceStatics<R, F: FnOnce(&IMouseDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMouseDeviceStatics<R, F: FnOnce(&IMouseDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MouseDevice, IMouseDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -449,8 +448,7 @@ impl PenButtonListener {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPenButtonListenerStatics<R, F: FnOnce(&IPenButtonListenerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPenButtonListenerStatics<R, F: FnOnce(&IPenButtonListenerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PenButtonListener, IPenButtonListenerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -493,8 +491,7 @@ impl PenDevice {
             (windows_core::Interface::vtable(this).GetFromPointerId)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPenDeviceStatics<R, F: FnOnce(&IPenDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPenDeviceStatics<R, F: FnOnce(&IPenDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PenDevice, IPenDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -571,8 +568,7 @@ impl PenDockListener {
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPenDockListenerStatics<R, F: FnOnce(&IPenDockListenerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPenDockListenerStatics<R, F: FnOnce(&IPenDockListenerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PenDockListener, IPenDockListenerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -742,8 +738,7 @@ impl PointerDevice {
             (windows_core::Interface::vtable(this).GetPointerDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPointerDeviceStatics<R, F: FnOnce(&IPointerDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPointerDeviceStatics<R, F: FnOnce(&IPointerDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PointerDevice, IPointerDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

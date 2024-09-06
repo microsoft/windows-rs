@@ -243,8 +243,7 @@ impl SpiConnectionSettings {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), chipselectline, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpiConnectionSettingsFactory<R, F: FnOnce(&ISpiConnectionSettingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpiConnectionSettingsFactory<R, F: FnOnce(&ISpiConnectionSettingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpiConnectionSettings, ISpiConnectionSettingsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -292,8 +291,7 @@ impl SpiController {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpiControllerStatics<R, F: FnOnce(&ISpiControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpiControllerStatics<R, F: FnOnce(&ISpiControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpiController, ISpiControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -377,8 +375,7 @@ impl SpiDevice {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(busid), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpiDeviceStatics<R, F: FnOnce(&ISpiDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpiDeviceStatics<R, F: FnOnce(&ISpiDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpiDevice, ISpiDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

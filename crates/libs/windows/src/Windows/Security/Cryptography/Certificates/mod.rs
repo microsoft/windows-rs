@@ -852,8 +852,7 @@ impl Certificate {
             (windows_core::Interface::vtable(this).CreateCertificate)(windows_core::Interface::as_raw(this), certblob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICertificateFactory<R, F: FnOnce(&ICertificateFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICertificateFactory<R, F: FnOnce(&ICertificateFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Certificate, ICertificateFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -957,18 +956,15 @@ impl CertificateEnrollmentManager {
             (windows_core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), pfximportparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICertificateEnrollmentManagerStatics<R, F: FnOnce(&ICertificateEnrollmentManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICertificateEnrollmentManagerStatics<R, F: FnOnce(&ICertificateEnrollmentManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CertificateEnrollmentManager, ICertificateEnrollmentManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICertificateEnrollmentManagerStatics2<R, F: FnOnce(&ICertificateEnrollmentManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICertificateEnrollmentManagerStatics2<R, F: FnOnce(&ICertificateEnrollmentManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CertificateEnrollmentManager, ICertificateEnrollmentManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICertificateEnrollmentManagerStatics3<R, F: FnOnce(&ICertificateEnrollmentManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICertificateEnrollmentManagerStatics3<R, F: FnOnce(&ICertificateEnrollmentManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CertificateEnrollmentManager, ICertificateEnrollmentManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1584,13 +1580,11 @@ impl CertificateStores {
             (windows_core::Interface::vtable(this).GetUserStoreByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(storename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICertificateStoresStatics<R, F: FnOnce(&ICertificateStoresStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICertificateStoresStatics<R, F: FnOnce(&ICertificateStoresStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CertificateStores, ICertificateStoresStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICertificateStoresStatics2<R, F: FnOnce(&ICertificateStoresStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICertificateStoresStatics2<R, F: FnOnce(&ICertificateStoresStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CertificateStores, ICertificateStoresStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1803,13 +1797,11 @@ impl CmsAttachedSignature {
             (windows_core::Interface::vtable(this).GenerateSignatureAsync)(windows_core::Interface::as_raw(this), data.param().abi(), signers.param().abi(), certificates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICmsAttachedSignatureFactory<R, F: FnOnce(&ICmsAttachedSignatureFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICmsAttachedSignatureFactory<R, F: FnOnce(&ICmsAttachedSignatureFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CmsAttachedSignature, ICmsAttachedSignatureFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICmsAttachedSignatureStatics<R, F: FnOnce(&ICmsAttachedSignatureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICmsAttachedSignatureStatics<R, F: FnOnce(&ICmsAttachedSignatureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CmsAttachedSignature, ICmsAttachedSignatureStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1880,13 +1872,11 @@ impl CmsDetachedSignature {
             (windows_core::Interface::vtable(this).GenerateSignatureAsync)(windows_core::Interface::as_raw(this), data.param().abi(), signers.param().abi(), certificates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ICmsDetachedSignatureFactory<R, F: FnOnce(&ICmsDetachedSignatureFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICmsDetachedSignatureFactory<R, F: FnOnce(&ICmsDetachedSignatureFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CmsDetachedSignature, ICmsDetachedSignatureFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ICmsDetachedSignatureStatics<R, F: FnOnce(&ICmsDetachedSignatureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICmsDetachedSignatureStatics<R, F: FnOnce(&ICmsDetachedSignatureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CmsDetachedSignature, ICmsDetachedSignatureStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2062,13 +2052,11 @@ impl KeyAlgorithmNames {
             (windows_core::Interface::vtable(this).Ecdh)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKeyAlgorithmNamesStatics<R, F: FnOnce(&IKeyAlgorithmNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyAlgorithmNamesStatics<R, F: FnOnce(&IKeyAlgorithmNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyAlgorithmNames, IKeyAlgorithmNamesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IKeyAlgorithmNamesStatics2<R, F: FnOnce(&IKeyAlgorithmNamesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyAlgorithmNamesStatics2<R, F: FnOnce(&IKeyAlgorithmNamesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyAlgorithmNames, IKeyAlgorithmNamesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2096,13 +2084,11 @@ impl KeyAttestationHelper {
             (windows_core::Interface::vtable(this).DecryptTpmAttestationCredentialWithContainerNameAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(credential), core::mem::transmute_copy(containername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKeyAttestationHelperStatics<R, F: FnOnce(&IKeyAttestationHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyAttestationHelperStatics<R, F: FnOnce(&IKeyAttestationHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyAttestationHelper, IKeyAttestationHelperStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IKeyAttestationHelperStatics2<R, F: FnOnce(&IKeyAttestationHelperStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyAttestationHelperStatics2<R, F: FnOnce(&IKeyAttestationHelperStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyAttestationHelper, IKeyAttestationHelperStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2136,13 +2122,11 @@ impl KeyStorageProviderNames {
             (windows_core::Interface::vtable(this).PassportKeyStorageProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKeyStorageProviderNamesStatics<R, F: FnOnce(&IKeyStorageProviderNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyStorageProviderNamesStatics<R, F: FnOnce(&IKeyStorageProviderNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyStorageProviderNames, IKeyStorageProviderNamesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IKeyStorageProviderNamesStatics2<R, F: FnOnce(&IKeyStorageProviderNamesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyStorageProviderNamesStatics2<R, F: FnOnce(&IKeyStorageProviderNamesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyStorageProviderNames, IKeyStorageProviderNamesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2272,8 +2256,7 @@ impl StandardCertificateStoreNames {
             (windows_core::Interface::vtable(this).IntermediateCertificationAuthorities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStandardCertificateStoreNamesStatics<R, F: FnOnce(&IStandardCertificateStoreNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStandardCertificateStoreNamesStatics<R, F: FnOnce(&IStandardCertificateStoreNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StandardCertificateStoreNames, IStandardCertificateStoreNamesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

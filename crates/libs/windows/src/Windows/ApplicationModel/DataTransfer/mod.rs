@@ -779,13 +779,11 @@ impl Clipboard {
     pub fn RemoveHistoryEnabledChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IClipboardStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveHistoryEnabledChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc(hidden)]
-    pub fn IClipboardStatics<R, F: FnOnce(&IClipboardStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IClipboardStatics<R, F: FnOnce(&IClipboardStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Clipboard, IClipboardStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IClipboardStatics2<R, F: FnOnce(&IClipboardStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IClipboardStatics2<R, F: FnOnce(&IClipboardStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Clipboard, IClipboardStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1957,18 +1955,15 @@ impl DataTransferManager {
     {
         Self::IDataTransferManagerStatics3(|this| unsafe { (windows_core::Interface::vtable(this).ShowShareUIWithOptions)(windows_core::Interface::as_raw(this), options.param().abi()).ok() })
     }
-    #[doc(hidden)]
-    pub fn IDataTransferManagerStatics<R, F: FnOnce(&IDataTransferManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataTransferManagerStatics<R, F: FnOnce(&IDataTransferManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataTransferManager, IDataTransferManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDataTransferManagerStatics2<R, F: FnOnce(&IDataTransferManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataTransferManagerStatics2<R, F: FnOnce(&IDataTransferManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataTransferManager, IDataTransferManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IDataTransferManagerStatics3<R, F: FnOnce(&IDataTransferManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataTransferManagerStatics3<R, F: FnOnce(&IDataTransferManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataTransferManager, IDataTransferManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1997,8 +1992,7 @@ impl HtmlFormatHelper {
             (windows_core::Interface::vtable(this).CreateHtmlFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(htmlfragment), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IHtmlFormatHelperStatics<R, F: FnOnce(&IHtmlFormatHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHtmlFormatHelperStatics<R, F: FnOnce(&IHtmlFormatHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HtmlFormatHelper, IHtmlFormatHelperStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2116,8 +2110,7 @@ impl ShareProvider {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), displayicon.param().abi(), backgroundcolor, handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IShareProviderFactory<R, F: FnOnce(&IShareProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IShareProviderFactory<R, F: FnOnce(&IShareProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ShareProvider, IShareProviderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2314,8 +2307,7 @@ impl SharedStorageAccessManager {
     pub fn RemoveFile(token: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::ISharedStorageAccessManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveFile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token)).ok() })
     }
-    #[doc(hidden)]
-    pub fn ISharedStorageAccessManagerStatics<R, F: FnOnce(&ISharedStorageAccessManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISharedStorageAccessManagerStatics<R, F: FnOnce(&ISharedStorageAccessManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SharedStorageAccessManager, ISharedStorageAccessManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2380,18 +2372,15 @@ impl StandardDataFormats {
             (windows_core::Interface::vtable(this).UserActivityJsonArray)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IStandardDataFormatsStatics<R, F: FnOnce(&IStandardDataFormatsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStandardDataFormatsStatics<R, F: FnOnce(&IStandardDataFormatsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IStandardDataFormatsStatics2<R, F: FnOnce(&IStandardDataFormatsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStandardDataFormatsStatics2<R, F: FnOnce(&IStandardDataFormatsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IStandardDataFormatsStatics3<R, F: FnOnce(&IStandardDataFormatsStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStandardDataFormatsStatics3<R, F: FnOnce(&IStandardDataFormatsStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

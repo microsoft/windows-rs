@@ -1118,8 +1118,7 @@ impl EdgeGesture {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IEdgeGestureStatics<R, F: FnOnce(&IEdgeGestureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEdgeGestureStatics<R, F: FnOnce(&IEdgeGestureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EdgeGesture, IEdgeGestureStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1800,8 +1799,7 @@ impl KeyboardDeliveryInterceptor {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IKeyboardDeliveryInterceptorStatics<R, F: FnOnce(&IKeyboardDeliveryInterceptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyboardDeliveryInterceptorStatics<R, F: FnOnce(&IKeyboardDeliveryInterceptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyboardDeliveryInterceptor, IKeyboardDeliveryInterceptorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2201,8 +2199,7 @@ impl PointerPoint {
             (windows_core::Interface::vtable(this).GetIntermediatePointsTransformed)(windows_core::Interface::as_raw(this), pointerid, transform.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPointerPointStatics<R, F: FnOnce(&IPointerPointStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPointerPointStatics<R, F: FnOnce(&IPointerPointStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PointerPoint, IPointerPointStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2441,8 +2438,7 @@ impl PointerVisualizationSettings {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IPointerVisualizationSettingsStatics<R, F: FnOnce(&IPointerVisualizationSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPointerVisualizationSettingsStatics<R, F: FnOnce(&IPointerVisualizationSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PointerVisualizationSettings, IPointerVisualizationSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2645,8 +2641,7 @@ impl RadialController {
             (windows_core::Interface::vtable(this).CreateForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRadialControllerStatics<R, F: FnOnce(&IRadialControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadialControllerStatics<R, F: FnOnce(&IRadialControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RadialController, IRadialControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2871,13 +2866,11 @@ impl RadialControllerConfiguration {
             (windows_core::Interface::vtable(this).IsAppControllerEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    #[doc(hidden)]
-    pub fn IRadialControllerConfigurationStatics<R, F: FnOnce(&IRadialControllerConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadialControllerConfigurationStatics<R, F: FnOnce(&IRadialControllerConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IRadialControllerConfigurationStatics2<R, F: FnOnce(&IRadialControllerConfigurationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadialControllerConfigurationStatics2<R, F: FnOnce(&IRadialControllerConfigurationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3063,13 +3056,11 @@ impl RadialControllerMenuItem {
             (windows_core::Interface::vtable(this).CreateFromFontGlyphWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), fonturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IRadialControllerMenuItemStatics<R, F: FnOnce(&IRadialControllerMenuItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadialControllerMenuItemStatics<R, F: FnOnce(&IRadialControllerMenuItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn IRadialControllerMenuItemStatics2<R, F: FnOnce(&IRadialControllerMenuItemStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadialControllerMenuItemStatics2<R, F: FnOnce(&IRadialControllerMenuItemStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3392,8 +3383,7 @@ impl SystemButtonEventController {
             (windows_core::Interface::vtable(this).CreateForDispatcherQueue)(windows_core::Interface::as_raw(this), queue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISystemButtonEventControllerStatics<R, F: FnOnce(&ISystemButtonEventControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemButtonEventControllerStatics<R, F: FnOnce(&ISystemButtonEventControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemButtonEventController, ISystemButtonEventControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

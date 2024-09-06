@@ -660,8 +660,7 @@ impl SpeechRecognitionGrammarFileConstraint {
             (windows_core::Interface::vtable(this).CreateWithTag)(windows_core::Interface::as_raw(this), file.param().abi(), core::mem::transmute_copy(tag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpeechRecognitionGrammarFileConstraintFactory<R, F: FnOnce(&ISpeechRecognitionGrammarFileConstraintFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpeechRecognitionGrammarFileConstraintFactory<R, F: FnOnce(&ISpeechRecognitionGrammarFileConstraintFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpeechRecognitionGrammarFileConstraint, ISpeechRecognitionGrammarFileConstraintFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -802,8 +801,7 @@ impl SpeechRecognitionListConstraint {
             (windows_core::Interface::vtable(this).CreateWithTag)(windows_core::Interface::as_raw(this), commands.param().abi(), core::mem::transmute_copy(tag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpeechRecognitionListConstraintFactory<R, F: FnOnce(&ISpeechRecognitionListConstraintFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpeechRecognitionListConstraintFactory<R, F: FnOnce(&ISpeechRecognitionListConstraintFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpeechRecognitionListConstraint, ISpeechRecognitionListConstraintFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1033,8 +1031,7 @@ impl SpeechRecognitionTopicConstraint {
             (windows_core::Interface::vtable(this).CreateWithTag)(windows_core::Interface::as_raw(this), scenario, core::mem::transmute_copy(topichint), core::mem::transmute_copy(tag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpeechRecognitionTopicConstraintFactory<R, F: FnOnce(&ISpeechRecognitionTopicConstraintFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpeechRecognitionTopicConstraintFactory<R, F: FnOnce(&ISpeechRecognitionTopicConstraintFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpeechRecognitionTopicConstraint, ISpeechRecognitionTopicConstraintFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1282,18 +1279,15 @@ impl SpeechRecognizer {
             (windows_core::Interface::vtable(this).TrySetSystemSpeechLanguageAsync)(windows_core::Interface::as_raw(this), speechlanguage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn ISpeechRecognizerFactory<R, F: FnOnce(&ISpeechRecognizerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpeechRecognizerFactory<R, F: FnOnce(&ISpeechRecognizerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpeechRecognizer, ISpeechRecognizerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISpeechRecognizerStatics<R, F: FnOnce(&ISpeechRecognizerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpeechRecognizerStatics<R, F: FnOnce(&ISpeechRecognizerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpeechRecognizer, ISpeechRecognizerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc(hidden)]
-    pub fn ISpeechRecognizerStatics2<R, F: FnOnce(&ISpeechRecognizerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpeechRecognizerStatics2<R, F: FnOnce(&ISpeechRecognizerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpeechRecognizer, ISpeechRecognizerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1467,8 +1461,7 @@ impl VoiceCommandManager {
             (windows_core::Interface::vtable(this).InstalledCommandSets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[doc(hidden)]
-    pub fn IVoiceCommandManager<R, F: FnOnce(&IVoiceCommandManager) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVoiceCommandManager<R, F: FnOnce(&IVoiceCommandManager) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VoiceCommandManager, IVoiceCommandManager> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
