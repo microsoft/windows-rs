@@ -1,0 +1,30 @@
+// This tests that `windows-bindgen` can generate bindings and `windows-rs` in general can support implementing and consuming
+// closed composable type systems. A closed type system, at least in this simpler MIDL dialect, is distinguished by the lack
+// of any constructors on "unsealed" classes and instead depends on static methods for internal construction thus preventing
+// binary (open) composition.
+
+namespace test_composable
+{
+    runtimeclass Compositor
+    {
+        Compositor();
+
+        SpriteVisual CreateSpriteVisual(Int32 brush);
+        ContainerVisual CreateContainerVisual(Int32 children);
+    }
+
+    unsealed runtimeclass Visual
+    {
+        Compositor Compositor {get;};
+    }
+
+    unsealed runtimeclass ContainerVisual : Visual
+    {
+        Int32 Children {get;};
+    }
+
+    runtimeclass SpriteVisual : ContainerVisual
+    {
+        Int32 Brush {get;};
+    }
+}

@@ -1,0 +1,24 @@
+[package]
+name = "test_composable"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+doc = false
+doctest = false
+
+[build-dependencies.windows-bindgen]
+workspace = true
+
+[dependencies.windows-core]
+workspace = true
+
+[dependencies.windows]
+workspace = true
+features = [
+    "implement",
+    "Foundation",
+    "Win32_System_WinRT",
+]

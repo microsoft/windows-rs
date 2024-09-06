@@ -7,11 +7,11 @@ fn main() {
 
     windows_bindgen::bindgen([
         "--in",
-        "../constructors/metadata.winmd",
+        "../composable/metadata.winmd",
         "--out",
         "src/bindings.rs",
         "--filter",
-        "test_constructors",
+        "test_composable",
         "--config",
         "no-bindgen-comment",
     ])
@@ -21,7 +21,7 @@ fn main() {
 
     cppwinrt::cppwinrt([
         "-in",
-        "../constructors/metadata.winmd",
+        "../composable/metadata.winmd",
         "../../../libs/bindgen/default",
         "-out",
         &include,

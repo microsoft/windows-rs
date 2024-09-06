@@ -177,6 +177,10 @@ jobs:
         run:  cargo test -p test_component --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_component_client
         run:  cargo test -p test_component_client --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_composable
+        run:  cargo test -p test_composable --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_composable_client
+        run:  cargo test -p test_composable_client --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_const_fields
         run:  cargo test -p test_const_fields --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_const_params
@@ -251,12 +255,12 @@ jobs:
         run:  cargo test -p test_reference_float --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_registry
         run:  cargo test -p test_registry --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_registry_default
         run:  cargo test -p test_registry_default --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_reserved
         run:  cargo test -p test_reserved --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_resources
         run:  cargo test -p test_resources --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_result
