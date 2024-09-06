@@ -25,4 +25,4 @@ workspace = true
 workspace = true
 
 [dev-dependencies]
-helpers = { package = "test_helpers", path = "../helpers" }
+helpers = { workspace = true }
