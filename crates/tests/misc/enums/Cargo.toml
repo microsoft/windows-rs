@@ -22,4 +22,4 @@ features = [
 ]
 
 [dev-dependencies]
-helpers = { package = "test_helpers", path = "../helpers" }
+helpers = { workspace = true }

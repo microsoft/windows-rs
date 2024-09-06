@@ -213,8 +213,6 @@ jobs:
         run:  cargo test -p test_extensions --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_handles
         run:  cargo test -p test_handles --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_helpers
-        run:  cargo test -p test_helpers --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_implement
         run:  cargo test -p test_implement --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_implement_core
@@ -255,10 +253,10 @@ jobs:
         run:  cargo test -p test_reference_float --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_registry
         run:  cargo test -p test_registry --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_registry_default
         run:  cargo test -p test_registry_default --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_reserved
         run:  cargo test -p test_reserved --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_resources

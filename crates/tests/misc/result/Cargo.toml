@@ -15,7 +15,7 @@ workspace = true
 workspace = true
 
 [dependencies]
-helpers = { package = "test_helpers", path = "../helpers" }
+helpers = { workspace = true }
 static_assertions = "1.0"
 
 [lints.rust]

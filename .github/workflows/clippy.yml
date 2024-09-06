@@ -187,8 +187,6 @@ jobs:
         run:  cargo clippy -p test_extensions
       - name: Clippy test_handles
         run:  cargo clippy -p test_handles
-      - name: Clippy test_helpers
-        run:  cargo clippy -p test_helpers
       - name: Clippy test_implement
         run:  cargo clippy -p test_implement
       - name: Clippy test_implement_core
