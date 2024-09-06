@@ -172,15 +172,16 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(ContainerVisual, Visual);
 impl ContainerVisual {
-    pub fn Children(&self) -> windows_core::Result<i32> {
+    pub fn Children(&self) -> i32 {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Children)(
+            let hresult__ = (windows_core::Interface::vtable(this).Children)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
-            )
-            .map(|| result__)
+            );
+            debug_assert!(hresult__.0 == 0);
+            result__
         }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
@@ -218,26 +219,28 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(SpriteVisual, ContainerVisual, Visual);
 impl SpriteVisual {
-    pub fn Children(&self) -> windows_core::Result<i32> {
-        let this = &windows_core::Interface::cast::<IContainerVisual>(self)?;
+    pub fn Children(&self) -> i32 {
+        let this = &windows_core::Interface::cast::<IContainerVisual>(self).unwrap();
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Children)(
+            let hresult__ = (windows_core::Interface::vtable(this).Children)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
-            )
-            .map(|| result__)
+            );
+            debug_assert!(hresult__.0 == 0);
+            result__
         }
     }
-    pub fn Brush(&self) -> windows_core::Result<i32> {
+    pub fn Brush(&self) -> i32 {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Brush)(
+            let hresult__ = (windows_core::Interface::vtable(this).Brush)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
-            )
-            .map(|| result__)
+            );
+            debug_assert!(hresult__.0 == 0);
+            result__
         }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
