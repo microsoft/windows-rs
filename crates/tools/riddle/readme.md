@@ -1,5 +1,7 @@
 ## Generate Rust bindings for Windows
 
+Update: the `riddle` tool is no longer being updated. You can continue to use the [windows-bindgen](https://crates.io/crates/windows-bindgen) library crate directly.
+
 The [riddle](https://crates.io/crates/riddle) tool automatically generates Rust bindings from Windows metadata.
 
 * [Getting started](https://kennykerr.ca/rust-getting-started/)
