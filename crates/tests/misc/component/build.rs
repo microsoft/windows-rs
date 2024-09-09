@@ -35,10 +35,5 @@ fn main() {
         "no-bindgen-comment".to_owned(),
     ];
 
-    windows_bindgen::bindgen(&command).unwrap_or_else(|e| {
-        panic!(
-            "Failed to run bindgen: {e:?}\nArgs: riddle.exe {args}",
-            args = command.join(" ")
-        )
-    });
+    windows_bindgen::bindgen(&command).unwrap();
 }

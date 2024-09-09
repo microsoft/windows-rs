@@ -1,7 +1,0 @@
-#![win32]
-
-mod Test {
-    struct Type {
-        field: i32,
-    }
-}

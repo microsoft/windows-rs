@@ -23,4 +23,3 @@ This repo is the home of the following crates (and other supporting crates):
 * [windows-version](https://crates.io/crates/windows-version) - Windows version information.
 
 * [cppwinrt](https://crates.io/crates/cppwinrt) - Bundles the C++/WinRT compiler for use in Rust.
-* [riddle](https://crates.io/crates/riddle) - Windows metadata compiler tool.

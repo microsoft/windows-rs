@@ -204,7 +204,7 @@ fn main() {
         &["Windows.Win32.System.Com.IPersistFile"],
     );
 
-    riddle(
+    bindgen(
         &src.join("b_prepend.rs"),
         &["Windows.Foundation.DateTime"],
         &[
@@ -216,15 +216,15 @@ fn main() {
 }
 
 fn write_sys(output: &Path, filter: &[&str]) {
-    riddle(output, filter, &["flatten", "sys", "minimal"]);
+    bindgen(output, filter, &["flatten", "sys", "minimal"]);
 }
 
 fn write_win(output: &Path, filter: &[&str]) {
-    riddle(output, filter, &["flatten", "minimal"]);
+    bindgen(output, filter, &["flatten", "minimal"]);
 }
 
 fn write_no_inner_attr(output: &Path, filter: &[&str]) {
-    riddle(
+    bindgen(
         output,
         filter,
         &["flatten", "no-inner-attributes", "minimal"],
@@ -232,15 +232,15 @@ fn write_no_inner_attr(output: &Path, filter: &[&str]) {
 }
 
 fn write_vtbl(output: &Path, filter: &[&str]) {
-    riddle(output, filter, &["flatten", "sys", "minimal", "vtbl"]);
+    bindgen(output, filter, &["flatten", "sys", "minimal", "vtbl"]);
 }
 
-fn riddle(output: &Path, filter: &[&str], config: &[&str]) {
+fn bindgen(output: &Path, filter: &[&str], config: &[&str]) {
     let output: &str = output.as_os_str().to_str().unwrap();
     let mut args = vec!["--out", output, "--filter"];
     args.extend_from_slice(filter);
     args.extend_from_slice(&["--config", "no-bindgen-comment"]);
     args.extend_from_slice(config);
-    println!("running: riddle {}", args.join(" "));
+    println!("running: bindgen {}", args.join(" "));
     windows_bindgen::bindgen(args).unwrap();
 }

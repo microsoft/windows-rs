@@ -57,8 +57,6 @@ jobs:
         run:  cargo test -p cppwinrt --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test helpers
         run:  cargo test -p helpers --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test riddle
-        run:  cargo test -p riddle --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_bits
         run:  cargo test -p sample_bits --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test sample_com_uri
@@ -153,10 +151,10 @@ jobs:
         run:  cargo test -p test_agile_reference --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_alternate_success_code
         run:  cargo test -p test_alternate_success_code --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_arch
         run:  cargo test -p test_arch --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_arch_feature
         run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_array
@@ -255,10 +253,10 @@ jobs:
         run:  cargo test -p test_registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_registry_default
         run:  cargo test -p test_registry_default --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_reserved
         run:  cargo test -p test_reserved --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_resources
         run:  cargo test -p test_resources --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_result
@@ -267,8 +265,6 @@ jobs:
         run:  cargo test -p test_return_handle --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_return_struct
         run:  cargo test -p test_return_struct --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_riddle
-        run:  cargo test -p test_riddle --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_standalone
         run:  cargo test -p test_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_string_param
