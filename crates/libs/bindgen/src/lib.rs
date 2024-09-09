@@ -3,11 +3,9 @@
 mod args;
 mod error;
 mod metadata;
-mod rdl;
 mod rust;
 mod tokens;
 mod tree;
-mod winmd;
 
 pub use error::{Error, Result};
 use tree::Tree;
@@ -35,7 +33,6 @@ where
     let mut include = Vec::<&str>::new();
     let mut exclude = Vec::<&str>::new();
     let mut config = std::collections::BTreeMap::<&str, &str>::new();
-    let mut format = false;
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -48,7 +45,6 @@ where
                 "-o" | "--out" => kind = ArgKind::Output,
                 "-f" | "--filter" => kind = ArgKind::Filter,
                 "--config" => kind = ArgKind::Config,
-                "--format" => format = true,
                 _ => return Err(Error::new(&format!("invalid option `{arg}`"))),
             },
             ArgKind::Output => {
@@ -76,29 +72,6 @@ where
         }
     }
 
-    if format {
-        if output.is_some() || !include.is_empty() || !exclude.is_empty() {
-            return Err(Error::new(
-                "`--format` cannot be combined with `--out` or `--filter`",
-            ));
-        }
-
-        let input = filter_input(&input, &["rdl"])?;
-
-        if input.is_empty() {
-            return Err(Error::new("no .rdl inputs"));
-        }
-
-        for path in &input {
-            read_file_text(path)
-                .and_then(|source| rdl::File::parse_str(&source))
-                .and_then(|file| write_to_file(path, file.fmt()))
-                .map_err(|err| err.with_path(path))?;
-        }
-
-        return Ok(String::new());
-    }
-
     let Some(output) = output else {
         return Err(Error::new("no output"));
     };
@@ -115,10 +88,8 @@ where
     let reader = metadata::Reader::filter(input, &include, &exclude, &config);
 
     match extension(&output) {
-        "rdl" => rdl::from_reader(reader, config, &output)?,
-        "winmd" => winmd::from_reader(reader, config, &output)?,
         "rs" => rust::from_reader(reader, config, &output)?,
-        _ => return Err(Error::new("output extension must be one of winmd/rdl/rs")),
+        _ => return Err(Error::new("output extension must be one of `rs`")),
     }
 
     let elapsed = time.elapsed().as_secs_f32();
@@ -195,20 +166,10 @@ fn read_input(input: &[&str]) -> Result<Vec<metadata::File>> {
     }
 
     for input in &input {
-        let file = if extension(input) == "winmd" {
-            read_winmd_file(input)?
-        } else {
-            read_rdl_file(input)?
-        };
-
-        results.push(file);
+        results.push(read_winmd_file(input)?);
     }
 
     Ok(results)
-}
-
-fn read_file_text(path: &str) -> Result<String> {
-    std::fs::read_to_string(path).map_err(|_| Error::new("failed to read text file"))
 }
 
 fn read_file_bytes(path: &str) -> Result<Vec<u8>> {
@@ -226,20 +187,6 @@ fn read_file_lines(path: &str) -> Result<Vec<String>> {
         lines.push(line.map_err(|_| error(path))?);
     }
     Ok(lines)
-}
-
-fn read_rdl_file(path: &str) -> Result<metadata::File> {
-    read_file_text(path)
-        .and_then(|source| rdl::File::parse_str(&source))
-        .and_then(|file| file.into_winmd())
-        .map(|bytes| {
-            // TODO: Write bytes to file if you need to debug the intermediate .winmd file like so:
-            _ = write_to_file("temp.winmd", &bytes);
-
-            // Unwrapping here is fine since `rdl_to_winmd` should have produced a valid winmd
-            metadata::File::new(bytes).unwrap()
-        })
-        .map_err(|err| err.with_path(path))
 }
 
 fn read_winmd_file(path: &str) -> Result<metadata::File> {

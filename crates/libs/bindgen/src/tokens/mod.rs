@@ -45,8 +45,6 @@ macro_rules! quote {
     }};
 }
 
-pub use quote;
-
 /// Formatting macro for constructing a `TokenStream`.
 ///
 /// <br>
