@@ -33,8 +33,6 @@ jobs:
         run:  cargo clippy -p cppwinrt
       - name: Clippy helpers
         run:  cargo clippy -p helpers
-      - name: Clippy riddle
-        run:  cargo clippy -p riddle
       - name: Clippy sample_bits
         run:  cargo clippy -p sample_bits
       - name: Clippy sample_com_uri
@@ -239,8 +237,6 @@ jobs:
         run:  cargo clippy -p test_return_handle
       - name: Clippy test_return_struct
         run:  cargo clippy -p test_return_struct
-      - name: Clippy test_riddle
-        run:  cargo clippy -p test_riddle
       - name: Clippy test_standalone
         run:  cargo clippy -p test_standalone
       - name: Clippy test_string_param

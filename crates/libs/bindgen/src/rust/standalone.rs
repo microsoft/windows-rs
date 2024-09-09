@@ -137,7 +137,6 @@ fn item_collect_standalone(
         }
     }
 }
-// TODO: remove or move to riddle
 fn type_collect_standalone(
     writer: &Writer,
     ty: &metadata::Type,

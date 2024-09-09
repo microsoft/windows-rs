@@ -177,7 +177,6 @@ impl Field {
             .next()
     }
 
-    // TODO: enclosing craziness is only needed for nested structs - get rid of those in riddle and this goes away.
     pub fn ty(&self, enclosing: Option<TypeDef>) -> Type {
         let mut blob = self.blob(2);
         blob.read_usize();
