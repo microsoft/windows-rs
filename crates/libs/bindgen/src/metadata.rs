@@ -266,48 +266,43 @@ pub fn type_def_generics(def: TypeDef) -> Vec<Type> {
 // TODO: namespace should not be required - it's a hack to accomodate Win32 metadata
 // TODO: this is very Rust-specific and Win32-metadata specific with all of its translation. Replace with literal signature parser that just returns slice of types.
 pub fn method_def_signature(namespace: &str, row: MethodDef, generics: &[Type]) -> Signature {
-    let reader = row.reader();
-    let mut blob = row.blob(4);
-    let call_flags = MethodCallAttributes(blob.read_usize() as u8);
-    let _param_count = blob.read_usize();
-    let mut return_type = reader.type_from_blob(&mut blob, None, generics);
+    let signature = row.signature(generics);
 
-    let mut params: Vec<SignatureParam> = row
-        .params()
-        .filter_map(|param| {
+    let mut return_type = signature.return_type.0;
+
+    if let Some(param) = signature.return_type.1 {
+        if param.has_attribute("ConstAttribute") {
+            return_type = return_type.clone().to_const_type();
+        }
+    }
+
+    let mut params: Vec<SignatureParam> = signature
+        .params
+        .into_iter()
+        .map(|(mut ty, param)| {
             let param_is_const = param.has_attribute("ConstAttribute");
-            if param.sequence() == 0 {
-                if param_is_const {
-                    return_type = return_type.clone().to_const_type();
-                }
-                None
-            } else {
-                let is_output = param.flags().contains(ParamAttributes::Out);
-                let mut ty = reader.type_from_blob(&mut blob, None, generics);
+            let is_output = param.flags().contains(ParamAttributes::Out);
 
-                if let Some(name) = param_or_enum(param) {
-                    let def = reader
-                        .get_type_def(namespace, &name)
-                        .next()
-                        .expect("Enum not found");
-                    ty = Type::PrimitiveOrEnum(
-                        Box::new(ty),
-                        Box::new(Type::TypeDef(def, Vec::new())),
-                    );
-                }
+            if let Some(name) = param_or_enum(param) {
+                let def = row
+                    .reader()
+                    .get_type_def(namespace, &name)
+                    .next()
+                    .expect("Enum not found");
+                ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(Type::TypeDef(def, Vec::new())));
+            }
 
-                if param_is_const || !is_output {
-                    ty = ty.to_const_type();
-                }
-                if !is_output {
-                    ty = ty.to_const_ptr();
-                }
-                let kind = param_kind(param);
-                Some(SignatureParam {
-                    def: param,
-                    ty,
-                    kind,
-                })
+            if param_is_const || !is_output {
+                ty = ty.to_const_type();
+            }
+            if !is_output {
+                ty = ty.to_const_ptr();
+            }
+            let kind = param_kind(param);
+            SignatureParam {
+                def: param,
+                ty,
+                kind,
             }
         })
         .collect();
@@ -395,7 +390,7 @@ pub fn method_def_signature(namespace: &str, row: MethodDef, generics: &[Type]) 
         def: row,
         params,
         return_type,
-        call_flags,
+        call_flags: signature.call_flags,
     }
 }
 

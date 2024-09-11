@@ -523,7 +523,7 @@ impl File {
         Some(result)
     }
 
-    pub fn usize(&self, row: usize, table: usize, column: usize) -> usize {
+    pub(crate) fn usize(&self, row: usize, table: usize, column: usize) -> usize {
         let table = &self.tables[table];
         let column = &table.columns[column];
         let offset = table.offset + row * table.width + column.offset;
@@ -535,7 +535,7 @@ impl File {
         }
     }
 
-    pub fn str(&'static self, row: usize, table: usize, column: usize) -> &'static str {
+    pub(crate) fn str(&'static self, row: usize, table: usize, column: usize) -> &'static str {
         let offset = self.strings + self.usize(row, table, column);
         let bytes = &self.bytes[offset..];
         let nul_pos = bytes
@@ -545,7 +545,7 @@ impl File {
         std::str::from_utf8(&bytes[..nul_pos]).expect("expected valid utf-8 C-string")
     }
 
-    pub fn blob(&'static self, row: usize, table: usize, column: usize) -> Blob {
+    pub(crate) fn blob(&'static self, row: usize, table: usize, column: usize) -> Blob {
         let offset = self.blobs + self.usize(row, table, column);
         let initial_byte = self.bytes[offset];
 

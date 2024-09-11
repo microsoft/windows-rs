@@ -17,8 +17,8 @@ mod r#type;
 mod type_name;
 
 pub use attributes::*;
-pub use bindings::*;
-pub use blob::*;
+use bindings::*;
+use blob::*;
 pub use codes::*;
 pub use file::*;
 use filter::*;
