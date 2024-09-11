@@ -125,8 +125,8 @@ impl Attribute {
             args.push((name, arg));
         }
 
-        debug_assert_eq!(sig.slice.len(), 0);
-        debug_assert_eq!(values.slice.len(), 0);
+        debug_assert_eq!(sig.len(), 0);
+        debug_assert_eq!(values.len(), 0);
 
         args
     }
@@ -157,7 +157,7 @@ impl Constant {
             Type::U64 => Value::U64(blob.read_u64()),
             Type::F32 => Value::F32(blob.read_f32()),
             Type::F64 => Value::F64(blob.read_f64()),
-            Type::String => Value::String(blob.read_string()),
+            Type::String => Value::String(blob.read_utf16()),
             rest => unimplemented!("{rest:?}"),
         }
     }
@@ -173,7 +173,8 @@ impl Field {
     }
 
     pub fn constant(&self) -> Option<Constant> {
-        self.equal_range(1, HasConstant::Field(*self).encode())
+        self.file()
+            .equal_range(1, HasConstant::Field(*self).encode())
             .next()
     }
 
@@ -229,22 +230,6 @@ impl MemberRef {
     pub fn name(&self) -> &'static str {
         self.str(1)
     }
-
-    pub fn signature(&self) -> MethodDefSig {
-        let reader = self.reader();
-        let mut blob = self.blob(2);
-        let call_flags = MethodCallAttributes(blob.read_usize() as u8);
-        let params = blob.read_usize();
-        let return_type = reader.type_from_blob(&mut blob, None, &[]);
-
-        MethodDefSig {
-            call_flags,
-            return_type,
-            params: (0..params)
-                .map(|_| reader.type_from_blob(&mut blob, None, &[]))
-                .collect(),
-        }
-    }
 }
 
 impl MethodDef {
@@ -265,7 +250,8 @@ impl MethodDef {
     }
 
     pub fn impl_map(&self) -> Option<ImplMap> {
-        self.equal_range(1, MemberForwarded::MethodDef(*self).encode())
+        self.file()
+            .equal_range(1, MemberForwarded::MethodDef(*self).encode())
             .next()
     }
 
@@ -273,19 +259,30 @@ impl MethodDef {
         self.impl_map().map_or("", |map| map.scope().name())
     }
 
-    pub fn signature(&self, generics: &[Type]) -> MethodDefSig {
+    pub fn signature(&self, generics: &[Type]) -> Signature {
         let reader = self.reader();
         let mut blob = self.blob(4);
         let call_flags = MethodCallAttributes(blob.read_usize() as u8);
-        let params = blob.read_usize();
+        let _param_count = blob.read_usize();
         let return_type = reader.type_from_blob(&mut blob, None, generics);
+        let mut return_param = None;
 
-        MethodDefSig {
+        let params = self
+            .params()
+            .filter_map(|param| {
+                if param.sequence() == 0 {
+                    return_param = Some(param);
+                    None
+                } else {
+                    Some((reader.type_from_blob(&mut blob, None, generics), param))
+                }
+            })
+            .collect();
+
+        Signature {
             call_flags,
-            return_type,
-            params: (0..params)
-                .map(|_| reader.type_from_blob(&mut blob, None, generics))
-                .collect(),
+            return_type: (return_type, return_param),
+            params,
         }
     }
 }
@@ -356,21 +353,23 @@ impl TypeDef {
     }
 
     pub fn generics(&self) -> RowIterator<GenericParam> {
-        self.equal_range(2, TypeOrMethodDef::TypeDef(*self).encode())
+        self.file()
+            .equal_range(2, TypeOrMethodDef::TypeDef(*self).encode())
     }
 
     pub fn interface_impls(&self) -> RowIterator<InterfaceImpl> {
-        self.equal_range(0, self.index() + 1)
+        self.file().equal_range(0, self.index() + 1)
     }
 
     pub fn enclosing_type(&self) -> Option<TypeDef> {
-        self.equal_range::<NestedClass>(0, self.index() + 1)
+        self.file()
+            .equal_range::<NestedClass>(0, self.index() + 1)
             .next()
             .map(|row| TypeDef(row.row(1)))
     }
 
     pub fn class_layout(&self) -> Option<ClassLayout> {
-        self.equal_range(2, self.index() + 1).next()
+        self.file().equal_range(2, self.index() + 1).next()
     }
 
     pub fn underlying_type(&self) -> Type {

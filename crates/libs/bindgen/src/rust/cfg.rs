@@ -157,12 +157,12 @@ pub fn signature_cfg(writer: &Writer, method: metadata::MethodDef) -> Cfg {
     cfg_add_attributes(&mut cfg, method);
     cfg
 }
-fn signature_cfg_combine(writer: &Writer, signature: &metadata::MethodDefSig, cfg: &mut Cfg) {
-    type_cfg_combine(writer, &signature.return_type, cfg);
+fn signature_cfg_combine(writer: &Writer, signature: &windows_metadata::Signature, cfg: &mut Cfg) {
+    type_cfg_combine(writer, &signature.return_type.0, cfg);
     signature
         .params
         .iter()
-        .for_each(|param| type_cfg_combine(writer, param, cfg));
+        .for_each(|param| type_cfg_combine(writer, &param.0, cfg));
 }
 
 fn cfg_add_attributes<R: AsRow + Into<metadata::HasAttribute>>(cfg: &mut Cfg, row: R) {

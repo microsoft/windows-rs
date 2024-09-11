@@ -10,7 +10,6 @@ pub enum Item {
 }
 
 pub struct Reader {
-    // TODO: get rid of inner Vec - that's just a hack to support multi-arch structs in Win32 metadata.
     items: BTreeMap<&'static str, BTreeMap<&'static str, Vec<Item>>>,
 
     nested: HashMap<TypeDef, BTreeMap<&'static str, TypeDef>>,
@@ -315,17 +314,17 @@ impl Reader {
 
         // Used by WinRT to indicate an output parameter, but there are other ways to determine this direction so here
         // it is only used to distinguish between slices and heap-allocated arrays.
-        let is_ref = blob.read_expected(ELEMENT_TYPE_BYREF as usize);
+        let is_ref = blob.try_read(ELEMENT_TYPE_BYREF as usize);
 
-        if blob.read_expected(ELEMENT_TYPE_VOID as usize) {
+        if blob.try_read(ELEMENT_TYPE_VOID as usize) {
             return Type::Void;
         }
 
-        let is_array = blob.read_expected(ELEMENT_TYPE_SZARRAY as usize); // Used by WinRT to indicate an array
+        let is_array = blob.try_read(ELEMENT_TYPE_SZARRAY as usize); // Used by WinRT to indicate an array
 
         let mut pointers = 0;
 
-        while blob.read_expected(ELEMENT_TYPE_PTR as usize) {
+        while blob.try_read(ELEMENT_TYPE_PTR as usize) {
             pointers += 1;
         }
 
@@ -359,11 +358,9 @@ impl Reader {
         }
 
         match code as u8 {
-            ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => self.type_from_ref(
-                TypeDefOrRef::decode(blob.file, blob.read_usize()),
-                enclosing,
-                generics,
-            ),
+            ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => {
+                self.type_from_ref(blob.decode(), enclosing, generics)
+            }
             ELEMENT_TYPE_VAR => generics
                 .get(blob.read_usize())
                 .unwrap_or(&Type::Void)
@@ -378,7 +375,7 @@ impl Reader {
             ELEMENT_TYPE_GENERICINST => {
                 blob.read_usize(); // ELEMENT_TYPE_VALUETYPE or ELEMENT_TYPE_CLASS
 
-                let type_name = TypeDefOrRef::decode(blob.file, blob.read_usize()).type_name();
+                let type_name = blob.decode::<TypeDefOrRef>().type_name();
                 let def = self
                     .get_type_def(type_name.namespace(), type_name.name())
                     .next()

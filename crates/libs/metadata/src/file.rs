@@ -1,11 +1,11 @@
 use super::*;
 
 pub struct File {
-    pub reader: *const Reader,
-    pub bytes: Vec<u8>,
-    pub strings: usize,
-    pub blobs: usize,
-    pub tables: [Table; 17],
+    pub(crate) reader: *const Reader,
+    bytes: Vec<u8>,
+    strings: usize,
+    blobs: usize,
+    tables: [Table; 17],
 }
 
 impl std::fmt::Debug for File {
@@ -523,7 +523,7 @@ impl File {
         Some(result)
     }
 
-    pub fn usize(&self, row: usize, table: usize, column: usize) -> usize {
+    pub(crate) fn usize(&self, row: usize, table: usize, column: usize) -> usize {
         let table = &self.tables[table];
         let column = &table.columns[column];
         let offset = table.offset + row * table.width + column.offset;
@@ -535,7 +535,92 @@ impl File {
         }
     }
 
-    pub fn lower_bound_of(
+    pub(crate) fn str(&'static self, row: usize, table: usize, column: usize) -> &'static str {
+        let offset = self.strings + self.usize(row, table, column);
+        let bytes = &self.bytes[offset..];
+        let nul_pos = bytes
+            .iter()
+            .position(|&c| c == 0)
+            .expect("expected null-terminated C-string");
+        std::str::from_utf8(&bytes[..nul_pos]).expect("expected valid utf-8 C-string")
+    }
+
+    pub(crate) fn blob(&'static self, row: usize, table: usize, column: usize) -> Blob {
+        let offset = self.blobs + self.usize(row, table, column);
+        let initial_byte = self.bytes[offset];
+
+        let (blob_size, blob_size_bytes) = match initial_byte >> 5 {
+            0..=3 => (initial_byte & 0x7f, 1),
+            4..=5 => (initial_byte & 0x3f, 2),
+            6 => (initial_byte & 0x1f, 4),
+            rest => unimplemented!("{rest:?}"),
+        };
+
+        let mut blob_size = blob_size as usize;
+
+        for byte in &self.bytes[offset + 1..offset + blob_size_bytes] {
+            blob_size = blob_size.checked_shl(8).unwrap_or(0) + (*byte as usize);
+        }
+
+        let offset = offset + blob_size_bytes;
+        Blob::new(self, &self.bytes[offset..offset + blob_size])
+    }
+
+    pub(crate) fn list<R: AsRow>(
+        &'static self,
+        row: usize,
+        table: usize,
+        column: usize,
+    ) -> RowIterator<R> {
+        let first = self.usize(row, table, column) - 1;
+        let next = row + 1;
+        let last = if next < self.tables[table].len {
+            self.usize(next, table, column) - 1
+        } else {
+            self.tables[R::TABLE].len
+        };
+        RowIterator::new(self, first..last)
+    }
+
+    pub(crate) fn equal_range<L: AsRow>(
+        &'static self,
+        column: usize,
+        value: usize,
+    ) -> RowIterator<L> {
+        let mut first = 0;
+        let mut last = self.tables[L::TABLE].len;
+        let mut count = last;
+
+        loop {
+            if count == 0 {
+                last = first;
+                break;
+            }
+
+            let count2 = count / 2;
+            let middle = first + count2;
+            let middle_value = self.usize(middle, L::TABLE, column);
+
+            match middle_value.cmp(&value) {
+                Ordering::Less => {
+                    first = middle + 1;
+                    count -= count2 + 1;
+                }
+                Ordering::Greater => count = count2,
+                Ordering::Equal => {
+                    let first2 = self.lower_bound_of(L::TABLE, first, middle, column, value);
+                    first += count;
+                    last = self.upper_bound_of(L::TABLE, middle + 1, first, column, value);
+                    first = first2;
+                    break;
+                }
+            }
+        }
+
+        RowIterator::new(self, first..last)
+    }
+
+    fn lower_bound_of(
         &self,
         table: usize,
         mut first: usize,
@@ -557,7 +642,7 @@ impl File {
         first
     }
 
-    pub fn upper_bound_of(
+    fn upper_bound_of(
         &self,
         table: usize,
         mut first: usize,
@@ -579,7 +664,7 @@ impl File {
         first
     }
 
-    pub fn table<R: AsRow>(&'static self) -> RowIterator<R> {
+    pub(crate) fn table<R: AsRow>(&'static self) -> RowIterator<R> {
         RowIterator::new(self, 0..self.tables[R::TABLE].len)
     }
 }
@@ -654,5 +739,107 @@ impl View for [u8] {
         } else {
             None
         }
+    }
+}
+
+#[derive(Default)]
+struct Table {
+    offset: usize,
+    len: usize,
+    width: usize,
+    columns: [Column; 6],
+}
+
+impl Table {
+    fn index_width(&self) -> usize {
+        if self.len < (1 << 16) {
+            2
+        } else {
+            4
+        }
+    }
+
+    fn set_columns(&mut self, a: usize, b: usize, c: usize, d: usize, e: usize, f: usize) {
+        self.width = a + b + c + d + e + f;
+        self.columns[0] = Column::new(0, a);
+        if b != 0 {
+            self.columns[1] = Column::new(a, b);
+        }
+        if c != 0 {
+            self.columns[2] = Column::new(a + b, c);
+        }
+        if d != 0 {
+            self.columns[3] = Column::new(a + b + c, d);
+        }
+        if e != 0 {
+            self.columns[4] = Column::new(a + b + c + d, e);
+        }
+        if f != 0 {
+            self.columns[5] = Column::new(a + b + c + d + e, f);
+        }
+    }
+
+    fn set_data(&mut self, offset: &mut usize) {
+        if self.len != 0 {
+            let next = *offset + self.len * self.width;
+            self.offset = *offset;
+            *offset = next;
+        }
+    }
+}
+
+#[derive(Default)]
+struct Column {
+    offset: usize,
+    width: usize,
+}
+
+impl Column {
+    fn new(offset: usize, width: usize) -> Self {
+        Self { offset, width }
+    }
+}
+
+#[repr(C)]
+#[derive(Default)]
+struct METADATA_HEADER {
+    signature: u32,
+    major_version: u16,
+    minor_version: u16,
+    reserved: u32,
+    length: u32,
+    version: [u8; 20],
+    flags: u16,
+    streams: u16,
+}
+
+const METADATA_SIGNATURE: u32 = 0x424A_5342;
+
+// A coded index (see codes.rs) is a table index that may refer to different tables. The size of the column in memory
+// must therefore be large enough to hold an index for a row in the largest possible table. This function determines
+// this size for the given winmd file.
+fn coded_index_size(tables: &[usize]) -> usize {
+    fn small(row_count: usize, bits: u8) -> bool {
+        (row_count as u64) < (1u64 << (16 - bits))
+    }
+
+    fn bits_needed(value: usize) -> u8 {
+        let mut value = value - 1;
+        let mut bits: u8 = 1;
+        while {
+            value >>= 1;
+            value != 0
+        } {
+            bits += 1;
+        }
+        bits
+    }
+
+    let bits_needed = bits_needed(tables.len());
+
+    if tables.iter().all(|table| small(*table, bits_needed)) {
+        2
+    } else {
+        4
     }
 }
