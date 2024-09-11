@@ -230,22 +230,6 @@ impl MemberRef {
     pub fn name(&self) -> &'static str {
         self.str(1)
     }
-
-    pub fn signature(&self) -> MethodDefSig {
-        let reader = self.reader();
-        let mut blob = self.blob(2);
-        let call_flags = MethodCallAttributes(blob.read_usize() as u8);
-        let params = blob.read_usize();
-        let return_type = reader.type_from_blob(&mut blob, None, &[]);
-
-        MethodDefSig {
-            call_flags,
-            return_type,
-            params: (0..params)
-                .map(|_| reader.type_from_blob(&mut blob, None, &[]))
-                .collect(),
-        }
-    }
 }
 
 impl MethodDef {
@@ -275,19 +259,30 @@ impl MethodDef {
         self.impl_map().map_or("", |map| map.scope().name())
     }
 
-    pub fn signature(&self, generics: &[Type]) -> MethodDefSig {
+    pub fn signature(&self, generics: &[Type]) -> Signature {
         let reader = self.reader();
         let mut blob = self.blob(4);
         let call_flags = MethodCallAttributes(blob.read_usize() as u8);
-        let params = blob.read_usize();
+        let _param_count = blob.read_usize();
         let return_type = reader.type_from_blob(&mut blob, None, generics);
+        let mut return_param = None;
 
-        MethodDefSig {
+        let params = self
+            .params()
+            .filter_map(|param| {
+                if param.sequence() == 0 {
+                    return_param = Some(param);
+                    None
+                } else {
+                    Some((reader.type_from_blob(&mut blob, None, generics), param))
+                }
+            })
+            .collect();
+
+        Signature {
             call_flags,
-            return_type,
-            params: (0..params)
-                .map(|_| reader.type_from_blob(&mut blob, None, generics))
-                .collect(),
+            return_type: (return_type, return_param),
+            params,
         }
     }
 }
