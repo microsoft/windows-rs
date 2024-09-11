@@ -577,7 +577,7 @@ impl File {
         let last = if next < self.tables[table].len {
             self.usize(next, table, column) - 1
         } else {
-            self.tables[table].len
+            self.tables[R::TABLE].len
         };
         RowIterator::new(self, first..last)
     }
