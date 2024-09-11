@@ -38,7 +38,7 @@ impl Blob {
         D::decode(self.file, self.read_usize())
     }
 
-    pub fn try_read(&mut self, expected: usize) -> bool {
+    pub(crate) fn try_read(&mut self, expected: usize) -> bool {
         let (value, offset) = self.peek();
         if value == expected {
             self.offset(offset);
@@ -48,7 +48,7 @@ impl Blob {
         }
     }
 
-    pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef> {
+    pub(crate) fn read_modifiers(&mut self) -> Vec<TypeDefOrRef> {
         let mut mods = vec![];
         loop {
             let (value, offset) = self.peek();
@@ -68,14 +68,14 @@ impl Blob {
         value
     }
 
-    pub fn read_str(&mut self) -> &'static str {
+    pub(crate) fn read_str(&mut self) -> &'static str {
         let len = self.read_usize();
         let value = unsafe { std::str::from_utf8_unchecked(&self.slice[..len]) };
         self.offset(len);
         value
     }
 
-    pub fn read_utf16(self) -> String {
+    pub(crate) fn read_utf16(self) -> String {
         let slice = self.slice;
         if slice.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
             let slice = slice
@@ -92,7 +92,7 @@ impl Blob {
         }
     }
 
-    pub fn read_bool(&mut self) -> bool {
+    pub(crate) fn read_bool(&mut self) -> bool {
         // A bool is specified as "a single byte with value 0 (false) or 1 (true)".
         match self.read_u8() {
             0 => false,
@@ -101,67 +101,67 @@ impl Blob {
         }
     }
 
-    pub fn read_i8(&mut self) -> i8 {
+    pub(crate) fn read_i8(&mut self) -> i8 {
         let value = i8::from_le_bytes(self[..1].try_into().unwrap());
         self.offset(1);
         value
     }
 
-    pub fn read_u8(&mut self) -> u8 {
+    pub(crate) fn read_u8(&mut self) -> u8 {
         let value = u8::from_le_bytes(self[..1].try_into().unwrap());
         self.offset(1);
         value
     }
 
-    pub fn read_i16(&mut self) -> i16 {
+    pub(crate) fn read_i16(&mut self) -> i16 {
         let value = i16::from_le_bytes(self[..2].try_into().unwrap());
         self.offset(2);
         value
     }
 
-    pub fn read_u16(&mut self) -> u16 {
+    pub(crate) fn read_u16(&mut self) -> u16 {
         let value = u16::from_le_bytes(self[..2].try_into().unwrap());
         self.offset(2);
         value
     }
 
-    pub fn read_i32(&mut self) -> i32 {
+    pub(crate) fn read_i32(&mut self) -> i32 {
         let value = i32::from_le_bytes(self[..4].try_into().unwrap());
         self.offset(4);
         value
     }
 
-    pub fn read_u32(&mut self) -> u32 {
+    pub(crate) fn read_u32(&mut self) -> u32 {
         let value = u32::from_le_bytes(self[..4].try_into().unwrap());
         self.offset(4);
         value
     }
 
-    pub fn read_i64(&mut self) -> i64 {
+    pub(crate) fn read_i64(&mut self) -> i64 {
         let value = i64::from_le_bytes(self[..8].try_into().unwrap());
         self.offset(8);
         value
     }
 
-    pub fn read_u64(&mut self) -> u64 {
+    pub(crate) fn read_u64(&mut self) -> u64 {
         let value = u64::from_le_bytes(self[..8].try_into().unwrap());
         self.offset(8);
         value
     }
 
-    pub fn read_f32(&mut self) -> f32 {
+    pub(crate) fn read_f32(&mut self) -> f32 {
         let value = f32::from_le_bytes(self[..4].try_into().unwrap());
         self.offset(4);
         value
     }
 
-    pub fn read_f64(&mut self) -> f64 {
+    pub(crate) fn read_f64(&mut self) -> f64 {
         let value = f64::from_le_bytes(self[..8].try_into().unwrap());
         self.offset(8);
         value
     }
 
-    pub fn read_integer(&mut self, ty: Type) -> Value {
+    pub(crate) fn read_integer(&mut self, ty: Type) -> Value {
         match ty {
             Type::I8 => Value::I8(self.read_i8()),
             Type::U8 => Value::U8(self.read_u8()),

@@ -566,7 +566,7 @@ impl File {
         Blob::new(self, &self.bytes[offset..offset + blob_size])
     }
 
-    pub fn list<R: AsRow>(
+    pub(crate) fn list<R: AsRow>(
         &'static self,
         row: usize,
         table: usize,
@@ -574,17 +574,21 @@ impl File {
     ) -> RowIterator<R> {
         let first = self.usize(row, table, column) - 1;
         let next = row + 1;
-        let last = if next < self.table_len(table) {
+        let last = if next < self.tables[table].len {
             self.usize(next, table, column) - 1
         } else {
-            self.table_len(table)
+            self.tables[table].len
         };
         RowIterator::new(self, first..last)
     }
 
-    pub fn equal_range<L: AsRow>(&'static self,   column: usize, value: usize) -> RowIterator<L> {
+    pub(crate) fn equal_range<L: AsRow>(
+        &'static self,
+        column: usize,
+        value: usize,
+    ) -> RowIterator<L> {
         let mut first = 0;
-        let mut last = self.table_len(L::TABLE);
+        let mut last = self.tables[L::TABLE].len;
         let mut count = last;
 
         loop {
@@ -616,7 +620,7 @@ impl File {
         RowIterator::new(self, first..last)
     }
 
-    pub fn lower_bound_of(
+    fn lower_bound_of(
         &self,
         table: usize,
         mut first: usize,
@@ -638,7 +642,7 @@ impl File {
         first
     }
 
-    pub fn upper_bound_of(
+    fn upper_bound_of(
         &self,
         table: usize,
         mut first: usize,
@@ -660,11 +664,7 @@ impl File {
         first
     }
 
-    pub fn table_len(&self, table: usize) -> usize {
-        self.tables[table].len
-    }
-
-    pub fn table<R: AsRow>(&'static self) -> RowIterator<R> {
+    pub(crate) fn table<R: AsRow>(&'static self) -> RowIterator<R> {
         RowIterator::new(self, 0..self.tables[R::TABLE].len)
     }
 }
@@ -800,26 +800,25 @@ impl Column {
     }
 }
 
-
 #[repr(C)]
 #[derive(Default)]
- struct METADATA_HEADER {
-     signature: u32,
-     major_version: u16,
-     minor_version: u16,
-     reserved: u32,
-     length: u32,
-     version: [u8; 20],
-     flags: u16,
-     streams: u16,
+struct METADATA_HEADER {
+    signature: u32,
+    major_version: u16,
+    minor_version: u16,
+    reserved: u32,
+    length: u32,
+    version: [u8; 20],
+    flags: u16,
+    streams: u16,
 }
 
- const METADATA_SIGNATURE: u32 = 0x424A_5342;
+const METADATA_SIGNATURE: u32 = 0x424A_5342;
 
 // A coded index (see codes.rs) is a table index that may refer to different tables. The size of the column in memory
 // must therefore be large enough to hold an index for a row in the largest possible table. This function determines
 // this size for the given winmd file.
- fn coded_index_size(tables: &[usize]) -> usize {
+fn coded_index_size(tables: &[usize]) -> usize {
     fn small(row_count: usize, bits: u8) -> bool {
         (row_count as u64) < (1u64 << (16 - bits))
     }

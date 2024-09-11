@@ -89,7 +89,8 @@ pub trait HasAttributes {
 
 impl<R: AsRow + Into<HasAttribute>> HasAttributes for R {
     fn attributes(&self) -> RowIterator<Attribute> {
-        self.file().equal_range(0, Into::<HasAttribute>::into(*self).encode())
+        self.file()
+            .equal_range(0, Into::<HasAttribute>::into(*self).encode())
     }
 
     fn find_attribute(&self, name: &str) -> Option<Attribute> {
