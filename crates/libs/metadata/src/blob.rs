@@ -1,8 +1,8 @@
 use super::*;
 
 pub struct Blob {
-    pub file: &'static File,
-    pub slice: &'static [u8],
+    file: &'static File,
+    slice: &'static [u8],
 }
 
 impl std::ops::Deref for Blob {
@@ -14,11 +14,11 @@ impl std::ops::Deref for Blob {
 }
 
 impl Blob {
-    pub fn new(file: &'static File, slice: &'static [u8]) -> Self {
+    pub(crate) fn new(file: &'static File, slice: &'static [u8]) -> Self {
         Self { file, slice }
     }
 
-    fn peek_usize(&self) -> (usize, usize) {
+    fn peek(&self) -> (usize, usize) {
         if self[0] & 0x80 == 0 {
             (self[0] as usize, 1)
         } else if self[0] & 0xC0 == 0x80 {
@@ -34,14 +34,12 @@ impl Blob {
         }
     }
 
-    pub fn read_usize(&mut self) -> usize {
-        let (value, offset) = self.peek_usize();
-        self.offset(offset);
-        value
+    pub fn decode<D: Decode>(&mut self) -> D {
+        D::decode(self.file, self.read_usize())
     }
 
-    pub fn read_expected(&mut self, expected: usize) -> bool {
-        let (value, offset) = self.peek_usize();
+    pub fn try_read(&mut self, expected: usize) -> bool {
+        let (value, offset) = self.peek();
         if value == expected {
             self.offset(offset);
             true
@@ -53,7 +51,7 @@ impl Blob {
     pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef> {
         let mut mods = vec![];
         loop {
-            let (value, offset) = self.peek_usize();
+            let (value, offset) = self.peek();
             if value != ELEMENT_TYPE_CMOD_OPT as usize && value != ELEMENT_TYPE_CMOD_REQD as usize {
                 break;
             } else {
@@ -62,6 +60,12 @@ impl Blob {
             }
         }
         mods
+    }
+
+    pub fn read_usize(&mut self) -> usize {
+        let (value, offset) = self.peek();
+        self.offset(offset);
+        value
     }
 
     pub fn read_str(&mut self) -> &'static str {

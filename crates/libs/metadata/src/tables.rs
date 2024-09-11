@@ -125,8 +125,8 @@ impl Attribute {
             args.push((name, arg));
         }
 
-        debug_assert_eq!(sig.slice.len(), 0);
-        debug_assert_eq!(values.slice.len(), 0);
+        debug_assert_eq!(sig.len(), 0);
+        debug_assert_eq!(values.len(), 0);
 
         args
     }
@@ -173,7 +173,7 @@ impl Field {
     }
 
     pub fn constant(&self) -> Option<Constant> {
-        self.equal_range(1, HasConstant::Field(*self).encode())
+        self.file().equal_range(1, HasConstant::Field(*self).encode())
             .next()
     }
 
@@ -265,7 +265,7 @@ impl MethodDef {
     }
 
     pub fn impl_map(&self) -> Option<ImplMap> {
-        self.equal_range(1, MemberForwarded::MethodDef(*self).encode())
+        self.file().equal_range(1, MemberForwarded::MethodDef(*self).encode())
             .next()
     }
 
@@ -356,21 +356,21 @@ impl TypeDef {
     }
 
     pub fn generics(&self) -> RowIterator<GenericParam> {
-        self.equal_range(2, TypeOrMethodDef::TypeDef(*self).encode())
+        self.file().equal_range(2, TypeOrMethodDef::TypeDef(*self).encode())
     }
 
     pub fn interface_impls(&self) -> RowIterator<InterfaceImpl> {
-        self.equal_range(0, self.index() + 1)
+        self.file().equal_range(0, self.index() + 1)
     }
 
     pub fn enclosing_type(&self) -> Option<TypeDef> {
-        self.equal_range::<NestedClass>(0, self.index() + 1)
+        self.file().equal_range::<NestedClass>(0, self.index() + 1)
             .next()
             .map(|row| TypeDef(row.row(1)))
     }
 
     pub fn class_layout(&self) -> Option<ClassLayout> {
-        self.equal_range(2, self.index() + 1).next()
+        self.file().equal_range(2, self.index() + 1).next()
     }
 
     pub fn underlying_type(&self) -> Type {
