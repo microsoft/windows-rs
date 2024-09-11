@@ -157,7 +157,7 @@ impl Constant {
             Type::U64 => Value::U64(blob.read_u64()),
             Type::F32 => Value::F32(blob.read_f32()),
             Type::F64 => Value::F64(blob.read_f64()),
-            Type::String => Value::String(blob.read_string()),
+            Type::String => Value::String(blob.read_utf16()),
             rest => unimplemented!("{rest:?}"),
         }
     }

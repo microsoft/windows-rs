@@ -18,7 +18,7 @@ impl Blob {
         Self { file, slice }
     }
 
-    pub fn peek_usize(&self) -> (usize, usize) {
+    fn peek_usize(&self) -> (usize, usize) {
         if self[0] & 0x80 == 0 {
             (self[0] as usize, 1)
         } else if self[0] & 0xC0 == 0x80 {
@@ -71,7 +71,7 @@ impl Blob {
         value
     }
 
-    pub fn read_string(self) -> String {
+    pub fn read_utf16(self) -> String {
         let slice = self.slice;
         if slice.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
             let slice = slice

@@ -90,10 +90,10 @@ pub trait AsRow: Copy {
         let file = self.file();
         let first = self.usize(column) - 1;
         let next = self.next();
-        let last = if next.index() < file.tables[Self::TABLE].len {
+        let last = if next.index() < file.table_len(Self::TABLE) {
             next.usize(column) - 1
         } else {
-            file.tables[R::TABLE].len
+            file.table_len(R::TABLE)
         };
         RowIterator::new(file, first..last)
     }
@@ -101,7 +101,7 @@ pub trait AsRow: Copy {
     fn equal_range<L: AsRow>(&self, column: usize, value: usize) -> RowIterator<L> {
         let file = self.file();
         let mut first = 0;
-        let mut last = file.tables[L::TABLE].len;
+        let mut last = file.table_len(L::TABLE);
         let mut count = last;
 
         loop {
