@@ -13699,7 +13699,7 @@ impl Default for MAPPING_ENUM_OPTIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MAPPING_OPTIONS {
     pub Size: usize,
     pub pszInputLanguage: windows_core::PWSTR,
@@ -14266,7 +14266,7 @@ impl windows_core::TypeKind for UCaseMap {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UCharIterator {
     pub context: *const core::ffi::c_void,
     pub length: i32,
@@ -14885,7 +14885,7 @@ impl Default for UText {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UTextFuncs {
     pub tableSize: i32,
     pub reserved1: i32,

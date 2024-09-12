@@ -809,7 +809,7 @@ impl core::fmt::Debug for HCS_RESOURCE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HCS_CREATE_OPTIONS_1 {
     pub Version: HCS_CREATE_OPTIONS,
     pub UserToken: super::super::Foundation::HANDLE,

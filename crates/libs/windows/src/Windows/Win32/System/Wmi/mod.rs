@@ -7040,7 +7040,7 @@ impl Default for MI_Interval {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_MethodDecl {
     pub flags: u32,
     pub code: u32,
@@ -7065,7 +7065,7 @@ impl Default for MI_MethodDecl {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_Module {
     pub version: u32,
     pub generatorVersion: u32,
@@ -7131,7 +7131,7 @@ impl Default for MI_Operation {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_OperationCallbacks {
     pub callbackContext: *mut core::ffi::c_void,
     pub promptUser: MI_OperationCallback_PromptUser,
@@ -7320,7 +7320,7 @@ impl Default for MI_PropertySetFT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MI_ProviderFT {
     pub Load: MI_ProviderFT_Load,
     pub Unload: MI_ProviderFT_Unload,

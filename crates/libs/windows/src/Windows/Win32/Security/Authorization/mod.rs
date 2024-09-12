@@ -5324,7 +5324,7 @@ impl windows_core::TypeKind for AUTHZ_CLIENT_CONTEXT_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_INIT_INFO {
     pub version: u16,
     pub szResourceManagerName: windows_core::PCWSTR,

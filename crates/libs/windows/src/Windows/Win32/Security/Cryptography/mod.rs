@@ -9521,7 +9521,7 @@ impl From<BCRYPT_ALG_HANDLE> for BCRYPT_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ASYMMETRIC_ENCRYPTION_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -9572,7 +9572,7 @@ impl Default for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_CIPHER_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -9782,7 +9782,7 @@ impl windows_core::TypeKind for BCRYPT_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_HASH_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -9878,7 +9878,7 @@ impl Default for BCRYPT_KEY_DATA_BLOB_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_KEY_DERIVATION_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -10059,7 +10059,7 @@ impl Default for BCRYPT_PSS_PADDING_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_RNG_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -10095,7 +10095,7 @@ impl Default for BCRYPT_RSAKEY_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_SECRET_AGREEMENT_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -10150,7 +10150,7 @@ impl From<BCRYPT_SECRET_HANDLE> for BCRYPT_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_SIGNATURE_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -10302,7 +10302,7 @@ impl Default for CARD_CHANGE_AUTHENTICATOR_RESPONSE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_DATA {
     pub dwVersion: u32,
     pub pbAtr: *mut u8,
@@ -10821,7 +10821,7 @@ impl Default for CERT_CHAIN_ENGINE_CONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub cbSize: u32,
     pub pszUsageIdentifier: windows_core::PCSTR,
@@ -10904,7 +10904,7 @@ impl Default for CERT_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CREATE_CONTEXT_PARA {
     pub cbSize: u32,
     pub pfnFree: PFN_CRYPT_FREE,
@@ -11933,7 +11933,7 @@ impl Default for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -12564,7 +12564,7 @@ impl Default for CMSG_CMS_SIGNER_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -13283,7 +13283,7 @@ impl Default for CMSG_SP3_COMPATIBLE_AUX_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_STREAM_INFO {
     pub cbContent: u32,
     pub pfnStreamOutput: PFN_CMSG_STREAM_OUTPUT,
@@ -13684,7 +13684,7 @@ impl Default for CRYPT_ALGORITHM_IDENTIFIER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     pub pfnCompletion: PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC,
     pub pvCompletion: *mut core::ffi::c_void,
@@ -13899,7 +13899,7 @@ impl Default for CRYPT_CSP_PROVIDER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DECODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_CRYPT_ALLOC,
@@ -13990,7 +13990,7 @@ impl Default for CRYPT_ECC_PRIVATE_KEY_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ENCODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_CRYPT_ALLOC,
@@ -14258,7 +14258,7 @@ impl Default for CRYPT_MASK_GEN_ALGORITHM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     pub cbSize: u32,
     pub pfnGet: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET,
@@ -14381,7 +14381,7 @@ impl Default for CRYPT_PKCS12_PBE_PARAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub hCryptProv: usize,
     pub dwKeySpec: u32,
@@ -14398,7 +14398,7 @@ impl Default for CRYPT_PKCS8_EXPORT_PARAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PKCS8_IMPORT_PARAMS {
     pub PrivateKey: CRYPT_INTEGER_BLOB,
     pub pResolvehCryptProvFunc: PCRYPT_RESOLVE_HCRYPTPROV_FUNC,
@@ -14876,7 +14876,7 @@ impl Default for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -14961,7 +14961,7 @@ impl Default for CRYPT_XML_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub cbSize: u32,
     pub fpCryptXmlEncodeAlgorithm: CryptXmlDllEncodeAlgorithm,
@@ -14996,7 +14996,7 @@ impl Default for CRYPT_XML_DATA_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_DATA_PROVIDER {
     pub pvCallbackState: *mut core::ffi::c_void,
     pub cbBufferSize: u32,
@@ -15328,7 +15328,7 @@ impl Default for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_TRANSFORM_INFO {
     pub cbSize: u32,
     pub wszAlgorithm: windows_core::PCWSTR,
@@ -15915,7 +15915,7 @@ impl Default for KEY_TYPE_SUBTYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_ALLOC_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_NCRYPT_ALLOC,
@@ -16115,7 +16115,7 @@ impl From<NCRYPT_KEY_HANDLE> for NCRYPT_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_KEY_STORAGE_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenProvider: NCryptOpenStorageProviderFn,
@@ -16236,7 +16236,7 @@ impl Default for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PROTECT_STREAM_INFO {
     pub pfnStreamOutput: PFNCryptStreamOutputCallback,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
@@ -16250,7 +16250,7 @@ impl Default for NCRYPT_PROTECT_STREAM_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
     pub pfnStreamOutput: PFNCryptStreamOutputCallbackEx,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
@@ -16398,7 +16398,7 @@ impl Default for NCRYPT_SSL_ECC_CURVE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_SSL_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub ComputeClientAuthHash: SslComputeClientAuthHashFn,
@@ -17207,7 +17207,7 @@ impl Default for SIGNER_DIGEST_SIGN_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_DIGEST_SIGN_INFO_V1 {
     pub cbSize: u32,
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
@@ -17222,7 +17222,7 @@ impl Default for SIGNER_DIGEST_SIGN_INFO_V1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_DIGEST_SIGN_INFO_V2 {
     pub cbSize: u32,
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
@@ -17439,7 +17439,7 @@ impl Default for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VTableProvStruc {
     pub Version: u32,
     pub FuncVerifyImage: CRYPT_VERIFY_IMAGE_A,
@@ -17458,7 +17458,7 @@ impl Default for VTableProvStruc {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VTableProvStrucW {
     pub Version: u32,
     pub FuncVerifyImage: CRYPT_VERIFY_IMAGE_W,

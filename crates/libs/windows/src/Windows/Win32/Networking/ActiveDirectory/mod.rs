@@ -8636,7 +8636,7 @@ impl Default for CQFORM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CQPAGE {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8801,7 +8801,7 @@ impl Default for DSBITEMW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSBROWSEINFOA {
     pub cbStruct: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -8831,7 +8831,7 @@ impl Default for DSBROWSEINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSBROWSEINFOW {
     pub cbStruct: u32,
     pub hwndOwner: super::super::Foundation::HWND,

@@ -2228,7 +2228,7 @@ impl Default for FLT_CALLBACK_DATA_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLT_CALLBACK_DATA_QUEUE {
     pub Csq: super::super::super::System::SystemServices::IO_CSQ,
     pub Flags: FLT_CALLBACK_DATA_QUEUE_FLAGS,
@@ -2252,7 +2252,7 @@ impl Default for FLT_CALLBACK_DATA_QUEUE {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLT_CONTEXT_REGISTRATION {
     pub ContextType: u16,
     pub Flags: u16,
@@ -2349,7 +2349,7 @@ impl Default for FLT_NAME_CONTROL {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLT_OPERATION_REGISTRATION {
     pub MajorFunction: u8,
     pub Flags: u32,
@@ -3510,7 +3510,7 @@ impl Default for FLT_PARAMETERS_32 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_InstallableFileSystems", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLT_REGISTRATION {
     pub Size: u16,
     pub Version: u16,

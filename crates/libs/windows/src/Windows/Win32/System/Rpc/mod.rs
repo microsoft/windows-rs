@@ -4011,7 +4011,7 @@ impl Default for FULL_PTR_XLAT_TABLES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GENERIC_BINDING_INFO {
     pub pObj: *mut core::ffi::c_void,
     pub Size: u32,
@@ -4027,7 +4027,7 @@ impl Default for GENERIC_BINDING_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GENERIC_BINDING_ROUTINE_PAIR {
     pub pfnBind: GENERIC_BINDING_ROUTINE,
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
@@ -4041,7 +4041,7 @@ impl Default for GENERIC_BINDING_ROUTINE_PAIR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct I_RpcProxyCallbackInterface {
     pub IsValidMachineFn: I_RpcProxyIsValidMachineFn,
     pub GetClientAddressFn: I_RpcProxyGetClientAddressFn,
@@ -4247,7 +4247,7 @@ impl Default for MIDL_STUB_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct MIDL_STUB_MESSAGE {
     pub RpcMsg: *mut RPC_MESSAGE,
     pub Buffer: *mut u8,
@@ -5431,7 +5431,7 @@ impl Default for NDR_CS_ROUTINES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
     pub pfnNetSize: CS_TYPE_NET_SIZE_ROUTINE,
     pub pfnToNetCs: CS_TYPE_TO_NETCS_ROUTINE,
@@ -5625,7 +5625,7 @@ impl Default for RPC_ASYNC_NOTIFICATION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
     pub hThread: super::super::Foundation::HANDLE,
@@ -6072,7 +6072,7 @@ impl Default for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_DISPATCH_TABLE {
     pub DispatchTableCount: u32,
     pub DispatchTable: RPC_DISPATCH_FUNCTION,
@@ -6368,7 +6368,7 @@ impl Default for RPC_IMPORT_CONTEXT_P {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_INTERFACE_TEMPLATEA {
     pub Version: u32,
     pub IfSpec: *mut core::ffi::c_void,
@@ -6391,7 +6391,7 @@ impl Default for RPC_INTERFACE_TEMPLATEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_INTERFACE_TEMPLATEW {
     pub Version: u32,
     pub IfSpec: *mut core::ffi::c_void,
@@ -6988,7 +6988,7 @@ impl Default for USER_MARSHAL_CB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
     pub pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
     pub pfnMarshall: USER_MARSHAL_MARSHALLING_ROUTINE,
@@ -7019,7 +7019,7 @@ impl Default for UUID_VECTOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XMIT_ROUTINE_QUINTUPLE {
     pub pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
     pub pfnTranslateFromXmit: XMIT_HELPER_ROUTINE,

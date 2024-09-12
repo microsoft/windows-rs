@@ -5865,7 +5865,7 @@ impl Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WORK_ITEM {
     pub Context: *mut core::ffi::c_void,
     pub Routine: NDIS_PROC,

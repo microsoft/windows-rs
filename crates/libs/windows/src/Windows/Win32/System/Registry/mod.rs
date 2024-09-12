@@ -2030,7 +2030,7 @@ impl Default for PVALUEW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_PROVIDER {
     pub pi_R0_1val: PQUERYHANDLER,
     pub pi_R0_allvals: PQUERYHANDLER,

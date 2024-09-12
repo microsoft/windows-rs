@@ -9577,7 +9577,7 @@ impl core::fmt::Debug for VM_RESDLL_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLRES_CALLBACK_FUNCTION_TABLE {
     pub LogEvent: PLOG_EVENT_ROUTINE,
     pub SetResourceStatusEx: PSET_RESOURCE_STATUS_ROUTINE_EX,
@@ -9644,7 +9644,7 @@ impl Default for CLRES_FUNCTION_TABLE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLRES_V1_FUNCTIONS {
     pub Open: POPEN_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -9670,7 +9670,7 @@ impl Default for CLRES_V1_FUNCTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLRES_V2_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -9697,7 +9697,7 @@ impl Default for CLRES_V2_FUNCTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLRES_V3_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -9724,7 +9724,7 @@ impl Default for CLRES_V3_FUNCTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLRES_V4_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -9752,7 +9752,7 @@ impl Default for CLRES_V4_FUNCTIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSAPI_REASON_HANDLER {
     pub lpParameter: *mut core::ffi::c_void,
     pub pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,

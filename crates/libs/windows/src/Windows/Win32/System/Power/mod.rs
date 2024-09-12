@@ -1829,7 +1829,7 @@ impl Default for CM_POWER_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
     pub Context: *mut core::ffi::c_void,

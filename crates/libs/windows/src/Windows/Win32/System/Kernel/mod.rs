@@ -183,7 +183,7 @@ impl Default for CSTRING {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
     pub Handler: EXCEPTION_ROUTINE,

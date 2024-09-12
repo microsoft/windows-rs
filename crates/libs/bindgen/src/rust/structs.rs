@@ -188,7 +188,6 @@ fn gen_derive(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     if !writer.sys
         && !metadata::type_def_has_explicit_layout(def)
         && !metadata::type_def_has_packing(def)
-        && !metadata::type_def_has_callback(def)
     {
         derive.insert(to_ident("PartialEq"));
 

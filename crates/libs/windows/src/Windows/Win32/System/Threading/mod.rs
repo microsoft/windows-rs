@@ -3701,7 +3701,7 @@ impl Default for OVERRIDE_PREFETCH_PARAMETER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PEB {
     pub Reserved1: [u8; 2],
     pub BeingDebugged: u8,
@@ -4369,7 +4369,7 @@ impl Default for TP_POOL_STACK_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UMS_SCHEDULER_STARTUP_INFO {
     pub UmsVersion: u32,
     pub CompletionList: *mut core::ffi::c_void,

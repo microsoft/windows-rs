@@ -6297,7 +6297,7 @@ impl Default for D3DGPU_PHYSICAL_ADDRESS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_CALLBACKS {
     pub dwSize: u32,
     pub ContextCreate: LPD3DHAL_CONTEXTCREATECB,
@@ -6347,7 +6347,7 @@ impl Default for D3DHAL_CALLBACKS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_CALLBACKS2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -6369,7 +6369,7 @@ impl Default for D3DHAL_CALLBACKS2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_CALLBACKS3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -14951,7 +14951,7 @@ impl Default for D3DKMT_RECLAIMALLOCATIONS2_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
     pub hDevice: u32,
     pub Callback: PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK,
@@ -14967,7 +14967,7 @@ impl Default for D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_REGISTERTRIMNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hDevice: u32,
@@ -16032,7 +16032,7 @@ impl Default for D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UNREGISTERTRIMNOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
     pub Callback: PFND3DKMT_TRIMNOTIFICATIONCALLBACK,
@@ -17216,7 +17216,7 @@ impl Default for D3DNTHALDEVICEDESC_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_CALLBACKS {
     pub dwSize: u32,
     pub ContextCreate: LPD3DNTHAL_CONTEXTCREATECB,
@@ -17266,7 +17266,7 @@ impl Default for D3DNTHAL_CALLBACKS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_CALLBACKS2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -17288,7 +17288,7 @@ impl Default for D3DNTHAL_CALLBACKS2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_CALLBACKS3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -20203,7 +20203,7 @@ impl Default for DXGK_GPUVERSION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     pub Version: u32,
     pub PrivateHandle: *mut core::ffi::c_void,
@@ -20224,7 +20224,7 @@ impl Default for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     pub DeviceHandle: *mut core::ffi::c_void,
     pub InitialGrfxPowerState: super::super::super::Win32::System::Power::DEVICE_POWER_STATE,

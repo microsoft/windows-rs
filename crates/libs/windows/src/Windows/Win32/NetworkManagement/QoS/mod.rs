@@ -1675,7 +1675,7 @@ impl windows_core::TypeKind for LPM_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LPM_INIT_INFO {
     pub PcmVersionNumber: u32,
     pub ResultTimeLimit: u32,
@@ -2573,7 +2573,7 @@ impl Default for TCG_PCClientTaggedEventStruct {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCI_CLIENT_FUNC_LIST {
     pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
     pub ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,

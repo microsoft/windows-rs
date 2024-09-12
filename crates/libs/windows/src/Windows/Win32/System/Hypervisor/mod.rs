@@ -2462,7 +2462,7 @@ impl Default for GUEST_OS_INFO_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HDV_PCI_DEVICE_INTERFACE {
     pub Version: HDV_PCI_INTERFACE_VERSION,
     pub Initialize: HDV_PCI_DEVICE_INITIALIZE,
@@ -2949,7 +2949,7 @@ impl Default for WHV_DOORBELL_MATCH_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_EMULATOR_CALLBACKS {
     pub Size: u32,
     pub Reserved: u32,

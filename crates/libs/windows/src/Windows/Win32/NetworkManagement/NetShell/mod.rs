@@ -156,7 +156,7 @@ impl core::fmt::Debug for NS_REQS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: windows_core::PCWSTR,
     pub pfnCmdHandler: PFN_HANDLE_CMD,
@@ -175,7 +175,7 @@ impl Default for CMD_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMD_GROUP_ENTRY {
     pub pwszCmdGroupToken: windows_core::PCWSTR,
     pub dwShortCmdHelpToken: u32,

@@ -7772,7 +7772,7 @@ impl Default for BranchOfficeLogOfflineFileFull {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPROPSHEETUI {
     pub cbSize: u16,
     pub Flags: u16,
@@ -9141,7 +9141,7 @@ impl Default for MESSAGEBOX_PARAMS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITOR {
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS,
     pub pfnOpenPort: PFN_PRINTING_OPENPORT,
@@ -9173,7 +9173,7 @@ impl Default for MONITOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITOR2 {
     pub cbSize: u32,
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS2,
@@ -9211,7 +9211,7 @@ impl Default for MONITOR2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITOREX {
     pub dwMonitorSize: u32,
     pub Monitor: MONITOR,
@@ -9459,7 +9459,7 @@ impl Default for MXDC_XPS_S0PAGE_RESOURCE_T {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NOTIFICATION_CONFIG_1 {
     pub cbSize: u32,
     pub fdwFlags: u32,
@@ -9476,7 +9476,7 @@ impl Default for NOTIFICATION_CONFIG_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OEMCUIPPARAM {
     pub cbSize: u32,
     pub poemuiobj: *mut OEMUIOBJ,
@@ -9561,7 +9561,7 @@ impl Default for OEMUIOBJ {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OEMUIPROCS {
     pub DrvGetDriverSetting: PFN_DrvGetDriverSetting,
     pub DrvUpdateUISetting: PFN_DrvUpdateUISetting,
@@ -10779,7 +10779,7 @@ impl Default for PROPSHEETUI_GETICON_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROPSHEETUI_INFO {
     pub cbSize: u16,
     pub Version: u16,
@@ -10908,7 +10908,7 @@ impl Default for PSCRIPT5_PRIVATE_DEVMODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSPINFO {
     pub cbSize: u16,
     pub wReserved: u16,

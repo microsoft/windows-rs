@@ -150,7 +150,7 @@ impl Default for SCESVC_ANALYSIS_LINE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCESVC_CALLBACK_INFO {
     pub sceHandle: *mut core::ffi::c_void,
     pub pfQueryInfo: PFSCE_QUERY_INFO,

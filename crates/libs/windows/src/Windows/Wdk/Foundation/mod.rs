@@ -636,7 +636,7 @@ impl windows_core::TypeKind for DMA_COMMON_BUFFER_VECTOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_EXTENSION {
     pub DriverObject: *mut DRIVER_OBJECT,
     pub AddDevice: DRIVER_ADD_DEVICE,
@@ -655,7 +655,7 @@ impl Default for DRIVER_EXTENSION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_OBJECT {
     pub Type: i16,
     pub Size: i16,
@@ -786,7 +786,7 @@ impl Default for ERESOURCE_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAST_IO_DISPATCH {
     pub SizeOfFastIoDispatch: u32,
     pub FastIoCheckIfPossible: FAST_IO_CHECK_IF_POSSIBLE,
@@ -2844,7 +2844,7 @@ impl Default for VPB {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WORK_QUEUE_ITEM {
     pub List: super::super::Win32::System::Kernel::LIST_ENTRY,
     pub WorkerRoutine: PWORKER_THREAD_ROUTINE,

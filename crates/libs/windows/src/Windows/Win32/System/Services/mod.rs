@@ -1347,7 +1347,7 @@ impl Default for SERVICE_LAUNCH_PROTECTED_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_NOTIFY_1 {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -1364,7 +1364,7 @@ impl Default for SERVICE_NOTIFY_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_NOTIFY_2A {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -1383,7 +1383,7 @@ impl Default for SERVICE_NOTIFY_2A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_NOTIFY_2W {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -1537,7 +1537,7 @@ impl Default for SERVICE_STATUS_PROCESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TABLE_ENTRYA {
     pub lpServiceName: windows_core::PSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONA,
@@ -1551,7 +1551,7 @@ impl Default for SERVICE_TABLE_ENTRYA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,

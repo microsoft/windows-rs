@@ -5156,7 +5156,7 @@ impl windows_core::TypeKind for alljoyn_aboutdatalistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_aboutdatalistener_callbacks {
     pub about_datalistener_getaboutdata: alljoyn_aboutdatalistener_getaboutdata_ptr,
     pub about_datalistener_getannouncedaboutdata: alljoyn_aboutdatalistener_getannouncedaboutdata_ptr,
@@ -5214,7 +5214,7 @@ impl windows_core::TypeKind for alljoyn_aboutlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_aboutlistener_callback {
     pub about_listener_announced: alljoyn_about_announced_ptr,
 }
@@ -5271,7 +5271,7 @@ impl windows_core::TypeKind for alljoyn_applicationstatelistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_applicationstatelistener_callbacks {
     pub state: alljoyn_applicationstatelistener_state_ptr,
 }
@@ -5295,7 +5295,7 @@ impl windows_core::TypeKind for alljoyn_authlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_authlistener_callbacks {
     pub request_credentials: alljoyn_authlistener_requestcredentials_ptr,
     pub verify_credentials: alljoyn_authlistener_verifycredentials_ptr,
@@ -5311,7 +5311,7 @@ impl Default for alljoyn_authlistener_callbacks {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_authlistenerasync_callbacks {
     pub request_credentials: alljoyn_authlistener_requestcredentialsasync_ptr,
     pub verify_credentials: alljoyn_authlistener_verifycredentialsasync_ptr,
@@ -5360,7 +5360,7 @@ impl windows_core::TypeKind for alljoyn_buslistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_buslistener_callbacks {
     pub listener_registered: alljoyn_buslistener_listener_registered_ptr,
     pub listener_unregistered: alljoyn_buslistener_listener_unregistered_ptr,
@@ -5391,7 +5391,7 @@ impl windows_core::TypeKind for alljoyn_busobject {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_busobject_callbacks {
     pub property_get: alljoyn_busobject_prop_get_ptr,
     pub property_set: alljoyn_busobject_prop_set_ptr,
@@ -5407,7 +5407,7 @@ impl Default for alljoyn_busobject_callbacks {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_busobject_methodentry {
     pub member: *const alljoyn_interfacedescription_member,
     pub method_handler: alljoyn_messagereceiver_methodhandler_ptr,
@@ -5531,7 +5531,7 @@ impl windows_core::TypeKind for alljoyn_keystorelistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_keystorelistener_callbacks {
     pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
     pub store_request: alljoyn_keystorelistener_storerequest_ptr,
@@ -5545,7 +5545,7 @@ impl Default for alljoyn_keystorelistener_callbacks {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_keystorelistener_with_synchronization_callbacks {
     pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
     pub store_request: alljoyn_keystorelistener_storerequest_ptr,
@@ -5619,7 +5619,7 @@ impl windows_core::TypeKind for alljoyn_observerlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_observerlistener_callback {
     pub object_discovered: alljoyn_observer_object_discovered_ptr,
     pub object_lost: alljoyn_observer_object_lost_ptr,
@@ -5644,7 +5644,7 @@ impl windows_core::TypeKind for alljoyn_permissionconfigurationlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_permissionconfigurationlistener_callbacks {
     pub factory_reset: alljoyn_permissionconfigurationlistener_factoryreset_ptr,
     pub policy_changed: alljoyn_permissionconfigurationlistener_policychanged_ptr,
@@ -5682,7 +5682,7 @@ impl windows_core::TypeKind for alljoyn_pinglistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_pinglistener_callback {
     pub destination_found: alljoyn_autopinger_destination_found_ptr,
     pub destination_lost: alljoyn_autopinger_destination_lost_ptr,
@@ -5740,7 +5740,7 @@ impl windows_core::TypeKind for alljoyn_sessionlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_sessionlistener_callbacks {
     pub session_lost: alljoyn_sessionlistener_sessionlost_ptr,
     pub session_member_added: alljoyn_sessionlistener_sessionmemberadded_ptr,
@@ -5777,7 +5777,7 @@ impl windows_core::TypeKind for alljoyn_sessionportlistener {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct alljoyn_sessionportlistener_callbacks {
     pub accept_session_joiner: alljoyn_sessionportlistener_acceptsessionjoiner_ptr,
     pub session_joined: alljoyn_sessionportlistener_sessionjoined_ptr,

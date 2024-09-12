@@ -6368,7 +6368,7 @@ impl Default for IDEREGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_IRP_EXT_TRACK_OFFSET_HEADER {
     pub Validation: u16,
     pub Flags: u16,

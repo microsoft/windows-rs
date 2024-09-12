@@ -2159,7 +2159,7 @@ impl windows_core::TypeKind for WSMAN_SESSION_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSMAN_SHELL_ASYNC {
     pub operationContext: *mut core::ffi::c_void,
     pub completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION,
