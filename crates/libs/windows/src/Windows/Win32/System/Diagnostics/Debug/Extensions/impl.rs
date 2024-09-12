@@ -6461,7 +6461,7 @@ pub trait IDebugControl_Impl: Sized + windows_core::IUnknownImpl {
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn CallExtension(&self, handle: u64, function: &windows_core::PCSTR, arguments: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>;
+    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>;
     fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()>;
     fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()>;
     fn GetNumberEventFilters(&self, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> windows_core::Result<()>;
@@ -6936,7 +6936,13 @@ impl IDebugControl_Vtbl {
         }
         unsafe extern "system" fn GetExtensionFunction<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, funcname: windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugControl_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname), core::mem::transmute_copy(&function)).into()
+            match IDebugControl_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname)) {
+                Ok(ok__) => {
+                    function.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetWindbgExtensionApis32<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7179,7 +7185,7 @@ pub trait IDebugControl2_Impl: Sized + windows_core::IUnknownImpl {
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn CallExtension(&self, handle: u64, function: &windows_core::PCSTR, arguments: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>;
+    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>;
     fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()>;
     fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()>;
     fn GetNumberEventFilters(&self, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> windows_core::Result<()>;
@@ -7662,7 +7668,13 @@ impl IDebugControl2_Vtbl {
         }
         unsafe extern "system" fn GetExtensionFunction<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, funcname: windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugControl2_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname), core::mem::transmute_copy(&function)).into()
+            match IDebugControl2_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname)) {
+                Ok(ok__) => {
+                    function.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetWindbgExtensionApis32<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7969,7 +7981,7 @@ pub trait IDebugControl3_Impl: Sized + windows_core::IUnknownImpl {
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn CallExtension(&self, handle: u64, function: &windows_core::PCSTR, arguments: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>;
+    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>;
     fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()>;
     fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()>;
     fn GetNumberEventFilters(&self, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> windows_core::Result<()>;
@@ -8465,7 +8477,13 @@ impl IDebugControl3_Vtbl {
         }
         unsafe extern "system" fn GetExtensionFunction<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, funcname: windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugControl3_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname), core::mem::transmute_copy(&function)).into()
+            match IDebugControl3_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname)) {
+                Ok(ok__) => {
+                    function.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetWindbgExtensionApis32<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8873,7 +8891,7 @@ pub trait IDebugControl4_Impl: Sized + windows_core::IUnknownImpl {
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn CallExtension(&self, handle: u64, function: &windows_core::PCSTR, arguments: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>;
+    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>;
     fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()>;
     fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()>;
     fn GetNumberEventFilters(&self, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> windows_core::Result<()>;
@@ -8937,7 +8955,7 @@ pub trait IDebugControl4_Impl: Sized + windows_core::IUnknownImpl {
     fn AddExtensionWide(&self, path: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<u64>;
     fn GetExtensionByPathWide(&self, path: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn CallExtensionWide(&self, handle: u64, function: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetExtensionFunctionWide(&self, handle: u64, funcname: &windows_core::PCWSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>;
+    fn GetExtensionFunctionWide(&self, handle: u64, funcname: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>;
     fn GetEventFilterTextWide(&self, index: u32, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn GetEventFilterCommandWide(&self, index: u32, buffer: windows_core::PWSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetEventFilterCommandWide(&self, index: u32, command: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -9422,7 +9440,13 @@ impl IDebugControl4_Vtbl {
         }
         unsafe extern "system" fn GetExtensionFunction<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, funcname: windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugControl4_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname), core::mem::transmute_copy(&function)).into()
+            match IDebugControl4_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname)) {
+                Ok(ok__) => {
+                    function.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetWindbgExtensionApis32<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9774,7 +9798,13 @@ impl IDebugControl4_Vtbl {
         }
         unsafe extern "system" fn GetExtensionFunctionWide<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, funcname: windows_core::PCWSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugControl4_Impl::GetExtensionFunctionWide(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname), core::mem::transmute_copy(&function)).into()
+            match IDebugControl4_Impl::GetExtensionFunctionWide(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname)) {
+                Ok(ok__) => {
+                    function.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetEventFilterTextWide<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10131,7 +10161,7 @@ pub trait IDebugControl5_Impl: Sized + windows_core::IUnknownImpl {
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn CallExtension(&self, handle: u64, function: &windows_core::PCSTR, arguments: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>;
+    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>;
     fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()>;
     fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()>;
     fn GetNumberEventFilters(&self, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> windows_core::Result<()>;
@@ -10195,7 +10225,7 @@ pub trait IDebugControl5_Impl: Sized + windows_core::IUnknownImpl {
     fn AddExtensionWide(&self, path: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<u64>;
     fn GetExtensionByPathWide(&self, path: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn CallExtensionWide(&self, handle: u64, function: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetExtensionFunctionWide(&self, handle: u64, funcname: &windows_core::PCWSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>;
+    fn GetExtensionFunctionWide(&self, handle: u64, funcname: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>;
     fn GetEventFilterTextWide(&self, index: u32, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn GetEventFilterCommandWide(&self, index: u32, buffer: windows_core::PWSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetEventFilterCommandWide(&self, index: u32, command: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -10685,7 +10715,13 @@ impl IDebugControl5_Vtbl {
         }
         unsafe extern "system" fn GetExtensionFunction<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, funcname: windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugControl5_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname), core::mem::transmute_copy(&function)).into()
+            match IDebugControl5_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname)) {
+                Ok(ok__) => {
+                    function.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetWindbgExtensionApis32<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11037,7 +11073,13 @@ impl IDebugControl5_Vtbl {
         }
         unsafe extern "system" fn GetExtensionFunctionWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, funcname: windows_core::PCWSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugControl5_Impl::GetExtensionFunctionWide(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname), core::mem::transmute_copy(&function)).into()
+            match IDebugControl5_Impl::GetExtensionFunctionWide(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname)) {
+                Ok(ok__) => {
+                    function.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetEventFilterTextWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11425,7 +11467,7 @@ pub trait IDebugControl6_Impl: Sized + windows_core::IUnknownImpl {
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn CallExtension(&self, handle: u64, function: &windows_core::PCSTR, arguments: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>;
+    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>;
     fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()>;
     fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()>;
     fn GetNumberEventFilters(&self, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> windows_core::Result<()>;
@@ -11489,7 +11531,7 @@ pub trait IDebugControl6_Impl: Sized + windows_core::IUnknownImpl {
     fn AddExtensionWide(&self, path: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<u64>;
     fn GetExtensionByPathWide(&self, path: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn CallExtensionWide(&self, handle: u64, function: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetExtensionFunctionWide(&self, handle: u64, funcname: &windows_core::PCWSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>;
+    fn GetExtensionFunctionWide(&self, handle: u64, funcname: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>;
     fn GetEventFilterTextWide(&self, index: u32, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn GetEventFilterCommandWide(&self, index: u32, buffer: windows_core::PWSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetEventFilterCommandWide(&self, index: u32, command: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -11981,7 +12023,13 @@ impl IDebugControl6_Vtbl {
         }
         unsafe extern "system" fn GetExtensionFunction<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, funcname: windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugControl6_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname), core::mem::transmute_copy(&function)).into()
+            match IDebugControl6_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname)) {
+                Ok(ok__) => {
+                    function.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetWindbgExtensionApis32<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -12333,7 +12381,13 @@ impl IDebugControl6_Vtbl {
         }
         unsafe extern "system" fn GetExtensionFunctionWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, funcname: windows_core::PCWSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugControl6_Impl::GetExtensionFunctionWide(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname), core::mem::transmute_copy(&function)).into()
+            match IDebugControl6_Impl::GetExtensionFunctionWide(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname)) {
+                Ok(ok__) => {
+                    function.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetEventFilterTextWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -12737,7 +12791,7 @@ pub trait IDebugControl7_Impl: Sized + windows_core::IUnknownImpl {
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn CallExtension(&self, handle: u64, function: &windows_core::PCSTR, arguments: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>;
+    fn GetExtensionFunction(&self, handle: u64, funcname: &windows_core::PCSTR) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>;
     fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()>;
     fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()>;
     fn GetNumberEventFilters(&self, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> windows_core::Result<()>;
@@ -12801,7 +12855,7 @@ pub trait IDebugControl7_Impl: Sized + windows_core::IUnknownImpl {
     fn AddExtensionWide(&self, path: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<u64>;
     fn GetExtensionByPathWide(&self, path: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn CallExtensionWide(&self, handle: u64, function: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetExtensionFunctionWide(&self, handle: u64, funcname: &windows_core::PCWSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>;
+    fn GetExtensionFunctionWide(&self, handle: u64, funcname: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>;
     fn GetEventFilterTextWide(&self, index: u32, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn GetEventFilterCommandWide(&self, index: u32, buffer: windows_core::PWSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetEventFilterCommandWide(&self, index: u32, command: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -13294,7 +13348,13 @@ impl IDebugControl7_Vtbl {
         }
         unsafe extern "system" fn GetExtensionFunction<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, funcname: windows_core::PCSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugControl7_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname), core::mem::transmute_copy(&function)).into()
+            match IDebugControl7_Impl::GetExtensionFunction(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname)) {
+                Ok(ok__) => {
+                    function.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetWindbgExtensionApis32<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -13646,7 +13706,13 @@ impl IDebugControl7_Vtbl {
         }
         unsafe extern "system" fn GetExtensionFunctionWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, funcname: windows_core::PCWSTR, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugControl7_Impl::GetExtensionFunctionWide(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname), core::mem::transmute_copy(&function)).into()
+            match IDebugControl7_Impl::GetExtensionFunctionWide(this, core::mem::transmute_copy(&handle), core::mem::transmute(&funcname)) {
+                Ok(ok__) => {
+                    function.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetEventFilterTextWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
