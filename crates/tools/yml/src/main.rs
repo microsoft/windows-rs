@@ -14,6 +14,7 @@ on:
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
     branches:
       - master
 
@@ -108,6 +109,7 @@ on:
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
     branches:
       - master
 
@@ -157,6 +159,7 @@ on:
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
     branches:
       - master
 
