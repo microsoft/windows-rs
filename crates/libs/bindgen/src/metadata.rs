@@ -186,12 +186,7 @@ impl SignatureParam {
         if self.ty.deref().size() > 16 {
             return false;
         }
-        // Win32 callbacks are defined as `Option<T>` so we don't include them here to avoid
-        // producing the `Result<Option<T>>` anti-pattern.
-        match self.ty.deref() {
-            Type::TypeDef(def, _) => !type_def_is_callback(def),
-            _ => true,
-        }
+        true
     }
 }
 
@@ -489,10 +484,6 @@ fn type_is_trivially_convertible(ty: &Type) -> bool {
         },
         _ => false,
     }
-}
-
-fn type_def_is_callback(row: TypeDef) -> bool {
-    !row.flags().contains(TypeAttributes::WindowsRuntime) && row.kind() == TypeKind::Delegate
 }
 
 pub fn type_def_has_float(def: TypeDef) -> bool {

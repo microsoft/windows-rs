@@ -5509,11 +5509,12 @@ impl IDebugControl {
     {
         (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
-    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
+    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -6012,11 +6013,12 @@ impl IDebugControl2 {
     {
         (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
-    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
+    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -6569,11 +6571,12 @@ impl IDebugControl3 {
     {
         (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
-    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
+    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -7200,11 +7203,12 @@ impl IDebugControl4 {
     {
         (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
-    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
+    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -7519,11 +7523,12 @@ impl IDebugControl4 {
     {
         (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
-    pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
+    pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -8164,11 +8169,12 @@ impl IDebugControl5 {
     {
         (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
-    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
+    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -8483,11 +8489,12 @@ impl IDebugControl5 {
     {
         (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
-    pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
+    pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -9149,11 +9156,12 @@ impl IDebugControl6 {
     {
         (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
-    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
+    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -9468,11 +9476,12 @@ impl IDebugControl6 {
     {
         (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
-    pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
+    pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
@@ -10143,11 +10152,12 @@ impl IDebugControl7 {
     {
         (windows_core::Interface::vtable(self).CallExtension)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
-    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
+    pub unsafe fn GetExtensionFunction<P0>(&self, handle: u64, funcname: P0) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
@@ -10462,11 +10472,12 @@ impl IDebugControl7 {
     {
         (windows_core::Interface::vtable(self).CallExtensionWide)(windows_core::Interface::as_raw(self), handle, function.param().abi(), arguments.param().abi()).ok()
     }
-    pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0, function: *mut super::super::super::super::Foundation::FARPROC) -> windows_core::Result<()>
+    pub unsafe fn GetExtensionFunctionWide<P0>(&self, handle: u64, funcname: P0) -> windows_core::Result<super::super::super::super::Foundation::FARPROC>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), function).ok()
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtensionFunctionWide)(windows_core::Interface::as_raw(self), handle, funcname.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(textsize.unwrap_or(std::ptr::null_mut()))).ok()
