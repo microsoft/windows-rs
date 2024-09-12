@@ -1917,7 +1917,7 @@ impl Default for ETW_BUFFER_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ETW_OPEN_TRACE_OPTIONS {
     pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
     pub EventCallback: PEVENT_RECORD_CALLBACK,

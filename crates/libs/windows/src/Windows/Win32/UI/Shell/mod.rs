@@ -33951,7 +33951,7 @@ impl Default for BASEBROWSERDATAXP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BROWSEINFOA {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pidlRoot: *mut Common::ITEMIDLIST,
@@ -33974,7 +33974,7 @@ impl Default for BROWSEINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BROWSEINFOW {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pidlRoot: *mut Common::ITEMIDLIST,
@@ -34222,7 +34222,7 @@ impl Default for CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-#[derive(Debug)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct CSFV {
     pub cbSize: u32,
     pub pshf: core::mem::ManuallyDrop<Option<IShellFolder>>,
@@ -35714,7 +35714,7 @@ impl Default for SFVM_HELPTOPIC_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SFVM_PROPPAGE_DATA {
     pub dwReserved: u32,
     pub pfn: super::Controls::LPFNSVADDPROPSHEETPAGE,

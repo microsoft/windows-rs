@@ -6885,7 +6885,7 @@ impl Default for ELEMDESC_0 {
     }
 }
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,

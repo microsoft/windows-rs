@@ -2550,7 +2550,7 @@ impl Default for CF_CALLBACK_PARAMETERS_0_11 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_CorrelationVector")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_REGISTRATION {
     pub Type: CF_CALLBACK_TYPE,
     pub Callback: CF_CALLBACK,

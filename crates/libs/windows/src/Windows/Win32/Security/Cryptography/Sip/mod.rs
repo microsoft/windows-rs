@@ -193,7 +193,7 @@ impl Default for SIP_CAP_SET_V3_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::super::super::Foundation::HANDLE,

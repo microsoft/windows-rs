@@ -9311,7 +9311,7 @@ impl Default for D2D1_PRINT_CONTROL_PROPERTIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_PROPERTY_BINDING {
     pub propertyName: windows_core::PCWSTR,
     pub setFunction: PD2D1_PROPERTY_SET_FUNCTION,

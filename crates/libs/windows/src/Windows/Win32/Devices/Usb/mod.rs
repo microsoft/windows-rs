@@ -3735,7 +3735,7 @@ impl Default for USB_HUB_STATUS_AND_CHANGE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USB_IDLE_CALLBACK_INFO {
     pub IdleCallback: USB_IDLE_CALLBACK,
     pub IdleContext: *mut core::ffi::c_void,
