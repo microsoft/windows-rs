@@ -163,6 +163,8 @@ jobs:
         run:  cargo test -p test_async --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_bcrypt
         run:  cargo test -p test_bcrypt --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_bindgen
+        run:  cargo test -p test_bindgen --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_calling_convention
         run:  cargo test -p test_calling_convention --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_cfg_generic
@@ -253,10 +255,10 @@ jobs:
         run:  cargo test -p test_registry --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_registry_default
         run:  cargo test -p test_registry_default --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_reserved
-        run:  cargo test -p test_reserved --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_reserved
+        run:  cargo test -p test_reserved --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_resources
         run:  cargo test -p test_resources --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_result
