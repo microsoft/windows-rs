@@ -495,46 +495,6 @@ fn type_def_is_callback(row: TypeDef) -> bool {
     !row.flags().contains(TypeAttributes::WindowsRuntime) && row.kind() == TypeKind::Delegate
 }
 
-pub fn type_has_callback(ty: &Type) -> bool {
-    match ty {
-        Type::TypeDef(row, _) => type_def_has_callback(*row),
-        Type::Win32Array(ty, _) => type_has_callback(ty),
-        _ => false,
-    }
-}
-
-pub fn type_def_has_callback(row: TypeDef) -> bool {
-    if type_def_is_callback(row) {
-        return true;
-    }
-    if row.kind() != TypeKind::Struct {
-        return false;
-    }
-    fn check(row: TypeDef) -> bool {
-        if row
-            .fields()
-            .any(|field| type_has_callback(&field.ty(Some(row))))
-        {
-            return true;
-        }
-        false
-    }
-    let type_name = row.type_name();
-    if type_name.namespace().is_empty() {
-        check(row)
-    } else {
-        for row in row
-            .reader()
-            .get_type_def(type_name.namespace(), type_name.name())
-        {
-            if check(row) {
-                return true;
-            }
-        }
-        false
-    }
-}
-
 pub fn type_def_has_float(def: TypeDef) -> bool {
     def.kind() == TypeKind::Struct
         && def
