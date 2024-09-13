@@ -11,4 +11,5 @@ features = [
     "Win32_System_Ole",
     "Win32_UI_Shell",
     "Win32_UI_WindowsAndMessaging",
+    "Win32_System_Variant",
 ]

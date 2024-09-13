@@ -1,22 +1,24 @@
 use windows::Foundation::Uri;
 use windows::Win32::Foundation::{E_INVALIDARG, TYPE_E_TYPEMISMATCH};
 use windows::Win32::System::Com;
+use windows::Win32::System::Com::StructuredStorage::PROPVARIANT;
+use windows::Win32::System::Variant::*;
 use windows_core::*;
 
 #[test]
 fn test_variant() -> Result<()> {
     unsafe { Com::CoIncrementMTAUsage()? };
 
-    let empty: VARIANT = VARIANT::new();
+    let empty: VARIANT = VARIANT::default();
     assert!(empty.is_empty());
 
     let v = VARIANT::default();
     assert!(v.is_empty());
-
-    assert_eq!(VARIANT::new(), VARIANT::default());
+    assert_eq!(v.vt(), VT_EMPTY);
 
     let v = VARIANT::from(true);
     assert!(!v.is_empty());
+    assert_eq!(v.vt(), VT_BOOL);
     assert_eq!(bool::try_from(&v)?, true);
     let v = VARIANT::from(false);
     assert_eq!(bool::try_from(&v)?, false);
@@ -118,7 +120,7 @@ fn test_variant() -> Result<()> {
     let v = VARIANT::from(3.5f64);
     assert_eq!(BSTR::try_from(&v)?, "3.5");
 
-    assert_eq!(format!("{v:?}"), "VARIANT { type: 5, value: 3.5 }");
+    assert_eq!(format!("{v:?}"), "VARIANT { type: VARENUM(5), value: 3.5 }");
     assert_eq!(format!("{v}"), "3.5");
 
     let clone = v.clone();
@@ -133,16 +135,16 @@ fn test_variant() -> Result<()> {
 fn test_propvariant() -> Result<()> {
     unsafe { Com::CoIncrementMTAUsage()? };
 
-    let empty: PROPVARIANT = PROPVARIANT::new();
+    let empty: PROPVARIANT = PROPVARIANT::default();
     assert!(empty.is_empty());
 
     let v = PROPVARIANT::default();
     assert!(v.is_empty());
-
-    assert_eq!(PROPVARIANT::new(), PROPVARIANT::default());
+    assert_eq!(v.vt(), VT_EMPTY);
 
     let v = PROPVARIANT::from(true);
     assert!(!v.is_empty());
+    assert_eq!(v.vt(), VT_BOOL);
     assert_eq!(bool::try_from(&v)?, true);
     let v = PROPVARIANT::from(false);
     assert_eq!(bool::try_from(&v)?, false);
@@ -250,7 +252,10 @@ fn test_propvariant() -> Result<()> {
     let v = PROPVARIANT::from(3.5f64);
     assert_eq!(BSTR::try_from(&v)?, "3.5");
 
-    assert_eq!(format!("{v:?}"), "PROPVARIANT { type: 5, value: 3.5 }");
+    assert_eq!(
+        format!("{v:?}"),
+        "PROPVARIANT { type: VARENUM(5), value: 3.5 }"
+    );
     assert_eq!(format!("{v}"), "3.5");
 
     let clone = v.clone();
