@@ -465,8 +465,6 @@ pub fn type_is_borrowed(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => !type_def_is_blittable(*row),
         Type::Name(TypeName::BSTR)
-        | Type::Name(TypeName::VARIANT)
-        | Type::Name(TypeName::PROPVARIANT)
         | Type::Const(TypeName::PSTR)
         | Type::Const(TypeName::PWSTR)
         | Type::Object
@@ -590,8 +588,6 @@ pub fn type_is_blittable(ty: &Type) -> bool {
         Type::TypeDef(row, _) => type_def_is_blittable(*row),
         Type::String
         | Type::Name(TypeName::BSTR)
-        | Type::Name(TypeName::VARIANT)
-        | Type::Name(TypeName::PROPVARIANT)
         | Type::Object
         | Type::Name(TypeName::IUnknown)
         | Type::GenericParam(_) => false,
@@ -606,8 +602,6 @@ fn type_is_copyable(ty: &Type) -> bool {
         Type::TypeDef(row, _) => type_def_is_copyable(*row),
         Type::String
         | Type::Name(TypeName::BSTR)
-        | Type::Name(TypeName::VARIANT)
-        | Type::Name(TypeName::PROPVARIANT)
         | Type::Object
         | Type::Name(TypeName::IUnknown)
         | Type::GenericParam(_) => false,
@@ -623,7 +617,7 @@ pub fn type_def_is_blittable(row: TypeDef) -> bool {
             if row.flags().contains(TypeAttributes::WindowsRuntime) {
                 row.fields().all(|field| field_is_blittable(field, row))
             } else {
-                true
+                !matches!(row.type_name(), TypeName::VARIANT | TypeName::PROPVARIANT)
             }
         }
         TypeKind::Enum => true,
@@ -634,7 +628,13 @@ pub fn type_def_is_blittable(row: TypeDef) -> bool {
 
 pub fn type_def_is_copyable(row: TypeDef) -> bool {
     match row.kind() {
-        TypeKind::Struct => row.fields().all(|field| field_is_copyable(field, row)),
+        TypeKind::Struct => {
+            if matches!(row.type_name(), TypeName::VARIANT | TypeName::PROPVARIANT) {
+                false
+            } else {
+                row.fields().all(|field| field_is_copyable(field, row))
+            }
+        }
         TypeKind::Enum => true,
         TypeKind::Delegate => !row.flags().contains(TypeAttributes::WindowsRuntime),
         _ => false,
