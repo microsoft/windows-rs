@@ -837,7 +837,8 @@ impl core::ops::Deref for IFsrmClassifierModuleImplementation {
 windows_core::imp::interface_hierarchy!(IFsrmClassifierModuleImplementation, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmPipelineModuleImplementation);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassifierModuleImplementation {
-    pub unsafe fn LastModified(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn LastModified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LastModified)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -877,7 +878,10 @@ impl IFsrmClassifierModuleImplementation {
 #[repr(C)]
 pub struct IFsrmClassifierModuleImplementation_Vtbl {
     pub base__: IFsrmPipelineModuleImplementation_Vtbl,
-    pub LastModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub LastModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    LastModified: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub UseRulesAndDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -907,7 +911,8 @@ impl IFsrmCollection {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -926,7 +931,8 @@ impl IFsrmCollection {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).WaitForCompletion)(windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
     }
-    pub unsafe fn GetById(&self, id: windows_core::GUID) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetById(&self, id: windows_core::GUID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetById)(windows_core::Interface::as_raw(self), core::mem::transmute(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -936,12 +942,18 @@ impl IFsrmCollection {
 pub struct IFsrmCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    get_Item: usize,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FsrmCollectionState) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub WaitForCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    pub GetById: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetById: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetById: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmCommittableCollection, IFsrmCommittableCollection_Vtbl, 0x96deb3b5_8b91_4a2a_9d93_80a35d8aa847);
@@ -1021,15 +1033,16 @@ impl core::ops::Deref for IFsrmExportImport {
 windows_core::imp::interface_hierarchy!(IFsrmExportImport, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmExportImport {
-    pub unsafe fn ExportFileGroups<P0, P1>(&self, filepath: P0, filegroupnamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ExportFileGroups<P0, P1>(&self, filepath: P0, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).ExportFileGroups)(windows_core::Interface::as_raw(self), filepath.param().abi(), core::mem::transmute(filegroupnamessafearray), remotehost.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ImportFileGroups<P0, P1>(&self, filepath: P0, filegroupnamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<IFsrmCommittableCollection>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ImportFileGroups<P0, P1>(&self, filepath: P0, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: P1) -> windows_core::Result<IFsrmCommittableCollection>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
@@ -1037,15 +1050,16 @@ impl IFsrmExportImport {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ImportFileGroups)(windows_core::Interface::as_raw(self), filepath.param().abi(), core::mem::transmute(filegroupnamessafearray), remotehost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn ExportFileScreenTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ExportFileScreenTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).ExportFileScreenTemplates)(windows_core::Interface::as_raw(self), filepath.param().abi(), core::mem::transmute(templatenamessafearray), remotehost.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ImportFileScreenTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<IFsrmCommittableCollection>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ImportFileScreenTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: P1) -> windows_core::Result<IFsrmCommittableCollection>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
@@ -1053,15 +1067,16 @@ impl IFsrmExportImport {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ImportFileScreenTemplates)(windows_core::Interface::as_raw(self), filepath.param().abi(), core::mem::transmute(templatenamessafearray), remotehost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn ExportQuotaTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ExportQuotaTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).ExportQuotaTemplates)(windows_core::Interface::as_raw(self), filepath.param().abi(), core::mem::transmute(templatenamessafearray), remotehost.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ImportQuotaTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const windows_core::VARIANT, remotehost: P1) -> windows_core::Result<IFsrmCommittableCollection>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ImportQuotaTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: P1) -> windows_core::Result<IFsrmCommittableCollection>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
@@ -1074,20 +1089,29 @@ impl IFsrmExportImport {
 #[repr(C)]
 pub struct IFsrmExportImport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub ExportFileGroups: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub ImportFileGroups: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ExportFileGroups: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ExportFileGroups: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ImportFileGroups: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ImportFileGroups: usize,
-    pub ExportFileScreenTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub ImportFileScreenTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ExportFileScreenTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ExportFileScreenTemplates: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ImportFileScreenTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ImportFileScreenTemplates: usize,
-    pub ExportQuotaTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub ImportQuotaTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ExportQuotaTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ExportQuotaTemplates: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ImportQuotaTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ImportQuotaTemplates: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1162,13 +1186,15 @@ impl IFsrmFileConditionProperty {
     pub unsafe fn SetValueType(&self, newval: FsrmPropertyValueType) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetValueType)(windows_core::Interface::as_raw(self), newval).ok()
     }
-    pub unsafe fn Value(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue<P0>(&self, newval: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
     }
@@ -1185,8 +1211,14 @@ pub struct IFsrmFileConditionProperty_Vtbl {
     pub SetOperator: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmPropertyConditionType) -> windows_core::HRESULT,
     pub ValueType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FsrmPropertyValueType) -> windows_core::HRESULT,
     pub SetValueType: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmPropertyValueType) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Value: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetValue: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmFileGroup, IFsrmFileGroup_Vtbl, 0x8dd04909_0e34_4d55_afaa_89e1f1a1bbb9);
@@ -1321,12 +1353,13 @@ impl IFsrmFileGroupManager {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumFileGroups)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn ExportFileGroups(&self, filegroupnamesarray: *const windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ExportFileGroups(&self, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ExportFileGroups)(windows_core::Interface::as_raw(self), core::mem::transmute(filegroupnamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ImportFileGroups<P0>(&self, serializedfilegroups: P0, filegroupnamesarray: *const windows_core::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ImportFileGroups<P0>(&self, serializedfilegroups: P0, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
@@ -1350,10 +1383,13 @@ pub struct IFsrmFileGroupManager_Vtbl {
     pub EnumFileGroups: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmEnumOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumFileGroups: usize,
-    pub ExportFileGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub ImportFileGroups: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ExportFileGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ExportFileGroups: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ImportFileGroups: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ImportFileGroups: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2130,12 +2166,13 @@ impl IFsrmFileScreenTemplateManager {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumTemplates)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn ExportTemplates(&self, filescreentemplatenamesarray: *const windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ExportTemplates(&self, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ExportTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute(filescreentemplatenamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ImportTemplates<P0>(&self, serializedfilescreentemplates: P0, filescreentemplatenamesarray: *const windows_core::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ImportTemplates<P0>(&self, serializedfilescreentemplates: P0, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
@@ -2159,10 +2196,13 @@ pub struct IFsrmFileScreenTemplateManager_Vtbl {
     pub EnumTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmEnumOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumTemplates: usize,
-    pub ExportTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub ImportTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ExportTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ExportTemplates: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ImportTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ImportTemplates: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2178,9 +2218,10 @@ impl core::ops::Deref for IFsrmMutableCollection {
 windows_core::imp::interface_hierarchy!(IFsrmMutableCollection, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmCollection);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmMutableCollection {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, item: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), item.param().abi()).ok()
     }
@@ -2200,7 +2241,10 @@ impl IFsrmMutableCollection {
 #[repr(C)]
 pub struct IFsrmMutableCollection_Vtbl {
     pub base__: IFsrmCollection_Vtbl,
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Add: usize,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub RemoveById: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -2588,31 +2632,38 @@ impl IFsrmPropertyBag {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).VolumeIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn FileId(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn FileId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FileId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn ParentDirectoryId(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ParentDirectoryId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ParentDirectoryId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Size(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Size(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Size)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SizeAllocated(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SizeAllocated(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SizeAllocated)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreationTime(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreationTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn LastAccessTime(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn LastAccessTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LastAccessTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn LastModificationTime(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn LastModificationTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LastModificationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -2659,7 +2710,8 @@ impl IFsrmPropertyBag {
     {
         (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), message.param().abi()).ok()
     }
-    pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFileStreamInterface)(windows_core::Interface::as_raw(self), accessmode, interfacetype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -2673,13 +2725,34 @@ pub struct IFsrmPropertyBag_Vtbl {
     pub VolumeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub RelativeNamespaceRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub VolumeIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub FileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub ParentDirectoryId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub SizeAllocated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub CreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub LastAccessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub LastModificationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub FileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    FileId: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ParentDirectoryId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ParentDirectoryId: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Size: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SizeAllocated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SizeAllocated: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub CreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    CreationTime: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub LastAccessTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    LastAccessTime: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub LastModificationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    LastModificationTime: usize,
     pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub OwnerSid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -2697,7 +2770,10 @@ pub struct IFsrmPropertyBag_Vtbl {
     GetFileProperty: usize,
     pub SetFileProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub AddMessage: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetFileStreamInterface: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmFileStreamingMode, FsrmFileStreamingInterfaceType, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetFileStreamInterface: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmFileStreamingMode, FsrmFileStreamingInterfaceType, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetFileStreamInterface: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmPropertyBag2, IFsrmPropertyBag2_Vtbl, 0x0e46bdbd_2402_4fed_9c30_9266e6eb2cc9);
@@ -2712,7 +2788,8 @@ impl core::ops::Deref for IFsrmPropertyBag2 {
 windows_core::imp::interface_hierarchy!(IFsrmPropertyBag2, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmPropertyBag);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyBag2 {
-    pub unsafe fn GetFieldValue(&self, field: FsrmPropertyBagField) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetFieldValue(&self, field: FsrmPropertyBagField) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFieldValue)(windows_core::Interface::as_raw(self), field, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -2726,7 +2803,10 @@ impl IFsrmPropertyBag2 {
 #[repr(C)]
 pub struct IFsrmPropertyBag2_Vtbl {
     pub base__: IFsrmPropertyBag_Vtbl,
-    pub GetFieldValue: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmPropertyBagField, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetFieldValue: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmPropertyBagField, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetFieldValue: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub GetUntrustedInFileProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2981,11 +3061,13 @@ impl core::ops::Deref for IFsrmQuota {
 windows_core::imp::interface_hierarchy!(IFsrmQuota, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaObject);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuota {
-    pub unsafe fn QuotaUsed(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn QuotaUsed(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).QuotaUsed)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn QuotaPeakUsage(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn QuotaPeakUsage(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).QuotaPeakUsage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -3004,8 +3086,14 @@ impl IFsrmQuota {
 #[repr(C)]
 pub struct IFsrmQuota_Vtbl {
     pub base__: IFsrmQuotaObject_Vtbl,
-    pub QuotaUsed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub QuotaPeakUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub QuotaUsed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    QuotaUsed: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub QuotaPeakUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    QuotaPeakUsage: usize,
     pub QuotaPeakUsageTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub ResetPeakUsage: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RefreshUsageProperties: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3023,13 +3111,15 @@ impl core::ops::Deref for IFsrmQuotaBase {
 windows_core::imp::interface_hierarchy!(IFsrmQuotaBase, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaBase {
-    pub unsafe fn QuotaLimit(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn QuotaLimit(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).QuotaLimit)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).SetQuotaLimit)(windows_core::Interface::as_raw(self), quotalimit.param().abi()).ok()
     }
@@ -3069,8 +3159,14 @@ impl IFsrmQuotaBase {
 #[repr(C)]
 pub struct IFsrmQuotaBase_Vtbl {
     pub base__: IFsrmObject_Vtbl,
-    pub QuotaLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub SetQuotaLimit: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub QuotaLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    QuotaLimit: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetQuotaLimit: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetQuotaLimit: usize,
     pub QuotaFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetQuotaFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -3426,12 +3522,13 @@ impl IFsrmQuotaTemplateManager {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumTemplates)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn ExportTemplates(&self, quotatemplatenamesarray: *const windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ExportTemplates(&self, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ExportTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute(quotatemplatenamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ImportTemplates<P0>(&self, serializedquotatemplates: P0, quotatemplatenamesarray: *const windows_core::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ImportTemplates<P0>(&self, serializedquotatemplates: P0, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
@@ -3455,10 +3552,13 @@ pub struct IFsrmQuotaTemplateManager_Vtbl {
     pub EnumTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmEnumOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumTemplates: usize,
-    pub ExportTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub ImportTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ExportTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ExportTemplates: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ImportTemplates: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ImportTemplates: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3502,13 +3602,15 @@ impl IFsrmReport {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LastGeneratedFileNamePrefix)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetFilter(&self, filter: FsrmReportFilter) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetFilter(&self, filter: FsrmReportFilter) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFilter)(windows_core::Interface::as_raw(self), filter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetFilter<P0>(&self, filter: FsrmReportFilter, filtervalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).SetFilter)(windows_core::Interface::as_raw(self), filter, filtervalue.param().abi()).ok()
     }
@@ -3526,8 +3628,14 @@ pub struct IFsrmReport_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub LastGeneratedFileNamePrefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetFilter: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportFilter, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub SetFilter: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportFilter, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetFilter: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportFilter, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetFilter: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetFilter: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportFilter, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetFilter: usize,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3703,23 +3811,27 @@ impl IFsrmReportManager {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsFilterValidForReportType)(windows_core::Interface::as_raw(self), reporttype, filter, &mut result__).map(|| result__)
     }
-    pub unsafe fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDefaultFilter)(windows_core::Interface::as_raw(self), reporttype, filter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetDefaultFilter<P0>(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).SetDefaultFilter)(windows_core::Interface::as_raw(self), reporttype, filter, filtervalue.param().abi()).ok()
     }
-    pub unsafe fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetReportSizeLimit)(windows_core::Interface::as_raw(self), limit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetReportSizeLimit<P0>(&self, limit: FsrmReportLimit, limitvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).SetReportSizeLimit)(windows_core::Interface::as_raw(self), limit, limitvalue.param().abi()).ok()
     }
@@ -3743,10 +3855,22 @@ pub struct IFsrmReportManager_Vtbl {
     pub GetOutputDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportGenerationContext, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetOutputDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportGenerationContext, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub IsFilterValidForReportType: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportType, FsrmReportFilter, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    pub GetDefaultFilter: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportType, FsrmReportFilter, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub SetDefaultFilter: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportType, FsrmReportFilter, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub GetReportSizeLimit: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportLimit, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub SetReportSizeLimit: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportLimit, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetDefaultFilter: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportType, FsrmReportFilter, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetDefaultFilter: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetDefaultFilter: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportType, FsrmReportFilter, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetDefaultFilter: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetReportSizeLimit: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportLimit, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetReportSizeLimit: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetReportSizeLimit: unsafe extern "system" fn(*mut core::ffi::c_void, FsrmReportLimit, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetReportSizeLimit: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmReportScheduler, IFsrmReportScheduler_Vtbl, 0x6879caf9_6617_4484_8719_71c3d8645f94);
@@ -3761,17 +3885,20 @@ impl core::ops::Deref for IFsrmReportScheduler {
 windows_core::imp::interface_hierarchy!(IFsrmReportScheduler, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmReportScheduler {
-    pub unsafe fn VerifyNamespaces(&self, namespacessafearray: *const windows_core::VARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn VerifyNamespaces(&self, namespacessafearray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).VerifyNamespaces)(windows_core::Interface::as_raw(self), core::mem::transmute(namespacessafearray)).ok()
     }
-    pub unsafe fn CreateScheduleTask<P0, P1>(&self, taskname: P0, namespacessafearray: *const windows_core::VARIANT, serializedtask: P1) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreateScheduleTask<P0, P1>(&self, taskname: P0, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).CreateScheduleTask)(windows_core::Interface::as_raw(self), taskname.param().abi(), core::mem::transmute(namespacessafearray), serializedtask.param().abi()).ok()
     }
-    pub unsafe fn ModifyScheduleTask<P0, P1>(&self, taskname: P0, namespacessafearray: *const windows_core::VARIANT, serializedtask: P1) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ModifyScheduleTask<P0, P1>(&self, taskname: P0, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
@@ -3789,9 +3916,18 @@ impl IFsrmReportScheduler {
 #[repr(C)]
 pub struct IFsrmReportScheduler_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub VerifyNamespaces: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub CreateScheduleTask: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub ModifyScheduleTask: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub VerifyNamespaces: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    VerifyNamespaces: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub CreateScheduleTask: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    CreateScheduleTask: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ModifyScheduleTask: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ModifyScheduleTask: usize,
     pub DeleteScheduleTask: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3856,7 +3992,8 @@ impl IFsrmRule {
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), parameters).ok()
     }
-    pub unsafe fn LastModified(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn LastModified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).LastModified)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -3888,7 +4025,10 @@ pub struct IFsrmRule_Vtbl {
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetParameters: usize,
-    pub LastModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub LastModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    LastModified: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFsrmSetting, IFsrmSetting_Vtbl, 0xf411d4fd_14be_4260_8c40_03b7c95e608a);

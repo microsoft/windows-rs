@@ -335,10 +335,11 @@ impl core::ops::Deref for IWinHttpRequest {
 windows_core::imp::interface_hierarchy!(IWinHttpRequest, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWinHttpRequest {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProxy<P0, P1>(&self, proxysetting: i32, proxyserver: P0, bypasslist: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
+        P1: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).SetProxy)(windows_core::Interface::as_raw(self), proxysetting, proxyserver.param().abi(), bypasslist.param().abi()).ok()
     }
@@ -349,11 +350,12 @@ impl IWinHttpRequest {
     {
         (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), username.param().abi(), password.param().abi(), flags).ok()
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Open<P0, P1, P2>(&self, method: P0, url: P1, r#async: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::VARIANT>,
+        P2: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), method.param().abi(), url.param().abi(), r#async.param().abi()).ok()
     }
@@ -375,9 +377,10 @@ impl IWinHttpRequest {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAllResponseHeaders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Send<P0>(&self, body: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).Send)(windows_core::Interface::as_raw(self), body.param().abi()).ok()
     }
@@ -393,27 +396,32 @@ impl IWinHttpRequest {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ResponseText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn ResponseBody(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ResponseBody(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ResponseBody)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn ResponseStream(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ResponseStream(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ResponseStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn get_Option(&self, option: WinHttpRequestOption) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_Option(&self, option: WinHttpRequestOption) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Option)(windows_core::Interface::as_raw(self), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn put_Option<P0>(&self, option: WinHttpRequestOption, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).put_Option)(windows_core::Interface::as_raw(self), option, value.param().abi()).ok()
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn WaitForResponse<P0>(&self, timeout: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).WaitForResponse)(windows_core::Interface::as_raw(self), timeout.param().abi(), &mut result__).map(|| result__)
@@ -438,21 +446,45 @@ impl IWinHttpRequest {
 #[repr(C)]
 pub struct IWinHttpRequest_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub SetProxy: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::VARIANT>, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetProxy: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetProxy: usize,
     pub SetCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, i32) -> windows_core::HRESULT,
-    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Open: usize,
     pub SetRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetResponseHeader: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetAllResponseHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub Send: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Send: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Send: usize,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub StatusText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub ResponseText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub ResponseBody: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub ResponseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub get_Option: unsafe extern "system" fn(*mut core::ffi::c_void, WinHttpRequestOption, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub put_Option: unsafe extern "system" fn(*mut core::ffi::c_void, WinHttpRequestOption, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub WaitForResponse: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ResponseBody: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ResponseBody: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ResponseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ResponseStream: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_Option: unsafe extern "system" fn(*mut core::ffi::c_void, WinHttpRequestOption, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    get_Option: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub put_Option: unsafe extern "system" fn(*mut core::ffi::c_void, WinHttpRequestOption, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    put_Option: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub WaitForResponse: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    WaitForResponse: usize,
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32) -> windows_core::HRESULT,
     pub SetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,

@@ -401,10 +401,12 @@ impl core::ops::Deref for IMetaDataDispenserEx {
 }
 windows_core::imp::interface_hierarchy!(IMetaDataDispenserEx, windows_core::IUnknown, IMetaDataDispenser);
 impl IMetaDataDispenserEx {
-    pub unsafe fn SetOption(&self, optionid: *const windows_core::GUID, value: *const windows_core::VARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetOption(&self, optionid: *const windows_core::GUID, value: *const super::super::Variant::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOption)(windows_core::Interface::as_raw(self), optionid, core::mem::transmute(value)).ok()
     }
-    pub unsafe fn GetOption(&self, optionid: *const windows_core::GUID, pvalue: *mut windows_core::VARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetOption(&self, optionid: *const windows_core::GUID, pvalue: *mut super::super::Variant::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOption)(windows_core::Interface::as_raw(self), optionid, core::mem::transmute(pvalue)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -442,8 +444,14 @@ impl IMetaDataDispenserEx {
 #[repr(C)]
 pub struct IMetaDataDispenserEx_Vtbl {
     pub base__: IMetaDataDispenser_Vtbl,
-    pub SetOption: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub GetOption: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetOption: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetOption: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetOption: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetOption: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub OpenScopeOnITypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]

@@ -1,8 +1,8 @@
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DIFsrmClassificationEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DIFsrmClassificationEvents {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DIFsrmClassificationEvents_Vtbl {
     pub const fn new<Identity: DIFsrmClassificationEvents_Impl, const OFFSET: isize>() -> DIFsrmClassificationEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -11,13 +11,13 @@ impl DIFsrmClassificationEvents_Vtbl {
         iid == &<DIFsrmClassificationEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmAccessDeniedRemediationClient_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Show(&self, parentwnd: usize, accesspath: &windows_core::BSTR, errortype: AdrClientErrorType, flags: i32, windowtitle: &windows_core::BSTR, windowmessage: &windows_core::BSTR) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmAccessDeniedRemediationClient {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmAccessDeniedRemediationClient_Vtbl {
     pub const fn new<Identity: IFsrmAccessDeniedRemediationClient_Impl, const OFFSET: isize>() -> IFsrmAccessDeniedRemediationClient_Vtbl {
         unsafe extern "system" fn Show<Identity: IFsrmAccessDeniedRemediationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentwnd: usize, accesspath: core::mem::MaybeUninit<windows_core::BSTR>, errortype: AdrClientErrorType, flags: i32, windowtitle: core::mem::MaybeUninit<windows_core::BSTR>, windowmessage: core::mem::MaybeUninit<windows_core::BSTR>, result: *mut i32) -> windows_core::HRESULT {
@@ -36,7 +36,7 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
         iid == &<IFsrmAccessDeniedRemediationClient as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmAction_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<windows_core::GUID>;
     fn ActionType(&self) -> windows_core::Result<FsrmActionType>;
@@ -44,9 +44,9 @@ pub trait IFsrmAction_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetRunLimitInterval(&self, minutes: i32) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmAction {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmAction_Vtbl {
     pub const fn new<Identity: IFsrmAction_Impl, const OFFSET: isize>() -> IFsrmAction_Vtbl {
         unsafe extern "system" fn Id<Identity: IFsrmAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -100,7 +100,7 @@ impl IFsrmAction_Vtbl {
         iid == &<IFsrmAction as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmActionCommand_Impl: Sized + IFsrmAction_Impl {
     fn ExecutablePath(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetExecutablePath(&self, executablepath: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -117,9 +117,9 @@ pub trait IFsrmActionCommand_Impl: Sized + IFsrmAction_Impl {
     fn LogResult(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetLogResult(&self, logresults: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmActionCommand {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmActionCommand_Vtbl {
     pub const fn new<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>() -> IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn ExecutablePath<Identity: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executablepath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -242,7 +242,7 @@ impl IFsrmActionCommand_Vtbl {
         iid == &<IFsrmActionCommand as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmAction as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmActionEmail_Impl: Sized + IFsrmAction_Impl {
     fn MailFrom(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -259,9 +259,9 @@ pub trait IFsrmActionEmail_Impl: Sized + IFsrmAction_Impl {
     fn MessageText(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmActionEmail {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmActionEmail_Vtbl {
     pub const fn new<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>() -> IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn MailFrom<Identity: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailfrom: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -384,14 +384,14 @@ impl IFsrmActionEmail_Vtbl {
         iid == &<IFsrmActionEmail as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmAction as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmActionEmail2_Impl: Sized + IFsrmActionEmail_Impl {
     fn AttachmentFileListSize(&self) -> windows_core::Result<i32>;
     fn SetAttachmentFileListSize(&self, attachmentfilelistsize: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmActionEmail2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmActionEmail2_Vtbl {
     pub const fn new<Identity: IFsrmActionEmail2_Impl, const OFFSET: isize>() -> IFsrmActionEmail2_Vtbl {
         unsafe extern "system" fn AttachmentFileListSize<Identity: IFsrmActionEmail2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attachmentfilelistsize: *mut i32) -> windows_core::HRESULT {
@@ -418,16 +418,16 @@ impl IFsrmActionEmail2_Vtbl {
         iid == &<IFsrmActionEmail2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmAction as windows_core::Interface>::IID || iid == &<IFsrmActionEmail as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmActionEventLog_Impl: Sized + IFsrmAction_Impl {
     fn EventType(&self) -> windows_core::Result<FsrmEventType>;
     fn SetEventType(&self, eventtype: FsrmEventType) -> windows_core::Result<()>;
     fn MessageText(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmActionEventLog {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmActionEventLog_Vtbl {
     pub const fn new<Identity: IFsrmActionEventLog_Impl, const OFFSET: isize>() -> IFsrmActionEventLog_Vtbl {
         unsafe extern "system" fn EventType<Identity: IFsrmActionEventLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventtype: *mut FsrmEventType) -> windows_core::HRESULT {
@@ -470,16 +470,16 @@ impl IFsrmActionEventLog_Vtbl {
         iid == &<IFsrmActionEventLog as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmAction as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmActionReport_Impl: Sized + IFsrmAction_Impl {
     fn ReportTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetReportTypes(&self, reporttypes: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn MailTo(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmActionReport {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmActionReport_Vtbl {
     pub const fn new<Identity: IFsrmActionReport_Impl, const OFFSET: isize>() -> IFsrmActionReport_Vtbl {
         unsafe extern "system" fn ReportTypes<Identity: IFsrmActionReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttypes: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
@@ -522,15 +522,15 @@ impl IFsrmActionReport_Vtbl {
         iid == &<IFsrmActionReport as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmAction as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmAutoApplyQuota_Impl: Sized + IFsrmQuotaObject_Impl {
     fn ExcludeFolders(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetExcludeFolders(&self, folders: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmAutoApplyQuota {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmAutoApplyQuota_Vtbl {
     pub const fn new<Identity: IFsrmAutoApplyQuota_Impl, const OFFSET: isize>() -> IFsrmAutoApplyQuota_Vtbl {
         unsafe extern "system" fn ExcludeFolders<Identity: IFsrmAutoApplyQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folders: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
@@ -568,7 +568,7 @@ impl IFsrmAutoApplyQuota_Vtbl {
         iid == &<IFsrmAutoApplyQuota as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmQuotaBase as windows_core::Interface>::IID || iid == &<IFsrmQuotaObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmClassificationManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ClassificationReportFormats(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetClassificationReportFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
@@ -598,9 +598,9 @@ pub trait IFsrmClassificationManager_Impl: Sized + super::super::System::Com::ID
     fn SetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, propertyvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ClearFileProperty(&self, filepath: &windows_core::BSTR, property: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmClassificationManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmClassificationManager_Vtbl {
     pub const fn new<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>() -> IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn ClassificationReportFormats<Identity: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formats: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
@@ -860,13 +860,13 @@ impl IFsrmClassificationManager_Vtbl {
         iid == &<IFsrmClassificationManager as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmClassificationManager2_Impl: Sized + IFsrmClassificationManager_Impl {
     fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmClassificationManager2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmClassificationManager2_Vtbl {
     pub const fn new<Identity: IFsrmClassificationManager2_Impl, const OFFSET: isize>() -> IFsrmClassificationManager2_Vtbl {
         unsafe extern "system" fn ClassifyFiles<Identity: IFsrmClassificationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> windows_core::HRESULT {
@@ -879,7 +879,7 @@ impl IFsrmClassificationManager2_Vtbl {
         iid == &<IFsrmClassificationManager2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmClassificationManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmClassificationRule_Impl: Sized + IFsrmRule_Impl {
     fn ExecutionOption(&self) -> windows_core::Result<FsrmExecutionOption>;
     fn SetExecutionOption(&self, executionoption: FsrmExecutionOption) -> windows_core::Result<()>;
@@ -888,9 +888,9 @@ pub trait IFsrmClassificationRule_Impl: Sized + IFsrmRule_Impl {
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetValue(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmClassificationRule {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmClassificationRule_Vtbl {
     pub const fn new<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>() -> IFsrmClassificationRule_Vtbl {
         unsafe extern "system" fn ExecutionOption<Identity: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionoption: *mut FsrmExecutionOption) -> windows_core::HRESULT {
@@ -949,7 +949,7 @@ impl IFsrmClassificationRule_Vtbl {
         iid == &<IFsrmClassificationRule as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmRule as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmClassifierModuleDefinition_Impl: Sized + IFsrmPipelineModuleDefinition_Impl {
     fn PropertiesAffected(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetPropertiesAffected(&self, propertiesaffected: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
@@ -958,9 +958,9 @@ pub trait IFsrmClassifierModuleDefinition_Impl: Sized + IFsrmPipelineModuleDefin
     fn NeedsExplicitValue(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetNeedsExplicitValue(&self, needsexplicitvalue: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmClassifierModuleDefinition {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmClassifierModuleDefinition_Vtbl {
     pub const fn new<Identity: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>() -> IFsrmClassifierModuleDefinition_Vtbl {
         unsafe extern "system" fn PropertiesAffected<Identity: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiesaffected: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
@@ -1019,21 +1019,21 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         iid == &<IFsrmClassifierModuleDefinition as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmClassifierModuleImplementation_Impl: Sized + IFsrmPipelineModuleImplementation_Impl {
-    fn LastModified(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn LastModified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn UseRulesAndDefinitions(&self, rules: Option<&IFsrmCollection>, propertydefinitions: Option<&IFsrmCollection>) -> windows_core::Result<()>;
     fn OnBeginFile(&self, propertybag: Option<&IFsrmPropertyBag>, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn DoesPropertyValueApply(&self, property: &windows_core::BSTR, value: &windows_core::BSTR, applyvalue: *mut super::super::Foundation::VARIANT_BOOL, idrule: &windows_core::GUID, idpropdef: &windows_core::GUID) -> windows_core::Result<()>;
     fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: &windows_core::GUID, idpropdef: &windows_core::GUID) -> windows_core::Result<()>;
     fn OnEndFile(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmClassifierModuleImplementation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmClassifierModuleImplementation_Vtbl {
     pub const fn new<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>() -> IFsrmClassifierModuleImplementation_Vtbl {
-        unsafe extern "system" fn LastModified<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodified: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastModified<Identity: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodified: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmClassifierModuleImplementation_Impl::LastModified(this) {
                 Ok(ok__) => {
@@ -1077,19 +1077,19 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
         iid == &<IFsrmClassifierModuleImplementation as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::VARIANT>;
+    fn get_Item(&self, index: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn State(&self) -> windows_core::Result<FsrmCollectionState>;
     fn Cancel(&self) -> windows_core::Result<()>;
     fn WaitForCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetById(&self, id: &windows_core::GUID) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetById(&self, id: &windows_core::GUID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmCollection_Vtbl {
     pub const fn new<Identity: IFsrmCollection_Impl, const OFFSET: isize>() -> IFsrmCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unknown: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1102,7 +1102,7 @@ impl IFsrmCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, item: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, item: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
@@ -1146,7 +1146,7 @@ impl IFsrmCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetById<Identity: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: windows_core::GUID, entry: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetById<Identity: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: windows_core::GUID, entry: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmCollection_Impl::GetById(this, core::mem::transmute(&id)) {
                 Ok(ok__) => {
@@ -1171,13 +1171,13 @@ impl IFsrmCollection_Vtbl {
         iid == &<IFsrmCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmCommittableCollection_Impl: Sized + IFsrmMutableCollection_Impl {
     fn Commit(&self, options: FsrmCommitOptions) -> windows_core::Result<IFsrmCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmCommittableCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmCommittableCollection_Vtbl {
     pub const fn new<Identity: IFsrmCommittableCollection_Impl, const OFFSET: isize>() -> IFsrmCommittableCollection_Vtbl {
         unsafe extern "system" fn Commit<Identity: IFsrmCommittableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: FsrmCommitOptions, results: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1196,14 +1196,14 @@ impl IFsrmCommittableCollection_Vtbl {
         iid == &<IFsrmCommittableCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmCollection as windows_core::Interface>::IID || iid == &<IFsrmMutableCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmDerivedObjectsResult_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DerivedObjects(&self) -> windows_core::Result<IFsrmCollection>;
     fn Results(&self) -> windows_core::Result<IFsrmCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmDerivedObjectsResult {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmDerivedObjectsResult_Vtbl {
     pub const fn new<Identity: IFsrmDerivedObjectsResult_Impl, const OFFSET: isize>() -> IFsrmDerivedObjectsResult_Vtbl {
         unsafe extern "system" fn DerivedObjects<Identity: IFsrmDerivedObjectsResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, derivedobjects: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1236,25 +1236,25 @@ impl IFsrmDerivedObjectsResult_Vtbl {
         iid == &<IFsrmDerivedObjectsResult as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmExportImport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn ExportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const windows_core::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ImportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const windows_core::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const windows_core::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ImportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const windows_core::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const windows_core::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ImportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const windows_core::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn ExportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ImportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn ExportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ImportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn ExportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ImportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmExportImport {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmExportImport_Vtbl {
     pub const fn new<Identity: IFsrmExportImport_Impl, const OFFSET: isize>() -> IFsrmExportImport_Vtbl {
-        unsafe extern "system" fn ExportFileGroups<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, filegroupnamessafearray: *const core::mem::MaybeUninit<windows_core::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExportFileGroups<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, filegroupnamessafearray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmExportImport_Impl::ExportFileGroups(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost)).into()
         }
-        unsafe extern "system" fn ImportFileGroups<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, filegroupnamessafearray: *const core::mem::MaybeUninit<windows_core::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>, filegroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImportFileGroups<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, filegroupnamessafearray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>, filegroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmExportImport_Impl::ImportFileGroups(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost)) {
                 Ok(ok__) => {
@@ -1264,11 +1264,11 @@ impl IFsrmExportImport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportFileScreenTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const core::mem::MaybeUninit<windows_core::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExportFileScreenTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmExportImport_Impl::ExportFileScreenTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)).into()
         }
-        unsafe extern "system" fn ImportFileScreenTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const core::mem::MaybeUninit<windows_core::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>, templates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImportFileScreenTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>, templates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmExportImport_Impl::ImportFileScreenTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)) {
                 Ok(ok__) => {
@@ -1278,11 +1278,11 @@ impl IFsrmExportImport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportQuotaTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const core::mem::MaybeUninit<windows_core::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExportQuotaTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmExportImport_Impl::ExportQuotaTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)).into()
         }
-        unsafe extern "system" fn ImportQuotaTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const core::mem::MaybeUninit<windows_core::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>, templates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImportQuotaTemplates<Identity: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: core::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, remotehost: core::mem::MaybeUninit<windows_core::BSTR>, templates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmExportImport_Impl::ImportQuotaTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)) {
                 Ok(ok__) => {
@@ -1306,14 +1306,14 @@ impl IFsrmExportImport_Vtbl {
         iid == &<IFsrmExportImport as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileCondition_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<FsrmFileConditionType>;
     fn Delete(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileCondition {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileCondition_Vtbl {
     pub const fn new<Identity: IFsrmFileCondition_Impl, const OFFSET: isize>() -> IFsrmFileCondition_Vtbl {
         unsafe extern "system" fn Type<Identity: IFsrmFileCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut FsrmFileConditionType) -> windows_core::HRESULT {
@@ -1336,7 +1336,7 @@ impl IFsrmFileCondition_Vtbl {
         iid == &<IFsrmFileCondition as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileConditionProperty_Impl: Sized + IFsrmFileCondition_Impl {
     fn PropertyName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetPropertyName(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -1346,12 +1346,12 @@ pub trait IFsrmFileConditionProperty_Impl: Sized + IFsrmFileCondition_Impl {
     fn SetOperator(&self, newval: FsrmPropertyConditionType) -> windows_core::Result<()>;
     fn ValueType(&self) -> windows_core::Result<FsrmPropertyValueType>;
     fn SetValueType(&self, newval: FsrmPropertyValueType) -> windows_core::Result<()>;
-    fn Value(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetValue(&self, newval: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetValue(&self, newval: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileConditionProperty {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileConditionProperty_Vtbl {
     pub const fn new<Identity: IFsrmFileConditionProperty_Impl, const OFFSET: isize>() -> IFsrmFileConditionProperty_Vtbl {
         unsafe extern "system" fn PropertyName<Identity: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1410,7 +1410,7 @@ impl IFsrmFileConditionProperty_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmFileConditionProperty_Impl::SetValueType(this, core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn Value<Identity: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmFileConditionProperty_Impl::Value(this) {
                 Ok(ok__) => {
@@ -1420,7 +1420,7 @@ impl IFsrmFileConditionProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmFileConditionProperty_Impl::SetValue(this, core::mem::transmute(&newval)).into()
         }
@@ -1442,7 +1442,7 @@ impl IFsrmFileConditionProperty_Vtbl {
         iid == &<IFsrmFileConditionProperty as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmFileCondition as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileGroup_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -1451,9 +1451,9 @@ pub trait IFsrmFileGroup_Impl: Sized + IFsrmObject_Impl {
     fn NonMembers(&self) -> windows_core::Result<IFsrmMutableCollection>;
     fn SetNonMembers(&self, nonmembers: Option<&IFsrmMutableCollection>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileGroup {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileGroup_Vtbl {
     pub const fn new<Identity: IFsrmFileGroup_Impl, const OFFSET: isize>() -> IFsrmFileGroup_Vtbl {
         unsafe extern "system" fn Name<Identity: IFsrmFileGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1512,14 +1512,14 @@ impl IFsrmFileGroup_Vtbl {
         iid == &<IFsrmFileGroup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileGroupImported_Impl: Sized + IFsrmFileGroup_Impl {
     fn OverwriteOnCommit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileGroupImported {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileGroupImported_Vtbl {
     pub const fn new<Identity: IFsrmFileGroupImported_Impl, const OFFSET: isize>() -> IFsrmFileGroupImported_Vtbl {
         unsafe extern "system" fn OverwriteOnCommit<Identity: IFsrmFileGroupImported_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwrite: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1546,17 +1546,17 @@ impl IFsrmFileGroupImported_Vtbl {
         iid == &<IFsrmFileGroupImported as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmFileGroup as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileGroupManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateFileGroup(&self) -> windows_core::Result<IFsrmFileGroup>;
     fn GetFileGroup(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmFileGroup>;
     fn EnumFileGroups(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportFileGroups(&self, filegroupnamesarray: *const windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn ImportFileGroups(&self, serializedfilegroups: &windows_core::BSTR, filegroupnamesarray: *const windows_core::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn ExportFileGroups(&self, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
+    fn ImportFileGroups(&self, serializedfilegroups: &windows_core::BSTR, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileGroupManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileGroupManager_Vtbl {
     pub const fn new<Identity: IFsrmFileGroupManager_Impl, const OFFSET: isize>() -> IFsrmFileGroupManager_Vtbl {
         unsafe extern "system" fn CreateFileGroup<Identity: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filegroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1589,7 +1589,7 @@ impl IFsrmFileGroupManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportFileGroups<Identity: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filegroupnamesarray: *const core::mem::MaybeUninit<windows_core::VARIANT>, serializedfilegroups: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExportFileGroups<Identity: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filegroupnamesarray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, serializedfilegroups: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmFileGroupManager_Impl::ExportFileGroups(this, core::mem::transmute_copy(&filegroupnamesarray)) {
                 Ok(ok__) => {
@@ -1599,7 +1599,7 @@ impl IFsrmFileGroupManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportFileGroups<Identity: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serializedfilegroups: core::mem::MaybeUninit<windows_core::BSTR>, filegroupnamesarray: *const core::mem::MaybeUninit<windows_core::VARIANT>, filegroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImportFileGroups<Identity: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serializedfilegroups: core::mem::MaybeUninit<windows_core::BSTR>, filegroupnamesarray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, filegroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmFileGroupManager_Impl::ImportFileGroups(this, core::mem::transmute(&serializedfilegroups), core::mem::transmute_copy(&filegroupnamesarray)) {
                 Ok(ok__) => {
@@ -1622,7 +1622,7 @@ impl IFsrmFileGroupManager_Vtbl {
         iid == &<IFsrmFileGroupManager as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileManagementJob_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -1674,9 +1674,9 @@ pub trait IFsrmFileManagementJob_Impl: Sized + IFsrmObject_Impl {
     fn CreatePropertyCondition(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmPropertyCondition>;
     fn CreateCustomAction(&self) -> windows_core::Result<IFsrmActionCommand>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileManagementJob {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileManagementJob_Vtbl {
     pub const fn new<Identity: IFsrmFileManagementJob_Impl, const OFFSET: isize>() -> IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn Name<Identity: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2100,7 +2100,7 @@ impl IFsrmFileManagementJob_Vtbl {
         iid == &<IFsrmFileManagementJob as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileManagementJobManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ActionVariables(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn ActionVariableDescriptions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -2108,9 +2108,9 @@ pub trait IFsrmFileManagementJobManager_Impl: Sized + super::super::System::Com:
     fn CreateFileManagementJob(&self) -> windows_core::Result<IFsrmFileManagementJob>;
     fn GetFileManagementJob(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmFileManagementJob>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileManagementJobManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileManagementJobManager_Vtbl {
     pub const fn new<Identity: IFsrmFileManagementJobManager_Impl, const OFFSET: isize>() -> IFsrmFileManagementJobManager_Vtbl {
         unsafe extern "system" fn ActionVariables<Identity: IFsrmFileManagementJobManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variables: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
@@ -2176,7 +2176,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
         iid == &<IFsrmFileManagementJobManager as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreen_Impl: Sized + IFsrmFileScreenBase_Impl {
     fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SourceTemplateName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2185,9 +2185,9 @@ pub trait IFsrmFileScreen_Impl: Sized + IFsrmFileScreenBase_Impl {
     fn UserAccount(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ApplyTemplate(&self, filescreentemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileScreen {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreen_Vtbl {
     pub const fn new<Identity: IFsrmFileScreen_Impl, const OFFSET: isize>() -> IFsrmFileScreen_Vtbl {
         unsafe extern "system" fn Path<Identity: IFsrmFileScreen_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2258,7 +2258,7 @@ impl IFsrmFileScreen_Vtbl {
         iid == &<IFsrmFileScreen as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmFileScreenBase as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenBase_Impl: Sized + IFsrmObject_Impl {
     fn BlockedFileGroups(&self) -> windows_core::Result<IFsrmMutableCollection>;
     fn SetBlockedFileGroups(&self, blocklist: Option<&IFsrmMutableCollection>) -> windows_core::Result<()>;
@@ -2267,9 +2267,9 @@ pub trait IFsrmFileScreenBase_Impl: Sized + IFsrmObject_Impl {
     fn CreateAction(&self, actiontype: FsrmActionType) -> windows_core::Result<IFsrmAction>;
     fn EnumActions(&self) -> windows_core::Result<IFsrmCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileScreenBase {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenBase_Vtbl {
     pub const fn new<Identity: IFsrmFileScreenBase_Impl, const OFFSET: isize>() -> IFsrmFileScreenBase_Vtbl {
         unsafe extern "system" fn BlockedFileGroups<Identity: IFsrmFileScreenBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocklist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2334,15 +2334,15 @@ impl IFsrmFileScreenBase_Vtbl {
         iid == &<IFsrmFileScreenBase as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenException_Impl: Sized + IFsrmObject_Impl {
     fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
     fn AllowedFileGroups(&self) -> windows_core::Result<IFsrmMutableCollection>;
     fn SetAllowedFileGroups(&self, allowlist: Option<&IFsrmMutableCollection>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileScreenException {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenException_Vtbl {
     pub const fn new<Identity: IFsrmFileScreenException_Impl, const OFFSET: isize>() -> IFsrmFileScreenException_Vtbl {
         unsafe extern "system" fn Path<Identity: IFsrmFileScreenException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2380,7 +2380,7 @@ impl IFsrmFileScreenException_Vtbl {
         iid == &<IFsrmFileScreenException as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ActionVariables(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn ActionVariableDescriptions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -2392,9 +2392,9 @@ pub trait IFsrmFileScreenManager_Impl: Sized + super::super::System::Com::IDispa
     fn EnumFileScreenExceptions(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
     fn CreateFileScreenCollection(&self) -> windows_core::Result<IFsrmCommittableCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileScreenManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenManager_Vtbl {
     pub const fn new<Identity: IFsrmFileScreenManager_Impl, const OFFSET: isize>() -> IFsrmFileScreenManager_Vtbl {
         unsafe extern "system" fn ActionVariables<Identity: IFsrmFileScreenManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variables: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
@@ -2504,16 +2504,16 @@ impl IFsrmFileScreenManager_Vtbl {
         iid == &<IFsrmFileScreenManager as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenTemplate_Impl: Sized + IFsrmFileScreenBase_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
     fn CopyTemplate(&self, filescreentemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileScreenTemplate {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenTemplate_Vtbl {
     pub const fn new<Identity: IFsrmFileScreenTemplate_Impl, const OFFSET: isize>() -> IFsrmFileScreenTemplate_Vtbl {
         unsafe extern "system" fn Name<Identity: IFsrmFileScreenTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2556,14 +2556,14 @@ impl IFsrmFileScreenTemplate_Vtbl {
         iid == &<IFsrmFileScreenTemplate as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmFileScreenBase as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenTemplateImported_Impl: Sized + IFsrmFileScreenTemplate_Impl {
     fn OverwriteOnCommit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileScreenTemplateImported {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenTemplateImported_Vtbl {
     pub const fn new<Identity: IFsrmFileScreenTemplateImported_Impl, const OFFSET: isize>() -> IFsrmFileScreenTemplateImported_Vtbl {
         unsafe extern "system" fn OverwriteOnCommit<Identity: IFsrmFileScreenTemplateImported_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwrite: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2590,17 +2590,17 @@ impl IFsrmFileScreenTemplateImported_Vtbl {
         iid == &<IFsrmFileScreenTemplateImported as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmFileScreenBase as windows_core::Interface>::IID || iid == &<IFsrmFileScreenTemplate as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenTemplateManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateTemplate(&self) -> windows_core::Result<IFsrmFileScreenTemplate>;
     fn GetTemplate(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmFileScreenTemplate>;
     fn EnumTemplates(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportTemplates(&self, filescreentemplatenamesarray: *const windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn ImportTemplates(&self, serializedfilescreentemplates: &windows_core::BSTR, filescreentemplatenamesarray: *const windows_core::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn ExportTemplates(&self, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
+    fn ImportTemplates(&self, serializedfilescreentemplates: &windows_core::BSTR, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmFileScreenTemplateManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenTemplateManager_Vtbl {
     pub const fn new<Identity: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>() -> IFsrmFileScreenTemplateManager_Vtbl {
         unsafe extern "system" fn CreateTemplate<Identity: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filescreentemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2633,7 +2633,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportTemplates<Identity: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filescreentemplatenamesarray: *const core::mem::MaybeUninit<windows_core::VARIANT>, serializedfilescreentemplates: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExportTemplates<Identity: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filescreentemplatenamesarray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, serializedfilescreentemplates: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmFileScreenTemplateManager_Impl::ExportTemplates(this, core::mem::transmute_copy(&filescreentemplatenamesarray)) {
                 Ok(ok__) => {
@@ -2643,7 +2643,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportTemplates<Identity: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serializedfilescreentemplates: core::mem::MaybeUninit<windows_core::BSTR>, filescreentemplatenamesarray: *const core::mem::MaybeUninit<windows_core::VARIANT>, filescreentemplates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImportTemplates<Identity: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serializedfilescreentemplates: core::mem::MaybeUninit<windows_core::BSTR>, filescreentemplatenamesarray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, filescreentemplates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmFileScreenTemplateManager_Impl::ImportTemplates(this, core::mem::transmute(&serializedfilescreentemplates), core::mem::transmute_copy(&filescreentemplatenamesarray)) {
                 Ok(ok__) => {
@@ -2666,19 +2666,19 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
         iid == &<IFsrmFileScreenTemplateManager as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmMutableCollection_Impl: Sized + IFsrmCollection_Impl {
-    fn Add(&self, item: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Add(&self, item: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
     fn RemoveById(&self, id: &windows_core::GUID) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IFsrmMutableCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmMutableCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmMutableCollection_Vtbl {
     pub const fn new<Identity: IFsrmMutableCollection_Impl, const OFFSET: isize>() -> IFsrmMutableCollection_Vtbl {
-        unsafe extern "system" fn Add<Identity: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmMutableCollection_Impl::Add(this, core::mem::transmute(&item)).into()
         }
@@ -2712,7 +2712,7 @@ impl IFsrmMutableCollection_Vtbl {
         iid == &<IFsrmMutableCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<windows_core::GUID>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2720,9 +2720,9 @@ pub trait IFsrmObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Delete(&self) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmObject {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmObject_Vtbl {
     pub const fn new<Identity: IFsrmObject_Impl, const OFFSET: isize>() -> IFsrmObject_Vtbl {
         unsafe extern "system" fn Id<Identity: IFsrmObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2770,13 +2770,13 @@ impl IFsrmObject_Vtbl {
         iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPathMapper_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetSharePathsForLocalPath(&self, localpath: &windows_core::BSTR) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmPathMapper {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPathMapper_Vtbl {
     pub const fn new<Identity: IFsrmPathMapper_Impl, const OFFSET: isize>() -> IFsrmPathMapper_Vtbl {
         unsafe extern "system" fn GetSharePathsForLocalPath<Identity: IFsrmPathMapper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localpath: core::mem::MaybeUninit<windows_core::BSTR>, sharepaths: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
@@ -2798,7 +2798,7 @@ impl IFsrmPathMapper_Vtbl {
         iid == &<IFsrmPathMapper as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPipelineModuleConnector_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ModuleImplementation(&self) -> windows_core::Result<IFsrmPipelineModuleImplementation>;
     fn ModuleName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2806,9 +2806,9 @@ pub trait IFsrmPipelineModuleConnector_Impl: Sized + super::super::System::Com::
     fn HostingProcessPid(&self) -> windows_core::Result<i32>;
     fn Bind(&self, moduledefinition: Option<&IFsrmPipelineModuleDefinition>, moduleimplementation: Option<&IFsrmPipelineModuleImplementation>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmPipelineModuleConnector {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPipelineModuleConnector_Vtbl {
     pub const fn new<Identity: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>() -> IFsrmPipelineModuleConnector_Vtbl {
         unsafe extern "system" fn ModuleImplementation<Identity: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipelinemoduleimplementation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2868,7 +2868,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         iid == &<IFsrmPipelineModuleConnector as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPipelineModuleDefinition_Impl: Sized + IFsrmObject_Impl {
     fn ModuleClsid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetModuleClsid(&self, moduleclsid: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2890,9 +2890,9 @@ pub trait IFsrmPipelineModuleDefinition_Impl: Sized + IFsrmObject_Impl {
     fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmPipelineModuleDefinition {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPipelineModuleDefinition_Vtbl {
     pub const fn new<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>() -> IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn ModuleClsid<Identity: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleclsid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3058,14 +3058,14 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPipelineModuleImplementation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OnLoad(&self, moduledefinition: Option<&IFsrmPipelineModuleDefinition>) -> windows_core::Result<IFsrmPipelineModuleConnector>;
     fn OnUnload(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmPipelineModuleImplementation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPipelineModuleImplementation_Vtbl {
     pub const fn new<Identity: IFsrmPipelineModuleImplementation_Impl, const OFFSET: isize>() -> IFsrmPipelineModuleImplementation_Vtbl {
         unsafe extern "system" fn OnLoad<Identity: IFsrmPipelineModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduledefinition: *mut core::ffi::c_void, moduleconnector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3092,16 +3092,16 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
         iid == &<IFsrmPipelineModuleImplementation as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Sources(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn PropertyFlags(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmProperty {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmProperty_Vtbl {
     pub const fn new<Identity: IFsrmProperty_Impl, const OFFSET: isize>() -> IFsrmProperty_Vtbl {
         unsafe extern "system" fn Name<Identity: IFsrmProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3156,20 +3156,20 @@ impl IFsrmProperty_Vtbl {
         iid == &<IFsrmProperty as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyBag_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn RelativePath(&self) -> windows_core::Result<windows_core::BSTR>;
     fn VolumeName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn RelativeNamespaceRoot(&self) -> windows_core::Result<windows_core::BSTR>;
     fn VolumeIndex(&self) -> windows_core::Result<u32>;
-    fn FileId(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn ParentDirectoryId(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn Size(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SizeAllocated(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn CreationTime(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn LastAccessTime(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn LastModificationTime(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn FileId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn ParentDirectoryId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Size(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SizeAllocated(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn CreationTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn LastAccessTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn LastModificationTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Attributes(&self) -> windows_core::Result<u32>;
     fn OwnerSid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn FilePropertyNames(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -3178,11 +3178,11 @@ pub trait IFsrmPropertyBag_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn GetFileProperty(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmProperty>;
     fn SetFileProperty(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AddMessage(&self, message: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmPropertyBag {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyBag_Vtbl {
     pub const fn new<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>() -> IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn Name<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3235,7 +3235,7 @@ impl IFsrmPropertyBag_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FileId<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn FileId<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileid: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmPropertyBag_Impl::FileId(this) {
                 Ok(ok__) => {
@@ -3245,7 +3245,7 @@ impl IFsrmPropertyBag_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParentDirectoryId<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentdirectoryid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ParentDirectoryId<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentdirectoryid: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmPropertyBag_Impl::ParentDirectoryId(this) {
                 Ok(ok__) => {
@@ -3255,7 +3255,7 @@ impl IFsrmPropertyBag_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Size<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmPropertyBag_Impl::Size(this) {
                 Ok(ok__) => {
@@ -3265,7 +3265,7 @@ impl IFsrmPropertyBag_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SizeAllocated<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sizeallocated: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SizeAllocated<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sizeallocated: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmPropertyBag_Impl::SizeAllocated(this) {
                 Ok(ok__) => {
@@ -3275,7 +3275,7 @@ impl IFsrmPropertyBag_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreationTime<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, creationtime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreationTime<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, creationtime: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmPropertyBag_Impl::CreationTime(this) {
                 Ok(ok__) => {
@@ -3285,7 +3285,7 @@ impl IFsrmPropertyBag_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastAccessTime<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastaccesstime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastAccessTime<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastaccesstime: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmPropertyBag_Impl::LastAccessTime(this) {
                 Ok(ok__) => {
@@ -3295,7 +3295,7 @@ impl IFsrmPropertyBag_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastModificationTime<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodificationtime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastModificationTime<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodificationtime: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmPropertyBag_Impl::LastModificationTime(this) {
                 Ok(ok__) => {
@@ -3373,7 +3373,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmPropertyBag_Impl::AddMessage(this, core::mem::transmute(&message)).into()
         }
-        unsafe extern "system" fn GetFileStreamInterface<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType, pstreaminterface: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFileStreamInterface<Identity: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType, pstreaminterface: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmPropertyBag_Impl::GetFileStreamInterface(this, core::mem::transmute_copy(&accessmode), core::mem::transmute_copy(&interfacetype)) {
                 Ok(ok__) => {
@@ -3412,17 +3412,17 @@ impl IFsrmPropertyBag_Vtbl {
         iid == &<IFsrmPropertyBag as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyBag2_Impl: Sized + IFsrmPropertyBag_Impl {
-    fn GetFieldValue(&self, field: FsrmPropertyBagField) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetFieldValue(&self, field: FsrmPropertyBagField) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetUntrustedInFileProperties(&self) -> windows_core::Result<IFsrmCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmPropertyBag2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyBag2_Vtbl {
     pub const fn new<Identity: IFsrmPropertyBag2_Impl, const OFFSET: isize>() -> IFsrmPropertyBag2_Vtbl {
-        unsafe extern "system" fn GetFieldValue<Identity: IFsrmPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, field: FsrmPropertyBagField, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFieldValue<Identity: IFsrmPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, field: FsrmPropertyBagField, value: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmPropertyBag2_Impl::GetFieldValue(this, core::mem::transmute_copy(&field)) {
                 Ok(ok__) => {
@@ -3452,7 +3452,7 @@ impl IFsrmPropertyBag2_Vtbl {
         iid == &<IFsrmPropertyBag2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmPropertyBag as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyCondition_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -3462,9 +3462,9 @@ pub trait IFsrmPropertyCondition_Impl: Sized + super::super::System::Com::IDispa
     fn SetValue(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmPropertyCondition {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyCondition_Vtbl {
     pub const fn new<Identity: IFsrmPropertyCondition_Impl, const OFFSET: isize>() -> IFsrmPropertyCondition_Vtbl {
         unsafe extern "system" fn Name<Identity: IFsrmPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3528,7 +3528,7 @@ impl IFsrmPropertyCondition_Vtbl {
         iid == &<IFsrmPropertyCondition as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyDefinition_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -3541,9 +3541,9 @@ pub trait IFsrmPropertyDefinition_Impl: Sized + IFsrmObject_Impl {
     fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmPropertyDefinition {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyDefinition_Vtbl {
     pub const fn new<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>() -> IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn Name<Identity: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3634,7 +3634,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         iid == &<IFsrmPropertyDefinition as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyDefinition2_Impl: Sized + IFsrmPropertyDefinition_Impl {
     fn PropertyDefinitionFlags(&self) -> windows_core::Result<i32>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -3642,9 +3642,9 @@ pub trait IFsrmPropertyDefinition2_Impl: Sized + IFsrmPropertyDefinition_Impl {
     fn AppliesTo(&self) -> windows_core::Result<i32>;
     fn ValueDefinitions(&self) -> windows_core::Result<IFsrmCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmPropertyDefinition2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyDefinition2_Vtbl {
     pub const fn new<Identity: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>() -> IFsrmPropertyDefinition2_Vtbl {
         unsafe extern "system" fn PropertyDefinitionFlags<Identity: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertydefinitionflags: *mut i32) -> windows_core::HRESULT {
@@ -3704,16 +3704,16 @@ impl IFsrmPropertyDefinition2_Vtbl {
         iid == &<IFsrmPropertyDefinition2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPropertyDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyDefinitionValue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn UniqueID(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmPropertyDefinitionValue {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyDefinitionValue_Vtbl {
     pub const fn new<Identity: IFsrmPropertyDefinitionValue_Impl, const OFFSET: isize>() -> IFsrmPropertyDefinitionValue_Vtbl {
         unsafe extern "system" fn Name<Identity: IFsrmPropertyDefinitionValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3768,20 +3768,20 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
         iid == &<IFsrmPropertyDefinitionValue as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuota_Impl: Sized + IFsrmQuotaObject_Impl {
-    fn QuotaUsed(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn QuotaPeakUsage(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn QuotaUsed(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn QuotaPeakUsage(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn QuotaPeakUsageTime(&self) -> windows_core::Result<f64>;
     fn ResetPeakUsage(&self) -> windows_core::Result<()>;
     fn RefreshUsageProperties(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmQuota {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuota_Vtbl {
     pub const fn new<Identity: IFsrmQuota_Impl, const OFFSET: isize>() -> IFsrmQuota_Vtbl {
-        unsafe extern "system" fn QuotaUsed<Identity: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, used: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn QuotaUsed<Identity: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, used: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmQuota_Impl::QuotaUsed(this) {
                 Ok(ok__) => {
@@ -3791,7 +3791,7 @@ impl IFsrmQuota_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QuotaPeakUsage<Identity: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peakusage: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn QuotaPeakUsage<Identity: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peakusage: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmQuota_Impl::QuotaPeakUsage(this) {
                 Ok(ok__) => {
@@ -3832,10 +3832,10 @@ impl IFsrmQuota_Vtbl {
         iid == &<IFsrmQuota as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmQuotaBase as windows_core::Interface>::IID || iid == &<IFsrmQuotaObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaBase_Impl: Sized + IFsrmObject_Impl {
-    fn QuotaLimit(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetQuotaLimit(&self, quotalimit: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn QuotaLimit(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetQuotaLimit(&self, quotalimit: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn QuotaFlags(&self) -> windows_core::Result<i32>;
     fn SetQuotaFlags(&self, quotaflags: i32) -> windows_core::Result<()>;
     fn Thresholds(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -3845,12 +3845,12 @@ pub trait IFsrmQuotaBase_Impl: Sized + IFsrmObject_Impl {
     fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> windows_core::Result<IFsrmAction>;
     fn EnumThresholdActions(&self, threshold: i32) -> windows_core::Result<IFsrmCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmQuotaBase {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaBase_Vtbl {
     pub const fn new<Identity: IFsrmQuotaBase_Impl, const OFFSET: isize>() -> IFsrmQuotaBase_Vtbl {
-        unsafe extern "system" fn QuotaLimit<Identity: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotalimit: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn QuotaLimit<Identity: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotalimit: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmQuotaBase_Impl::QuotaLimit(this) {
                 Ok(ok__) => {
@@ -3860,7 +3860,7 @@ impl IFsrmQuotaBase_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQuotaLimit<Identity: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotalimit: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetQuotaLimit<Identity: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotalimit: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmQuotaBase_Impl::SetQuotaLimit(this, core::mem::transmute(&quotalimit)).into()
         }
@@ -3938,7 +3938,7 @@ impl IFsrmQuotaBase_Vtbl {
         iid == &<IFsrmQuotaBase as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ActionVariables(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn ActionVariableDescriptions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -3953,9 +3953,9 @@ pub trait IFsrmQuotaManager_Impl: Sized + super::super::System::Com::IDispatch_I
     fn Scan(&self, strpath: &windows_core::BSTR) -> windows_core::Result<()>;
     fn CreateQuotaCollection(&self) -> windows_core::Result<IFsrmCommittableCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmQuotaManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaManager_Vtbl {
     pub const fn new<Identity: IFsrmQuotaManager_Impl, const OFFSET: isize>() -> IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn ActionVariables<Identity: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variables: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
@@ -4092,13 +4092,13 @@ impl IFsrmQuotaManager_Vtbl {
         iid == &<IFsrmQuotaManager as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaManagerEx_Impl: Sized + IFsrmQuotaManager_Impl {
     fn IsAffectedByQuota(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmQuotaManagerEx {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaManagerEx_Vtbl {
     pub const fn new<Identity: IFsrmQuotaManagerEx_Impl, const OFFSET: isize>() -> IFsrmQuotaManagerEx_Vtbl {
         unsafe extern "system" fn IsAffectedByQuota<Identity: IFsrmQuotaManagerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: core::mem::MaybeUninit<windows_core::BSTR>, options: FsrmEnumOptions, affected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4117,7 +4117,7 @@ impl IFsrmQuotaManagerEx_Vtbl {
         iid == &<IFsrmQuotaManagerEx as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmQuotaManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaObject_Impl: Sized + IFsrmQuotaBase_Impl {
     fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
     fn UserSid(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -4126,9 +4126,9 @@ pub trait IFsrmQuotaObject_Impl: Sized + IFsrmQuotaBase_Impl {
     fn MatchesSourceTemplate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn ApplyTemplate(&self, quotatemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmQuotaObject {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaObject_Vtbl {
     pub const fn new<Identity: IFsrmQuotaObject_Impl, const OFFSET: isize>() -> IFsrmQuotaObject_Vtbl {
         unsafe extern "system" fn Path<Identity: IFsrmQuotaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4199,16 +4199,16 @@ impl IFsrmQuotaObject_Vtbl {
         iid == &<IFsrmQuotaObject as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmQuotaBase as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaTemplate_Impl: Sized + IFsrmQuotaBase_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
     fn CopyTemplate(&self, quotatemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmQuotaTemplate {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaTemplate_Vtbl {
     pub const fn new<Identity: IFsrmQuotaTemplate_Impl, const OFFSET: isize>() -> IFsrmQuotaTemplate_Vtbl {
         unsafe extern "system" fn Name<Identity: IFsrmQuotaTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4251,14 +4251,14 @@ impl IFsrmQuotaTemplate_Vtbl {
         iid == &<IFsrmQuotaTemplate as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmQuotaBase as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaTemplateImported_Impl: Sized + IFsrmQuotaTemplate_Impl {
     fn OverwriteOnCommit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmQuotaTemplateImported {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaTemplateImported_Vtbl {
     pub const fn new<Identity: IFsrmQuotaTemplateImported_Impl, const OFFSET: isize>() -> IFsrmQuotaTemplateImported_Vtbl {
         unsafe extern "system" fn OverwriteOnCommit<Identity: IFsrmQuotaTemplateImported_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwrite: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4285,17 +4285,17 @@ impl IFsrmQuotaTemplateImported_Vtbl {
         iid == &<IFsrmQuotaTemplateImported as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmQuotaBase as windows_core::Interface>::IID || iid == &<IFsrmQuotaTemplate as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaTemplateManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateTemplate(&self) -> windows_core::Result<IFsrmQuotaTemplate>;
     fn GetTemplate(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmQuotaTemplate>;
     fn EnumTemplates(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportTemplates(&self, quotatemplatenamesarray: *const windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn ImportTemplates(&self, serializedquotatemplates: &windows_core::BSTR, quotatemplatenamesarray: *const windows_core::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn ExportTemplates(&self, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
+    fn ImportTemplates(&self, serializedquotatemplates: &windows_core::BSTR, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmQuotaTemplateManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaTemplateManager_Vtbl {
     pub const fn new<Identity: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>() -> IFsrmQuotaTemplateManager_Vtbl {
         unsafe extern "system" fn CreateTemplate<Identity: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotatemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4328,7 +4328,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportTemplates<Identity: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotatemplatenamesarray: *const core::mem::MaybeUninit<windows_core::VARIANT>, serializedquotatemplates: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExportTemplates<Identity: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotatemplatenamesarray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, serializedquotatemplates: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmQuotaTemplateManager_Impl::ExportTemplates(this, core::mem::transmute_copy(&quotatemplatenamesarray)) {
                 Ok(ok__) => {
@@ -4338,7 +4338,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ImportTemplates<Identity: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serializedquotatemplates: core::mem::MaybeUninit<windows_core::BSTR>, quotatemplatenamesarray: *const core::mem::MaybeUninit<windows_core::VARIANT>, quotatemplates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImportTemplates<Identity: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serializedquotatemplates: core::mem::MaybeUninit<windows_core::BSTR>, quotatemplatenamesarray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, quotatemplates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmQuotaTemplateManager_Impl::ImportTemplates(this, core::mem::transmute(&serializedquotatemplates), core::mem::transmute_copy(&quotatemplatenamesarray)) {
                 Ok(ok__) => {
@@ -4361,7 +4361,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
         iid == &<IFsrmQuotaTemplateManager as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmReport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<FsrmReportType>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -4369,13 +4369,13 @@ pub trait IFsrmReport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
     fn LastGeneratedFileNamePrefix(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetFilter(&self, filter: FsrmReportFilter) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetFilter(&self, filter: FsrmReportFilter, filtervalue: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetFilter(&self, filter: FsrmReportFilter) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetFilter(&self, filter: FsrmReportFilter, filtervalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmReport {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmReport_Vtbl {
     pub const fn new<Identity: IFsrmReport_Impl, const OFFSET: isize>() -> IFsrmReport_Vtbl {
         unsafe extern "system" fn Type<Identity: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *mut FsrmReportType) -> windows_core::HRESULT {
@@ -4426,7 +4426,7 @@ impl IFsrmReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilter<Identity: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filter: FsrmReportFilter, filtervalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFilter<Identity: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filter: FsrmReportFilter, filtervalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmReport_Impl::GetFilter(this, core::mem::transmute_copy(&filter)) {
                 Ok(ok__) => {
@@ -4436,7 +4436,7 @@ impl IFsrmReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFilter<Identity: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filter: FsrmReportFilter, filtervalue: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFilter<Identity: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filter: FsrmReportFilter, filtervalue: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmReport_Impl::SetFilter(this, core::mem::transmute_copy(&filter), core::mem::transmute(&filtervalue)).into()
         }
@@ -4461,7 +4461,7 @@ impl IFsrmReport_Vtbl {
         iid == &<IFsrmReport as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmReportJob_Impl: Sized + IFsrmObject_Impl {
     fn Task(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetTask(&self, taskname: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -4481,9 +4481,9 @@ pub trait IFsrmReportJob_Impl: Sized + IFsrmObject_Impl {
     fn WaitForCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Cancel(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmReportJob {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmReportJob_Vtbl {
     pub const fn new<Identity: IFsrmReportJob_Impl, const OFFSET: isize>() -> IFsrmReportJob_Vtbl {
         unsafe extern "system" fn Task<Identity: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4645,7 +4645,7 @@ impl IFsrmReportJob_Vtbl {
         iid == &<IFsrmReportJob as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmReportManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumReportJobs(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection>;
     fn CreateReportJob(&self) -> windows_core::Result<IFsrmReportJob>;
@@ -4653,14 +4653,14 @@ pub trait IFsrmReportManager_Impl: Sized + super::super::System::Com::IDispatch_
     fn GetOutputDirectory(&self, context: FsrmReportGenerationContext) -> windows_core::Result<windows_core::BSTR>;
     fn SetOutputDirectory(&self, context: FsrmReportGenerationContext, path: &windows_core::BSTR) -> windows_core::Result<()>;
     fn IsFilterValidForReportType(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetReportSizeLimit(&self, limit: FsrmReportLimit, limitvalue: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetReportSizeLimit(&self, limit: FsrmReportLimit, limitvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmReportManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmReportManager_Vtbl {
     pub const fn new<Identity: IFsrmReportManager_Impl, const OFFSET: isize>() -> IFsrmReportManager_Vtbl {
         unsafe extern "system" fn EnumReportJobs<Identity: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: FsrmEnumOptions, reportjobs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4717,7 +4717,7 @@ impl IFsrmReportManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDefaultFilter<Identity: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDefaultFilter<Identity: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmReportManager_Impl::GetDefaultFilter(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter)) {
                 Ok(ok__) => {
@@ -4727,11 +4727,11 @@ impl IFsrmReportManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultFilter<Identity: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDefaultFilter<Identity: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmReportManager_Impl::SetDefaultFilter(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter), core::mem::transmute(&filtervalue)).into()
         }
-        unsafe extern "system" fn GetReportSizeLimit<Identity: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, limit: FsrmReportLimit, limitvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetReportSizeLimit<Identity: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, limit: FsrmReportLimit, limitvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmReportManager_Impl::GetReportSizeLimit(this, core::mem::transmute_copy(&limit)) {
                 Ok(ok__) => {
@@ -4741,7 +4741,7 @@ impl IFsrmReportManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReportSizeLimit<Identity: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, limit: FsrmReportLimit, limitvalue: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetReportSizeLimit<Identity: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, limit: FsrmReportLimit, limitvalue: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmReportManager_Impl::SetReportSizeLimit(this, core::mem::transmute_copy(&limit), core::mem::transmute(&limitvalue)).into()
         }
@@ -4763,27 +4763,27 @@ impl IFsrmReportManager_Vtbl {
         iid == &<IFsrmReportManager as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmReportScheduler_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn VerifyNamespaces(&self, namespacessafearray: *const windows_core::VARIANT) -> windows_core::Result<()>;
-    fn CreateScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const windows_core::VARIANT, serializedtask: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ModifyScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const windows_core::VARIANT, serializedtask: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn VerifyNamespaces(&self, namespacessafearray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn CreateScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ModifyScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: &windows_core::BSTR) -> windows_core::Result<()>;
     fn DeleteScheduleTask(&self, taskname: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmReportScheduler {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmReportScheduler_Vtbl {
     pub const fn new<Identity: IFsrmReportScheduler_Impl, const OFFSET: isize>() -> IFsrmReportScheduler_Vtbl {
-        unsafe extern "system" fn VerifyNamespaces<Identity: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespacessafearray: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn VerifyNamespaces<Identity: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespacessafearray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmReportScheduler_Impl::VerifyNamespaces(this, core::mem::transmute_copy(&namespacessafearray)).into()
         }
-        unsafe extern "system" fn CreateScheduleTask<Identity: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: core::mem::MaybeUninit<windows_core::BSTR>, namespacessafearray: *const core::mem::MaybeUninit<windows_core::VARIANT>, serializedtask: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateScheduleTask<Identity: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: core::mem::MaybeUninit<windows_core::BSTR>, namespacessafearray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, serializedtask: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmReportScheduler_Impl::CreateScheduleTask(this, core::mem::transmute(&taskname), core::mem::transmute_copy(&namespacessafearray), core::mem::transmute(&serializedtask)).into()
         }
-        unsafe extern "system" fn ModifyScheduleTask<Identity: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: core::mem::MaybeUninit<windows_core::BSTR>, namespacessafearray: *const core::mem::MaybeUninit<windows_core::VARIANT>, serializedtask: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModifyScheduleTask<Identity: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: core::mem::MaybeUninit<windows_core::BSTR>, namespacessafearray: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, serializedtask: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmReportScheduler_Impl::ModifyScheduleTask(this, core::mem::transmute(&taskname), core::mem::transmute_copy(&namespacessafearray), core::mem::transmute(&serializedtask)).into()
         }
@@ -4803,7 +4803,7 @@ impl IFsrmReportScheduler_Vtbl {
         iid == &<IFsrmReportScheduler as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmRule_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -4816,11 +4816,11 @@ pub trait IFsrmRule_Impl: Sized + IFsrmObject_Impl {
     fn SetRuleFlags(&self, ruleflags: i32) -> windows_core::Result<()>;
     fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn LastModified(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn LastModified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmRule {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmRule_Vtbl {
     pub const fn new<Identity: IFsrmRule_Impl, const OFFSET: isize>() -> IFsrmRule_Vtbl {
         unsafe extern "system" fn Name<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4903,7 +4903,7 @@ impl IFsrmRule_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFsrmRule_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
         }
-        unsafe extern "system" fn LastModified<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodified: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastModified<Identity: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodified: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFsrmRule_Impl::LastModified(this) {
                 Ok(ok__) => {
@@ -4933,7 +4933,7 @@ impl IFsrmRule_Vtbl {
         iid == &<IFsrmRule as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmSetting_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SmtpServer(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetSmtpServer(&self, smtpserver: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -4949,9 +4949,9 @@ pub trait IFsrmSetting_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetActionRunLimitInterval(&self, actiontype: FsrmActionType, delaytimeminutes: i32) -> windows_core::Result<()>;
     fn GetActionRunLimitInterval(&self, actiontype: FsrmActionType) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmSetting {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmSetting_Vtbl {
     pub const fn new<Identity: IFsrmSetting_Impl, const OFFSET: isize>() -> IFsrmSetting_Vtbl {
         unsafe extern "system" fn SmtpServer<Identity: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, smtpserver: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -5063,7 +5063,7 @@ impl IFsrmSetting_Vtbl {
         iid == &<IFsrmSetting as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmStorageModuleDefinition_Impl: Sized + IFsrmPipelineModuleDefinition_Impl {
     fn Capabilities(&self) -> windows_core::Result<FsrmStorageModuleCaps>;
     fn SetCapabilities(&self, capabilities: FsrmStorageModuleCaps) -> windows_core::Result<()>;
@@ -5072,9 +5072,9 @@ pub trait IFsrmStorageModuleDefinition_Impl: Sized + IFsrmPipelineModuleDefiniti
     fn UpdatesFileContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetUpdatesFileContent(&self, updatesfilecontent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmStorageModuleDefinition {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmStorageModuleDefinition_Vtbl {
     pub const fn new<Identity: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>() -> IFsrmStorageModuleDefinition_Vtbl {
         unsafe extern "system" fn Capabilities<Identity: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilities: *mut FsrmStorageModuleCaps) -> windows_core::HRESULT {
@@ -5133,15 +5133,15 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         iid == &<IFsrmStorageModuleDefinition as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IFsrmObject as windows_core::Interface>::IID || iid == &<IFsrmPipelineModuleDefinition as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmStorageModuleImplementation_Impl: Sized + IFsrmPipelineModuleImplementation_Impl {
     fn UseDefinitions(&self, propertydefinitions: Option<&IFsrmCollection>) -> windows_core::Result<()>;
     fn LoadProperties(&self, propertybag: Option<&IFsrmPropertyBag>) -> windows_core::Result<()>;
     fn SaveProperties(&self, propertybag: Option<&IFsrmPropertyBag>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsrmStorageModuleImplementation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmStorageModuleImplementation_Vtbl {
     pub const fn new<Identity: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>() -> IFsrmStorageModuleImplementation_Vtbl {
         unsafe extern "system" fn UseDefinitions<Identity: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertydefinitions: *mut core::ffi::c_void) -> windows_core::HRESULT {

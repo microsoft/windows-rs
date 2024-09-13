@@ -1450,16 +1450,19 @@ impl IWICDevelopRawNotificationCallback_Vtbl {
         iid == &<IWICDevelopRawNotificationCallback as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IWICEnumMetadataItem_Impl: Sized + windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgeltschema: *mut windows_core::PROPVARIANT, rgeltid: *mut windows_core::PROPVARIANT, rgeltvalue: *mut windows_core::PROPVARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgeltschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IWICEnumMetadataItem>;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWICEnumMetadataItem {}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IWICEnumMetadataItem_Vtbl {
     pub const fn new<Identity: IWICEnumMetadataItem_Impl, const OFFSET: isize>() -> IWICEnumMetadataItem_Vtbl {
-        unsafe extern "system" fn Next<Identity: IWICEnumMetadataItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgeltschema: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, rgeltid: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, rgeltvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IWICEnumMetadataItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgeltschema: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, rgeltid: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, rgeltvalue: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWICEnumMetadataItem_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgeltschema), core::mem::transmute_copy(&rgeltid), core::mem::transmute_copy(&rgeltvalue), core::mem::transmute_copy(&pceltfetched)).into()
         }
@@ -2215,16 +2218,16 @@ impl IWICMetadataHandlerInfo_Vtbl {
         iid == &<IWICMetadataHandlerInfo as windows_core::Interface>::IID || iid == &<IWICComponentInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IWICMetadataQueryReader_Impl: Sized + windows_core::IUnknownImpl {
     fn GetContainerFormat(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetLocation(&self, cchmaxlength: u32, wznamespace: &windows_core::PWSTR, pcchactuallength: *mut u32) -> windows_core::Result<()>;
-    fn GetMetadataByName(&self, wzname: &windows_core::PCWSTR, pvarvalue: *mut windows_core::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetMetadataByName(&self, wzname: &windows_core::PCWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn GetEnumerator(&self) -> windows_core::Result<super::super::System::Com::IEnumString>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWICMetadataQueryReader {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IWICMetadataQueryReader_Vtbl {
     pub const fn new<Identity: IWICMetadataQueryReader_Impl, const OFFSET: isize>() -> IWICMetadataQueryReader_Vtbl {
         unsafe extern "system" fn GetContainerFormat<Identity: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcontainerformat: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2241,7 +2244,7 @@ impl IWICMetadataQueryReader_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWICMetadataQueryReader_Impl::GetLocation(this, core::mem::transmute_copy(&cchmaxlength), core::mem::transmute(&wznamespace), core::mem::transmute_copy(&pcchactuallength)).into()
         }
-        unsafe extern "system" fn GetMetadataByName<Identity: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMetadataByName<Identity: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWICMetadataQueryReader_Impl::GetMetadataByName(this, core::mem::transmute(&wzname), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -2267,17 +2270,17 @@ impl IWICMetadataQueryReader_Vtbl {
         iid == &<IWICMetadataQueryReader as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IWICMetadataQueryWriter_Impl: Sized + IWICMetadataQueryReader_Impl {
-    fn SetMetadataByName(&self, wzname: &windows_core::PCWSTR, pvarvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()>;
+    fn SetMetadataByName(&self, wzname: &windows_core::PCWSTR, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn RemoveMetadataByName(&self, wzname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWICMetadataQueryWriter {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IWICMetadataQueryWriter_Vtbl {
     pub const fn new<Identity: IWICMetadataQueryWriter_Impl, const OFFSET: isize>() -> IWICMetadataQueryWriter_Vtbl {
-        unsafe extern "system" fn SetMetadataByName<Identity: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMetadataByName<Identity: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWICMetadataQueryWriter_Impl::SetMetadataByName(this, core::mem::transmute(&wzname), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -2295,15 +2298,18 @@ impl IWICMetadataQueryWriter_Vtbl {
         iid == &<IWICMetadataQueryWriter as windows_core::Interface>::IID || iid == &<IWICMetadataQueryReader as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IWICMetadataReader_Impl: Sized + windows_core::IUnknownImpl {
     fn GetMetadataFormat(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetMetadataHandlerInfo(&self) -> windows_core::Result<IWICMetadataHandlerInfo>;
     fn GetCount(&self) -> windows_core::Result<u32>;
-    fn GetValueByIndex(&self, nindex: u32, pvarschema: *mut windows_core::PROPVARIANT, pvarid: *mut windows_core::PROPVARIANT, pvarvalue: *mut windows_core::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetValue(&self, pvarschema: *const windows_core::PROPVARIANT, pvarid: *const windows_core::PROPVARIANT, pvarvalue: *mut windows_core::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetValueByIndex(&self, nindex: u32, pvarschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn GetEnumerator(&self) -> windows_core::Result<IWICEnumMetadataItem>;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWICMetadataReader {}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IWICMetadataReader_Vtbl {
     pub const fn new<Identity: IWICMetadataReader_Impl, const OFFSET: isize>() -> IWICMetadataReader_Vtbl {
         unsafe extern "system" fn GetMetadataFormat<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidmetadataformat: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2336,11 +2342,11 @@ impl IWICMetadataReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValueByIndex<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvarschema: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValueByIndex<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvarschema: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarid: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarvalue: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWICMetadataReader_Impl::GetValueByIndex(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid), core::mem::transmute_copy(&pvarvalue)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarvalue: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWICMetadataReader_Impl::GetValue(this, core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -2414,24 +2420,27 @@ impl IWICMetadataReaderInfo_Vtbl {
         iid == &<IWICMetadataReaderInfo as windows_core::Interface>::IID || iid == &<IWICComponentInfo as windows_core::Interface>::IID || iid == &<IWICMetadataHandlerInfo as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IWICMetadataWriter_Impl: Sized + IWICMetadataReader_Impl {
-    fn SetValue(&self, pvarschema: *const windows_core::PROPVARIANT, pvarid: *const windows_core::PROPVARIANT, pvarvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()>;
-    fn SetValueByIndex(&self, nindex: u32, pvarschema: *const windows_core::PROPVARIANT, pvarid: *const windows_core::PROPVARIANT, pvarvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()>;
-    fn RemoveValue(&self, pvarschema: *const windows_core::PROPVARIANT, pvarid: *const windows_core::PROPVARIANT) -> windows_core::Result<()>;
+    fn SetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn SetValueByIndex(&self, nindex: u32, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn RemoveValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn RemoveValueByIndex(&self, nindex: u32) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWICMetadataWriter {}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IWICMetadataWriter_Vtbl {
     pub const fn new<Identity: IWICMetadataWriter_Impl, const OFFSET: isize>() -> IWICMetadataWriter_Vtbl {
-        unsafe extern "system" fn SetValue<Identity: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarvalue: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWICMetadataWriter_Impl::SetValue(this, core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid), core::mem::transmute_copy(&pvarvalue)).into()
         }
-        unsafe extern "system" fn SetValueByIndex<Identity: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvarschema: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarvalue: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValueByIndex<Identity: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvarschema: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarvalue: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWICMetadataWriter_Impl::SetValueByIndex(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid), core::mem::transmute_copy(&pvarvalue)).into()
         }
-        unsafe extern "system" fn RemoveValue<Identity: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveValue<Identity: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarid: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWICMetadataWriter_Impl::RemoveValue(this, core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid)).into()
         }

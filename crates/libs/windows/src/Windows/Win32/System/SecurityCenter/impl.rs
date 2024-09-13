@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSCDefaultProduct_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWSCDefaultProduct {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSCDefaultProduct_Vtbl {
     pub const fn new<Identity: IWSCDefaultProduct_Impl, const OFFSET: isize>() -> IWSCDefaultProduct_Vtbl {
         unsafe extern "system" fn SetDefaultProduct<Identity: IWSCDefaultProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, etype: SECURITY_PRODUCT_TYPE, pguid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -17,15 +17,15 @@ impl IWSCDefaultProduct_Vtbl {
         iid == &<IWSCDefaultProduct as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSCProductList_Impl: Sized + super::Com::IDispatch_Impl {
     fn Initialize(&self, provider: &WSC_SECURITY_PROVIDER) -> windows_core::Result<()>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn get_Item(&self, index: u32) -> windows_core::Result<IWscProduct>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWSCProductList {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSCProductList_Vtbl {
     pub const fn new<Identity: IWSCProductList_Impl, const OFFSET: isize>() -> IWSCProductList_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IWSCProductList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: u32) -> windows_core::HRESULT {
@@ -63,7 +63,7 @@ impl IWSCProductList_Vtbl {
         iid == &<IWSCProductList as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWscProduct_Impl: Sized + super::Com::IDispatch_Impl {
     fn ProductName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ProductState(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_STATE>;
@@ -73,9 +73,9 @@ pub trait IWscProduct_Impl: Sized + super::Com::IDispatch_Impl {
     fn ProductGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ProductIsDefault(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWscProduct {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWscProduct_Vtbl {
     pub const fn new<Identity: IWscProduct_Impl, const OFFSET: isize>() -> IWscProduct_Vtbl {
         unsafe extern "system" fn ProductName<Identity: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -163,7 +163,7 @@ impl IWscProduct_Vtbl {
         iid == &<IWscProduct as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWscProduct2_Impl: Sized + IWscProduct_Impl {
     fn AntivirusScanSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
     fn AntivirusSettingsSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
@@ -172,9 +172,9 @@ pub trait IWscProduct2_Impl: Sized + IWscProduct_Impl {
     fn FirewallPrivateProfileSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
     fn FirewallPublicProfileSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWscProduct2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWscProduct2_Vtbl {
     pub const fn new<Identity: IWscProduct2_Impl, const OFFSET: isize>() -> IWscProduct2_Vtbl {
         unsafe extern "system" fn AntivirusScanSubstatus<Identity: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
@@ -251,13 +251,13 @@ impl IWscProduct2_Vtbl {
         iid == &<IWscProduct2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWscProduct as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWscProduct3_Impl: Sized + IWscProduct2_Impl {
     fn AntivirusDaysUntilExpired(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWscProduct3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWscProduct3_Vtbl {
     pub const fn new<Identity: IWscProduct3_Impl, const OFFSET: isize>() -> IWscProduct3_Vtbl {
         unsafe extern "system" fn AntivirusDaysUntilExpired<Identity: IWscProduct3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwdays: *mut u32) -> windows_core::HRESULT {

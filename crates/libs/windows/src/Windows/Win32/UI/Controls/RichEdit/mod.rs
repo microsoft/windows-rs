@@ -240,14 +240,18 @@ impl core::ops::Deref for IRicheditUiaOverrides {
 }
 windows_core::imp::interface_hierarchy!(IRicheditUiaOverrides, windows_core::IUnknown);
 impl IRicheditUiaOverrides {
-    pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut windows_core::VARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPropertyOverrideValue)(windows_core::Interface::as_raw(self), propertyid, core::mem::transmute(pretvalue)).ok()
     }
 }
 #[repr(C)]
 pub struct IRicheditUiaOverrides_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetPropertyOverrideValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetPropertyOverrideValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetPropertyOverrideValue: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITextDisplays, ITextDisplays_Vtbl, 0xc241f5f2_7206_11d8_a2c7_00a0d1d6c6b3);
@@ -315,10 +319,12 @@ impl ITextDocument {
     pub unsafe fn New(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).New)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Open(&self, pvar: *const windows_core::VARIANT, flags: tomConstants, codepage: i32) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Open(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), flags, codepage).ok()
     }
-    pub unsafe fn Save(&self, pvar: *const windows_core::VARIANT, flags: tomConstants, codepage: i32) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Save(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), flags, codepage).ok()
     }
     pub unsafe fn Freeze(&self) -> windows_core::Result<i32> {
@@ -373,8 +379,14 @@ pub struct ITextDocument_Vtbl {
     pub GetDefaultTabStop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetDefaultTabStop: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub New: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, tomConstants, i32) -> windows_core::HRESULT,
-    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, tomConstants, i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, tomConstants, i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Open: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, tomConstants, i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Save: usize,
     pub Freeze: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Unfreeze: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub BeginEditCollection: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2194,27 +2206,33 @@ impl ITextRange {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveEnd)(windows_core::Interface::as_raw(self), unit, count, &mut result__).map(|| result__)
     }
-    pub unsafe fn MoveWhile(&self, cset: *const windows_core::VARIANT, count: i32) -> windows_core::Result<i32> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
     }
-    pub unsafe fn MoveStartWhile(&self, cset: *const windows_core::VARIANT, count: i32) -> windows_core::Result<i32> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveStartWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
     }
-    pub unsafe fn MoveEndWhile(&self, cset: *const windows_core::VARIANT, count: i32) -> windows_core::Result<i32> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveEndWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
     }
-    pub unsafe fn MoveUntil(&self, cset: *const windows_core::VARIANT, count: i32) -> windows_core::Result<i32> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
     }
-    pub unsafe fn MoveStartUntil(&self, cset: *const windows_core::VARIANT, count: i32) -> windows_core::Result<i32> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveStartUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
     }
-    pub unsafe fn MoveEndUntil(&self, cset: *const windows_core::VARIANT, count: i32) -> windows_core::Result<i32> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).MoveEndUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
     }
@@ -2243,18 +2261,22 @@ impl ITextRange {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), unit, count, &mut result__).map(|| result__)
     }
-    pub unsafe fn Cut(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Cut(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Cut)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Copy(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Copy(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Paste(&self, pvar: *const windows_core::VARIANT, format: i32) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), format).ok()
     }
-    pub unsafe fn CanPaste(&self, pvar: *const windows_core::VARIANT, format: i32) -> windows_core::Result<i32> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CanPaste)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), format, &mut result__).map(|| result__)
     }
@@ -2344,20 +2366,50 @@ pub struct ITextRange_Vtbl {
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
     pub MoveStart: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
     pub MoveEnd: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
-    pub MoveWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
-    pub MoveStartWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
-    pub MoveEndWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
-    pub MoveUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
-    pub MoveStartUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
-    pub MoveEndUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    MoveWhile: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveStartWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    MoveStartWhile: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveEndWhile: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    MoveEndWhile: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    MoveUntil: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveStartUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    MoveStartUntil: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveEndUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    MoveEndUntil: usize,
     pub FindText: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, tomConstants, *mut i32) -> windows_core::HRESULT,
     pub FindTextStart: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, tomConstants, *mut i32) -> windows_core::HRESULT,
     pub FindTextEnd: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, tomConstants, *mut i32) -> windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32) -> windows_core::HRESULT,
-    pub Cut: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub Paste: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, i32) -> windows_core::HRESULT,
-    pub CanPaste: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Cut: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Cut: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Copy: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Paste: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Paste: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub CanPaste: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    CanPaste: usize,
     pub CanEdit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ChangeCase: unsafe extern "system" fn(*mut core::ffi::c_void, tomConstants) -> windows_core::HRESULT,
     pub GetPoint: unsafe extern "system" fn(*mut core::ffi::c_void, tomConstants, *mut i32, *mut i32) -> windows_core::HRESULT,

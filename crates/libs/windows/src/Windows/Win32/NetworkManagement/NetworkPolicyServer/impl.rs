@@ -1,16 +1,16 @@
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISdo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetPropertyInfo(&self, id: i32) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetProperty(&self, id: i32) -> windows_core::Result<windows_core::VARIANT>;
-    fn PutProperty(&self, id: i32, pvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetProperty(&self, id: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn ResetProperty(&self, id: i32) -> windows_core::Result<()>;
     fn Apply(&self) -> windows_core::Result<()>;
     fn Restore(&self) -> windows_core::Result<()>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISdo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdo_Vtbl {
     pub const fn new<Identity: ISdo_Impl, const OFFSET: isize>() -> ISdo_Vtbl {
         unsafe extern "system" fn GetPropertyInfo<Identity: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pppropertyinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -23,7 +23,7 @@ impl ISdo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Identity: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdo_Impl::GetProperty(this, core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
@@ -33,7 +33,7 @@ impl ISdo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutProperty<Identity: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutProperty<Identity: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISdo_Impl::PutProperty(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pvalue)).into()
         }
@@ -74,7 +74,7 @@ impl ISdo_Vtbl {
         iid == &<ISdo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISdoCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Add(&self, bstrname: &windows_core::BSTR, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
@@ -82,12 +82,12 @@ pub trait ISdoCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn RemoveAll(&self) -> windows_core::Result<()>;
     fn Reload(&self) -> windows_core::Result<()>;
     fn IsNameUnique(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Item(&self, name: *const windows_core::VARIANT) -> windows_core::Result<super::super::System::Com::IDispatch>;
+    fn Item(&self, name: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Com::IDispatch>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISdoCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdoCollection_Vtbl {
     pub const fn new<Identity: ISdoCollection_Impl, const OFFSET: isize>() -> ISdoCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut i32) -> windows_core::HRESULT {
@@ -126,7 +126,7 @@ impl ISdoCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const core::mem::MaybeUninit<windows_core::VARIANT>, pitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdoCollection_Impl::Item(this, core::mem::transmute_copy(&name)) {
                 Ok(ok__) => {
@@ -162,20 +162,20 @@ impl ISdoCollection_Vtbl {
         iid == &<ISdoCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISdoDictionaryOld_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn EnumAttributes(&self, id: *mut windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
-    fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
-    fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
+    fn EnumAttributes(&self, id: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn CreateAttribute(&self, id: ATTRIBUTEID) -> windows_core::Result<super::super::System::Com::IDispatch>;
     fn GetAttributeID(&self, bstrattributename: &windows_core::BSTR) -> windows_core::Result<ATTRIBUTEID>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISdoDictionaryOld {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdoDictionaryOld_Vtbl {
     pub const fn new<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>() -> ISdoDictionaryOld_Vtbl {
-        unsafe extern "system" fn EnumAttributes<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pvalues: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAttributes<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvalues: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdoDictionaryOld_Impl::EnumAttributes(this, core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
@@ -185,7 +185,7 @@ impl ISdoDictionaryOld_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributeInfo<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pinfoids: *const core::mem::MaybeUninit<windows_core::VARIANT>, pinfovalues: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAttributeInfo<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pinfoids: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pinfovalues: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdoDictionaryOld_Impl::GetAttributeInfo(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pinfoids)) {
                 Ok(ok__) => {
@@ -195,7 +195,7 @@ impl ISdoDictionaryOld_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumAttributeValues<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pvalueids: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pvaluesdesc: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAttributeValues<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pvalueids: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvaluesdesc: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdoDictionaryOld_Impl::EnumAttributeValues(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pvalueids)) {
                 Ok(ok__) => {
@@ -238,7 +238,7 @@ impl ISdoDictionaryOld_Vtbl {
         iid == &<ISdoDictionaryOld as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISdoMachine_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Attach(&self, bstrcomputername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetDictionarySDO(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -250,9 +250,9 @@ pub trait ISdoMachine_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetAttachedComputer(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetSDOSchema(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISdoMachine {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdoMachine_Vtbl {
     pub const fn new<Identity: ISdoMachine_Impl, const OFFSET: isize>() -> ISdoMachine_Vtbl {
         unsafe extern "system" fn Attach<Identity: ISdoMachine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcomputername: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -356,7 +356,7 @@ impl ISdoMachine_Vtbl {
         iid == &<ISdoMachine as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISdoMachine2_Impl: Sized + ISdoMachine_Impl {
     fn GetTemplatesSDO(&self, bstrservicename: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown>;
     fn EnableTemplates(&self) -> windows_core::Result<()>;
@@ -364,9 +364,9 @@ pub trait ISdoMachine2_Impl: Sized + ISdoMachine_Impl {
     fn ImportRemoteTemplates(&self, plocaltemplatesroot: Option<&windows_core::IUnknown>, bstrremotemachinename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Reload(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISdoMachine2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdoMachine2_Vtbl {
     pub const fn new<Identity: ISdoMachine2_Impl, const OFFSET: isize>() -> ISdoMachine2_Vtbl {
         unsafe extern "system" fn GetTemplatesSDO<Identity: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservicename: core::mem::MaybeUninit<windows_core::BSTR>, pptemplatessdo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -408,16 +408,16 @@ impl ISdoMachine2_Vtbl {
         iid == &<ISdoMachine2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISdoMachine as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISdoServiceControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartService(&self) -> windows_core::Result<()>;
     fn StopService(&self) -> windows_core::Result<()>;
     fn GetServiceStatus(&self) -> windows_core::Result<i32>;
     fn ResetService(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISdoServiceControl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdoServiceControl_Vtbl {
     pub const fn new<Identity: ISdoServiceControl_Impl, const OFFSET: isize>() -> ISdoServiceControl_Vtbl {
         unsafe extern "system" fn StartService<Identity: ISdoServiceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -454,15 +454,15 @@ impl ISdoServiceControl_Vtbl {
         iid == &<ISdoServiceControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITemplateSdo_Impl: Sized + ISdo_Impl {
     fn AddToCollection(&self, bstrname: &windows_core::BSTR, pcollection: Option<&super::super::System::Com::IDispatch>, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn AddToSdo(&self, bstrname: &windows_core::BSTR, psdotarget: Option<&super::super::System::Com::IDispatch>, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn AddToSdoAsProperty(&self, psdotarget: Option<&super::super::System::Com::IDispatch>, id: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITemplateSdo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITemplateSdo_Vtbl {
     pub const fn new<Identity: ITemplateSdo_Impl, const OFFSET: isize>() -> ITemplateSdo_Vtbl {
         unsafe extern "system" fn AddToCollection<Identity: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, pcollection: *mut core::ffi::c_void, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -29,13 +29,13 @@ impl ILocationPermissions_Vtbl {
         iid == &<ILocationPermissions as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISensor_Impl: Sized + windows_core::IUnknownImpl {
     fn GetID(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetCategory(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetType(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetFriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::Result<windows_core::PROPVARIANT>;
+    fn GetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn GetProperties(&self, pkeys: Option<&super::PortableDevices::IPortableDeviceKeyCollection>) -> windows_core::Result<super::PortableDevices::IPortableDeviceValues>;
     fn GetSupportedDataFields(&self) -> windows_core::Result<super::PortableDevices::IPortableDeviceKeyCollection>;
     fn SetProperties(&self, pproperties: Option<&super::PortableDevices::IPortableDeviceValues>) -> windows_core::Result<super::PortableDevices::IPortableDeviceValues>;
@@ -47,9 +47,9 @@ pub trait ISensor_Impl: Sized + windows_core::IUnknownImpl {
     fn SetEventInterest(&self, pvalues: *const windows_core::GUID, count: u32) -> windows_core::Result<()>;
     fn SetEventSink(&self, pevents: Option<&ISensorEvents>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl windows_core::RuntimeName for ISensor {}
-#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISensor_Vtbl {
     pub const fn new<Identity: ISensor_Impl, const OFFSET: isize>() -> ISensor_Vtbl {
         unsafe extern "system" fn GetID<Identity: ISensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -92,7 +92,7 @@ impl ISensor_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Identity: ISensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pproperty: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ISensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pproperty: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISensor_Impl::GetProperty(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
@@ -268,15 +268,15 @@ impl ISensorCollection_Vtbl {
         iid == &<ISensorCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISensorDataReport_Impl: Sized + windows_core::IUnknownImpl {
     fn GetTimestamp(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME>;
-    fn GetSensorValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::Result<windows_core::PROPVARIANT>;
+    fn GetSensorValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn GetSensorValues(&self, pkeys: Option<&super::PortableDevices::IPortableDeviceKeyCollection>) -> windows_core::Result<super::PortableDevices::IPortableDeviceValues>;
 }
-#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl windows_core::RuntimeName for ISensorDataReport {}
-#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISensorDataReport_Vtbl {
     pub const fn new<Identity: ISensorDataReport_Impl, const OFFSET: isize>() -> ISensorDataReport_Vtbl {
         unsafe extern "system" fn GetTimestamp<Identity: ISensorDataReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimestamp: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
@@ -289,7 +289,7 @@ impl ISensorDataReport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSensorValue<Identity: ISensorDataReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSensorValue<Identity: ISensorDataReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISensorDataReport_Impl::GetSensorValue(this, core::mem::transmute_copy(&pkey)) {
                 Ok(ok__) => {

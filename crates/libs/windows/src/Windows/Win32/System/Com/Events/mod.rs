@@ -324,7 +324,8 @@ impl IEventObjectCollection {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn get_Item<P0>(&self, objectid: P0) -> windows_core::Result<windows_core::VARIANT>
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_Item<P0>(&self, objectid: P0) -> windows_core::Result<super::super::Variant::VARIANT>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
@@ -339,7 +340,8 @@ impl IEventObjectCollection {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn Add<P0>(&self, item: *const windows_core::VARIANT, objectid: P0) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Add<P0>(&self, item: *const super::super::Variant::VARIANT, objectid: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
@@ -356,10 +358,16 @@ impl IEventObjectCollection {
 pub struct IEventObjectCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    get_Item: usize,
     pub NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Add: usize,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEventProperty, IEventProperty_Vtbl, 0xda538ee2_f4de_11d1_b6bb_00805fc79216);
@@ -381,11 +389,13 @@ impl IEventProperty {
     {
         (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), propertyname.param().abi()).ok()
     }
-    pub unsafe fn Value(&self) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Value(&self) -> windows_core::Result<super::super::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetValue(&self, propertyvalue: *const windows_core::VARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetValue(&self, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(propertyvalue)).ok()
     }
 }
@@ -394,8 +404,14 @@ pub struct IEventProperty_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Value: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetValue: usize,
 }
 windows_core::imp::define_interface!(IEventPublisher, IEventPublisher_Vtbl, 0xe341516b_2e32_11d1_9964_00c04fbbb345);
 impl core::ops::Deref for IEventPublisher {
@@ -456,14 +472,16 @@ impl IEventPublisher {
     {
         (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
-    pub unsafe fn GetDefaultProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<windows_core::VARIANT>
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetDefaultProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<super::super::Variant::VARIANT>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDefaultProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn PutDefaultProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const windows_core::VARIANT) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn PutDefaultProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
@@ -493,8 +511,14 @@ pub struct IEventPublisher_Vtbl {
     pub SetOwnerSID: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetDefaultProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub PutDefaultProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetDefaultProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetDefaultProperty: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub PutDefaultProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    PutDefaultProperty: usize,
     pub RemoveDefaultProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetDefaultPropertyCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -627,14 +651,16 @@ impl IEventSubscription {
     {
         (windows_core::Interface::vtable(self).SetMachineName)(windows_core::Interface::as_raw(self), bstrmachinename.param().abi()).ok()
     }
-    pub unsafe fn GetPublisherProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<windows_core::VARIANT>
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPublisherProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<super::super::Variant::VARIANT>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPublisherProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn PutPublisherProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const windows_core::VARIANT) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn PutPublisherProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
@@ -650,14 +676,16 @@ impl IEventSubscription {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPublisherPropertyCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetSubscriberProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<windows_core::VARIANT>
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetSubscriberProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<super::super::Variant::VARIANT>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSubscriberProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn PutSubscriberProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const windows_core::VARIANT) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn PutSubscriberProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
@@ -711,12 +739,24 @@ pub struct IEventSubscription_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub MachineName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetMachineName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetPublisherProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub PutPublisherProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetPublisherProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetPublisherProperty: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub PutPublisherProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    PutPublisherProperty: usize,
     pub RemovePublisherProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetPublisherPropertyCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSubscriberProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub PutSubscriberProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetSubscriberProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetSubscriberProperty: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub PutSubscriberProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    PutSubscriberProperty: usize,
     pub RemoveSubscriberProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetSubscriberPropertyCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InterfaceID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,

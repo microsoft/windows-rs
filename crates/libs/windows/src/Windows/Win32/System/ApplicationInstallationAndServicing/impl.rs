@@ -289,15 +289,15 @@ impl IEnumMsmString_Vtbl {
         iid == &<IEnumMsmString as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmDependencies_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, item: i32) -> windows_core::Result<IMsmDependency>;
     fn Count(&self, count: *mut i32) -> windows_core::Result<()>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMsmDependencies {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmDependencies_Vtbl {
     pub const fn new<Identity: IMsmDependencies_Impl, const OFFSET: isize>() -> IMsmDependencies_Vtbl {
         unsafe extern "system" fn get_Item<Identity: IMsmDependencies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: i32, r#return: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -335,15 +335,15 @@ impl IMsmDependencies_Vtbl {
         iid == &<IMsmDependencies as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmDependency_Impl: Sized + super::Com::IDispatch_Impl {
     fn Module(&self, module: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn Language(&self, language: *mut i16) -> windows_core::Result<()>;
     fn Version(&self, version: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMsmDependency {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmDependency_Vtbl {
     pub const fn new<Identity: IMsmDependency_Impl, const OFFSET: isize>() -> IMsmDependency_Vtbl {
         unsafe extern "system" fn Module<Identity: IMsmDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, module: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -369,7 +369,7 @@ impl IMsmDependency_Vtbl {
         iid == &<IMsmDependency as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmError_Impl: Sized + super::Com::IDispatch_Impl {
     fn Type(&self, errortype: *mut msmErrorType) -> windows_core::Result<()>;
     fn Path(&self, errorpath: *mut windows_core::BSTR) -> windows_core::Result<()>;
@@ -379,9 +379,9 @@ pub trait IMsmError_Impl: Sized + super::Com::IDispatch_Impl {
     fn ModuleTable(&self, errortable: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn ModuleKeys(&self) -> windows_core::Result<IMsmStrings>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMsmError {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmError_Vtbl {
     pub const fn new<Identity: IMsmError_Impl, const OFFSET: isize>() -> IMsmError_Vtbl {
         unsafe extern "system" fn Type<Identity: IMsmError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errortype: *mut msmErrorType) -> windows_core::HRESULT {
@@ -439,15 +439,15 @@ impl IMsmError_Vtbl {
         iid == &<IMsmError as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmErrors_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, item: i32) -> windows_core::Result<IMsmError>;
     fn Count(&self, count: *mut i32) -> windows_core::Result<()>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMsmErrors {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmErrors_Vtbl {
     pub const fn new<Identity: IMsmErrors_Impl, const OFFSET: isize>() -> IMsmErrors_Vtbl {
         unsafe extern "system" fn get_Item<Identity: IMsmErrors_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: i32, r#return: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -485,13 +485,13 @@ impl IMsmErrors_Vtbl {
         iid == &<IMsmErrors as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmGetFiles_Impl: Sized + super::Com::IDispatch_Impl {
     fn ModuleFiles(&self) -> windows_core::Result<IMsmStrings>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMsmGetFiles {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmGetFiles_Vtbl {
     pub const fn new<Identity: IMsmGetFiles_Impl, const OFFSET: isize>() -> IMsmGetFiles_Vtbl {
         unsafe extern "system" fn ModuleFiles<Identity: IMsmGetFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, files: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -510,7 +510,7 @@ impl IMsmGetFiles_Vtbl {
         iid == &<IMsmGetFiles as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmMerge_Impl: Sized + super::Com::IDispatch_Impl {
     fn OpenDatabase(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
     fn OpenModule(&self, path: &windows_core::BSTR, language: i16) -> windows_core::Result<()>;
@@ -526,9 +526,9 @@ pub trait IMsmMerge_Impl: Sized + super::Com::IDispatch_Impl {
     fn ExtractCAB(&self, filename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ExtractFiles(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMsmMerge {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmMerge_Vtbl {
     pub const fn new<Identity: IMsmMerge_Impl, const OFFSET: isize>() -> IMsmMerge_Vtbl {
         unsafe extern "system" fn OpenDatabase<Identity: IMsmMerge_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -616,15 +616,15 @@ impl IMsmMerge_Vtbl {
         iid == &<IMsmMerge as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmStrings_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, item: i32, r#return: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn Count(&self, count: *mut i32) -> windows_core::Result<()>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMsmStrings {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmStrings_Vtbl {
     pub const fn new<Identity: IMsmStrings_Impl, const OFFSET: isize>() -> IMsmStrings_Vtbl {
         unsafe extern "system" fn get_Item<Identity: IMsmStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: i32, r#return: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {

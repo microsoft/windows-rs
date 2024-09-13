@@ -93,6 +93,7 @@ impl IDataModelConcept_Vtbl {
         iid == &<IDataModelConcept as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataModelManager_Impl: Sized + windows_core::IUnknownImpl {
     fn Close(&self) -> windows_core::Result<()>;
     fn CreateNoValue(&self) -> windows_core::Result<IModelObject>;
@@ -101,8 +102,8 @@ pub trait IDataModelManager_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateTypedObjectReference(&self, context: Option<&IDebugHostContext>, objectlocation: &Location, objecttype: Option<&IDebugHostType>) -> windows_core::Result<IModelObject>;
     fn CreateSyntheticObject(&self, context: Option<&IDebugHostContext>) -> windows_core::Result<IModelObject>;
     fn CreateDataModelObject(&self, datamodel: Option<&IDataModelConcept>) -> windows_core::Result<IModelObject>;
-    fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const windows_core::VARIANT) -> windows_core::Result<IModelObject>;
-    fn CreateTypedIntrinsicObject(&self, intrinsicdata: *const windows_core::VARIANT, r#type: Option<&IDebugHostType>) -> windows_core::Result<IModelObject>;
+    fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Variant::VARIANT) -> windows_core::Result<IModelObject>;
+    fn CreateTypedIntrinsicObject(&self, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: Option<&IDebugHostType>) -> windows_core::Result<IModelObject>;
     fn GetModelForTypeSignature(&self, typesignature: Option<&IDebugHostTypeSignature>) -> windows_core::Result<IModelObject>;
     fn GetModelForType(&self, r#type: Option<&IDebugHostType>, datamodel: *mut Option<IModelObject>, typesignature: *mut Option<IDebugHostTypeSignature>, wildcardmatches: *mut Option<IDebugHostSymbolEnumerator>) -> windows_core::Result<()>;
     fn RegisterModelForTypeSignature(&self, typesignature: Option<&IDebugHostTypeSignature>, datamodel: Option<&IModelObject>) -> windows_core::Result<()>;
@@ -115,7 +116,9 @@ pub trait IDataModelManager_Impl: Sized + windows_core::IUnknownImpl {
     fn UnregisterNamedModel(&self, modelname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AcquireNamedModel(&self, modelname: &windows_core::PCWSTR) -> windows_core::Result<IModelObject>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDataModelManager {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataModelManager_Vtbl {
     pub const fn new<Identity: IDataModelManager_Impl, const OFFSET: isize>() -> IDataModelManager_Vtbl {
         unsafe extern "system" fn Close<Identity: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -182,7 +185,7 @@ impl IDataModelManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateIntrinsicObject<Identity: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const core::mem::MaybeUninit<windows_core::VARIANT>, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateIntrinsicObject<Identity: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDataModelManager_Impl::CreateIntrinsicObject(this, core::mem::transmute_copy(&objectkind), core::mem::transmute_copy(&intrinsicdata)) {
                 Ok(ok__) => {
@@ -192,7 +195,7 @@ impl IDataModelManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTypedIntrinsicObject<Identity: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intrinsicdata: *const core::mem::MaybeUninit<windows_core::VARIANT>, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTypedIntrinsicObject<Identity: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intrinsicdata: *const core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDataModelManager_Impl::CreateTypedIntrinsicObject(this, core::mem::transmute_copy(&intrinsicdata), windows_core::from_raw_borrowed(&r#type)) {
                 Ok(ok__) => {
@@ -298,11 +301,14 @@ impl IDataModelManager_Vtbl {
         iid == &<IDataModelManager as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataModelManager2_Impl: Sized + IDataModelManager_Impl {
     fn AcquireSubNamespace(&self, modelname: &windows_core::PCWSTR, subnamespacemodelname: &windows_core::PCWSTR, accessname: &windows_core::PCWSTR, metadata: Option<&IKeyStore>) -> windows_core::Result<IModelObject>;
-    fn CreateTypedIntrinsicObjectEx(&self, context: Option<&IDebugHostContext>, intrinsicdata: *const windows_core::VARIANT, r#type: Option<&IDebugHostType>) -> windows_core::Result<IModelObject>;
+    fn CreateTypedIntrinsicObjectEx(&self, context: Option<&IDebugHostContext>, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: Option<&IDebugHostType>) -> windows_core::Result<IModelObject>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDataModelManager2 {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataModelManager2_Vtbl {
     pub const fn new<Identity: IDataModelManager2_Impl, const OFFSET: isize>() -> IDataModelManager2_Vtbl {
         unsafe extern "system" fn AcquireSubNamespace<Identity: IDataModelManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modelname: windows_core::PCWSTR, subnamespacemodelname: windows_core::PCWSTR, accessname: windows_core::PCWSTR, metadata: *mut core::ffi::c_void, namespacemodelobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -315,7 +321,7 @@ impl IDataModelManager2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTypedIntrinsicObjectEx<Identity: IDataModelManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, intrinsicdata: *const core::mem::MaybeUninit<windows_core::VARIANT>, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTypedIntrinsicObjectEx<Identity: IDataModelManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, intrinsicdata: *const core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDataModelManager2_Impl::CreateTypedIntrinsicObjectEx(this, windows_core::from_raw_borrowed(&context), core::mem::transmute_copy(&intrinsicdata), windows_core::from_raw_borrowed(&r#type)) {
                 Ok(ok__) => {
@@ -15535,7 +15541,7 @@ impl IDebugFailureAnalysis2_Vtbl {
         iid == &<IDebugFailureAnalysis2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugFailureAnalysis3_Impl: Sized + windows_core::IUnknownImpl {
     fn GetFailureClass(&self) -> u32;
     fn GetFailureType(&self) -> DEBUG_FAILURE_TYPE;
@@ -15561,9 +15567,9 @@ pub trait IDebugFailureAnalysis3_Impl: Sized + windows_core::IUnknownImpl {
     fn GetAnalysisXml(&self) -> windows_core::Result<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement>;
     fn AddStructuredAnalysisData(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: Option<&IDebugFailureAnalysis2>) -> windows_core::Result<()>;
     fn AddThreads(&self, pdebugfailurethreadenum: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn AttributeGet(&self, nindex: u32) -> windows_core::Result<windows_core::VARIANT>;
+    fn AttributeGet(&self, nindex: u32) -> windows_core::Result<super::super::super::Variant::VARIANT>;
     fn AttributeGetName(&self, nindex: u32) -> windows_core::Result<windows_core::BSTR>;
-    fn AttributeSet(&self, nindex: u32, value: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn AttributeSet(&self, nindex: u32, value: &super::super::super::Variant::VARIANT) -> windows_core::Result<()>;
     fn BlameApplication(&self, postfix: &windows_core::BSTR) -> windows_core::Result<()>;
     fn BlameProcess(&self, postfix: &windows_core::BSTR) -> windows_core::Result<()>;
     fn BlameThread(&self, pthread: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -15578,9 +15584,9 @@ pub trait IDebugFailureAnalysis3_Impl: Sized + windows_core::IUnknownImpl {
     fn GetAdditionalXML(&self, key: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown>;
     fn DeleteAdditionalXML(&self, key: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDebugFailureAnalysis3 {}
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugFailureAnalysis3_Vtbl {
     pub const fn new<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>() -> IDebugFailureAnalysis3_Vtbl {
         unsafe extern "system" fn GetFailureClass<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
@@ -15691,7 +15697,7 @@ impl IDebugFailureAnalysis3_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDebugFailureAnalysis3_Impl::AddThreads(this, windows_core::from_raw_borrowed(&pdebugfailurethreadenum)).into()
         }
-        unsafe extern "system" fn AttributeGet<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AttributeGet<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, pvalue: *mut core::mem::MaybeUninit<super::super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDebugFailureAnalysis3_Impl::AttributeGet(this, core::mem::transmute_copy(&nindex)) {
                 Ok(ok__) => {
@@ -15711,7 +15717,7 @@ impl IDebugFailureAnalysis3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AttributeSet<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, value: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AttributeSet<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, value: core::mem::MaybeUninit<super::super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDebugFailureAnalysis3_Impl::AttributeSet(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&value)).into()
         }
@@ -15898,13 +15904,16 @@ impl IDebugHostBaseClass_Vtbl {
         iid == &<IDebugHostBaseClass as windows_core::Interface>::IID || iid == &<IDebugHostSymbol as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHostConstant_Impl: Sized + IDebugHostSymbol_Impl {
-    fn GetValue(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetValue(&self) -> windows_core::Result<super::super::super::Variant::VARIANT>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDebugHostConstant {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugHostConstant_Vtbl {
     pub const fn new<Identity: IDebugHostConstant_Impl, const OFFSET: isize>() -> IDebugHostConstant_Vtbl {
-        unsafe extern "system" fn GetValue<Identity: IDebugHostConstant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: IDebugHostConstant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<super::super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDebugHostConstant_Impl::GetValue(this) {
                 Ok(ok__) => {
@@ -15942,12 +15951,15 @@ impl IDebugHostContext_Vtbl {
         iid == &<IDebugHostContext as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHostData_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetLocationKind(&self) -> windows_core::Result<LocationKind>;
     fn GetLocation(&self) -> windows_core::Result<Location>;
-    fn GetValue(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetValue(&self) -> windows_core::Result<super::super::super::Variant::VARIANT>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDebugHostData {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugHostData_Vtbl {
     pub const fn new<Identity: IDebugHostData_Impl, const OFFSET: isize>() -> IDebugHostData_Vtbl {
         unsafe extern "system" fn GetLocationKind<Identity: IDebugHostData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locationkind: *mut LocationKind) -> windows_core::HRESULT {
@@ -15970,7 +15982,7 @@ impl IDebugHostData_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: IDebugHostData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: IDebugHostData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<super::super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDebugHostData_Impl::GetValue(this) {
                 Ok(ok__) => {
@@ -16073,13 +16085,16 @@ impl IDebugHostExtensibility_Vtbl {
         iid == &<IDebugHostExtensibility as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHostField_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetLocationKind(&self) -> windows_core::Result<LocationKind>;
     fn GetOffset(&self) -> windows_core::Result<u64>;
     fn GetLocation(&self) -> windows_core::Result<Location>;
-    fn GetValue(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetValue(&self) -> windows_core::Result<super::super::super::Variant::VARIANT>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDebugHostField {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugHostField_Vtbl {
     pub const fn new<Identity: IDebugHostField_Impl, const OFFSET: isize>() -> IDebugHostField_Vtbl {
         unsafe extern "system" fn GetLocationKind<Identity: IDebugHostField_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, locationkind: *mut LocationKind) -> windows_core::HRESULT {
@@ -16112,7 +16127,7 @@ impl IDebugHostField_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: IDebugHostField_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: IDebugHostField_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<super::super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDebugHostField_Impl::GetValue(this) {
                 Ok(ok__) => {
@@ -23458,12 +23473,12 @@ impl IModelMethod_Vtbl {
         iid == &<IModelMethod as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IModelObject_Impl: Sized + windows_core::IUnknownImpl {
     fn GetContext(&self) -> windows_core::Result<IDebugHostContext>;
     fn GetKind(&self) -> windows_core::Result<ModelObjectKind>;
-    fn GetIntrinsicValue(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn GetIntrinsicValueAs(&self, vt: super::super::super::Variant::VARENUM) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetIntrinsicValue(&self) -> windows_core::Result<super::super::super::Variant::VARIANT>;
+    fn GetIntrinsicValueAs(&self, vt: super::super::super::Variant::VARENUM) -> windows_core::Result<super::super::super::Variant::VARIANT>;
     fn GetKeyValue(&self, key: &windows_core::PCWSTR, object: *mut Option<IModelObject>, metadata: *mut Option<IKeyStore>) -> windows_core::Result<()>;
     fn SetKeyValue(&self, key: &windows_core::PCWSTR, object: Option<&IModelObject>) -> windows_core::Result<()>;
     fn EnumerateKeyValues(&self) -> windows_core::Result<IKeyEnumerator>;
@@ -23494,9 +23509,9 @@ pub trait IModelObject_Impl: Sized + windows_core::IUnknownImpl {
     fn Compare(&self, other: Option<&IModelObject>, ppresult: *mut Option<IModelObject>) -> windows_core::Result<()>;
     fn IsEqualTo(&self, other: Option<&IModelObject>) -> windows_core::Result<bool>;
 }
-#[cfg(feature = "Win32_System_Variant")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IModelObject {}
-#[cfg(feature = "Win32_System_Variant")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IModelObject_Vtbl {
     pub const fn new<Identity: IModelObject_Impl, const OFFSET: isize>() -> IModelObject_Vtbl {
         unsafe extern "system" fn GetContext<Identity: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -23519,7 +23534,7 @@ impl IModelObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIntrinsicValue<Identity: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intrinsicdata: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIntrinsicValue<Identity: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intrinsicdata: *mut core::mem::MaybeUninit<super::super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IModelObject_Impl::GetIntrinsicValue(this) {
                 Ok(ok__) => {
@@ -23529,7 +23544,7 @@ impl IModelObject_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIntrinsicValueAs<Identity: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vt: super::super::super::Variant::VARENUM, intrinsicdata: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIntrinsicValueAs<Identity: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vt: super::super::super::Variant::VARENUM, intrinsicdata: *mut core::mem::MaybeUninit<super::super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IModelObject_Impl::GetIntrinsicValueAs(this, core::mem::transmute_copy(&vt)) {
                 Ok(ok__) => {

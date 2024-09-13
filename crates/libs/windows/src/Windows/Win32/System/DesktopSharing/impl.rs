@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIApplication_Impl: Sized + super::Com::IDispatch_Impl {
     fn Windows(&self) -> windows_core::Result<IRDPSRAPIWindowList>;
     fn Id(&self) -> windows_core::Result<i32>;
@@ -7,9 +7,9 @@ pub trait IRDPSRAPIApplication_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Flags(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIApplication {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIApplication_Vtbl {
     pub const fn new<Identity: IRDPSRAPIApplication_Impl, const OFFSET: isize>() -> IRDPSRAPIApplication_Vtbl {
         unsafe extern "system" fn Windows<Identity: IRDPSRAPIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwindowlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -80,16 +80,16 @@ impl IRDPSRAPIApplication_Vtbl {
         iid == &<IRDPSRAPIApplication as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIApplicationFilter_Impl: Sized + super::Com::IDispatch_Impl {
     fn Applications(&self) -> windows_core::Result<IRDPSRAPIApplicationList>;
     fn Windows(&self) -> windows_core::Result<IRDPSRAPIWindowList>;
     fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIApplicationFilter {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIApplicationFilter_Vtbl {
     pub const fn new<Identity: IRDPSRAPIApplicationFilter_Impl, const OFFSET: isize>() -> IRDPSRAPIApplicationFilter_Vtbl {
         unsafe extern "system" fn Applications<Identity: IRDPSRAPIApplicationFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, papplications: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -138,14 +138,14 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
         iid == &<IRDPSRAPIApplicationFilter as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIApplicationList_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, item: i32) -> windows_core::Result<IRDPSRAPIApplication>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIApplicationList {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIApplicationList_Vtbl {
     pub const fn new<Identity: IRDPSRAPIApplicationList_Impl, const OFFSET: isize>() -> IRDPSRAPIApplicationList_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: IRDPSRAPIApplicationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -174,7 +174,7 @@ impl IRDPSRAPIApplicationList_Vtbl {
         iid == &<IRDPSRAPIApplicationList as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIAttendee_Impl: Sized + super::Com::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<i32>;
     fn RemoteName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -185,9 +185,9 @@ pub trait IRDPSRAPIAttendee_Impl: Sized + super::Com::IDispatch_Impl {
     fn Flags(&self) -> windows_core::Result<i32>;
     fn ConnectivityInfo(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIAttendee {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIAttendee_Vtbl {
     pub const fn new<Identity: IRDPSRAPIAttendee_Impl, const OFFSET: isize>() -> IRDPSRAPIAttendee_Vtbl {
         unsafe extern "system" fn Id<Identity: IRDPSRAPIAttendee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: *mut i32) -> windows_core::HRESULT {
@@ -274,15 +274,15 @@ impl IRDPSRAPIAttendee_Vtbl {
         iid == &<IRDPSRAPIAttendee as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIAttendeeDisconnectInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Attendee(&self) -> windows_core::Result<IRDPSRAPIAttendee>;
     fn Reason(&self) -> windows_core::Result<ATTENDEE_DISCONNECT_REASON>;
     fn Code(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIAttendeeDisconnectInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
     pub const fn new<Identity: IRDPSRAPIAttendeeDisconnectInfo_Impl, const OFFSET: isize>() -> IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
         unsafe extern "system" fn Attendee<Identity: IRDPSRAPIAttendeeDisconnectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -326,14 +326,14 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
         iid == &<IRDPSRAPIAttendeeDisconnectInfo as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIAttendeeManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, id: i32) -> windows_core::Result<IRDPSRAPIAttendee>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIAttendeeManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIAttendeeManager_Vtbl {
     pub const fn new<Identity: IRDPSRAPIAttendeeManager_Impl, const OFFSET: isize>() -> IRDPSRAPIAttendeeManager_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: IRDPSRAPIAttendeeManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -467,16 +467,16 @@ impl IRDPSRAPIDebug_Vtbl {
         iid == &<IRDPSRAPIDebug as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIFrameBuffer_Impl: Sized + super::Com::IDispatch_Impl {
     fn Width(&self) -> windows_core::Result<i32>;
     fn Height(&self) -> windows_core::Result<i32>;
     fn Bpp(&self) -> windows_core::Result<i32>;
     fn GetFrameBufferBits(&self, x: i32, y: i32, width: i32, heigth: i32) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIFrameBuffer {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIFrameBuffer_Vtbl {
     pub const fn new<Identity: IRDPSRAPIFrameBuffer_Impl, const OFFSET: isize>() -> IRDPSRAPIFrameBuffer_Vtbl {
         unsafe extern "system" fn Width<Identity: IRDPSRAPIFrameBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plwidth: *mut i32) -> windows_core::HRESULT {
@@ -531,7 +531,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
         iid == &<IRDPSRAPIFrameBuffer as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIInvitation_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConnectionString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GroupName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -541,9 +541,9 @@ pub trait IRDPSRAPIInvitation_Impl: Sized + super::Com::IDispatch_Impl {
     fn Revoked(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetRevoked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIInvitation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIInvitation_Vtbl {
     pub const fn new<Identity: IRDPSRAPIInvitation_Impl, const OFFSET: isize>() -> IRDPSRAPIInvitation_Vtbl {
         unsafe extern "system" fn ConnectionString<Identity: IRDPSRAPIInvitation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -619,16 +619,16 @@ impl IRDPSRAPIInvitation_Vtbl {
         iid == &<IRDPSRAPIInvitation as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIInvitationManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, item: &windows_core::VARIANT) -> windows_core::Result<IRDPSRAPIInvitation>;
+    fn get_Item(&self, item: &super::Variant::VARIANT) -> windows_core::Result<IRDPSRAPIInvitation>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn CreateInvitation(&self, bstrauthstring: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, attendeelimit: i32) -> windows_core::Result<IRDPSRAPIInvitation>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIInvitationManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIInvitationManager_Vtbl {
     pub const fn new<Identity: IRDPSRAPIInvitationManager_Impl, const OFFSET: isize>() -> IRDPSRAPIInvitationManager_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: IRDPSRAPIInvitationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -641,7 +641,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: IRDPSRAPIInvitationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: core::mem::MaybeUninit<windows_core::VARIANT>, ppinvitation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: IRDPSRAPIInvitationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: core::mem::MaybeUninit<super::Variant::VARIANT>, ppinvitation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRDPSRAPIInvitationManager_Impl::get_Item(this, core::mem::transmute(&item)) {
                 Ok(ok__) => {
@@ -721,17 +721,17 @@ impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
         iid == &<IRDPSRAPIPerfCounterLoggingManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPISessionProperties_Impl: Sized + super::Com::IDispatch_Impl {
-    fn get_Property(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<windows_core::VARIANT>;
-    fn put_Property(&self, propertyname: &windows_core::BSTR, newval: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn get_Property(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT>;
+    fn put_Property(&self, propertyname: &windows_core::BSTR, newval: &super::Variant::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPISessionProperties {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPISessionProperties_Vtbl {
     pub const fn new<Identity: IRDPSRAPISessionProperties_Impl, const OFFSET: isize>() -> IRDPSRAPISessionProperties_Vtbl {
-        unsafe extern "system" fn get_Property<Identity: IRDPSRAPISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: IRDPSRAPISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRDPSRAPISessionProperties_Impl::get_Property(this, core::mem::transmute(&propertyname)) {
                 Ok(ok__) => {
@@ -741,7 +741,7 @@ impl IRDPSRAPISessionProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn put_Property<Identity: IRDPSRAPISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, newval: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Property<Identity: IRDPSRAPISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, newval: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRDPSRAPISessionProperties_Impl::put_Property(this, core::mem::transmute(&propertyname), core::mem::transmute(&newval)).into()
         }
@@ -755,7 +755,7 @@ impl IRDPSRAPISessionProperties_Vtbl {
         iid == &<IRDPSRAPISessionProperties as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPISharingSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn Open(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
@@ -772,9 +772,9 @@ pub trait IRDPSRAPISharingSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> windows_core::Result<()>;
     fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPISharingSession {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPISharingSession_Vtbl {
     pub const fn new<Identity: IRDPSRAPISharingSession_Impl, const OFFSET: isize>() -> IRDPSRAPISharingSession_Vtbl {
         unsafe extern "system" fn Open<Identity: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -891,15 +891,15 @@ impl IRDPSRAPISharingSession_Vtbl {
         iid == &<IRDPSRAPISharingSession as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPISharingSession2_Impl: Sized + IRDPSRAPISharingSession_Impl {
     fn ConnectUsingTransportStream(&self, pstream: Option<&IRDPSRAPITransportStream>, bstrgroup: &windows_core::BSTR, bstrauthenticatedattendeename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn FrameBuffer(&self) -> windows_core::Result<IRDPSRAPIFrameBuffer>;
     fn SendControlLevelChangeResponse(&self, pattendee: Option<&IRDPSRAPIAttendee>, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPISharingSession2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPISharingSession2_Vtbl {
     pub const fn new<Identity: IRDPSRAPISharingSession2_Impl, const OFFSET: isize>() -> IRDPSRAPISharingSession2_Vtbl {
         unsafe extern "system" fn ConnectUsingTransportStream<Identity: IRDPSRAPISharingSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, bstrgroup: core::mem::MaybeUninit<windows_core::BSTR>, bstrauthenticatedattendeename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -931,7 +931,7 @@ impl IRDPSRAPISharingSession2_Vtbl {
         iid == &<IRDPSRAPISharingSession2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IRDPSRAPISharingSession as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPITcpConnectionInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Protocol(&self) -> windows_core::Result<i32>;
     fn LocalPort(&self) -> windows_core::Result<i32>;
@@ -939,9 +939,9 @@ pub trait IRDPSRAPITcpConnectionInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn PeerPort(&self) -> windows_core::Result<i32>;
     fn PeerIP(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPITcpConnectionInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPITcpConnectionInfo_Vtbl {
     pub const fn new<Identity: IRDPSRAPITcpConnectionInfo_Impl, const OFFSET: isize>() -> IRDPSRAPITcpConnectionInfo_Vtbl {
         unsafe extern "system" fn Protocol<Identity: IRDPSRAPITcpConnectionInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprotocol: *mut i32) -> windows_core::HRESULT {
@@ -1202,7 +1202,7 @@ impl IRDPSRAPITransportStreamEvents_Vtbl {
         iid == &<IRDPSRAPITransportStreamEvents as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIViewer_Impl: Sized + super::Com::IDispatch_Impl {
     fn Connect(&self, bstrconnectionstring: &windows_core::BSTR, bstrname: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
@@ -1219,9 +1219,9 @@ pub trait IRDPSRAPIViewer_Impl: Sized + super::Com::IDispatch_Impl {
     fn Properties(&self) -> windows_core::Result<IRDPSRAPISessionProperties>;
     fn StartReverseConnectListener(&self, bstrconnectionstring: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIViewer {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIViewer_Vtbl {
     pub const fn new<Identity: IRDPSRAPIViewer_Impl, const OFFSET: isize>() -> IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn Connect<Identity: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnectionstring: core::mem::MaybeUninit<windows_core::BSTR>, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, bstrpassword: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1350,7 +1350,7 @@ impl IRDPSRAPIViewer_Vtbl {
         iid == &<IRDPSRAPIViewer as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIVirtualChannel_Impl: Sized + super::Com::IDispatch_Impl {
     fn SendData(&self, bstrdata: &windows_core::BSTR, lattendeeid: i32, channelsendflags: u32) -> windows_core::Result<()>;
     fn SetAccess(&self, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> windows_core::Result<()>;
@@ -1358,9 +1358,9 @@ pub trait IRDPSRAPIVirtualChannel_Impl: Sized + super::Com::IDispatch_Impl {
     fn Flags(&self) -> windows_core::Result<i32>;
     fn Priority(&self) -> windows_core::Result<CHANNEL_PRIORITY>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIVirtualChannel {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIVirtualChannel_Vtbl {
     pub const fn new<Identity: IRDPSRAPIVirtualChannel_Impl, const OFFSET: isize>() -> IRDPSRAPIVirtualChannel_Vtbl {
         unsafe extern "system" fn SendData<Identity: IRDPSRAPIVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: core::mem::MaybeUninit<windows_core::BSTR>, lattendeeid: i32, channelsendflags: u32) -> windows_core::HRESULT {
@@ -1414,15 +1414,15 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
         iid == &<IRDPSRAPIVirtualChannel as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIVirtualChannelManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, item: &windows_core::VARIANT) -> windows_core::Result<IRDPSRAPIVirtualChannel>;
+    fn get_Item(&self, item: &super::Variant::VARIANT) -> windows_core::Result<IRDPSRAPIVirtualChannel>;
     fn CreateVirtualChannel(&self, bstrchannelname: &windows_core::BSTR, priority: CHANNEL_PRIORITY, channelflags: u32) -> windows_core::Result<IRDPSRAPIVirtualChannel>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIVirtualChannelManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIVirtualChannelManager_Vtbl {
     pub const fn new<Identity: IRDPSRAPIVirtualChannelManager_Impl, const OFFSET: isize>() -> IRDPSRAPIVirtualChannelManager_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: IRDPSRAPIVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1435,7 +1435,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: IRDPSRAPIVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: core::mem::MaybeUninit<windows_core::VARIANT>, pchannel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: IRDPSRAPIVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: core::mem::MaybeUninit<super::Variant::VARIANT>, pchannel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRDPSRAPIVirtualChannelManager_Impl::get_Item(this, core::mem::transmute(&item)) {
                 Ok(ok__) => {
@@ -1466,7 +1466,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
         iid == &<IRDPSRAPIVirtualChannelManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIWindow_Impl: Sized + super::Com::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<i32>;
     fn Application(&self) -> windows_core::Result<IRDPSRAPIApplication>;
@@ -1476,9 +1476,9 @@ pub trait IRDPSRAPIWindow_Impl: Sized + super::Com::IDispatch_Impl {
     fn Show(&self) -> windows_core::Result<()>;
     fn Flags(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIWindow {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIWindow_Vtbl {
     pub const fn new<Identity: IRDPSRAPIWindow_Impl, const OFFSET: isize>() -> IRDPSRAPIWindow_Vtbl {
         unsafe extern "system" fn Id<Identity: IRDPSRAPIWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
@@ -1554,14 +1554,14 @@ impl IRDPSRAPIWindow_Vtbl {
         iid == &<IRDPSRAPIWindow as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIWindowList_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, item: i32) -> windows_core::Result<IRDPSRAPIWindow>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIWindowList {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIWindowList_Vtbl {
     pub const fn new<Identity: IRDPSRAPIWindowList_Impl, const OFFSET: isize>() -> IRDPSRAPIWindowList_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: IRDPSRAPIWindowList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1651,11 +1651,11 @@ impl IRDPViewerInputSink_Vtbl {
         iid == &<IRDPViewerInputSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _IRDPSessionEvents_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for _IRDPSessionEvents {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _IRDPSessionEvents_Vtbl {
     pub const fn new<Identity: _IRDPSessionEvents_Impl, const OFFSET: isize>() -> _IRDPSessionEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }

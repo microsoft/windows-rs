@@ -88,13 +88,13 @@ impl IActiveXUIHandlerSite3_Vtbl {
         iid == &<IActiveXUIHandlerSite3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAnchorClick_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ProcOnClick(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAnchorClick {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAnchorClick_Vtbl {
     pub const fn new<Identity: IAnchorClick_Impl, const OFFSET: isize>() -> IAnchorClick_Vtbl {
         unsafe extern "system" fn ProcOnClick<Identity: IAnchorClick_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -160,11 +160,11 @@ impl ICaretPositionProvider_Vtbl {
         iid == &<ICaretPositionProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDeviceRect_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDeviceRect {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDeviceRect_Vtbl {
     pub const fn new<Identity: IDeviceRect_Impl, const OFFSET: isize>() -> IDeviceRect_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -201,13 +201,13 @@ impl IDithererImpl_Vtbl {
         iid == &<IDithererImpl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDownloadBehavior_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn startDownload(&self, bstrurl: &windows_core::BSTR, pdispcallback: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDownloadBehavior {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDownloadBehavior_Vtbl {
     pub const fn new<Identity: IDownloadBehavior_Impl, const OFFSET: isize>() -> IDownloadBehavior_Vtbl {
         unsafe extern "system" fn startDownload<Identity: IDownloadBehavior_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: core::mem::MaybeUninit<windows_core::BSTR>, pdispcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -478,16 +478,16 @@ impl IHTMLPersistData_Vtbl {
         iid == &<IHTMLPersistData as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IHTMLPersistDataOM_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn XMLDocument(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn getAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<windows_core::VARIANT>;
-    fn setAttribute(&self, name: &windows_core::BSTR, value: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn getAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn setAttribute(&self, name: &windows_core::BSTR, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn removeAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IHTMLPersistDataOM {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IHTMLPersistDataOM_Vtbl {
     pub const fn new<Identity: IHTMLPersistDataOM_Impl, const OFFSET: isize>() -> IHTMLPersistDataOM_Vtbl {
         unsafe extern "system" fn XMLDocument<Identity: IHTMLPersistDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -500,7 +500,7 @@ impl IHTMLPersistDataOM_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getAttribute<Identity: IHTMLPersistDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getAttribute<Identity: IHTMLPersistDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, pvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IHTMLPersistDataOM_Impl::getAttribute(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
@@ -510,7 +510,7 @@ impl IHTMLPersistDataOM_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setAttribute<Identity: IHTMLPersistDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttribute<Identity: IHTMLPersistDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IHTMLPersistDataOM_Impl::setAttribute(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
         }
@@ -530,20 +530,20 @@ impl IHTMLPersistDataOM_Vtbl {
         iid == &<IHTMLPersistDataOM as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IHTMLUserDataOM_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn XMLDocument(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
     fn save(&self, strname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn load(&self, strname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn getAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<windows_core::VARIANT>;
-    fn setAttribute(&self, name: &windows_core::BSTR, value: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn getAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn setAttribute(&self, name: &windows_core::BSTR, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn removeAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Setexpires(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()>;
     fn expires(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IHTMLUserDataOM {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IHTMLUserDataOM_Vtbl {
     pub const fn new<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>() -> IHTMLUserDataOM_Vtbl {
         unsafe extern "system" fn XMLDocument<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -564,7 +564,7 @@ impl IHTMLUserDataOM_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IHTMLUserDataOM_Impl::load(this, core::mem::transmute(&strname)).into()
         }
-        unsafe extern "system" fn getAttribute<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getAttribute<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, pvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IHTMLUserDataOM_Impl::getAttribute(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
@@ -574,7 +574,7 @@ impl IHTMLUserDataOM_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setAttribute<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttribute<Identity: IHTMLUserDataOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IHTMLUserDataOM_Impl::setAttribute(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
         }
@@ -612,7 +612,7 @@ impl IHTMLUserDataOM_Vtbl {
         iid == &<IHTMLUserDataOM as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IHeaderFooter_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn htmlHead(&self) -> windows_core::Result<windows_core::BSTR>;
     fn htmlFoot(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -637,9 +637,9 @@ pub trait IHeaderFooter_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn SettimeLong(&self, v: &windows_core::BSTR) -> windows_core::Result<()>;
     fn timeLong(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IHeaderFooter {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IHeaderFooter_Vtbl {
     pub const fn new<Identity: IHeaderFooter_Impl, const OFFSET: isize>() -> IHeaderFooter_Vtbl {
         unsafe extern "system" fn htmlHead<Identity: IHeaderFooter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -832,14 +832,14 @@ impl IHeaderFooter_Vtbl {
         iid == &<IHeaderFooter as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IHeaderFooter2_Impl: Sized + IHeaderFooter_Impl {
     fn Setfont(&self, v: &windows_core::BSTR) -> windows_core::Result<()>;
     fn font(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IHeaderFooter2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IHeaderFooter2_Vtbl {
     pub const fn new<Identity: IHeaderFooter2_Impl, const OFFSET: isize>() -> IHeaderFooter2_Vtbl {
         unsafe extern "system" fn Setfont<Identity: IHeaderFooter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -862,15 +862,15 @@ impl IHeaderFooter2_Vtbl {
         iid == &<IHeaderFooter2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IHeaderFooter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IHomePage_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn navigateHomePage(&self) -> windows_core::Result<()>;
     fn setHomePage(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn isHomePage(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IHomePage {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IHomePage_Vtbl {
     pub const fn new<Identity: IHomePage_Impl, const OFFSET: isize>() -> IHomePage_Vtbl {
         unsafe extern "system" fn navigateHomePage<Identity: IHomePage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -939,13 +939,13 @@ impl IHomePageSetting_Vtbl {
         iid == &<IHomePageSetting as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IIEWebDriverManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ExecuteCommand(&self, command: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IIEWebDriverManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IIEWebDriverManager_Vtbl {
     pub const fn new<Identity: IIEWebDriverManager_Impl, const OFFSET: isize>() -> IIEWebDriverManager_Vtbl {
         unsafe extern "system" fn ExecuteCommand<Identity: IIEWebDriverManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, command: windows_core::PCWSTR, response: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -964,15 +964,15 @@ impl IIEWebDriverManager_Vtbl {
         iid == &<IIEWebDriverManager as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IIEWebDriverSite_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn WindowOperation(&self, operationcode: u32, hwnd: u32) -> windows_core::Result<()>;
     fn DetachWebdriver(&self, punkwd: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetCapabilityValue(&self, punkwd: Option<&windows_core::IUnknown>, capname: &windows_core::PCWSTR) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetCapabilityValue(&self, punkwd: Option<&windows_core::IUnknown>, capname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IIEWebDriverSite {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IIEWebDriverSite_Vtbl {
     pub const fn new<Identity: IIEWebDriverSite_Impl, const OFFSET: isize>() -> IIEWebDriverSite_Vtbl {
         unsafe extern "system" fn WindowOperation<Identity: IIEWebDriverSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operationcode: u32, hwnd: u32) -> windows_core::HRESULT {
@@ -983,7 +983,7 @@ impl IIEWebDriverSite_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IIEWebDriverSite_Impl::DetachWebdriver(this, windows_core::from_raw_borrowed(&punkwd)).into()
         }
-        unsafe extern "system" fn GetCapabilityValue<Identity: IIEWebDriverSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkwd: *mut core::ffi::c_void, capname: windows_core::PCWSTR, capvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCapabilityValue<Identity: IIEWebDriverSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkwd: *mut core::ffi::c_void, capname: windows_core::PCWSTR, capvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIEWebDriverSite_Impl::GetCapabilityValue(this, windows_core::from_raw_borrowed(&punkwd), core::mem::transmute(&capname)) {
                 Ok(ok__) => {
@@ -1115,14 +1115,14 @@ impl IImageDecodeFilter_Vtbl {
         iid == &<IImageDecodeFilter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IIntelliForms_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Setenabled(&self, bval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IIntelliForms {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IIntelliForms_Vtbl {
     pub const fn new<Identity: IIntelliForms_Impl, const OFFSET: isize>() -> IIntelliForms_Vtbl {
         unsafe extern "system" fn enabled<Identity: IIntelliForms_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1187,12 +1187,12 @@ impl IInternetExplorerManager2_Vtbl {
         iid == &<IInternetExplorerManager2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ILayoutRect_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetnextRect(&self, bstrelementid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn nextRect(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetcontentSrc(&self, varcontentsrc: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn contentSrc(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SetcontentSrc(&self, varcontentsrc: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn contentSrc(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SethonorPageBreaks(&self, v: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn honorPageBreaks(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SethonorPageRules(&self, v: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -1201,9 +1201,9 @@ pub trait ILayoutRect_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn nextRectElement(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
     fn contentDocument(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ILayoutRect {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ILayoutRect_Vtbl {
     pub const fn new<Identity: ILayoutRect_Impl, const OFFSET: isize>() -> ILayoutRect_Vtbl {
         unsafe extern "system" fn SetnextRect<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrelementid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1220,11 +1220,11 @@ impl ILayoutRect_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetcontentSrc<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varcontentsrc: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetcontentSrc<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varcontentsrc: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ILayoutRect_Impl::SetcontentSrc(this, core::mem::transmute(&varcontentsrc)).into()
         }
-        unsafe extern "system" fn contentSrc<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcontentsrc: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn contentSrc<Identity: ILayoutRect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcontentsrc: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILayoutRect_Impl::contentSrc(this) {
                 Ok(ok__) => {
@@ -2551,16 +2551,19 @@ impl ITargetNotify2_Vtbl {
         iid == &<ITargetNotify2 as windows_core::Interface>::IID || iid == &<ITargetNotify as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITimer_Impl: Sized + windows_core::IUnknownImpl {
-    fn Advise(&self, vtimemin: &windows_core::VARIANT, vtimemax: &windows_core::VARIANT, vtimeinterval: &windows_core::VARIANT, dwflags: u32, ptimersink: Option<&ITimerSink>) -> windows_core::Result<u32>;
+    fn Advise(&self, vtimemin: &super::super::System::Variant::VARIANT, vtimemax: &super::super::System::Variant::VARIANT, vtimeinterval: &super::super::System::Variant::VARIANT, dwflags: u32, ptimersink: Option<&ITimerSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn Freeze(&self, ffreeze: super::super::Foundation::BOOL) -> windows_core::Result<()>;
-    fn GetTime(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITimer {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITimer_Vtbl {
     pub const fn new<Identity: ITimer_Impl, const OFFSET: isize>() -> ITimer_Vtbl {
-        unsafe extern "system" fn Advise<Identity: ITimer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtimemin: core::mem::MaybeUninit<windows_core::VARIANT>, vtimemax: core::mem::MaybeUninit<windows_core::VARIANT>, vtimeinterval: core::mem::MaybeUninit<windows_core::VARIANT>, dwflags: u32, ptimersink: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Advise<Identity: ITimer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtimemin: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, vtimemax: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, vtimeinterval: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, dwflags: u32, ptimersink: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITimer_Impl::Advise(this, core::mem::transmute(&vtimemin), core::mem::transmute(&vtimemax), core::mem::transmute(&vtimeinterval), core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&ptimersink)) {
                 Ok(ok__) => {
@@ -2578,7 +2581,7 @@ impl ITimer_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITimer_Impl::Freeze(this, core::mem::transmute_copy(&ffreeze)).into()
         }
-        unsafe extern "system" fn GetTime<Identity: ITimer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTime<Identity: ITimer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtime: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITimer_Impl::GetTime(this) {
                 Ok(ok__) => {
@@ -2600,10 +2603,13 @@ impl ITimer_Vtbl {
         iid == &<ITimer as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITimerEx_Impl: Sized + ITimer_Impl {
     fn SetMode(&self, dwmode: u32) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITimerEx {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITimerEx_Vtbl {
     pub const fn new<Identity: ITimerEx_Impl, const OFFSET: isize>() -> ITimerEx_Vtbl {
         unsafe extern "system" fn SetMode<Identity: ITimerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmode: u32) -> windows_core::HRESULT {
@@ -2659,13 +2665,16 @@ impl ITimerService_Vtbl {
         iid == &<ITimerService as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITimerSink_Impl: Sized + windows_core::IUnknownImpl {
-    fn OnTimer(&self, vtimeadvise: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn OnTimer(&self, vtimeadvise: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITimerSink {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITimerSink_Vtbl {
     pub const fn new<Identity: ITimerSink_Impl, const OFFSET: isize>() -> ITimerSink_Vtbl {
-        unsafe extern "system" fn OnTimer<Identity: ITimerSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtimeadvise: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnTimer<Identity: ITimerSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtimeadvise: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITimerSink_Impl::OnTimer(this, core::mem::transmute(&vtimeadvise)).into()
         }
@@ -2697,11 +2706,11 @@ impl ITridentTouchInput_Vtbl {
         iid == &<ITridentTouchInput as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUrlHistoryNotify_Impl: Sized + super::super::System::Ole::IOleCommandTarget_Impl {}
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUrlHistoryNotify {}
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUrlHistoryNotify_Vtbl {
     pub const fn new<Identity: IUrlHistoryNotify_Impl, const OFFSET: isize>() -> IUrlHistoryNotify_Vtbl {
         Self { base__: super::super::System::Ole::IOleCommandTarget_Vtbl::new::<Identity, OFFSET>() }
@@ -2930,15 +2939,15 @@ impl IWebBrowserEventsUrlService_Vtbl {
         iid == &<IWebBrowserEventsUrlService as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Iwfolders_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn navigate(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn navigateFrame(&self, bstrurl: &windows_core::BSTR, bstrtargetframe: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn navigateNoSite(&self, bstrurl: &windows_core::BSTR, bstrtargetframe: &windows_core::BSTR, dwhwnd: u32, pwb: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for Iwfolders {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Iwfolders_Vtbl {
     pub const fn new<Identity: Iwfolders_Impl, const OFFSET: isize>() -> Iwfolders_Vtbl {
         unsafe extern "system" fn navigate<Identity: Iwfolders_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrurl: core::mem::MaybeUninit<windows_core::BSTR>, pbstrretval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {

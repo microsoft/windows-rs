@@ -1,13 +1,13 @@
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportCacheable_Impl: Sized + super::Com::IDispatch_Impl {
     fn Dirty(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Discard(&self) -> windows_core::Result<()>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportCacheable {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportCacheable_Vtbl {
     pub const fn new<Identity: IWdsTransportCacheable_Impl, const OFFSET: isize>() -> IWdsTransportCacheable_Vtbl {
         unsafe extern "system" fn Dirty<Identity: IWdsTransportCacheable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdirty: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -44,7 +44,7 @@ impl IWdsTransportCacheable_Vtbl {
         iid == &<IWdsTransportCacheable as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportClient_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> windows_core::Result<IWdsTransportSession>;
     fn Id(&self) -> windows_core::Result<u32>;
@@ -59,9 +59,9 @@ pub trait IWdsTransportClient_Impl: Sized + super::Com::IDispatch_Impl {
     fn UserIdentity(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Disconnect(&self, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportClient {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportClient_Vtbl {
     pub const fn new<Identity: IWdsTransportClient_Impl, const OFFSET: isize>() -> IWdsTransportClient_Vtbl {
         unsafe extern "system" fn Session<Identity: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -198,15 +198,15 @@ impl IWdsTransportClient_Vtbl {
         iid == &<IWdsTransportClient as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<u32>;
     fn get_Item(&self, ulindex: u32) -> windows_core::Result<super::Com::IDispatch>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportCollection_Vtbl {
     pub const fn new<Identity: IWdsTransportCollection_Impl, const OFFSET: isize>() -> IWdsTransportCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: IWdsTransportCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulcount: *mut u32) -> windows_core::HRESULT {
@@ -250,7 +250,7 @@ impl IWdsTransportCollection_Vtbl {
         iid == &<IWdsTransportCollection as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportConfigurationManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn ServicePolicy(&self) -> windows_core::Result<IWdsTransportServicePolicy>;
     fn DiagnosticsPolicy(&self) -> windows_core::Result<IWdsTransportDiagnosticsPolicy>;
@@ -262,9 +262,9 @@ pub trait IWdsTransportConfigurationManager_Impl: Sized + super::Com::IDispatch_
     fn RestartWdsTransportServices(&self) -> windows_core::Result<()>;
     fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportConfigurationManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportConfigurationManager_Vtbl {
     pub const fn new<Identity: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>() -> IWdsTransportConfigurationManager_Vtbl {
         unsafe extern "system" fn ServicePolicy<Identity: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportservicepolicy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -338,13 +338,13 @@ impl IWdsTransportConfigurationManager_Vtbl {
         iid == &<IWdsTransportConfigurationManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportConfigurationManager2_Impl: Sized + IWdsTransportConfigurationManager_Impl {
     fn MulticastSessionPolicy(&self) -> windows_core::Result<IWdsTransportMulticastSessionPolicy>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportConfigurationManager2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportConfigurationManager2_Vtbl {
     pub const fn new<Identity: IWdsTransportConfigurationManager2_Impl, const OFFSET: isize>() -> IWdsTransportConfigurationManager2_Vtbl {
         unsafe extern "system" fn MulticastSessionPolicy<Identity: IWdsTransportConfigurationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportmulticastsessionpolicy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -363,7 +363,7 @@ impl IWdsTransportConfigurationManager2_Vtbl {
         iid == &<IWdsTransportConfigurationManager2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportConfigurationManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportContent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Namespace(&self) -> windows_core::Result<IWdsTransportNamespace>;
     fn Id(&self) -> windows_core::Result<u32>;
@@ -371,9 +371,9 @@ pub trait IWdsTransportContent_Impl: Sized + super::Com::IDispatch_Impl {
     fn RetrieveSessions(&self) -> windows_core::Result<IWdsTransportCollection>;
     fn Terminate(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportContent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportContent_Vtbl {
     pub const fn new<Identity: IWdsTransportContent_Impl, const OFFSET: isize>() -> IWdsTransportContent_Vtbl {
         unsafe extern "system" fn Namespace<Identity: IWdsTransportContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -433,16 +433,16 @@ impl IWdsTransportContent_Vtbl {
         iid == &<IWdsTransportContent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportContentProvider_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn FilePath(&self) -> windows_core::Result<windows_core::BSTR>;
     fn InitializationRoutine(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportContentProvider {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportContentProvider_Vtbl {
     pub const fn new<Identity: IWdsTransportContentProvider_Impl, const OFFSET: isize>() -> IWdsTransportContentProvider_Vtbl {
         unsafe extern "system" fn Name<Identity: IWdsTransportContentProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -497,16 +497,16 @@ impl IWdsTransportContentProvider_Vtbl {
         iid == &<IWdsTransportContentProvider as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportDiagnosticsPolicy_Impl: Sized + IWdsTransportCacheable_Impl {
     fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEnabled(&self, benabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Components(&self) -> windows_core::Result<u32>;
     fn SetComponents(&self, ulcomponents: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportDiagnosticsPolicy {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportDiagnosticsPolicy_Vtbl {
     pub const fn new<Identity: IWdsTransportDiagnosticsPolicy_Impl, const OFFSET: isize>() -> IWdsTransportDiagnosticsPolicy_Vtbl {
         unsafe extern "system" fn Enabled<Identity: IWdsTransportDiagnosticsPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -549,13 +549,13 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
         iid == &<IWdsTransportDiagnosticsPolicy as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportCacheable as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetWdsTransportServer(&self, bszservername: &windows_core::BSTR) -> windows_core::Result<IWdsTransportServer>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportManager_Vtbl {
     pub const fn new<Identity: IWdsTransportManager_Impl, const OFFSET: isize>() -> IWdsTransportManager_Vtbl {
         unsafe extern "system" fn GetWdsTransportServer<Identity: IWdsTransportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bszservername: core::mem::MaybeUninit<windows_core::BSTR>, ppwdstransportserver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -574,7 +574,7 @@ impl IWdsTransportManager_Vtbl {
         iid == &<IWdsTransportManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportMulticastSessionPolicy_Impl: Sized + IWdsTransportCacheable_Impl {
     fn SlowClientHandling(&self) -> windows_core::Result<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>;
     fn SetSlowClientHandling(&self, slowclienthandling: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> windows_core::Result<()>;
@@ -585,9 +585,9 @@ pub trait IWdsTransportMulticastSessionPolicy_Impl: Sized + IWdsTransportCacheab
     fn SlowClientFallback(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetSlowClientFallback(&self, bclientfallback: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportMulticastSessionPolicy {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportMulticastSessionPolicy_Vtbl {
     pub const fn new<Identity: IWdsTransportMulticastSessionPolicy_Impl, const OFFSET: isize>() -> IWdsTransportMulticastSessionPolicy_Vtbl {
         unsafe extern "system" fn SlowClientHandling<Identity: IWdsTransportMulticastSessionPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pslowclienthandling: *mut WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> windows_core::HRESULT {
@@ -662,7 +662,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
         iid == &<IWdsTransportMulticastSessionPolicy as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportCacheable as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportNamespace_Impl: Sized + super::Com::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<WDSTRANSPORT_NAMESPACE_TYPE>;
     fn Id(&self) -> windows_core::Result<u32>;
@@ -686,9 +686,9 @@ pub trait IWdsTransportNamespace_Impl: Sized + super::Com::IDispatch_Impl {
     fn Refresh(&self) -> windows_core::Result<()>;
     fn RetrieveContents(&self) -> windows_core::Result<IWdsTransportCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportNamespace {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportNamespace_Vtbl {
     pub const fn new<Identity: IWdsTransportNamespace_Impl, const OFFSET: isize>() -> IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn Type<Identity: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut WDSTRANSPORT_NAMESPACE_TYPE) -> windows_core::HRESULT {
@@ -882,11 +882,11 @@ impl IWdsTransportNamespace_Vtbl {
         iid == &<IWdsTransportNamespace as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportNamespaceAutoCast_Impl: Sized + IWdsTransportNamespace_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportNamespaceAutoCast {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportNamespaceAutoCast_Vtbl {
     pub const fn new<Identity: IWdsTransportNamespaceAutoCast_Impl, const OFFSET: isize>() -> IWdsTransportNamespaceAutoCast_Vtbl {
         Self { base__: IWdsTransportNamespace_Vtbl::new::<Identity, OFFSET>() }
@@ -895,15 +895,15 @@ impl IWdsTransportNamespaceAutoCast_Vtbl {
         iid == &<IWdsTransportNamespaceAutoCast as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportNamespace as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportNamespaceManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreateNamespace(&self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: &windows_core::BSTR, bszcontentprovider: &windows_core::BSTR, bszconfiguration: &windows_core::BSTR) -> windows_core::Result<IWdsTransportNamespace>;
     fn RetrieveNamespace(&self, bsznamespacename: &windows_core::BSTR) -> windows_core::Result<IWdsTransportNamespace>;
     fn RetrieveNamespaces(&self, bszcontentprovider: &windows_core::BSTR, bsznamespacename: &windows_core::BSTR, bincludetombstones: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IWdsTransportCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportNamespaceManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportNamespaceManager_Vtbl {
     pub const fn new<Identity: IWdsTransportNamespaceManager_Impl, const OFFSET: isize>() -> IWdsTransportNamespaceManager_Vtbl {
         unsafe extern "system" fn CreateNamespace<Identity: IWdsTransportNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: core::mem::MaybeUninit<windows_core::BSTR>, bszcontentprovider: core::mem::MaybeUninit<windows_core::BSTR>, bszconfiguration: core::mem::MaybeUninit<windows_core::BSTR>, ppwdstransportnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -947,13 +947,13 @@ impl IWdsTransportNamespaceManager_Vtbl {
         iid == &<IWdsTransportNamespaceManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportNamespaceScheduledCast_Impl: Sized + IWdsTransportNamespace_Impl {
     fn StartTransmission(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportNamespaceScheduledCast {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportNamespaceScheduledCast_Vtbl {
     pub const fn new<Identity: IWdsTransportNamespaceScheduledCast_Impl, const OFFSET: isize>() -> IWdsTransportNamespaceScheduledCast_Vtbl {
         unsafe extern "system" fn StartTransmission<Identity: IWdsTransportNamespaceScheduledCast_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -966,16 +966,16 @@ impl IWdsTransportNamespaceScheduledCast_Vtbl {
         iid == &<IWdsTransportNamespaceScheduledCast as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportNamespace as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportNamespaceScheduledCastAutoStart_Impl: Sized + IWdsTransportNamespaceScheduledCast_Impl {
     fn MinimumClients(&self) -> windows_core::Result<u32>;
     fn SetMinimumClients(&self, ulminimumclients: u32) -> windows_core::Result<()>;
     fn StartTime(&self) -> windows_core::Result<f64>;
     fn SetStartTime(&self, starttime: f64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportNamespaceScheduledCastAutoStart {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
     pub const fn new<Identity: IWdsTransportNamespaceScheduledCastAutoStart_Impl, const OFFSET: isize>() -> IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
         unsafe extern "system" fn MinimumClients<Identity: IWdsTransportNamespaceScheduledCastAutoStart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulminimumclients: *mut u32) -> windows_core::HRESULT {
@@ -1018,11 +1018,11 @@ impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
         iid == &<IWdsTransportNamespaceScheduledCastAutoStart as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportNamespace as windows_core::Interface>::IID || iid == &<IWdsTransportNamespaceScheduledCast as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportNamespaceScheduledCastManualStart_Impl: Sized + IWdsTransportNamespaceScheduledCast_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportNamespaceScheduledCastManualStart {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportNamespaceScheduledCastManualStart_Vtbl {
     pub const fn new<Identity: IWdsTransportNamespaceScheduledCastManualStart_Impl, const OFFSET: isize>() -> IWdsTransportNamespaceScheduledCastManualStart_Vtbl {
         Self { base__: IWdsTransportNamespaceScheduledCast_Vtbl::new::<Identity, OFFSET>() }
@@ -1031,7 +1031,7 @@ impl IWdsTransportNamespaceScheduledCastManualStart_Vtbl {
         iid == &<IWdsTransportNamespaceScheduledCastManualStart as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportNamespace as windows_core::Interface>::IID || iid == &<IWdsTransportNamespaceScheduledCast as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportServer_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetupManager(&self) -> windows_core::Result<IWdsTransportSetupManager>;
@@ -1039,9 +1039,9 @@ pub trait IWdsTransportServer_Impl: Sized + super::Com::IDispatch_Impl {
     fn NamespaceManager(&self) -> windows_core::Result<IWdsTransportNamespaceManager>;
     fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportServer {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportServer_Vtbl {
     pub const fn new<Identity: IWdsTransportServer_Impl, const OFFSET: isize>() -> IWdsTransportServer_Vtbl {
         unsafe extern "system" fn Name<Identity: IWdsTransportServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1101,13 +1101,13 @@ impl IWdsTransportServer_Vtbl {
         iid == &<IWdsTransportServer as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportServer2_Impl: Sized + IWdsTransportServer_Impl {
     fn TftpManager(&self) -> windows_core::Result<IWdsTransportTftpManager>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportServer2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportServer2_Vtbl {
     pub const fn new<Identity: IWdsTransportServer2_Impl, const OFFSET: isize>() -> IWdsTransportServer2_Vtbl {
         unsafe extern "system" fn TftpManager<Identity: IWdsTransportServer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransporttftpmanager: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1126,7 +1126,7 @@ impl IWdsTransportServer2_Vtbl {
         iid == &<IWdsTransportServer2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportServer as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportServicePolicy_Impl: Sized + IWdsTransportCacheable_Impl {
     fn get_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> windows_core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>;
     fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> windows_core::Result<()>;
@@ -1141,9 +1141,9 @@ pub trait IWdsTransportServicePolicy_Impl: Sized + IWdsTransportCacheable_Impl {
     fn NetworkProfile(&self) -> windows_core::Result<WDSTRANSPORT_NETWORK_PROFILE_TYPE>;
     fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportServicePolicy {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportServicePolicy_Vtbl {
     pub const fn new<Identity: IWdsTransportServicePolicy_Impl, const OFFSET: isize>() -> IWdsTransportServicePolicy_Vtbl {
         unsafe extern "system" fn get_IpAddressSource<Identity: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, psourcetype: *mut WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> windows_core::HRESULT {
@@ -1250,7 +1250,7 @@ impl IWdsTransportServicePolicy_Vtbl {
         iid == &<IWdsTransportServicePolicy as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportCacheable as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportServicePolicy2_Impl: Sized + IWdsTransportServicePolicy_Impl {
     fn UdpPortPolicy(&self) -> windows_core::Result<WDSTRANSPORT_UDP_PORT_POLICY>;
     fn SetUdpPortPolicy(&self, udpportpolicy: WDSTRANSPORT_UDP_PORT_POLICY) -> windows_core::Result<()>;
@@ -1259,9 +1259,9 @@ pub trait IWdsTransportServicePolicy2_Impl: Sized + IWdsTransportServicePolicy_I
     fn EnableTftpVariableWindowExtension(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEnableTftpVariableWindowExtension(&self, benabletftpvariablewindowextension: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportServicePolicy2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportServicePolicy2_Vtbl {
     pub const fn new<Identity: IWdsTransportServicePolicy2_Impl, const OFFSET: isize>() -> IWdsTransportServicePolicy2_Vtbl {
         unsafe extern "system" fn UdpPortPolicy<Identity: IWdsTransportServicePolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pudpportpolicy: *mut WDSTRANSPORT_UDP_PORT_POLICY) -> windows_core::HRESULT {
@@ -1320,7 +1320,7 @@ impl IWdsTransportServicePolicy2_Vtbl {
         iid == &<IWdsTransportServicePolicy2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportCacheable as windows_core::Interface>::IID || iid == &<IWdsTransportServicePolicy as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn Content(&self) -> windows_core::Result<IWdsTransportContent>;
     fn Id(&self) -> windows_core::Result<u32>;
@@ -1331,9 +1331,9 @@ pub trait IWdsTransportSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn RetrieveClients(&self) -> windows_core::Result<IWdsTransportCollection>;
     fn Terminate(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportSession {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportSession_Vtbl {
     pub const fn new<Identity: IWdsTransportSession_Impl, const OFFSET: isize>() -> IWdsTransportSession_Vtbl {
         unsafe extern "system" fn Content<Identity: IWdsTransportSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportcontent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1426,7 +1426,7 @@ impl IWdsTransportSession_Vtbl {
         iid == &<IWdsTransportSession as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportSetupManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn Version(&self) -> windows_core::Result<u64>;
     fn InstalledFeatures(&self) -> windows_core::Result<u32>;
@@ -1434,9 +1434,9 @@ pub trait IWdsTransportSetupManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn RegisterContentProvider(&self, bszname: &windows_core::BSTR, bszdescription: &windows_core::BSTR, bszfilepath: &windows_core::BSTR, bszinitializationroutine: &windows_core::BSTR) -> windows_core::Result<()>;
     fn DeregisterContentProvider(&self, bszname: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportSetupManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportSetupManager_Vtbl {
     pub const fn new<Identity: IWdsTransportSetupManager_Impl, const OFFSET: isize>() -> IWdsTransportSetupManager_Vtbl {
         unsafe extern "system" fn Version<Identity: IWdsTransportSetupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pullversion: *mut u64) -> windows_core::HRESULT {
@@ -1490,14 +1490,14 @@ impl IWdsTransportSetupManager_Vtbl {
         iid == &<IWdsTransportSetupManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportSetupManager2_Impl: Sized + IWdsTransportSetupManager_Impl {
     fn TftpCapabilities(&self) -> windows_core::Result<u32>;
     fn ContentProviders(&self) -> windows_core::Result<IWdsTransportCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportSetupManager2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportSetupManager2_Vtbl {
     pub const fn new<Identity: IWdsTransportSetupManager2_Impl, const OFFSET: isize>() -> IWdsTransportSetupManager2_Vtbl {
         unsafe extern "system" fn TftpCapabilities<Identity: IWdsTransportSetupManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pultftpcapabilities: *mut u32) -> windows_core::HRESULT {
@@ -1530,7 +1530,7 @@ impl IWdsTransportSetupManager2_Vtbl {
         iid == &<IWdsTransportSetupManager2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportSetupManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportTftpClient_Impl: Sized + super::Com::IDispatch_Impl {
     fn FileName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn IpAddress(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1540,9 +1540,9 @@ pub trait IWdsTransportTftpClient_Impl: Sized + super::Com::IDispatch_Impl {
     fn BlockSize(&self) -> windows_core::Result<u32>;
     fn WindowSize(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportTftpClient {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportTftpClient_Vtbl {
     pub const fn new<Identity: IWdsTransportTftpClient_Impl, const OFFSET: isize>() -> IWdsTransportTftpClient_Vtbl {
         unsafe extern "system" fn FileName<Identity: IWdsTransportTftpClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszfilename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1630,13 +1630,13 @@ impl IWdsTransportTftpClient_Vtbl {
         iid == &<IWdsTransportTftpClient as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWdsTransportTftpManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn RetrieveTftpClients(&self) -> windows_core::Result<IWdsTransportCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWdsTransportTftpManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWdsTransportTftpManager_Vtbl {
     pub const fn new<Identity: IWdsTransportTftpManager_Impl, const OFFSET: isize>() -> IWdsTransportTftpManager_Vtbl {
         unsafe extern "system" fn RetrieveTftpClients<Identity: IWdsTransportTftpManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransporttftpclients: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

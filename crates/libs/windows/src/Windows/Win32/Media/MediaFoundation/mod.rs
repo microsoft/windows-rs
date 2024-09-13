@@ -618,9 +618,10 @@ where
     let mut result__ = core::mem::zeroed();
     MFCreateMediaBufferWrapper(pbuffer.param().abi(), cboffset, dwlength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: Option<*const windows_core::PROPVARIANT>) -> windows_core::Result<IMFMediaEvent> {
-    windows_targets::link!("mfplat.dll" "system" fn MFCreateMediaEvent(met : u32, guidextendedtype : *const windows_core::GUID, hrstatus : windows_core::HRESULT, pvvalue : *const core::mem::MaybeUninit < windows_core::PROPVARIANT >, ppevent : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<IMFMediaEvent> {
+    windows_targets::link!("mfplat.dll" "system" fn MFCreateMediaEvent(met : u32, guidextendedtype : *const windows_core::GUID, hrstatus : windows_core::HRESULT, pvvalue : *const core::mem::MaybeUninit < super::super::System::Com::StructuredStorage:: PROPVARIANT >, ppevent : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     MFCreateMediaEvent(met, guidextendedtype, hrstatus, core::mem::transmute(pvvalue.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -852,9 +853,10 @@ where
     let mut result__ = core::mem::zeroed();
     MFCreateSensorStream(streamid, pattributes.param().abi(), pmediatypecollection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64) -> windows_core::Result<windows_core::PROPVARIANT> {
-    windows_targets::link!("mf.dll" "system" fn MFCreateSequencerSegmentOffset(dwid : u32, hnsoffset : i64, pvarsegmentoffset : *mut core::mem::MaybeUninit < windows_core::PROPVARIANT >) -> windows_core::HRESULT);
+pub unsafe fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    windows_targets::link!("mf.dll" "system" fn MFCreateSequencerSegmentOffset(dwid : u32, hnsoffset : i64, pvarsegmentoffset : *mut core::mem::MaybeUninit < super::super::System::Com::StructuredStorage:: PROPVARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     MFCreateSequencerSegmentOffset(dwid, hnsoffset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -1300,15 +1302,17 @@ pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> windo
     let mut result__ = core::mem::zeroed();
     MFGetStrideForBitmapInfoHeader(format, dwwidth, &mut result__).map(|| result__)
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn MFGetSupportedMimeTypes() -> windows_core::Result<windows_core::PROPVARIANT> {
-    windows_targets::link!("mfplat.dll" "system" fn MFGetSupportedMimeTypes(ppropvarmimetypearray : *mut core::mem::MaybeUninit < windows_core::PROPVARIANT >) -> windows_core::HRESULT);
+pub unsafe fn MFGetSupportedMimeTypes() -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    windows_targets::link!("mfplat.dll" "system" fn MFGetSupportedMimeTypes(ppropvarmimetypearray : *mut core::mem::MaybeUninit < super::super::System::Com::StructuredStorage:: PROPVARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     MFGetSupportedMimeTypes(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn MFGetSupportedSchemes() -> windows_core::Result<windows_core::PROPVARIANT> {
-    windows_targets::link!("mfplat.dll" "system" fn MFGetSupportedSchemes(ppropvarschemearray : *mut core::mem::MaybeUninit < windows_core::PROPVARIANT >) -> windows_core::HRESULT);
+pub unsafe fn MFGetSupportedSchemes() -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    windows_targets::link!("mfplat.dll" "system" fn MFGetSupportedSchemes(ppropvarschemearray : *mut core::mem::MaybeUninit < super::super::System::Com::StructuredStorage:: PROPVARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     MFGetSupportedSchemes(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -1971,21 +1975,26 @@ impl ICodecAPI {
     pub unsafe fn IsModifiable(&self, api: *const windows_core::GUID) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).IsModifiable)(windows_core::Interface::as_raw(self), api)
     }
-    pub unsafe fn GetParameterRange(&self, api: *const windows_core::GUID, valuemin: *mut windows_core::VARIANT, valuemax: *mut windows_core::VARIANT, steppingdelta: *mut windows_core::VARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetParameterRange(&self, api: *const windows_core::GUID, valuemin: *mut super::super::System::Variant::VARIANT, valuemax: *mut super::super::System::Variant::VARIANT, steppingdelta: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetParameterRange)(windows_core::Interface::as_raw(self), api, core::mem::transmute(valuemin), core::mem::transmute(valuemax), core::mem::transmute(steppingdelta)).ok()
     }
-    pub unsafe fn GetParameterValues(&self, api: *const windows_core::GUID, values: *mut *mut windows_core::VARIANT, valuescount: *mut u32) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetParameterValues(&self, api: *const windows_core::GUID, values: *mut *mut super::super::System::Variant::VARIANT, valuescount: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetParameterValues)(windows_core::Interface::as_raw(self), api, values, valuescount).ok()
     }
-    pub unsafe fn GetDefaultValue(&self, api: *const windows_core::GUID) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetDefaultValue(&self, api: *const windows_core::GUID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDefaultValue)(windows_core::Interface::as_raw(self), api, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetValue(&self, api: *const windows_core::GUID) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetValue(&self, api: *const windows_core::GUID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), api, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetValue(&self, api: *const windows_core::GUID, value: *const windows_core::VARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetValue(&self, api: *const windows_core::GUID, value: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), api, core::mem::transmute(value)).ok()
     }
     pub unsafe fn RegisterForEvent(&self, api: *const windows_core::GUID, userdata: isize) -> windows_core::Result<()> {
@@ -1997,7 +2006,8 @@ impl ICodecAPI {
     pub unsafe fn SetAllDefaults(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetAllDefaults)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetValueWithNotify(&self, api: *const windows_core::GUID, value: *const windows_core::VARIANT, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetValueWithNotify(&self, api: *const windows_core::GUID, value: *const super::super::System::Variant::VARIANT, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetValueWithNotify)(windows_core::Interface::as_raw(self), api, core::mem::transmute(value), changedparam, changedparamcount).ok()
     }
     pub unsafe fn SetAllDefaultsWithNotify(&self, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut u32) -> windows_core::Result<()> {
@@ -2030,15 +2040,33 @@ pub struct ICodecAPI_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub IsModifiable: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub GetParameterRange: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::mem::MaybeUninit<windows_core::VARIANT>, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub GetParameterValues: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut windows_core::VARIANT, *mut u32) -> windows_core::HRESULT,
-    pub GetDefaultValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetParameterRange: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetParameterRange: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetParameterValues: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut super::super::System::Variant::VARIANT, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetParameterValues: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetDefaultValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetDefaultValue: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetValue: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetValue: usize,
     pub RegisterForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, isize) -> windows_core::HRESULT,
     pub UnregisterForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub SetAllDefaults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetValueWithNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::VARIANT>, *mut *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetValueWithNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetValueWithNotify: usize,
     pub SetAllDefaultsWithNotify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetAllSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4463,7 +4491,8 @@ impl IMFASFIndexer {
     {
         (windows_core::Interface::vtable(self).SetIndexStatus)(windows_core::Interface::as_raw(self), pbindexdescriptor, cbindexdescriptor, fgenerateindex.param().abi()).ok()
     }
-    pub unsafe fn GetSeekPositionForValue(&self, pvarvalue: *const windows_core::PROPVARIANT, pindexidentifier: *const ASF_INDEX_IDENTIFIER, pcboffsetwithindata: *mut u64, phnsapproxtime: *mut i64, pdwpayloadnumberofstreamwithinpacket: *mut u32) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetSeekPositionForValue(&self, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pindexidentifier: *const ASF_INDEX_IDENTIFIER, pcboffsetwithindata: *mut u64, phnsapproxtime: *mut i64, pdwpayloadnumberofstreamwithinpacket: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSeekPositionForValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarvalue), pindexidentifier, pcboffsetwithindata, phnsapproxtime, pdwpayloadnumberofstreamwithinpacket).ok()
     }
     pub unsafe fn GenerateIndexEntries<P0>(&self, piasfpacketsample: P0) -> windows_core::Result<()>
@@ -4500,7 +4529,10 @@ pub struct IMFASFIndexer_Vtbl {
     pub GetIndexByteStreamCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetIndexStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const ASF_INDEX_IDENTIFIER, *mut super::super::Foundation::BOOL, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub SetIndexStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetSeekPositionForValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, *const ASF_INDEX_IDENTIFIER, *mut u64, *mut i64, *mut u32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetSeekPositionForValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, *const ASF_INDEX_IDENTIFIER, *mut u64, *mut i64, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetSeekPositionForValue: usize,
     pub GenerateIndexEntries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CommitIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetIndexWriteSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -5077,14 +5109,16 @@ impl core::ops::Deref for IMFAttributes {
 }
 windows_core::imp::interface_hierarchy!(IMFAttributes, windows_core::IUnknown);
 impl IMFAttributes {
-    pub unsafe fn GetItem(&self, guidkey: *const windows_core::GUID, pvalue: Option<*mut windows_core::PROPVARIANT>) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetItem(&self, guidkey: *const windows_core::GUID, pvalue: Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), guidkey, core::mem::transmute(pvalue.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const windows_core::GUID) -> windows_core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetItemType)(windows_core::Interface::as_raw(self), guidkey, &mut result__).map(|| result__)
     }
-    pub unsafe fn CompareItem(&self, guidkey: *const windows_core::GUID, value: *const windows_core::PROPVARIANT) -> windows_core::Result<super::super::Foundation::BOOL> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn CompareItem(&self, guidkey: *const windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CompareItem)(windows_core::Interface::as_raw(self), guidkey, core::mem::transmute(value), &mut result__).map(|| result__)
     }
@@ -5138,7 +5172,8 @@ impl IMFAttributes {
         let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetUnknown)(windows_core::Interface::as_raw(self), guidkey, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetItem(&self, guidkey: *const windows_core::GUID, value: *const windows_core::PROPVARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetItem(&self, guidkey: *const windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), guidkey, core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -5184,7 +5219,8 @@ impl IMFAttributes {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut windows_core::GUID, pvalue: Option<*mut windows_core::PROPVARIANT>) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut windows_core::GUID, pvalue: Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetItemByIndex)(windows_core::Interface::as_raw(self), unindex, pguidkey, core::mem::transmute(pvalue.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<P0>(&self, pdest: P0) -> windows_core::Result<()>
@@ -5197,9 +5233,15 @@ impl IMFAttributes {
 #[repr(C)]
 pub struct IMFAttributes_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetItem: usize,
     pub GetItemType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut MF_ATTRIBUTE_TYPE) -> windows_core::HRESULT,
-    pub CompareItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub CompareItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    CompareItem: usize,
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, MF_ATTRIBUTES_MATCH_TYPE, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetUINT32: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     pub GetUINT64: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u64) -> windows_core::HRESULT,
@@ -5212,7 +5254,10 @@ pub struct IMFAttributes_Vtbl {
     pub GetBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
     pub GetAllocatedBlob: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetUnknown: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub SetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    SetItem: usize,
     pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub DeleteAllItems: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetUINT32: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32) -> windows_core::HRESULT,
@@ -5225,7 +5270,10 @@ pub struct IMFAttributes_Vtbl {
     pub LockStore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnlockStore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetItemByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetItemByIndex: usize,
     pub CopyAllItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFAudioMediaType, IMFAudioMediaType_Vtbl, 0x26a0adc3_ce26_4672_9304_69552edd3faf);
@@ -8291,7 +8339,8 @@ impl IMFMediaEngineEx {
     {
         (windows_core::Interface::vtable(self).SetSourceFromByteStream)(windows_core::Interface::as_raw(self), pbytestream.param().abi(), purl.param().abi()).ok()
     }
-    pub unsafe fn GetStatistics(&self, statisticid: MF_MEDIA_ENGINE_STATISTIC) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetStatistics(&self, statisticid: MF_MEDIA_ENGINE_STATISTIC) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), statisticid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -8317,7 +8366,8 @@ impl IMFMediaEngineEx {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetResourceCharacteristics)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPresentationAttribute)(windows_core::Interface::as_raw(self), guidmfattribute, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -8325,7 +8375,8 @@ impl IMFMediaEngineEx {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNumberOfStreams)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStreamAttribute)(windows_core::Interface::as_raw(self), dwstreamindex, guidmfattribute, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -8444,16 +8495,25 @@ impl IMFMediaEngineEx {
 pub struct IMFMediaEngineEx_Vtbl {
     pub base__: IMFMediaEngine_Vtbl,
     pub SetSourceFromByteStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, MF_MEDIA_ENGINE_STATISTIC, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, MF_MEDIA_ENGINE_STATISTIC, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetStatistics: usize,
     pub UpdateVideoStream: unsafe extern "system" fn(*mut core::ffi::c_void, *const MFVideoNormalizedRect, *const super::super::Foundation::RECT, *const MFARGB) -> windows_core::HRESULT,
     pub GetBalance: unsafe extern "system" fn(*mut core::ffi::c_void) -> f64,
     pub SetBalance: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub IsPlaybackRateSupported: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> super::super::Foundation::BOOL,
     pub FrameStep: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetResourceCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetPresentationAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetPresentationAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetPresentationAttribute: usize,
     pub GetNumberOfStreams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetStreamAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetStreamAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetStreamAttribute: usize,
     pub GetStreamSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub SetStreamSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub ApplyStreamSelections: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8841,7 +8901,8 @@ impl IMFMediaEvent {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetValue(&self) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetValue(&self) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -8852,7 +8913,10 @@ pub struct IMFMediaEvent_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetExtendedType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetValue: usize,
 }
 windows_core::imp::define_interface!(IMFMediaEventGenerator, IMFMediaEventGenerator_Vtbl, 0x2cd0bd52_bcd5_4b89_b62c_eadc0c031e7d);
 impl core::ops::Deref for IMFMediaEventGenerator {
@@ -8881,7 +8945,8 @@ impl IMFMediaEventGenerator {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EndGetEvent)(windows_core::Interface::as_raw(self), presult.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueueEvent)(windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, core::mem::transmute(pvvalue)).ok()
     }
 }
@@ -8891,7 +8956,10 @@ pub struct IMFMediaEventGenerator_Vtbl {
     pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BeginGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub QueueEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, windows_core::HRESULT, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub QueueEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, windows_core::HRESULT, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    QueueEvent: usize,
 }
 windows_core::imp::define_interface!(IMFMediaEventQueue, IMFMediaEventQueue_Vtbl, 0x36f846fc_2256_48b6_b58e_e2b638316581);
 impl core::ops::Deref for IMFMediaEventQueue {
@@ -8926,7 +8994,8 @@ impl IMFMediaEventQueue {
     {
         (windows_core::Interface::vtable(self).QueueEvent)(windows_core::Interface::as_raw(self), pevent.param().abi()).ok()
     }
-    pub unsafe fn QueueEventParamVar(&self, met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn QueueEventParamVar(&self, met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueueEventParamVar)(windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, core::mem::transmute(pvvalue)).ok()
     }
     pub unsafe fn QueueEventParamUnk<P0>(&self, met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, punk: P0) -> windows_core::Result<()>
@@ -8946,7 +9015,10 @@ pub struct IMFMediaEventQueue_Vtbl {
     pub BeginGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndGetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub QueueEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub QueueEventParamVar: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, windows_core::HRESULT, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub QueueEventParamVar: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, windows_core::HRESULT, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    QueueEventParamVar: usize,
     pub QueueEventParamUnk: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, windows_core::HRESULT, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -9212,7 +9284,8 @@ impl IMFMediaSession {
     pub unsafe fn ClearTopologies(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ClearTopologies)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Start(&self, pguidtimeformat: *const windows_core::GUID, pvarstartposition: *const windows_core::PROPVARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn Start(&self, pguidtimeformat: *const windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), pguidtimeformat, core::mem::transmute(pvarstartposition)).ok()
     }
     pub unsafe fn Pause(&self) -> windows_core::Result<()> {
@@ -9245,7 +9318,10 @@ pub struct IMFMediaSession_Vtbl {
     pub base__: IMFMediaEventGenerator_Vtbl,
     pub SetTopology: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearTopologies: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    Start: usize,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9391,7 +9467,8 @@ impl IMFMediaSource {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreatePresentationDescriptor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn Start<P0>(&self, ppresentationdescriptor: P0, pguidtimeformat: *const windows_core::GUID, pvarstartposition: *const windows_core::PROPVARIANT) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn Start<P0>(&self, ppresentationdescriptor: P0, pguidtimeformat: *const windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMFPresentationDescriptor>,
     {
@@ -9412,7 +9489,10 @@ pub struct IMFMediaSource_Vtbl {
     pub base__: IMFMediaEventGenerator_Vtbl,
     pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub CreatePresentationDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    Start: usize,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9847,17 +9927,20 @@ impl IMFMetadata {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLanguage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetAllLanguages(&self) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetAllLanguages(&self) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAllLanguages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetProperty<P0>(&self, pwszname: P0, ppvvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetProperty<P0>(&self, pwszname: P0, ppvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwszname.param().abi(), core::mem::transmute(ppvvalue)).ok()
     }
-    pub unsafe fn GetProperty<P0>(&self, pwszname: P0) -> windows_core::Result<windows_core::PROPVARIANT>
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetProperty<P0>(&self, pwszname: P0) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -9870,7 +9953,8 @@ impl IMFMetadata {
     {
         (windows_core::Interface::vtable(self).DeleteProperty)(windows_core::Interface::as_raw(self), pwszname.param().abi()).ok()
     }
-    pub unsafe fn GetAllPropertyNames(&self) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetAllPropertyNames(&self) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAllPropertyNames)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -9880,11 +9964,23 @@ pub struct IMFMetadata_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetAllLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetAllLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetAllLanguages: usize,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    SetProperty: usize,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetProperty: usize,
     pub DeleteProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetAllPropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetAllPropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetAllPropertyNames: usize,
 }
 windows_core::imp::define_interface!(IMFMetadataProvider, IMFMetadataProvider_Vtbl, 0x56181d2d_e221_4adb_b1c8_3cee6a53f76f);
 impl core::ops::Deref for IMFMetadataProvider {
@@ -10552,10 +10648,12 @@ impl IMFPMediaItem {
     pub unsafe fn SetUserData(&self, dwuserdata: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetUserData)(windows_core::Interface::as_raw(self), dwuserdata).ok()
     }
-    pub unsafe fn GetStartStopPosition(&self, pguidstartpositiontype: Option<*mut windows_core::GUID>, pvstartvalue: Option<*mut windows_core::PROPVARIANT>, pguidstoppositiontype: Option<*mut windows_core::GUID>, pvstopvalue: Option<*mut windows_core::PROPVARIANT>) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetStartStopPosition(&self, pguidstartpositiontype: Option<*mut windows_core::GUID>, pvstartvalue: Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: Option<*mut windows_core::GUID>, pvstopvalue: Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetStartStopPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidstartpositiontype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvstartvalue.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pguidstoppositiontype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvstopvalue.unwrap_or(std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetStartStopPosition(&self, pguidstartpositiontype: Option<*const windows_core::GUID>, pvstartvalue: Option<*const windows_core::PROPVARIANT>, pguidstoppositiontype: Option<*const windows_core::GUID>, pvstopvalue: Option<*const windows_core::PROPVARIANT>) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetStartStopPosition(&self, pguidstartpositiontype: Option<*const windows_core::GUID>, pvstartvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: Option<*const windows_core::GUID>, pvstopvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetStartStopPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pguidstartpositiontype.unwrap_or(std::ptr::null())), core::mem::transmute(pvstartvalue.unwrap_or(std::ptr::null())), core::mem::transmute(pguidstoppositiontype.unwrap_or(std::ptr::null())), core::mem::transmute(pvstopvalue.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn HasVideo(&self, pfhasvideo: Option<*mut super::super::Foundation::BOOL>, pfselected: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
@@ -10568,7 +10666,8 @@ impl IMFPMediaItem {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).IsProtected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetDuration(&self, guidpositiontype: *const windows_core::GUID) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetDuration(&self, guidpositiontype: *const windows_core::GUID) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDuration)(windows_core::Interface::as_raw(self), guidpositiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -10586,11 +10685,13 @@ impl IMFPMediaItem {
     {
         (windows_core::Interface::vtable(self).SetStreamSelection)(windows_core::Interface::as_raw(self), dwstreamindex, fenabled.param().abi()).ok()
     }
-    pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStreamAttribute)(windows_core::Interface::as_raw(self), dwstreamindex, guidmfattribute, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: *const windows_core::GUID) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPresentationAttribute)(windows_core::Interface::as_raw(self), guidmfattribute, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -10618,17 +10719,32 @@ pub struct IMFPMediaItem_Vtbl {
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetUserData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
     pub SetUserData: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
-    pub GetStartStopPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
-    pub SetStartStopPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetStartStopPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, *mut windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetStartStopPosition: usize,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub SetStartStopPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    SetStartStopPosition: usize,
     pub HasVideo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub HasAudio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub IsProtected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetDuration: usize,
     pub GetNumberOfStreams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetStreamSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub SetStreamSelection: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
-    pub GetStreamAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
-    pub GetPresentationAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetStreamAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetStreamAttribute: usize,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetPresentationAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetPresentationAttribute: usize,
     pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetStreamSink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -10657,14 +10773,17 @@ impl IMFPMediaPlayer {
     pub unsafe fn FrameStep(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FrameStep)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetPosition(&self, guidpositiontype: *const windows_core::GUID, pvpositionvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetPosition(&self, guidpositiontype: *const windows_core::GUID, pvpositionvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), guidpositiontype, core::mem::transmute(pvpositionvalue)).ok()
     }
-    pub unsafe fn GetPosition(&self, guidpositiontype: *const windows_core::GUID) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPosition(&self, guidpositiontype: *const windows_core::GUID) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPosition)(windows_core::Interface::as_raw(self), guidpositiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetDuration(&self, guidpositiontype: *const windows_core::GUID) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetDuration(&self, guidpositiontype: *const windows_core::GUID) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDuration)(windows_core::Interface::as_raw(self), guidpositiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -10800,9 +10919,18 @@ pub struct IMFPMediaPlayer_Vtbl {
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FrameStep: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
-    pub GetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
-    pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub SetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    SetPosition: usize,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetPosition: usize,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetDuration: usize,
     pub SetRate: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub GetRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub GetSupportedRates: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *mut f32, *mut f32) -> windows_core::HRESULT,
@@ -11479,7 +11607,8 @@ impl IMFSAMIStyle {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStyleCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetStyles(&self) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetStyles(&self) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStyles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -11498,7 +11627,10 @@ impl IMFSAMIStyle {
 pub struct IMFSAMIStyle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetStyleCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetStyles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetStyles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetStyles: usize,
     pub SetSelectedStyle: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetSelectedStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
@@ -11913,14 +12045,18 @@ impl core::ops::Deref for IMFSeekInfo {
 }
 windows_core::imp::interface_hierarchy!(IMFSeekInfo, windows_core::IUnknown);
 impl IMFSeekInfo {
-    pub unsafe fn GetNearestKeyFrames(&self, pguidtimeformat: *const windows_core::GUID, pvarstartposition: *const windows_core::PROPVARIANT, pvarpreviouskeyframe: *mut windows_core::PROPVARIANT, pvarnextkeyframe: *mut windows_core::PROPVARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetNearestKeyFrames(&self, pguidtimeformat: *const windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNearestKeyFrames)(windows_core::Interface::as_raw(self), pguidtimeformat, core::mem::transmute(pvarstartposition), core::mem::transmute(pvarpreviouskeyframe), core::mem::transmute(pvarnextkeyframe)).ok()
     }
 }
 #[repr(C)]
 pub struct IMFSeekInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetNearestKeyFrames: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetNearestKeyFrames: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetNearestKeyFrames: usize,
 }
 windows_core::imp::define_interface!(IMFSensorActivitiesReport, IMFSensorActivitiesReport_Vtbl, 0x683f7a5e_4a19_43cd_b1a9_dbf4ab3f7777);
 impl core::ops::Deref for IMFSensorActivitiesReport {
@@ -12831,7 +12967,8 @@ impl IMFSourceReader {
     {
         (windows_core::Interface::vtable(self).SetCurrentMediaType)(windows_core::Interface::as_raw(self), dwstreamindex, core::mem::transmute(pdwreserved.unwrap_or(std::ptr::null())), pmediatype.param().abi()).ok()
     }
-    pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const windows_core::GUID, varposition: *const windows_core::PROPVARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const windows_core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetCurrentPosition)(windows_core::Interface::as_raw(self), guidtimeformat, core::mem::transmute(varposition)).ok()
     }
     pub unsafe fn ReadSample(&self, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: Option<*mut u32>, pdwstreamflags: Option<*mut u32>, plltimestamp: Option<*mut i64>, ppsample: Option<*mut Option<IMFSample>>) -> windows_core::Result<()> {
@@ -12843,7 +12980,8 @@ impl IMFSourceReader {
     pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetServiceForStream)(windows_core::Interface::as_raw(self), dwstreamindex, guidservice, riid, ppvobject).ok()
     }
-    pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const windows_core::GUID) -> windows_core::Result<windows_core::PROPVARIANT> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const windows_core::GUID) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPresentationAttribute)(windows_core::Interface::as_raw(self), dwstreamindex, guidattribute, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -12856,11 +12994,17 @@ pub struct IMFSourceReader_Vtbl {
     pub GetNativeMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCurrentMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCurrentMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub SetCurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    SetCurrentPosition: usize,
     pub ReadSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, *mut u32, *mut i64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetServiceForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetPresentationAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetPresentationAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetPresentationAttribute: usize,
 }
 windows_core::imp::define_interface!(IMFSourceReaderCallback, IMFSourceReaderCallback_Vtbl, 0xdeec8d99_fa1d_4d82_84c2_2c8969944867);
 impl core::ops::Deref for IMFSourceReaderCallback {
@@ -13173,7 +13317,8 @@ impl IMFStreamSink {
     {
         (windows_core::Interface::vtable(self).ProcessSample)(windows_core::Interface::as_raw(self), psample.param().abi()).ok()
     }
-    pub unsafe fn PlaceMarker(&self, emarkertype: MFSTREAMSINK_MARKER_TYPE, pvarmarkervalue: *const windows_core::PROPVARIANT, pvarcontextvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn PlaceMarker(&self, emarkertype: MFSTREAMSINK_MARKER_TYPE, pvarmarkervalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarcontextvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).PlaceMarker)(windows_core::Interface::as_raw(self), emarkertype, core::mem::transmute(pvarmarkervalue), core::mem::transmute(pvarcontextvalue)).ok()
     }
     pub unsafe fn Flush(&self) -> windows_core::Result<()> {
@@ -13187,7 +13332,10 @@ pub struct IMFStreamSink_Vtbl {
     pub GetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetMediaTypeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProcessSample: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PlaceMarker: unsafe extern "system" fn(*mut core::ffi::c_void, MFSTREAMSINK_MARKER_TYPE, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub PlaceMarker: unsafe extern "system" fn(*mut core::ffi::c_void, MFSTREAMSINK_MARKER_TYPE, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    PlaceMarker: usize,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMFStreamingSinkConfig, IMFStreamingSinkConfig_Vtbl, 0x9db7aa41_3cc5_40d4_8509_555804ad34cc);
@@ -13242,7 +13390,8 @@ impl core::ops::Deref for IMFTimecodeTranslate {
 }
 windows_core::imp::interface_hierarchy!(IMFTimecodeTranslate, windows_core::IUnknown);
 impl IMFTimecodeTranslate {
-    pub unsafe fn BeginConvertTimecodeToHNS<P0, P1>(&self, ppropvartimecode: *const windows_core::PROPVARIANT, pcallback: P0, punkstate: P1) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn BeginConvertTimecodeToHNS<P0, P1>(&self, ppropvartimecode: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pcallback: P0, punkstate: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMFAsyncCallback>,
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -13263,7 +13412,8 @@ impl IMFTimecodeTranslate {
     {
         (windows_core::Interface::vtable(self).BeginConvertHNSToTimecode)(windows_core::Interface::as_raw(self), hnstime, pcallback.param().abi(), punkstate.param().abi()).ok()
     }
-    pub unsafe fn EndConvertHNSToTimecode<P0>(&self, presult: P0) -> windows_core::Result<windows_core::PROPVARIANT>
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn EndConvertHNSToTimecode<P0>(&self, presult: P0) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
     where
         P0: windows_core::Param<IMFAsyncResult>,
     {
@@ -13274,10 +13424,16 @@ impl IMFTimecodeTranslate {
 #[repr(C)]
 pub struct IMFTimecodeTranslate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub BeginConvertTimecodeToHNS: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub BeginConvertTimecodeToHNS: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    BeginConvertTimecodeToHNS: usize,
     pub EndConvertTimecodeToHNS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub BeginConvertHNSToTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EndConvertHNSToTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub EndConvertHNSToTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    EndConvertHNSToTimecode: usize,
 }
 windows_core::imp::define_interface!(IMFTimedText, IMFTimedText_Vtbl, 0x1f2a94c9_a3df_430d_9d0f_acd85ddc29af);
 impl core::ops::Deref for IMFTimedText {

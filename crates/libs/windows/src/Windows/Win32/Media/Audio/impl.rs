@@ -1691,19 +1691,19 @@ impl IDeviceTopology_Vtbl {
         iid == &<IDeviceTopology as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IMMDevice_Impl: Sized + windows_core::IUnknownImpl {
-    fn Activate(&self, iid: *const windows_core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const windows_core::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Activate(&self, iid: *const windows_core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn OpenPropertyStore(&self, stgmaccess: super::super::System::Com::STGM) -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn GetId(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetState(&self) -> windows_core::Result<DEVICE_STATE>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl windows_core::RuntimeName for IMMDevice {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IMMDevice_Vtbl {
     pub const fn new<Identity: IMMDevice_Impl, const OFFSET: isize>() -> IMMDevice_Vtbl {
-        unsafe extern "system" fn Activate<Identity: IMMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Activate<Identity: IMMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMMDevice_Impl::Activate(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&dwclsctx), core::mem::transmute_copy(&pactivationparams), core::mem::transmute_copy(&ppinterface)).into()
         }
@@ -1749,13 +1749,16 @@ impl IMMDevice_Vtbl {
         iid == &<IMMDevice as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMMDeviceActivator_Impl: Sized + windows_core::IUnknownImpl {
-    fn Activate(&self, iid: *const windows_core::GUID, pdevice: Option<&IMMDevice>, pactivationparams: *const windows_core::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Activate(&self, iid: *const windows_core::GUID, pdevice: Option<&IMMDevice>, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMMDeviceActivator {}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMMDeviceActivator_Vtbl {
     pub const fn new<Identity: IMMDeviceActivator_Impl, const OFFSET: isize>() -> IMMDeviceActivator_Vtbl {
-        unsafe extern "system" fn Activate<Identity: IMMDeviceActivator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, pdevice: *mut core::ffi::c_void, pactivationparams: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Activate<Identity: IMMDeviceActivator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, pdevice: *mut core::ffi::c_void, pactivationparams: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMMDeviceActivator_Impl::Activate(this, core::mem::transmute_copy(&iid), windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&pactivationparams), core::mem::transmute_copy(&ppinterface)).into()
         }
@@ -2255,6 +2258,7 @@ impl ISimpleAudioVolume_Vtbl {
         iid == &<ISimpleAudioVolume as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISpatialAudioClient_Impl: Sized + windows_core::IUnknownImpl {
     fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> windows_core::Result<()>;
     fn GetNativeStaticObjectTypeMask(&self) -> windows_core::Result<AudioObjectType>;
@@ -2262,10 +2266,12 @@ pub trait ISpatialAudioClient_Impl: Sized + windows_core::IUnknownImpl {
     fn GetSupportedAudioObjectFormatEnumerator(&self) -> windows_core::Result<IAudioFormatEnumerator>;
     fn GetMaxFrameCount(&self, objectformat: *const WAVEFORMATEX) -> windows_core::Result<u32>;
     fn IsAudioObjectFormatSupported(&self, objectformat: *const WAVEFORMATEX) -> windows_core::Result<()>;
-    fn IsSpatialAudioStreamAvailable(&self, streamuuid: *const windows_core::GUID, auxiliaryinfo: *const windows_core::PROPVARIANT) -> windows_core::Result<()>;
-    fn ActivateSpatialAudioStream(&self, activationparams: *const windows_core::PROPVARIANT, riid: *const windows_core::GUID, stream: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn IsSpatialAudioStreamAvailable(&self, streamuuid: *const windows_core::GUID, auxiliaryinfo: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn ActivateSpatialAudioStream(&self, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const windows_core::GUID, stream: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISpatialAudioClient {}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ISpatialAudioClient_Vtbl {
     pub const fn new<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>() -> ISpatialAudioClient_Vtbl {
         unsafe extern "system" fn GetStaticObjectPosition<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> windows_core::HRESULT {
@@ -2316,11 +2322,11 @@ impl ISpatialAudioClient_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISpatialAudioClient_Impl::IsAudioObjectFormatSupported(this, core::mem::transmute_copy(&objectformat)).into()
         }
-        unsafe extern "system" fn IsSpatialAudioStreamAvailable<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamuuid: *const windows_core::GUID, auxiliaryinfo: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSpatialAudioStreamAvailable<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamuuid: *const windows_core::GUID, auxiliaryinfo: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISpatialAudioClient_Impl::IsSpatialAudioStreamAvailable(this, core::mem::transmute_copy(&streamuuid), core::mem::transmute_copy(&auxiliaryinfo)).into()
         }
-        unsafe extern "system" fn ActivateSpatialAudioStream<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activationparams: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, riid: *const windows_core::GUID, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActivateSpatialAudioStream<Identity: ISpatialAudioClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, activationparams: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>, riid: *const windows_core::GUID, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISpatialAudioClient_Impl::ActivateSpatialAudioStream(this, core::mem::transmute_copy(&activationparams), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&stream)).into()
         }
@@ -2340,11 +2346,14 @@ impl ISpatialAudioClient_Vtbl {
         iid == &<ISpatialAudioClient as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISpatialAudioClient2_Impl: Sized + ISpatialAudioClient_Impl {
     fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn GetMaxFrameCountForCategory(&self, category: AUDIO_STREAM_CATEGORY, offloadenabled: super::super::Foundation::BOOL, objectformat: *const WAVEFORMATEX) -> windows_core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISpatialAudioClient2 {}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ISpatialAudioClient2_Vtbl {
     pub const fn new<Identity: ISpatialAudioClient2_Impl, const OFFSET: isize>() -> ISpatialAudioClient2_Vtbl {
         unsafe extern "system" fn IsOffloadCapable<Identity: ISpatialAudioClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: AUDIO_STREAM_CATEGORY, isoffloadcapable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {

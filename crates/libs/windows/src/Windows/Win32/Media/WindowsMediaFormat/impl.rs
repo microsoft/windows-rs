@@ -1,14 +1,17 @@
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INSNetSourceCreator_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self) -> windows_core::Result<()>;
     fn CreateNetSource(&self, pszstreamname: &windows_core::PCWSTR, pmonitor: Option<&windows_core::IUnknown>, pdata: *const u8, pusercontext: Option<&windows_core::IUnknown>, pcallback: Option<&windows_core::IUnknown>, qwcontext: u64) -> windows_core::Result<()>;
     fn GetNetSourceProperties(&self, pszstreamname: &windows_core::PCWSTR) -> windows_core::Result<windows_core::IUnknown>;
     fn GetNetSourceSharedNamespace(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetNetSourceAdminInterface(&self, pszstreamname: &windows_core::PCWSTR) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetNetSourceAdminInterface(&self, pszstreamname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetNumProtocolsSupported(&self) -> windows_core::Result<u32>;
     fn GetProtocolName(&self, dwprotocolnum: u32, pwszprotocolname: windows_core::PWSTR, pcchprotocolname: *mut u16) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INSNetSourceCreator {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INSNetSourceCreator_Vtbl {
     pub const fn new<Identity: INSNetSourceCreator_Impl, const OFFSET: isize>() -> INSNetSourceCreator_Vtbl {
         unsafe extern "system" fn Initialize<Identity: INSNetSourceCreator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -39,7 +42,7 @@ impl INSNetSourceCreator_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNetSourceAdminInterface<Identity: INSNetSourceCreator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszstreamname: windows_core::PCWSTR, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNetSourceAdminInterface<Identity: INSNetSourceCreator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszstreamname: windows_core::PCWSTR, pval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match INSNetSourceCreator_Impl::GetNetSourceAdminInterface(this, core::mem::transmute(&pszstreamname)) {
                 Ok(ok__) => {

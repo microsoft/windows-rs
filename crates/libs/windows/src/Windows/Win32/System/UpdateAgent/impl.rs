@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdates_Impl: Sized + super::Com::IDispatch_Impl {
     fn DetectNow(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
@@ -8,9 +8,9 @@ pub trait IAutomaticUpdates_Impl: Sized + super::Com::IDispatch_Impl {
     fn ServiceEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn EnableService(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAutomaticUpdates {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdates_Vtbl {
     pub const fn new<Identity: IAutomaticUpdates_Impl, const OFFSET: isize>() -> IAutomaticUpdates_Vtbl {
         unsafe extern "system" fn DetectNow<Identity: IAutomaticUpdates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -68,13 +68,13 @@ impl IAutomaticUpdates_Vtbl {
         iid == &<IAutomaticUpdates as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdates2_Impl: Sized + IAutomaticUpdates_Impl {
     fn Results(&self) -> windows_core::Result<IAutomaticUpdatesResults>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAutomaticUpdates2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdates2_Vtbl {
     pub const fn new<Identity: IAutomaticUpdates2_Impl, const OFFSET: isize>() -> IAutomaticUpdates2_Vtbl {
         unsafe extern "system" fn Results<Identity: IAutomaticUpdates2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -93,17 +93,17 @@ impl IAutomaticUpdates2_Vtbl {
         iid == &<IAutomaticUpdates2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IAutomaticUpdates as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdatesResults_Impl: Sized + super::Com::IDispatch_Impl {
-    fn LastSearchSuccessDate(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn LastInstallationSuccessDate(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn LastSearchSuccessDate(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn LastInstallationSuccessDate(&self) -> windows_core::Result<super::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAutomaticUpdatesResults {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdatesResults_Vtbl {
     pub const fn new<Identity: IAutomaticUpdatesResults_Impl, const OFFSET: isize>() -> IAutomaticUpdatesResults_Vtbl {
-        unsafe extern "system" fn LastSearchSuccessDate<Identity: IAutomaticUpdatesResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastSearchSuccessDate<Identity: IAutomaticUpdatesResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAutomaticUpdatesResults_Impl::LastSearchSuccessDate(this) {
                 Ok(ok__) => {
@@ -113,7 +113,7 @@ impl IAutomaticUpdatesResults_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LastInstallationSuccessDate<Identity: IAutomaticUpdatesResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LastInstallationSuccessDate<Identity: IAutomaticUpdatesResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAutomaticUpdatesResults_Impl::LastInstallationSuccessDate(this) {
                 Ok(ok__) => {
@@ -133,7 +133,7 @@ impl IAutomaticUpdatesResults_Vtbl {
         iid == &<IAutomaticUpdatesResults as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdatesSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn NotificationLevel(&self) -> windows_core::Result<AutomaticUpdatesNotificationLevel>;
     fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> windows_core::Result<()>;
@@ -146,9 +146,9 @@ pub trait IAutomaticUpdatesSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn Refresh(&self) -> windows_core::Result<()>;
     fn Save(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAutomaticUpdatesSettings {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdatesSettings_Vtbl {
     pub const fn new<Identity: IAutomaticUpdatesSettings_Impl, const OFFSET: isize>() -> IAutomaticUpdatesSettings_Vtbl {
         unsafe extern "system" fn NotificationLevel<Identity: IAutomaticUpdatesSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut AutomaticUpdatesNotificationLevel) -> windows_core::HRESULT {
@@ -239,15 +239,15 @@ impl IAutomaticUpdatesSettings_Vtbl {
         iid == &<IAutomaticUpdatesSettings as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdatesSettings2_Impl: Sized + IAutomaticUpdatesSettings_Impl {
     fn IncludeRecommendedUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetIncludeRecommendedUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAutomaticUpdatesSettings2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdatesSettings2_Vtbl {
     pub const fn new<Identity: IAutomaticUpdatesSettings2_Impl, const OFFSET: isize>() -> IAutomaticUpdatesSettings2_Vtbl {
         unsafe extern "system" fn IncludeRecommendedUpdates<Identity: IAutomaticUpdatesSettings2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -285,16 +285,16 @@ impl IAutomaticUpdatesSettings2_Vtbl {
         iid == &<IAutomaticUpdatesSettings2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IAutomaticUpdatesSettings as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdatesSettings3_Impl: Sized + IAutomaticUpdatesSettings2_Impl {
     fn NonAdministratorsElevated(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetNonAdministratorsElevated(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn FeaturedUpdatesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetFeaturedUpdatesEnabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAutomaticUpdatesSettings3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdatesSettings3_Vtbl {
     pub const fn new<Identity: IAutomaticUpdatesSettings3_Impl, const OFFSET: isize>() -> IAutomaticUpdatesSettings3_Vtbl {
         unsafe extern "system" fn NonAdministratorsElevated<Identity: IAutomaticUpdatesSettings3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -337,7 +337,7 @@ impl IAutomaticUpdatesSettings3_Vtbl {
         iid == &<IAutomaticUpdatesSettings3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IAutomaticUpdatesSettings as windows_core::Interface>::IID || iid == &<IAutomaticUpdatesSettings2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICategory_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CategoryID(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -349,9 +349,9 @@ pub trait ICategory_Impl: Sized + super::Com::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICategory {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICategory_Vtbl {
     pub const fn new<Identity: ICategory_Impl, const OFFSET: isize>() -> ICategory_Vtbl {
         unsafe extern "system" fn Name<Identity: ICategory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -461,15 +461,15 @@ impl ICategory_Vtbl {
         iid == &<ICategory as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICategoryCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> windows_core::Result<ICategory>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICategoryCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICategoryCollection_Vtbl {
     pub const fn new<Identity: ICategoryCollection_Impl, const OFFSET: isize>() -> ICategoryCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ICategoryCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -532,11 +532,11 @@ impl IDownloadCompletedCallback_Vtbl {
         iid == &<IDownloadCompletedCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDownloadCompletedCallbackArgs_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDownloadCompletedCallbackArgs {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDownloadCompletedCallbackArgs_Vtbl {
     pub const fn new<Identity: IDownloadCompletedCallbackArgs_Impl, const OFFSET: isize>() -> IDownloadCompletedCallbackArgs_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -545,21 +545,21 @@ impl IDownloadCompletedCallbackArgs_Vtbl {
         iid == &<IDownloadCompletedCallbackArgs as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDownloadJob_Impl: Sized + super::Com::IDispatch_Impl {
-    fn AsyncState(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn AsyncState(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn IsCompleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
     fn CleanUp(&self) -> windows_core::Result<()>;
     fn GetProgress(&self) -> windows_core::Result<IDownloadProgress>;
     fn RequestAbort(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDownloadJob {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDownloadJob_Vtbl {
     pub const fn new<Identity: IDownloadJob_Impl, const OFFSET: isize>() -> IDownloadJob_Vtbl {
-        unsafe extern "system" fn AsyncState<Identity: IDownloadJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AsyncState<Identity: IDownloadJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDownloadJob_Impl::AsyncState(this) {
                 Ok(ok__) => {
@@ -621,7 +621,7 @@ impl IDownloadJob_Vtbl {
         iid == &<IDownloadJob as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDownloadProgress_Impl: Sized + super::Com::IDispatch_Impl {
     fn CurrentUpdateBytesDownloaded(&self) -> windows_core::Result<super::super::Foundation::DECIMAL>;
     fn CurrentUpdateBytesToDownload(&self) -> windows_core::Result<super::super::Foundation::DECIMAL>;
@@ -633,9 +633,9 @@ pub trait IDownloadProgress_Impl: Sized + super::Com::IDispatch_Impl {
     fn CurrentUpdateDownloadPhase(&self) -> windows_core::Result<DownloadPhase>;
     fn CurrentUpdatePercentComplete(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDownloadProgress {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDownloadProgress_Vtbl {
     pub const fn new<Identity: IDownloadProgress_Impl, const OFFSET: isize>() -> IDownloadProgress_Vtbl {
         unsafe extern "system" fn CurrentUpdateBytesDownloaded<Identity: IDownloadProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::DECIMAL) -> windows_core::HRESULT {
@@ -764,13 +764,13 @@ impl IDownloadProgressChangedCallback_Vtbl {
         iid == &<IDownloadProgressChangedCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDownloadProgressChangedCallbackArgs_Impl: Sized + super::Com::IDispatch_Impl {
     fn Progress(&self) -> windows_core::Result<IDownloadProgress>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDownloadProgressChangedCallbackArgs {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDownloadProgressChangedCallbackArgs_Vtbl {
     pub const fn new<Identity: IDownloadProgressChangedCallbackArgs_Impl, const OFFSET: isize>() -> IDownloadProgressChangedCallbackArgs_Vtbl {
         unsafe extern "system" fn Progress<Identity: IDownloadProgressChangedCallbackArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -789,15 +789,15 @@ impl IDownloadProgressChangedCallbackArgs_Vtbl {
         iid == &<IDownloadProgressChangedCallbackArgs as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDownloadResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn HResult(&self) -> windows_core::Result<i32>;
     fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
     fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateDownloadResult>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDownloadResult {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDownloadResult_Vtbl {
     pub const fn new<Identity: IDownloadResult_Impl, const OFFSET: isize>() -> IDownloadResult_Vtbl {
         unsafe extern "system" fn HResult<Identity: IDownloadResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -841,16 +841,16 @@ impl IDownloadResult_Vtbl {
         iid == &<IDownloadResult as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IImageInformation_Impl: Sized + super::Com::IDispatch_Impl {
     fn AltText(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Height(&self) -> windows_core::Result<i32>;
     fn Source(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Width(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IImageInformation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IImageInformation_Vtbl {
     pub const fn new<Identity: IImageInformation_Impl, const OFFSET: isize>() -> IImageInformation_Vtbl {
         unsafe extern "system" fn AltText<Identity: IImageInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -905,13 +905,13 @@ impl IImageInformation_Vtbl {
         iid == &<IImageInformation as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationAgent_Impl: Sized + super::Com::IDispatch_Impl {
     fn RecordInstallationResult(&self, installationresultcookie: &windows_core::BSTR, hresult: i32, extendedreportingdata: Option<&IStringCollection>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationAgent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationAgent_Vtbl {
     pub const fn new<Identity: IInstallationAgent_Impl, const OFFSET: isize>() -> IInstallationAgent_Vtbl {
         unsafe extern "system" fn RecordInstallationResult<Identity: IInstallationAgent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, installationresultcookie: core::mem::MaybeUninit<windows_core::BSTR>, hresult: i32, extendedreportingdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -924,16 +924,16 @@ impl IInstallationAgent_Vtbl {
         iid == &<IInstallationAgent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationBehavior_Impl: Sized + super::Com::IDispatch_Impl {
     fn CanRequestUserInput(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Impact(&self) -> windows_core::Result<InstallationImpact>;
     fn RebootBehavior(&self) -> windows_core::Result<InstallationRebootBehavior>;
     fn RequiresNetworkConnectivity(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationBehavior {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationBehavior_Vtbl {
     pub const fn new<Identity: IInstallationBehavior_Impl, const OFFSET: isize>() -> IInstallationBehavior_Vtbl {
         unsafe extern "system" fn CanRequestUserInput<Identity: IInstallationBehavior_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1007,11 +1007,11 @@ impl IInstallationCompletedCallback_Vtbl {
         iid == &<IInstallationCompletedCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationCompletedCallbackArgs_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationCompletedCallbackArgs {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationCompletedCallbackArgs_Vtbl {
     pub const fn new<Identity: IInstallationCompletedCallbackArgs_Impl, const OFFSET: isize>() -> IInstallationCompletedCallbackArgs_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -1020,21 +1020,21 @@ impl IInstallationCompletedCallbackArgs_Vtbl {
         iid == &<IInstallationCompletedCallbackArgs as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationJob_Impl: Sized + super::Com::IDispatch_Impl {
-    fn AsyncState(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn AsyncState(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn IsCompleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
     fn CleanUp(&self) -> windows_core::Result<()>;
     fn GetProgress(&self) -> windows_core::Result<IInstallationProgress>;
     fn RequestAbort(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationJob {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationJob_Vtbl {
     pub const fn new<Identity: IInstallationJob_Impl, const OFFSET: isize>() -> IInstallationJob_Vtbl {
-        unsafe extern "system" fn AsyncState<Identity: IInstallationJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AsyncState<Identity: IInstallationJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInstallationJob_Impl::AsyncState(this) {
                 Ok(ok__) => {
@@ -1096,16 +1096,16 @@ impl IInstallationJob_Vtbl {
         iid == &<IInstallationJob as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationProgress_Impl: Sized + super::Com::IDispatch_Impl {
     fn CurrentUpdateIndex(&self) -> windows_core::Result<i32>;
     fn CurrentUpdatePercentComplete(&self) -> windows_core::Result<i32>;
     fn PercentComplete(&self) -> windows_core::Result<i32>;
     fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateInstallationResult>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationProgress {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationProgress_Vtbl {
     pub const fn new<Identity: IInstallationProgress_Impl, const OFFSET: isize>() -> IInstallationProgress_Vtbl {
         unsafe extern "system" fn CurrentUpdateIndex<Identity: IInstallationProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -1179,13 +1179,13 @@ impl IInstallationProgressChangedCallback_Vtbl {
         iid == &<IInstallationProgressChangedCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationProgressChangedCallbackArgs_Impl: Sized + super::Com::IDispatch_Impl {
     fn Progress(&self) -> windows_core::Result<IInstallationProgress>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationProgressChangedCallbackArgs {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationProgressChangedCallbackArgs_Vtbl {
     pub const fn new<Identity: IInstallationProgressChangedCallbackArgs_Impl, const OFFSET: isize>() -> IInstallationProgressChangedCallbackArgs_Vtbl {
         unsafe extern "system" fn Progress<Identity: IInstallationProgressChangedCallbackArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1204,16 +1204,16 @@ impl IInstallationProgressChangedCallbackArgs_Vtbl {
         iid == &<IInstallationProgressChangedCallbackArgs as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn HResult(&self) -> windows_core::Result<i32>;
     fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
     fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateInstallationResult>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationResult {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationResult_Vtbl {
     pub const fn new<Identity: IInstallationResult_Impl, const OFFSET: isize>() -> IInstallationResult_Vtbl {
         unsafe extern "system" fn HResult<Identity: IInstallationResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -1268,13 +1268,13 @@ impl IInstallationResult_Vtbl {
         iid == &<IInstallationResult as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInvalidProductLicenseException_Impl: Sized + IUpdateException_Impl {
     fn Product(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInvalidProductLicenseException {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInvalidProductLicenseException_Vtbl {
     pub const fn new<Identity: IInvalidProductLicenseException_Impl, const OFFSET: isize>() -> IInvalidProductLicenseException_Vtbl {
         unsafe extern "system" fn Product<Identity: IInvalidProductLicenseException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1312,11 +1312,11 @@ impl ISearchCompletedCallback_Vtbl {
         iid == &<ISearchCompletedCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISearchCompletedCallbackArgs_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISearchCompletedCallbackArgs {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISearchCompletedCallbackArgs_Vtbl {
     pub const fn new<Identity: ISearchCompletedCallbackArgs_Impl, const OFFSET: isize>() -> ISearchCompletedCallbackArgs_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -1325,19 +1325,19 @@ impl ISearchCompletedCallbackArgs_Vtbl {
         iid == &<ISearchCompletedCallbackArgs as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISearchJob_Impl: Sized + super::Com::IDispatch_Impl {
-    fn AsyncState(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn AsyncState(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn IsCompleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn CleanUp(&self) -> windows_core::Result<()>;
     fn RequestAbort(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISearchJob {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISearchJob_Vtbl {
     pub const fn new<Identity: ISearchJob_Impl, const OFFSET: isize>() -> ISearchJob_Vtbl {
-        unsafe extern "system" fn AsyncState<Identity: ISearchJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AsyncState<Identity: ISearchJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISearchJob_Impl::AsyncState(this) {
                 Ok(ok__) => {
@@ -1377,16 +1377,16 @@ impl ISearchJob_Vtbl {
         iid == &<ISearchJob as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISearchResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
     fn RootCategories(&self) -> windows_core::Result<ICategoryCollection>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
     fn Warnings(&self) -> windows_core::Result<IUpdateExceptionCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISearchResult {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISearchResult_Vtbl {
     pub const fn new<Identity: ISearchResult_Impl, const OFFSET: isize>() -> ISearchResult_Vtbl {
         unsafe extern "system" fn ResultCode<Identity: ISearchResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut OperationResultCode) -> windows_core::HRESULT {
@@ -1441,7 +1441,7 @@ impl ISearchResult_Vtbl {
         iid == &<ISearchResult as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IStringCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
     fn put_Item(&self, index: i32, value: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -1454,9 +1454,9 @@ pub trait IStringCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Insert(&self, index: i32, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IStringCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IStringCollection_Vtbl {
     pub const fn new<Identity: IStringCollection_Impl, const OFFSET: isize>() -> IStringCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: IStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1553,14 +1553,14 @@ impl IStringCollection_Vtbl {
         iid == &<IStringCollection as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISystemInformation_Impl: Sized + super::Com::IDispatch_Impl {
     fn OemHardwareSupportLink(&self) -> windows_core::Result<windows_core::BSTR>;
     fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISystemInformation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISystemInformation_Vtbl {
     pub const fn new<Identity: ISystemInformation_Impl, const OFFSET: isize>() -> ISystemInformation_Vtbl {
         unsafe extern "system" fn OemHardwareSupportLink<Identity: ISystemInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1593,14 +1593,14 @@ impl ISystemInformation_Vtbl {
         iid == &<ISystemInformation as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdate_Impl: Sized + super::Com::IDispatch_Impl {
     fn Title(&self) -> windows_core::Result<windows_core::BSTR>;
     fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection>;
     fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Categories(&self) -> windows_core::Result<ICategoryCollection>;
-    fn Deadline(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Deadline(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1641,9 +1641,9 @@ pub trait IUpdate_Impl: Sized + super::Com::IDispatch_Impl {
     fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority>;
     fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdate {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate_Vtbl {
     pub const fn new<Identity: IUpdate_Impl, const OFFSET: isize>() -> IUpdate_Vtbl {
         unsafe extern "system" fn Title<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1696,7 +1696,7 @@ impl IUpdate_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Deadline<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Deadline<Identity: IUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUpdate_Impl::Deadline(this) {
                 Ok(ok__) => {
@@ -2131,16 +2131,16 @@ impl IUpdate_Vtbl {
         iid == &<IUpdate as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdate2_Impl: Sized + IUpdate_Impl {
     fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn CveIDs(&self) -> windows_core::Result<IStringCollection>;
     fn CopyToCache(&self, pfiles: Option<&IStringCollection>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdate2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate2_Vtbl {
     pub const fn new<Identity: IUpdate2_Impl, const OFFSET: isize>() -> IUpdate2_Vtbl {
         unsafe extern "system" fn RebootRequired<Identity: IUpdate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2189,13 +2189,13 @@ impl IUpdate2_Vtbl {
         iid == &<IUpdate2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdate3_Impl: Sized + IUpdate2_Impl {
     fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdate3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate3_Vtbl {
     pub const fn new<Identity: IUpdate3_Impl, const OFFSET: isize>() -> IUpdate3_Vtbl {
         unsafe extern "system" fn BrowseOnly<Identity: IUpdate3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2214,13 +2214,13 @@ impl IUpdate3_Vtbl {
         iid == &<IUpdate3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IUpdate2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdate4_Impl: Sized + IUpdate3_Impl {
     fn PerUser(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdate4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate4_Vtbl {
     pub const fn new<Identity: IUpdate4_Impl, const OFFSET: isize>() -> IUpdate4_Vtbl {
         unsafe extern "system" fn PerUser<Identity: IUpdate4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2239,14 +2239,14 @@ impl IUpdate4_Vtbl {
         iid == &<IUpdate4 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IUpdate2 as windows_core::Interface>::IID || iid == &<IUpdate3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdate5_Impl: Sized + IUpdate4_Impl {
     fn AutoSelection(&self) -> windows_core::Result<AutoSelectionMode>;
     fn AutoDownload(&self) -> windows_core::Result<AutoDownloadMode>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdate5 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate5_Vtbl {
     pub const fn new<Identity: IUpdate5_Impl, const OFFSET: isize>() -> IUpdate5_Vtbl {
         unsafe extern "system" fn AutoSelection<Identity: IUpdate5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut AutoSelectionMode) -> windows_core::HRESULT {
@@ -2279,7 +2279,7 @@ impl IUpdate5_Vtbl {
         iid == &<IUpdate5 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IUpdate2 as windows_core::Interface>::IID || iid == &<IUpdate3 as windows_core::Interface>::IID || iid == &<IUpdate4 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> windows_core::Result<IUpdate>;
     fn put_Item(&self, index: i32, value: Option<&IUpdate>) -> windows_core::Result<()>;
@@ -2292,9 +2292,9 @@ pub trait IUpdateCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Insert(&self, index: i32, value: Option<&IUpdate>) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateCollection_Vtbl {
     pub const fn new<Identity: IUpdateCollection_Impl, const OFFSET: isize>() -> IUpdateCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: IUpdateCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2391,13 +2391,13 @@ impl IUpdateCollection_Vtbl {
         iid == &<IUpdateCollection as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateDownloadContent_Impl: Sized + super::Com::IDispatch_Impl {
     fn DownloadUrl(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateDownloadContent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloadContent_Vtbl {
     pub const fn new<Identity: IUpdateDownloadContent_Impl, const OFFSET: isize>() -> IUpdateDownloadContent_Vtbl {
         unsafe extern "system" fn DownloadUrl<Identity: IUpdateDownloadContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2416,13 +2416,13 @@ impl IUpdateDownloadContent_Vtbl {
         iid == &<IUpdateDownloadContent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateDownloadContent2_Impl: Sized + IUpdateDownloadContent_Impl {
     fn IsDeltaCompressedContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateDownloadContent2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloadContent2_Vtbl {
     pub const fn new<Identity: IUpdateDownloadContent2_Impl, const OFFSET: isize>() -> IUpdateDownloadContent2_Vtbl {
         unsafe extern "system" fn IsDeltaCompressedContent<Identity: IUpdateDownloadContent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2441,15 +2441,15 @@ impl IUpdateDownloadContent2_Vtbl {
         iid == &<IUpdateDownloadContent2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateDownloadContent as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateDownloadContentCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateDownloadContent>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateDownloadContentCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloadContentCollection_Vtbl {
     pub const fn new<Identity: IUpdateDownloadContentCollection_Impl, const OFFSET: isize>() -> IUpdateDownloadContentCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: IUpdateDownloadContentCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2493,14 +2493,14 @@ impl IUpdateDownloadContentCollection_Vtbl {
         iid == &<IUpdateDownloadContentCollection as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateDownloadResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn HResult(&self) -> windows_core::Result<i32>;
     fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateDownloadResult {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloadResult_Vtbl {
     pub const fn new<Identity: IUpdateDownloadResult_Impl, const OFFSET: isize>() -> IUpdateDownloadResult_Vtbl {
         unsafe extern "system" fn HResult<Identity: IUpdateDownloadResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -2529,7 +2529,7 @@ impl IUpdateDownloadResult_Vtbl {
         iid == &<IUpdateDownloadResult as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateDownloader_Impl: Sized + super::Com::IDispatch_Impl {
     fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2539,13 +2539,13 @@ pub trait IUpdateDownloader_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetPriority(&self, value: DownloadPriority) -> windows_core::Result<()>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
     fn SetUpdates(&self, value: Option<&IUpdateCollection>) -> windows_core::Result<()>;
-    fn BeginDownload(&self, onprogresschanged: Option<&windows_core::IUnknown>, oncompleted: Option<&windows_core::IUnknown>, state: &windows_core::VARIANT) -> windows_core::Result<IDownloadJob>;
+    fn BeginDownload(&self, onprogresschanged: Option<&windows_core::IUnknown>, oncompleted: Option<&windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IDownloadJob>;
     fn Download(&self) -> windows_core::Result<IDownloadResult>;
     fn EndDownload(&self, value: Option<&IDownloadJob>) -> windows_core::Result<IDownloadResult>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateDownloader {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloader_Vtbl {
     pub const fn new<Identity: IUpdateDownloader_Impl, const OFFSET: isize>() -> IUpdateDownloader_Vtbl {
         unsafe extern "system" fn ClientApplicationID<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2604,7 +2604,7 @@ impl IUpdateDownloader_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUpdateDownloader_Impl::SetUpdates(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn BeginDownload<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: core::mem::MaybeUninit<windows_core::VARIANT>, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BeginDownload<Identity: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: core::mem::MaybeUninit<super::Variant::VARIANT>, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUpdateDownloader_Impl::BeginDownload(this, windows_core::from_raw_borrowed(&onprogresschanged), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
@@ -2653,15 +2653,15 @@ impl IUpdateDownloader_Vtbl {
         iid == &<IUpdateDownloader as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateException_Impl: Sized + super::Com::IDispatch_Impl {
     fn Message(&self) -> windows_core::Result<windows_core::BSTR>;
     fn HResult(&self) -> windows_core::Result<i32>;
     fn Context(&self) -> windows_core::Result<UpdateExceptionContext>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateException {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateException_Vtbl {
     pub const fn new<Identity: IUpdateException_Impl, const OFFSET: isize>() -> IUpdateException_Vtbl {
         unsafe extern "system" fn Message<Identity: IUpdateException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2705,15 +2705,15 @@ impl IUpdateException_Vtbl {
         iid == &<IUpdateException as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateExceptionCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateException>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateExceptionCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateExceptionCollection_Vtbl {
     pub const fn new<Identity: IUpdateExceptionCollection_Impl, const OFFSET: isize>() -> IUpdateExceptionCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: IUpdateExceptionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2757,7 +2757,7 @@ impl IUpdateExceptionCollection_Vtbl {
         iid == &<IUpdateExceptionCollection as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateHistoryEntry_Impl: Sized + super::Com::IDispatch_Impl {
     fn Operation(&self) -> windows_core::Result<UpdateOperation>;
     fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
@@ -2774,9 +2774,9 @@ pub trait IUpdateHistoryEntry_Impl: Sized + super::Com::IDispatch_Impl {
     fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateHistoryEntry {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateHistoryEntry_Vtbl {
     pub const fn new<Identity: IUpdateHistoryEntry_Impl, const OFFSET: isize>() -> IUpdateHistoryEntry_Vtbl {
         unsafe extern "system" fn Operation<Identity: IUpdateHistoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UpdateOperation) -> windows_core::HRESULT {
@@ -2941,13 +2941,13 @@ impl IUpdateHistoryEntry_Vtbl {
         iid == &<IUpdateHistoryEntry as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateHistoryEntry2_Impl: Sized + IUpdateHistoryEntry_Impl {
     fn Categories(&self) -> windows_core::Result<ICategoryCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateHistoryEntry2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateHistoryEntry2_Vtbl {
     pub const fn new<Identity: IUpdateHistoryEntry2_Impl, const OFFSET: isize>() -> IUpdateHistoryEntry2_Vtbl {
         unsafe extern "system" fn Categories<Identity: IUpdateHistoryEntry2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2966,15 +2966,15 @@ impl IUpdateHistoryEntry2_Vtbl {
         iid == &<IUpdateHistoryEntry2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateHistoryEntry as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateHistoryEntryCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateHistoryEntry>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateHistoryEntryCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateHistoryEntryCollection_Vtbl {
     pub const fn new<Identity: IUpdateHistoryEntryCollection_Impl, const OFFSET: isize>() -> IUpdateHistoryEntryCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: IUpdateHistoryEntryCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3018,14 +3018,14 @@ impl IUpdateHistoryEntryCollection_Vtbl {
         iid == &<IUpdateHistoryEntryCollection as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateIdentity_Impl: Sized + super::Com::IDispatch_Impl {
     fn RevisionNumber(&self) -> windows_core::Result<i32>;
     fn UpdateID(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateIdentity {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateIdentity_Vtbl {
     pub const fn new<Identity: IUpdateIdentity_Impl, const OFFSET: isize>() -> IUpdateIdentity_Vtbl {
         unsafe extern "system" fn RevisionNumber<Identity: IUpdateIdentity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -3058,15 +3058,15 @@ impl IUpdateIdentity_Vtbl {
         iid == &<IUpdateIdentity as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateInstallationResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn HResult(&self) -> windows_core::Result<i32>;
     fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateInstallationResult {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateInstallationResult_Vtbl {
     pub const fn new<Identity: IUpdateInstallationResult_Impl, const OFFSET: isize>() -> IUpdateInstallationResult_Vtbl {
         unsafe extern "system" fn HResult<Identity: IUpdateInstallationResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -3110,7 +3110,7 @@ impl IUpdateInstallationResult_Vtbl {
         iid == &<IUpdateInstallationResult as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateInstaller_Impl: Sized + super::Com::IDispatch_Impl {
     fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -3122,8 +3122,8 @@ pub trait IUpdateInstaller_Impl: Sized + super::Com::IDispatch_Impl {
     fn ParentWindow(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
     fn SetUpdates(&self, value: Option<&IUpdateCollection>) -> windows_core::Result<()>;
-    fn BeginInstall(&self, onprogresschanged: Option<&windows_core::IUnknown>, oncompleted: Option<&windows_core::IUnknown>, state: &windows_core::VARIANT) -> windows_core::Result<IInstallationJob>;
-    fn BeginUninstall(&self, onprogresschanged: Option<&windows_core::IUnknown>, oncompleted: Option<&windows_core::IUnknown>, state: &windows_core::VARIANT) -> windows_core::Result<IInstallationJob>;
+    fn BeginInstall(&self, onprogresschanged: Option<&windows_core::IUnknown>, oncompleted: Option<&windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
+    fn BeginUninstall(&self, onprogresschanged: Option<&windows_core::IUnknown>, oncompleted: Option<&windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
     fn EndInstall(&self, value: Option<&IInstallationJob>) -> windows_core::Result<IInstallationResult>;
     fn EndUninstall(&self, value: Option<&IInstallationJob>) -> windows_core::Result<IInstallationResult>;
     fn Install(&self) -> windows_core::Result<IInstallationResult>;
@@ -3134,9 +3134,9 @@ pub trait IUpdateInstaller_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetAllowSourcePrompts(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn RebootRequiredBeforeInstallation(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateInstaller {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateInstaller_Vtbl {
     pub const fn new<Identity: IUpdateInstaller_Impl, const OFFSET: isize>() -> IUpdateInstaller_Vtbl {
         unsafe extern "system" fn ClientApplicationID<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3209,7 +3209,7 @@ impl IUpdateInstaller_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUpdateInstaller_Impl::SetUpdates(this, windows_core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn BeginInstall<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: core::mem::MaybeUninit<windows_core::VARIANT>, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BeginInstall<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: core::mem::MaybeUninit<super::Variant::VARIANT>, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUpdateInstaller_Impl::BeginInstall(this, windows_core::from_raw_borrowed(&onprogresschanged), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
@@ -3219,7 +3219,7 @@ impl IUpdateInstaller_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BeginUninstall<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: core::mem::MaybeUninit<windows_core::VARIANT>, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BeginUninstall<Identity: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: core::mem::MaybeUninit<super::Variant::VARIANT>, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUpdateInstaller_Impl::BeginUninstall(this, windows_core::from_raw_borrowed(&onprogresschanged), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
@@ -3342,14 +3342,14 @@ impl IUpdateInstaller_Vtbl {
         iid == &<IUpdateInstaller as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateInstaller2_Impl: Sized + IUpdateInstaller_Impl {
     fn ForceQuiet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetForceQuiet(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateInstaller2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateInstaller2_Vtbl {
     pub const fn new<Identity: IUpdateInstaller2_Impl, const OFFSET: isize>() -> IUpdateInstaller2_Vtbl {
         unsafe extern "system" fn ForceQuiet<Identity: IUpdateInstaller2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3376,14 +3376,14 @@ impl IUpdateInstaller2_Vtbl {
         iid == &<IUpdateInstaller2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateInstaller as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateInstaller3_Impl: Sized + IUpdateInstaller2_Impl {
     fn AttemptCloseAppsIfNecessary(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAttemptCloseAppsIfNecessary(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateInstaller3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateInstaller3_Vtbl {
     pub const fn new<Identity: IUpdateInstaller3_Impl, const OFFSET: isize>() -> IUpdateInstaller3_Vtbl {
         unsafe extern "system" fn AttemptCloseAppsIfNecessary<Identity: IUpdateInstaller3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3410,13 +3410,13 @@ impl IUpdateInstaller3_Vtbl {
         iid == &<IUpdateInstaller3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateInstaller as windows_core::Interface>::IID || iid == &<IUpdateInstaller2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateInstaller4_Impl: Sized + IUpdateInstaller3_Impl {
     fn Commit(&self, dwflags: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateInstaller4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateInstaller4_Vtbl {
     pub const fn new<Identity: IUpdateInstaller4_Impl, const OFFSET: isize>() -> IUpdateInstaller4_Vtbl {
         unsafe extern "system" fn Commit<Identity: IUpdateInstaller4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
@@ -3445,7 +3445,7 @@ impl IUpdateLockdown_Vtbl {
         iid == &<IUpdateLockdown as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSearcher_Impl: Sized + super::Com::IDispatch_Impl {
     fn CanAutomaticallyUpgradeService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetCanAutomaticallyUpgradeService(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -3455,7 +3455,7 @@ pub trait IUpdateSearcher_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ServerSelection(&self) -> windows_core::Result<ServerSelection>;
     fn SetServerSelection(&self, value: ServerSelection) -> windows_core::Result<()>;
-    fn BeginSearch(&self, criteria: &windows_core::BSTR, oncompleted: Option<&windows_core::IUnknown>, state: &windows_core::VARIANT) -> windows_core::Result<ISearchJob>;
+    fn BeginSearch(&self, criteria: &windows_core::BSTR, oncompleted: Option<&windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<ISearchJob>;
     fn EndSearch(&self, searchjob: Option<&ISearchJob>) -> windows_core::Result<ISearchResult>;
     fn EscapeString(&self, unescaped: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn QueryHistory(&self, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection>;
@@ -3466,9 +3466,9 @@ pub trait IUpdateSearcher_Impl: Sized + super::Com::IDispatch_Impl {
     fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetServiceID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateSearcher {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSearcher_Vtbl {
     pub const fn new<Identity: IUpdateSearcher_Impl, const OFFSET: isize>() -> IUpdateSearcher_Vtbl {
         unsafe extern "system" fn CanAutomaticallyUpgradeService<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3527,7 +3527,7 @@ impl IUpdateSearcher_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUpdateSearcher_Impl::SetServerSelection(this, core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn BeginSearch<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, criteria: core::mem::MaybeUninit<windows_core::BSTR>, oncompleted: *mut core::ffi::c_void, state: core::mem::MaybeUninit<windows_core::VARIANT>, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BeginSearch<Identity: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, criteria: core::mem::MaybeUninit<windows_core::BSTR>, oncompleted: *mut core::ffi::c_void, state: core::mem::MaybeUninit<super::Variant::VARIANT>, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUpdateSearcher_Impl::BeginSearch(this, core::mem::transmute(&criteria), windows_core::from_raw_borrowed(&oncompleted), core::mem::transmute(&state)) {
                 Ok(ok__) => {
@@ -3641,14 +3641,14 @@ impl IUpdateSearcher_Vtbl {
         iid == &<IUpdateSearcher as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSearcher2_Impl: Sized + IUpdateSearcher_Impl {
     fn IgnoreDownloadPriority(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetIgnoreDownloadPriority(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateSearcher2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSearcher2_Vtbl {
     pub const fn new<Identity: IUpdateSearcher2_Impl, const OFFSET: isize>() -> IUpdateSearcher2_Vtbl {
         unsafe extern "system" fn IgnoreDownloadPriority<Identity: IUpdateSearcher2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3675,14 +3675,14 @@ impl IUpdateSearcher2_Vtbl {
         iid == &<IUpdateSearcher2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateSearcher as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSearcher3_Impl: Sized + IUpdateSearcher2_Impl {
     fn SearchScope(&self) -> windows_core::Result<SearchScope>;
     fn SetSearchScope(&self, value: SearchScope) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateSearcher3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSearcher3_Vtbl {
     pub const fn new<Identity: IUpdateSearcher3_Impl, const OFFSET: isize>() -> IUpdateSearcher3_Vtbl {
         unsafe extern "system" fn SearchScope<Identity: IUpdateSearcher3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut SearchScope) -> windows_core::HRESULT {
@@ -3709,10 +3709,10 @@ impl IUpdateSearcher3_Vtbl {
         iid == &<IUpdateSearcher3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateSearcher as windows_core::Interface>::IID || iid == &<IUpdateSearcher2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateService_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ContentValidationCert(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn ContentValidationCert(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn ExpirationDate(&self) -> windows_core::Result<f64>;
     fn IsManaged(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsRegisteredWithAU(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -3725,9 +3725,9 @@ pub trait IUpdateService_Impl: Sized + super::Com::IDispatch_Impl {
     fn ServiceUrl(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetupPrefix(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateService {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateService_Vtbl {
     pub const fn new<Identity: IUpdateService_Impl, const OFFSET: isize>() -> IUpdateService_Vtbl {
         unsafe extern "system" fn Name<Identity: IUpdateService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3740,7 +3740,7 @@ impl IUpdateService_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentValidationCert<Identity: IUpdateService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ContentValidationCert<Identity: IUpdateService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUpdateService_Impl::ContentValidationCert(this) {
                 Ok(ok__) => {
@@ -3881,13 +3881,13 @@ impl IUpdateService_Vtbl {
         iid == &<IUpdateService as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateService2_Impl: Sized + IUpdateService_Impl {
     fn IsDefaultAUService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateService2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateService2_Vtbl {
     pub const fn new<Identity: IUpdateService2_Impl, const OFFSET: isize>() -> IUpdateService2_Vtbl {
         unsafe extern "system" fn IsDefaultAUService<Identity: IUpdateService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3906,15 +3906,15 @@ impl IUpdateService2_Vtbl {
         iid == &<IUpdateService2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateService as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateServiceCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateService>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateServiceCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateServiceCollection_Vtbl {
     pub const fn new<Identity: IUpdateServiceCollection_Impl, const OFFSET: isize>() -> IUpdateServiceCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: IUpdateServiceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3958,7 +3958,7 @@ impl IUpdateServiceCollection_Vtbl {
         iid == &<IUpdateServiceCollection as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateServiceManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn Services(&self) -> windows_core::Result<IUpdateServiceCollection>;
     fn AddService(&self, serviceid: &windows_core::BSTR, authorizationcabpath: &windows_core::BSTR) -> windows_core::Result<IUpdateService>;
@@ -3966,11 +3966,11 @@ pub trait IUpdateServiceManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn RemoveService(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn UnregisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AddScanPackageService(&self, servicename: &windows_core::BSTR, scanfilelocation: &windows_core::BSTR, flags: i32) -> windows_core::Result<IUpdateService>;
-    fn SetOption(&self, optionname: &windows_core::BSTR, optionvalue: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateServiceManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateServiceManager_Vtbl {
     pub const fn new<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>() -> IUpdateServiceManager_Vtbl {
         unsafe extern "system" fn Services<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4015,7 +4015,7 @@ impl IUpdateServiceManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOption<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionname: core::mem::MaybeUninit<windows_core::BSTR>, optionvalue: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOption<Identity: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionname: core::mem::MaybeUninit<windows_core::BSTR>, optionvalue: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUpdateServiceManager_Impl::SetOption(this, core::mem::transmute(&optionname), core::mem::transmute(&optionvalue)).into()
         }
@@ -4034,16 +4034,16 @@ impl IUpdateServiceManager_Vtbl {
         iid == &<IUpdateServiceManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateServiceManager2_Impl: Sized + IUpdateServiceManager_Impl {
     fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn QueryServiceRegistration(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<IUpdateServiceRegistration>;
     fn AddService2(&self, serviceid: &windows_core::BSTR, flags: i32, authorizationcabpath: &windows_core::BSTR) -> windows_core::Result<IUpdateServiceRegistration>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateServiceManager2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateServiceManager2_Vtbl {
     pub const fn new<Identity: IUpdateServiceManager2_Impl, const OFFSET: isize>() -> IUpdateServiceManager2_Vtbl {
         unsafe extern "system" fn ClientApplicationID<Identity: IUpdateServiceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4092,16 +4092,16 @@ impl IUpdateServiceManager2_Vtbl {
         iid == &<IUpdateServiceManager2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateServiceManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateServiceRegistration_Impl: Sized + super::Com::IDispatch_Impl {
     fn RegistrationState(&self) -> windows_core::Result<UpdateServiceRegistrationState>;
     fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn IsPendingRegistrationWithAU(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Service(&self) -> windows_core::Result<IUpdateService2>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateServiceRegistration {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateServiceRegistration_Vtbl {
     pub const fn new<Identity: IUpdateServiceRegistration_Impl, const OFFSET: isize>() -> IUpdateServiceRegistration_Vtbl {
         unsafe extern "system" fn RegistrationState<Identity: IUpdateServiceRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UpdateServiceRegistrationState) -> windows_core::HRESULT {
@@ -4156,7 +4156,7 @@ impl IUpdateServiceRegistration_Vtbl {
         iid == &<IUpdateServiceRegistration as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -4167,9 +4167,9 @@ pub trait IUpdateSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreateUpdateDownloader(&self) -> windows_core::Result<IUpdateDownloader>;
     fn CreateUpdateInstaller(&self) -> windows_core::Result<IUpdateInstaller>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateSession {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSession_Vtbl {
     pub const fn new<Identity: IUpdateSession_Impl, const OFFSET: isize>() -> IUpdateSession_Vtbl {
         unsafe extern "system" fn ClientApplicationID<Identity: IUpdateSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4256,14 +4256,14 @@ impl IUpdateSession_Vtbl {
         iid == &<IUpdateSession as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSession2_Impl: Sized + IUpdateSession_Impl {
     fn UserLocale(&self) -> windows_core::Result<u32>;
     fn SetUserLocale(&self, lcid: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateSession2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSession2_Vtbl {
     pub const fn new<Identity: IUpdateSession2_Impl, const OFFSET: isize>() -> IUpdateSession2_Vtbl {
         unsafe extern "system" fn UserLocale<Identity: IUpdateSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut u32) -> windows_core::HRESULT {
@@ -4290,14 +4290,14 @@ impl IUpdateSession2_Vtbl {
         iid == &<IUpdateSession2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateSession as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSession3_Impl: Sized + IUpdateSession2_Impl {
     fn CreateUpdateServiceManager(&self) -> windows_core::Result<IUpdateServiceManager2>;
     fn QueryHistory(&self, criteria: &windows_core::BSTR, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateSession3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSession3_Vtbl {
     pub const fn new<Identity: IUpdateSession3_Impl, const OFFSET: isize>() -> IUpdateSession3_Vtbl {
         unsafe extern "system" fn CreateUpdateServiceManager<Identity: IUpdateSession3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4330,7 +4330,7 @@ impl IUpdateSession3_Vtbl {
         iid == &<IUpdateSession3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateSession as windows_core::Interface>::IID || iid == &<IUpdateSession2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWebProxy_Impl: Sized + super::Com::IDispatch_Impl {
     fn Address(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetAddress(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -4347,9 +4347,9 @@ pub trait IWebProxy_Impl: Sized + super::Com::IDispatch_Impl {
     fn AutoDetect(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAutoDetect(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWebProxy {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWebProxy_Vtbl {
     pub const fn new<Identity: IWebProxy_Impl, const OFFSET: isize>() -> IWebProxy_Vtbl {
         unsafe extern "system" fn Address<Identity: IWebProxy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4466,7 +4466,7 @@ impl IWebProxy_Vtbl {
         iid == &<IWebProxy as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdate_Impl: Sized + IUpdate_Impl {
     fn DriverClass(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DriverHardwareID(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -4477,9 +4477,9 @@ pub trait IWindowsDriverUpdate_Impl: Sized + IUpdate_Impl {
     fn DeviceProblemNumber(&self) -> windows_core::Result<i32>;
     fn DeviceStatus(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsDriverUpdate {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate_Vtbl {
     pub const fn new<Identity: IWindowsDriverUpdate_Impl, const OFFSET: isize>() -> IWindowsDriverUpdate_Vtbl {
         unsafe extern "system" fn DriverClass<Identity: IWindowsDriverUpdate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4578,16 +4578,16 @@ impl IWindowsDriverUpdate_Vtbl {
         iid == &<IWindowsDriverUpdate as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdate2_Impl: Sized + IWindowsDriverUpdate_Impl {
     fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn CveIDs(&self) -> windows_core::Result<IStringCollection>;
     fn CopyToCache(&self, pfiles: Option<&IStringCollection>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsDriverUpdate2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate2_Vtbl {
     pub const fn new<Identity: IWindowsDriverUpdate2_Impl, const OFFSET: isize>() -> IWindowsDriverUpdate2_Vtbl {
         unsafe extern "system" fn RebootRequired<Identity: IWindowsDriverUpdate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4636,13 +4636,13 @@ impl IWindowsDriverUpdate2_Vtbl {
         iid == &<IWindowsDriverUpdate2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdate3_Impl: Sized + IWindowsDriverUpdate2_Impl {
     fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsDriverUpdate3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate3_Vtbl {
     pub const fn new<Identity: IWindowsDriverUpdate3_Impl, const OFFSET: isize>() -> IWindowsDriverUpdate3_Vtbl {
         unsafe extern "system" fn BrowseOnly<Identity: IWindowsDriverUpdate3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -4661,14 +4661,14 @@ impl IWindowsDriverUpdate3_Vtbl {
         iid == &<IWindowsDriverUpdate3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdate4_Impl: Sized + IWindowsDriverUpdate3_Impl {
     fn WindowsDriverUpdateEntries(&self) -> windows_core::Result<IWindowsDriverUpdateEntryCollection>;
     fn PerUser(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsDriverUpdate4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate4_Vtbl {
     pub const fn new<Identity: IWindowsDriverUpdate4_Impl, const OFFSET: isize>() -> IWindowsDriverUpdate4_Vtbl {
         unsafe extern "system" fn WindowsDriverUpdateEntries<Identity: IWindowsDriverUpdate4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4701,14 +4701,14 @@ impl IWindowsDriverUpdate4_Vtbl {
         iid == &<IWindowsDriverUpdate4 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdate5_Impl: Sized + IWindowsDriverUpdate4_Impl {
     fn AutoSelection(&self) -> windows_core::Result<AutoSelectionMode>;
     fn AutoDownload(&self) -> windows_core::Result<AutoDownloadMode>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsDriverUpdate5 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate5_Vtbl {
     pub const fn new<Identity: IWindowsDriverUpdate5_Impl, const OFFSET: isize>() -> IWindowsDriverUpdate5_Vtbl {
         unsafe extern "system" fn AutoSelection<Identity: IWindowsDriverUpdate5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut AutoSelectionMode) -> windows_core::HRESULT {
@@ -4741,7 +4741,7 @@ impl IWindowsDriverUpdate5_Vtbl {
         iid == &<IWindowsDriverUpdate5 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate3 as windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate4 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdateEntry_Impl: Sized + super::Com::IDispatch_Impl {
     fn DriverClass(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DriverHardwareID(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -4752,9 +4752,9 @@ pub trait IWindowsDriverUpdateEntry_Impl: Sized + super::Com::IDispatch_Impl {
     fn DeviceProblemNumber(&self) -> windows_core::Result<i32>;
     fn DeviceStatus(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsDriverUpdateEntry {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdateEntry_Vtbl {
     pub const fn new<Identity: IWindowsDriverUpdateEntry_Impl, const OFFSET: isize>() -> IWindowsDriverUpdateEntry_Vtbl {
         unsafe extern "system" fn DriverClass<Identity: IWindowsDriverUpdateEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4853,15 +4853,15 @@ impl IWindowsDriverUpdateEntry_Vtbl {
         iid == &<IWindowsDriverUpdateEntry as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdateEntryCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> windows_core::Result<IWindowsDriverUpdateEntry>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsDriverUpdateEntryCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdateEntryCollection_Vtbl {
     pub const fn new<Identity: IWindowsDriverUpdateEntryCollection_Impl, const OFFSET: isize>() -> IWindowsDriverUpdateEntryCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: IWindowsDriverUpdateEntryCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4905,16 +4905,16 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
         iid == &<IWindowsDriverUpdateEntryCollection as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsUpdateAgentInfo_Impl: Sized + super::Com::IDispatch_Impl {
-    fn GetInfo(&self, varinfoidentifier: &windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetInfo(&self, varinfoidentifier: &super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsUpdateAgentInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsUpdateAgentInfo_Vtbl {
     pub const fn new<Identity: IWindowsUpdateAgentInfo_Impl, const OFFSET: isize>() -> IWindowsUpdateAgentInfo_Vtbl {
-        unsafe extern "system" fn GetInfo<Identity: IWindowsUpdateAgentInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinfoidentifier: core::mem::MaybeUninit<windows_core::VARIANT>, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInfo<Identity: IWindowsUpdateAgentInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinfoidentifier: core::mem::MaybeUninit<super::Variant::VARIANT>, retval: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWindowsUpdateAgentInfo_Impl::GetInfo(this, core::mem::transmute(&varinfoidentifier)) {
                 Ok(ok__) => {

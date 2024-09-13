@@ -181,20 +181,20 @@ impl IMDSPDevice2_Vtbl {
         iid == &<IMDSPDevice2 as windows_core::Interface>::IID || iid == &<IMDSPDevice as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMDSPDevice3_Impl: Sized + IMDSPDevice2_Impl {
-    fn GetProperty(&self, pwszpropname: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PROPVARIANT>;
-    fn SetProperty(&self, pwszpropname: &windows_core::PCWSTR, pvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetProperty(&self, pwszpropname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetProperty(&self, pwszpropname: &windows_core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY>;
     fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> windows_core::Result<()>;
     fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMDSPDevice3 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMDSPDevice3_Vtbl {
     pub const fn new<Identity: IMDSPDevice3_Impl, const OFFSET: isize>() -> IMDSPDevice3_Vtbl {
-        unsafe extern "system" fn GetProperty<Identity: IMDSPDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: IMDSPDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMDSPDevice3_Impl::GetProperty(this, core::mem::transmute(&pwszpropname)) {
                 Ok(ok__) => {
@@ -204,7 +204,7 @@ impl IMDSPDevice3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: IMDSPDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: IMDSPDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMDSPDevice3_Impl::SetProperty(this, core::mem::transmute(&pwszpropname), core::mem::transmute_copy(&pvalue)).into()
         }
@@ -1481,20 +1481,20 @@ impl IWMDMDevice2_Vtbl {
         iid == &<IWMDMDevice2 as windows_core::Interface>::IID || iid == &<IWMDMDevice as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMDMDevice3_Impl: Sized + IWMDMDevice2_Impl {
-    fn GetProperty(&self, pwszpropname: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PROPVARIANT>;
-    fn SetProperty(&self, pwszpropname: &windows_core::PCWSTR, pvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetProperty(&self, pwszpropname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetProperty(&self, pwszpropname: &windows_core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY>;
     fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> windows_core::Result<()>;
     fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IWMDMStorage>;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMDMDevice3 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWMDMDevice3_Vtbl {
     pub const fn new<Identity: IWMDMDevice3_Impl, const OFFSET: isize>() -> IWMDMDevice3_Vtbl {
-        unsafe extern "system" fn GetProperty<Identity: IWMDMDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: IWMDMDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWMDMDevice3_Impl::GetProperty(this, core::mem::transmute(&pwszpropname)) {
                 Ok(ok__) => {
@@ -1504,7 +1504,7 @@ impl IWMDMDevice3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: IWMDMDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: IWMDMDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWMDMDevice3_Impl::SetProperty(this, core::mem::transmute(&pwszpropname), core::mem::transmute_copy(&pvalue)).into()
         }

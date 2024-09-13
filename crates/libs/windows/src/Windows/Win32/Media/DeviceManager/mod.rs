@@ -138,19 +138,22 @@ impl core::ops::Deref for IMDSPDevice3 {
 }
 windows_core::imp::interface_hierarchy!(IMDSPDevice3, windows_core::IUnknown, IMDSPDevice, IMDSPDevice2);
 impl IMDSPDevice3 {
-    pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> windows_core::Result<windows_core::PROPVARIANT>
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), pwszpropname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwszpropname.param().abi(), core::mem::transmute(pvalue)).ok()
     }
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFormatCapability)(windows_core::Interface::as_raw(self), format, &mut result__).map(|| result__)
@@ -169,9 +172,18 @@ impl IMDSPDevice3 {
 #[repr(C)]
 pub struct IMDSPDevice3_Vtbl {
     pub base__: IMDSPDevice2_Vtbl,
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetProperty: usize,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    SetProperty: usize,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetFormatCapability: unsafe extern "system" fn(*mut core::ffi::c_void, WMDM_FORMATCODE, *mut WMDM_FORMAT_CAPABILITY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetFormatCapability: usize,
     pub DeviceIoControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub FindStorage: unsafe extern "system" fn(*mut core::ffi::c_void, WMDM_FIND_SCOPE, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -1187,19 +1199,22 @@ impl core::ops::Deref for IWMDMDevice3 {
 }
 windows_core::imp::interface_hierarchy!(IWMDMDevice3, windows_core::IUnknown, IWMDMDevice, IWMDMDevice2);
 impl IWMDMDevice3 {
-    pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> windows_core::Result<windows_core::PROPVARIANT>
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), pwszpropname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const windows_core::PROPVARIANT) -> windows_core::Result<()>
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwszpropname.param().abi(), core::mem::transmute(pvalue)).ok()
     }
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFormatCapability)(windows_core::Interface::as_raw(self), format, &mut result__).map(|| result__)
@@ -1218,9 +1233,18 @@ impl IWMDMDevice3 {
 #[repr(C)]
 pub struct IWMDMDevice3_Vtbl {
     pub base__: IWMDMDevice2_Vtbl,
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetProperty: usize,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    SetProperty: usize,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetFormatCapability: unsafe extern "system" fn(*mut core::ffi::c_void, WMDM_FORMATCODE, *mut WMDM_FORMAT_CAPABILITY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
+    GetFormatCapability: usize,
     pub DeviceIoControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub FindStorage: unsafe extern "system" fn(*mut core::ffi::c_void, WMDM_FIND_SCOPE, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -2856,100 +2880,120 @@ pub const WMDMStorage: windows_core::GUID = windows_core::GUID::from_u128(0x807b
 pub const WMDMStorageEnum: windows_core::GUID = windows_core::GUID::from_u128(0xeb401a3b_3af7_11d3_8474_00c04f79dbc0);
 pub const WMDMStorageGlobal: windows_core::GUID = windows_core::GUID::from_u128(0x807b3ce1_357a_11d3_8471_00c04f79dbc0);
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDM_FORMAT_CAPABILITY {
     pub nPropConfig: u32,
     pub pConfigs: *mut WMDM_PROP_CONFIG,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::TypeKind for WMDM_FORMAT_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for WMDM_FORMAT_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDM_PROP_CONFIG {
     pub nPreference: u32,
     pub nPropDesc: u32,
     pub pPropDesc: *mut WMDM_PROP_DESC,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::TypeKind for WMDM_PROP_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for WMDM_PROP_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct WMDM_PROP_DESC {
     pub pwszPropName: windows_core::PWSTR,
     pub ValidValuesForm: WMDM_ENUM_PROP_VALID_VALUES_FORM,
     pub ValidValues: WMDM_PROP_DESC_0,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Clone for WMDM_PROP_DESC {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::TypeKind for WMDM_PROP_DESC {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for WMDM_PROP_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub union WMDM_PROP_DESC_0 {
     pub ValidValuesRange: core::mem::ManuallyDrop<WMDM_PROP_VALUES_RANGE>,
     pub EnumeratedValidValues: WMDM_PROP_VALUES_ENUM,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Clone for WMDM_PROP_DESC_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::TypeKind for WMDM_PROP_DESC_0 {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for WMDM_PROP_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDM_PROP_VALUES_ENUM {
     pub cEnumValues: u32,
-    pub pValues: *mut windows_core::PROPVARIANT,
+    pub pValues: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::TypeKind for WMDM_PROP_VALUES_ENUM {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for WMDM_PROP_VALUES_ENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Debug, Eq, PartialEq)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct WMDM_PROP_VALUES_RANGE {
-    pub rangeMin: core::mem::ManuallyDrop<windows_core::PROPVARIANT>,
-    pub rangeMax: core::mem::ManuallyDrop<windows_core::PROPVARIANT>,
-    pub rangeStep: core::mem::ManuallyDrop<windows_core::PROPVARIANT>,
+    pub rangeMin: core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>,
+    pub rangeMax: core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>,
+    pub rangeStep: core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>,
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Clone for WMDM_PROP_VALUES_RANGE {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::TypeKind for WMDM_PROP_VALUES_RANGE {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for WMDM_PROP_VALUES_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

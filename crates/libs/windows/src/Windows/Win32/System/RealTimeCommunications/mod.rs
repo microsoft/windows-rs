@@ -357,7 +357,8 @@ impl IRTCClient {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ListenForIncomingSessions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn get_NetworkAddresses<P0, P1>(&self, ftcp: P0, fexternal: P1) -> windows_core::Result<windows_core::VARIANT>
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_NetworkAddresses<P0, P1>(&self, ftcp: P0, fexternal: P1) -> windows_core::Result<super::Variant::VARIANT>
     where
         P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
         P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
@@ -507,7 +508,10 @@ pub struct IRTCClient_Vtbl {
     pub CreateSession: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_SESSION_TYPE, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetListenForIncomingSessions: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_LISTEN_MODE) -> windows_core::HRESULT,
     pub ListenForIncomingSessions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RTC_LISTEN_MODE) -> windows_core::HRESULT,
-    pub get_NetworkAddresses: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, super::super::Foundation::VARIANT_BOOL, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_NetworkAddresses: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, super::super::Foundation::VARIANT_BOOL, *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    get_NetworkAddresses: usize,
     pub put_Volume: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_AUDIO_DEVICE, i32) -> windows_core::HRESULT,
     pub get_Volume: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_AUDIO_DEVICE, *mut i32) -> windows_core::HRESULT,
     pub put_AudioMuted: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_AUDIO_DEVICE, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -701,22 +705,25 @@ impl core::ops::Deref for IRTCClientPresence {
 }
 windows_core::imp::interface_hierarchy!(IRTCClientPresence, windows_core::IUnknown);
 impl IRTCClientPresence {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn EnablePresence<P0, P1>(&self, fusestorage: P0, varstorage: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<super::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).EnablePresence)(windows_core::Interface::as_raw(self), fusestorage.param().abi(), varstorage.param().abi()).ok()
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Export<P0>(&self, varstorage: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).Export)(windows_core::Interface::as_raw(self), varstorage.param().abi()).ok()
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Import<P0, P1>(&self, varstorage: P0, freplaceall: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::Variant::VARIANT>,
         P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
         (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), varstorage.param().abi(), freplaceall.param().abi()).ok()
@@ -811,9 +818,18 @@ impl IRTCClientPresence {
 #[repr(C)]
 pub struct IRTCClientPresence_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub EnablePresence: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub Export: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub Import: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub EnablePresence: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    EnablePresence: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Export: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Export: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Import: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::Variant::VARIANT>, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Import: usize,
     pub EnumerateBuddies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Buddies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -845,10 +861,11 @@ impl core::ops::Deref for IRTCClientPresence2 {
 }
 windows_core::imp::interface_hierarchy!(IRTCClientPresence2, windows_core::IUnknown, IRTCClientPresence);
 impl IRTCClientPresence2 {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn EnablePresenceEx<P0, P1>(&self, pprofile: P0, varstorage: P1, lflags: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRTCProfile>,
-        P1: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<super::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).EnablePresenceEx)(windows_core::Interface::as_raw(self), pprofile.param().abi(), varstorage.param().abi(), lflags).ok()
     }
@@ -942,7 +959,10 @@ impl IRTCClientPresence2 {
 #[repr(C)]
 pub struct IRTCClientPresence2_Vtbl {
     pub base__: IRTCClientPresence_Vtbl,
-    pub EnablePresenceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::VARIANT>, i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub EnablePresenceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<super::Variant::VARIANT>, i32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    EnablePresenceEx: usize,
     pub DisablePresence: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddGroup: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1064,7 +1084,8 @@ impl IRTCCollection {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -1078,7 +1099,10 @@ impl IRTCCollection {
 pub struct IRTCCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    get_Item: usize,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]

@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IADsTSUserEx_Impl: Sized + super::Com::IDispatch_Impl {
     fn TerminalServicesProfilePath(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetTerminalServicesProfilePath(&self, pnewval: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -31,9 +31,9 @@ pub trait IADsTSUserEx_Impl: Sized + super::Com::IDispatch_Impl {
     fn TerminalServicesInitialProgram(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetTerminalServicesInitialProgram(&self, pnewval: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IADsTSUserEx {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IADsTSUserEx_Vtbl {
     pub const fn new<Identity: IADsTSUserEx_Impl, const OFFSET: isize>() -> IADsTSUserEx_Vtbl {
         unsafe extern "system" fn TerminalServicesProfilePath<Identity: IADsTSUserEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -533,7 +533,7 @@ impl IAudioOutputEndpointRT_Vtbl {
         iid == &<IAudioOutputEndpointRT as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRemoteDesktopClient_Impl: Sized + super::Com::IDispatch_Impl {
     fn Connect(&self) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
@@ -546,9 +546,9 @@ pub trait IRemoteDesktopClient_Impl: Sized + super::Com::IDispatch_Impl {
     fn attachEvent(&self, eventname: &windows_core::BSTR, callback: Option<&super::Com::IDispatch>) -> windows_core::Result<()>;
     fn detachEvent(&self, eventname: &windows_core::BSTR, callback: Option<&super::Com::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRemoteDesktopClient {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRemoteDesktopClient_Vtbl {
     pub const fn new<Identity: IRemoteDesktopClient_Impl, const OFFSET: isize>() -> IRemoteDesktopClient_Vtbl {
         unsafe extern "system" fn Connect<Identity: IRemoteDesktopClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -627,16 +627,16 @@ impl IRemoteDesktopClient_Vtbl {
         iid == &<IRemoteDesktopClient as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRemoteDesktopClientActions_Impl: Sized + super::Com::IDispatch_Impl {
     fn SuspendScreenUpdates(&self) -> windows_core::Result<()>;
     fn ResumeScreenUpdates(&self) -> windows_core::Result<()>;
     fn ExecuteRemoteAction(&self, remoteaction: RemoteActionType) -> windows_core::Result<()>;
     fn GetSnapshot(&self, snapshotencoding: SnapshotEncodingType, snapshotformat: SnapshotFormatType, snapshotwidth: u32, snapshotheight: u32) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRemoteDesktopClientActions {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRemoteDesktopClientActions_Vtbl {
     pub const fn new<Identity: IRemoteDesktopClientActions_Impl, const OFFSET: isize>() -> IRemoteDesktopClientActions_Vtbl {
         unsafe extern "system" fn SuspendScreenUpdates<Identity: IRemoteDesktopClientActions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -673,16 +673,16 @@ impl IRemoteDesktopClientActions_Vtbl {
         iid == &<IRemoteDesktopClientActions as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRemoteDesktopClientSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn ApplySettings(&self, rdpfilecontents: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RetrieveSettings(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetRdpProperty(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetRdpProperty(&self, propertyname: &windows_core::BSTR, value: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetRdpProperty(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetRdpProperty(&self, propertyname: &windows_core::BSTR, value: &super::Variant::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRemoteDesktopClientSettings {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRemoteDesktopClientSettings_Vtbl {
     pub const fn new<Identity: IRemoteDesktopClientSettings_Impl, const OFFSET: isize>() -> IRemoteDesktopClientSettings_Vtbl {
         unsafe extern "system" fn ApplySettings<Identity: IRemoteDesktopClientSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rdpfilecontents: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -699,7 +699,7 @@ impl IRemoteDesktopClientSettings_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRdpProperty<Identity: IRemoteDesktopClientSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRdpProperty<Identity: IRemoteDesktopClientSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRemoteDesktopClientSettings_Impl::GetRdpProperty(this, core::mem::transmute(&propertyname)) {
                 Ok(ok__) => {
@@ -709,7 +709,7 @@ impl IRemoteDesktopClientSettings_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRdpProperty<Identity: IRemoteDesktopClientSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRdpProperty<Identity: IRemoteDesktopClientSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRemoteDesktopClientSettings_Impl::SetRdpProperty(this, core::mem::transmute(&propertyname), core::mem::transmute(&value)).into()
         }
@@ -725,7 +725,7 @@ impl IRemoteDesktopClientSettings_Vtbl {
         iid == &<IRemoteDesktopClientSettings as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRemoteDesktopClientTouchPointer_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -734,9 +734,9 @@ pub trait IRemoteDesktopClientTouchPointer_Impl: Sized + super::Com::IDispatch_I
     fn SetPointerSpeed(&self, pointerspeed: u32) -> windows_core::Result<()>;
     fn PointerSpeed(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRemoteDesktopClientTouchPointer {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRemoteDesktopClientTouchPointer_Vtbl {
     pub const fn new<Identity: IRemoteDesktopClientTouchPointer_Impl, const OFFSET: isize>() -> IRemoteDesktopClientTouchPointer_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: IRemoteDesktopClientTouchPointer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1004,15 +1004,15 @@ impl ITsSbBaseNotifySink_Vtbl {
         iid == &<ITsSbBaseNotifySink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITsSbClientConnection_Impl: Sized + windows_core::IUnknownImpl {
     fn UserName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Domain(&self) -> windows_core::Result<windows_core::BSTR>;
     fn InitialProgram(&self) -> windows_core::Result<windows_core::BSTR>;
     fn LoadBalanceResult(&self) -> windows_core::Result<ITsSbLoadBalanceResult>;
     fn FarmName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn PutContext(&self, contextid: &windows_core::BSTR, context: &windows_core::VARIANT, existingcontext: *mut windows_core::VARIANT) -> windows_core::Result<()>;
-    fn GetContext(&self, contextid: &windows_core::BSTR) -> windows_core::Result<windows_core::VARIANT>;
+    fn PutContext(&self, contextid: &windows_core::BSTR, context: &super::Variant::VARIANT, existingcontext: *mut super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn GetContext(&self, contextid: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT>;
     fn Environment(&self) -> windows_core::Result<ITsSbEnvironment>;
     fn get_ConnectionError(&self) -> windows_core::Result<()>;
     fn SamUserAccount(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1022,9 +1022,9 @@ pub trait ITsSbClientConnection_Impl: Sized + windows_core::IUnknownImpl {
     fn UserSidString(&self) -> windows_core::Result<*mut i8>;
     fn GetDisconnectedSession(&self) -> windows_core::Result<ITsSbSession>;
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITsSbClientConnection {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITsSbClientConnection_Vtbl {
     pub const fn new<Identity: ITsSbClientConnection_Impl, const OFFSET: isize>() -> ITsSbClientConnection_Vtbl {
         unsafe extern "system" fn UserName<Identity: ITsSbClientConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1077,11 +1077,11 @@ impl ITsSbClientConnection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutContext<Identity: ITsSbClientConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextid: core::mem::MaybeUninit<windows_core::BSTR>, context: core::mem::MaybeUninit<windows_core::VARIANT>, existingcontext: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutContext<Identity: ITsSbClientConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextid: core::mem::MaybeUninit<windows_core::BSTR>, context: core::mem::MaybeUninit<super::Variant::VARIANT>, existingcontext: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITsSbClientConnection_Impl::PutContext(this, core::mem::transmute(&contextid), core::mem::transmute(&context), core::mem::transmute_copy(&existingcontext)).into()
         }
-        unsafe extern "system" fn GetContext<Identity: ITsSbClientConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextid: core::mem::MaybeUninit<windows_core::BSTR>, context: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetContext<Identity: ITsSbClientConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextid: core::mem::MaybeUninit<windows_core::BSTR>, context: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITsSbClientConnection_Impl::GetContext(this, core::mem::transmute(&contextid)) {
                 Ok(ok__) => {
@@ -1188,11 +1188,11 @@ impl ITsSbClientConnection_Vtbl {
         iid == &<ITsSbClientConnection as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITsSbClientConnectionPropertySet_Impl: Sized + ITsSbPropertySet_Impl {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITsSbClientConnectionPropertySet {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITsSbClientConnectionPropertySet_Vtbl {
     pub const fn new<Identity: ITsSbClientConnectionPropertySet_Impl, const OFFSET: isize>() -> ITsSbClientConnectionPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, OFFSET>() }
@@ -1259,11 +1259,11 @@ impl ITsSbEnvironment_Vtbl {
         iid == &<ITsSbEnvironment as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITsSbEnvironmentPropertySet_Impl: Sized + ITsSbPropertySet_Impl {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITsSbEnvironmentPropertySet {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITsSbEnvironmentPropertySet_Vtbl {
     pub const fn new<Identity: ITsSbEnvironmentPropertySet_Impl, const OFFSET: isize>() -> ITsSbEnvironmentPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, OFFSET>() }
@@ -1343,7 +1343,7 @@ impl ITsSbGenericNotifySink_Vtbl {
         iid == &<ITsSbGenericNotifySink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITsSbGlobalStore_Impl: Sized + windows_core::IUnknownImpl {
     fn QueryTarget(&self, providername: &windows_core::BSTR, targetname: &windows_core::BSTR, farmname: &windows_core::BSTR) -> windows_core::Result<ITsSbTarget>;
     fn QuerySessionBySessionId(&self, providername: &windows_core::BSTR, dwsessionid: u32, targetname: &windows_core::BSTR) -> windows_core::Result<ITsSbSession>;
@@ -1351,11 +1351,11 @@ pub trait ITsSbGlobalStore_Impl: Sized + windows_core::IUnknownImpl {
     fn EnumerateTargets(&self, providername: &windows_core::BSTR, farmname: &windows_core::BSTR, envname: &windows_core::BSTR, pdwcount: *mut u32, pval: *mut *mut Option<ITsSbTarget>) -> windows_core::Result<()>;
     fn EnumerateEnvironmentsByProvider(&self, providername: &windows_core::BSTR, pdwcount: *mut u32, ppval: *mut *mut Option<ITsSbEnvironment>) -> windows_core::Result<()>;
     fn EnumerateSessions(&self, providername: &windows_core::BSTR, targetname: &windows_core::BSTR, username: &windows_core::BSTR, userdomain: &windows_core::BSTR, poolname: &windows_core::BSTR, initialprogram: &windows_core::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut Option<ITsSbSession>) -> windows_core::Result<()>;
-    fn GetFarmProperty(&self, farmname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pvarvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetFarmProperty(&self, farmname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pvarvalue: *const super::Variant::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITsSbGlobalStore {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITsSbGlobalStore_Vtbl {
     pub const fn new<Identity: ITsSbGlobalStore_Impl, const OFFSET: isize>() -> ITsSbGlobalStore_Vtbl {
         unsafe extern "system" fn QueryTarget<Identity: ITsSbGlobalStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providername: core::mem::MaybeUninit<windows_core::BSTR>, targetname: core::mem::MaybeUninit<windows_core::BSTR>, farmname: core::mem::MaybeUninit<windows_core::BSTR>, pptarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1394,7 +1394,7 @@ impl ITsSbGlobalStore_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITsSbGlobalStore_Impl::EnumerateSessions(this, core::mem::transmute(&providername), core::mem::transmute(&targetname), core::mem::transmute(&username), core::mem::transmute(&userdomain), core::mem::transmute(&poolname), core::mem::transmute(&initialprogram), core::mem::transmute_copy(&psessionstate), core::mem::transmute_copy(&pdwcount), core::mem::transmute_copy(&ppval)).into()
         }
-        unsafe extern "system" fn GetFarmProperty<Identity: ITsSbGlobalStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, farmname: core::mem::MaybeUninit<windows_core::BSTR>, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pvarvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFarmProperty<Identity: ITsSbGlobalStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, farmname: core::mem::MaybeUninit<windows_core::BSTR>, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pvarvalue: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITsSbGlobalStore_Impl::GetFarmProperty(this, core::mem::transmute(&farmname), core::mem::transmute(&propertyname), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -1593,11 +1593,11 @@ impl ITsSbPluginNotifySink_Vtbl {
         iid == &<ITsSbPluginNotifySink as windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITsSbPluginPropertySet_Impl: Sized + ITsSbPropertySet_Impl {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITsSbPluginPropertySet {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITsSbPluginPropertySet_Vtbl {
     pub const fn new<Identity: ITsSbPluginPropertySet_Impl, const OFFSET: isize>() -> ITsSbPluginPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, OFFSET>() }
@@ -1606,11 +1606,11 @@ impl ITsSbPluginPropertySet_Vtbl {
         iid == &<ITsSbPluginPropertySet as windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as windows_core::Interface>::IID || iid == &<ITsSbPropertySet as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITsSbPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITsSbPropertySet {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITsSbPropertySet_Vtbl {
     pub const fn new<Identity: ITsSbPropertySet_Impl, const OFFSET: isize>() -> ITsSbPropertySet_Vtbl {
         Self { base__: super::Com::StructuredStorage::IPropertyBag_Vtbl::new::<Identity, OFFSET>() }
@@ -1931,7 +1931,7 @@ impl ITsSbResourcePlugin_Vtbl {
         iid == &<ITsSbResourcePlugin as windows_core::Interface>::IID || iid == &<ITsSbPlugin as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITsSbResourcePluginStore_Impl: Sized + windows_core::IUnknownImpl {
     fn QueryTarget(&self, targetname: &windows_core::BSTR, farmname: &windows_core::BSTR) -> windows_core::Result<ITsSbTarget>;
     fn QuerySessionBySessionId(&self, dwsessionid: u32, targetname: &windows_core::BSTR) -> windows_core::Result<ITsSbSession>;
@@ -1945,16 +1945,16 @@ pub trait ITsSbResourcePluginStore_Impl: Sized + windows_core::IUnknownImpl {
     fn SaveTarget(&self, ptarget: Option<&ITsSbTarget>, bforcewrite: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn SaveEnvironment(&self, penvironment: Option<&ITsSbEnvironment>, bforcewrite: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn SaveSession(&self, psession: Option<&ITsSbSession>) -> windows_core::Result<()>;
-    fn SetTargetProperty(&self, targetname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pproperty: *const windows_core::VARIANT) -> windows_core::Result<()>;
-    fn SetEnvironmentProperty(&self, environmentname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pproperty: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetTargetProperty(&self, targetname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn SetEnvironmentProperty(&self, environmentname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetTargetState(&self, targetname: &windows_core::BSTR, newstate: TARGET_STATE) -> windows_core::Result<TARGET_STATE>;
     fn SetSessionState(&self, sbsession: Option<&ITsSbSession>) -> windows_core::Result<()>;
     fn EnumerateTargets(&self, farmname: &windows_core::BSTR, envname: &windows_core::BSTR, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: &windows_core::BSTR, pdwcount: *mut u32, pval: *mut *mut Option<ITsSbTarget>) -> windows_core::Result<()>;
     fn EnumerateSessions(&self, targetname: &windows_core::BSTR, username: &windows_core::BSTR, userdomain: &windows_core::BSTR, poolname: &windows_core::BSTR, initialprogram: &windows_core::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut Option<ITsSbSession>) -> windows_core::Result<()>;
-    fn GetFarmProperty(&self, farmname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pvarvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetFarmProperty(&self, farmname: &windows_core::BSTR, propertyname: &windows_core::BSTR, pvarvalue: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn DeleteTarget(&self, targetname: &windows_core::BSTR, hostname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetTargetPropertyWithVersionCheck(&self, ptarget: Option<&ITsSbTarget>, propertyname: &windows_core::BSTR, pproperty: *const windows_core::VARIANT) -> windows_core::Result<()>;
-    fn SetEnvironmentPropertyWithVersionCheck(&self, penvironment: Option<&ITsSbEnvironment>, propertyname: &windows_core::BSTR, pproperty: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetTargetPropertyWithVersionCheck(&self, ptarget: Option<&ITsSbTarget>, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn SetEnvironmentPropertyWithVersionCheck(&self, penvironment: Option<&ITsSbEnvironment>, propertyname: &windows_core::BSTR, pproperty: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AcquireTargetLock(&self, targetname: &windows_core::BSTR, dwtimeout: u32) -> windows_core::Result<windows_core::IUnknown>;
     fn ReleaseTargetLock(&self, pcontext: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn TestAndSetServerState(&self, poolname: &windows_core::BSTR, serverfqdn: &windows_core::BSTR, newstate: TARGET_STATE, teststate: TARGET_STATE) -> windows_core::Result<TARGET_STATE>;
@@ -1962,9 +1962,9 @@ pub trait ITsSbResourcePluginStore_Impl: Sized + windows_core::IUnknownImpl {
     fn GetServerState(&self, poolname: &windows_core::BSTR, serverfqdn: &windows_core::BSTR) -> windows_core::Result<TARGET_STATE>;
     fn SetServerDrainMode(&self, serverfqdn: &windows_core::BSTR, drainmode: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITsSbResourcePluginStore {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITsSbResourcePluginStore_Vtbl {
     pub const fn new<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>() -> ITsSbResourcePluginStore_Vtbl {
         unsafe extern "system" fn QueryTarget<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetname: core::mem::MaybeUninit<windows_core::BSTR>, farmname: core::mem::MaybeUninit<windows_core::BSTR>, pptarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2033,11 +2033,11 @@ impl ITsSbResourcePluginStore_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITsSbResourcePluginStore_Impl::SaveSession(this, windows_core::from_raw_borrowed(&psession)).into()
         }
-        unsafe extern "system" fn SetTargetProperty<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetname: core::mem::MaybeUninit<windows_core::BSTR>, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pproperty: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTargetProperty<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetname: core::mem::MaybeUninit<windows_core::BSTR>, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pproperty: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITsSbResourcePluginStore_Impl::SetTargetProperty(this, core::mem::transmute(&targetname), core::mem::transmute(&propertyname), core::mem::transmute_copy(&pproperty)).into()
         }
-        unsafe extern "system" fn SetEnvironmentProperty<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, environmentname: core::mem::MaybeUninit<windows_core::BSTR>, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pproperty: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnvironmentProperty<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, environmentname: core::mem::MaybeUninit<windows_core::BSTR>, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pproperty: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITsSbResourcePluginStore_Impl::SetEnvironmentProperty(this, core::mem::transmute(&environmentname), core::mem::transmute(&propertyname), core::mem::transmute_copy(&pproperty)).into()
         }
@@ -2063,7 +2063,7 @@ impl ITsSbResourcePluginStore_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITsSbResourcePluginStore_Impl::EnumerateSessions(this, core::mem::transmute(&targetname), core::mem::transmute(&username), core::mem::transmute(&userdomain), core::mem::transmute(&poolname), core::mem::transmute(&initialprogram), core::mem::transmute_copy(&psessionstate), core::mem::transmute_copy(&pdwcount), core::mem::transmute_copy(&ppval)).into()
         }
-        unsafe extern "system" fn GetFarmProperty<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, farmname: core::mem::MaybeUninit<windows_core::BSTR>, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pvarvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFarmProperty<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, farmname: core::mem::MaybeUninit<windows_core::BSTR>, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pvarvalue: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITsSbResourcePluginStore_Impl::GetFarmProperty(this, core::mem::transmute(&farmname), core::mem::transmute(&propertyname), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -2071,11 +2071,11 @@ impl ITsSbResourcePluginStore_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITsSbResourcePluginStore_Impl::DeleteTarget(this, core::mem::transmute(&targetname), core::mem::transmute(&hostname)).into()
         }
-        unsafe extern "system" fn SetTargetPropertyWithVersionCheck<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pproperty: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTargetPropertyWithVersionCheck<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pproperty: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITsSbResourcePluginStore_Impl::SetTargetPropertyWithVersionCheck(this, windows_core::from_raw_borrowed(&ptarget), core::mem::transmute(&propertyname), core::mem::transmute_copy(&pproperty)).into()
         }
-        unsafe extern "system" fn SetEnvironmentPropertyWithVersionCheck<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penvironment: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pproperty: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnvironmentPropertyWithVersionCheck<Identity: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penvironment: *mut core::ffi::c_void, propertyname: core::mem::MaybeUninit<windows_core::BSTR>, pproperty: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITsSbResourcePluginStore_Impl::SetEnvironmentPropertyWithVersionCheck(this, windows_core::from_raw_borrowed(&penvironment), core::mem::transmute(&propertyname), core::mem::transmute_copy(&pproperty)).into()
         }
@@ -2547,11 +2547,11 @@ impl ITsSbTarget_Vtbl {
         iid == &<ITsSbTarget as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITsSbTargetPropertySet_Impl: Sized + ITsSbPropertySet_Impl {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITsSbTargetPropertySet {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITsSbTargetPropertySet_Vtbl {
     pub const fn new<Identity: ITsSbTargetPropertySet_Impl, const OFFSET: isize>() -> ITsSbTargetPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, OFFSET>() }
@@ -4508,7 +4508,7 @@ impl IWorkspaceReportMessage_Vtbl {
         iid == &<IWorkspaceReportMessage as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWorkspaceResTypeRegistry_Impl: Sized + super::Com::IDispatch_Impl {
     fn AddResourceType(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &windows_core::BSTR, bstrlauncher: &windows_core::BSTR) -> windows_core::Result<()>;
     fn DeleteResourceType(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -4516,9 +4516,9 @@ pub trait IWorkspaceResTypeRegistry_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetResourceTypeInfo(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn ModifyResourceType(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &windows_core::BSTR, bstrlauncher: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWorkspaceResTypeRegistry {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWorkspaceResTypeRegistry_Vtbl {
     pub const fn new<Identity: IWorkspaceResTypeRegistry_Impl, const OFFSET: isize>() -> IWorkspaceResTypeRegistry_Vtbl {
         unsafe extern "system" fn AddResourceType<Identity: IWorkspaceResTypeRegistry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: core::mem::MaybeUninit<windows_core::BSTR>, bstrlauncher: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4566,7 +4566,7 @@ impl IWorkspaceResTypeRegistry_Vtbl {
         iid == &<IWorkspaceResTypeRegistry as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWorkspaceScriptable_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisconnectWorkspace(&self, bstrworkspaceid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn StartWorkspace(&self, bstrworkspaceid: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bstrworkspaceparams: &windows_core::BSTR, ltimeout: i32, lflags: i32) -> windows_core::Result<()>;
@@ -4576,9 +4576,9 @@ pub trait IWorkspaceScriptable_Impl: Sized + super::Com::IDispatch_Impl {
     fn OnAuthenticated(&self, bstrworkspaceid: &windows_core::BSTR, bstrusername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn DisconnectWorkspaceByFriendlyName(&self, bstrworkspacefriendlyname: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWorkspaceScriptable {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWorkspaceScriptable_Vtbl {
     pub const fn new<Identity: IWorkspaceScriptable_Impl, const OFFSET: isize>() -> IWorkspaceScriptable_Vtbl {
         unsafe extern "system" fn DisconnectWorkspace<Identity: IWorkspaceScriptable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrworkspaceid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4636,14 +4636,14 @@ impl IWorkspaceScriptable_Vtbl {
         iid == &<IWorkspaceScriptable as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWorkspaceScriptable2_Impl: Sized + IWorkspaceScriptable_Impl {
     fn StartWorkspaceEx(&self, bstrworkspaceid: &windows_core::BSTR, bstrworkspacefriendlyname: &windows_core::BSTR, bstrredirectorname: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bstrappcontainer: &windows_core::BSTR, bstrworkspaceparams: &windows_core::BSTR, ltimeout: i32, lflags: i32) -> windows_core::Result<()>;
     fn ResourceDismissed(&self, bstrworkspaceid: &windows_core::BSTR, bstrworkspacefriendlyname: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWorkspaceScriptable2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWorkspaceScriptable2_Vtbl {
     pub const fn new<Identity: IWorkspaceScriptable2_Impl, const OFFSET: isize>() -> IWorkspaceScriptable2_Vtbl {
         unsafe extern "system" fn StartWorkspaceEx<Identity: IWorkspaceScriptable2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrworkspaceid: core::mem::MaybeUninit<windows_core::BSTR>, bstrworkspacefriendlyname: core::mem::MaybeUninit<windows_core::BSTR>, bstrredirectorname: core::mem::MaybeUninit<windows_core::BSTR>, bstrusername: core::mem::MaybeUninit<windows_core::BSTR>, bstrpassword: core::mem::MaybeUninit<windows_core::BSTR>, bstrappcontainer: core::mem::MaybeUninit<windows_core::BSTR>, bstrworkspaceparams: core::mem::MaybeUninit<windows_core::BSTR>, ltimeout: i32, lflags: i32) -> windows_core::HRESULT {
@@ -4664,13 +4664,13 @@ impl IWorkspaceScriptable2_Vtbl {
         iid == &<IWorkspaceScriptable2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWorkspaceScriptable as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWorkspaceScriptable3_Impl: Sized + IWorkspaceScriptable2_Impl {
     fn StartWorkspaceEx2(&self, bstrworkspaceid: &windows_core::BSTR, bstrworkspacefriendlyname: &windows_core::BSTR, bstrredirectorname: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bstrappcontainer: &windows_core::BSTR, bstrworkspaceparams: &windows_core::BSTR, ltimeout: i32, lflags: i32, bstreventloguploadaddress: &windows_core::BSTR, correlationid: &windows_core::GUID) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWorkspaceScriptable3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWorkspaceScriptable3_Vtbl {
     pub const fn new<Identity: IWorkspaceScriptable3_Impl, const OFFSET: isize>() -> IWorkspaceScriptable3_Vtbl {
         unsafe extern "system" fn StartWorkspaceEx2<Identity: IWorkspaceScriptable3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrworkspaceid: core::mem::MaybeUninit<windows_core::BSTR>, bstrworkspacefriendlyname: core::mem::MaybeUninit<windows_core::BSTR>, bstrredirectorname: core::mem::MaybeUninit<windows_core::BSTR>, bstrusername: core::mem::MaybeUninit<windows_core::BSTR>, bstrpassword: core::mem::MaybeUninit<windows_core::BSTR>, bstrappcontainer: core::mem::MaybeUninit<windows_core::BSTR>, bstrworkspaceparams: core::mem::MaybeUninit<windows_core::BSTR>, ltimeout: i32, lflags: i32, bstreventloguploadaddress: core::mem::MaybeUninit<windows_core::BSTR>, correlationid: windows_core::GUID) -> windows_core::HRESULT {
@@ -4787,11 +4787,11 @@ impl ItsPubPlugin2_Vtbl {
         iid == &<ItsPubPlugin2 as windows_core::Interface>::IID || iid == &<ItsPubPlugin as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _ITSWkspEvents_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for _ITSWkspEvents {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _ITSWkspEvents_Vtbl {
     pub const fn new<Identity: _ITSWkspEvents_Impl, const OFFSET: isize>() -> _ITSWkspEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }

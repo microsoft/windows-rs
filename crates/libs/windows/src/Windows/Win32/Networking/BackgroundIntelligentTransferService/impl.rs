@@ -47,16 +47,16 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
         iid == &<AsyncIBackgroundCopyCallback as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBITSExtensionSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnableBITSUploads(&self) -> windows_core::Result<()>;
     fn DisableBITSUploads(&self) -> windows_core::Result<()>;
     fn GetCleanupTaskName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetCleanupTask(&self, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBITSExtensionSetup {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBITSExtensionSetup_Vtbl {
     pub const fn new<Identity: IBITSExtensionSetup_Impl, const OFFSET: isize>() -> IBITSExtensionSetup_Vtbl {
         unsafe extern "system" fn EnableBITSUploads<Identity: IBITSExtensionSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -99,13 +99,13 @@ impl IBITSExtensionSetup_Vtbl {
         iid == &<IBITSExtensionSetup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBITSExtensionSetupFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetObject(&self, path: &windows_core::BSTR) -> windows_core::Result<IBITSExtensionSetup>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBITSExtensionSetupFactory {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBITSExtensionSetupFactory_Vtbl {
     pub const fn new<Identity: IBITSExtensionSetupFactory_Impl, const OFFSET: isize>() -> IBITSExtensionSetupFactory_Vtbl {
         unsafe extern "system" fn GetObject<Identity: IBITSExtensionSetupFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: core::mem::MaybeUninit<windows_core::BSTR>, ppextensionsetup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -486,9 +486,10 @@ impl IBackgroundCopyFile6_Vtbl {
         iid == &<IBackgroundCopyFile6 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile5 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBackgroundCopyGroup_Impl: Sized + windows_core::IUnknownImpl {
-    fn GetProp(&self, propid: GROUPPROP) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetProp(&self, propid: GROUPPROP, pvarval: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetProp(&self, propid: GROUPPROP) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetProp(&self, propid: GROUPPROP, pvarval: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn GetProgress(&self, dwflags: u32) -> windows_core::Result<u32>;
     fn GetStatus(&self, pdwstatus: *mut u32, pdwjobindex: *mut u32) -> windows_core::Result<()>;
     fn GetJob(&self, jobid: &windows_core::GUID) -> windows_core::Result<IBackgroundCopyJob1>;
@@ -503,10 +504,12 @@ pub trait IBackgroundCopyGroup_Impl: Sized + windows_core::IUnknownImpl {
     fn QueryNewJobInterface(&self, iid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn SetNotificationPointer(&self, iid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBackgroundCopyGroup {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBackgroundCopyGroup_Vtbl {
     pub const fn new<Identity: IBackgroundCopyGroup_Impl, const OFFSET: isize>() -> IBackgroundCopyGroup_Vtbl {
-        unsafe extern "system" fn GetProp<Identity: IBackgroundCopyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: GROUPPROP, pvarval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProp<Identity: IBackgroundCopyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: GROUPPROP, pvarval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBackgroundCopyGroup_Impl::GetProp(this, core::mem::transmute_copy(&propid)) {
                 Ok(ok__) => {
@@ -516,7 +519,7 @@ impl IBackgroundCopyGroup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProp<Identity: IBackgroundCopyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: GROUPPROP, pvarval: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProp<Identity: IBackgroundCopyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: GROUPPROP, pvarval: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IBackgroundCopyGroup_Impl::SetProp(this, core::mem::transmute_copy(&propid), core::mem::transmute_copy(&pvarval)).into()
         }

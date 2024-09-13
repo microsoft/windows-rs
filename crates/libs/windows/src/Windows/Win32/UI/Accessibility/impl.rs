@@ -14,13 +14,16 @@ impl IAccIdentity_Vtbl {
         iid == &<IAccIdentity as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAccPropServer_Impl: Sized + windows_core::IUnknownImpl {
-    fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, pvarvalue: *mut windows_core::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAccPropServer {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAccPropServer_Vtbl {
     pub const fn new<Identity: IAccPropServer_Impl, const OFFSET: isize>() -> IAccPropServer_Vtbl {
-        unsafe extern "system" fn GetPropValue<Identity: IAccPropServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: windows_core::GUID, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pfhasprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropValue<Identity: IAccPropServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: windows_core::GUID, pvarvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pfhasprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccPropServer_Impl::GetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&pfhasprop)).into()
         }
@@ -30,30 +33,30 @@ impl IAccPropServer_Vtbl {
         iid == &<IAccPropServer as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IAccPropServices_Impl: Sized + windows_core::IUnknownImpl {
-    fn SetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, var: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetPropServer(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: Option<&IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
     fn ClearProps(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
-    fn SetHwndProp(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &windows_core::GUID, var: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetHwndProp(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetHwndPropStr(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &windows_core::GUID, str: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetHwndPropServer(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: Option<&IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
     fn ClearHwndProps(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
     fn ComposeHwndIdentityString(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>;
     fn DecomposeHwndIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> windows_core::Result<()>;
-    fn SetHmenuProp(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &windows_core::GUID, var: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetHmenuProp(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetHmenuPropStr(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &windows_core::GUID, str: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetHmenuPropServer(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: Option<&IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
     fn ClearHmenuProps(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
     fn ComposeHmenuIdentityString(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>;
     fn DecomposeHmenuIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for IAccPropServices {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IAccPropServices_Vtbl {
     pub const fn new<Identity: IAccPropServices_Impl, const OFFSET: isize>() -> IAccPropServices_Vtbl {
-        unsafe extern "system" fn SetPropValue<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: windows_core::GUID, var: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPropValue<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: windows_core::GUID, var: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccPropServices_Impl::SetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
         }
@@ -65,7 +68,7 @@ impl IAccPropServices_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccPropServices_Impl::ClearProps(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
         }
-        unsafe extern "system" fn SetHwndProp<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: windows_core::GUID, var: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHwndProp<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: windows_core::GUID, var: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccPropServices_Impl::SetHwndProp(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
         }
@@ -89,7 +92,7 @@ impl IAccPropServices_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccPropServices_Impl::DecomposeHwndIdentityString(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&phwnd), core::mem::transmute_copy(&pidobject), core::mem::transmute_copy(&pidchild)).into()
         }
-        unsafe extern "system" fn SetHmenuProp<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: windows_core::GUID, var: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHmenuProp<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: windows_core::GUID, var: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccPropServices_Impl::SetHmenuProp(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
         }
@@ -136,33 +139,33 @@ impl IAccPropServices_Vtbl {
         iid == &<IAccPropServices as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAccessible_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn accParent(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
     fn accChildCount(&self) -> windows_core::Result<i32>;
-    fn get_accChild(&self, varchild: &windows_core::VARIANT) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn get_accName(&self, varchild: &windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn get_accValue(&self, varchild: &windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn get_accDescription(&self, varchild: &windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn get_accRole(&self, varchild: &windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
-    fn get_accState(&self, varchild: &windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
-    fn get_accHelp(&self, varchild: &windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn get_accHelpTopic(&self, pszhelpfile: *mut windows_core::BSTR, varchild: &windows_core::VARIANT) -> windows_core::Result<i32>;
-    fn get_accKeyboardShortcut(&self, varchild: &windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn accFocus(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn accSelection(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn get_accDefaultAction(&self, varchild: &windows_core::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn accSelect(&self, flagsselect: i32, varchild: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn accNavigate(&self, navdir: i32, varstart: &windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
-    fn accHitTest(&self, xleft: i32, ytop: i32) -> windows_core::Result<windows_core::VARIANT>;
-    fn accDoDefaultAction(&self, varchild: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn put_accName(&self, varchild: &windows_core::VARIANT, szname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn put_accValue(&self, varchild: &windows_core::VARIANT, szvalue: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn get_accChild(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Com::IDispatch>;
+    fn get_accName(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
+    fn get_accValue(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
+    fn get_accDescription(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
+    fn get_accRole(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn get_accState(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn get_accHelp(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
+    fn get_accHelpTopic(&self, pszhelpfile: *mut windows_core::BSTR, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<i32>;
+    fn get_accKeyboardShortcut(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
+    fn accFocus(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn accSelection(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn get_accDefaultAction(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
+    fn accSelect(&self, flagsselect: i32, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn accNavigate(&self, navdir: i32, varstart: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn accHitTest(&self, xleft: i32, ytop: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn accDoDefaultAction(&self, varchild: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn put_accName(&self, varchild: &super::super::System::Variant::VARIANT, szname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn put_accValue(&self, varchild: &super::super::System::Variant::VARIANT, szvalue: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAccessible {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAccessible_Vtbl {
     pub const fn new<Identity: IAccessible_Impl, const OFFSET: isize>() -> IAccessible_Vtbl {
         unsafe extern "system" fn accParent<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdispparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -185,7 +188,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_accChild<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, ppdispchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_accChild<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppdispchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::get_accChild(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
@@ -195,7 +198,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_accName<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, pszname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_accName<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pszname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::get_accName(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
@@ -205,7 +208,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_accValue<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, pszvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_accValue<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pszvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::get_accValue(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
@@ -215,7 +218,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_accDescription<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, pszdescription: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_accDescription<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pszdescription: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::get_accDescription(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
@@ -225,7 +228,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_accRole<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, pvarrole: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_accRole<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvarrole: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::get_accRole(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
@@ -235,7 +238,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_accState<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, pvarstate: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_accState<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvarstate: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::get_accState(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
@@ -245,7 +248,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_accHelp<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, pszhelp: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_accHelp<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pszhelp: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::get_accHelp(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
@@ -255,7 +258,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_accHelpTopic<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszhelpfile: *mut core::mem::MaybeUninit<windows_core::BSTR>, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, pidtopic: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_accHelpTopic<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszhelpfile: *mut core::mem::MaybeUninit<windows_core::BSTR>, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pidtopic: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::get_accHelpTopic(this, core::mem::transmute_copy(&pszhelpfile), core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
@@ -265,7 +268,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_accKeyboardShortcut<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, pszkeyboardshortcut: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_accKeyboardShortcut<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pszkeyboardshortcut: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::get_accKeyboardShortcut(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
@@ -275,7 +278,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accFocus<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarchild: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn accFocus<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarchild: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::accFocus(this) {
                 Ok(ok__) => {
@@ -285,7 +288,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accSelection<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarchildren: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn accSelection<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarchildren: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::accSelection(this) {
                 Ok(ok__) => {
@@ -295,7 +298,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_accDefaultAction<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, pszdefaultaction: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_accDefaultAction<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pszdefaultaction: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::get_accDefaultAction(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
@@ -305,15 +308,15 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accSelect<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flagsselect: i32, varchild: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn accSelect<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flagsselect: i32, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccessible_Impl::accSelect(this, core::mem::transmute_copy(&flagsselect), core::mem::transmute(&varchild)).into()
         }
-        unsafe extern "system" fn accLocation<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn accLocation<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccessible_Impl::accLocation(this, core::mem::transmute_copy(&pxleft), core::mem::transmute_copy(&pytop), core::mem::transmute_copy(&pcxwidth), core::mem::transmute_copy(&pcyheight), core::mem::transmute(&varchild)).into()
         }
-        unsafe extern "system" fn accNavigate<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, navdir: i32, varstart: core::mem::MaybeUninit<windows_core::VARIANT>, pvarendupat: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn accNavigate<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, navdir: i32, varstart: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvarendupat: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::accNavigate(this, core::mem::transmute_copy(&navdir), core::mem::transmute(&varstart)) {
                 Ok(ok__) => {
@@ -323,7 +326,7 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accHitTest<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xleft: i32, ytop: i32, pvarchild: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn accHitTest<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xleft: i32, ytop: i32, pvarchild: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccessible_Impl::accHitTest(this, core::mem::transmute_copy(&xleft), core::mem::transmute_copy(&ytop)) {
                 Ok(ok__) => {
@@ -333,15 +336,15 @@ impl IAccessible_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accDoDefaultAction<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn accDoDefaultAction<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccessible_Impl::accDoDefaultAction(this, core::mem::transmute(&varchild)).into()
         }
-        unsafe extern "system" fn put_accName<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, szname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_accName<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, szname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccessible_Impl::put_accName(this, core::mem::transmute(&varchild), core::mem::transmute(&szname)).into()
         }
-        unsafe extern "system" fn put_accValue<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<windows_core::VARIANT>, szvalue: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_accValue<Identity: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, szvalue: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccessible_Impl::put_accValue(this, core::mem::transmute(&varchild), core::mem::transmute(&szvalue)).into()
         }
@@ -960,13 +963,16 @@ impl IInvokeProvider_Vtbl {
         iid == &<IInvokeProvider as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IItemContainerProvider_Impl: Sized + windows_core::IUnknownImpl {
-    fn FindItemByProperty(&self, pstartafter: Option<&IRawElementProviderSimple>, propertyid: UIA_PROPERTY_ID, value: &windows_core::VARIANT) -> windows_core::Result<IRawElementProviderSimple>;
+    fn FindItemByProperty(&self, pstartafter: Option<&IRawElementProviderSimple>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IRawElementProviderSimple>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IItemContainerProvider {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IItemContainerProvider_Vtbl {
     pub const fn new<Identity: IItemContainerProvider_Impl, const OFFSET: isize>() -> IItemContainerProvider_Vtbl {
-        unsafe extern "system" fn FindItemByProperty<Identity: IItemContainerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstartafter: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: core::mem::MaybeUninit<windows_core::VARIANT>, pfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindItemByProperty<Identity: IItemContainerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstartafter: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IItemContainerProvider_Impl::FindItemByProperty(this, windows_core::from_raw_borrowed(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
                 Ok(ok__) => {
@@ -1244,18 +1250,18 @@ impl IProxyProviderWinEventHandler_Vtbl {
         iid == &<IProxyProviderWinEventHandler as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IProxyProviderWinEventSink_Impl: Sized + windows_core::IUnknownImpl {
-    fn AddAutomationPropertyChangedEvent(&self, pprovider: Option<&IRawElementProviderSimple>, id: UIA_PROPERTY_ID, newvalue: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn AddAutomationPropertyChangedEvent(&self, pprovider: Option<&IRawElementProviderSimple>, id: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn AddAutomationEvent(&self, pprovider: Option<&IRawElementProviderSimple>, id: UIA_EVENT_ID) -> windows_core::Result<()>;
     fn AddStructureChangedEvent(&self, pprovider: Option<&IRawElementProviderSimple>, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IProxyProviderWinEventSink {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IProxyProviderWinEventSink_Vtbl {
     pub const fn new<Identity: IProxyProviderWinEventSink_Impl, const OFFSET: isize>() -> IProxyProviderWinEventSink_Vtbl {
-        unsafe extern "system" fn AddAutomationPropertyChangedEvent<Identity: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, id: UIA_PROPERTY_ID, newvalue: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddAutomationPropertyChangedEvent<Identity: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, id: UIA_PROPERTY_ID, newvalue: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IProxyProviderWinEventSink_Impl::AddAutomationPropertyChangedEvent(this, windows_core::from_raw_borrowed(&pprovider), core::mem::transmute_copy(&id), core::mem::transmute(&newvalue)).into()
         }
@@ -1563,13 +1569,16 @@ impl IRawElementProviderHwndOverride_Vtbl {
         iid == &<IRawElementProviderHwndOverride as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRawElementProviderSimple_Impl: Sized + windows_core::IUnknownImpl {
     fn ProviderOptions(&self) -> windows_core::Result<ProviderOptions>;
     fn GetPatternProvider(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn HostRawElementProvider(&self) -> windows_core::Result<IRawElementProviderSimple>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRawElementProviderSimple {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRawElementProviderSimple_Vtbl {
     pub const fn new<Identity: IRawElementProviderSimple_Impl, const OFFSET: isize>() -> IRawElementProviderSimple_Vtbl {
         unsafe extern "system" fn ProviderOptions<Identity: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut ProviderOptions) -> windows_core::HRESULT {
@@ -1592,7 +1601,7 @@ impl IRawElementProviderSimple_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyValue<Identity: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, pretval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyValue<Identity: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, pretval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRawElementProviderSimple_Impl::GetPropertyValue(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
@@ -1624,10 +1633,13 @@ impl IRawElementProviderSimple_Vtbl {
         iid == &<IRawElementProviderSimple as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRawElementProviderSimple2_Impl: Sized + IRawElementProviderSimple_Impl {
     fn ShowContextMenu(&self) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRawElementProviderSimple2 {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRawElementProviderSimple2_Vtbl {
     pub const fn new<Identity: IRawElementProviderSimple2_Impl, const OFFSET: isize>() -> IRawElementProviderSimple2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: IRawElementProviderSimple2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1640,13 +1652,16 @@ impl IRawElementProviderSimple2_Vtbl {
         iid == &<IRawElementProviderSimple2 as windows_core::Interface>::IID || iid == &<IRawElementProviderSimple as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRawElementProviderSimple3_Impl: Sized + IRawElementProviderSimple2_Impl {
-    fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRawElementProviderSimple3 {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRawElementProviderSimple3_Vtbl {
     pub const fn new<Identity: IRawElementProviderSimple3_Impl, const OFFSET: isize>() -> IRawElementProviderSimple3_Vtbl {
-        unsafe extern "system" fn GetMetadataValue<Identity: IRawElementProviderSimple3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMetadataValue<Identity: IRawElementProviderSimple3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRawElementProviderSimple3_Impl::GetMetadataValue(this, core::mem::transmute_copy(&targetid), core::mem::transmute_copy(&metadataid)) {
                 Ok(ok__) => {
@@ -2526,15 +2541,15 @@ impl ITextProvider2_Vtbl {
         iid == &<ITextProvider2 as windows_core::Interface>::IID || iid == &<ITextProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRangeProvider_Impl: Sized + windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<ITextRangeProvider>;
     fn Compare(&self, range: Option<&ITextRangeProvider>) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn CompareEndpoints(&self, endpoint: TextPatternRangeEndpoint, targetrange: Option<&ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
     fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> windows_core::Result<()>;
-    fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &windows_core::VARIANT, backward: super::super::Foundation::BOOL) -> windows_core::Result<ITextRangeProvider>;
+    fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: super::super::Foundation::BOOL) -> windows_core::Result<ITextRangeProvider>;
     fn FindText(&self, text: &windows_core::BSTR, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL) -> windows_core::Result<ITextRangeProvider>;
-    fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetBoundingRectangles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetEnclosingElement(&self) -> windows_core::Result<IRawElementProviderSimple>;
     fn GetText(&self, maxlength: i32) -> windows_core::Result<windows_core::BSTR>;
@@ -2547,9 +2562,9 @@ pub trait ITextRangeProvider_Impl: Sized + windows_core::IUnknownImpl {
     fn ScrollIntoView(&self, aligntotop: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetChildren(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITextRangeProvider {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRangeProvider_Vtbl {
     pub const fn new<Identity: ITextRangeProvider_Impl, const OFFSET: isize>() -> ITextRangeProvider_Vtbl {
         unsafe extern "system" fn Clone<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2586,7 +2601,7 @@ impl ITextRangeProvider_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITextRangeProvider_Impl::ExpandToEnclosingUnit(this, core::mem::transmute_copy(&unit)).into()
         }
-        unsafe extern "system" fn FindAttribute<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, val: core::mem::MaybeUninit<windows_core::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindAttribute<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, val: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRangeProvider_Impl::FindAttribute(this, core::mem::transmute_copy(&attributeid), core::mem::transmute(&val), core::mem::transmute_copy(&backward)) {
                 Ok(ok__) => {
@@ -2606,7 +2621,7 @@ impl ITextRangeProvider_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributeValue<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, pretval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAttributeValue<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, pretval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITextRangeProvider_Impl::GetAttributeValue(this, core::mem::transmute_copy(&attributeid)) {
                 Ok(ok__) => {
@@ -2722,13 +2737,13 @@ impl ITextRangeProvider_Vtbl {
         iid == &<ITextRangeProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRangeProvider2_Impl: Sized + ITextRangeProvider_Impl {
     fn ShowContextMenu(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITextRangeProvider2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRangeProvider2_Vtbl {
     pub const fn new<Identity: ITextRangeProvider2_Impl, const OFFSET: isize>() -> ITextRangeProvider2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: ITextRangeProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2908,7 +2923,7 @@ impl ITransformProvider2_Vtbl {
         iid == &<ITransformProvider2 as windows_core::Interface>::IID || iid == &<ITransformProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation_Impl: Sized + windows_core::IUnknownImpl {
     fn CompareElements(&self, el1: Option<&IUIAutomationElement>, el2: Option<&IUIAutomationElement>) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<super::super::Foundation::BOOL>;
@@ -2930,8 +2945,8 @@ pub trait IUIAutomation_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateCacheRequest(&self) -> windows_core::Result<IUIAutomationCacheRequest>;
     fn CreateTrueCondition(&self) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateFalseCondition(&self) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: &windows_core::VARIANT) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: &windows_core::VARIANT, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition>;
+    fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationCondition>;
+    fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateAndCondition(&self, condition1: Option<&IUIAutomationCondition>, condition2: Option<&IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateAndConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> windows_core::Result<IUIAutomationCondition>;
@@ -2951,8 +2966,8 @@ pub trait IUIAutomation_Impl: Sized + windows_core::IUnknownImpl {
     fn RemoveAllEventHandlers(&self) -> windows_core::Result<()>;
     fn IntNativeArrayToSafeArray(&self, array: *const i32, arraycount: i32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> windows_core::Result<i32>;
-    fn RectToVariant(&self, rc: &super::super::Foundation::RECT) -> windows_core::Result<windows_core::VARIANT>;
-    fn VariantToRect(&self, var: &windows_core::VARIANT) -> windows_core::Result<super::super::Foundation::RECT>;
+    fn RectToVariant(&self, rc: &super::super::Foundation::RECT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn VariantToRect(&self, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::RECT>;
     fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> windows_core::Result<i32>;
     fn CreateProxyFactoryEntry(&self, factory: Option<&IUIAutomationProxyFactory>) -> windows_core::Result<IUIAutomationProxyFactoryEntry>;
     fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping>;
@@ -2960,15 +2975,15 @@ pub trait IUIAutomation_Impl: Sized + windows_core::IUnknownImpl {
     fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> windows_core::Result<windows_core::BSTR>;
     fn PollForPotentialSupportedPatterns(&self, pelement: Option<&IUIAutomationElement>, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn PollForPotentialSupportedProperties(&self, pelement: Option<&IUIAutomationElement>, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn CheckNotSupported(&self, value: &windows_core::VARIANT) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn ReservedMixedAttributeValue(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn ElementFromIAccessible(&self, accessible: Option<&IAccessible>, childid: i32) -> windows_core::Result<IUIAutomationElement>;
     fn ElementFromIAccessibleBuildCache(&self, accessible: Option<&IAccessible>, childid: i32, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation_Vtbl {
     pub const fn new<Identity: IUIAutomation_Impl, const OFFSET: isize>() -> IUIAutomation_Vtbl {
         unsafe extern "system" fn CompareElements<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, el1: *mut core::ffi::c_void, el2: *mut core::ffi::c_void, aresame: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
@@ -3171,7 +3186,7 @@ impl IUIAutomation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePropertyCondition<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: core::mem::MaybeUninit<windows_core::VARIANT>, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePropertyCondition<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomation_Impl::CreatePropertyCondition(this, core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
                 Ok(ok__) => {
@@ -3181,7 +3196,7 @@ impl IUIAutomation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePropertyConditionEx<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: core::mem::MaybeUninit<windows_core::VARIANT>, flags: PropertyConditionFlags, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePropertyConditionEx<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, flags: PropertyConditionFlags, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomation_Impl::CreatePropertyConditionEx(this, core::mem::transmute_copy(&propertyid), core::mem::transmute(&value), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
@@ -3321,7 +3336,7 @@ impl IUIAutomation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RectToVariant<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rc: super::super::Foundation::RECT, var: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RectToVariant<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rc: super::super::Foundation::RECT, var: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomation_Impl::RectToVariant(this, core::mem::transmute(&rc)) {
                 Ok(ok__) => {
@@ -3331,7 +3346,7 @@ impl IUIAutomation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VariantToRect<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: core::mem::MaybeUninit<windows_core::VARIANT>, rc: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn VariantToRect<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, rc: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomation_Impl::VariantToRect(this, core::mem::transmute(&var)) {
                 Ok(ok__) => {
@@ -3399,7 +3414,7 @@ impl IUIAutomation_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAutomation_Impl::PollForPotentialSupportedProperties(this, windows_core::from_raw_borrowed(&pelement), core::mem::transmute_copy(&propertyids), core::mem::transmute_copy(&propertynames)).into()
         }
-        unsafe extern "system" fn CheckNotSupported<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::VARIANT>, isnotsupported: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckNotSupported<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, isnotsupported: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomation_Impl::CheckNotSupported(this, core::mem::transmute(&value)) {
                 Ok(ok__) => {
@@ -3512,7 +3527,7 @@ impl IUIAutomation_Vtbl {
         iid == &<IUIAutomation as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation2_Impl: Sized + IUIAutomation_Impl {
     fn AutoSetFocus(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn SetAutoSetFocus(&self, autosetfocus: super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -3521,9 +3536,9 @@ pub trait IUIAutomation2_Impl: Sized + IUIAutomation_Impl {
     fn TransactionTimeout(&self) -> windows_core::Result<u32>;
     fn SetTransactionTimeout(&self, timeout: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomation2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation2_Vtbl {
     pub const fn new<Identity: IUIAutomation2_Impl, const OFFSET: isize>() -> IUIAutomation2_Vtbl {
         unsafe extern "system" fn AutoSetFocus<Identity: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autosetfocus: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
@@ -3582,14 +3597,14 @@ impl IUIAutomation2_Vtbl {
         iid == &<IUIAutomation2 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation3_Impl: Sized + IUIAutomation2_Impl {
     fn AddTextEditTextChangedEventHandler(&self, element: Option<&IUIAutomationElement>, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
     fn RemoveTextEditTextChangedEventHandler(&self, element: Option<&IUIAutomationElement>, handler: Option<&IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomation3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation3_Vtbl {
     pub const fn new<Identity: IUIAutomation3_Impl, const OFFSET: isize>() -> IUIAutomation3_Vtbl {
         unsafe extern "system" fn AddTextEditTextChangedEventHandler<Identity: IUIAutomation3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3610,14 +3625,14 @@ impl IUIAutomation3_Vtbl {
         iid == &<IUIAutomation3 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID || iid == &<IUIAutomation2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation4_Impl: Sized + IUIAutomation3_Impl {
     fn AddChangesEventHandler(&self, element: Option<&IUIAutomationElement>, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
     fn RemoveChangesEventHandler(&self, element: Option<&IUIAutomationElement>, handler: Option<&IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomation4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation4_Vtbl {
     pub const fn new<Identity: IUIAutomation4_Impl, const OFFSET: isize>() -> IUIAutomation4_Vtbl {
         unsafe extern "system" fn AddChangesEventHandler<Identity: IUIAutomation4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3638,14 +3653,14 @@ impl IUIAutomation4_Vtbl {
         iid == &<IUIAutomation4 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID || iid == &<IUIAutomation2 as windows_core::Interface>::IID || iid == &<IUIAutomation3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation5_Impl: Sized + IUIAutomation4_Impl {
     fn AddNotificationEventHandler(&self, element: Option<&IUIAutomationElement>, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
     fn RemoveNotificationEventHandler(&self, element: Option<&IUIAutomationElement>, handler: Option<&IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomation5 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation5_Vtbl {
     pub const fn new<Identity: IUIAutomation5_Impl, const OFFSET: isize>() -> IUIAutomation5_Vtbl {
         unsafe extern "system" fn AddNotificationEventHandler<Identity: IUIAutomation5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3666,7 +3681,7 @@ impl IUIAutomation5_Vtbl {
         iid == &<IUIAutomation5 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID || iid == &<IUIAutomation2 as windows_core::Interface>::IID || iid == &<IUIAutomation3 as windows_core::Interface>::IID || iid == &<IUIAutomation4 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation6_Impl: Sized + IUIAutomation5_Impl {
     fn CreateEventHandlerGroup(&self) -> windows_core::Result<IUIAutomationEventHandlerGroup>;
     fn AddEventHandlerGroup(&self, element: Option<&IUIAutomationElement>, handlergroup: Option<&IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
@@ -3678,9 +3693,9 @@ pub trait IUIAutomation6_Impl: Sized + IUIAutomation5_Impl {
     fn AddActiveTextPositionChangedEventHandler(&self, element: Option<&IUIAutomationElement>, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
     fn RemoveActiveTextPositionChangedEventHandler(&self, element: Option<&IUIAutomationElement>, handler: Option<&IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomation6 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation6_Vtbl {
     pub const fn new<Identity: IUIAutomation6_Impl, const OFFSET: isize>() -> IUIAutomation6_Vtbl {
         unsafe extern "system" fn CreateEventHandlerGroup<Identity: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handlergroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4065,10 +4080,13 @@ impl IUIAutomationCacheRequest_Vtbl {
         iid == &<IUIAutomationCacheRequest as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationChangesEventHandler_Impl: Sized + windows_core::IUnknownImpl {
     fn HandleChangesEvent(&self, sender: Option<&IUIAutomationElement>, uiachanges: *const UiaChangeInfo, changescount: i32) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationChangesEventHandler {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationChangesEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationChangesEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationChangesEventHandler_Vtbl {
         unsafe extern "system" fn HandleChangesEvent<Identity: IUIAutomationChangesEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, uiachanges: *const UiaChangeInfo, changescount: i32) -> windows_core::HRESULT {
@@ -4332,7 +4350,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
         iid == &<IUIAutomationDropTargetPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement_Impl: Sized + windows_core::IUnknownImpl {
     fn SetFocus(&self) -> windows_core::Result<()>;
     fn GetRuntimeId(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -4341,10 +4359,10 @@ pub trait IUIAutomationElement_Impl: Sized + windows_core::IUnknownImpl {
     fn FindFirstBuildCache(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
     fn FindAllBuildCache(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
     fn BuildUpdatedCache(&self, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT>;
-    fn GetCurrentPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL) -> windows_core::Result<windows_core::VARIANT>;
-    fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::VARIANT>;
-    fn GetCachedPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetCurrentPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetCachedPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetCurrentPatternAs(&self, patternid: UIA_PATTERN_ID, riid: *const windows_core::GUID, patternobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetCachedPatternAs(&self, patternid: UIA_PATTERN_ID, riid: *const windows_core::GUID, patternobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> windows_core::Result<windows_core::IUnknown>;
@@ -4417,9 +4435,9 @@ pub trait IUIAutomationElement_Impl: Sized + windows_core::IUnknownImpl {
     fn CachedProviderDescription(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationElement {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement_Vtbl {
     pub const fn new<Identity: IUIAutomationElement_Impl, const OFFSET: isize>() -> IUIAutomationElement_Vtbl {
         unsafe extern "system" fn SetFocus<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4486,7 +4504,7 @@ impl IUIAutomationElement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentPropertyValue<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCurrentPropertyValue<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomationElement_Impl::GetCurrentPropertyValue(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
@@ -4496,7 +4514,7 @@ impl IUIAutomationElement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentPropertyValueEx<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCurrentPropertyValueEx<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomationElement_Impl::GetCurrentPropertyValueEx(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ignoredefaultvalue)) {
                 Ok(ok__) => {
@@ -4506,7 +4524,7 @@ impl IUIAutomationElement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedPropertyValue<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCachedPropertyValue<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomationElement_Impl::GetCachedPropertyValue(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
@@ -4516,7 +4534,7 @@ impl IUIAutomationElement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedPropertyValueEx<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCachedPropertyValueEx<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomationElement_Impl::GetCachedPropertyValueEx(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ignoredefaultvalue)) {
                 Ok(ok__) => {
@@ -5314,7 +5332,7 @@ impl IUIAutomationElement_Vtbl {
         iid == &<IUIAutomationElement as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement2_Impl: Sized + IUIAutomationElement_Impl {
     fn CurrentOptimizeForVisualContent(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn CachedOptimizeForVisualContent(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
@@ -5323,9 +5341,9 @@ pub trait IUIAutomationElement2_Impl: Sized + IUIAutomationElement_Impl {
     fn CurrentFlowsFrom(&self) -> windows_core::Result<IUIAutomationElementArray>;
     fn CachedFlowsFrom(&self) -> windows_core::Result<IUIAutomationElementArray>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationElement2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement2_Vtbl {
     pub const fn new<Identity: IUIAutomationElement2_Impl, const OFFSET: isize>() -> IUIAutomationElement2_Vtbl {
         unsafe extern "system" fn CurrentOptimizeForVisualContent<Identity: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
@@ -5402,15 +5420,15 @@ impl IUIAutomationElement2_Vtbl {
         iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement3_Impl: Sized + IUIAutomationElement2_Impl {
     fn ShowContextMenu(&self) -> windows_core::Result<()>;
     fn CurrentIsPeripheral(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn CachedIsPeripheral(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationElement3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement3_Vtbl {
     pub const fn new<Identity: IUIAutomationElement3_Impl, const OFFSET: isize>() -> IUIAutomationElement3_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5448,7 +5466,7 @@ impl IUIAutomationElement3_Vtbl {
         iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement4_Impl: Sized + IUIAutomationElement3_Impl {
     fn CurrentPositionInSet(&self) -> windows_core::Result<i32>;
     fn CurrentSizeOfSet(&self) -> windows_core::Result<i32>;
@@ -5461,9 +5479,9 @@ pub trait IUIAutomationElement4_Impl: Sized + IUIAutomationElement3_Impl {
     fn CachedAnnotationTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn CachedAnnotationObjects(&self) -> windows_core::Result<IUIAutomationElementArray>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationElement4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement4_Vtbl {
     pub const fn new<Identity: IUIAutomationElement4_Impl, const OFFSET: isize>() -> IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CurrentPositionInSet<Identity: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
@@ -5584,16 +5602,16 @@ impl IUIAutomationElement4_Vtbl {
         iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement5_Impl: Sized + IUIAutomationElement4_Impl {
     fn CurrentLandmarkType(&self) -> windows_core::Result<UIA_LANDMARKTYPE_ID>;
     fn CurrentLocalizedLandmarkType(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedLandmarkType(&self) -> windows_core::Result<UIA_LANDMARKTYPE_ID>;
     fn CachedLocalizedLandmarkType(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationElement5 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement5_Vtbl {
     pub const fn new<Identity: IUIAutomationElement5_Impl, const OFFSET: isize>() -> IUIAutomationElement5_Vtbl {
         unsafe extern "system" fn CurrentLandmarkType<Identity: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_LANDMARKTYPE_ID) -> windows_core::HRESULT {
@@ -5648,14 +5666,14 @@ impl IUIAutomationElement5_Vtbl {
         iid == &<IUIAutomationElement5 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement6_Impl: Sized + IUIAutomationElement5_Impl {
     fn CurrentFullDescription(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CachedFullDescription(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationElement6 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement6_Vtbl {
     pub const fn new<Identity: IUIAutomationElement6_Impl, const OFFSET: isize>() -> IUIAutomationElement6_Vtbl {
         unsafe extern "system" fn CurrentFullDescription<Identity: IUIAutomationElement6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -5688,17 +5706,17 @@ impl IUIAutomationElement6_Vtbl {
         iid == &<IUIAutomationElement6 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement5 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement7_Impl: Sized + IUIAutomationElement6_Impl {
     fn FindFirstWithOptions(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
     fn FindAllWithOptions(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
     fn FindFirstWithOptionsBuildCache(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, cacherequest: Option<&IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
     fn FindAllWithOptionsBuildCache(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, cacherequest: Option<&IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationElement7 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement7_Vtbl {
     pub const fn new<Identity: IUIAutomationElement7_Impl, const OFFSET: isize>() -> IUIAutomationElement7_Vtbl {
         unsafe extern "system" fn FindFirstWithOptions<Identity: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5741,7 +5759,7 @@ impl IUIAutomationElement7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentMetadataValue<Identity: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCurrentMetadataValue<Identity: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomationElement7_Impl::GetCurrentMetadataValue(this, core::mem::transmute_copy(&targetid), core::mem::transmute_copy(&metadataid)) {
                 Ok(ok__) => {
@@ -5764,14 +5782,14 @@ impl IUIAutomationElement7_Vtbl {
         iid == &<IUIAutomationElement7 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement5 as windows_core::Interface>::IID || iid == &<IUIAutomationElement6 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement8_Impl: Sized + IUIAutomationElement7_Impl {
     fn CurrentHeadingLevel(&self) -> windows_core::Result<UIA_HEADINGLEVEL_ID>;
     fn CachedHeadingLevel(&self) -> windows_core::Result<UIA_HEADINGLEVEL_ID>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationElement8 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement8_Vtbl {
     pub const fn new<Identity: IUIAutomationElement8_Impl, const OFFSET: isize>() -> IUIAutomationElement8_Vtbl {
         unsafe extern "system" fn CurrentHeadingLevel<Identity: IUIAutomationElement8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_HEADINGLEVEL_ID) -> windows_core::HRESULT {
@@ -5804,14 +5822,14 @@ impl IUIAutomationElement8_Vtbl {
         iid == &<IUIAutomationElement8 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement5 as windows_core::Interface>::IID || iid == &<IUIAutomationElement6 as windows_core::Interface>::IID || iid == &<IUIAutomationElement7 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement9_Impl: Sized + IUIAutomationElement8_Impl {
     fn CurrentIsDialog(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn CachedIsDialog(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationElement9 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationElement9_Vtbl {
     pub const fn new<Identity: IUIAutomationElement9_Impl, const OFFSET: isize>() -> IUIAutomationElement9_Vtbl {
         unsafe extern "system" fn CurrentIsDialog<Identity: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
@@ -6235,13 +6253,16 @@ impl IUIAutomationInvokePattern_Vtbl {
         iid == &<IUIAutomationInvokePattern as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationItemContainerPattern_Impl: Sized + windows_core::IUnknownImpl {
-    fn FindItemByProperty(&self, pstartafter: Option<&IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, value: &windows_core::VARIANT) -> windows_core::Result<IUIAutomationElement>;
+    fn FindItemByProperty(&self, pstartafter: Option<&IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationElement>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationItemContainerPattern {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationItemContainerPattern_Vtbl {
     pub const fn new<Identity: IUIAutomationItemContainerPattern_Impl, const OFFSET: isize>() -> IUIAutomationItemContainerPattern_Vtbl {
-        unsafe extern "system" fn FindItemByProperty<Identity: IUIAutomationItemContainerPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstartafter: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: core::mem::MaybeUninit<windows_core::VARIANT>, pfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindItemByProperty<Identity: IUIAutomationItemContainerPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstartafter: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomationItemContainerPattern_Impl::FindItemByProperty(this, windows_core::from_raw_borrowed(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
                 Ok(ok__) => {
@@ -6787,13 +6808,16 @@ impl IUIAutomationPatternInstance_Vtbl {
         iid == &<IUIAutomationPatternInstance as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationPropertyChangedEventHandler_Impl: Sized + windows_core::IUnknownImpl {
-    fn HandlePropertyChangedEvent(&self, sender: Option<&IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, newvalue: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn HandlePropertyChangedEvent(&self, sender: Option<&IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationPropertyChangedEventHandler {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationPropertyChangedEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationPropertyChangedEventHandler_Vtbl {
-        unsafe extern "system" fn HandlePropertyChangedEvent<Identity: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, newvalue: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn HandlePropertyChangedEvent<Identity: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, newvalue: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAutomationPropertyChangedEventHandler_Impl::HandlePropertyChangedEvent(this, windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&propertyid), core::mem::transmute(&newvalue)).into()
         }
@@ -6803,12 +6827,15 @@ impl IUIAutomationPropertyChangedEventHandler_Vtbl {
         iid == &<IUIAutomationPropertyChangedEventHandler as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationPropertyCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn PropertyId(&self) -> windows_core::Result<UIA_PROPERTY_ID>;
-    fn PropertyValue(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn PropertyValue(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn PropertyConditionFlags(&self) -> windows_core::Result<PropertyConditionFlags>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationPropertyCondition {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationPropertyCondition_Vtbl {
     pub const fn new<Identity: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>() -> IUIAutomationPropertyCondition_Vtbl {
         unsafe extern "system" fn PropertyId<Identity: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: *mut UIA_PROPERTY_ID) -> windows_core::HRESULT {
@@ -6821,7 +6848,7 @@ impl IUIAutomationPropertyCondition_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PropertyValue<Identity: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PropertyValue<Identity: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomationPropertyCondition_Impl::PropertyValue(this) {
                 Ok(ok__) => {
@@ -8488,15 +8515,15 @@ impl IUIAutomationTextPattern2_Vtbl {
         iid == &<IUIAutomationTextPattern2 as windows_core::Interface>::IID || iid == &<IUIAutomationTextPattern as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange_Impl: Sized + windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IUIAutomationTextRange>;
     fn Compare(&self, range: Option<&IUIAutomationTextRange>) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn CompareEndpoints(&self, srcendpoint: TextPatternRangeEndpoint, range: Option<&IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
     fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> windows_core::Result<()>;
-    fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &windows_core::VARIANT, backward: super::super::Foundation::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
+    fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: super::super::Foundation::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
     fn FindText(&self, text: &windows_core::BSTR, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
-    fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetBoundingRectangles(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetEnclosingElement(&self) -> windows_core::Result<IUIAutomationElement>;
     fn GetText(&self, maxlength: i32) -> windows_core::Result<windows_core::BSTR>;
@@ -8509,9 +8536,9 @@ pub trait IUIAutomationTextRange_Impl: Sized + windows_core::IUnknownImpl {
     fn ScrollIntoView(&self, aligntotop: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetChildren(&self) -> windows_core::Result<IUIAutomationElementArray>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationTextRange {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationTextRange_Vtbl {
     pub const fn new<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>() -> IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn Clone<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clonedrange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8548,7 +8575,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAutomationTextRange_Impl::ExpandToEnclosingUnit(this, core::mem::transmute_copy(&textunit)).into()
         }
-        unsafe extern "system" fn FindAttribute<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, val: core::mem::MaybeUninit<windows_core::VARIANT>, backward: super::super::Foundation::BOOL, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindAttribute<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, val: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, backward: super::super::Foundation::BOOL, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomationTextRange_Impl::FindAttribute(this, core::mem::transmute_copy(&attr), core::mem::transmute(&val), core::mem::transmute_copy(&backward)) {
                 Ok(ok__) => {
@@ -8568,7 +8595,7 @@ impl IUIAutomationTextRange_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributeValue<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, value: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAttributeValue<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, value: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAutomationTextRange_Impl::GetAttributeValue(this, core::mem::transmute_copy(&attr)) {
                 Ok(ok__) => {
@@ -8684,13 +8711,13 @@ impl IUIAutomationTextRange_Vtbl {
         iid == &<IUIAutomationTextRange as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange2_Impl: Sized + IUIAutomationTextRange_Impl {
     fn ShowContextMenu(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationTextRange2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationTextRange2_Vtbl {
     pub const fn new<Identity: IUIAutomationTextRange2_Impl, const OFFSET: isize>() -> IUIAutomationTextRange2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: IUIAutomationTextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8703,15 +8730,15 @@ impl IUIAutomationTextRange2_Vtbl {
         iid == &<IUIAutomationTextRange2 as windows_core::Interface>::IID || iid == &<IUIAutomationTextRange as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange3_Impl: Sized + IUIAutomationTextRange2_Impl {
     fn GetEnclosingElementBuildCache(&self, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
     fn GetChildrenBuildCache(&self, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
     fn GetAttributeValues(&self, attributeids: *const UIA_TEXTATTRIBUTE_ID, attributeidcount: i32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationTextRange3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationTextRange3_Vtbl {
     pub const fn new<Identity: IUIAutomationTextRange3_Impl, const OFFSET: isize>() -> IUIAutomationTextRange3_Vtbl {
         unsafe extern "system" fn GetEnclosingElementBuildCache<Identity: IUIAutomationTextRange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, enclosingelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
