@@ -1975,11 +1975,11 @@ pub unsafe fn SetProcessShutdownParameters(dwlevel: u32, dwflags: u32) -> window
     SetProcessShutdownParameters(dwlevel, dwflags).ok()
 }
 #[inline]
-pub unsafe fn SetProcessWorkingSetSize<P0>(hprocess: P0, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize) -> windows_core::Result<()>
+pub unsafe fn SetProcessWorkingSetSize<P0>(hprocess: P0, dwminimumworkingsetsize: isize, dwmaximumworkingsetsize: isize) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn SetProcessWorkingSetSize(hprocess : super::super::Foundation:: HANDLE, dwminimumworkingsetsize : usize, dwmaximumworkingsetsize : usize) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn SetProcessWorkingSetSize(hprocess : super::super::Foundation:: HANDLE, dwminimumworkingsetsize : isize, dwmaximumworkingsetsize : isize) -> super::super::Foundation:: BOOL);
     SetProcessWorkingSetSize(hprocess.param().abi(), dwminimumworkingsetsize, dwmaximumworkingsetsize).ok()
 }
 #[inline]
