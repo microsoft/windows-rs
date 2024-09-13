@@ -44,7 +44,6 @@ impl TypeName {
     pub const HSTRING: Self = Self("Windows.Win32.System.WinRT", "HSTRING");
     pub const IInspectable: Self = Self("Windows.Win32.System.WinRT", "IInspectable");
 
-
     pub const VARIANT: Self = Self("Windows.Win32.System.Variant", "VARIANT");
     pub const PROPVARIANT: Self = Self("Windows.Win32.System.Com.StructuredStorage", "PROPVARIANT");
 
