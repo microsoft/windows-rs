@@ -159,14 +159,6 @@ impl Writer {
                 let crate_name = self.crate_name();
                 quote! { #crate_name BSTR }
             }
-            metadata::Type::Name(metadata::TypeName::VARIANT) => {
-                let crate_name = self.crate_name();
-                quote! { #crate_name VARIANT }
-            }
-            metadata::Type::Name(metadata::TypeName::PROPVARIANT) => {
-                let crate_name = self.crate_name();
-                quote! { #crate_name PROPVARIANT }
-            }
             metadata::Type::Object => {
                 if self.sys {
                     quote! { *mut core::ffi::c_void }
@@ -270,12 +262,6 @@ impl Writer {
             }
             metadata::Type::Name(metadata::TypeName::BSTR) => {
                 quote! { core::mem::MaybeUninit<windows_core::BSTR> }
-            }
-            metadata::Type::Name(metadata::TypeName::VARIANT) => {
-                quote! { core::mem::MaybeUninit<windows_core::VARIANT> }
-            }
-            metadata::Type::Name(metadata::TypeName::PROPVARIANT) => {
-                quote! { core::mem::MaybeUninit<windows_core::PROPVARIANT> }
             }
             metadata::Type::Win32Array(kind, len) => {
                 let name = self.type_abi_name(kind);

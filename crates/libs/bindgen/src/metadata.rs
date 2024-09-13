@@ -628,13 +628,7 @@ pub fn type_def_is_blittable(row: TypeDef) -> bool {
 
 pub fn type_def_is_copyable(row: TypeDef) -> bool {
     match row.kind() {
-        TypeKind::Struct => {
-            if matches!(row.type_name(), TypeName::VARIANT | TypeName::PROPVARIANT) {
-                false
-            } else {
-                row.fields().all(|field| field_is_copyable(field, row))
-            }
-        }
+        TypeKind::Struct => row.fields().all(|field| field_is_copyable(field, row)),
         TypeKind::Enum => true,
         TypeKind::Delegate => !row.flags().contains(TypeAttributes::WindowsRuntime),
         _ => false,
