@@ -78,6 +78,7 @@ impl PartialEq for PROPVARIANT {
 
 impl Eq for PROPVARIANT {}
 
+#[cfg(all(feature = "Win32_System_Variant", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl TryFrom<&VARIANT> for PROPVARIANT {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
