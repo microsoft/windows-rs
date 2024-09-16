@@ -9,7 +9,7 @@ name = "sample"
 crate-type = ["cdylib"]
 
 [dependencies]
-jsonschema = { version = "0.18", default-features = false }
+jsonschema = { version = "0.19", default-features = false }
 serde_json = {version = "1.0", default-features = false }
 
 [dependencies.windows]
