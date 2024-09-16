@@ -12,9 +12,6 @@ pub use event::*;
 mod handles;
 pub use handles::*;
 
-mod variant;
-pub use variant::*;
-
 pub use windows_strings::*;
 
 /// Attempts to load the factory object for the given WinRT class.

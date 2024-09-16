@@ -34,9 +34,10 @@ impl IDedupChunkLibrary {
     pub unsafe fn Uninitialize(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Uninitialize)(windows_core::Interface::as_raw(self)).ok()
     }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetParameter<P0>(&self, dwparamtype: u32, vparamvalue: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::VARIANT>,
+        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).SetParameter)(windows_core::Interface::as_raw(self), dwparamtype, vparamvalue.param().abi()).ok()
     }
@@ -50,7 +51,10 @@ pub struct IDedupChunkLibrary_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InitializeForPushBuffers: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetParameter: unsafe extern "system" fn(*mut core::ffi::c_void, u32, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetParameter: unsafe extern "system" fn(*mut core::ffi::c_void, u32, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetParameter: usize,
     pub StartChunking: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDedupDataPort, IDedupDataPort_Vtbl, 0x7963d734_40a9_4ea3_bbf6_5a89d26f7ae8);

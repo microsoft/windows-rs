@@ -435,11 +435,13 @@ impl core::ops::Deref for IBackgroundCopyGroup {
 }
 windows_core::imp::interface_hierarchy!(IBackgroundCopyGroup, windows_core::IUnknown);
 impl IBackgroundCopyGroup {
-    pub unsafe fn GetProp(&self, propid: GROUPPROP) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetProp(&self, propid: GROUPPROP) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProp)(windows_core::Interface::as_raw(self), propid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetProp(&self, propid: GROUPPROP, pvarval: *const windows_core::VARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetProp(&self, propid: GROUPPROP, pvarval: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetProp)(windows_core::Interface::as_raw(self), propid, core::mem::transmute(pvarval)).ok()
     }
     pub unsafe fn GetProgress(&self, dwflags: u32) -> windows_core::Result<u32> {
@@ -495,8 +497,14 @@ impl IBackgroundCopyGroup {
 #[repr(C)]
 pub struct IBackgroundCopyGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetProp: unsafe extern "system" fn(*mut core::ffi::c_void, GROUPPROP, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub SetProp: unsafe extern "system" fn(*mut core::ffi::c_void, GROUPPROP, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetProp: unsafe extern "system" fn(*mut core::ffi::c_void, GROUPPROP, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetProp: usize,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetProp: unsafe extern "system" fn(*mut core::ffi::c_void, GROUPPROP, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetProp: usize,
     pub GetProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetJob: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

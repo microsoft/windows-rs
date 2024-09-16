@@ -85,7 +85,7 @@ where
     let output = canonicalize(output)?;
 
     let input = read_input(&input)?;
-    let reader = metadata::Reader::filter(input, &include, &exclude, &config);
+    let reader = metadata::Reader::filter(input, &include, &exclude);
 
     match extension(&output) {
         "rs" => rust::from_reader(reader, config, &output)?,

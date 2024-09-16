@@ -49,10 +49,12 @@ impl ICallFrame {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetParamInfo)(windows_core::Interface::as_raw(self), iparam, &mut result__).map(|| result__)
     }
-    pub unsafe fn SetParam(&self, iparam: u32, pvar: *const windows_core::VARIANT) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetParam(&self, iparam: u32, pvar: *const super::super::Variant::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetParam)(windows_core::Interface::as_raw(self), iparam, core::mem::transmute(pvar)).ok()
     }
-    pub unsafe fn GetParam(&self, iparam: u32) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetParam(&self, iparam: u32) -> windows_core::Result<super::super::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetParam)(windows_core::Interface::as_raw(self), iparam, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -113,8 +115,14 @@ pub struct ICallFrame_Vtbl {
     pub SetReturnValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT),
     pub GetReturnValue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetParamInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CALLFRAMEPARAMINFO) -> windows_core::HRESULT,
-    pub SetParam: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub GetParam: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetParam: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetParam: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetParam: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetParam: usize,
     pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, CALLFRAME_COPY, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Free: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub FreeParam: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,

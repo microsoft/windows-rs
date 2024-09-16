@@ -2072,7 +2072,8 @@ impl IDispatch {
     pub unsafe fn GetIDsOfNames(&self, riid: *const windows_core::GUID, rgsznames: *const windows_core::PCWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIDsOfNames)(windows_core::Interface::as_raw(self), riid, rgsznames, cnames, lcid, rgdispid).ok()
     }
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const windows_core::GUID, lcid: u32, wflags: DISPATCH_FLAGS, pdispparams: *const DISPPARAMS, pvarresult: Option<*mut windows_core::VARIANT>, pexcepinfo: Option<*mut EXCEPINFO>, puargerr: Option<*mut u32>) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const windows_core::GUID, lcid: u32, wflags: DISPATCH_FLAGS, pdispparams: *const DISPPARAMS, pvarresult: Option<*mut super::Variant::VARIANT>, pexcepinfo: Option<*mut EXCEPINFO>, puargerr: Option<*mut u32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), dispidmember, riid, lcid, wflags, pdispparams, core::mem::transmute(pvarresult.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pexcepinfo.unwrap_or(std::ptr::null_mut())), core::mem::transmute(puargerr.unwrap_or(std::ptr::null_mut()))).ok()
     }
 }
@@ -2082,7 +2083,10 @@ pub struct IDispatch_Vtbl {
     pub GetTypeInfoCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetIDsOfNames: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::PCWSTR, u32, u32, *mut i32) -> windows_core::HRESULT,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, u32, DISPATCH_FLAGS, *const DISPPARAMS, *mut core::mem::MaybeUninit<windows_core::VARIANT>, *mut EXCEPINFO, *mut u32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::GUID, u32, DISPATCH_FLAGS, *const DISPPARAMS, *mut core::mem::MaybeUninit<super::Variant::VARIANT>, *mut EXCEPINFO, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Invoke: usize,
 }
 windows_core::imp::define_interface!(IEnumCATEGORYINFO, IEnumCATEGORYINFO_Vtbl, 0x0002e011_0000_0000_c000_000000000046);
 impl core::ops::Deref for IEnumCATEGORYINFO {
@@ -4136,7 +4140,8 @@ impl ITypeInfo {
     pub unsafe fn GetIDsOfNames(&self, rgsznames: *const windows_core::PCWSTR, cnames: u32, pmemid: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetIDsOfNames)(windows_core::Interface::as_raw(self), rgsznames, cnames, pmemid).ok()
     }
-    pub unsafe fn Invoke(&self, pvinstance: *const core::ffi::c_void, memid: i32, wflags: DISPATCH_FLAGS, pdispparams: *mut DISPPARAMS, pvarresult: *mut windows_core::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> windows_core::Result<()> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Invoke(&self, pvinstance: *const core::ffi::c_void, memid: i32, wflags: DISPATCH_FLAGS, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), pvinstance, memid, wflags, pdispparams, core::mem::transmute(pvarresult), pexcepinfo, puargerr).ok()
     }
     pub unsafe fn GetDocumentation(&self, memid: i32, pbstrname: Option<*mut windows_core::BSTR>, pbstrdocstring: Option<*mut windows_core::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
@@ -4200,7 +4205,10 @@ pub struct ITypeInfo_Vtbl {
     pub GetRefTypeOfImplType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetImplTypeFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut IMPLTYPEFLAGS) -> windows_core::HRESULT,
     pub GetIDsOfNames: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::PCWSTR, u32, *mut i32) -> windows_core::HRESULT,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, i32, DISPATCH_FLAGS, *mut DISPPARAMS, *mut core::mem::MaybeUninit<windows_core::VARIANT>, *mut EXCEPINFO, *mut u32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, i32, DISPATCH_FLAGS, *mut DISPPARAMS, *mut core::mem::MaybeUninit<super::Variant::VARIANT>, *mut EXCEPINFO, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Invoke: usize,
     pub GetDocumentation: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut u32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetDllEntry: unsafe extern "system" fn(*mut core::ffi::c_void, i32, INVOKEKIND, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut u16) -> windows_core::HRESULT,
     pub GetRefTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4246,45 +4254,55 @@ impl ITypeInfo2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVarIndexOfMemId)(windows_core::Interface::as_raw(self), memid, &mut result__).map(|| result__)
     }
-    pub unsafe fn GetCustData(&self, guid: *const windows_core::GUID) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCustData(&self, guid: *const windows_core::GUID) -> windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCustData)(windows_core::Interface::as_raw(self), guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetFuncCustData(&self, index: u32, guid: *const windows_core::GUID) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetFuncCustData(&self, index: u32, guid: *const windows_core::GUID) -> windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetFuncCustData)(windows_core::Interface::as_raw(self), index, guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const windows_core::GUID) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const windows_core::GUID) -> windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetParamCustData)(windows_core::Interface::as_raw(self), indexfunc, indexparam, guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetVarCustData(&self, index: u32, guid: *const windows_core::GUID) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetVarCustData(&self, index: u32, guid: *const windows_core::GUID) -> windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetVarCustData)(windows_core::Interface::as_raw(self), index, guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetImplTypeCustData(&self, index: u32, guid: *const windows_core::GUID) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetImplTypeCustData(&self, index: u32, guid: *const windows_core::GUID) -> windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetImplTypeCustData)(windows_core::Interface::as_raw(self), index, guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDocumentation2(&self, memid: i32, lcid: u32, pbstrhelpstring: Option<*mut windows_core::BSTR>, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDocumentation2)(windows_core::Interface::as_raw(self), memid, lcid, core::mem::transmute(pbstrhelpstring.unwrap_or(std::ptr::null_mut())), pdwhelpstringcontext, core::mem::transmute(pbstrhelpstringdll.unwrap_or(std::ptr::null_mut()))).ok()
     }
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllCustData(&self) -> windows_core::Result<CUSTDATA> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAllCustData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllFuncCustData(&self, index: u32) -> windows_core::Result<CUSTDATA> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAllFuncCustData)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
     }
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllParamCustData(&self, indexfunc: u32, indexparam: u32) -> windows_core::Result<CUSTDATA> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAllParamCustData)(windows_core::Interface::as_raw(self), indexfunc, indexparam, &mut result__).map(|| result__)
     }
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllVarCustData(&self, index: u32) -> windows_core::Result<CUSTDATA> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAllVarCustData)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
     }
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllImplTypeCustData(&self, index: u32) -> windows_core::Result<CUSTDATA> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAllImplTypeCustData)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
@@ -4297,17 +4315,47 @@ pub struct ITypeInfo2_Vtbl {
     pub GetTypeFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetFuncIndexOfMemId: unsafe extern "system" fn(*mut core::ffi::c_void, i32, INVOKEKIND, *mut u32) -> windows_core::HRESULT,
     pub GetVarIndexOfMemId: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut u32) -> windows_core::HRESULT,
-    pub GetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub GetFuncCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub GetParamCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub GetVarCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub GetImplTypeCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetCustData: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetFuncCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetFuncCustData: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetParamCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetParamCustData: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetVarCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetVarCustData: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetImplTypeCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetImplTypeCustData: usize,
     pub GetDocumentation2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut u32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetAllCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CUSTDATA) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetAllCustData: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetAllFuncCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CUSTDATA) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetAllFuncCustData: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetAllParamCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut CUSTDATA) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetAllParamCustData: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetAllVarCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CUSTDATA) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetAllVarCustData: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetAllImplTypeCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CUSTDATA) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetAllImplTypeCustData: usize,
 }
 windows_core::imp::define_interface!(ITypeLib, ITypeLib_Vtbl, 0x00020402_0000_0000_c000_000000000046);
 impl core::ops::Deref for ITypeLib {
@@ -4377,7 +4425,8 @@ impl core::ops::Deref for ITypeLib2 {
 }
 windows_core::imp::interface_hierarchy!(ITypeLib2, windows_core::IUnknown, ITypeLib);
 impl ITypeLib2 {
-    pub unsafe fn GetCustData(&self, guid: *const windows_core::GUID) -> windows_core::Result<windows_core::VARIANT> {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCustData(&self, guid: *const windows_core::GUID) -> windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCustData)(windows_core::Interface::as_raw(self), guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
@@ -4387,6 +4436,7 @@ impl ITypeLib2 {
     pub unsafe fn GetDocumentation2(&self, index: i32, lcid: u32, pbstrhelpstring: Option<*mut windows_core::BSTR>, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDocumentation2)(windows_core::Interface::as_raw(self), index, lcid, core::mem::transmute(pbstrhelpstring.unwrap_or(std::ptr::null_mut())), pdwhelpstringcontext, core::mem::transmute(pbstrhelpstringdll.unwrap_or(std::ptr::null_mut()))).ok()
     }
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllCustData(&self) -> windows_core::Result<CUSTDATA> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAllCustData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4395,10 +4445,16 @@ impl ITypeLib2 {
 #[repr(C)]
 pub struct ITypeLib2_Vtbl {
     pub base__: ITypeLib_Vtbl,
-    pub GetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetCustData: usize,
     pub GetLibStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetDocumentation2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut u32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetAllCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CUSTDATA) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetAllCustData: usize,
 }
 windows_core::imp::define_interface!(ITypeLibRegistration, ITypeLibRegistration_Vtbl, 0x76a3e735_02df_4a12_98eb_043ad3600af3);
 impl core::ops::Deref for ITypeLibRegistration {
@@ -6693,33 +6749,39 @@ impl Default for CSPLATFORM {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: *mut CUSTDATAITEM,
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::TypeKind for CUSTDATA {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for CUSTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Debug, Eq, PartialEq)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct CUSTDATAITEM {
     pub guid: windows_core::GUID,
-    pub varValue: core::mem::ManuallyDrop<windows_core::VARIANT>,
+    pub varValue: core::mem::ManuallyDrop<super::Variant::VARIANT>,
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Clone for CUSTDATAITEM {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::TypeKind for CUSTDATAITEM {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for CUSTDATAITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6789,16 +6851,19 @@ impl Default for ContextProperty {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISPPARAMS {
-    pub rgvarg: *mut windows_core::VARIANT,
+    pub rgvarg: *mut super::Variant::VARIANT,
     pub rgdispidNamedArgs: *mut i32,
     pub cArgs: u32,
     pub cNamedArgs: u32,
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::TypeKind for DISPPARAMS {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for DISPPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7497,7 +7562,7 @@ impl Default for VARDESC {
 #[derive(Clone, Copy)]
 pub union VARDESC_0 {
     pub oInst: u32,
-    pub lpvarValue: *mut windows_core::VARIANT,
+    pub lpvarValue: *mut super::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::TypeKind for VARDESC_0 {

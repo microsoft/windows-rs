@@ -596,15 +596,15 @@ impl IActiveScriptHostEncode_Vtbl {
         iid == &<IActiveScriptHostEncode as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptParse32_Impl: Sized + windows_core::IUnknownImpl {
     fn InitNew(&self) -> windows_core::Result<()>;
     fn AddScriptlet(&self, pstrdefaultname: &windows_core::PCWSTR, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, pstrsubitemname: &windows_core::PCWSTR, pstreventname: &windows_core::PCWSTR, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
-    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: Option<&windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut windows_core::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
+    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: Option<&windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IActiveScriptParse32 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptParse32_Vtbl {
     pub const fn new<Identity: IActiveScriptParse32_Impl, const OFFSET: isize>() -> IActiveScriptParse32_Vtbl {
         unsafe extern "system" fn InitNew<Identity: IActiveScriptParse32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -615,7 +615,7 @@ impl IActiveScriptParse32_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveScriptParse32_Impl::AddScriptlet(this, core::mem::transmute(&pstrdefaultname), core::mem::transmute(&pstrcode), core::mem::transmute(&pstritemname), core::mem::transmute(&pstrsubitemname), core::mem::transmute(&pstreventname), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pbstrname), core::mem::transmute_copy(&pexcepinfo)).into()
         }
-        unsafe extern "system" fn ParseScriptText<Identity: IActiveScriptParse32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcode: windows_core::PCWSTR, pstritemname: windows_core::PCWSTR, punkcontext: *mut core::ffi::c_void, pstrdelimiter: windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn ParseScriptText<Identity: IActiveScriptParse32_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcode: windows_core::PCWSTR, pstritemname: windows_core::PCWSTR, punkcontext: *mut core::ffi::c_void, pstrdelimiter: windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveScriptParse32_Impl::ParseScriptText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstritemname), windows_core::from_raw_borrowed(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo)).into()
         }
@@ -630,15 +630,15 @@ impl IActiveScriptParse32_Vtbl {
         iid == &<IActiveScriptParse32 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptParse64_Impl: Sized + windows_core::IUnknownImpl {
     fn InitNew(&self) -> windows_core::Result<()>;
     fn AddScriptlet(&self, pstrdefaultname: &windows_core::PCWSTR, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, pstrsubitemname: &windows_core::PCWSTR, pstreventname: &windows_core::PCWSTR, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
-    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: Option<&windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut windows_core::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
+    fn ParseScriptText(&self, pstrcode: &windows_core::PCWSTR, pstritemname: &windows_core::PCWSTR, punkcontext: Option<&windows_core::IUnknown>, pstrdelimiter: &windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IActiveScriptParse64 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptParse64_Vtbl {
     pub const fn new<Identity: IActiveScriptParse64_Impl, const OFFSET: isize>() -> IActiveScriptParse64_Vtbl {
         unsafe extern "system" fn InitNew<Identity: IActiveScriptParse64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -649,7 +649,7 @@ impl IActiveScriptParse64_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveScriptParse64_Impl::AddScriptlet(this, core::mem::transmute(&pstrdefaultname), core::mem::transmute(&pstrcode), core::mem::transmute(&pstritemname), core::mem::transmute(&pstrsubitemname), core::mem::transmute(&pstreventname), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pbstrname), core::mem::transmute_copy(&pexcepinfo)).into()
         }
-        unsafe extern "system" fn ParseScriptText<Identity: IActiveScriptParse64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcode: windows_core::PCWSTR, pstritemname: windows_core::PCWSTR, punkcontext: *mut core::ffi::c_void, pstrdelimiter: windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn ParseScriptText<Identity: IActiveScriptParse64_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrcode: windows_core::PCWSTR, pstritemname: windows_core::PCWSTR, punkcontext: *mut core::ffi::c_void, pstrdelimiter: windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveScriptParse64_Impl::ParseScriptText(this, core::mem::transmute(&pstrcode), core::mem::transmute(&pstritemname), windows_core::from_raw_borrowed(&punkcontext), core::mem::transmute(&pstrdelimiter), core::mem::transmute_copy(&dwsourcecontextcookie), core::mem::transmute_copy(&ulstartinglinenumber), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo)).into()
         }
@@ -1033,14 +1033,17 @@ impl IActiveScriptProfilerHeapEnum_Vtbl {
         iid == &<IActiveScriptProfilerHeapEnum as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptProperty_Impl: Sized + windows_core::IUnknownImpl {
-    fn GetProperty(&self, dwproperty: u32, pvarindex: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetProperty(&self, dwproperty: u32, pvarindex: *const windows_core::VARIANT, pvarvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetProperty(&self, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT) -> windows_core::Result<super::super::super::Variant::VARIANT>;
+    fn SetProperty(&self, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT, pvarvalue: *const super::super::super::Variant::VARIANT) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IActiveScriptProperty {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptProperty_Vtbl {
     pub const fn new<Identity: IActiveScriptProperty_Impl, const OFFSET: isize>() -> IActiveScriptProperty_Vtbl {
-        unsafe extern "system" fn GetProperty<Identity: IActiveScriptProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwproperty: u32, pvarindex: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: IActiveScriptProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwproperty: u32, pvarindex: *const core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, pvarvalue: *mut core::mem::MaybeUninit<super::super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IActiveScriptProperty_Impl::GetProperty(this, core::mem::transmute_copy(&dwproperty), core::mem::transmute_copy(&pvarindex)) {
                 Ok(ok__) => {
@@ -1050,7 +1053,7 @@ impl IActiveScriptProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: IActiveScriptProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwproperty: u32, pvarindex: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: IActiveScriptProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwproperty: u32, pvarindex: *const core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, pvarvalue: *const core::mem::MaybeUninit<super::super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveScriptProperty_Impl::SetProperty(this, core::mem::transmute_copy(&dwproperty), core::mem::transmute_copy(&pvarindex), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -1086,20 +1089,20 @@ impl IActiveScriptSIPInfo_Vtbl {
         iid == &<IActiveScriptSIPInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptSite_Impl: Sized + windows_core::IUnknownImpl {
     fn GetLCID(&self) -> windows_core::Result<u32>;
     fn GetItemInfo(&self, pstrname: &windows_core::PCWSTR, dwreturnmask: u32, ppiunkitem: *mut Option<windows_core::IUnknown>, ppti: *mut Option<super::super::super::Com::ITypeInfo>) -> windows_core::Result<()>;
     fn GetDocVersionString(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn OnScriptTerminate(&self, pvarresult: *const windows_core::VARIANT, pexcepinfo: *const super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
+    fn OnScriptTerminate(&self, pvarresult: *const super::super::super::Variant::VARIANT, pexcepinfo: *const super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
     fn OnStateChange(&self, ssscriptstate: SCRIPTSTATE) -> windows_core::Result<()>;
     fn OnScriptError(&self, pscripterror: Option<&IActiveScriptError>) -> windows_core::Result<()>;
     fn OnEnterScript(&self) -> windows_core::Result<()>;
     fn OnLeaveScript(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IActiveScriptSite {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IActiveScriptSite_Vtbl {
     pub const fn new<Identity: IActiveScriptSite_Impl, const OFFSET: isize>() -> IActiveScriptSite_Vtbl {
         unsafe extern "system" fn GetLCID<Identity: IActiveScriptSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcid: *mut u32) -> windows_core::HRESULT {
@@ -1126,7 +1129,7 @@ impl IActiveScriptSite_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnScriptTerminate<Identity: IActiveScriptSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarresult: *const core::mem::MaybeUninit<windows_core::VARIANT>, pexcepinfo: *const super::super::super::Com::EXCEPINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnScriptTerminate<Identity: IActiveScriptSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarresult: *const core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, pexcepinfo: *const super::super::super::Com::EXCEPINFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveScriptSite_Impl::OnScriptTerminate(this, core::mem::transmute_copy(&pvarresult), core::mem::transmute_copy(&pexcepinfo)).into()
         }
@@ -3200,8 +3203,8 @@ impl IDebugExpressionContext_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugFormatter_Impl: Sized + windows_core::IUnknownImpl {
-    fn GetStringForVariant(&self, pvar: *const windows_core::VARIANT, nradix: u32) -> windows_core::Result<windows_core::BSTR>;
-    fn GetVariantForString(&self, pwstrvalue: &windows_core::PCWSTR) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetStringForVariant(&self, pvar: *const super::super::super::Variant::VARIANT, nradix: u32) -> windows_core::Result<windows_core::BSTR>;
+    fn GetVariantForString(&self, pwstrvalue: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::Variant::VARIANT>;
     fn GetStringForVarType(&self, vt: super::super::super::Variant::VARENUM, ptdescarraytype: *const super::super::super::Com::TYPEDESC) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3209,7 +3212,7 @@ impl windows_core::RuntimeName for IDebugFormatter {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugFormatter_Vtbl {
     pub const fn new<Identity: IDebugFormatter_Impl, const OFFSET: isize>() -> IDebugFormatter_Vtbl {
-        unsafe extern "system" fn GetStringForVariant<Identity: IDebugFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const core::mem::MaybeUninit<windows_core::VARIANT>, nradix: u32, pbstrvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStringForVariant<Identity: IDebugFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, nradix: u32, pbstrvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDebugFormatter_Impl::GetStringForVariant(this, core::mem::transmute_copy(&pvar), core::mem::transmute_copy(&nradix)) {
                 Ok(ok__) => {
@@ -3219,7 +3222,7 @@ impl IDebugFormatter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVariantForString<Identity: IDebugFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrvalue: windows_core::PCWSTR, pvar: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVariantForString<Identity: IDebugFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwstrvalue: windows_core::PCWSTR, pvar: *mut core::mem::MaybeUninit<super::super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDebugFormatter_Impl::GetVariantForString(this, core::mem::transmute(&pwstrvalue)) {
                 Ok(ok__) => {
@@ -3250,18 +3253,18 @@ impl IDebugFormatter_Vtbl {
         iid == &<IDebugFormatter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHelper_Impl: Sized + windows_core::IUnknownImpl {
-    fn CreatePropertyBrowser(&self, pvar: *const windows_core::VARIANT, bstrname: &windows_core::PCWSTR, pdat: Option<&IDebugApplicationThread>) -> windows_core::Result<super::IDebugProperty>;
-    fn CreatePropertyBrowserEx(&self, pvar: *const windows_core::VARIANT, bstrname: &windows_core::PCWSTR, pdat: Option<&IDebugApplicationThread>, pdf: Option<&IDebugFormatter>) -> windows_core::Result<super::IDebugProperty>;
+    fn CreatePropertyBrowser(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &windows_core::PCWSTR, pdat: Option<&IDebugApplicationThread>) -> windows_core::Result<super::IDebugProperty>;
+    fn CreatePropertyBrowserEx(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &windows_core::PCWSTR, pdat: Option<&IDebugApplicationThread>, pdf: Option<&IDebugFormatter>) -> windows_core::Result<super::IDebugProperty>;
     fn CreateSimpleConnectionPoint(&self, pdisp: Option<&super::super::super::Com::IDispatch>) -> windows_core::Result<ISimpleConnectionPoint>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDebugHelper {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugHelper_Vtbl {
     pub const fn new<Identity: IDebugHelper_Impl, const OFFSET: isize>() -> IDebugHelper_Vtbl {
-        unsafe extern "system" fn CreatePropertyBrowser<Identity: IDebugHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const core::mem::MaybeUninit<windows_core::VARIANT>, bstrname: windows_core::PCWSTR, pdat: *mut core::ffi::c_void, ppdob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePropertyBrowser<Identity: IDebugHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, bstrname: windows_core::PCWSTR, pdat: *mut core::ffi::c_void, ppdob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDebugHelper_Impl::CreatePropertyBrowser(this, core::mem::transmute_copy(&pvar), core::mem::transmute(&bstrname), windows_core::from_raw_borrowed(&pdat)) {
                 Ok(ok__) => {
@@ -3271,7 +3274,7 @@ impl IDebugHelper_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePropertyBrowserEx<Identity: IDebugHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const core::mem::MaybeUninit<windows_core::VARIANT>, bstrname: windows_core::PCWSTR, pdat: *mut core::ffi::c_void, pdf: *mut core::ffi::c_void, ppdob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePropertyBrowserEx<Identity: IDebugHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *const core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, bstrname: windows_core::PCWSTR, pdat: *mut core::ffi::c_void, pdf: *mut core::ffi::c_void, ppdob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDebugHelper_Impl::CreatePropertyBrowserEx(this, core::mem::transmute_copy(&pvar), core::mem::transmute(&bstrname), windows_core::from_raw_borrowed(&pdat), windows_core::from_raw_borrowed(&pdf)) {
                 Ok(ok__) => {
@@ -5280,16 +5283,16 @@ impl ISimpleConnectionPoint_Vtbl {
         iid == &<ISimpleConnectionPoint as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITridentEventSink_Impl: Sized + windows_core::IUnknownImpl {
-    fn FireEvent(&self, pstrevent: &windows_core::PCWSTR, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut windows_core::VARIANT, pei: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
+    fn FireEvent(&self, pstrevent: &windows_core::PCWSTR, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut super::super::super::Variant::VARIANT, pei: *mut super::super::super::Com::EXCEPINFO) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITridentEventSink {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITridentEventSink_Vtbl {
     pub const fn new<Identity: ITridentEventSink_Impl, const OFFSET: isize>() -> ITridentEventSink_Vtbl {
-        unsafe extern "system" fn FireEvent<Identity: ITridentEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrevent: windows_core::PCWSTR, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pei: *mut super::super::super::Com::EXCEPINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn FireEvent<Identity: ITridentEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrevent: windows_core::PCWSTR, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut core::mem::MaybeUninit<super::super::super::Variant::VARIANT>, pei: *mut super::super::super::Com::EXCEPINFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITridentEventSink_Impl::FireEvent(this, core::mem::transmute(&pstrevent), core::mem::transmute_copy(&pdp), core::mem::transmute_copy(&pvarres), core::mem::transmute_copy(&pei)).into()
         }

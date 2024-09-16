@@ -388,18 +388,21 @@ impl IPersistStorage_Vtbl {
         iid == &<IPersistStorage as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPropertyBag_Impl: Sized + windows_core::IUnknownImpl {
-    fn Read(&self, pszpropname: &windows_core::PCWSTR, pvar: *mut windows_core::VARIANT, perrorlog: Option<&super::IErrorLog>) -> windows_core::Result<()>;
-    fn Write(&self, pszpropname: &windows_core::PCWSTR, pvar: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Read(&self, pszpropname: &windows_core::PCWSTR, pvar: *mut super::super::Variant::VARIANT, perrorlog: Option<&super::IErrorLog>) -> windows_core::Result<()>;
+    fn Write(&self, pszpropname: &windows_core::PCWSTR, pvar: *const super::super::Variant::VARIANT) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPropertyBag {}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPropertyBag_Vtbl {
     pub const fn new<Identity: IPropertyBag_Impl, const OFFSET: isize>() -> IPropertyBag_Vtbl {
-        unsafe extern "system" fn Read<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: windows_core::PCWSTR, pvar: *mut core::mem::MaybeUninit<windows_core::VARIANT>, perrorlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Read<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: windows_core::PCWSTR, pvar: *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>, perrorlog: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyBag_Impl::Read(this, core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar), windows_core::from_raw_borrowed(&perrorlog)).into()
         }
-        unsafe extern "system" fn Write<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: windows_core::PCWSTR, pvar: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: IPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropname: windows_core::PCWSTR, pvar: *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyBag_Impl::Write(this, core::mem::transmute(&pszpropname), core::mem::transmute_copy(&pvar)).into()
         }
@@ -409,24 +412,24 @@ impl IPropertyBag_Vtbl {
         iid == &<IPropertyBag as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPropertyBag2_Impl: Sized + windows_core::IUnknownImpl {
-    fn Read(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: Option<&super::IErrorLog>, pvarvalue: *mut windows_core::VARIANT, phrerror: *mut windows_core::HRESULT) -> windows_core::Result<()>;
-    fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Read(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: Option<&super::IErrorLog>, pvarvalue: *mut super::super::Variant::VARIANT, phrerror: *mut windows_core::HRESULT) -> windows_core::Result<()>;
+    fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()>;
     fn CountProperties(&self) -> windows_core::Result<u32>;
     fn GetPropertyInfo(&self, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> windows_core::Result<()>;
     fn LoadObject(&self, pstrname: &windows_core::PCWSTR, dwhint: u32, punkobject: Option<&windows_core::IUnknown>, perrlog: Option<&super::IErrorLog>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Variant")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPropertyBag2 {}
-#[cfg(feature = "Win32_System_Variant")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPropertyBag2_Vtbl {
     pub const fn new<Identity: IPropertyBag2_Impl, const OFFSET: isize>() -> IPropertyBag2_Vtbl {
-        unsafe extern "system" fn Read<Identity: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>, phrerror: *mut windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Read<Identity: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>, phrerror: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyBag2_Impl::Read(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppropbag), windows_core::from_raw_borrowed(&perrlog), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&phrerror)).into()
         }
-        unsafe extern "system" fn Write<Identity: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyBag2_Impl::Write(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppropbag), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -516,9 +519,10 @@ impl IPropertySetStorage_Vtbl {
         iid == &<IPropertySetStorage as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Variant")]
 pub trait IPropertyStorage_Impl: Sized + windows_core::IUnknownImpl {
-    fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut windows_core::PROPVARIANT) -> windows_core::Result<()>;
-    fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const windows_core::PROPVARIANT, propidnamefirst: u32) -> windows_core::Result<()>;
+    fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> windows_core::Result<()>;
+    fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidnamefirst: u32) -> windows_core::Result<()>;
     fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> windows_core::Result<()>;
     fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -530,14 +534,16 @@ pub trait IPropertyStorage_Impl: Sized + windows_core::IUnknownImpl {
     fn SetClass(&self, clsid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> windows_core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Variant")]
 impl windows_core::RuntimeName for IPropertyStorage {}
+#[cfg(feature = "Win32_System_Variant")]
 impl IPropertyStorage_Vtbl {
     pub const fn new<Identity: IPropertyStorage_Impl, const OFFSET: isize>() -> IPropertyStorage_Vtbl {
-        unsafe extern "system" fn ReadMultiple<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut core::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadMultiple<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut core::mem::MaybeUninit<PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyStorage_Impl::ReadMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec), core::mem::transmute_copy(&rgpropvar)).into()
         }
-        unsafe extern "system" fn WriteMultiple<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const core::mem::MaybeUninit<windows_core::PROPVARIANT>, propidnamefirst: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteMultiple<Identity: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const core::mem::MaybeUninit<PROPVARIANT>, propidnamefirst: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyStorage_Impl::WriteMultiple(this, core::mem::transmute_copy(&cpspec), core::mem::transmute_copy(&rgpspec), core::mem::transmute_copy(&rgpropvar), core::mem::transmute_copy(&propidnamefirst)).into()
         }

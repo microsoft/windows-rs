@@ -470,14 +470,16 @@ pub unsafe fn JsStringToPointer(value: *const core::ffi::c_void, stringvalue: *m
     windows_targets::link!("chakra.dll" "system" fn JsStringToPointer(value : *const core::ffi::c_void, stringvalue : *mut *mut u16, stringlength : *mut usize) -> JsErrorCode);
     JsStringToPointer(value, stringvalue, stringlength)
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn JsValueToVariant(object: *const core::ffi::c_void, variant: *mut windows_core::VARIANT) -> JsErrorCode {
-    windows_targets::link!("chakra.dll" "system" fn JsValueToVariant(object : *const core::ffi::c_void, variant : *mut core::mem::MaybeUninit < windows_core::VARIANT >) -> JsErrorCode);
+pub unsafe fn JsValueToVariant(object: *const core::ffi::c_void, variant: *mut super::Variant::VARIANT) -> JsErrorCode {
+    windows_targets::link!("chakra.dll" "system" fn JsValueToVariant(object : *const core::ffi::c_void, variant : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> JsErrorCode);
     JsValueToVariant(object, core::mem::transmute(variant))
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn JsVariantToValue(variant: *const windows_core::VARIANT, value: *mut *mut core::ffi::c_void) -> JsErrorCode {
-    windows_targets::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const core::mem::MaybeUninit < windows_core::VARIANT >, value : *mut *mut core::ffi::c_void) -> JsErrorCode);
+pub unsafe fn JsVariantToValue(variant: *const super::Variant::VARIANT, value: *mut *mut core::ffi::c_void) -> JsErrorCode {
+    windows_targets::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, value : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsVariantToValue(core::mem::transmute(variant), value)
 }
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;

@@ -1001,22 +1001,22 @@ impl IEnumTerminalClass_Vtbl {
         iid == &<IEnumTerminalClass as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMcastAddressAllocation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Scopes(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Scopes(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateScopes(&self) -> windows_core::Result<IEnumMcastScope>;
     fn RequestAddress(&self, pscope: Option<&IMcastScope>, leasestarttime: f64, leasestoptime: f64, numaddresses: i32) -> windows_core::Result<IMcastLeaseInfo>;
     fn RenewAddress(&self, lreserved: i32, prenewrequest: Option<&IMcastLeaseInfo>) -> windows_core::Result<IMcastLeaseInfo>;
     fn ReleaseAddress(&self, preleaserequest: Option<&IMcastLeaseInfo>) -> windows_core::Result<()>;
     fn CreateLeaseInfo(&self, leasestarttime: f64, leasestoptime: f64, dwnumaddresses: u32, ppaddresses: *const windows_core::PCWSTR, prequestid: &windows_core::PCWSTR, pserveraddress: &windows_core::PCWSTR) -> windows_core::Result<IMcastLeaseInfo>;
-    fn CreateLeaseInfoFromVariant(&self, leasestarttime: f64, leasestoptime: f64, vaddresses: &windows_core::VARIANT, prequestid: &windows_core::BSTR, pserveraddress: &windows_core::BSTR) -> windows_core::Result<IMcastLeaseInfo>;
+    fn CreateLeaseInfoFromVariant(&self, leasestarttime: f64, leasestoptime: f64, vaddresses: &super::super::System::Variant::VARIANT, prequestid: &windows_core::BSTR, pserveraddress: &windows_core::BSTR) -> windows_core::Result<IMcastLeaseInfo>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMcastAddressAllocation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMcastAddressAllocation_Vtbl {
     pub const fn new<Identity: IMcastAddressAllocation_Impl, const OFFSET: isize>() -> IMcastAddressAllocation_Vtbl {
-        unsafe extern "system" fn Scopes<Identity: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Scopes<Identity: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMcastAddressAllocation_Impl::Scopes(this) {
                 Ok(ok__) => {
@@ -1070,7 +1070,7 @@ impl IMcastAddressAllocation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLeaseInfoFromVariant<Identity: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, leasestarttime: f64, leasestoptime: f64, vaddresses: core::mem::MaybeUninit<windows_core::VARIANT>, prequestid: core::mem::MaybeUninit<windows_core::BSTR>, pserveraddress: core::mem::MaybeUninit<windows_core::BSTR>, ppreleaserequest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateLeaseInfoFromVariant<Identity: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, leasestarttime: f64, leasestoptime: f64, vaddresses: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, prequestid: core::mem::MaybeUninit<windows_core::BSTR>, pserveraddress: core::mem::MaybeUninit<windows_core::BSTR>, ppreleaserequest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMcastAddressAllocation_Impl::CreateLeaseInfoFromVariant(this, core::mem::transmute_copy(&leasestarttime), core::mem::transmute_copy(&leasestoptime), core::mem::transmute(&vaddresses), core::mem::transmute(&prequestid), core::mem::transmute(&pserveraddress)) {
                 Ok(ok__) => {
@@ -1095,7 +1095,7 @@ impl IMcastAddressAllocation_Vtbl {
         iid == &<IMcastAddressAllocation as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMcastLeaseInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RequestID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn LeaseStartTime(&self) -> windows_core::Result<f64>;
@@ -1105,12 +1105,12 @@ pub trait IMcastLeaseInfo_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn AddressCount(&self) -> windows_core::Result<i32>;
     fn ServerAddress(&self) -> windows_core::Result<windows_core::BSTR>;
     fn TTL(&self) -> windows_core::Result<i32>;
-    fn Addresses(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Addresses(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateAddresses(&self) -> windows_core::Result<IEnumBstr>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMcastLeaseInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMcastLeaseInfo_Vtbl {
     pub const fn new<Identity: IMcastLeaseInfo_Impl, const OFFSET: isize>() -> IMcastLeaseInfo_Vtbl {
         unsafe extern "system" fn RequestID<Identity: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprequestid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1181,7 +1181,7 @@ impl IMcastLeaseInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Addresses<Identity: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Addresses<Identity: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMcastLeaseInfo_Impl::Addresses(this) {
                 Ok(ok__) => {
@@ -1219,7 +1219,7 @@ impl IMcastLeaseInfo_Vtbl {
         iid == &<IMcastLeaseInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMcastScope_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ScopeID(&self) -> windows_core::Result<i32>;
     fn ServerID(&self) -> windows_core::Result<i32>;
@@ -1227,9 +1227,9 @@ pub trait IMcastScope_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ScopeDescription(&self) -> windows_core::Result<windows_core::BSTR>;
     fn TTL(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMcastScope {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMcastScope_Vtbl {
     pub const fn new<Identity: IMcastScope_Impl, const OFFSET: isize>() -> IMcastScope_Vtbl {
         unsafe extern "system" fn ScopeID<Identity: IMcastScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: *mut i32) -> windows_core::HRESULT {
@@ -1295,15 +1295,15 @@ impl IMcastScope_Vtbl {
         iid == &<IMcastScope as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITACDGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn EnumerateQueues(&self) -> windows_core::Result<IEnumQueue>;
-    fn Queues(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Queues(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITACDGroup {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITACDGroup_Vtbl {
     pub const fn new<Identity: ITACDGroup_Impl, const OFFSET: isize>() -> ITACDGroup_Vtbl {
         unsafe extern "system" fn Name<Identity: ITACDGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1326,7 +1326,7 @@ impl ITACDGroup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Queues<Identity: ITACDGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Queues<Identity: ITACDGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITACDGroup_Impl::Queues(this) {
                 Ok(ok__) => {
@@ -1347,14 +1347,14 @@ impl ITACDGroup_Vtbl {
         iid == &<ITACDGroup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITACDGroupEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Group(&self) -> windows_core::Result<ITACDGroup>;
     fn Event(&self) -> windows_core::Result<ACDGROUP_EVENT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITACDGroupEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITACDGroupEvent_Vtbl {
     pub const fn new<Identity: ITACDGroupEvent_Impl, const OFFSET: isize>() -> ITACDGroupEvent_Vtbl {
         unsafe extern "system" fn Group<Identity: ITACDGroupEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1417,15 +1417,15 @@ impl ITAMMediaFormat_Vtbl {
         iid == &<ITAMMediaFormat as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITASRTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> windows_core::Result<ITTerminal>;
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn Error(&self) -> windows_core::Result<windows_core::HRESULT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITASRTerminalEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITASRTerminalEvent_Vtbl {
     pub const fn new<Identity: ITASRTerminalEvent_Impl, const OFFSET: isize>() -> ITASRTerminalEvent_Vtbl {
         unsafe extern "system" fn Terminal<Identity: ITASRTerminalEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppterminal: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1469,14 +1469,14 @@ impl ITASRTerminalEvent_Vtbl {
         iid == &<ITASRTerminalEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn State(&self) -> windows_core::Result<ADDRESS_STATE>;
     fn AddressName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ServiceProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn TAPIObject(&self) -> windows_core::Result<ITTAPI>;
     fn CreateCall(&self, pdestaddress: &windows_core::BSTR, laddresstype: i32, lmediatypes: i32) -> windows_core::Result<ITBasicCallControl>;
-    fn Calls(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Calls(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateCalls(&self) -> windows_core::Result<IEnumCall>;
     fn DialableAddress(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CreateForwardInfoObject(&self) -> windows_core::Result<ITForwardInformation>;
@@ -1487,9 +1487,9 @@ pub trait ITAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetDoNotDisturb(&self, fdonotdisturb: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn DoNotDisturb(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddress {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAddress_Vtbl {
     pub const fn new<Identity: ITAddress_Impl, const OFFSET: isize>() -> ITAddress_Vtbl {
         unsafe extern "system" fn State<Identity: ITAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddressstate: *mut ADDRESS_STATE) -> windows_core::HRESULT {
@@ -1542,7 +1542,7 @@ impl ITAddress_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Calls<Identity: ITAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Calls<Identity: ITAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAddress_Impl::Calls(this) {
                 Ok(ok__) => {
@@ -1647,25 +1647,25 @@ impl ITAddress_Vtbl {
         iid == &<ITAddress as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAddress2_Impl: Sized + ITAddress_Impl {
-    fn Phones(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Phones(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumeratePhones(&self) -> windows_core::Result<IEnumPhone>;
     fn GetPhoneFromTerminal(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<ITPhone>;
-    fn PreferredPhones(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn PreferredPhones(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumeratePreferredPhones(&self) -> windows_core::Result<IEnumPhone>;
     fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn DeviceSpecific(&self, pcall: Option<&ITCallInfo>, pparams: *const u8, dwsize: u32) -> windows_core::Result<()>;
-    fn DeviceSpecificVariant(&self, pcall: Option<&ITCallInfo>, vardevspecificbytearray: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn DeviceSpecificVariant(&self, pcall: Option<&ITCallInfo>, vardevspecificbytearray: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddress2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAddress2_Vtbl {
     pub const fn new<Identity: ITAddress2_Impl, const OFFSET: isize>() -> ITAddress2_Vtbl {
-        unsafe extern "system" fn Phones<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphones: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Phones<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphones: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAddress2_Impl::Phones(this) {
                 Ok(ok__) => {
@@ -1695,7 +1695,7 @@ impl ITAddress2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PreferredPhones<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphones: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PreferredPhones<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphones: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAddress2_Impl::PreferredPhones(this) {
                 Ok(ok__) => {
@@ -1733,7 +1733,7 @@ impl ITAddress2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITAddress2_Impl::DeviceSpecific(this, windows_core::from_raw_borrowed(&pcall), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&dwsize)).into()
         }
-        unsafe extern "system" fn DeviceSpecificVariant<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void, vardevspecificbytearray: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceSpecificVariant<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void, vardevspecificbytearray: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITAddress2_Impl::DeviceSpecificVariant(this, windows_core::from_raw_borrowed(&pcall), core::mem::transmute(&vardevspecificbytearray)).into()
         }
@@ -1765,20 +1765,20 @@ impl ITAddress2_Vtbl {
         iid == &<ITAddress2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITAddress as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAddressCapabilities_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_AddressCapability(&self, addresscap: ADDRESS_CAPABILITY) -> windows_core::Result<i32>;
     fn get_AddressCapabilityString(&self, addresscapstring: ADDRESS_CAPABILITY_STRING) -> windows_core::Result<windows_core::BSTR>;
-    fn CallTreatments(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn CallTreatments(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateCallTreatments(&self) -> windows_core::Result<IEnumBstr>;
-    fn CompletionMessages(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn CompletionMessages(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateCompletionMessages(&self) -> windows_core::Result<IEnumBstr>;
-    fn DeviceClasses(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn DeviceClasses(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateDeviceClasses(&self) -> windows_core::Result<IEnumBstr>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddressCapabilities {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAddressCapabilities_Vtbl {
     pub const fn new<Identity: ITAddressCapabilities_Impl, const OFFSET: isize>() -> ITAddressCapabilities_Vtbl {
         unsafe extern "system" fn get_AddressCapability<Identity: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, addresscap: ADDRESS_CAPABILITY, plcapability: *mut i32) -> windows_core::HRESULT {
@@ -1801,7 +1801,7 @@ impl ITAddressCapabilities_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallTreatments<Identity: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CallTreatments<Identity: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAddressCapabilities_Impl::CallTreatments(this) {
                 Ok(ok__) => {
@@ -1821,7 +1821,7 @@ impl ITAddressCapabilities_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompletionMessages<Identity: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CompletionMessages<Identity: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAddressCapabilities_Impl::CompletionMessages(this) {
                 Ok(ok__) => {
@@ -1841,7 +1841,7 @@ impl ITAddressCapabilities_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceClasses<Identity: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceClasses<Identity: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAddressCapabilities_Impl::DeviceClasses(this) {
                 Ok(ok__) => {
@@ -1877,7 +1877,7 @@ impl ITAddressCapabilities_Vtbl {
         iid == &<ITAddressCapabilities as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAddressDeviceSpecificEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> windows_core::Result<ITAddress>;
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
@@ -1885,9 +1885,9 @@ pub trait ITAddressDeviceSpecificEvent_Impl: Sized + super::super::System::Com::
     fn lParam2(&self) -> windows_core::Result<i32>;
     fn lParam3(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddressDeviceSpecificEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAddressDeviceSpecificEvent_Vtbl {
     pub const fn new<Identity: ITAddressDeviceSpecificEvent_Impl, const OFFSET: isize>() -> ITAddressDeviceSpecificEvent_Vtbl {
         unsafe extern "system" fn Address<Identity: ITAddressDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1953,15 +1953,15 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
         iid == &<ITAddressDeviceSpecificEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAddressEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> windows_core::Result<ITAddress>;
     fn Event(&self) -> windows_core::Result<ADDRESS_EVENT>;
     fn Terminal(&self) -> windows_core::Result<ITTerminal>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddressEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAddressEvent_Vtbl {
     pub const fn new<Identity: ITAddressEvent_Impl, const OFFSET: isize>() -> ITAddressEvent_Vtbl {
         unsafe extern "system" fn Address<Identity: ITAddressEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2005,18 +2005,18 @@ impl ITAddressEvent_Vtbl {
         iid == &<ITAddressEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAddressTranslation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TranslateAddress(&self, paddresstotranslate: &windows_core::BSTR, lcard: i32, ltranslateoptions: i32) -> windows_core::Result<ITAddressTranslationInfo>;
     fn TranslateDialog(&self, hwndowner: isize, paddressin: &windows_core::BSTR) -> windows_core::Result<()>;
     fn EnumerateLocations(&self) -> windows_core::Result<IEnumLocation>;
-    fn Locations(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Locations(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateCallingCards(&self) -> windows_core::Result<IEnumCallingCard>;
-    fn CallingCards(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn CallingCards(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddressTranslation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAddressTranslation_Vtbl {
     pub const fn new<Identity: ITAddressTranslation_Impl, const OFFSET: isize>() -> ITAddressTranslation_Vtbl {
         unsafe extern "system" fn TranslateAddress<Identity: ITAddressTranslation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddresstotranslate: core::mem::MaybeUninit<windows_core::BSTR>, lcard: i32, ltranslateoptions: i32, pptranslated: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2043,7 +2043,7 @@ impl ITAddressTranslation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Locations<Identity: ITAddressTranslation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Locations<Identity: ITAddressTranslation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAddressTranslation_Impl::Locations(this) {
                 Ok(ok__) => {
@@ -2063,7 +2063,7 @@ impl ITAddressTranslation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallingCards<Identity: ITAddressTranslation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CallingCards<Identity: ITAddressTranslation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAddressTranslation_Impl::CallingCards(this) {
                 Ok(ok__) => {
@@ -2087,7 +2087,7 @@ impl ITAddressTranslation_Vtbl {
         iid == &<ITAddressTranslation as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAddressTranslationInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DialableString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn DisplayableString(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2095,9 +2095,9 @@ pub trait ITAddressTranslationInfo_Impl: Sized + super::super::System::Com::IDis
     fn DestinationCountryCode(&self) -> windows_core::Result<i32>;
     fn TranslationResults(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddressTranslationInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAddressTranslationInfo_Vtbl {
     pub const fn new<Identity: ITAddressTranslationInfo_Impl, const OFFSET: isize>() -> ITAddressTranslationInfo_Vtbl {
         unsafe extern "system" fn DialableString<Identity: ITAddressTranslationInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdialablestring: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2163,7 +2163,7 @@ impl ITAddressTranslationInfo_Vtbl {
         iid == &<ITAddressTranslationInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAgent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumerateAgentSessions(&self) -> windows_core::Result<IEnumAgentSession>;
     fn CreateSession(&self, pacdgroup: Option<&ITACDGroup>, paddress: Option<&ITAddress>) -> windows_core::Result<ITAgentSession>;
@@ -2181,11 +2181,11 @@ pub trait ITAgent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TotalACDTalkTime(&self) -> windows_core::Result<i32>;
     fn TotalACDCallTime(&self) -> windows_core::Result<i32>;
     fn TotalWrapUpTime(&self) -> windows_core::Result<i32>;
-    fn AgentSessions(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn AgentSessions(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAgent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAgent_Vtbl {
     pub const fn new<Identity: ITAgent_Impl, const OFFSET: isize>() -> ITAgent_Vtbl {
         unsafe extern "system" fn EnumerateAgentSessions<Identity: ITAgent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumagentsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2336,7 +2336,7 @@ impl ITAgent_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AgentSessions<Identity: ITAgent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AgentSessions<Identity: ITAgent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAgent_Impl::AgentSessions(this) {
                 Ok(ok__) => {
@@ -2371,14 +2371,14 @@ impl ITAgent_Vtbl {
         iid == &<ITAgent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAgentEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Agent(&self) -> windows_core::Result<ITAgent>;
     fn Event(&self) -> windows_core::Result<AGENT_EVENT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAgentEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAgentEvent_Vtbl {
     pub const fn new<Identity: ITAgentEvent_Impl, const OFFSET: isize>() -> ITAgentEvent_Vtbl {
         unsafe extern "system" fn Agent<Identity: ITAgentEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppagent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2407,19 +2407,19 @@ impl ITAgentEvent_Vtbl {
         iid == &<ITAgentEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAgentHandler_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CreateAgent(&self) -> windows_core::Result<ITAgent>;
     fn CreateAgentWithID(&self, pid: &windows_core::BSTR, ppin: &windows_core::BSTR) -> windows_core::Result<ITAgent>;
     fn EnumerateACDGroups(&self) -> windows_core::Result<IEnumACDGroup>;
     fn EnumerateUsableAddresses(&self) -> windows_core::Result<IEnumAddress>;
-    fn ACDGroups(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn UsableAddresses(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn ACDGroups(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn UsableAddresses(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAgentHandler {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAgentHandler_Vtbl {
     pub const fn new<Identity: ITAgentHandler_Impl, const OFFSET: isize>() -> ITAgentHandler_Vtbl {
         unsafe extern "system" fn Name<Identity: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2472,7 +2472,7 @@ impl ITAgentHandler_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ACDGroups<Identity: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ACDGroups<Identity: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAgentHandler_Impl::ACDGroups(this) {
                 Ok(ok__) => {
@@ -2482,7 +2482,7 @@ impl ITAgentHandler_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UsableAddresses<Identity: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn UsableAddresses<Identity: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAgentHandler_Impl::UsableAddresses(this) {
                 Ok(ok__) => {
@@ -2507,14 +2507,14 @@ impl ITAgentHandler_Vtbl {
         iid == &<ITAgentHandler as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAgentHandlerEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AgentHandler(&self) -> windows_core::Result<ITAgentHandler>;
     fn Event(&self) -> windows_core::Result<AGENTHANDLER_EVENT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAgentHandlerEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAgentHandlerEvent_Vtbl {
     pub const fn new<Identity: ITAgentHandlerEvent_Impl, const OFFSET: isize>() -> ITAgentHandlerEvent_Vtbl {
         unsafe extern "system" fn AgentHandler<Identity: ITAgentHandlerEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppagenthandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2547,7 +2547,7 @@ impl ITAgentHandlerEvent_Vtbl {
         iid == &<ITAgentHandlerEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAgentSession_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Agent(&self) -> windows_core::Result<ITAgent>;
     fn Address(&self) -> windows_core::Result<ITAddress>;
@@ -2567,9 +2567,9 @@ pub trait ITAgentSession_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn LongestTimeToAnswer(&self) -> windows_core::Result<i32>;
     fn AverageTimeToAnswer(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAgentSession {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAgentSession_Vtbl {
     pub const fn new<Identity: ITAgentSession_Impl, const OFFSET: isize>() -> ITAgentSession_Vtbl {
         unsafe extern "system" fn Agent<Identity: ITAgentSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppagent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2761,14 +2761,14 @@ impl ITAgentSession_Vtbl {
         iid == &<ITAgentSession as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAgentSessionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Session(&self) -> windows_core::Result<ITAgentSession>;
     fn Event(&self) -> windows_core::Result<AGENT_SESSION_EVENT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAgentSessionEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAgentSessionEvent_Vtbl {
     pub const fn new<Identity: ITAgentSessionEvent_Impl, const OFFSET: isize>() -> ITAgentSessionEvent_Vtbl {
         unsafe extern "system" fn Session<Identity: ITAgentSessionEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2871,7 +2871,7 @@ impl ITAllocatorProperties_Vtbl {
         iid == &<ITAllocatorProperties as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITAutomatedPhoneControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartTone(&self, tone: PHONE_TONE, lduration: i32) -> windows_core::Result<()>;
     fn StopTone(&self) -> windows_core::Result<()>;
@@ -2904,11 +2904,11 @@ pub trait ITAutomatedPhoneControl_Impl: Sized + super::super::System::Com::IDisp
     fn SelectCall(&self, pcall: Option<&ITCallInfo>, fselectdefaultterminals: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn UnselectCall(&self, pcall: Option<&ITCallInfo>) -> windows_core::Result<()>;
     fn EnumerateSelectedCalls(&self) -> windows_core::Result<IEnumCall>;
-    fn SelectedCalls(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SelectedCalls(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAutomatedPhoneControl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITAutomatedPhoneControl_Vtbl {
     pub const fn new<Identity: ITAutomatedPhoneControl_Impl, const OFFSET: isize>() -> ITAutomatedPhoneControl_Vtbl {
         unsafe extern "system" fn StartTone<Identity: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tone: PHONE_TONE, lduration: i32) -> windows_core::HRESULT {
@@ -3119,7 +3119,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectedCalls<Identity: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SelectedCalls<Identity: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITAutomatedPhoneControl_Impl::SelectedCalls(this) {
                 Ok(ok__) => {
@@ -3169,16 +3169,16 @@ impl ITAutomatedPhoneControl_Vtbl {
         iid == &<ITAutomatedPhoneControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITBasicAudioTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetVolume(&self, lvolume: i32) -> windows_core::Result<()>;
     fn Volume(&self) -> windows_core::Result<i32>;
     fn SetBalance(&self, lbalance: i32) -> windows_core::Result<()>;
     fn Balance(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITBasicAudioTerminal {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITBasicAudioTerminal_Vtbl {
     pub const fn new<Identity: ITBasicAudioTerminal_Impl, const OFFSET: isize>() -> ITBasicAudioTerminal_Vtbl {
         unsafe extern "system" fn SetVolume<Identity: ITBasicAudioTerminal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lvolume: i32) -> windows_core::HRESULT {
@@ -3221,7 +3221,7 @@ impl ITBasicAudioTerminal_Vtbl {
         iid == &<ITBasicAudioTerminal as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITBasicCallControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Connect(&self, fsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Answer(&self) -> windows_core::Result<()>;
@@ -3242,9 +3242,9 @@ pub trait ITBasicCallControl_Impl: Sized + super::super::System::Com::IDispatch_
     fn Finish(&self, finishmode: FINISH_MODE) -> windows_core::Result<()>;
     fn RemoveFromConference(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITBasicCallControl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITBasicCallControl_Vtbl {
     pub const fn new<Identity: ITBasicCallControl_Impl, const OFFSET: isize>() -> ITBasicCallControl_Vtbl {
         unsafe extern "system" fn Connect<Identity: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3351,15 +3351,15 @@ impl ITBasicCallControl_Vtbl {
         iid == &<ITBasicCallControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITBasicCallControl2_Impl: Sized + ITBasicCallControl_Impl {
     fn RequestTerminal(&self, bstrterminalclassguid: &windows_core::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> windows_core::Result<ITTerminal>;
     fn SelectTerminalOnCall(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
     fn UnselectTerminalOnCall(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITBasicCallControl2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITBasicCallControl2_Vtbl {
     pub const fn new<Identity: ITBasicCallControl2_Impl, const OFFSET: isize>() -> ITBasicCallControl2_Vtbl {
         unsafe extern "system" fn RequestTerminal<Identity: ITBasicCallControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrterminalclassguid: core::mem::MaybeUninit<windows_core::BSTR>, lmediatype: i32, direction: TERMINAL_DIRECTION, ppterminal: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3391,17 +3391,17 @@ impl ITBasicCallControl2_Vtbl {
         iid == &<ITBasicCallControl2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITBasicCallControl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCallHub_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Clear(&self) -> windows_core::Result<()>;
     fn EnumerateCalls(&self) -> windows_core::Result<IEnumCall>;
-    fn Calls(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Calls(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn NumCalls(&self) -> windows_core::Result<i32>;
     fn State(&self) -> windows_core::Result<CALLHUB_STATE>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallHub {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCallHub_Vtbl {
     pub const fn new<Identity: ITCallHub_Impl, const OFFSET: isize>() -> ITCallHub_Vtbl {
         unsafe extern "system" fn Clear<Identity: ITCallHub_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3418,7 +3418,7 @@ impl ITCallHub_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Calls<Identity: ITCallHub_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcalls: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Calls<Identity: ITCallHub_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcalls: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITCallHub_Impl::Calls(this) {
                 Ok(ok__) => {
@@ -3461,15 +3461,15 @@ impl ITCallHub_Vtbl {
         iid == &<ITCallHub as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCallHubEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Event(&self) -> windows_core::Result<CALLHUB_EVENT>;
     fn CallHub(&self) -> windows_core::Result<ITCallHub>;
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallHubEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCallHubEvent_Vtbl {
     pub const fn new<Identity: ITCallHubEvent_Impl, const OFFSET: isize>() -> ITCallHubEvent_Vtbl {
         unsafe extern "system" fn Event<Identity: ITCallHubEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevent: *mut CALLHUB_EVENT) -> windows_core::HRESULT {
@@ -3513,7 +3513,7 @@ impl ITCallHubEvent_Vtbl {
         iid == &<ITCallHubEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCallInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> windows_core::Result<ITAddress>;
     fn CallState(&self) -> windows_core::Result<CALL_STATE>;
@@ -3523,15 +3523,15 @@ pub trait ITCallInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn put_CallInfoLong(&self, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> windows_core::Result<()>;
     fn get_CallInfoString(&self, callinfostring: CALLINFO_STRING) -> windows_core::Result<windows_core::BSTR>;
     fn put_CallInfoString(&self, callinfostring: CALLINFO_STRING, pcallinfostring: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> windows_core::Result<windows_core::VARIANT>;
-    fn put_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn get_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn put_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> windows_core::Result<()>;
     fn SetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> windows_core::Result<()>;
     fn ReleaseUserUserInfo(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCallInfo_Vtbl {
     pub const fn new<Identity: ITCallInfo_Impl, const OFFSET: isize>() -> ITCallInfo_Vtbl {
         unsafe extern "system" fn Address<Identity: ITCallInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3602,7 +3602,7 @@ impl ITCallInfo_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITCallInfo_Impl::put_CallInfoString(this, core::mem::transmute_copy(&callinfostring), core::mem::transmute(&pcallinfostring)).into()
         }
-        unsafe extern "system" fn get_CallInfoBuffer<Identity: ITCallInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, ppcallinfobuffer: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CallInfoBuffer<Identity: ITCallInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, ppcallinfobuffer: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITCallInfo_Impl::get_CallInfoBuffer(this, core::mem::transmute_copy(&callinfobuffer)) {
                 Ok(ok__) => {
@@ -3612,7 +3612,7 @@ impl ITCallInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn put_CallInfoBuffer<Identity: ITCallInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_CallInfoBuffer<Identity: ITCallInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITCallInfo_Impl::put_CallInfoBuffer(this, core::mem::transmute_copy(&callinfobuffer), core::mem::transmute(&pcallinfobuffer)).into()
         }
@@ -3649,14 +3649,14 @@ impl ITCallInfo_Vtbl {
         iid == &<ITCallInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCallInfo2_Impl: Sized + ITCallInfo_Impl {
     fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallInfo2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCallInfo2_Vtbl {
     pub const fn new<Identity: ITCallInfo2_Impl, const OFFSET: isize>() -> ITCallInfo2_Vtbl {
         unsafe extern "system" fn get_EventFilter<Identity: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3683,15 +3683,15 @@ impl ITCallInfo2_Vtbl {
         iid == &<ITCallInfo2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITCallInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCallInfoChangeEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn Cause(&self) -> windows_core::Result<CALLINFOCHANGE_CAUSE>;
     fn CallbackInstance(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallInfoChangeEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCallInfoChangeEvent_Vtbl {
     pub const fn new<Identity: ITCallInfoChangeEvent_Impl, const OFFSET: isize>() -> ITCallInfoChangeEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ITCallInfoChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcall: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3735,7 +3735,7 @@ impl ITCallInfoChangeEvent_Vtbl {
         iid == &<ITCallInfoChangeEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCallMediaEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn Event(&self) -> windows_core::Result<CALL_MEDIA_EVENT>;
@@ -3744,9 +3744,9 @@ pub trait ITCallMediaEvent_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn Stream(&self) -> windows_core::Result<ITStream>;
     fn Cause(&self) -> windows_core::Result<CALL_MEDIA_EVENT_CAUSE>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallMediaEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCallMediaEvent_Vtbl {
     pub const fn new<Identity: ITCallMediaEvent_Impl, const OFFSET: isize>() -> ITCallMediaEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ITCallMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcallinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3823,15 +3823,15 @@ impl ITCallMediaEvent_Vtbl {
         iid == &<ITCallMediaEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCallNotificationEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn Event(&self) -> windows_core::Result<CALL_NOTIFICATION_EVENT>;
     fn CallbackInstance(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallNotificationEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCallNotificationEvent_Vtbl {
     pub const fn new<Identity: ITCallNotificationEvent_Impl, const OFFSET: isize>() -> ITCallNotificationEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ITCallNotificationEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcall: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3875,16 +3875,16 @@ impl ITCallNotificationEvent_Vtbl {
         iid == &<ITCallNotificationEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCallStateEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn State(&self) -> windows_core::Result<CALL_STATE>;
     fn Cause(&self) -> windows_core::Result<CALL_STATE_EVENT_CAUSE>;
     fn CallbackInstance(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallStateEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCallStateEvent_Vtbl {
     pub const fn new<Identity: ITCallStateEvent_Impl, const OFFSET: isize>() -> ITCallStateEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ITCallStateEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcallinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3939,7 +3939,7 @@ impl ITCallStateEvent_Vtbl {
         iid == &<ITCallStateEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCallingCard_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PermanentCardID(&self) -> windows_core::Result<i32>;
     fn NumberOfDigits(&self) -> windows_core::Result<i32>;
@@ -3949,9 +3949,9 @@ pub trait ITCallingCard_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn LongDistanceDialingRule(&self) -> windows_core::Result<windows_core::BSTR>;
     fn InternationalDialingRule(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallingCard {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCallingCard_Vtbl {
     pub const fn new<Identity: ITCallingCard_Impl, const OFFSET: isize>() -> ITCallingCard_Vtbl {
         unsafe extern "system" fn PermanentCardID<Identity: ITCallingCard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcardid: *mut i32) -> windows_core::HRESULT {
@@ -4039,15 +4039,15 @@ impl ITCallingCard_Vtbl {
         iid == &<ITCallingCard as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::VARIANT>;
+    fn get_Item(&self, index: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCollection_Vtbl {
     pub const fn new<Identity: ITCollection_Impl, const OFFSET: isize>() -> ITCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ITCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcount: *mut i32) -> windows_core::HRESULT {
@@ -4060,7 +4060,7 @@ impl ITCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ITCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ITCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
@@ -4091,17 +4091,17 @@ impl ITCollection_Vtbl {
         iid == &<ITCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCollection2_Impl: Sized + ITCollection_Impl {
-    fn Add(&self, index: i32, pvariant: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Add(&self, index: i32, pvariant: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCollection2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCollection2_Vtbl {
     pub const fn new<Identity: ITCollection2_Impl, const OFFSET: isize>() -> ITCollection2_Vtbl {
-        unsafe extern "system" fn Add<Identity: ITCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvariant: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ITCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvariant: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITCollection2_Impl::Add(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pvariant)).into()
         }
@@ -4115,7 +4115,7 @@ impl ITCollection2_Vtbl {
         iid == &<ITCollection2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITCollection as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITCustomTone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Frequency(&self) -> windows_core::Result<i32>;
     fn SetFrequency(&self, lfrequency: i32) -> windows_core::Result<()>;
@@ -4126,9 +4126,9 @@ pub trait ITCustomTone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Volume(&self) -> windows_core::Result<i32>;
     fn SetVolume(&self, lvolume: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCustomTone {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITCustomTone_Vtbl {
     pub const fn new<Identity: ITCustomTone_Impl, const OFFSET: isize>() -> ITCustomTone_Vtbl {
         unsafe extern "system" fn Frequency<Identity: ITCustomTone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plfrequency: *mut i32) -> windows_core::HRESULT {
@@ -4203,7 +4203,7 @@ impl ITCustomTone_Vtbl {
         iid == &<ITCustomTone as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITDetectTone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AppSpecific(&self) -> windows_core::Result<i32>;
     fn SetAppSpecific(&self, lappspecific: i32) -> windows_core::Result<()>;
@@ -4212,9 +4212,9 @@ pub trait ITDetectTone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_Frequency(&self, index: i32) -> windows_core::Result<i32>;
     fn put_Frequency(&self, index: i32, lfrequency: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDetectTone {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITDetectTone_Vtbl {
     pub const fn new<Identity: ITDetectTone_Impl, const OFFSET: isize>() -> ITDetectTone_Vtbl {
         unsafe extern "system" fn AppSpecific<Identity: ITDetectTone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plappspecific: *mut i32) -> windows_core::HRESULT {
@@ -4273,7 +4273,7 @@ impl ITDetectTone_Vtbl {
         iid == &<ITDetectTone as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITDigitDetectionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn Digit(&self) -> windows_core::Result<u8>;
@@ -4281,9 +4281,9 @@ pub trait ITDigitDetectionEvent_Impl: Sized + super::super::System::Com::IDispat
     fn TickCount(&self) -> windows_core::Result<i32>;
     fn CallbackInstance(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDigitDetectionEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITDigitDetectionEvent_Vtbl {
     pub const fn new<Identity: ITDigitDetectionEvent_Impl, const OFFSET: isize>() -> ITDigitDetectionEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ITDigitDetectionEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcallinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4349,16 +4349,16 @@ impl ITDigitDetectionEvent_Vtbl {
         iid == &<ITDigitDetectionEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITDigitGenerationEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn GenerationTermination(&self) -> windows_core::Result<i32>;
     fn TickCount(&self) -> windows_core::Result<i32>;
     fn CallbackInstance(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDigitGenerationEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITDigitGenerationEvent_Vtbl {
     pub const fn new<Identity: ITDigitGenerationEvent_Impl, const OFFSET: isize>() -> ITDigitGenerationEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ITDigitGenerationEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcallinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4413,7 +4413,7 @@ impl ITDigitGenerationEvent_Vtbl {
         iid == &<ITDigitGenerationEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITDigitsGatheredEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn Digits(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -4421,9 +4421,9 @@ pub trait ITDigitsGatheredEvent_Impl: Sized + super::super::System::Com::IDispat
     fn TickCount(&self) -> windows_core::Result<i32>;
     fn CallbackInstance(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDigitsGatheredEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITDigitsGatheredEvent_Vtbl {
     pub const fn new<Identity: ITDigitsGatheredEvent_Impl, const OFFSET: isize>() -> ITDigitsGatheredEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ITDigitsGatheredEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcallinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4489,7 +4489,7 @@ impl ITDigitsGatheredEvent_Vtbl {
         iid == &<ITDigitsGatheredEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITDirectory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DirectoryType(&self) -> windows_core::Result<DIRECTORY_TYPE>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -4503,12 +4503,12 @@ pub trait ITDirectory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ModifyDirectoryObject(&self, pdirectoryobject: Option<&ITDirectoryObject>) -> windows_core::Result<()>;
     fn RefreshDirectoryObject(&self, pdirectoryobject: Option<&ITDirectoryObject>) -> windows_core::Result<()>;
     fn DeleteDirectoryObject(&self, pdirectoryobject: Option<&ITDirectoryObject>) -> windows_core::Result<()>;
-    fn get_DirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &windows_core::BSTR) -> windows_core::Result<windows_core::VARIANT>;
+    fn get_DirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateDirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &windows_core::BSTR) -> windows_core::Result<IEnumDirectoryObject>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDirectory {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITDirectory_Vtbl {
     pub const fn new<Identity: ITDirectory_Impl, const OFFSET: isize>() -> ITDirectory_Vtbl {
         unsafe extern "system" fn DirectoryType<Identity: ITDirectory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirectorytype: *mut DIRECTORY_TYPE) -> windows_core::HRESULT {
@@ -4583,7 +4583,7 @@ impl ITDirectory_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITDirectory_Impl::DeleteDirectoryObject(this, windows_core::from_raw_borrowed(&pdirectoryobject)).into()
         }
-        unsafe extern "system" fn get_DirectoryObjects<Identity: ITDirectory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: core::mem::MaybeUninit<windows_core::BSTR>, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DirectoryObjects<Identity: ITDirectory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: core::mem::MaybeUninit<windows_core::BSTR>, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITDirectory_Impl::get_DirectoryObjects(this, core::mem::transmute_copy(&directoryobjecttype), core::mem::transmute(&pname)) {
                 Ok(ok__) => {
@@ -4625,19 +4625,19 @@ impl ITDirectory_Vtbl {
         iid == &<ITDirectory as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITDirectoryObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ObjectType(&self) -> windows_core::Result<DIRECTORY_OBJECT_TYPE>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, pname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_DialableAddrs(&self, dwaddresstype: i32) -> windows_core::Result<windows_core::VARIANT>;
+    fn get_DialableAddrs(&self, dwaddresstype: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateDialableAddrs(&self, dwaddresstype: u32) -> windows_core::Result<IEnumDialableAddrs>;
     fn SecurityDescriptor(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
     fn SetSecurityDescriptor(&self, psecdes: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDirectoryObject {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITDirectoryObject_Vtbl {
     pub const fn new<Identity: ITDirectoryObject_Impl, const OFFSET: isize>() -> ITDirectoryObject_Vtbl {
         unsafe extern "system" fn ObjectType<Identity: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjecttype: *mut DIRECTORY_OBJECT_TYPE) -> windows_core::HRESULT {
@@ -4664,7 +4664,7 @@ impl ITDirectoryObject_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITDirectoryObject_Impl::SetName(this, core::mem::transmute(&pname)).into()
         }
-        unsafe extern "system" fn get_DialableAddrs<Identity: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaddresstype: i32, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DialableAddrs<Identity: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaddresstype: i32, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITDirectoryObject_Impl::get_DialableAddrs(this, core::mem::transmute_copy(&dwaddresstype)) {
                 Ok(ok__) => {
@@ -4713,7 +4713,7 @@ impl ITDirectoryObject_Vtbl {
         iid == &<ITDirectoryObject as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITDirectoryObjectConference_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Protocol(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Originator(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -4731,9 +4731,9 @@ pub trait ITDirectoryObjectConference_Impl: Sized + super::super::System::Com::I
     fn StopTime(&self) -> windows_core::Result<f64>;
     fn SetStopTime(&self, date: f64) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDirectoryObjectConference {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITDirectoryObjectConference_Vtbl {
     pub const fn new<Identity: ITDirectoryObjectConference_Impl, const OFFSET: isize>() -> ITDirectoryObjectConference_Vtbl {
         unsafe extern "system" fn Protocol<Identity: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprotocol: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4867,14 +4867,14 @@ impl ITDirectoryObjectConference_Vtbl {
         iid == &<ITDirectoryObjectConference as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITDirectoryObjectUser_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IPPhonePrimary(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetIPPhonePrimary(&self, pname: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDirectoryObjectUser {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITDirectoryObjectUser_Vtbl {
     pub const fn new<Identity: ITDirectoryObjectUser_Impl, const OFFSET: isize>() -> ITDirectoryObjectUser_Vtbl {
         unsafe extern "system" fn IPPhonePrimary<Identity: ITDirectoryObjectUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4901,13 +4901,13 @@ impl ITDirectoryObjectUser_Vtbl {
         iid == &<ITDirectoryObjectUser as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITDispatchMapper_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn QueryDispatchInterface(&self, piid: &windows_core::BSTR, pinterfacetomap: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<super::super::System::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDispatchMapper {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITDispatchMapper_Vtbl {
     pub const fn new<Identity: ITDispatchMapper_Impl, const OFFSET: isize>() -> ITDispatchMapper_Vtbl {
         unsafe extern "system" fn QueryDispatchInterface<Identity: ITDispatchMapper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piid: core::mem::MaybeUninit<windows_core::BSTR>, pinterfacetomap: *mut core::ffi::c_void, ppreturnedinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4926,7 +4926,7 @@ impl ITDispatchMapper_Vtbl {
         iid == &<ITDispatchMapper as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITFileTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> windows_core::Result<ITTerminal>;
     fn Track(&self) -> windows_core::Result<ITFileTrack>;
@@ -4935,9 +4935,9 @@ pub trait ITFileTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch
     fn Cause(&self) -> windows_core::Result<FT_STATE_EVENT_CAUSE>;
     fn Error(&self) -> windows_core::Result<windows_core::HRESULT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITFileTerminalEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITFileTerminalEvent_Vtbl {
     pub const fn new<Identity: ITFileTerminalEvent_Impl, const OFFSET: isize>() -> ITFileTerminalEvent_Vtbl {
         unsafe extern "system" fn Terminal<Identity: ITFileTerminalEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppterminal: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5014,7 +5014,7 @@ impl ITFileTerminalEvent_Vtbl {
         iid == &<ITFileTerminalEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITFileTrack_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Format(&self) -> windows_core::Result<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE>;
     fn SetFormat(&self, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()>;
@@ -5023,9 +5023,9 @@ pub trait ITFileTrack_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetAudioFormatForScripting(&self, paudioformat: Option<&ITScriptableAudioFormat>) -> windows_core::Result<()>;
     fn EmptyAudioFormatForScripting(&self) -> windows_core::Result<ITScriptableAudioFormat>;
 }
-#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITFileTrack {}
-#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITFileTrack_Vtbl {
     pub const fn new<Identity: ITFileTrack_Impl, const OFFSET: isize>() -> ITFileTrack_Vtbl {
         unsafe extern "system" fn Format<Identity: ITFileTrack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmt: *mut *mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::HRESULT {
@@ -5090,7 +5090,7 @@ impl ITFileTrack_Vtbl {
         iid == &<ITFileTrack as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITForwardInformation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetNumRingsNoAnswer(&self, lnumrings: i32) -> windows_core::Result<()>;
     fn NumRingsNoAnswer(&self) -> windows_core::Result<i32>;
@@ -5100,9 +5100,9 @@ pub trait ITForwardInformation_Impl: Sized + super::super::System::Com::IDispatc
     fn GetForwardType(&self, forwardtype: i32, ppdestinationaddress: *mut windows_core::BSTR, ppcalleraddress: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITForwardInformation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITForwardInformation_Vtbl {
     pub const fn new<Identity: ITForwardInformation_Impl, const OFFSET: isize>() -> ITForwardInformation_Vtbl {
         unsafe extern "system" fn SetNumRingsNoAnswer<Identity: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnumrings: i32) -> windows_core::HRESULT {
@@ -5166,16 +5166,16 @@ impl ITForwardInformation_Vtbl {
         iid == &<ITForwardInformation as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITForwardInformation2_Impl: Sized + ITForwardInformation_Impl {
     fn SetForwardType2(&self, forwardtype: i32, pdestaddress: &windows_core::BSTR, destaddresstype: i32, pcalleraddress: &windows_core::BSTR, calleraddresstype: i32) -> windows_core::Result<()>;
     fn GetForwardType2(&self, forwardtype: i32, ppdestinationaddress: *mut windows_core::BSTR, pdestaddresstype: *mut i32, ppcalleraddress: *mut windows_core::BSTR, pcalleraddresstype: *mut i32) -> windows_core::Result<()>;
     fn get_ForwardTypeDestinationAddressType(&self, forwardtype: i32) -> windows_core::Result<i32>;
     fn get_ForwardTypeCallerAddressType(&self, forwardtype: i32) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITForwardInformation2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITForwardInformation2_Vtbl {
     pub const fn new<Identity: ITForwardInformation2_Impl, const OFFSET: isize>() -> ITForwardInformation2_Vtbl {
         unsafe extern "system" fn SetForwardType2<Identity: ITForwardInformation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, forwardtype: i32, pdestaddress: core::mem::MaybeUninit<windows_core::BSTR>, destaddresstype: i32, pcalleraddress: core::mem::MaybeUninit<windows_core::BSTR>, calleraddresstype: i32) -> windows_core::HRESULT {
@@ -5218,14 +5218,14 @@ impl ITForwardInformation2_Vtbl {
         iid == &<ITForwardInformation2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITForwardInformation as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITILSConfig_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Port(&self) -> windows_core::Result<i32>;
     fn SetPort(&self, port: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITILSConfig {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITILSConfig_Vtbl {
     pub const fn new<Identity: ITILSConfig_Impl, const OFFSET: isize>() -> ITILSConfig_Vtbl {
         unsafe extern "system" fn Port<Identity: ITILSConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pport: *mut i32) -> windows_core::HRESULT {
@@ -5308,7 +5308,7 @@ impl ITLegacyAddressMediaControl2_Vtbl {
         iid == &<ITLegacyAddressMediaControl2 as windows_core::Interface>::IID || iid == &<ITLegacyAddressMediaControl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITLegacyCallMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DetectDigits(&self, digitmode: i32) -> windows_core::Result<()>;
     fn GenerateDigits(&self, pdigits: &windows_core::BSTR, digitmode: i32) -> windows_core::Result<()>;
@@ -5316,9 +5316,9 @@ pub trait ITLegacyCallMediaControl_Impl: Sized + super::super::System::Com::IDis
     fn SetMediaType(&self, lmediatype: i32) -> windows_core::Result<()>;
     fn MonitorMedia(&self, lmediatype: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITLegacyCallMediaControl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITLegacyCallMediaControl_Vtbl {
     pub const fn new<Identity: ITLegacyCallMediaControl_Impl, const OFFSET: isize>() -> ITLegacyCallMediaControl_Vtbl {
         unsafe extern "system" fn DetectDigits<Identity: ITLegacyCallMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, digitmode: i32) -> windows_core::HRESULT {
@@ -5354,7 +5354,7 @@ impl ITLegacyCallMediaControl_Vtbl {
         iid == &<ITLegacyCallMediaControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITLegacyCallMediaControl2_Impl: Sized + ITLegacyCallMediaControl_Impl {
     fn GenerateDigits2(&self, pdigits: &windows_core::BSTR, digitmode: i32, lduration: i32) -> windows_core::Result<()>;
     fn GatherDigits(&self, digitmode: i32, lnumdigits: i32, pterminationdigits: &windows_core::BSTR, lfirstdigittimeout: i32, linterdigittimeout: i32) -> windows_core::Result<()>;
@@ -5365,11 +5365,11 @@ pub trait ITLegacyCallMediaControl2_Impl: Sized + ITLegacyCallMediaControl_Impl 
     fn GenerateCustomTonesByCollection(&self, pcustomtonecollection: Option<&ITCollection2>, lduration: i32) -> windows_core::Result<()>;
     fn CreateDetectToneObject(&self) -> windows_core::Result<ITDetectTone>;
     fn CreateCustomToneObject(&self) -> windows_core::Result<ITCustomTone>;
-    fn GetIDAsVariant(&self, bstrdeviceclass: &windows_core::BSTR) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetIDAsVariant(&self, bstrdeviceclass: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITLegacyCallMediaControl2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITLegacyCallMediaControl2_Vtbl {
     pub const fn new<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>() -> ITLegacyCallMediaControl2_Vtbl {
         unsafe extern "system" fn GenerateDigits2<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdigits: core::mem::MaybeUninit<windows_core::BSTR>, digitmode: i32, lduration: i32) -> windows_core::HRESULT {
@@ -5420,7 +5420,7 @@ impl ITLegacyCallMediaControl2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIDAsVariant<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceclass: core::mem::MaybeUninit<windows_core::BSTR>, pvardeviceid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIDAsVariant<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdeviceclass: core::mem::MaybeUninit<windows_core::BSTR>, pvardeviceid: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITLegacyCallMediaControl2_Impl::GetIDAsVariant(this, core::mem::transmute(&bstrdeviceclass)) {
                 Ok(ok__) => {
@@ -5448,13 +5448,13 @@ impl ITLegacyCallMediaControl2_Vtbl {
         iid == &<ITLegacyCallMediaControl2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITLegacyCallMediaControl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITLegacyWaveSupport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IsFullDuplex(&self) -> windows_core::Result<FULLDUPLEX_SUPPORT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITLegacyWaveSupport {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITLegacyWaveSupport_Vtbl {
     pub const fn new<Identity: ITLegacyWaveSupport_Impl, const OFFSET: isize>() -> ITLegacyWaveSupport_Vtbl {
         unsafe extern "system" fn IsFullDuplex<Identity: ITLegacyWaveSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psupport: *mut FULLDUPLEX_SUPPORT) -> windows_core::HRESULT {
@@ -5473,7 +5473,7 @@ impl ITLegacyWaveSupport_Vtbl {
         iid == &<ITLegacyWaveSupport as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITLocationInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PermanentLocationID(&self) -> windows_core::Result<i32>;
     fn CountryCode(&self) -> windows_core::Result<i32>;
@@ -5487,9 +5487,9 @@ pub trait ITLocationInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn TollPrefixList(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CancelCallWaitingCode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITLocationInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITLocationInfo_Vtbl {
     pub const fn new<Identity: ITLocationInfo_Impl, const OFFSET: isize>() -> ITLocationInfo_Vtbl {
         unsafe extern "system" fn PermanentLocationID<Identity: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pllocationid: *mut i32) -> windows_core::HRESULT {
@@ -5676,16 +5676,16 @@ impl ITMSPAddress_Vtbl {
         iid == &<ITMSPAddress as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Start(&self) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn MediaState(&self) -> windows_core::Result<TERMINAL_MEDIA_STATE>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITMediaControl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITMediaControl_Vtbl {
     pub const fn new<Identity: ITMediaControl_Impl, const OFFSET: isize>() -> ITMediaControl_Vtbl {
         unsafe extern "system" fn Start<Identity: ITMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5722,21 +5722,21 @@ impl ITMediaControl_Vtbl {
         iid == &<ITMediaControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITMediaPlayback_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn SetPlayList(&self, playlistvariant: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn PlayList(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SetPlayList(&self, playlistvariant: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn PlayList(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITMediaPlayback {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITMediaPlayback_Vtbl {
     pub const fn new<Identity: ITMediaPlayback_Impl, const OFFSET: isize>() -> ITMediaPlayback_Vtbl {
-        unsafe extern "system" fn SetPlayList<Identity: ITMediaPlayback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, playlistvariant: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPlayList<Identity: ITMediaPlayback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, playlistvariant: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITMediaPlayback_Impl::SetPlayList(this, core::mem::transmute(&playlistvariant)).into()
         }
-        unsafe extern "system" fn PlayList<Identity: ITMediaPlayback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplaylistvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlayList<Identity: ITMediaPlayback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplaylistvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITMediaPlayback_Impl::PlayList(this) {
                 Ok(ok__) => {
@@ -5756,14 +5756,14 @@ impl ITMediaPlayback_Vtbl {
         iid == &<ITMediaPlayback as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITMediaRecord_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetFileName(&self, bstrfilename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn FileName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITMediaRecord {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITMediaRecord_Vtbl {
     pub const fn new<Identity: ITMediaRecord_Impl, const OFFSET: isize>() -> ITMediaRecord_Vtbl {
         unsafe extern "system" fn SetFileName<Identity: ITMediaRecord_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfilename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -5790,14 +5790,14 @@ impl ITMediaRecord_Vtbl {
         iid == &<ITMediaRecord as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITMediaSupport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MediaTypes(&self) -> windows_core::Result<i32>;
     fn QueryMediaType(&self, lmediatype: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITMediaSupport {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITMediaSupport_Vtbl {
     pub const fn new<Identity: ITMediaSupport_Impl, const OFFSET: isize>() -> ITMediaSupport_Vtbl {
         unsafe extern "system" fn MediaTypes<Identity: ITMediaSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatypes: *mut i32) -> windows_core::HRESULT {
@@ -5830,21 +5830,21 @@ impl ITMediaSupport_Vtbl {
         iid == &<ITMediaSupport as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITMultiTrackTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn TrackTerminals(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn TrackTerminals(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateTrackTerminals(&self) -> windows_core::Result<IEnumTerminal>;
     fn CreateTrackTerminal(&self, mediatype: i32, terminaldirection: TERMINAL_DIRECTION) -> windows_core::Result<ITTerminal>;
     fn MediaTypesInUse(&self) -> windows_core::Result<i32>;
     fn DirectionsInUse(&self) -> windows_core::Result<TERMINAL_DIRECTION>;
     fn RemoveTrackTerminal(&self, ptrackterminaltoremove: Option<&ITTerminal>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITMultiTrackTerminal {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITMultiTrackTerminal_Vtbl {
     pub const fn new<Identity: ITMultiTrackTerminal_Impl, const OFFSET: isize>() -> ITMultiTrackTerminal_Vtbl {
-        unsafe extern "system" fn TrackTerminals<Identity: ITMultiTrackTerminal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TrackTerminals<Identity: ITMultiTrackTerminal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITMultiTrackTerminal_Impl::TrackTerminals(this) {
                 Ok(ok__) => {
@@ -5912,15 +5912,15 @@ impl ITMultiTrackTerminal_Vtbl {
         iid == &<ITMultiTrackTerminal as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITPhone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Open(&self, privilege: PHONE_PRIVILEGE) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn Addresses(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Addresses(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateAddresses(&self) -> windows_core::Result<IEnumAddress>;
     fn get_PhoneCapsLong(&self, pclcap: PHONECAPS_LONG) -> windows_core::Result<i32>;
     fn get_PhoneCapsString(&self, pcscap: PHONECAPS_STRING) -> windows_core::Result<windows_core::BSTR>;
-    fn get_Terminals(&self, paddress: Option<&ITAddress>) -> windows_core::Result<windows_core::VARIANT>;
+    fn get_Terminals(&self, paddress: Option<&ITAddress>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateTerminals(&self, paddress: Option<&ITAddress>) -> windows_core::Result<IEnumTerminal>;
     fn get_ButtonMode(&self, lbuttonid: i32) -> windows_core::Result<PHONE_BUTTON_MODE>;
     fn put_ButtonMode(&self, lbuttonid: i32, buttonmode: PHONE_BUTTON_MODE) -> windows_core::Result<()>;
@@ -5937,20 +5937,20 @@ pub trait ITPhone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RingVolume(&self) -> windows_core::Result<i32>;
     fn Privilege(&self) -> windows_core::Result<PHONE_PRIVILEGE>;
     fn GetPhoneCapsBuffer(&self, pcbcaps: PHONECAPS_BUFFER, pdwsize: *mut u32, ppphonecapsbuffer: *mut *mut u8) -> windows_core::Result<()>;
-    fn get_PhoneCapsBuffer(&self, pcbcaps: PHONECAPS_BUFFER) -> windows_core::Result<windows_core::VARIANT>;
+    fn get_PhoneCapsBuffer(&self, pcbcaps: PHONECAPS_BUFFER) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn get_LampMode(&self, llampid: i32) -> windows_core::Result<PHONE_LAMP_MODE>;
     fn put_LampMode(&self, llampid: i32, lampmode: PHONE_LAMP_MODE) -> windows_core::Result<()>;
     fn Display(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDisplay(&self, lrow: i32, lcolumn: i32, bstrdisplay: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PreferredAddresses(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn PreferredAddresses(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumeratePreferredAddresses(&self) -> windows_core::Result<IEnumAddress>;
     fn DeviceSpecific(&self, pparams: *const u8, dwsize: u32) -> windows_core::Result<()>;
-    fn DeviceSpecificVariant(&self, vardevspecificbytearray: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn DeviceSpecificVariant(&self, vardevspecificbytearray: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITPhone {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITPhone_Vtbl {
     pub const fn new<Identity: ITPhone_Impl, const OFFSET: isize>() -> ITPhone_Vtbl {
         unsafe extern "system" fn Open<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, privilege: PHONE_PRIVILEGE) -> windows_core::HRESULT {
@@ -5961,7 +5961,7 @@ impl ITPhone_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITPhone_Impl::Close(this).into()
         }
-        unsafe extern "system" fn Addresses<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddresses: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Addresses<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddresses: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITPhone_Impl::Addresses(this) {
                 Ok(ok__) => {
@@ -6001,7 +6001,7 @@ impl ITPhone_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Terminals<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress: *mut core::ffi::c_void, pterminals: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Terminals<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress: *mut core::ffi::c_void, pterminals: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITPhone_Impl::get_Terminals(this, windows_core::from_raw_borrowed(&paddress)) {
                 Ok(ok__) => {
@@ -6129,7 +6129,7 @@ impl ITPhone_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITPhone_Impl::GetPhoneCapsBuffer(this, core::mem::transmute_copy(&pcbcaps), core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&ppphonecapsbuffer)).into()
         }
-        unsafe extern "system" fn get_PhoneCapsBuffer<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbcaps: PHONECAPS_BUFFER, pvarbuffer: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PhoneCapsBuffer<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbcaps: PHONECAPS_BUFFER, pvarbuffer: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITPhone_Impl::get_PhoneCapsBuffer(this, core::mem::transmute_copy(&pcbcaps)) {
                 Ok(ok__) => {
@@ -6167,7 +6167,7 @@ impl ITPhone_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITPhone_Impl::SetDisplay(this, core::mem::transmute_copy(&lrow), core::mem::transmute_copy(&lcolumn), core::mem::transmute(&bstrdisplay)).into()
         }
-        unsafe extern "system" fn PreferredAddresses<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddresses: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PreferredAddresses<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddresses: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITPhone_Impl::PreferredAddresses(this) {
                 Ok(ok__) => {
@@ -6191,7 +6191,7 @@ impl ITPhone_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITPhone_Impl::DeviceSpecific(this, core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&dwsize)).into()
         }
-        unsafe extern "system" fn DeviceSpecificVariant<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardevspecificbytearray: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceSpecificVariant<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardevspecificbytearray: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITPhone_Impl::DeviceSpecificVariant(this, core::mem::transmute(&vardevspecificbytearray)).into()
         }
@@ -6246,16 +6246,16 @@ impl ITPhone_Vtbl {
         iid == &<ITPhone as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITPhoneDeviceSpecificEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Phone(&self) -> windows_core::Result<ITPhone>;
     fn lParam1(&self) -> windows_core::Result<i32>;
     fn lParam2(&self) -> windows_core::Result<i32>;
     fn lParam3(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITPhoneDeviceSpecificEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITPhoneDeviceSpecificEvent_Vtbl {
     pub const fn new<Identity: ITPhoneDeviceSpecificEvent_Impl, const OFFSET: isize>() -> ITPhoneDeviceSpecificEvent_Vtbl {
         unsafe extern "system" fn Phone<Identity: ITPhoneDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppphone: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6310,7 +6310,7 @@ impl ITPhoneDeviceSpecificEvent_Vtbl {
         iid == &<ITPhoneDeviceSpecificEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITPhoneEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Phone(&self) -> windows_core::Result<ITPhone>;
     fn Event(&self) -> windows_core::Result<PHONE_EVENT>;
@@ -6322,9 +6322,9 @@ pub trait ITPhoneEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn NumberGathered(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITPhoneEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITPhoneEvent_Vtbl {
     pub const fn new<Identity: ITPhoneEvent_Impl, const OFFSET: isize>() -> ITPhoneEvent_Vtbl {
         unsafe extern "system" fn Phone<Identity: ITPhoneEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppphone: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6434,7 +6434,7 @@ impl ITPhoneEvent_Vtbl {
         iid == &<ITPhoneEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITPluggableTerminalClassInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Company(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -6444,9 +6444,9 @@ pub trait ITPluggableTerminalClassInfo_Impl: Sized + super::super::System::Com::
     fn Direction(&self) -> windows_core::Result<TERMINAL_DIRECTION>;
     fn MediaTypes(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITPluggableTerminalClassInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITPluggableTerminalClassInfo_Vtbl {
     pub const fn new<Identity: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>() -> ITPluggableTerminalClassInfo_Vtbl {
         unsafe extern "system" fn Name<Identity: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -6578,14 +6578,14 @@ impl ITPluggableTerminalEventSinkRegistration_Vtbl {
         iid == &<ITPluggableTerminalEventSinkRegistration as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITPluggableTerminalSuperclassInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CLSID(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITPluggableTerminalSuperclassInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITPluggableTerminalSuperclassInfo_Vtbl {
     pub const fn new<Identity: ITPluggableTerminalSuperclassInfo_Impl, const OFFSET: isize>() -> ITPluggableTerminalSuperclassInfo_Vtbl {
         unsafe extern "system" fn Name<Identity: ITPluggableTerminalSuperclassInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -6614,7 +6614,7 @@ impl ITPluggableTerminalSuperclassInfo_Vtbl {
         iid == &<ITPluggableTerminalSuperclassInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITPrivateEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> windows_core::Result<ITAddress>;
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
@@ -6622,9 +6622,9 @@ pub trait ITPrivateEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn EventCode(&self) -> windows_core::Result<i32>;
     fn EventInterface(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITPrivateEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITPrivateEvent_Vtbl {
     pub const fn new<Identity: ITPrivateEvent_Impl, const OFFSET: isize>() -> ITPrivateEvent_Vtbl {
         unsafe extern "system" fn Address<Identity: ITPrivateEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppaddress: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6690,15 +6690,15 @@ impl ITPrivateEvent_Vtbl {
         iid == &<ITPrivateEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITQOSEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn Event(&self) -> windows_core::Result<QOS_EVENT>;
     fn MediaType(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITQOSEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITQOSEvent_Vtbl {
     pub const fn new<Identity: ITQOSEvent_Impl, const OFFSET: isize>() -> ITQOSEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ITQOSEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcall: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6742,7 +6742,7 @@ impl ITQOSEvent_Vtbl {
         iid == &<ITQOSEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetMeasurementPeriod(&self, lperiod: i32) -> windows_core::Result<()>;
     fn MeasurementPeriod(&self) -> windows_core::Result<i32>;
@@ -6757,9 +6757,9 @@ pub trait ITQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn FinalDisposition(&self) -> windows_core::Result<i32>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITQueue {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITQueue_Vtbl {
     pub const fn new<Identity: ITQueue_Impl, const OFFSET: isize>() -> ITQueue_Vtbl {
         unsafe extern "system" fn SetMeasurementPeriod<Identity: ITQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lperiod: i32) -> windows_core::HRESULT {
@@ -6896,14 +6896,14 @@ impl ITQueue_Vtbl {
         iid == &<ITQueue as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITQueueEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Queue(&self) -> windows_core::Result<ITQueue>;
     fn Event(&self) -> windows_core::Result<ACDQUEUE_EVENT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITQueueEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITQueueEvent_Vtbl {
     pub const fn new<Identity: ITQueueEvent_Impl, const OFFSET: isize>() -> ITQueueEvent_Vtbl {
         unsafe extern "system" fn Queue<Identity: ITQueueEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqueue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6932,19 +6932,19 @@ impl ITQueueEvent_Vtbl {
         iid == &<ITQueueEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITRendezvous_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn DefaultDirectories(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn DefaultDirectories(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateDefaultDirectories(&self) -> windows_core::Result<IEnumDirectory>;
     fn CreateDirectory(&self, directorytype: DIRECTORY_TYPE, pname: &windows_core::BSTR) -> windows_core::Result<ITDirectory>;
     fn CreateDirectoryObject(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &windows_core::BSTR) -> windows_core::Result<ITDirectoryObject>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITRendezvous {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITRendezvous_Vtbl {
     pub const fn new<Identity: ITRendezvous_Impl, const OFFSET: isize>() -> ITRendezvous_Vtbl {
-        unsafe extern "system" fn DefaultDirectories<Identity: ITRendezvous_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DefaultDirectories<Identity: ITRendezvous_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITRendezvous_Impl::DefaultDirectories(this) {
                 Ok(ok__) => {
@@ -6996,13 +6996,13 @@ impl ITRendezvous_Vtbl {
         iid == &<ITRendezvous as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MakeCall(&self, pdestaddress: &windows_core::BSTR, pappname: &windows_core::BSTR, pcalledparty: &windows_core::BSTR, pcomment: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITRequest {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITRequest_Vtbl {
     pub const fn new<Identity: ITRequest_Impl, const OFFSET: isize>() -> ITRequest_Vtbl {
         unsafe extern "system" fn MakeCall<Identity: ITRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestaddress: core::mem::MaybeUninit<windows_core::BSTR>, pappname: core::mem::MaybeUninit<windows_core::BSTR>, pcalledparty: core::mem::MaybeUninit<windows_core::BSTR>, pcomment: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -7015,7 +7015,7 @@ impl ITRequest_Vtbl {
         iid == &<ITRequest as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITRequestEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RegistrationInstance(&self) -> windows_core::Result<i32>;
     fn RequestMode(&self) -> windows_core::Result<i32>;
@@ -7024,9 +7024,9 @@ pub trait ITRequestEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn CalledParty(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Comment(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITRequestEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITRequestEvent_Vtbl {
     pub const fn new<Identity: ITRequestEvent_Impl, const OFFSET: isize>() -> ITRequestEvent_Vtbl {
         unsafe extern "system" fn RegistrationInstance<Identity: ITRequestEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plregistrationinstance: *mut i32) -> windows_core::HRESULT {
@@ -7103,7 +7103,7 @@ impl ITRequestEvent_Vtbl {
         iid == &<ITRequestEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITScriptableAudioFormat_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Channels(&self) -> windows_core::Result<i32>;
     fn SetChannels(&self, nnewval: i32) -> windows_core::Result<()>;
@@ -7118,9 +7118,9 @@ pub trait ITScriptableAudioFormat_Impl: Sized + super::super::System::Com::IDisp
     fn FormatTag(&self) -> windows_core::Result<i32>;
     fn SetFormatTag(&self, nnewval: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITScriptableAudioFormat {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITScriptableAudioFormat_Vtbl {
     pub const fn new<Identity: ITScriptableAudioFormat_Impl, const OFFSET: isize>() -> ITScriptableAudioFormat_Vtbl {
         unsafe extern "system" fn Channels<Identity: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
@@ -7227,13 +7227,13 @@ impl ITScriptableAudioFormat_Vtbl {
         iid == &<ITScriptableAudioFormat as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITStaticAudioTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn WaveId(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITStaticAudioTerminal {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITStaticAudioTerminal_Vtbl {
     pub const fn new<Identity: ITStaticAudioTerminal_Impl, const OFFSET: isize>() -> ITStaticAudioTerminal_Vtbl {
         unsafe extern "system" fn WaveId<Identity: ITStaticAudioTerminal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plwaveid: *mut i32) -> windows_core::HRESULT {
@@ -7252,7 +7252,7 @@ impl ITStaticAudioTerminal_Vtbl {
         iid == &<ITStaticAudioTerminal as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MediaType(&self) -> windows_core::Result<i32>;
     fn Direction(&self) -> windows_core::Result<TERMINAL_DIRECTION>;
@@ -7263,11 +7263,11 @@ pub trait ITStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SelectTerminal(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
     fn UnselectTerminal(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
     fn EnumerateTerminals(&self) -> windows_core::Result<IEnumTerminal>;
-    fn Terminals(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Terminals(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITStream {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITStream_Vtbl {
     pub const fn new<Identity: ITStream_Impl, const OFFSET: isize>() -> ITStream_Vtbl {
         unsafe extern "system" fn MediaType<Identity: ITStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatype: *mut i32) -> windows_core::HRESULT {
@@ -7330,7 +7330,7 @@ impl ITStream_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Terminals<Identity: ITStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pterminals: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Terminals<Identity: ITStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pterminals: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITStream_Impl::Terminals(this) {
                 Ok(ok__) => {
@@ -7358,16 +7358,16 @@ impl ITStream_Vtbl {
         iid == &<ITStream as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITStreamControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateStream(&self, lmediatype: i32, td: TERMINAL_DIRECTION) -> windows_core::Result<ITStream>;
     fn RemoveStream(&self, pstream: Option<&ITStream>) -> windows_core::Result<()>;
     fn EnumerateStreams(&self) -> windows_core::Result<IEnumStream>;
-    fn Streams(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Streams(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITStreamControl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITStreamControl_Vtbl {
     pub const fn new<Identity: ITStreamControl_Impl, const OFFSET: isize>() -> ITStreamControl_Vtbl {
         unsafe extern "system" fn CreateStream<Identity: ITStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmediatype: i32, td: TERMINAL_DIRECTION, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7394,7 +7394,7 @@ impl ITStreamControl_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Streams<Identity: ITStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Streams<Identity: ITStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITStreamControl_Impl::Streams(this) {
                 Ok(ok__) => {
@@ -7416,7 +7416,7 @@ impl ITStreamControl_Vtbl {
         iid == &<ITStreamControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITSubStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartSubStream(&self) -> windows_core::Result<()>;
     fn PauseSubStream(&self) -> windows_core::Result<()>;
@@ -7424,12 +7424,12 @@ pub trait ITSubStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SelectTerminal(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
     fn UnselectTerminal(&self, pterminal: Option<&ITTerminal>) -> windows_core::Result<()>;
     fn EnumerateTerminals(&self) -> windows_core::Result<IEnumTerminal>;
-    fn Terminals(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Terminals(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Stream(&self) -> windows_core::Result<ITStream>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITSubStream {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITSubStream_Vtbl {
     pub const fn new<Identity: ITSubStream_Impl, const OFFSET: isize>() -> ITSubStream_Vtbl {
         unsafe extern "system" fn StartSubStream<Identity: ITSubStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7462,7 +7462,7 @@ impl ITSubStream_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Terminals<Identity: ITSubStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pterminals: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Terminals<Identity: ITSubStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pterminals: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITSubStream_Impl::Terminals(this) {
                 Ok(ok__) => {
@@ -7498,16 +7498,16 @@ impl ITSubStream_Vtbl {
         iid == &<ITSubStream as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITSubStreamControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateSubStream(&self) -> windows_core::Result<ITSubStream>;
     fn RemoveSubStream(&self, psubstream: Option<&ITSubStream>) -> windows_core::Result<()>;
     fn EnumerateSubStreams(&self) -> windows_core::Result<IEnumSubStream>;
-    fn SubStreams(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SubStreams(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITSubStreamControl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITSubStreamControl_Vtbl {
     pub const fn new<Identity: ITSubStreamControl_Impl, const OFFSET: isize>() -> ITSubStreamControl_Vtbl {
         unsafe extern "system" fn CreateSubStream<Identity: ITSubStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsubstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7534,7 +7534,7 @@ impl ITSubStreamControl_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SubStreams<Identity: ITSubStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SubStreams<Identity: ITSubStreamControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITSubStreamControl_Impl::SubStreams(this) {
                 Ok(ok__) => {
@@ -7556,28 +7556,28 @@ impl ITSubStreamControl_Vtbl {
         iid == &<ITSubStreamControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITTAPI_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
-    fn Addresses(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Addresses(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateAddresses(&self) -> windows_core::Result<IEnumAddress>;
     fn RegisterCallNotifications(&self, paddress: Option<&ITAddress>, fmonitor: super::super::Foundation::VARIANT_BOOL, fowner: super::super::Foundation::VARIANT_BOOL, lmediatypes: i32, lcallbackinstance: i32) -> windows_core::Result<i32>;
     fn UnregisterNotifications(&self, lregister: i32) -> windows_core::Result<()>;
-    fn CallHubs(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn CallHubs(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateCallHubs(&self) -> windows_core::Result<IEnumCallHub>;
-    fn SetCallHubTracking(&self, paddresses: &windows_core::VARIANT, btracking: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn SetCallHubTracking(&self, paddresses: &super::super::System::Variant::VARIANT, btracking: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn EnumeratePrivateTAPIObjects(&self) -> windows_core::Result<super::super::System::Com::IEnumUnknown>;
-    fn PrivateTAPIObjects(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn PrivateTAPIObjects(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn RegisterRequestRecipient(&self, lregistrationinstance: i32, lrequestmode: i32, fenable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SetAssistedTelephonyPriority(&self, pappfilename: &windows_core::BSTR, fpriority: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SetApplicationPriority(&self, pappfilename: &windows_core::BSTR, lmediatype: i32, fpriority: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SetEventFilter(&self, lfiltermask: i32) -> windows_core::Result<()>;
     fn EventFilter(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTAPI {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITTAPI_Vtbl {
     pub const fn new<Identity: ITTAPI_Impl, const OFFSET: isize>() -> ITTAPI_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ITTAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7588,7 +7588,7 @@ impl ITTAPI_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITTAPI_Impl::Shutdown(this).into()
         }
-        unsafe extern "system" fn Addresses<Identity: ITTAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Addresses<Identity: ITTAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITTAPI_Impl::Addresses(this) {
                 Ok(ok__) => {
@@ -7622,7 +7622,7 @@ impl ITTAPI_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITTAPI_Impl::UnregisterNotifications(this, core::mem::transmute_copy(&lregister)).into()
         }
-        unsafe extern "system" fn CallHubs<Identity: ITTAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CallHubs<Identity: ITTAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITTAPI_Impl::CallHubs(this) {
                 Ok(ok__) => {
@@ -7642,7 +7642,7 @@ impl ITTAPI_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCallHubTracking<Identity: ITTAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddresses: core::mem::MaybeUninit<windows_core::VARIANT>, btracking: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCallHubTracking<Identity: ITTAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddresses: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, btracking: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITTAPI_Impl::SetCallHubTracking(this, core::mem::transmute(&paddresses), core::mem::transmute_copy(&btracking)).into()
         }
@@ -7656,7 +7656,7 @@ impl ITTAPI_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrivateTAPIObjects<Identity: ITTAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PrivateTAPIObjects<Identity: ITTAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITTAPI_Impl::PrivateTAPIObjects(this) {
                 Ok(ok__) => {
@@ -7716,18 +7716,18 @@ impl ITTAPI_Vtbl {
         iid == &<ITTAPI as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITTAPI2_Impl: Sized + ITTAPI_Impl {
-    fn Phones(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Phones(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumeratePhones(&self) -> windows_core::Result<IEnumPhone>;
     fn CreateEmptyCollectionObject(&self) -> windows_core::Result<ITCollection2>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTAPI2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITTAPI2_Vtbl {
     pub const fn new<Identity: ITTAPI2_Impl, const OFFSET: isize>() -> ITTAPI2_Vtbl {
-        unsafe extern "system" fn Phones<Identity: ITTAPI2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphones: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Phones<Identity: ITTAPI2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphones: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITTAPI2_Impl::Phones(this) {
                 Ok(ok__) => {
@@ -7768,14 +7768,14 @@ impl ITTAPI2_Vtbl {
         iid == &<ITTAPI2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITTAPI as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITTAPICallCenter_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumerateAgentHandlers(&self) -> windows_core::Result<IEnumAgentHandler>;
-    fn AgentHandlers(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn AgentHandlers(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTAPICallCenter {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITTAPICallCenter_Vtbl {
     pub const fn new<Identity: ITTAPICallCenter_Impl, const OFFSET: isize>() -> ITTAPICallCenter_Vtbl {
         unsafe extern "system" fn EnumerateAgentHandlers<Identity: ITTAPICallCenter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumhandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7788,7 +7788,7 @@ impl ITTAPICallCenter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AgentHandlers<Identity: ITTAPICallCenter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn AgentHandlers<Identity: ITTAPICallCenter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITTAPICallCenter_Impl::AgentHandlers(this) {
                 Ok(ok__) => {
@@ -7808,11 +7808,11 @@ impl ITTAPICallCenter_Vtbl {
         iid == &<ITTAPICallCenter as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITTAPIDispatchEventNotification_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTAPIDispatchEventNotification {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITTAPIDispatchEventNotification_Vtbl {
     pub const fn new<Identity: ITTAPIDispatchEventNotification_Impl, const OFFSET: isize>() -> ITTAPIDispatchEventNotification_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -7840,16 +7840,16 @@ impl ITTAPIEventNotification_Vtbl {
         iid == &<ITTAPIEventNotification as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITTAPIObjectEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TAPIObject(&self) -> windows_core::Result<ITTAPI>;
     fn Event(&self) -> windows_core::Result<TAPIOBJECT_EVENT>;
     fn Address(&self) -> windows_core::Result<ITAddress>;
     fn CallbackInstance(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTAPIObjectEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITTAPIObjectEvent_Vtbl {
     pub const fn new<Identity: ITTAPIObjectEvent_Impl, const OFFSET: isize>() -> ITTAPIObjectEvent_Vtbl {
         unsafe extern "system" fn TAPIObject<Identity: ITTAPIObjectEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptapiobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7904,13 +7904,13 @@ impl ITTAPIObjectEvent_Vtbl {
         iid == &<ITTAPIObjectEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITTAPIObjectEvent2_Impl: Sized + ITTAPIObjectEvent_Impl {
     fn Phone(&self) -> windows_core::Result<ITPhone>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTAPIObjectEvent2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITTAPIObjectEvent2_Vtbl {
     pub const fn new<Identity: ITTAPIObjectEvent2_Impl, const OFFSET: isize>() -> ITTAPIObjectEvent2_Vtbl {
         unsafe extern "system" fn Phone<Identity: ITTAPIObjectEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppphone: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7929,15 +7929,15 @@ impl ITTAPIObjectEvent2_Vtbl {
         iid == &<ITTAPIObjectEvent2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITTAPIObjectEvent as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITTTSTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> windows_core::Result<ITTerminal>;
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn Error(&self) -> windows_core::Result<windows_core::HRESULT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTTSTerminalEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITTTSTerminalEvent_Vtbl {
     pub const fn new<Identity: ITTTSTerminalEvent_Impl, const OFFSET: isize>() -> ITTTSTerminalEvent_Vtbl {
         unsafe extern "system" fn Terminal<Identity: ITTTSTerminalEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppterminal: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7981,7 +7981,7 @@ impl ITTTSTerminalEvent_Vtbl {
         iid == &<ITTTSTerminalEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn State(&self) -> windows_core::Result<TERMINAL_STATE>;
@@ -7990,9 +7990,9 @@ pub trait ITTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MediaType(&self) -> windows_core::Result<i32>;
     fn Direction(&self) -> windows_core::Result<TERMINAL_DIRECTION>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTerminal {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITTerminal_Vtbl {
     pub const fn new<Identity: ITTerminal_Impl, const OFFSET: isize>() -> ITTerminal_Vtbl {
         unsafe extern "system" fn Name<Identity: ITTerminal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -8069,21 +8069,21 @@ impl ITTerminal_Vtbl {
         iid == &<ITTerminal as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITTerminalSupport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn StaticTerminals(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn StaticTerminals(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateStaticTerminals(&self) -> windows_core::Result<IEnumTerminal>;
-    fn DynamicTerminalClasses(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn DynamicTerminalClasses(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumerateDynamicTerminalClasses(&self) -> windows_core::Result<IEnumTerminalClass>;
     fn CreateTerminal(&self, pterminalclass: &windows_core::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> windows_core::Result<ITTerminal>;
     fn GetDefaultStaticTerminal(&self, lmediatype: i32, direction: TERMINAL_DIRECTION) -> windows_core::Result<ITTerminal>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTerminalSupport {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITTerminalSupport_Vtbl {
     pub const fn new<Identity: ITTerminalSupport_Impl, const OFFSET: isize>() -> ITTerminalSupport_Vtbl {
-        unsafe extern "system" fn StaticTerminals<Identity: ITTerminalSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn StaticTerminals<Identity: ITTerminalSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITTerminalSupport_Impl::StaticTerminals(this) {
                 Ok(ok__) => {
@@ -8103,7 +8103,7 @@ impl ITTerminalSupport_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DynamicTerminalClasses<Identity: ITTerminalSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DynamicTerminalClasses<Identity: ITTerminalSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITTerminalSupport_Impl::DynamicTerminalClasses(this) {
                 Ok(ok__) => {
@@ -8157,19 +8157,19 @@ impl ITTerminalSupport_Vtbl {
         iid == &<ITTerminalSupport as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITTerminalSupport2_Impl: Sized + ITTerminalSupport_Impl {
-    fn PluggableSuperclasses(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn PluggableSuperclasses(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumeratePluggableSuperclasses(&self) -> windows_core::Result<IEnumPluggableSuperclassInfo>;
-    fn get_PluggableTerminalClasses(&self, bstrterminalsuperclass: &windows_core::BSTR, lmediatype: i32) -> windows_core::Result<windows_core::VARIANT>;
+    fn get_PluggableTerminalClasses(&self, bstrterminalsuperclass: &windows_core::BSTR, lmediatype: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumeratePluggableTerminalClasses(&self, iidterminalsuperclass: &windows_core::GUID, lmediatype: i32) -> windows_core::Result<IEnumPluggableTerminalClassInfo>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTerminalSupport2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITTerminalSupport2_Vtbl {
     pub const fn new<Identity: ITTerminalSupport2_Impl, const OFFSET: isize>() -> ITTerminalSupport2_Vtbl {
-        unsafe extern "system" fn PluggableSuperclasses<Identity: ITTerminalSupport2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PluggableSuperclasses<Identity: ITTerminalSupport2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITTerminalSupport2_Impl::PluggableSuperclasses(this) {
                 Ok(ok__) => {
@@ -8189,7 +8189,7 @@ impl ITTerminalSupport2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_PluggableTerminalClasses<Identity: ITTerminalSupport2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrterminalsuperclass: core::mem::MaybeUninit<windows_core::BSTR>, lmediatype: i32, pvariant: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PluggableTerminalClasses<Identity: ITTerminalSupport2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrterminalsuperclass: core::mem::MaybeUninit<windows_core::BSTR>, lmediatype: i32, pvariant: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITTerminalSupport2_Impl::get_PluggableTerminalClasses(this, core::mem::transmute(&bstrterminalsuperclass), core::mem::transmute_copy(&lmediatype)) {
                 Ok(ok__) => {
@@ -8221,16 +8221,16 @@ impl ITTerminalSupport2_Vtbl {
         iid == &<ITTerminalSupport2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ITTerminalSupport as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITToneDetectionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn AppSpecific(&self) -> windows_core::Result<i32>;
     fn TickCount(&self) -> windows_core::Result<i32>;
     fn CallbackInstance(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITToneDetectionEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITToneDetectionEvent_Vtbl {
     pub const fn new<Identity: ITToneDetectionEvent_Impl, const OFFSET: isize>() -> ITToneDetectionEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ITToneDetectionEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcallinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8285,15 +8285,15 @@ impl ITToneDetectionEvent_Vtbl {
         iid == &<ITToneDetectionEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITToneTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> windows_core::Result<ITTerminal>;
     fn Call(&self) -> windows_core::Result<ITCallInfo>;
     fn Error(&self) -> windows_core::Result<windows_core::HRESULT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITToneTerminalEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITToneTerminalEvent_Vtbl {
     pub const fn new<Identity: ITToneTerminalEvent_Impl, const OFFSET: isize>() -> ITToneTerminalEvent_Vtbl {
         unsafe extern "system" fn Terminal<Identity: ITToneTerminalEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppterminal: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

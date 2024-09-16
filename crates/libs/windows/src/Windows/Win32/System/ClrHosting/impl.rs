@@ -2964,13 +2964,16 @@ impl IManagedObject_Vtbl {
         iid == &<IManagedObject as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IObjectHandle_Impl: Sized + windows_core::IUnknownImpl {
-    fn Unwrap(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn Unwrap(&self) -> windows_core::Result<super::Variant::VARIANT>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IObjectHandle {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IObjectHandle_Vtbl {
     pub const fn new<Identity: IObjectHandle_Impl, const OFFSET: isize>() -> IObjectHandle_Vtbl {
-        unsafe extern "system" fn Unwrap<Identity: IObjectHandle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppv: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Unwrap<Identity: IObjectHandle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppv: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IObjectHandle_Impl::Unwrap(this) {
                 Ok(ok__) => {

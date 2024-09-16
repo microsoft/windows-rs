@@ -23,12 +23,13 @@ impl IChannelCredentials {
     {
         (windows_core::Interface::vtable(self).SetUserNameCredential)(windows_core::Interface::as_raw(self), username.param().abi(), password.param().abi()).ok()
     }
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetClientCertificateFromStore<P0, P1, P2, P3>(&self, storelocation: P0, storename: P1, findyype: P2, findvalue: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
         P2: windows_core::Param<windows_core::BSTR>,
-        P3: windows_core::Param<windows_core::VARIANT>,
+        P3: windows_core::Param<super::super::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).SetClientCertificateFromStore)(windows_core::Interface::as_raw(self), storelocation.param().abi(), storename.param().abi(), findyype.param().abi(), findvalue.param().abi()).ok()
     }
@@ -48,12 +49,13 @@ impl IChannelCredentials {
     {
         (windows_core::Interface::vtable(self).SetClientCertificateFromFile)(windows_core::Interface::as_raw(self), filename.param().abi(), password.param().abi(), keystorageflags.param().abi()).ok()
     }
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetDefaultServiceCertificateFromStore<P0, P1, P2, P3>(&self, storelocation: P0, storename: P1, findtype: P2, findvalue: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
         P2: windows_core::Param<windows_core::BSTR>,
-        P3: windows_core::Param<windows_core::VARIANT>,
+        P3: windows_core::Param<super::super::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).SetDefaultServiceCertificateFromStore)(windows_core::Interface::as_raw(self), storelocation.param().abi(), storename.param().abi(), findtype.param().abi(), findvalue.param().abi()).ok()
     }
@@ -95,10 +97,16 @@ pub struct IChannelCredentials_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub SetWindowsCredential: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, i32, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub SetUserNameCredential: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetClientCertificateFromStore: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetClientCertificateFromStore: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetClientCertificateFromStore: usize,
     pub SetClientCertificateFromStoreByName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetClientCertificateFromFile: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    pub SetDefaultServiceCertificateFromStore: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetDefaultServiceCertificateFromStore: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetDefaultServiceCertificateFromStore: usize,
     pub SetDefaultServiceCertificateFromStoreByName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetDefaultServiceCertificateFromFile: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetServiceCertificateAuthentication: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,

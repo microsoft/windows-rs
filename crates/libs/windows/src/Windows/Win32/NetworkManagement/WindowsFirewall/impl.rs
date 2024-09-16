@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDynamicPortMapping_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ExternalIPAddress(&self) -> windows_core::Result<windows_core::BSTR>;
     fn RemoteHost(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -15,9 +15,9 @@ pub trait IDynamicPortMapping_Impl: Sized + super::super::System::Com::IDispatch
     fn EditDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()>;
     fn EditInternalPort(&self, linternalport: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDynamicPortMapping {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDynamicPortMapping_Vtbl {
     pub const fn new<Identity: IDynamicPortMapping_Impl, const OFFSET: isize>() -> IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn ExternalIPAddress<Identity: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -158,7 +158,7 @@ impl IDynamicPortMapping_Vtbl {
         iid == &<IDynamicPortMapping as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDynamicPortMappingCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, bstrremotehost: &windows_core::BSTR, lexternalport: i32, bstrprotocol: &windows_core::BSTR) -> windows_core::Result<IDynamicPortMapping>;
@@ -166,9 +166,9 @@ pub trait IDynamicPortMappingCollection_Impl: Sized + super::super::System::Com:
     fn Remove(&self, bstrremotehost: &windows_core::BSTR, lexternalport: i32, bstrprotocol: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Add(&self, bstrremotehost: &windows_core::BSTR, lexternalport: i32, bstrprotocol: &windows_core::BSTR, linternalport: i32, bstrinternalclient: &windows_core::BSTR, benabled: super::super::Foundation::VARIANT_BOOL, bstrdescription: &windows_core::BSTR, lleaseduration: i32) -> windows_core::Result<IDynamicPortMapping>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDynamicPortMappingCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDynamicPortMappingCollection_Vtbl {
     pub const fn new<Identity: IDynamicPortMappingCollection_Impl, const OFFSET: isize>() -> IDynamicPortMappingCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: IDynamicPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -271,16 +271,19 @@ impl IEnumNetConnection_Vtbl {
         iid == &<IEnumNetConnection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetSharingEveryConnection_Impl: Sized + windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgvar: *mut windows_core::VARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgvar: *mut super::super::System::Variant::VARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumNetSharingEveryConnection>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumNetSharingEveryConnection {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumNetSharingEveryConnection_Vtbl {
     pub const fn new<Identity: IEnumNetSharingEveryConnection_Impl, const OFFSET: isize>() -> IEnumNetSharingEveryConnection_Vtbl {
-        unsafe extern "system" fn Next<Identity: IEnumNetSharingEveryConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumNetSharingEveryConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumNetSharingEveryConnection_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
         }
@@ -314,16 +317,19 @@ impl IEnumNetSharingEveryConnection_Vtbl {
         iid == &<IEnumNetSharingEveryConnection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetSharingPortMapping_Impl: Sized + windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgvar: *mut windows_core::VARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgvar: *mut super::super::System::Variant::VARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumNetSharingPortMapping>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumNetSharingPortMapping {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumNetSharingPortMapping_Vtbl {
     pub const fn new<Identity: IEnumNetSharingPortMapping_Impl, const OFFSET: isize>() -> IEnumNetSharingPortMapping_Vtbl {
-        unsafe extern "system" fn Next<Identity: IEnumNetSharingPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumNetSharingPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumNetSharingPortMapping_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
         }
@@ -357,16 +363,19 @@ impl IEnumNetSharingPortMapping_Vtbl {
         iid == &<IEnumNetSharingPortMapping as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetSharingPrivateConnection_Impl: Sized + windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgvar: *mut windows_core::VARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgvar: *mut super::super::System::Variant::VARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumNetSharingPrivateConnection>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumNetSharingPrivateConnection {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumNetSharingPrivateConnection_Vtbl {
     pub const fn new<Identity: IEnumNetSharingPrivateConnection_Impl, const OFFSET: isize>() -> IEnumNetSharingPrivateConnection_Vtbl {
-        unsafe extern "system" fn Next<Identity: IEnumNetSharingPrivateConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumNetSharingPrivateConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumNetSharingPrivateConnection_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
         }
@@ -400,16 +409,19 @@ impl IEnumNetSharingPrivateConnection_Vtbl {
         iid == &<IEnumNetSharingPrivateConnection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetSharingPublicConnection_Impl: Sized + windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgvar: *mut windows_core::VARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgvar: *mut super::super::System::Variant::VARIANT, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumNetSharingPublicConnection>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumNetSharingPublicConnection {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumNetSharingPublicConnection_Vtbl {
     pub const fn new<Identity: IEnumNetSharingPublicConnection_Impl, const OFFSET: isize>() -> IEnumNetSharingPublicConnection_Vtbl {
-        unsafe extern "system" fn Next<Identity: IEnumNetSharingPublicConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut core::mem::MaybeUninit<windows_core::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: IEnumNetSharingPublicConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumNetSharingPublicConnection_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
         }
@@ -443,14 +455,14 @@ impl IEnumNetSharingPublicConnection_Vtbl {
         iid == &<IEnumNetSharingPublicConnection as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INATEventManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetExternalIPAddressCallback(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetNumberOfEntriesCallback(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INATEventManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INATEventManager_Vtbl {
     pub const fn new<Identity: INATEventManager_Impl, const OFFSET: isize>() -> INATEventManager_Vtbl {
         unsafe extern "system" fn SetExternalIPAddressCallback<Identity: INATEventManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -629,7 +641,7 @@ impl INetConnectionManager_Vtbl {
         iid == &<INetConnectionManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetConnectionProps_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Guid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -638,9 +650,9 @@ pub trait INetConnectionProps_Impl: Sized + super::super::System::Com::IDispatch
     fn MediaType(&self) -> windows_core::Result<NETCON_MEDIATYPE>;
     fn Characteristics(&self) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetConnectionProps {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetConnectionProps_Vtbl {
     pub const fn new<Identity: INetConnectionProps_Impl, const OFFSET: isize>() -> INetConnectionProps_Vtbl {
         unsafe extern "system" fn Guid<Identity: INetConnectionProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -717,7 +729,7 @@ impl INetConnectionProps_Vtbl {
         iid == &<INetConnectionProps as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwAuthorizedApplication_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -732,9 +744,9 @@ pub trait INetFwAuthorizedApplication_Impl: Sized + super::super::System::Com::I
     fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwAuthorizedApplication {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwAuthorizedApplication_Vtbl {
     pub const fn new<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>() -> INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn Name<Identity: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -841,7 +853,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         iid == &<INetFwAuthorizedApplication as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwAuthorizedApplications_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Add(&self, app: Option<&INetFwAuthorizedApplication>) -> windows_core::Result<()>;
@@ -849,9 +861,9 @@ pub trait INetFwAuthorizedApplications_Impl: Sized + super::super::System::Com::
     fn Item(&self, imagefilename: &windows_core::BSTR) -> windows_core::Result<INetFwAuthorizedApplication>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwAuthorizedApplications {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwAuthorizedApplications_Vtbl {
     pub const fn new<Identity: INetFwAuthorizedApplications_Impl, const OFFSET: isize>() -> INetFwAuthorizedApplications_Vtbl {
         unsafe extern "system" fn Count<Identity: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -905,7 +917,7 @@ impl INetFwAuthorizedApplications_Vtbl {
         iid == &<INetFwAuthorizedApplications as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwIcmpSettings_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AllowOutboundDestinationUnreachable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAllowOutboundDestinationUnreachable(&self, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -928,9 +940,9 @@ pub trait INetFwIcmpSettings_Impl: Sized + super::super::System::Com::IDispatch_
     fn AllowOutboundPacketTooBig(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAllowOutboundPacketTooBig(&self, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwIcmpSettings {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwIcmpSettings_Vtbl {
     pub const fn new<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>() -> INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn AllowOutboundDestinationUnreachable<Identity: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1101,17 +1113,17 @@ impl INetFwIcmpSettings_Vtbl {
         iid == &<INetFwIcmpSettings as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwMgr_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn LocalPolicy(&self) -> windows_core::Result<INetFwPolicy>;
     fn CurrentProfileType(&self) -> windows_core::Result<NET_FW_PROFILE_TYPE>;
     fn RestoreDefaults(&self) -> windows_core::Result<()>;
-    fn IsPortAllowed(&self, imagefilename: &windows_core::BSTR, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: &windows_core::BSTR, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut windows_core::VARIANT, restricted: *mut windows_core::VARIANT) -> windows_core::Result<()>;
-    fn IsIcmpTypeAllowed(&self, ipversion: NET_FW_IP_VERSION, localaddress: &windows_core::BSTR, r#type: u8, allowed: *mut windows_core::VARIANT, restricted: *mut windows_core::VARIANT) -> windows_core::Result<()>;
+    fn IsPortAllowed(&self, imagefilename: &windows_core::BSTR, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: &windows_core::BSTR, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut super::super::System::Variant::VARIANT, restricted: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn IsIcmpTypeAllowed(&self, ipversion: NET_FW_IP_VERSION, localaddress: &windows_core::BSTR, r#type: u8, allowed: *mut super::super::System::Variant::VARIANT, restricted: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwMgr {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwMgr_Vtbl {
     pub const fn new<Identity: INetFwMgr_Impl, const OFFSET: isize>() -> INetFwMgr_Vtbl {
         unsafe extern "system" fn LocalPolicy<Identity: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localpolicy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1138,11 +1150,11 @@ impl INetFwMgr_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             INetFwMgr_Impl::RestoreDefaults(this).into()
         }
-        unsafe extern "system" fn IsPortAllowed<Identity: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: core::mem::MaybeUninit<windows_core::BSTR>, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: core::mem::MaybeUninit<windows_core::BSTR>, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut core::mem::MaybeUninit<windows_core::VARIANT>, restricted: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsPortAllowed<Identity: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: core::mem::MaybeUninit<windows_core::BSTR>, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: core::mem::MaybeUninit<windows_core::BSTR>, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, restricted: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             INetFwMgr_Impl::IsPortAllowed(this, core::mem::transmute(&imagefilename), core::mem::transmute_copy(&ipversion), core::mem::transmute_copy(&portnumber), core::mem::transmute(&localaddress), core::mem::transmute_copy(&ipprotocol), core::mem::transmute_copy(&allowed), core::mem::transmute_copy(&restricted)).into()
         }
-        unsafe extern "system" fn IsIcmpTypeAllowed<Identity: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: NET_FW_IP_VERSION, localaddress: core::mem::MaybeUninit<windows_core::BSTR>, r#type: u8, allowed: *mut core::mem::MaybeUninit<windows_core::VARIANT>, restricted: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsIcmpTypeAllowed<Identity: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: NET_FW_IP_VERSION, localaddress: core::mem::MaybeUninit<windows_core::BSTR>, r#type: u8, allowed: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, restricted: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             INetFwMgr_Impl::IsIcmpTypeAllowed(this, core::mem::transmute_copy(&ipversion), core::mem::transmute(&localaddress), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&allowed), core::mem::transmute_copy(&restricted)).into()
         }
@@ -1159,7 +1171,7 @@ impl INetFwMgr_Vtbl {
         iid == &<INetFwMgr as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwOpenPort_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -1177,9 +1189,9 @@ pub trait INetFwOpenPort_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn BuiltIn(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwOpenPort {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwOpenPort_Vtbl {
     pub const fn new<Identity: INetFwOpenPort_Impl, const OFFSET: isize>() -> INetFwOpenPort_Vtbl {
         unsafe extern "system" fn Name<Identity: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1313,7 +1325,7 @@ impl INetFwOpenPort_Vtbl {
         iid == &<INetFwOpenPort as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwOpenPorts_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Add(&self, port: Option<&INetFwOpenPort>) -> windows_core::Result<()>;
@@ -1321,9 +1333,9 @@ pub trait INetFwOpenPorts_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Item(&self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> windows_core::Result<INetFwOpenPort>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwOpenPorts {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwOpenPorts_Vtbl {
     pub const fn new<Identity: INetFwOpenPorts_Impl, const OFFSET: isize>() -> INetFwOpenPorts_Vtbl {
         unsafe extern "system" fn Count<Identity: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -1377,14 +1389,14 @@ impl INetFwOpenPorts_Vtbl {
         iid == &<INetFwOpenPorts as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwPolicy_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CurrentProfile(&self) -> windows_core::Result<INetFwProfile>;
     fn GetProfileByType(&self, profiletype: NET_FW_PROFILE_TYPE) -> windows_core::Result<INetFwProfile>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwPolicy {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwPolicy_Vtbl {
     pub const fn new<Identity: INetFwPolicy_Impl, const OFFSET: isize>() -> INetFwPolicy_Vtbl {
         unsafe extern "system" fn CurrentProfile<Identity: INetFwPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1417,13 +1429,13 @@ impl INetFwPolicy_Vtbl {
         iid == &<INetFwPolicy as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwPolicy2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CurrentProfileTypes(&self) -> windows_core::Result<i32>;
     fn get_FirewallEnabled(&self, profiletype: NET_FW_PROFILE_TYPE2) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn put_FirewallEnabled(&self, profiletype: NET_FW_PROFILE_TYPE2, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn get_ExcludedInterfaces(&self, profiletype: NET_FW_PROFILE_TYPE2) -> windows_core::Result<windows_core::VARIANT>;
-    fn put_ExcludedInterfaces(&self, profiletype: NET_FW_PROFILE_TYPE2, interfaces: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn get_ExcludedInterfaces(&self, profiletype: NET_FW_PROFILE_TYPE2) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn put_ExcludedInterfaces(&self, profiletype: NET_FW_PROFILE_TYPE2, interfaces: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn get_BlockAllInboundTraffic(&self, profiletype: NET_FW_PROFILE_TYPE2) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn put_BlockAllInboundTraffic(&self, profiletype: NET_FW_PROFILE_TYPE2, block: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn get_NotificationsDisabled(&self, profiletype: NET_FW_PROFILE_TYPE2) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -1442,9 +1454,9 @@ pub trait INetFwPolicy2_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn get_IsRuleGroupCurrentlyEnabled(&self, group: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn LocalPolicyModifyState(&self) -> windows_core::Result<NET_FW_MODIFY_STATE>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwPolicy2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwPolicy2_Vtbl {
     pub const fn new<Identity: INetFwPolicy2_Impl, const OFFSET: isize>() -> INetFwPolicy2_Vtbl {
         unsafe extern "system" fn CurrentProfileTypes<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletypesbitmask: *mut i32) -> windows_core::HRESULT {
@@ -1471,7 +1483,7 @@ impl INetFwPolicy2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             INetFwPolicy2_Impl::put_FirewallEnabled(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&enabled)).into()
         }
-        unsafe extern "system" fn get_ExcludedInterfaces<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ExcludedInterfaces<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match INetFwPolicy2_Impl::get_ExcludedInterfaces(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
@@ -1481,7 +1493,7 @@ impl INetFwPolicy2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn put_ExcludedInterfaces<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_ExcludedInterfaces<Identity: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             INetFwPolicy2_Impl::put_ExcludedInterfaces(this, core::mem::transmute_copy(&profiletype), core::mem::transmute(&interfaces)).into()
         }
@@ -1643,20 +1655,20 @@ impl INetFwPolicy2_Vtbl {
         iid == &<INetFwPolicy2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwProduct_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn RuleCategories(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetRuleCategories(&self, rulecategories: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn RuleCategories(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetRuleCategories(&self, rulecategories: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDisplayName(&self, displayname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn PathToSignedProductExe(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwProduct {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwProduct_Vtbl {
     pub const fn new<Identity: INetFwProduct_Impl, const OFFSET: isize>() -> INetFwProduct_Vtbl {
-        unsafe extern "system" fn RuleCategories<Identity: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulecategories: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RuleCategories<Identity: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulecategories: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match INetFwProduct_Impl::RuleCategories(this) {
                 Ok(ok__) => {
@@ -1666,7 +1678,7 @@ impl INetFwProduct_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRuleCategories<Identity: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulecategories: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRuleCategories<Identity: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulecategories: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             INetFwProduct_Impl::SetRuleCategories(this, core::mem::transmute(&rulecategories)).into()
         }
@@ -1707,16 +1719,16 @@ impl INetFwProduct_Vtbl {
         iid == &<INetFwProduct as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwProducts_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Register(&self, product: Option<&INetFwProduct>) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, index: i32) -> windows_core::Result<INetFwProduct>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwProducts {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwProducts_Vtbl {
     pub const fn new<Identity: INetFwProducts_Impl, const OFFSET: isize>() -> INetFwProducts_Vtbl {
         unsafe extern "system" fn Count<Identity: INetFwProducts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -1771,7 +1783,7 @@ impl INetFwProducts_Vtbl {
         iid == &<INetFwProducts as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwProfile_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<NET_FW_PROFILE_TYPE>;
     fn FirewallEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -1788,9 +1800,9 @@ pub trait INetFwProfile_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Services(&self) -> windows_core::Result<INetFwServices>;
     fn AuthorizedApplications(&self) -> windows_core::Result<INetFwAuthorizedApplications>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwProfile {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwProfile_Vtbl {
     pub const fn new<Identity: INetFwProfile_Impl, const OFFSET: isize>() -> INetFwProfile_Vtbl {
         unsafe extern "system" fn Type<Identity: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut NET_FW_PROFILE_TYPE) -> windows_core::HRESULT {
@@ -1931,7 +1943,7 @@ impl INetFwProfile_Vtbl {
         iid == &<INetFwProfile as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwRemoteAdminSettings_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IpVersion(&self) -> windows_core::Result<NET_FW_IP_VERSION>;
     fn SetIpVersion(&self, ipversion: NET_FW_IP_VERSION) -> windows_core::Result<()>;
@@ -1942,9 +1954,9 @@ pub trait INetFwRemoteAdminSettings_Impl: Sized + super::super::System::Com::IDi
     fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwRemoteAdminSettings {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwRemoteAdminSettings_Vtbl {
     pub const fn new<Identity: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>() -> INetFwRemoteAdminSettings_Vtbl {
         unsafe extern "system" fn IpVersion<Identity: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> windows_core::HRESULT {
@@ -2019,7 +2031,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
         iid == &<INetFwRemoteAdminSettings as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwRule_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2043,8 +2055,8 @@ pub trait INetFwRule_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetIcmpTypesAndCodes(&self, icmptypesandcodes: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Direction(&self) -> windows_core::Result<NET_FW_RULE_DIRECTION>;
     fn SetDirection(&self, dir: NET_FW_RULE_DIRECTION) -> windows_core::Result<()>;
-    fn Interfaces(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetInterfaces(&self, interfaces: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Interfaces(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetInterfaces(&self, interfaces: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn InterfaceTypes(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetInterfaceTypes(&self, interfacetypes: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -2058,9 +2070,9 @@ pub trait INetFwRule_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Action(&self) -> windows_core::Result<NET_FW_ACTION>;
     fn SetAction(&self, action: NET_FW_ACTION) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwRule {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwRule_Vtbl {
     pub const fn new<Identity: INetFwRule_Impl, const OFFSET: isize>() -> INetFwRule_Vtbl {
         unsafe extern "system" fn Name<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2217,7 +2229,7 @@ impl INetFwRule_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             INetFwRule_Impl::SetDirection(this, core::mem::transmute_copy(&dir)).into()
         }
-        unsafe extern "system" fn Interfaces<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaces: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Interfaces<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaces: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match INetFwRule_Impl::Interfaces(this) {
                 Ok(ok__) => {
@@ -2227,7 +2239,7 @@ impl INetFwRule_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInterfaces<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaces: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetInterfaces<Identity: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaces: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             INetFwRule_Impl::SetInterfaces(this, core::mem::transmute(&interfaces)).into()
         }
@@ -2359,14 +2371,14 @@ impl INetFwRule_Vtbl {
         iid == &<INetFwRule as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwRule2_Impl: Sized + INetFwRule_Impl {
     fn EdgeTraversalOptions(&self) -> windows_core::Result<i32>;
     fn SetEdgeTraversalOptions(&self, loptions: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwRule2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwRule2_Vtbl {
     pub const fn new<Identity: INetFwRule2_Impl, const OFFSET: isize>() -> INetFwRule2_Vtbl {
         unsafe extern "system" fn EdgeTraversalOptions<Identity: INetFwRule2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loptions: *mut i32) -> windows_core::HRESULT {
@@ -2393,7 +2405,7 @@ impl INetFwRule2_Vtbl {
         iid == &<INetFwRule2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<INetFwRule as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwRule3_Impl: Sized + INetFwRule2_Impl {
     fn LocalAppPackageId(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetLocalAppPackageId(&self, wszpackageid: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2408,9 +2420,9 @@ pub trait INetFwRule3_Impl: Sized + INetFwRule2_Impl {
     fn SecureFlags(&self) -> windows_core::Result<i32>;
     fn SetSecureFlags(&self, loptions: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwRule3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwRule3_Vtbl {
     pub const fn new<Identity: INetFwRule3_Impl, const OFFSET: isize>() -> INetFwRule3_Vtbl {
         unsafe extern "system" fn LocalAppPackageId<Identity: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpackageid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2517,7 +2529,7 @@ impl INetFwRule3_Vtbl {
         iid == &<INetFwRule3 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<INetFwRule as windows_core::Interface>::IID || iid == &<INetFwRule2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwRules_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Add(&self, rule: Option<&INetFwRule>) -> windows_core::Result<()>;
@@ -2525,9 +2537,9 @@ pub trait INetFwRules_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Item(&self, name: &windows_core::BSTR) -> windows_core::Result<INetFwRule>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwRules {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwRules_Vtbl {
     pub const fn new<Identity: INetFwRules_Impl, const OFFSET: isize>() -> INetFwRules_Vtbl {
         unsafe extern "system" fn Count<Identity: INetFwRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -2581,7 +2593,7 @@ impl INetFwRules_Vtbl {
         iid == &<INetFwRules as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwService_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Type(&self) -> windows_core::Result<NET_FW_SERVICE_TYPE>;
@@ -2596,9 +2608,9 @@ pub trait INetFwService_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn GloballyOpenPorts(&self) -> windows_core::Result<INetFwOpenPorts>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwService {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwService_Vtbl {
     pub const fn new<Identity: INetFwService_Impl, const OFFSET: isize>() -> INetFwService_Vtbl {
         unsafe extern "system" fn Name<Identity: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2717,15 +2729,15 @@ impl INetFwService_Vtbl {
         iid == &<INetFwService as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwServiceRestriction_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RestrictService(&self, servicename: &windows_core::BSTR, appname: &windows_core::BSTR, restrictservice: super::super::Foundation::VARIANT_BOOL, servicesidrestricted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ServiceRestricted(&self, servicename: &windows_core::BSTR, appname: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Rules(&self) -> windows_core::Result<INetFwRules>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwServiceRestriction {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwServiceRestriction_Vtbl {
     pub const fn new<Identity: INetFwServiceRestriction_Impl, const OFFSET: isize>() -> INetFwServiceRestriction_Vtbl {
         unsafe extern "system" fn RestrictService<Identity: INetFwServiceRestriction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: core::mem::MaybeUninit<windows_core::BSTR>, appname: core::mem::MaybeUninit<windows_core::BSTR>, restrictservice: super::super::Foundation::VARIANT_BOOL, servicesidrestricted: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2763,15 +2775,15 @@ impl INetFwServiceRestriction_Vtbl {
         iid == &<INetFwServiceRestriction as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwServices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Item(&self, svctype: NET_FW_SERVICE_TYPE) -> windows_core::Result<INetFwService>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwServices {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetFwServices_Vtbl {
     pub const fn new<Identity: INetFwServices_Impl, const OFFSET: isize>() -> INetFwServices_Vtbl {
         unsafe extern "system" fn Count<Identity: INetFwServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
@@ -2815,7 +2827,7 @@ impl INetFwServices_Vtbl {
         iid == &<INetFwServices as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetSharingConfiguration_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SharingEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SharingConnectionType(&self) -> windows_core::Result<SHARINGCONNECTIONTYPE>;
@@ -2828,9 +2840,9 @@ pub trait INetSharingConfiguration_Impl: Sized + super::super::System::Com::IDis
     fn AddPortMapping(&self, bstrname: &windows_core::BSTR, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: &windows_core::BSTR, etargettype: ICS_TARGETTYPE) -> windows_core::Result<INetSharingPortMapping>;
     fn RemovePortMapping(&self, pmapping: Option<&INetSharingPortMapping>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingConfiguration {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingConfiguration_Vtbl {
     pub const fn new<Identity: INetSharingConfiguration_Impl, const OFFSET: isize>() -> INetSharingConfiguration_Vtbl {
         unsafe extern "system" fn SharingEnabled<Identity: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2921,14 +2933,14 @@ impl INetSharingConfiguration_Vtbl {
         iid == &<INetSharingConfiguration as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetSharingEveryConnectionCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingEveryConnectionCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingEveryConnectionCollection_Vtbl {
     pub const fn new<Identity: INetSharingEveryConnectionCollection_Impl, const OFFSET: isize>() -> INetSharingEveryConnectionCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: INetSharingEveryConnectionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2961,7 +2973,7 @@ impl INetSharingEveryConnectionCollection_Vtbl {
         iid == &<INetSharingEveryConnectionCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetSharingManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SharingInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn get_EnumPublicConnections(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> windows_core::Result<INetSharingPublicConnectionCollection>;
@@ -2970,9 +2982,9 @@ pub trait INetSharingManager_Impl: Sized + super::super::System::Com::IDispatch_
     fn EnumEveryConnection(&self) -> windows_core::Result<INetSharingEveryConnectionCollection>;
     fn get_NetConnectionProps(&self, pnetconnection: Option<&INetConnection>) -> windows_core::Result<INetConnectionProps>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingManager_Vtbl {
     pub const fn new<Identity: INetSharingManager_Impl, const OFFSET: isize>() -> INetSharingManager_Vtbl {
         unsafe extern "system" fn SharingInstalled<Identity: INetSharingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbinstalled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3049,16 +3061,16 @@ impl INetSharingManager_Vtbl {
         iid == &<INetSharingManager as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetSharingPortMapping_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Disable(&self) -> windows_core::Result<()>;
     fn Enable(&self) -> windows_core::Result<()>;
     fn Properties(&self) -> windows_core::Result<INetSharingPortMappingProps>;
     fn Delete(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingPortMapping {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingPortMapping_Vtbl {
     pub const fn new<Identity: INetSharingPortMapping_Impl, const OFFSET: isize>() -> INetSharingPortMapping_Vtbl {
         unsafe extern "system" fn Disable<Identity: INetSharingPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3095,14 +3107,14 @@ impl INetSharingPortMapping_Vtbl {
         iid == &<INetSharingPortMapping as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetSharingPortMappingCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingPortMappingCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingPortMappingCollection_Vtbl {
     pub const fn new<Identity: INetSharingPortMappingCollection_Impl, const OFFSET: isize>() -> INetSharingPortMappingCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: INetSharingPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3135,7 +3147,7 @@ impl INetSharingPortMappingCollection_Vtbl {
         iid == &<INetSharingPortMappingCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetSharingPortMappingProps_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn IPProtocol(&self) -> windows_core::Result<u8>;
@@ -3146,9 +3158,9 @@ pub trait INetSharingPortMappingProps_Impl: Sized + super::super::System::Com::I
     fn TargetIPAddress(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingPortMappingProps {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingPortMappingProps_Vtbl {
     pub const fn new<Identity: INetSharingPortMappingProps_Impl, const OFFSET: isize>() -> INetSharingPortMappingProps_Vtbl {
         unsafe extern "system" fn Name<Identity: INetSharingPortMappingProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3247,14 +3259,14 @@ impl INetSharingPortMappingProps_Vtbl {
         iid == &<INetSharingPortMappingProps as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetSharingPrivateConnectionCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingPrivateConnectionCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingPrivateConnectionCollection_Vtbl {
     pub const fn new<Identity: INetSharingPrivateConnectionCollection_Impl, const OFFSET: isize>() -> INetSharingPrivateConnectionCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: INetSharingPrivateConnectionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3287,14 +3299,14 @@ impl INetSharingPrivateConnectionCollection_Vtbl {
         iid == &<INetSharingPrivateConnectionCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetSharingPublicConnectionCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Count(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingPublicConnectionCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingPublicConnectionCollection_Vtbl {
     pub const fn new<Identity: INetSharingPublicConnectionCollection_Impl, const OFFSET: isize>() -> INetSharingPublicConnectionCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: INetSharingPublicConnectionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3327,7 +3339,7 @@ impl INetSharingPublicConnectionCollection_Vtbl {
         iid == &<INetSharingPublicConnectionCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IStaticPortMapping_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ExternalIPAddress(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ExternalPort(&self) -> windows_core::Result<i32>;
@@ -3341,9 +3353,9 @@ pub trait IStaticPortMapping_Impl: Sized + super::super::System::Com::IDispatch_
     fn EditDescription(&self, bstrdescription: &windows_core::BSTR) -> windows_core::Result<()>;
     fn EditInternalPort(&self, linternalport: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IStaticPortMapping {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IStaticPortMapping_Vtbl {
     pub const fn new<Identity: IStaticPortMapping_Impl, const OFFSET: isize>() -> IStaticPortMapping_Vtbl {
         unsafe extern "system" fn ExternalIPAddress<Identity: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3451,7 +3463,7 @@ impl IStaticPortMapping_Vtbl {
         iid == &<IStaticPortMapping as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IStaticPortMappingCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, lexternalport: i32, bstrprotocol: &windows_core::BSTR) -> windows_core::Result<IStaticPortMapping>;
@@ -3459,9 +3471,9 @@ pub trait IStaticPortMappingCollection_Impl: Sized + super::super::System::Com::
     fn Remove(&self, lexternalport: i32, bstrprotocol: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Add(&self, lexternalport: i32, bstrprotocol: &windows_core::BSTR, linternalport: i32, bstrinternalclient: &windows_core::BSTR, benabled: super::super::Foundation::VARIANT_BOOL, bstrdescription: &windows_core::BSTR) -> windows_core::Result<IStaticPortMapping>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IStaticPortMappingCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IStaticPortMappingCollection_Vtbl {
     pub const fn new<Identity: IStaticPortMappingCollection_Impl, const OFFSET: isize>() -> IStaticPortMappingCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: IStaticPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3521,15 +3533,15 @@ impl IStaticPortMappingCollection_Vtbl {
         iid == &<IStaticPortMappingCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUPnPNAT_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StaticPortMappingCollection(&self) -> windows_core::Result<IStaticPortMappingCollection>;
     fn DynamicPortMappingCollection(&self) -> windows_core::Result<IDynamicPortMappingCollection>;
     fn NATEventManager(&self) -> windows_core::Result<INATEventManager>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUPnPNAT {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUPnPNAT_Vtbl {
     pub const fn new<Identity: IUPnPNAT_Impl, const OFFSET: isize>() -> IUPnPNAT_Vtbl {
         unsafe extern "system" fn StaticPortMappingCollection<Identity: IUPnPNAT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppspms: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

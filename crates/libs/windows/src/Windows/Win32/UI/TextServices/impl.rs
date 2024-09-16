@@ -62,14 +62,17 @@ impl IAccClientDocMgr_Vtbl {
         iid == &<IAccClientDocMgr as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAccDictionary_Impl: Sized + windows_core::IUnknownImpl {
     fn GetLocalizedString(&self, term: *const windows_core::GUID, lcid: u32, presult: *mut windows_core::BSTR, plcid: *mut u32) -> windows_core::Result<()>;
     fn GetParentTerm(&self, term: *const windows_core::GUID) -> windows_core::Result<windows_core::GUID>;
     fn GetMnemonicString(&self, term: *const windows_core::GUID) -> windows_core::Result<windows_core::BSTR>;
     fn LookupMnemonicTerm(&self, bstrmnemonic: &windows_core::BSTR) -> windows_core::Result<windows_core::GUID>;
-    fn ConvertValueToString(&self, term: *const windows_core::GUID, lcid: u32, varvalue: &windows_core::VARIANT, pbstrresult: *mut windows_core::BSTR, plcid: *mut u32) -> windows_core::Result<()>;
+    fn ConvertValueToString(&self, term: *const windows_core::GUID, lcid: u32, varvalue: &super::super::System::Variant::VARIANT, pbstrresult: *mut windows_core::BSTR, plcid: *mut u32) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAccDictionary {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAccDictionary_Vtbl {
     pub const fn new<Identity: IAccDictionary_Impl, const OFFSET: isize>() -> IAccDictionary_Vtbl {
         unsafe extern "system" fn GetLocalizedString<Identity: IAccDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, term: *const windows_core::GUID, lcid: u32, presult: *mut core::mem::MaybeUninit<windows_core::BSTR>, plcid: *mut u32) -> windows_core::HRESULT {
@@ -106,7 +109,7 @@ impl IAccDictionary_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConvertValueToString<Identity: IAccDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, term: *const windows_core::GUID, lcid: u32, varvalue: core::mem::MaybeUninit<windows_core::VARIANT>, pbstrresult: *mut core::mem::MaybeUninit<windows_core::BSTR>, plcid: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConvertValueToString<Identity: IAccDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, term: *const windows_core::GUID, lcid: u32, varvalue: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pbstrresult: *mut core::mem::MaybeUninit<windows_core::BSTR>, plcid: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAccDictionary_Impl::ConvertValueToString(this, core::mem::transmute_copy(&term), core::mem::transmute_copy(&lcid), core::mem::transmute(&varvalue), core::mem::transmute_copy(&pbstrresult), core::mem::transmute_copy(&plcid)).into()
         }
@@ -367,13 +370,16 @@ impl IClonableWrapper_Vtbl {
         iid == &<IClonableWrapper as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICoCreateLocally_Impl: Sized + windows_core::IUnknownImpl {
-    fn CoCreateLocally(&self, rclsid: *const windows_core::GUID, dwclscontext: u32, riid: *const windows_core::GUID, punk: *mut Option<windows_core::IUnknown>, riidparam: *const windows_core::GUID, punkparam: Option<&windows_core::IUnknown>, varparam: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn CoCreateLocally(&self, rclsid: *const windows_core::GUID, dwclscontext: u32, riid: *const windows_core::GUID, punk: *mut Option<windows_core::IUnknown>, riidparam: *const windows_core::GUID, punkparam: Option<&windows_core::IUnknown>, varparam: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICoCreateLocally {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICoCreateLocally_Vtbl {
     pub const fn new<Identity: ICoCreateLocally_Impl, const OFFSET: isize>() -> ICoCreateLocally_Vtbl {
-        unsafe extern "system" fn CoCreateLocally<Identity: ICoCreateLocally_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, dwclscontext: u32, riid: *const windows_core::GUID, punk: *mut *mut core::ffi::c_void, riidparam: *const windows_core::GUID, punkparam: *mut core::ffi::c_void, varparam: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoCreateLocally<Identity: ICoCreateLocally_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, dwclscontext: u32, riid: *const windows_core::GUID, punk: *mut *mut core::ffi::c_void, riidparam: *const windows_core::GUID, punkparam: *mut core::ffi::c_void, varparam: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICoCreateLocally_Impl::CoCreateLocally(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&dwclscontext), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&punk), core::mem::transmute_copy(&riidparam), windows_core::from_raw_borrowed(&punkparam), core::mem::transmute(&varparam)).into()
         }
@@ -383,13 +389,16 @@ impl ICoCreateLocally_Vtbl {
         iid == &<ICoCreateLocally as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICoCreatedLocally_Impl: Sized + windows_core::IUnknownImpl {
-    fn LocalInit(&self, punklocalobject: Option<&windows_core::IUnknown>, riidparam: *const windows_core::GUID, punkparam: Option<&windows_core::IUnknown>, varparam: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn LocalInit(&self, punklocalobject: Option<&windows_core::IUnknown>, riidparam: *const windows_core::GUID, punkparam: Option<&windows_core::IUnknown>, varparam: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICoCreatedLocally {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICoCreatedLocally_Vtbl {
     pub const fn new<Identity: ICoCreatedLocally_Impl, const OFFSET: isize>() -> ICoCreatedLocally_Vtbl {
-        unsafe extern "system" fn LocalInit<Identity: ICoCreatedLocally_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punklocalobject: *mut core::ffi::c_void, riidparam: *const windows_core::GUID, punkparam: *mut core::ffi::c_void, varparam: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LocalInit<Identity: ICoCreatedLocally_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punklocalobject: *mut core::ffi::c_void, riidparam: *const windows_core::GUID, punkparam: *mut core::ffi::c_void, varparam: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICoCreatedLocally_Impl::LocalInit(this, windows_core::from_raw_borrowed(&punklocalobject), core::mem::transmute_copy(&riidparam), windows_core::from_raw_borrowed(&punkparam), core::mem::transmute(&varparam)).into()
         }
@@ -992,13 +1001,16 @@ impl IEnumTfProperties_Vtbl {
         iid == &<IEnumTfProperties as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumTfPropertyValue_Impl: Sized + windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumTfPropertyValue>;
     fn Next(&self, ulcount: u32, rgvalues: *mut TF_PROPERTYVAL, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumTfPropertyValue {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumTfPropertyValue_Vtbl {
     pub const fn new<Identity: IEnumTfPropertyValue_Impl, const OFFSET: isize>() -> IEnumTfPropertyValue_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumTfPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1168,7 +1180,7 @@ impl ISpeechCommandProvider_Vtbl {
         iid == &<ISpeechCommandProvider as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStoreACP_Impl: Sized + windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -1197,9 +1209,9 @@ pub trait ITextStoreACP_Impl: Sized + windows_core::IUnknownImpl {
     fn GetScreenExt(&self, vcview: u32) -> windows_core::Result<super::super::Foundation::RECT>;
     fn GetWnd(&self, vcview: u32) -> windows_core::Result<super::super::Foundation::HWND>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITextStoreACP {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextStoreACP_Vtbl {
     pub const fn new<Identity: ITextStoreACP_Impl, const OFFSET: isize>() -> ITextStoreACP_Vtbl {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreACP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
@@ -1412,7 +1424,7 @@ impl ITextStoreACP_Vtbl {
         iid == &<ITextStoreACP as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStoreACP2_Impl: Sized + windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -1440,9 +1452,9 @@ pub trait ITextStoreACP2_Impl: Sized + windows_core::IUnknownImpl {
     fn GetTextExt(&self, vcview: u32, acpstart: i32, acpend: i32, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetScreenExt(&self, vcview: u32) -> windows_core::Result<super::super::Foundation::RECT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITextStoreACP2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextStoreACP2_Vtbl {
     pub const fn new<Identity: ITextStoreACP2_Impl, const OFFSET: isize>() -> ITextStoreACP2_Vtbl {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
@@ -1783,7 +1795,7 @@ impl ITextStoreACPSinkEx_Vtbl {
         iid == &<ITextStoreACPSinkEx as windows_core::Interface>::IID || iid == &<ITextStoreACPSink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStoreAnchor_Impl: Sized + windows_core::IUnknownImpl {
     fn AdviseSink(&self, riid: *const windows_core::GUID, punk: Option<&windows_core::IUnknown>, dwmask: u32) -> windows_core::Result<()>;
     fn UnadviseSink(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -1813,9 +1825,9 @@ pub trait ITextStoreAnchor_Impl: Sized + windows_core::IUnknownImpl {
     fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &windows_core::PCWSTR, cch: u32, ppastart: *mut Option<IAnchor>, ppaend: *mut Option<IAnchor>) -> windows_core::Result<()>;
     fn InsertEmbeddedAtSelection(&self, dwflags: u32, pdataobject: Option<&super::super::System::Com::IDataObject>, ppastart: *mut Option<IAnchor>, ppaend: *mut Option<IAnchor>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITextStoreAnchor {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextStoreAnchor_Vtbl {
     pub const fn new<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>() -> ITextStoreAnchor_Vtbl {
         unsafe extern "system" fn AdviseSink<Identity: ITextStoreAnchor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, punk: *mut core::ffi::c_void, dwmask: u32) -> windows_core::HRESULT {
@@ -2557,18 +2569,21 @@ impl ITfClientId_Vtbl {
         iid == &<ITfClientId as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfCompartment_Impl: Sized + windows_core::IUnknownImpl {
-    fn SetValue(&self, tid: u32, pvarvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
-    fn GetValue(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SetValue(&self, tid: u32, pvarvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn GetValue(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITfCompartment {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITfCompartment_Vtbl {
     pub const fn new<Identity: ITfCompartment_Impl, const OFFSET: isize>() -> ITfCompartment_Vtbl {
-        unsafe extern "system" fn SetValue<Identity: ITfCompartment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: u32, pvarvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ITfCompartment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tid: u32, pvarvalue: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITfCompartment_Impl::SetValue(this, core::mem::transmute_copy(&tid), core::mem::transmute_copy(&pvarvalue)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: ITfCompartment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ITfCompartment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITfCompartment_Impl::GetValue(this) {
                 Ok(ok__) => {
@@ -3070,15 +3085,18 @@ impl ITfContextKeyEventSink_Vtbl {
         iid == &<ITfContextKeyEventSink as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfContextOwner_Impl: Sized + windows_core::IUnknownImpl {
     fn GetACPFromPoint(&self, ptscreen: *const super::super::Foundation::POINT, dwflags: u32) -> windows_core::Result<i32>;
     fn GetTextExt(&self, acpstart: i32, acpend: i32, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetScreenExt(&self) -> windows_core::Result<super::super::Foundation::RECT>;
     fn GetStatus(&self) -> windows_core::Result<TS_STATUS>;
     fn GetWnd(&self) -> windows_core::Result<super::super::Foundation::HWND>;
-    fn GetAttribute(&self, rguidattribute: *const windows_core::GUID) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetAttribute(&self, rguidattribute: *const windows_core::GUID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITfContextOwner {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITfContextOwner_Vtbl {
     pub const fn new<Identity: ITfContextOwner_Impl, const OFFSET: isize>() -> ITfContextOwner_Vtbl {
         unsafe extern "system" fn GetACPFromPoint<Identity: ITfContextOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptscreen: *const super::super::Foundation::POINT, dwflags: u32, pacp: *mut i32) -> windows_core::HRESULT {
@@ -3125,7 +3143,7 @@ impl ITfContextOwner_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttribute<Identity: ITfContextOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidattribute: *const windows_core::GUID, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAttribute<Identity: ITfContextOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidattribute: *const windows_core::GUID, pvarvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITfContextOwner_Impl::GetAttribute(this, core::mem::transmute_copy(&rguidattribute)) {
                 Ok(ok__) => {
@@ -5661,13 +5679,16 @@ impl ITfPreservedKeyNotifySink_Vtbl {
         iid == &<ITfPreservedKeyNotifySink as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfProperty_Impl: Sized + ITfReadOnlyProperty_Impl {
     fn FindRange(&self, ec: u32, prange: Option<&ITfRange>, pprange: *mut Option<ITfRange>, apos: TfAnchor) -> windows_core::Result<()>;
     fn SetValueStore(&self, ec: u32, prange: Option<&ITfRange>, ppropstore: Option<&ITfPropertyStore>) -> windows_core::Result<()>;
-    fn SetValue(&self, ec: u32, prange: Option<&ITfRange>, pvarvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetValue(&self, ec: u32, prange: Option<&ITfRange>, pvarvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self, ec: u32, prange: Option<&ITfRange>) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITfProperty {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITfProperty_Vtbl {
     pub const fn new<Identity: ITfProperty_Impl, const OFFSET: isize>() -> ITfProperty_Vtbl {
         unsafe extern "system" fn FindRange<Identity: ITfProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, pprange: *mut *mut core::ffi::c_void, apos: TfAnchor) -> windows_core::HRESULT {
@@ -5678,7 +5699,7 @@ impl ITfProperty_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITfProperty_Impl::SetValueStore(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange), windows_core::from_raw_borrowed(&ppropstore)).into()
         }
-        unsafe extern "system" fn SetValue<Identity: ITfProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, pvarvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ITfProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, pvarvalue: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITfProperty_Impl::SetValue(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -5698,11 +5719,11 @@ impl ITfProperty_Vtbl {
         iid == &<ITfProperty as windows_core::Interface>::IID || iid == &<ITfReadOnlyProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfPropertyStore_Impl: Sized + windows_core::IUnknownImpl {
     fn GetType(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetDataType(&self) -> windows_core::Result<u32>;
-    fn GetData(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetData(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn OnTextUpdated(&self, dwflags: u32, prangenew: Option<&ITfRange>) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn Shrink(&self, prangenew: Option<&ITfRange>) -> windows_core::Result<super::super::Foundation::BOOL>;
     fn Divide(&self, prangethis: Option<&ITfRange>, prangenew: Option<&ITfRange>) -> windows_core::Result<ITfPropertyStore>;
@@ -5710,9 +5731,9 @@ pub trait ITfPropertyStore_Impl: Sized + windows_core::IUnknownImpl {
     fn GetPropertyRangeCreator(&self) -> windows_core::Result<windows_core::GUID>;
     fn Serialize(&self, pstream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<u32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITfPropertyStore {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITfPropertyStore_Vtbl {
     pub const fn new<Identity: ITfPropertyStore_Impl, const OFFSET: isize>() -> ITfPropertyStore_Vtbl {
         unsafe extern "system" fn GetType<Identity: ITfPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -5735,7 +5756,7 @@ impl ITfPropertyStore_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetData<Identity: ITfPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetData<Identity: ITfPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITfPropertyStore_Impl::GetData(this) {
                 Ok(ok__) => {
@@ -6107,13 +6128,16 @@ impl ITfRangeBackup_Vtbl {
         iid == &<ITfRangeBackup as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfReadOnlyProperty_Impl: Sized + windows_core::IUnknownImpl {
     fn GetType(&self) -> windows_core::Result<windows_core::GUID>;
     fn EnumRanges(&self, ec: u32, ppenum: *mut Option<IEnumTfRanges>, ptargetrange: Option<&ITfRange>) -> windows_core::Result<()>;
-    fn GetValue(&self, ec: u32, prange: Option<&ITfRange>) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetValue(&self, ec: u32, prange: Option<&ITfRange>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetContext(&self) -> windows_core::Result<ITfContext>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITfReadOnlyProperty {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITfReadOnlyProperty_Vtbl {
     pub const fn new<Identity: ITfReadOnlyProperty_Impl, const OFFSET: isize>() -> ITfReadOnlyProperty_Vtbl {
         unsafe extern "system" fn GetType<Identity: ITfReadOnlyProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -6130,7 +6154,7 @@ impl ITfReadOnlyProperty_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITfReadOnlyProperty_Impl::EnumRanges(this, core::mem::transmute_copy(&ec), core::mem::transmute_copy(&ppenum), windows_core::from_raw_borrowed(&ptargetrange)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: ITfReadOnlyProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ITfReadOnlyProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ec: u32, prange: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITfReadOnlyProperty_Impl::GetValue(this, core::mem::transmute_copy(&ec), windows_core::from_raw_borrowed(&prange)) {
                 Ok(ok__) => {

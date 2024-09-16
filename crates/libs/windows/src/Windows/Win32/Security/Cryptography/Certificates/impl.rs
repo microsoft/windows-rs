@@ -1,4 +1,4 @@
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAlternativeName_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeFromString(&self, r#type: AlternativeNameType, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromRawData(&self, r#type: AlternativeNameType, encoding: EncodingType, strrawdata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -8,9 +8,9 @@ pub trait IAlternativeName_Impl: Sized + super::super::super::System::Com::IDisp
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn get_RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAlternativeName {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAlternativeName_Vtbl {
     pub const fn new<Identity: IAlternativeName_Impl, const OFFSET: isize>() -> IAlternativeName_Vtbl {
         unsafe extern "system" fn InitializeFromString<Identity: IAlternativeName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: AlternativeNameType, strvalue: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -80,7 +80,7 @@ impl IAlternativeName_Vtbl {
         iid == &<IAlternativeName as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAlternativeNames_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<IAlternativeName>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -89,9 +89,9 @@ pub trait IAlternativeNames_Impl: Sized + super::super::super::System::Com::IDis
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAlternativeNames {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAlternativeNames_Vtbl {
     pub const fn new<Identity: IAlternativeNames_Impl, const OFFSET: isize>() -> IAlternativeNames_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -150,15 +150,15 @@ impl IAlternativeNames_Vtbl {
         iid == &<IAlternativeNames as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBinaryConverter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn StringToString(&self, strencodedin: &windows_core::BSTR, encodingin: EncodingType, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn VariantByteArrayToString(&self, pvarbytearray: *const windows_core::VARIANT, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
-    fn StringToVariantByteArray(&self, strencoded: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<windows_core::VARIANT>;
+    fn VariantByteArrayToString(&self, pvarbytearray: *const super::super::super::System::Variant::VARIANT, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
+    fn StringToVariantByteArray(&self, strencoded: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBinaryConverter {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBinaryConverter_Vtbl {
     pub const fn new<Identity: IBinaryConverter_Impl, const OFFSET: isize>() -> IBinaryConverter_Vtbl {
         unsafe extern "system" fn StringToString<Identity: IBinaryConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodedin: core::mem::MaybeUninit<windows_core::BSTR>, encodingin: EncodingType, encoding: EncodingType, pstrencoded: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -171,7 +171,7 @@ impl IBinaryConverter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VariantByteArrayToString<Identity: IBinaryConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbytearray: *const core::mem::MaybeUninit<windows_core::VARIANT>, encoding: EncodingType, pstrencoded: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn VariantByteArrayToString<Identity: IBinaryConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbytearray: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, encoding: EncodingType, pstrencoded: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBinaryConverter_Impl::VariantByteArrayToString(this, core::mem::transmute_copy(&pvarbytearray), core::mem::transmute_copy(&encoding)) {
                 Ok(ok__) => {
@@ -181,7 +181,7 @@ impl IBinaryConverter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StringToVariantByteArray<Identity: IBinaryConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencoded: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType, pvarbytearray: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn StringToVariantByteArray<Identity: IBinaryConverter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencoded: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType, pvarbytearray: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBinaryConverter_Impl::StringToVariantByteArray(this, core::mem::transmute(&strencoded), core::mem::transmute_copy(&encoding)) {
                 Ok(ok__) => {
@@ -202,17 +202,17 @@ impl IBinaryConverter_Vtbl {
         iid == &<IBinaryConverter as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBinaryConverter2_Impl: Sized + IBinaryConverter_Impl {
-    fn StringArrayToVariantArray(&self, pvarstringarray: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
-    fn VariantArrayToStringArray(&self, pvarvariantarray: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
+    fn StringArrayToVariantArray(&self, pvarstringarray: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn VariantArrayToStringArray(&self, pvarvariantarray: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBinaryConverter2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBinaryConverter2_Vtbl {
     pub const fn new<Identity: IBinaryConverter2_Impl, const OFFSET: isize>() -> IBinaryConverter2_Vtbl {
-        unsafe extern "system" fn StringArrayToVariantArray<Identity: IBinaryConverter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarstringarray: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarvariantarray: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn StringArrayToVariantArray<Identity: IBinaryConverter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarstringarray: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, pvarvariantarray: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBinaryConverter2_Impl::StringArrayToVariantArray(this, core::mem::transmute_copy(&pvarstringarray)) {
                 Ok(ok__) => {
@@ -222,7 +222,7 @@ impl IBinaryConverter2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VariantArrayToStringArray<Identity: IBinaryConverter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvariantarray: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarstringarray: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn VariantArrayToStringArray<Identity: IBinaryConverter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvariantarray: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, pvarstringarray: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBinaryConverter2_Impl::VariantArrayToStringArray(this, core::mem::transmute_copy(&pvarvariantarray)) {
                 Ok(ok__) => {
@@ -242,7 +242,7 @@ impl IBinaryConverter2_Vtbl {
         iid == &<IBinaryConverter2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IBinaryConverter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICEnroll_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn createFilePKCS10(&self, dnname: &windows_core::BSTR, usage: &windows_core::BSTR, wszpkcs10filename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn acceptFilePKCS7(&self, wszpkcs7filename: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -301,9 +301,9 @@ pub trait ICEnroll_Impl: Sized + super::super::super::System::Com::IDispatch_Imp
     fn HashAlgorithm(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetHashAlgorithm(&self, bstr: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICEnroll {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICEnroll_Vtbl {
     pub const fn new<Identity: ICEnroll_Impl, const OFFSET: isize>() -> ICEnroll_Vtbl {
         unsafe extern "system" fn createFilePKCS10<Identity: ICEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dnname: core::mem::MaybeUninit<windows_core::BSTR>, usage: core::mem::MaybeUninit<windows_core::BSTR>, wszpkcs10filename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -762,7 +762,7 @@ impl ICEnroll_Vtbl {
         iid == &<ICEnroll as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICEnroll2_Impl: Sized + ICEnroll_Impl {
     fn addCertTypeToRequest(&self, certtype: &windows_core::BSTR) -> windows_core::Result<()>;
     fn addNameValuePairToSignature(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -771,9 +771,9 @@ pub trait ICEnroll2_Impl: Sized + ICEnroll_Impl {
     fn EnableT61DNEncoding(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn SetEnableT61DNEncoding(&self, fbool: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICEnroll2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICEnroll2_Vtbl {
     pub const fn new<Identity: ICEnroll2_Impl, const OFFSET: isize>() -> ICEnroll2_Vtbl {
         unsafe extern "system" fn addCertTypeToRequest<Identity: ICEnroll2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, certtype: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -826,7 +826,7 @@ impl ICEnroll2_Vtbl {
         iid == &<ICEnroll2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICEnroll as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICEnroll3_Impl: Sized + ICEnroll2_Impl {
     fn InstallPKCS7(&self, pkcs7: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
@@ -843,9 +843,9 @@ pub trait ICEnroll3_Impl: Sized + ICEnroll2_Impl {
     fn SetEnableSMIMECapabilities(&self, fenablesmimecapabilities: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn EnableSMIMECapabilities(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICEnroll3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICEnroll3_Vtbl {
     pub const fn new<Identity: ICEnroll3_Impl, const OFFSET: isize>() -> ICEnroll3_Vtbl {
         unsafe extern "system" fn InstallPKCS7<Identity: ICEnroll3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkcs7: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -974,7 +974,7 @@ impl ICEnroll3_Vtbl {
         iid == &<ICEnroll3 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICEnroll as windows_core::Interface>::IID || iid == &<ICEnroll2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICEnroll4_Impl: Sized + ICEnroll3_Impl {
     fn SetPrivateKeyArchiveCertificate(&self, bstrcert: &windows_core::BSTR) -> windows_core::Result<()>;
     fn PrivateKeyArchiveCertificate(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -996,7 +996,7 @@ pub trait ICEnroll4_Impl: Sized + ICEnroll3_Impl {
     fn createPFX(&self, strpassword: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn createFilePFX(&self, strpassword: &windows_core::BSTR, strpfxfilename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn setPendingRequestInfo(&self, lrequestid: i32, strcadns: &windows_core::BSTR, strcaname: &windows_core::BSTR, strfriendlyname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn enumPendingRequest(&self, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY) -> windows_core::Result<windows_core::VARIANT>;
+    fn enumPendingRequest(&self, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn removePendingRequest(&self, strthumbprint: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetKeyLenEx(&self, lsizespec: XEKL_KEYSIZE, lkeyspec: XEKL_KEYSPEC) -> windows_core::Result<i32>;
     fn InstallPKCS7Ex(&self, pkcs7: &windows_core::BSTR) -> windows_core::Result<i32>;
@@ -1010,9 +1010,9 @@ pub trait ICEnroll4_Impl: Sized + ICEnroll3_Impl {
     fn SetIncludeSubjectKeyID(&self, finclude: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn IncludeSubjectKeyID(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICEnroll4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICEnroll4_Vtbl {
     pub const fn new<Identity: ICEnroll4_Impl, const OFFSET: isize>() -> ICEnroll4_Vtbl {
         unsafe extern "system" fn SetPrivateKeyArchiveCertificate<Identity: ICEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcert: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1143,7 +1143,7 @@ impl ICEnroll4_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICEnroll4_Impl::setPendingRequestInfo(this, core::mem::transmute_copy(&lrequestid), core::mem::transmute(&strcadns), core::mem::transmute(&strcaname), core::mem::transmute(&strfriendlyname)).into()
         }
-        unsafe extern "system" fn enumPendingRequest<Identity: ICEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY, pvarproperty: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn enumPendingRequest<Identity: ICEnroll4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY, pvarproperty: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICEnroll4_Impl::enumPendingRequest(this, core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&ldesiredproperty)) {
                 Ok(ok__) => {
@@ -1272,22 +1272,22 @@ impl ICEnroll4_Vtbl {
         iid == &<ICEnroll4 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICEnroll as windows_core::Interface>::IID || iid == &<ICEnroll2 as windows_core::Interface>::IID || iid == &<ICEnroll3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertAdmin_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn IsValidCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn GetRevocationReason(&self) -> windows_core::Result<i32>;
     fn RevokeCertificate(&self, strconfig: &windows_core::BSTR, strserialnumber: &windows_core::BSTR, reason: i32, date: f64) -> windows_core::Result<()>;
     fn SetRequestAttributes(&self, strconfig: &windows_core::BSTR, requestid: i32, strattributes: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetCertificateExtension(&self, strconfig: &windows_core::BSTR, requestid: i32, strextensionname: &windows_core::BSTR, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetCertificateExtension(&self, strconfig: &windows_core::BSTR, requestid: i32, strextensionname: &windows_core::BSTR, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn DenyRequest(&self, strconfig: &windows_core::BSTR, requestid: i32) -> windows_core::Result<()>;
     fn ResubmitRequest(&self, strconfig: &windows_core::BSTR, requestid: i32) -> windows_core::Result<i32>;
     fn PublishCRL(&self, strconfig: &windows_core::BSTR, date: f64) -> windows_core::Result<()>;
     fn GetCRL(&self, strconfig: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn ImportCertificate(&self, strconfig: &windows_core::BSTR, strcertificate: &windows_core::BSTR, flags: CERT_IMPORT_FLAGS) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertAdmin {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertAdmin_Vtbl {
     pub const fn new<Identity: ICertAdmin_Impl, const OFFSET: isize>() -> ICertAdmin_Vtbl {
         unsafe extern "system" fn IsValidCertificate<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, strserialnumber: core::mem::MaybeUninit<windows_core::BSTR>, pdisposition: *mut i32) -> windows_core::HRESULT {
@@ -1318,7 +1318,7 @@ impl ICertAdmin_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertAdmin_Impl::SetRequestAttributes(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute(&strattributes)).into()
         }
-        unsafe extern "system" fn SetCertificateExtension<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, requestid: i32, strextensionname: core::mem::MaybeUninit<windows_core::BSTR>, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCertificateExtension<Identity: ICertAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, requestid: i32, strextensionname: core::mem::MaybeUninit<windows_core::BSTR>, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertAdmin_Impl::SetCertificateExtension(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -1378,30 +1378,30 @@ impl ICertAdmin_Vtbl {
         iid == &<ICertAdmin as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertAdmin2_Impl: Sized + ICertAdmin_Impl {
     fn PublishCRLs(&self, strconfig: &windows_core::BSTR, date: f64, crlflags: i32) -> windows_core::Result<()>;
-    fn GetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn SetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn GetCAPropertyFlags(&self, strconfig: &windows_core::BSTR, propid: i32) -> windows_core::Result<i32>;
     fn GetCAPropertyDisplayName(&self, strconfig: &windows_core::BSTR, propid: i32) -> windows_core::Result<windows_core::BSTR>;
     fn GetArchivedKey(&self, strconfig: &windows_core::BSTR, requestid: i32, flags: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn GetConfigEntry(&self, strconfig: &windows_core::BSTR, strnodepath: &windows_core::BSTR, strentryname: &windows_core::BSTR) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetConfigEntry(&self, strconfig: &windows_core::BSTR, strnodepath: &windows_core::BSTR, strentryname: &windows_core::BSTR, pvarentry: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetConfigEntry(&self, strconfig: &windows_core::BSTR, strnodepath: &windows_core::BSTR, strentryname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn SetConfigEntry(&self, strconfig: &windows_core::BSTR, strnodepath: &windows_core::BSTR, strentryname: &windows_core::BSTR, pvarentry: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn ImportKey(&self, strconfig: &windows_core::BSTR, requestid: i32, strcerthash: &windows_core::BSTR, flags: CERT_IMPORT_FLAGS, strkey: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetMyRoles(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<CERTADMIN_GET_ROLES_FLAGS>;
     fn DeleteRow(&self, strconfig: &windows_core::BSTR, flags: CERT_DELETE_ROW_FLAGS, date: f64, table: CVRC_TABLE, rowid: i32) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertAdmin2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertAdmin2_Vtbl {
     pub const fn new<Identity: ICertAdmin2_Impl, const OFFSET: isize>() -> ICertAdmin2_Vtbl {
         unsafe extern "system" fn PublishCRLs<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, date: f64, crlflags: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertAdmin2_Impl::PublishCRLs(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&date), core::mem::transmute_copy(&crlflags)).into()
         }
-        unsafe extern "system" fn GetCAProperty<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCAProperty<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertAdmin2_Impl::GetCAProperty(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
@@ -1411,7 +1411,7 @@ impl ICertAdmin2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCAProperty<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCAProperty<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertAdmin2_Impl::SetCAProperty(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&pvarpropertyvalue)).into()
         }
@@ -1445,7 +1445,7 @@ impl ICertAdmin2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConfigEntry<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, strnodepath: core::mem::MaybeUninit<windows_core::BSTR>, strentryname: core::mem::MaybeUninit<windows_core::BSTR>, pvarentry: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetConfigEntry<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, strnodepath: core::mem::MaybeUninit<windows_core::BSTR>, strentryname: core::mem::MaybeUninit<windows_core::BSTR>, pvarentry: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertAdmin2_Impl::GetConfigEntry(this, core::mem::transmute(&strconfig), core::mem::transmute(&strnodepath), core::mem::transmute(&strentryname)) {
                 Ok(ok__) => {
@@ -1455,7 +1455,7 @@ impl ICertAdmin2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetConfigEntry<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, strnodepath: core::mem::MaybeUninit<windows_core::BSTR>, strentryname: core::mem::MaybeUninit<windows_core::BSTR>, pvarentry: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetConfigEntry<Identity: ICertAdmin2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, strnodepath: core::mem::MaybeUninit<windows_core::BSTR>, strentryname: core::mem::MaybeUninit<windows_core::BSTR>, pvarentry: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertAdmin2_Impl::SetConfigEntry(this, core::mem::transmute(&strconfig), core::mem::transmute(&strnodepath), core::mem::transmute(&strentryname), core::mem::transmute_copy(&pvarentry)).into()
         }
@@ -1502,16 +1502,16 @@ impl ICertAdmin2_Vtbl {
         iid == &<ICertAdmin2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertAdmin as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertConfig_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Reset(&self, index: i32) -> windows_core::Result<i32>;
     fn Next(&self) -> windows_core::Result<i32>;
     fn GetField(&self, strfieldname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn GetConfig(&self, flags: i32) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertConfig {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertConfig_Vtbl {
     pub const fn new<Identity: ICertConfig_Impl, const OFFSET: isize>() -> ICertConfig_Vtbl {
         unsafe extern "system" fn Reset<Identity: ICertConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pcount: *mut i32) -> windows_core::HRESULT {
@@ -1566,13 +1566,13 @@ impl ICertConfig_Vtbl {
         iid == &<ICertConfig as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertConfig2_Impl: Sized + ICertConfig_Impl {
     fn SetSharedFolder(&self, strsharedfolder: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertConfig2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertConfig2_Vtbl {
     pub const fn new<Identity: ICertConfig2_Impl, const OFFSET: isize>() -> ICertConfig2_Vtbl {
         unsafe extern "system" fn SetSharedFolder<Identity: ICertConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsharedfolder: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1585,7 +1585,7 @@ impl ICertConfig2_Vtbl {
         iid == &<ICertConfig2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertConfig as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeAltName_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetNameCount(&self) -> windows_core::Result<i32>;
@@ -1595,9 +1595,9 @@ pub trait ICertEncodeAltName_Impl: Sized + super::super::super::System::Com::IDi
     fn SetNameEntry(&self, nameindex: i32, namechoice: CERT_ALT_NAME, strname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeAltName {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeAltName_Vtbl {
     pub const fn new<Identity: ICertEncodeAltName_Impl, const OFFSET: isize>() -> ICertEncodeAltName_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeAltName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1667,16 +1667,16 @@ impl ICertEncodeAltName_Vtbl {
         iid == &<ICertEncodeAltName as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeAltName2_Impl: Sized + ICertEncodeAltName_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn GetNameBlob(&self, nameindex: i32, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn SetNameEntryBlob(&self, nameindex: i32, namechoice: i32, strname: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeAltName2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeAltName2_Vtbl {
     pub const fn new<Identity: ICertEncodeAltName2_Impl, const OFFSET: isize>() -> ICertEncodeAltName2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeAltName2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType) -> windows_core::HRESULT {
@@ -1719,16 +1719,16 @@ impl ICertEncodeAltName2_Vtbl {
         iid == &<ICertEncodeAltName2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeAltName as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeBitString_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetBitCount(&self) -> windows_core::Result<i32>;
     fn GetBitString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Encode(&self, bitcount: i32, strbitstring: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeBitString {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeBitString_Vtbl {
     pub const fn new<Identity: ICertEncodeBitString_Impl, const OFFSET: isize>() -> ICertEncodeBitString_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeBitString_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1777,15 +1777,15 @@ impl ICertEncodeBitString_Vtbl {
         iid == &<ICertEncodeBitString as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeBitString2_Impl: Sized + ICertEncodeBitString_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, bitcount: i32, strbitstring: &windows_core::BSTR, encodingin: EncodingType, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn GetBitStringBlob(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeBitString2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeBitString2_Vtbl {
     pub const fn new<Identity: ICertEncodeBitString2_Impl, const OFFSET: isize>() -> ICertEncodeBitString2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeBitString2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType) -> windows_core::HRESULT {
@@ -1823,7 +1823,7 @@ impl ICertEncodeBitString2_Vtbl {
         iid == &<ICertEncodeBitString2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeBitString as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeCRLDistInfo_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetDistPointCount(&self) -> windows_core::Result<i32>;
@@ -1835,9 +1835,9 @@ pub trait ICertEncodeCRLDistInfo_Impl: Sized + super::super::super::System::Com:
     fn SetNameEntry(&self, distpointindex: i32, nameindex: i32, namechoice: CERT_ALT_NAME, strname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeCRLDistInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeCRLDistInfo_Vtbl {
     pub const fn new<Identity: ICertEncodeCRLDistInfo_Impl, const OFFSET: isize>() -> ICertEncodeCRLDistInfo_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeCRLDistInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -1923,14 +1923,14 @@ impl ICertEncodeCRLDistInfo_Vtbl {
         iid == &<ICertEncodeCRLDistInfo as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeCRLDistInfo2_Impl: Sized + ICertEncodeCRLDistInfo_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeCRLDistInfo2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeCRLDistInfo2_Vtbl {
     pub const fn new<Identity: ICertEncodeCRLDistInfo2_Impl, const OFFSET: isize>() -> ICertEncodeCRLDistInfo2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeCRLDistInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType) -> windows_core::HRESULT {
@@ -1957,7 +1957,7 @@ impl ICertEncodeCRLDistInfo2_Vtbl {
         iid == &<ICertEncodeCRLDistInfo2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeCRLDistInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeDateArray_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetCount(&self) -> windows_core::Result<i32>;
@@ -1966,9 +1966,9 @@ pub trait ICertEncodeDateArray_Impl: Sized + super::super::super::System::Com::I
     fn SetValue(&self, index: i32, value: f64) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeDateArray {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeDateArray_Vtbl {
     pub const fn new<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>() -> ICertEncodeDateArray_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeDateArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2027,14 +2027,14 @@ impl ICertEncodeDateArray_Vtbl {
         iid == &<ICertEncodeDateArray as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeDateArray2_Impl: Sized + ICertEncodeDateArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeDateArray2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeDateArray2_Vtbl {
     pub const fn new<Identity: ICertEncodeDateArray2_Impl, const OFFSET: isize>() -> ICertEncodeDateArray2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeDateArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType) -> windows_core::HRESULT {
@@ -2061,7 +2061,7 @@ impl ICertEncodeDateArray2_Vtbl {
         iid == &<ICertEncodeDateArray2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeDateArray as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeLongArray_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetCount(&self) -> windows_core::Result<i32>;
@@ -2070,9 +2070,9 @@ pub trait ICertEncodeLongArray_Impl: Sized + super::super::super::System::Com::I
     fn SetValue(&self, index: i32, value: i32) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeLongArray {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeLongArray_Vtbl {
     pub const fn new<Identity: ICertEncodeLongArray_Impl, const OFFSET: isize>() -> ICertEncodeLongArray_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeLongArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2131,14 +2131,14 @@ impl ICertEncodeLongArray_Vtbl {
         iid == &<ICertEncodeLongArray as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeLongArray2_Impl: Sized + ICertEncodeLongArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeLongArray2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeLongArray2_Vtbl {
     pub const fn new<Identity: ICertEncodeLongArray2_Impl, const OFFSET: isize>() -> ICertEncodeLongArray2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeLongArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType) -> windows_core::HRESULT {
@@ -2165,7 +2165,7 @@ impl ICertEncodeLongArray2_Vtbl {
         iid == &<ICertEncodeLongArray2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeLongArray as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeStringArray_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strbinary: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetStringType(&self) -> windows_core::Result<i32>;
@@ -2175,9 +2175,9 @@ pub trait ICertEncodeStringArray_Impl: Sized + super::super::super::System::Com:
     fn SetValue(&self, index: i32, str: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeStringArray {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeStringArray_Vtbl {
     pub const fn new<Identity: ICertEncodeStringArray_Impl, const OFFSET: isize>() -> ICertEncodeStringArray_Vtbl {
         unsafe extern "system" fn Decode<Identity: ICertEncodeStringArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbinary: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2247,14 +2247,14 @@ impl ICertEncodeStringArray_Vtbl {
         iid == &<ICertEncodeStringArray as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertEncodeStringArray2_Impl: Sized + ICertEncodeStringArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
     fn EncodeBlob(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertEncodeStringArray2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertEncodeStringArray2_Vtbl {
     pub const fn new<Identity: ICertEncodeStringArray2_Impl, const OFFSET: isize>() -> ICertEncodeStringArray2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ICertEncodeStringArray2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodeddata: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType) -> windows_core::HRESULT {
@@ -2281,15 +2281,15 @@ impl ICertEncodeStringArray2_Vtbl {
         iid == &<ICertEncodeStringArray2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertEncodeStringArray as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertExit_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<CERT_EXIT_EVENT_MASK>;
     fn Notify(&self, exitevent: i32, context: i32) -> windows_core::Result<()>;
     fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertExit {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertExit_Vtbl {
     pub const fn new<Identity: ICertExit_Impl, const OFFSET: isize>() -> ICertExit_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, peventmask: *mut CERT_EXIT_EVENT_MASK) -> windows_core::HRESULT {
@@ -2327,13 +2327,13 @@ impl ICertExit_Vtbl {
         iid == &<ICertExit as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertExit2_Impl: Sized + ICertExit_Impl {
     fn GetManageModule(&self) -> windows_core::Result<ICertManageModule>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertExit2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertExit2_Vtbl {
     pub const fn new<Identity: ICertExit2_Impl, const OFFSET: isize>() -> ICertExit2_Vtbl {
         unsafe extern "system" fn GetManageModule<Identity: ICertExit2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmanagemodule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2352,13 +2352,13 @@ impl ICertExit2_Vtbl {
         iid == &<ICertExit2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertExit as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertGetConfig_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetConfig(&self, flags: CERT_GET_CONFIG_FLAGS) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertGetConfig {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertGetConfig_Vtbl {
     pub const fn new<Identity: ICertGetConfig_Impl, const OFFSET: isize>() -> ICertGetConfig_Vtbl {
         unsafe extern "system" fn GetConfig<Identity: ICertGetConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: CERT_GET_CONFIG_FLAGS, pstrout: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2377,18 +2377,18 @@ impl ICertGetConfig_Vtbl {
         iid == &<ICertGetConfig as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertManageModule_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn GetProperty(&self, strconfig: &windows_core::BSTR, strstoragelocation: &windows_core::BSTR, strpropertyname: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetProperty(&self, strconfig: &windows_core::BSTR, strstoragelocation: &windows_core::BSTR, strpropertyname: &windows_core::BSTR, flags: i32, pvarproperty: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetProperty(&self, strconfig: &windows_core::BSTR, strstoragelocation: &windows_core::BSTR, strpropertyname: &windows_core::BSTR, flags: i32) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn SetProperty(&self, strconfig: &windows_core::BSTR, strstoragelocation: &windows_core::BSTR, strpropertyname: &windows_core::BSTR, flags: i32, pvarproperty: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Configure(&self, strconfig: &windows_core::BSTR, strstoragelocation: &windows_core::BSTR, flags: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertManageModule {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertManageModule_Vtbl {
     pub const fn new<Identity: ICertManageModule_Impl, const OFFSET: isize>() -> ICertManageModule_Vtbl {
-        unsafe extern "system" fn GetProperty<Identity: ICertManageModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, strstoragelocation: core::mem::MaybeUninit<windows_core::BSTR>, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, flags: i32, pvarproperty: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ICertManageModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, strstoragelocation: core::mem::MaybeUninit<windows_core::BSTR>, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, flags: i32, pvarproperty: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertManageModule_Impl::GetProperty(this, core::mem::transmute(&strconfig), core::mem::transmute(&strstoragelocation), core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
@@ -2398,7 +2398,7 @@ impl ICertManageModule_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: ICertManageModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, strstoragelocation: core::mem::MaybeUninit<windows_core::BSTR>, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, flags: i32, pvarproperty: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: ICertManageModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, strstoragelocation: core::mem::MaybeUninit<windows_core::BSTR>, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, flags: i32, pvarproperty: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertManageModule_Impl::SetProperty(this, core::mem::transmute(&strconfig), core::mem::transmute(&strstoragelocation), core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pvarproperty)).into()
         }
@@ -2417,16 +2417,16 @@ impl ICertManageModule_Vtbl {
         iid == &<ICertManageModule as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPolicy_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<()>;
     fn VerifyRequest(&self, strconfig: &windows_core::BSTR, context: i32, bnewrequest: i32, flags: i32) -> windows_core::Result<i32>;
     fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ShutDown(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPolicy {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPolicy_Vtbl {
     pub const fn new<Identity: ICertPolicy_Impl, const OFFSET: isize>() -> ICertPolicy_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2469,13 +2469,13 @@ impl ICertPolicy_Vtbl {
         iid == &<ICertPolicy as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPolicy2_Impl: Sized + ICertPolicy_Impl {
     fn GetManageModule(&self) -> windows_core::Result<ICertManageModule>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPolicy2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPolicy2_Vtbl {
     pub const fn new<Identity: ICertPolicy2_Impl, const OFFSET: isize>() -> ICertPolicy2_Vtbl {
         unsafe extern "system" fn GetManageModule<Identity: ICertPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmanagemodule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2494,7 +2494,7 @@ impl ICertPolicy2_Vtbl {
         iid == &<ICertPolicy2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertPolicy as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertProperties_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<ICertProperty>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -2504,9 +2504,9 @@ pub trait ICertProperties_Impl: Sized + super::super::super::System::Com::IDispa
     fn Clear(&self) -> windows_core::Result<()>;
     fn InitializeFromCertificate(&self, machinecontext: super::super::super::Foundation::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertProperties {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertProperties_Vtbl {
     pub const fn new<Identity: ICertProperties_Impl, const OFFSET: isize>() -> ICertProperties_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ICertProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2570,7 +2570,7 @@ impl ICertProperties_Vtbl {
         iid == &<ICertProperties as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertProperty_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeFromCertificate(&self, machinecontext: super::super::super::Foundation::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2580,9 +2580,9 @@ pub trait ICertProperty_Impl: Sized + super::super::super::System::Com::IDispatc
     fn RemoveFromCertificate(&self, machinecontext: super::super::super::Foundation::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetValueOnCertificate(&self, machinecontext: super::super::super::Foundation::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertProperty {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertProperty_Vtbl {
     pub const fn new<Identity: ICertProperty_Impl, const OFFSET: isize>() -> ICertProperty_Vtbl {
         unsafe extern "system" fn InitializeFromCertificate<Identity: ICertProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinecontext: super::super::super::Foundation::VARIANT_BOOL, encoding: EncodingType, strcertificate: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2640,14 +2640,14 @@ impl ICertProperty_Vtbl {
         iid == &<ICertProperty as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertyArchived_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, archivedvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Archived(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertyArchived {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertyArchived_Vtbl {
     pub const fn new<Identity: ICertPropertyArchived_Impl, const OFFSET: isize>() -> ICertPropertyArchived_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyArchived_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, archivedvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2670,14 +2670,14 @@ impl ICertPropertyArchived_Vtbl {
         iid == &<ICertPropertyArchived as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertyArchivedKeyHash_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strarchivedkeyhashvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn get_ArchivedKeyHash(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertyArchivedKeyHash {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertyArchivedKeyHash_Vtbl {
     pub const fn new<Identity: ICertPropertyArchivedKeyHash_Impl, const OFFSET: isize>() -> ICertPropertyArchivedKeyHash_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyArchivedKeyHash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strarchivedkeyhashvalue: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2704,14 +2704,14 @@ impl ICertPropertyArchivedKeyHash_Vtbl {
         iid == &<ICertPropertyArchivedKeyHash as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertyAutoEnroll_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn TemplateName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertyAutoEnroll {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertyAutoEnroll_Vtbl {
     pub const fn new<Identity: ICertPropertyAutoEnroll_Impl, const OFFSET: isize>() -> ICertPropertyAutoEnroll_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyAutoEnroll_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtemplatename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2738,16 +2738,16 @@ impl ICertPropertyAutoEnroll_Vtbl {
         iid == &<ICertPropertyAutoEnroll as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertyBackedUp_Impl: Sized + ICertProperty_Impl {
     fn InitializeFromCurrentTime(&self, backedupvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Initialize(&self, backedupvalue: super::super::super::Foundation::VARIANT_BOOL, date: f64) -> windows_core::Result<()>;
     fn BackedUpValue(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn BackedUpTime(&self) -> windows_core::Result<f64>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertyBackedUp {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertyBackedUp_Vtbl {
     pub const fn new<Identity: ICertPropertyBackedUp_Impl, const OFFSET: isize>() -> ICertPropertyBackedUp_Vtbl {
         unsafe extern "system" fn InitializeFromCurrentTime<Identity: ICertPropertyBackedUp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backedupvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2790,14 +2790,14 @@ impl ICertPropertyBackedUp_Vtbl {
         iid == &<ICertPropertyBackedUp as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertyDescription_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strdescription: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertyDescription {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertyDescription_Vtbl {
     pub const fn new<Identity: ICertPropertyDescription_Impl, const OFFSET: isize>() -> ICertPropertyDescription_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdescription: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2820,7 +2820,7 @@ impl ICertPropertyDescription_Vtbl {
         iid == &<ICertPropertyDescription as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertyEnrollment_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, requestid: i32, strcadnsname: &windows_core::BSTR, strcaname: &windows_core::BSTR, strfriendlyname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RequestId(&self) -> windows_core::Result<i32>;
@@ -2828,9 +2828,9 @@ pub trait ICertPropertyEnrollment_Impl: Sized + ICertProperty_Impl {
     fn CAName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn FriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertyEnrollment {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertyEnrollment_Vtbl {
     pub const fn new<Identity: ICertPropertyEnrollment_Impl, const OFFSET: isize>() -> ICertPropertyEnrollment_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestid: i32, strcadnsname: core::mem::MaybeUninit<windows_core::BSTR>, strcaname: core::mem::MaybeUninit<windows_core::BSTR>, strfriendlyname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -2890,7 +2890,7 @@ impl ICertPropertyEnrollment_Vtbl {
         iid == &<ICertPropertyEnrollment as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertyEnrollmentPolicyServer_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, propertyflags: EnrollmentPolicyServerPropertyFlags, authflags: X509EnrollmentAuthFlags, enrollmentserverauthflags: X509EnrollmentAuthFlags, urlflags: PolicyServerUrlFlags, strrequestid: &windows_core::BSTR, strurl: &windows_core::BSTR, strid: &windows_core::BSTR, strenrollmentserverurl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetPolicyServerUrl(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2902,9 +2902,9 @@ pub trait ICertPropertyEnrollmentPolicyServer_Impl: Sized + ICertProperty_Impl {
     fn GetAuthentication(&self) -> windows_core::Result<X509EnrollmentAuthFlags>;
     fn GetEnrollmentServerAuthentication(&self) -> windows_core::Result<X509EnrollmentAuthFlags>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertyEnrollmentPolicyServer {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertyEnrollmentPolicyServer_Vtbl {
     pub const fn new<Identity: ICertPropertyEnrollmentPolicyServer_Impl, const OFFSET: isize>() -> ICertPropertyEnrollmentPolicyServer_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyEnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyflags: EnrollmentPolicyServerPropertyFlags, authflags: X509EnrollmentAuthFlags, enrollmentserverauthflags: X509EnrollmentAuthFlags, urlflags: PolicyServerUrlFlags, strrequestid: core::mem::MaybeUninit<windows_core::BSTR>, strurl: core::mem::MaybeUninit<windows_core::BSTR>, strid: core::mem::MaybeUninit<windows_core::BSTR>, strenrollmentserverurl: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3008,14 +3008,14 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
         iid == &<ICertPropertyEnrollmentPolicyServer as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertyFriendlyName_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strfriendlyname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn FriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertyFriendlyName {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertyFriendlyName_Vtbl {
     pub const fn new<Identity: ICertPropertyFriendlyName_Impl, const OFFSET: isize>() -> ICertPropertyFriendlyName_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyFriendlyName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfriendlyname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3042,14 +3042,14 @@ impl ICertPropertyFriendlyName_Vtbl {
         iid == &<ICertPropertyFriendlyName as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertyKeyProvInfo_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, pvalue: Option<&IX509PrivateKey>) -> windows_core::Result<()>;
     fn PrivateKey(&self) -> windows_core::Result<IX509PrivateKey>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertyKeyProvInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertyKeyProvInfo_Vtbl {
     pub const fn new<Identity: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>() -> ICertPropertyKeyProvInfo_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3072,15 +3072,15 @@ impl ICertPropertyKeyProvInfo_Vtbl {
         iid == &<ICertPropertyKeyProvInfo as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertyRenewal_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromCertificateHash(&self, machinecontext: super::super::super::Foundation::VARIANT_BOOL, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
     fn get_Renewal(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertyRenewal {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertyRenewal_Vtbl {
     pub const fn new<Identity: ICertPropertyRenewal_Impl, const OFFSET: isize>() -> ICertPropertyRenewal_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyRenewal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strrenewalvalue: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3112,15 +3112,15 @@ impl ICertPropertyRenewal_Vtbl {
         iid == &<ICertPropertyRenewal as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertyRequestOriginator_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strrequestoriginator: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromLocalRequestOriginator(&self) -> windows_core::Result<()>;
     fn RequestOriginator(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertyRequestOriginator {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertyRequestOriginator_Vtbl {
     pub const fn new<Identity: ICertPropertyRequestOriginator_Impl, const OFFSET: isize>() -> ICertPropertyRequestOriginator_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertyRequestOriginator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strrequestoriginator: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3152,14 +3152,14 @@ impl ICertPropertyRequestOriginator_Vtbl {
         iid == &<ICertPropertyRequestOriginator as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertPropertySHA1Hash_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn get_SHA1Hash(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertPropertySHA1Hash {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertPropertySHA1Hash_Vtbl {
     pub const fn new<Identity: ICertPropertySHA1Hash_Impl, const OFFSET: isize>() -> ICertPropertySHA1Hash_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertPropertySHA1Hash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strrenewalvalue: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3186,7 +3186,7 @@ impl ICertPropertySHA1Hash_Vtbl {
         iid == &<ICertPropertySHA1Hash as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertProperty as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Submit(&self, flags: i32, strrequest: &windows_core::BSTR, strattributes: &windows_core::BSTR, strconfig: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn RetrievePending(&self, requestid: i32, strconfig: &windows_core::BSTR) -> windows_core::Result<i32>;
@@ -3196,9 +3196,9 @@ pub trait ICertRequest_Impl: Sized + super::super::super::System::Com::IDispatch
     fn GetCACertificate(&self, fexchangecertificate: i32, strconfig: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn GetCertificate(&self, flags: i32) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertRequest {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertRequest_Vtbl {
     pub const fn new<Identity: ICertRequest_Impl, const OFFSET: isize>() -> ICertRequest_Vtbl {
         unsafe extern "system" fn Submit<Identity: ICertRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, strrequest: core::mem::MaybeUninit<windows_core::BSTR>, strattributes: core::mem::MaybeUninit<windows_core::BSTR>, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, pdisposition: *mut i32) -> windows_core::HRESULT {
@@ -3286,18 +3286,18 @@ impl ICertRequest_Vtbl {
         iid == &<ICertRequest as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertRequest2_Impl: Sized + ICertRequest_Impl {
     fn GetIssuedCertificate(&self, strconfig: &windows_core::BSTR, requestid: i32, strserialnumber: &windows_core::BSTR) -> windows_core::Result<CR_DISP>;
     fn GetErrorMessageText(&self, hrmessage: i32, flags: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn GetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn GetCAPropertyFlags(&self, strconfig: &windows_core::BSTR, propid: i32) -> windows_core::Result<i32>;
     fn GetCAPropertyDisplayName(&self, strconfig: &windows_core::BSTR, propid: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertRequest2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertRequest2_Vtbl {
     pub const fn new<Identity: ICertRequest2_Impl, const OFFSET: isize>() -> ICertRequest2_Vtbl {
         unsafe extern "system" fn GetIssuedCertificate<Identity: ICertRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, requestid: i32, strserialnumber: core::mem::MaybeUninit<windows_core::BSTR>, pdisposition: *mut CR_DISP) -> windows_core::HRESULT {
@@ -3320,7 +3320,7 @@ impl ICertRequest2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCAProperty<Identity: ICertRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCAProperty<Identity: ICertRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertRequest2_Impl::GetCAProperty(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
@@ -3350,7 +3350,7 @@ impl ICertRequest2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFullResponseProperty<Identity: ICertRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE, pvarpropertyvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFullResponseProperty<Identity: ICertRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE, pvarpropertyvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertRequest2_Impl::GetFullResponseProperty(this, core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
@@ -3374,16 +3374,16 @@ impl ICertRequest2_Vtbl {
         iid == &<ICertRequest2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertRequest3_Impl: Sized + ICertRequest2_Impl {
     fn SetCredential(&self, hwnd: i32, authtype: X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetRequestIdString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetIssuedCertificate2(&self, strconfig: &windows_core::BSTR, strrequestid: &windows_core::BSTR, strserialnumber: &windows_core::BSTR) -> windows_core::Result<CR_DISP>;
     fn GetRefreshPolicy(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertRequest3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertRequest3_Vtbl {
     pub const fn new<Identity: ICertRequest3_Impl, const OFFSET: isize>() -> ICertRequest3_Vtbl {
         unsafe extern "system" fn SetCredential<Identity: ICertRequest3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: i32, authtype: X509EnrollmentAuthFlags, strcredential: core::mem::MaybeUninit<windows_core::BSTR>, strpassword: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3512,13 +3512,13 @@ impl ICertRequestD2_Vtbl {
         iid == &<ICertRequestD2 as windows_core::Interface>::IID || iid == &<ICertRequestD as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertServerExit_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn SetContext(&self, context: i32) -> windows_core::Result<()>;
-    fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn GetRequestAttribute(&self, strattributename: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<windows_core::VARIANT>;
-    fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn GetCertificateExtensionFlags(&self) -> windows_core::Result<i32>;
     fn EnumerateExtensionsSetup(&self, flags: i32) -> windows_core::Result<()>;
     fn EnumerateExtensions(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -3527,16 +3527,16 @@ pub trait ICertServerExit_Impl: Sized + super::super::super::System::Com::IDispa
     fn EnumerateAttributes(&self) -> windows_core::Result<windows_core::BSTR>;
     fn EnumerateAttributesClose(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertServerExit {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertServerExit_Vtbl {
     pub const fn new<Identity: ICertServerExit_Impl, const OFFSET: isize>() -> ICertServerExit_Vtbl {
         unsafe extern "system" fn SetContext<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertServerExit_Impl::SetContext(this, core::mem::transmute_copy(&context)).into()
         }
-        unsafe extern "system" fn GetRequestProperty<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRequestProperty<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertServerExit_Impl::GetRequestProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
                 Ok(ok__) => {
@@ -3556,7 +3556,7 @@ impl ICertServerExit_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCertificateProperty<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCertificateProperty<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertServerExit_Impl::GetCertificateProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
                 Ok(ok__) => {
@@ -3566,7 +3566,7 @@ impl ICertServerExit_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCertificateExtension<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: core::mem::MaybeUninit<windows_core::BSTR>, r#type: i32, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCertificateExtension<Identity: ICertServerExit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: core::mem::MaybeUninit<windows_core::BSTR>, r#type: i32, pvarvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertServerExit_Impl::GetCertificateExtension(this, core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type)) {
                 Ok(ok__) => {
@@ -3642,16 +3642,16 @@ impl ICertServerExit_Vtbl {
         iid == &<ICertServerExit as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertServerPolicy_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn SetContext(&self, context: i32) -> windows_core::Result<()>;
-    fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetRequestProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn GetRequestAttribute(&self, strattributename: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: CERT_PROPERTY_TYPE) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32, pvarpropertyvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
-    fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: CERT_PROPERTY_TYPE) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: CERT_PROPERTY_TYPE) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn SetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32, pvarpropertyvalue: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: CERT_PROPERTY_TYPE) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn GetCertificateExtensionFlags(&self) -> windows_core::Result<i32>;
-    fn SetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32, extflags: i32, pvarvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32, extflags: i32, pvarvalue: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn EnumerateExtensionsSetup(&self, flags: i32) -> windows_core::Result<()>;
     fn EnumerateExtensions(&self) -> windows_core::Result<windows_core::BSTR>;
     fn EnumerateExtensionsClose(&self) -> windows_core::Result<()>;
@@ -3659,16 +3659,16 @@ pub trait ICertServerPolicy_Impl: Sized + super::super::super::System::Com::IDis
     fn EnumerateAttributes(&self) -> windows_core::Result<windows_core::BSTR>;
     fn EnumerateAttributesClose(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertServerPolicy {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertServerPolicy_Vtbl {
     pub const fn new<Identity: ICertServerPolicy_Impl, const OFFSET: isize>() -> ICertServerPolicy_Vtbl {
         unsafe extern "system" fn SetContext<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertServerPolicy_Impl::SetContext(this, core::mem::transmute_copy(&context)).into()
         }
-        unsafe extern "system" fn GetRequestProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRequestProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertServerPolicy_Impl::GetRequestProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
                 Ok(ok__) => {
@@ -3688,7 +3688,7 @@ impl ICertServerPolicy_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCertificateProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertytype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCertificateProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertytype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertServerPolicy_Impl::GetCertificateProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype)) {
                 Ok(ok__) => {
@@ -3698,11 +3698,11 @@ impl ICertServerPolicy_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCertificateProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertytype: i32, pvarpropertyvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCertificateProperty<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertytype: i32, pvarpropertyvalue: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertServerPolicy_Impl::SetCertificateProperty(this, core::mem::transmute(&strpropertyname), core::mem::transmute_copy(&propertytype), core::mem::transmute_copy(&pvarpropertyvalue)).into()
         }
-        unsafe extern "system" fn GetCertificateExtension<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: core::mem::MaybeUninit<windows_core::BSTR>, r#type: CERT_PROPERTY_TYPE, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCertificateExtension<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: core::mem::MaybeUninit<windows_core::BSTR>, r#type: CERT_PROPERTY_TYPE, pvarvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertServerPolicy_Impl::GetCertificateExtension(this, core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type)) {
                 Ok(ok__) => {
@@ -3722,7 +3722,7 @@ impl ICertServerPolicy_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCertificateExtension<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: core::mem::MaybeUninit<windows_core::BSTR>, r#type: i32, extflags: i32, pvarvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCertificateExtension<Identity: ICertServerPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strextensionname: core::mem::MaybeUninit<windows_core::BSTR>, r#type: i32, extflags: i32, pvarvalue: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertServerPolicy_Impl::SetCertificateExtension(this, core::mem::transmute(&strextensionname), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&extflags), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -3784,7 +3784,7 @@ impl ICertServerPolicy_Vtbl {
         iid == &<ICertServerPolicy as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertView_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn OpenConnection(&self, strconfig: &windows_core::BSTR) -> windows_core::Result<()>;
     fn EnumCertViewColumn(&self, fresultcolumn: CVRC_COLUMN) -> windows_core::Result<IEnumCERTVIEWCOLUMN>;
@@ -3792,12 +3792,12 @@ pub trait ICertView_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn GetColumnIndex(&self, fresultcolumn: CVRC_COLUMN, strcolumnname: &windows_core::BSTR, pcolumnindex: *mut i32) -> windows_core::Result<()>;
     fn SetResultColumnCount(&self, cresultcolumn: i32) -> windows_core::Result<()>;
     fn SetResultColumn(&self, columnindex: i32) -> windows_core::Result<()>;
-    fn SetRestriction(&self, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetRestriction(&self, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn OpenView(&self) -> windows_core::Result<IEnumCERTVIEWROW>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertView {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertView_Vtbl {
     pub const fn new<Identity: ICertView_Impl, const OFFSET: isize>() -> ICertView_Vtbl {
         unsafe extern "system" fn OpenConnection<Identity: ICertView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strconfig: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3830,7 +3830,7 @@ impl ICertView_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertView_Impl::SetResultColumn(this, core::mem::transmute_copy(&columnindex)).into()
         }
-        unsafe extern "system" fn SetRestriction<Identity: ICertView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRestriction<Identity: ICertView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertView_Impl::SetRestriction(this, core::mem::transmute_copy(&columnindex), core::mem::transmute_copy(&seekoperator), core::mem::transmute_copy(&sortorder), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -3860,13 +3860,13 @@ impl ICertView_Vtbl {
         iid == &<ICertView as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertView2_Impl: Sized + ICertView_Impl {
     fn SetTable(&self, table: CVRC_TABLE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertView2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertView2_Vtbl {
     pub const fn new<Identity: ICertView2_Impl, const OFFSET: isize>() -> ICertView2_Vtbl {
         unsafe extern "system" fn SetTable<Identity: ICertView2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, table: CVRC_TABLE) -> windows_core::HRESULT {
@@ -3879,15 +3879,15 @@ impl ICertView2_Vtbl {
         iid == &<ICertView2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertView as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertificateAttestationChallenge_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, encoding: EncodingType, strpendingfullcmcresponsewithchallenge: &windows_core::BSTR) -> windows_core::Result<()>;
     fn DecryptChallenge(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn RequestID(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertificateAttestationChallenge {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertificateAttestationChallenge_Vtbl {
     pub const fn new<Identity: ICertificateAttestationChallenge_Impl, const OFFSET: isize>() -> ICertificateAttestationChallenge_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertificateAttestationChallenge_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strpendingfullcmcresponsewithchallenge: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3925,14 +3925,14 @@ impl ICertificateAttestationChallenge_Vtbl {
         iid == &<ICertificateAttestationChallenge as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertificateAttestationChallenge2_Impl: Sized + ICertificateAttestationChallenge_Impl {
     fn SetKeyContainerName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn put_KeyBlob(&self, encoding: EncodingType, value: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertificateAttestationChallenge2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertificateAttestationChallenge2_Vtbl {
     pub const fn new<Identity: ICertificateAttestationChallenge2_Impl, const OFFSET: isize>() -> ICertificateAttestationChallenge2_Vtbl {
         unsafe extern "system" fn SetKeyContainerName<Identity: ICertificateAttestationChallenge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -3953,7 +3953,7 @@ impl ICertificateAttestationChallenge2_Vtbl {
         iid == &<ICertificateAttestationChallenge2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ICertificateAttestationChallenge as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertificatePolicies_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<ICertificatePolicy>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -3962,9 +3962,9 @@ pub trait ICertificatePolicies_Impl: Sized + super::super::super::System::Com::I
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertificatePolicies {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertificatePolicies_Vtbl {
     pub const fn new<Identity: ICertificatePolicies_Impl, const OFFSET: isize>() -> ICertificatePolicies_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ICertificatePolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4023,15 +4023,15 @@ impl ICertificatePolicies_Vtbl {
         iid == &<ICertificatePolicies as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertificatePolicy_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pvalue: Option<&IObjectId>) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn PolicyQualifiers(&self) -> windows_core::Result<IPolicyQualifiers>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertificatePolicy {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertificatePolicy_Vtbl {
     pub const fn new<Identity: ICertificatePolicy_Impl, const OFFSET: isize>() -> ICertificatePolicy_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICertificatePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4069,7 +4069,7 @@ impl ICertificatePolicy_Vtbl {
         iid == &<ICertificatePolicy as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertificationAuthorities_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<ICertificationAuthority>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -4080,9 +4080,9 @@ pub trait ICertificationAuthorities_Impl: Sized + super::super::super::System::C
     fn ComputeSiteCosts(&self) -> windows_core::Result<()>;
     fn get_ItemByName(&self, strname: &windows_core::BSTR) -> windows_core::Result<ICertificationAuthority>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertificationAuthorities {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertificationAuthorities_Vtbl {
     pub const fn new<Identity: ICertificationAuthorities_Impl, const OFFSET: isize>() -> ICertificationAuthorities_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4157,16 +4157,16 @@ impl ICertificationAuthorities_Vtbl {
         iid == &<ICertificationAuthorities as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICertificationAuthority_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn get_Property(&self, property: EnrollmentCAProperty) -> windows_core::Result<windows_core::VARIANT>;
+    fn get_Property(&self, property: EnrollmentCAProperty) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICertificationAuthority {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertificationAuthority_Vtbl {
     pub const fn new<Identity: ICertificationAuthority_Impl, const OFFSET: isize>() -> ICertificationAuthority_Vtbl {
-        unsafe extern "system" fn get_Property<Identity: ICertificationAuthority_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentCAProperty, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: ICertificationAuthority_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentCAProperty, pvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertificationAuthority_Impl::get_Property(this, core::mem::transmute_copy(&property)) {
                 Ok(ok__) => {
@@ -4182,16 +4182,16 @@ impl ICertificationAuthority_Vtbl {
         iid == &<ICertificationAuthority as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICryptAttribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeFromObjectId(&self, pobjectid: Option<&IObjectId>) -> windows_core::Result<()>;
     fn InitializeFromValues(&self, pattributes: Option<&IX509Attributes>) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn Values(&self) -> windows_core::Result<IX509Attributes>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICryptAttribute {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICryptAttribute_Vtbl {
     pub const fn new<Identity: ICryptAttribute_Impl, const OFFSET: isize>() -> ICryptAttribute_Vtbl {
         unsafe extern "system" fn InitializeFromObjectId<Identity: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4234,7 +4234,7 @@ impl ICryptAttribute_Vtbl {
         iid == &<ICryptAttribute as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICryptAttributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<ICryptAttribute>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -4245,9 +4245,9 @@ pub trait ICryptAttributes_Impl: Sized + super::super::super::System::Com::IDisp
     fn get_IndexByObjectId(&self, pobjectid: Option<&IObjectId>) -> windows_core::Result<i32>;
     fn AddRange(&self, pvalue: Option<&ICryptAttributes>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICryptAttributes {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICryptAttributes_Vtbl {
     pub const fn new<Identity: ICryptAttributes_Impl, const OFFSET: isize>() -> ICryptAttributes_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4322,7 +4322,7 @@ impl ICryptAttributes_Vtbl {
         iid == &<ICryptAttributes as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICspAlgorithm_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetAlgorithmOid(&self, length: i32, algflags: AlgorithmFlags) -> windows_core::Result<IObjectId>;
     fn DefaultLength(&self) -> windows_core::Result<i32>;
@@ -4335,9 +4335,9 @@ pub trait ICspAlgorithm_Impl: Sized + super::super::super::System::Com::IDispatc
     fn Type(&self) -> windows_core::Result<AlgorithmType>;
     fn Operations(&self) -> windows_core::Result<AlgorithmOperationFlags>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICspAlgorithm {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICspAlgorithm_Vtbl {
     pub const fn new<Identity: ICspAlgorithm_Impl, const OFFSET: isize>() -> ICspAlgorithm_Vtbl {
         unsafe extern "system" fn GetAlgorithmOid<Identity: ICspAlgorithm_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: i32, algflags: AlgorithmFlags, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4458,7 +4458,7 @@ impl ICspAlgorithm_Vtbl {
         iid == &<ICspAlgorithm as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICspAlgorithms_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<ICspAlgorithm>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -4469,9 +4469,9 @@ pub trait ICspAlgorithms_Impl: Sized + super::super::super::System::Com::IDispat
     fn get_ItemByName(&self, strname: &windows_core::BSTR) -> windows_core::Result<ICspAlgorithm>;
     fn get_IndexByObjectId(&self, pobjectid: Option<&IObjectId>) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICspAlgorithms {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICspAlgorithms_Vtbl {
     pub const fn new<Identity: ICspAlgorithms_Impl, const OFFSET: isize>() -> ICspAlgorithms_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4552,7 +4552,7 @@ impl ICspAlgorithms_Vtbl {
         iid == &<ICspAlgorithms as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICspInformation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeFromName(&self, strname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromType(&self, r#type: X509ProviderType, palgorithm: Option<&IObjectId>, machinecontext: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -4572,9 +4572,9 @@ pub trait ICspInformation_Impl: Sized + super::super::super::System::Com::IDispa
     fn LegacyCsp(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn GetCspStatusFromOperations(&self, palgorithm: Option<&IObjectId>, operations: AlgorithmOperationFlags) -> windows_core::Result<ICspStatus>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICspInformation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICspInformation_Vtbl {
     pub const fn new<Identity: ICspInformation_Impl, const OFFSET: isize>() -> ICspInformation_Vtbl {
         unsafe extern "system" fn InitializeFromName<Identity: ICspInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -4760,7 +4760,7 @@ impl ICspInformation_Vtbl {
         iid == &<ICspInformation as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICspInformations_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<ICspInformation>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -4775,9 +4775,9 @@ pub trait ICspInformations_Impl: Sized + super::super::super::System::Com::IDisp
     fn GetEncryptionCspAlgorithms(&self, pcspinformation: Option<&ICspInformation>) -> windows_core::Result<ICspAlgorithms>;
     fn GetHashAlgorithms(&self, pcspinformation: Option<&ICspInformation>) -> windows_core::Result<IObjectIds>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICspInformations {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICspInformations_Vtbl {
     pub const fn new<Identity: ICspInformations_Impl, const OFFSET: isize>() -> ICspInformations_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ICspInformations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4896,7 +4896,7 @@ impl ICspInformations_Vtbl {
         iid == &<ICspInformations as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICspStatus_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pcsp: Option<&ICspInformation>, palgorithm: Option<&ICspAlgorithm>) -> windows_core::Result<()>;
     fn Ordinal(&self) -> windows_core::Result<i32>;
@@ -4906,9 +4906,9 @@ pub trait ICspStatus_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn EnrollmentStatus(&self) -> windows_core::Result<IX509EnrollmentStatus>;
     fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICspStatus {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICspStatus_Vtbl {
     pub const fn new<Identity: ICspStatus_Impl, const OFFSET: isize>() -> ICspStatus_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICspStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcsp: *mut core::ffi::c_void, palgorithm: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4984,7 +4984,7 @@ impl ICspStatus_Vtbl {
         iid == &<ICspStatus as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICspStatuses_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<ICspStatus>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -4997,9 +4997,9 @@ pub trait ICspStatuses_Impl: Sized + super::super::super::System::Com::IDispatch
     fn get_ItemByOperations(&self, strcspname: &windows_core::BSTR, stralgorithmname: &windows_core::BSTR, operations: AlgorithmOperationFlags) -> windows_core::Result<ICspStatus>;
     fn get_ItemByProvider(&self, pcspstatus: Option<&ICspStatus>) -> windows_core::Result<ICspStatus>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICspStatuses {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICspStatuses_Vtbl {
     pub const fn new<Identity: ICspStatuses_Impl, const OFFSET: isize>() -> ICspStatuses_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ICspStatuses_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5861,7 +5861,7 @@ impl IEnroll4_Vtbl {
         iid == &<IEnroll4 as windows_core::Interface>::IID || iid == &<IEnroll as windows_core::Interface>::IID || iid == &<IEnroll2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumCERTVIEWATTRIBUTE_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Next(&self, pindex: *mut i32) -> windows_core::Result<()>;
     fn GetName(&self, pstrout: *mut windows_core::BSTR) -> windows_core::Result<()>;
@@ -5870,9 +5870,9 @@ pub trait IEnumCERTVIEWATTRIBUTE_Impl: Sized + super::super::super::System::Com:
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWATTRIBUTE>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumCERTVIEWATTRIBUTE {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumCERTVIEWATTRIBUTE_Vtbl {
     pub const fn new<Identity: IEnumCERTVIEWATTRIBUTE_Impl, const OFFSET: isize>() -> IEnumCERTVIEWATTRIBUTE_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumCERTVIEWATTRIBUTE_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pindex: *mut i32) -> windows_core::HRESULT {
@@ -5919,7 +5919,7 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
         iid == &<IEnumCERTVIEWATTRIBUTE as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumCERTVIEWCOLUMN_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Next(&self, pindex: *mut i32) -> windows_core::Result<()>;
     fn GetName(&self, pstrout: *mut windows_core::BSTR) -> windows_core::Result<()>;
@@ -5927,14 +5927,14 @@ pub trait IEnumCERTVIEWCOLUMN_Impl: Sized + super::super::super::System::Com::ID
     fn GetType(&self, ptype: *mut i32) -> windows_core::Result<()>;
     fn IsIndexed(&self, pindexed: *mut i32) -> windows_core::Result<()>;
     fn GetMaxLength(&self, pmaxlength: *mut i32) -> windows_core::Result<()>;
-    fn GetValue(&self, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetValue(&self, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Skip(&self, celt: i32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWCOLUMN>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumCERTVIEWCOLUMN {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumCERTVIEWCOLUMN_Vtbl {
     pub const fn new<Identity: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>() -> IEnumCERTVIEWCOLUMN_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pindex: *mut i32) -> windows_core::HRESULT {
@@ -5961,7 +5961,7 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumCERTVIEWCOLUMN_Impl::GetMaxLength(this, core::mem::transmute_copy(&pmaxlength)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumCERTVIEWCOLUMN_Impl::GetValue(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -6001,19 +6001,19 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
         iid == &<IEnumCERTVIEWCOLUMN as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumCERTVIEWEXTENSION_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Next(&self, pindex: *mut i32) -> windows_core::Result<()>;
     fn GetName(&self, pstrout: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetFlags(&self, pflags: *mut i32) -> windows_core::Result<()>;
-    fn GetValue(&self, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut windows_core::VARIANT) -> windows_core::Result<()>;
+    fn GetValue(&self, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Skip(&self, celt: i32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWEXTENSION>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumCERTVIEWEXTENSION {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumCERTVIEWEXTENSION_Vtbl {
     pub const fn new<Identity: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>() -> IEnumCERTVIEWEXTENSION_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pindex: *mut i32) -> windows_core::HRESULT {
@@ -6028,7 +6028,7 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumCERTVIEWEXTENSION_Impl::GetFlags(this, core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumCERTVIEWEXTENSION_Impl::GetValue(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pvarvalue)).into()
         }
@@ -6065,7 +6065,7 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
         iid == &<IEnumCERTVIEWEXTENSION as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumCERTVIEWROW_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Next(&self, pindex: *mut i32) -> windows_core::Result<()>;
     fn EnumCertViewColumn(&self) -> windows_core::Result<IEnumCERTVIEWCOLUMN>;
@@ -6076,9 +6076,9 @@ pub trait IEnumCERTVIEWROW_Impl: Sized + super::super::super::System::Com::IDisp
     fn Clone(&self) -> windows_core::Result<IEnumCERTVIEWROW>;
     fn GetMaxIndex(&self, pindex: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumCERTVIEWROW {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumCERTVIEWROW_Vtbl {
     pub const fn new<Identity: IEnumCERTVIEWROW_Impl, const OFFSET: isize>() -> IEnumCERTVIEWROW_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pindex: *mut i32) -> windows_core::HRESULT {
@@ -6208,7 +6208,7 @@ impl INDESPolicy_Vtbl {
         iid == &<INDESPolicy as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IOCSPAdmin_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn OCSPServiceProperties(&self) -> windows_core::Result<IOCSPPropertyCollection>;
     fn OCSPCAConfigurationCollection(&self) -> windows_core::Result<IOCSPCAConfigurationCollection>;
@@ -6218,12 +6218,12 @@ pub trait IOCSPAdmin_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn Ping(&self, bstrservername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetSecurity(&self, bstrservername: &windows_core::BSTR, bstrval: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetSecurity(&self, bstrservername: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn GetSigningCertificates(&self, bstrservername: &windows_core::BSTR, pcacertvar: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
-    fn GetHashAlgorithms(&self, bstrservername: &windows_core::BSTR, bstrcaid: &windows_core::BSTR) -> windows_core::Result<windows_core::VARIANT>;
+    fn GetSigningCertificates(&self, bstrservername: &windows_core::BSTR, pcacertvar: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn GetHashAlgorithms(&self, bstrservername: &windows_core::BSTR, bstrcaid: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IOCSPAdmin {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IOCSPAdmin_Vtbl {
     pub const fn new<Identity: IOCSPAdmin_Impl, const OFFSET: isize>() -> IOCSPAdmin_Vtbl {
         unsafe extern "system" fn OCSPServiceProperties<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6282,7 +6282,7 @@ impl IOCSPAdmin_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSigningCertificates<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: core::mem::MaybeUninit<windows_core::BSTR>, pcacertvar: *const core::mem::MaybeUninit<windows_core::VARIANT>, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSigningCertificates<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: core::mem::MaybeUninit<windows_core::BSTR>, pcacertvar: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPAdmin_Impl::GetSigningCertificates(this, core::mem::transmute(&bstrservername), core::mem::transmute_copy(&pcacertvar)) {
                 Ok(ok__) => {
@@ -6292,7 +6292,7 @@ impl IOCSPAdmin_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHashAlgorithms<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: core::mem::MaybeUninit<windows_core::BSTR>, bstrcaid: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHashAlgorithms<Identity: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservername: core::mem::MaybeUninit<windows_core::BSTR>, bstrcaid: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPAdmin_Impl::GetHashAlgorithms(this, core::mem::transmute(&bstrservername), core::mem::transmute(&bstrcaid)) {
                 Ok(ok__) => {
@@ -6320,16 +6320,16 @@ impl IOCSPAdmin_Vtbl {
         iid == &<IOCSPAdmin as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IOCSPCAConfiguration_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Identifier(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CACertificate(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn CACertificate(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn HashAlgorithm(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetHashAlgorithm(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SigningFlags(&self) -> windows_core::Result<u32>;
     fn SetSigningFlags(&self, newval: u32) -> windows_core::Result<()>;
-    fn SigningCertificate(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetSigningCertificate(&self, newval: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SigningCertificate(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn SetSigningCertificate(&self, newval: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn ReminderDuration(&self) -> windows_core::Result<u32>;
     fn SetReminderDuration(&self, newval: u32) -> windows_core::Result<()>;
     fn ErrorCode(&self) -> windows_core::Result<u32>;
@@ -6337,19 +6337,19 @@ pub trait IOCSPCAConfiguration_Impl: Sized + super::super::super::System::Com::I
     fn KeySpec(&self) -> windows_core::Result<u32>;
     fn ProviderCLSID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetProviderCLSID(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ProviderProperties(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetProviderProperties(&self, newval: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn ProviderProperties(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn SetProviderProperties(&self, newval: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Modified(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
-    fn LocalRevocationInformation(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetLocalRevocationInformation(&self, newval: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn LocalRevocationInformation(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn SetLocalRevocationInformation(&self, newval: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn SigningCertificateTemplate(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetSigningCertificateTemplate(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
     fn CAConfig(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetCAConfig(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IOCSPCAConfiguration {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IOCSPCAConfiguration_Vtbl {
     pub const fn new<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>() -> IOCSPCAConfiguration_Vtbl {
         unsafe extern "system" fn Identifier<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -6362,7 +6362,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CACertificate<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CACertificate<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPCAConfiguration_Impl::CACertificate(this) {
                 Ok(ok__) => {
@@ -6400,7 +6400,7 @@ impl IOCSPCAConfiguration_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOCSPCAConfiguration_Impl::SetSigningFlags(this, core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn SigningCertificate<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SigningCertificate<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPCAConfiguration_Impl::SigningCertificate(this) {
                 Ok(ok__) => {
@@ -6410,7 +6410,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSigningCertificate<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSigningCertificate<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOCSPCAConfiguration_Impl::SetSigningCertificate(this, core::mem::transmute(&newval)).into()
         }
@@ -6472,7 +6472,7 @@ impl IOCSPCAConfiguration_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOCSPCAConfiguration_Impl::SetProviderCLSID(this, core::mem::transmute(&newval)).into()
         }
-        unsafe extern "system" fn ProviderProperties<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProviderProperties<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPCAConfiguration_Impl::ProviderProperties(this) {
                 Ok(ok__) => {
@@ -6482,7 +6482,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProviderProperties<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProviderProperties<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOCSPCAConfiguration_Impl::SetProviderProperties(this, core::mem::transmute(&newval)).into()
         }
@@ -6496,7 +6496,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalRevocationInformation<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LocalRevocationInformation<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPCAConfiguration_Impl::LocalRevocationInformation(this) {
                 Ok(ok__) => {
@@ -6506,7 +6506,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLocalRevocationInformation<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLocalRevocationInformation<Identity: IOCSPCAConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOCSPCAConfiguration_Impl::SetLocalRevocationInformation(this, core::mem::transmute(&newval)).into()
         }
@@ -6570,18 +6570,18 @@ impl IOCSPCAConfiguration_Vtbl {
         iid == &<IOCSPCAConfiguration as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IOCSPCAConfigurationCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::VARIANT>;
+    fn get_Item(&self, index: i32) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn Count(&self) -> windows_core::Result<i32>;
-    fn get_ItemByName(&self, bstridentifier: &windows_core::BSTR) -> windows_core::Result<windows_core::VARIANT>;
-    fn CreateCAConfiguration(&self, bstridentifier: &windows_core::BSTR, varcacert: &windows_core::VARIANT) -> windows_core::Result<IOCSPCAConfiguration>;
+    fn get_ItemByName(&self, bstridentifier: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn CreateCAConfiguration(&self, bstridentifier: &windows_core::BSTR, varcacert: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IOCSPCAConfiguration>;
     fn DeleteCAConfiguration(&self, bstridentifier: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IOCSPCAConfigurationCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IOCSPCAConfigurationCollection_Vtbl {
     pub const fn new<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>() -> IOCSPCAConfigurationCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6594,7 +6594,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPCAConfigurationCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
@@ -6614,7 +6614,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_ItemByName<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstridentifier: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstridentifier: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPCAConfigurationCollection_Impl::get_ItemByName(this, core::mem::transmute(&bstridentifier)) {
                 Ok(ok__) => {
@@ -6624,7 +6624,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCAConfiguration<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstridentifier: core::mem::MaybeUninit<windows_core::BSTR>, varcacert: core::mem::MaybeUninit<windows_core::VARIANT>, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateCAConfiguration<Identity: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstridentifier: core::mem::MaybeUninit<windows_core::BSTR>, varcacert: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPCAConfigurationCollection_Impl::CreateCAConfiguration(this, core::mem::transmute(&bstridentifier), core::mem::transmute(&varcacert)) {
                 Ok(ok__) => {
@@ -6652,16 +6652,16 @@ impl IOCSPCAConfigurationCollection_Vtbl {
         iid == &<IOCSPCAConfigurationCollection as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IOCSPProperty_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Value(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetValue(&self, newval: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Value(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn SetValue(&self, newval: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Modified(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IOCSPProperty {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IOCSPProperty_Vtbl {
     pub const fn new<Identity: IOCSPProperty_Impl, const OFFSET: isize>() -> IOCSPProperty_Vtbl {
         unsafe extern "system" fn Name<Identity: IOCSPProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -6674,7 +6674,7 @@ impl IOCSPProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Identity: IOCSPProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: IOCSPProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPProperty_Impl::Value(this) {
                 Ok(ok__) => {
@@ -6684,7 +6684,7 @@ impl IOCSPProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: IOCSPProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: IOCSPProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOCSPProperty_Impl::SetValue(this, core::mem::transmute(&newval)).into()
         }
@@ -6710,20 +6710,20 @@ impl IOCSPProperty_Vtbl {
         iid == &<IOCSPProperty as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IOCSPPropertyCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::VARIANT>;
+    fn get_Item(&self, index: i32) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn Count(&self) -> windows_core::Result<i32>;
-    fn get_ItemByName(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<windows_core::VARIANT>;
-    fn CreateProperty(&self, bstrpropname: &windows_core::BSTR, pvarpropvalue: *const windows_core::VARIANT) -> windows_core::Result<IOCSPProperty>;
+    fn get_ItemByName(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn CreateProperty(&self, bstrpropname: &windows_core::BSTR, pvarpropvalue: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<IOCSPProperty>;
     fn DeleteProperty(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeFromProperties(&self, pvarproperties: *const windows_core::VARIANT) -> windows_core::Result<()>;
-    fn GetAllProperties(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn InitializeFromProperties(&self, pvarproperties: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn GetAllProperties(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IOCSPPropertyCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IOCSPPropertyCollection_Vtbl {
     pub const fn new<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>() -> IOCSPPropertyCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6736,7 +6736,7 @@ impl IOCSPPropertyCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPPropertyCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
@@ -6756,7 +6756,7 @@ impl IOCSPPropertyCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_ItemByName<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPPropertyCollection_Impl::get_ItemByName(this, core::mem::transmute(&bstrpropname)) {
                 Ok(ok__) => {
@@ -6766,7 +6766,7 @@ impl IOCSPPropertyCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateProperty<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: core::mem::MaybeUninit<windows_core::BSTR>, pvarpropvalue: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateProperty<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: core::mem::MaybeUninit<windows_core::BSTR>, pvarpropvalue: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPPropertyCollection_Impl::CreateProperty(this, core::mem::transmute(&bstrpropname), core::mem::transmute_copy(&pvarpropvalue)) {
                 Ok(ok__) => {
@@ -6780,11 +6780,11 @@ impl IOCSPPropertyCollection_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOCSPPropertyCollection_Impl::DeleteProperty(this, core::mem::transmute(&bstrpropname)).into()
         }
-        unsafe extern "system" fn InitializeFromProperties<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarproperties: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitializeFromProperties<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarproperties: *const core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOCSPPropertyCollection_Impl::InitializeFromProperties(this, core::mem::transmute_copy(&pvarproperties)).into()
         }
-        unsafe extern "system" fn GetAllProperties<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarproperties: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAllProperties<Identity: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarproperties: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOCSPPropertyCollection_Impl::GetAllProperties(this) {
                 Ok(ok__) => {
@@ -6810,7 +6810,7 @@ impl IOCSPPropertyCollection_Vtbl {
         iid == &<IOCSPPropertyCollection as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IObjectId_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeFromName(&self, name: CERTENROLL_OBJECTID) -> windows_core::Result<()>;
     fn InitializeFromValue(&self, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -6821,9 +6821,9 @@ pub trait IObjectId_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetAlgorithmName(&self, groupid: ObjectIdGroupId, keyflags: ObjectIdPublicKeyFlags) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IObjectId {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IObjectId_Vtbl {
     pub const fn new<Identity: IObjectId_Impl, const OFFSET: isize>() -> IObjectId_Vtbl {
         unsafe extern "system" fn InitializeFromName<Identity: IObjectId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: CERTENROLL_OBJECTID) -> windows_core::HRESULT {
@@ -6898,7 +6898,7 @@ impl IObjectId_Vtbl {
         iid == &<IObjectId as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IObjectIds_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<IObjectId>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -6908,9 +6908,9 @@ pub trait IObjectIds_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn Clear(&self) -> windows_core::Result<()>;
     fn AddRange(&self, pvalue: Option<&IObjectIds>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IObjectIds {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IObjectIds_Vtbl {
     pub const fn new<Identity: IObjectIds_Impl, const OFFSET: isize>() -> IObjectIds_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: IObjectIds_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6974,7 +6974,7 @@ impl IObjectIds_Vtbl {
         iid == &<IObjectIds as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPolicyQualifier_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn InitializeEncode(&self, strqualifier: &windows_core::BSTR, r#type: PolicyQualifierType) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
@@ -6982,9 +6982,9 @@ pub trait IPolicyQualifier_Impl: Sized + super::super::super::System::Com::IDisp
     fn Type(&self) -> windows_core::Result<PolicyQualifierType>;
     fn get_RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPolicyQualifier {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPolicyQualifier_Vtbl {
     pub const fn new<Identity: IPolicyQualifier_Impl, const OFFSET: isize>() -> IPolicyQualifier_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IPolicyQualifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqualifier: core::mem::MaybeUninit<windows_core::BSTR>, r#type: PolicyQualifierType) -> windows_core::HRESULT {
@@ -7044,7 +7044,7 @@ impl IPolicyQualifier_Vtbl {
         iid == &<IPolicyQualifier as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPolicyQualifiers_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<IPolicyQualifier>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -7053,9 +7053,9 @@ pub trait IPolicyQualifiers_Impl: Sized + super::super::super::System::Com::IDis
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPolicyQualifiers {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPolicyQualifiers_Vtbl {
     pub const fn new<Identity: IPolicyQualifiers_Impl, const OFFSET: isize>() -> IPolicyQualifiers_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: IPolicyQualifiers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7114,7 +7114,7 @@ impl IPolicyQualifiers_Vtbl {
         iid == &<IPolicyQualifiers as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISignerCertificate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, machinecontext: super::super::super::Foundation::VARIANT_BOOL, verifytype: X509PrivateKeyVerify, encoding: EncodingType, strcertificate: &windows_core::BSTR) -> windows_core::Result<()>;
     fn get_Certificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
@@ -7128,9 +7128,9 @@ pub trait ISignerCertificate_Impl: Sized + super::super::super::System::Com::IDi
     fn SetPin(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SignatureInformation(&self) -> windows_core::Result<IX509SignatureInformation>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISignerCertificate {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISignerCertificate_Vtbl {
     pub const fn new<Identity: ISignerCertificate_Impl, const OFFSET: isize>() -> ISignerCertificate_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinecontext: super::super::super::Foundation::VARIANT_BOOL, verifytype: X509PrivateKeyVerify, encoding: EncodingType, strcertificate: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -7232,7 +7232,7 @@ impl ISignerCertificate_Vtbl {
         iid == &<ISignerCertificate as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISignerCertificates_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<ISignerCertificate>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -7242,9 +7242,9 @@ pub trait ISignerCertificates_Impl: Sized + super::super::super::System::Com::ID
     fn Clear(&self) -> windows_core::Result<()>;
     fn Find(&self, psignercert: Option<&ISignerCertificate>) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISignerCertificates {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISignerCertificates_Vtbl {
     pub const fn new<Identity: ISignerCertificates_Impl, const OFFSET: isize>() -> ISignerCertificates_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7314,7 +7314,7 @@ impl ISignerCertificates_Vtbl {
         iid == &<ISignerCertificates as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISmimeCapabilities_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<ISmimeCapability>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -7325,9 +7325,9 @@ pub trait ISmimeCapabilities_Impl: Sized + super::super::super::System::Com::IDi
     fn AddFromCsp(&self, pvalue: Option<&ICspInformation>) -> windows_core::Result<()>;
     fn AddAvailableSmimeCapabilities(&self, machinecontext: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISmimeCapabilities {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISmimeCapabilities_Vtbl {
     pub const fn new<Identity: ISmimeCapabilities_Impl, const OFFSET: isize>() -> ISmimeCapabilities_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7396,15 +7396,15 @@ impl ISmimeCapabilities_Vtbl {
         iid == &<ISmimeCapabilities as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISmimeCapability_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pobjectid: Option<&IObjectId>, bitcount: i32) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn BitCount(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISmimeCapability {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISmimeCapability_Vtbl {
     pub const fn new<Identity: ISmimeCapability_Impl, const OFFSET: isize>() -> ISmimeCapability_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ISmimeCapability_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, bitcount: i32) -> windows_core::HRESULT {
@@ -7442,16 +7442,16 @@ impl ISmimeCapability_Vtbl {
         iid == &<ISmimeCapability as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX500DistinguishedName_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Decode(&self, strencodedname: &windows_core::BSTR, encoding: EncodingType, nameflags: X500NameFlags) -> windows_core::Result<()>;
     fn Encode(&self, strname: &windows_core::BSTR, nameflags: X500NameFlags) -> windows_core::Result<()>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn get_EncodedName(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX500DistinguishedName {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX500DistinguishedName_Vtbl {
     pub const fn new<Identity: IX500DistinguishedName_Impl, const OFFSET: isize>() -> IX500DistinguishedName_Vtbl {
         unsafe extern "system" fn Decode<Identity: IX500DistinguishedName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencodedname: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType, nameflags: X500NameFlags) -> windows_core::HRESULT {
@@ -7494,15 +7494,15 @@ impl IX500DistinguishedName_Vtbl {
         iid == &<IX500DistinguishedName as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509Attribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pobjectid: Option<&IObjectId>, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
     fn get_RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509Attribute {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509Attribute_Vtbl {
     pub const fn new<Identity: IX509Attribute_Impl, const OFFSET: isize>() -> IX509Attribute_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509Attribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -7540,7 +7540,7 @@ impl IX509Attribute_Vtbl {
         iid == &<IX509Attribute as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509AttributeArchiveKey_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, pkey: Option<&IX509PrivateKey>, encoding: EncodingType, strcaxcert: &windows_core::BSTR, palgorithm: Option<&IObjectId>, encryptionstrength: i32) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -7548,9 +7548,9 @@ pub trait IX509AttributeArchiveKey_Impl: Sized + IX509Attribute_Impl {
     fn EncryptionAlgorithm(&self) -> windows_core::Result<IObjectId>;
     fn EncryptionStrength(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509AttributeArchiveKey {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509AttributeArchiveKey_Vtbl {
     pub const fn new<Identity: IX509AttributeArchiveKey_Impl, const OFFSET: isize>() -> IX509AttributeArchiveKey_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeArchiveKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut core::ffi::c_void, encoding: EncodingType, strcaxcert: core::mem::MaybeUninit<windows_core::BSTR>, palgorithm: *mut core::ffi::c_void, encryptionstrength: i32) -> windows_core::HRESULT {
@@ -7604,15 +7604,15 @@ impl IX509AttributeArchiveKey_Vtbl {
         iid == &<IX509AttributeArchiveKey as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509AttributeArchiveKeyHash_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncodeFromEncryptedKeyBlob(&self, encoding: EncodingType, strencryptedkeyblob: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn get_EncryptedKeyHashBlob(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509AttributeArchiveKeyHash {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509AttributeArchiveKeyHash_Vtbl {
     pub const fn new<Identity: IX509AttributeArchiveKeyHash_Impl, const OFFSET: isize>() -> IX509AttributeArchiveKeyHash_Vtbl {
         unsafe extern "system" fn InitializeEncodeFromEncryptedKeyBlob<Identity: IX509AttributeArchiveKeyHash_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strencryptedkeyblob: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -7644,7 +7644,7 @@ impl IX509AttributeArchiveKeyHash_Vtbl {
         iid == &<IX509AttributeArchiveKeyHash as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509AttributeClientId_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, clientid: RequestClientInfoClientId, strmachinednsname: &windows_core::BSTR, strusersamname: &windows_core::BSTR, strprocessname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -7653,9 +7653,9 @@ pub trait IX509AttributeClientId_Impl: Sized + IX509Attribute_Impl {
     fn UserSamName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ProcessName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509AttributeClientId {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509AttributeClientId_Vtbl {
     pub const fn new<Identity: IX509AttributeClientId_Impl, const OFFSET: isize>() -> IX509AttributeClientId_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeClientId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientid: RequestClientInfoClientId, strmachinednsname: core::mem::MaybeUninit<windows_core::BSTR>, strusersamname: core::mem::MaybeUninit<windows_core::BSTR>, strprocessname: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -7720,7 +7720,7 @@ impl IX509AttributeClientId_Vtbl {
         iid == &<IX509AttributeClientId as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509AttributeCspProvider_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, keyspec: X509KeySpec, strprovidername: &windows_core::BSTR, encoding: EncodingType, strsignature: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -7728,9 +7728,9 @@ pub trait IX509AttributeCspProvider_Impl: Sized + IX509Attribute_Impl {
     fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn get_Signature(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509AttributeCspProvider {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509AttributeCspProvider_Vtbl {
     pub const fn new<Identity: IX509AttributeCspProvider_Impl, const OFFSET: isize>() -> IX509AttributeCspProvider_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeCspProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keyspec: X509KeySpec, strprovidername: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType, strsignature: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -7784,15 +7784,15 @@ impl IX509AttributeCspProvider_Vtbl {
         iid == &<IX509AttributeCspProvider as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509AttributeExtensions_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, pextensions: Option<&IX509Extensions>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn X509Extensions(&self) -> windows_core::Result<IX509Extensions>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509AttributeExtensions {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509AttributeExtensions_Vtbl {
     pub const fn new<Identity: IX509AttributeExtensions_Impl, const OFFSET: isize>() -> IX509AttributeExtensions_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeExtensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensions: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7824,15 +7824,15 @@ impl IX509AttributeExtensions_Vtbl {
         iid == &<IX509AttributeExtensions as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509AttributeOSVersion_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, strosversion: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn OSVersion(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509AttributeOSVersion {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509AttributeOSVersion_Vtbl {
     pub const fn new<Identity: IX509AttributeOSVersion_Impl, const OFFSET: isize>() -> IX509AttributeOSVersion_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeOSVersion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strosversion: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -7864,15 +7864,15 @@ impl IX509AttributeOSVersion_Vtbl {
         iid == &<IX509AttributeOSVersion as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509AttributeRenewalCertificate_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strcert: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn get_RenewalCertificate(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509AttributeRenewalCertificate {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509AttributeRenewalCertificate_Vtbl {
     pub const fn new<Identity: IX509AttributeRenewalCertificate_Impl, const OFFSET: isize>() -> IX509AttributeRenewalCertificate_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509AttributeRenewalCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strcert: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -7904,7 +7904,7 @@ impl IX509AttributeRenewalCertificate_Vtbl {
         iid == &<IX509AttributeRenewalCertificate as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Attribute as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509Attributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<IX509Attribute>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -7913,9 +7913,9 @@ pub trait IX509Attributes_Impl: Sized + super::super::super::System::Com::IDispa
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509Attributes {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509Attributes_Vtbl {
     pub const fn new<Identity: IX509Attributes_Impl, const OFFSET: isize>() -> IX509Attributes_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: IX509Attributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7974,7 +7974,7 @@ impl IX509Attributes_Vtbl {
         iid == &<IX509Attributes as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
     fn Encode(&self) -> windows_core::Result<()>;
@@ -8002,9 +8002,9 @@ pub trait IX509CertificateRequest_Impl: Sized + super::super::super::System::Com
     fn SetAlternateSignatureAlgorithm(&self, value: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn get_RawData(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRequest {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRequest_Vtbl {
     pub const fn new<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>() -> IX509CertificateRequest_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
@@ -8218,7 +8218,7 @@ impl IX509CertificateRequest_Vtbl {
         iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRequestCertificate_Impl: Sized + IX509CertificateRequestPkcs10_Impl {
     fn CheckPublicKeySignature(&self, ppublickey: Option<&IX509PublicKey>) -> windows_core::Result<()>;
     fn Issuer(&self) -> windows_core::Result<IX500DistinguishedName>;
@@ -8232,9 +8232,9 @@ pub trait IX509CertificateRequestCertificate_Impl: Sized + IX509CertificateReque
     fn SignerCertificate(&self) -> windows_core::Result<ISignerCertificate>;
     fn SetSignerCertificate(&self, pvalue: Option<&ISignerCertificate>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRequestCertificate {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRequestCertificate_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>() -> IX509CertificateRequestCertificate_Vtbl {
         unsafe extern "system" fn CheckPublicKeySignature<Identity: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppublickey: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8330,16 +8330,16 @@ impl IX509CertificateRequestCertificate_Vtbl {
         iid == &<IX509CertificateRequestCertificate as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRequestCertificate2_Impl: Sized + IX509CertificateRequestCertificate_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: Option<&IX509EnrollmentPolicyServer>, ptemplate: Option<&IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn InitializeFromPrivateKeyTemplate(&self, context: X509CertificateEnrollmentContext, pprivatekey: Option<&IX509PrivateKey>, ppolicyserver: Option<&IX509EnrollmentPolicyServer>, ptemplate: Option<&IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn PolicyServer(&self) -> windows_core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRequestCertificate2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRequestCertificate2_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>() -> IX509CertificateRequestCertificate2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8382,7 +8382,7 @@ impl IX509CertificateRequestCertificate2_Vtbl {
         iid == &<IX509CertificateRequestCertificate2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestCertificate as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRequestCmc_Impl: Sized + IX509CertificateRequestPkcs7_Impl {
     fn InitializeFromInnerRequestTemplateName(&self, pinnerrequest: Option<&IX509CertificateRequest>, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn TemplateObjectId(&self) -> windows_core::Result<IObjectId>;
@@ -8408,9 +8408,9 @@ pub trait IX509CertificateRequestCmc_Impl: Sized + IX509CertificateRequestPkcs7_
     fn get_EncryptedKeyHash(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn SignerCertificates(&self) -> windows_core::Result<ISignerCertificates>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRequestCmc {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRequestCmc_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>() -> IX509CertificateRequestCmc_Vtbl {
         unsafe extern "system" fn InitializeFromInnerRequestTemplateName<Identity: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinnerrequest: *mut core::ffi::c_void, strtemplatename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -8632,7 +8632,7 @@ impl IX509CertificateRequestCmc_Vtbl {
         iid == &<IX509CertificateRequestCmc as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRequestCmc2_Impl: Sized + IX509CertificateRequestCmc_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: Option<&IX509EnrollmentPolicyServer>, ptemplate: Option<&IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn InitializeFromInnerRequestTemplate(&self, pinnerrequest: Option<&IX509CertificateRequest>, ppolicyserver: Option<&IX509EnrollmentPolicyServer>, ptemplate: Option<&IX509CertificateTemplate>) -> windows_core::Result<()>;
@@ -8641,9 +8641,9 @@ pub trait IX509CertificateRequestCmc2_Impl: Sized + IX509CertificateRequestCmc_I
     fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> windows_core::Result<()>;
     fn CheckCertificateSignature(&self, psignercertificate: Option<&ISignerCertificate>, validatecertificatechain: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRequestCmc2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRequestCmc2_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>() -> IX509CertificateRequestCmc2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8696,7 +8696,7 @@ impl IX509CertificateRequestCmc2_Vtbl {
         iid == &<IX509CertificateRequestCmc2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestCmc as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRequestPkcs10_Impl: Sized + IX509CertificateRequest_Impl {
     fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromPrivateKey(&self, context: X509CertificateEnrollmentContext, pprivatekey: Option<&IX509PrivateKey>, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -8727,9 +8727,9 @@ pub trait IX509CertificateRequestPkcs10_Impl: Sized + IX509CertificateRequest_Im
     fn get_Signature(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn GetCspStatuses(&self, keyspec: X509KeySpec) -> windows_core::Result<ICspStatuses>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs10 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRequestPkcs10_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs10_Vtbl {
         unsafe extern "system" fn InitializeFromTemplateName<Identity: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, strtemplatename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -8994,7 +8994,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
         iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRequestPkcs10V2_Impl: Sized + IX509CertificateRequestPkcs10_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: Option<&IX509EnrollmentPolicyServer>, ptemplate: Option<&IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn InitializeFromPrivateKeyTemplate(&self, context: X509CertificateEnrollmentContext, pprivatekey: Option<&IX509PrivateKey>, ppolicyserver: Option<&IX509EnrollmentPolicyServer>, ptemplate: Option<&IX509CertificateTemplate>) -> windows_core::Result<()>;
@@ -9002,9 +9002,9 @@ pub trait IX509CertificateRequestPkcs10V2_Impl: Sized + IX509CertificateRequestP
     fn PolicyServer(&self) -> windows_core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs10V2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRequestPkcs10V2_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs10V2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9052,7 +9052,7 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
         iid == &<IX509CertificateRequestPkcs10V2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRequestPkcs10V3_Impl: Sized + IX509CertificateRequestPkcs10V2_Impl {
     fn AttestPrivateKey(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn SetAttestPrivateKey(&self, value: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -9066,9 +9066,9 @@ pub trait IX509CertificateRequestPkcs10V3_Impl: Sized + IX509CertificateRequestP
     fn SetChallengePassword(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
     fn NameValuePairs(&self) -> windows_core::Result<IX509NameValuePairs>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs10V3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRequestPkcs10V3_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs10V3_Vtbl {
         unsafe extern "system" fn AttestPrivateKey<Identity: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -9170,16 +9170,16 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
         iid == &<IX509CertificateRequestPkcs10V3 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRequestPkcs10V4_Impl: Sized + IX509CertificateRequestPkcs10V3_Impl {
     fn ClaimType(&self) -> windows_core::Result<KeyAttestationClaimType>;
     fn SetClaimType(&self, value: KeyAttestationClaimType) -> windows_core::Result<()>;
     fn AttestPrivateKeyPreferred(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn SetAttestPrivateKeyPreferred(&self, value: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs10V4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRequestPkcs10V4_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs10V4_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs10V4_Vtbl {
         unsafe extern "system" fn ClaimType<Identity: IX509CertificateRequestPkcs10V4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut KeyAttestationClaimType) -> windows_core::HRESULT {
@@ -9222,7 +9222,7 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
         iid == &<IX509CertificateRequestPkcs10V4 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V2 as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs10V3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRequestPkcs7_Impl: Sized + IX509CertificateRequest_Impl {
     fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeFromCertificate(&self, context: X509CertificateEnrollmentContext, renewalrequest: super::super::super::Foundation::VARIANT_BOOL, strcertificate: &windows_core::BSTR, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> windows_core::Result<()>;
@@ -9233,9 +9233,9 @@ pub trait IX509CertificateRequestPkcs7_Impl: Sized + IX509CertificateRequest_Imp
     fn SignerCertificate(&self) -> windows_core::Result<ISignerCertificate>;
     fn SetSignerCertificate(&self, pvalue: Option<&ISignerCertificate>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs7 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRequestPkcs7_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs7_Vtbl {
         unsafe extern "system" fn InitializeFromTemplateName<Identity: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, strtemplatename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -9298,16 +9298,16 @@ impl IX509CertificateRequestPkcs7_Vtbl {
         iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRequestPkcs7V2_Impl: Sized + IX509CertificateRequestPkcs7_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: Option<&IX509EnrollmentPolicyServer>, ptemplate: Option<&IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn PolicyServer(&self) -> windows_core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
     fn CheckCertificateSignature(&self, validatecertificatechain: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRequestPkcs7V2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRequestPkcs7V2_Vtbl {
     pub const fn new<Identity: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs7V2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9350,7 +9350,7 @@ impl IX509CertificateRequestPkcs7V2_Vtbl {
         iid == &<IX509CertificateRequestPkcs7V2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509CertificateRequest as windows_core::Interface>::IID || iid == &<IX509CertificateRequestPkcs7 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRevocationList_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self) -> windows_core::Result<()>;
     fn InitializeDecode(&self, strencodeddata: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
@@ -9384,9 +9384,9 @@ pub trait IX509CertificateRevocationList_Impl: Sized + super::super::super::Syst
     fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn get_Signature(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRevocationList {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRevocationList_Vtbl {
     pub const fn new<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>() -> IX509CertificateRevocationList_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9654,7 +9654,7 @@ impl IX509CertificateRevocationList_Vtbl {
         iid == &<IX509CertificateRevocationList as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRevocationListEntries_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<IX509CertificateRevocationListEntry>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -9665,9 +9665,9 @@ pub trait IX509CertificateRevocationListEntries_Impl: Sized + super::super::supe
     fn get_IndexBySerialNumber(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn AddRange(&self, pvalue: Option<&IX509CertificateRevocationListEntries>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRevocationListEntries {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRevocationListEntries_Vtbl {
     pub const fn new<Identity: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>() -> IX509CertificateRevocationListEntries_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9742,7 +9742,7 @@ impl IX509CertificateRevocationListEntries_Vtbl {
         iid == &<IX509CertificateRevocationListEntries as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateRevocationListEntry_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, encoding: EncodingType, serialnumber: &windows_core::BSTR, revocationdate: f64) -> windows_core::Result<()>;
     fn get_SerialNumber(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
@@ -9752,9 +9752,9 @@ pub trait IX509CertificateRevocationListEntry_Impl: Sized + super::super::super:
     fn X509Extensions(&self) -> windows_core::Result<IX509Extensions>;
     fn CriticalExtensions(&self) -> windows_core::Result<IObjectIds>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateRevocationListEntry {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateRevocationListEntry_Vtbl {
     pub const fn new<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>() -> IX509CertificateRevocationListEntry_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, serialnumber: core::mem::MaybeUninit<windows_core::BSTR>, revocationdate: f64) -> windows_core::HRESULT {
@@ -9830,16 +9830,16 @@ impl IX509CertificateRevocationListEntry_Vtbl {
         iid == &<IX509CertificateRevocationListEntry as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateTemplate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn get_Property(&self, property: EnrollmentTemplateProperty) -> windows_core::Result<windows_core::VARIANT>;
+    fn get_Property(&self, property: EnrollmentTemplateProperty) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateTemplate {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateTemplate_Vtbl {
     pub const fn new<Identity: IX509CertificateTemplate_Impl, const OFFSET: isize>() -> IX509CertificateTemplate_Vtbl {
-        unsafe extern "system" fn get_Property<Identity: IX509CertificateTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: IX509CertificateTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IX509CertificateTemplate_Impl::get_Property(this, core::mem::transmute_copy(&property)) {
                 Ok(ok__) => {
@@ -9855,17 +9855,17 @@ impl IX509CertificateTemplate_Vtbl {
         iid == &<IX509CertificateTemplate as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateTemplateWritable_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pvalue: Option<&IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn Commit(&self, commitflags: CommitTemplateFlags, strservercontext: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_Property(&self, property: EnrollmentTemplateProperty) -> windows_core::Result<windows_core::VARIANT>;
-    fn put_Property(&self, property: EnrollmentTemplateProperty, value: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn get_Property(&self, property: EnrollmentTemplateProperty) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn put_Property(&self, property: EnrollmentTemplateProperty, value: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateTemplateWritable {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateTemplateWritable_Vtbl {
     pub const fn new<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>() -> IX509CertificateTemplateWritable_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9876,7 +9876,7 @@ impl IX509CertificateTemplateWritable_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IX509CertificateTemplateWritable_Impl::Commit(this, core::mem::transmute_copy(&commitflags), core::mem::transmute(&strservercontext)).into()
         }
-        unsafe extern "system" fn get_Property<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IX509CertificateTemplateWritable_Impl::get_Property(this, core::mem::transmute_copy(&property)) {
                 Ok(ok__) => {
@@ -9886,7 +9886,7 @@ impl IX509CertificateTemplateWritable_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn put_Property<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentTemplateProperty, value: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Property<Identity: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: EnrollmentTemplateProperty, value: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IX509CertificateTemplateWritable_Impl::put_Property(this, core::mem::transmute_copy(&property), core::mem::transmute(&value)).into()
         }
@@ -9913,7 +9913,7 @@ impl IX509CertificateTemplateWritable_Vtbl {
         iid == &<IX509CertificateTemplateWritable as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509CertificateTemplates_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<IX509CertificateTemplate>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -9924,9 +9924,9 @@ pub trait IX509CertificateTemplates_Impl: Sized + super::super::super::System::C
     fn get_ItemByName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IX509CertificateTemplate>;
     fn get_ItemByOid(&self, poid: Option<&IObjectId>) -> windows_core::Result<IX509CertificateTemplate>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509CertificateTemplates {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509CertificateTemplates_Vtbl {
     pub const fn new<Identity: IX509CertificateTemplates_Impl, const OFFSET: isize>() -> IX509CertificateTemplates_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10007,7 +10007,7 @@ impl IX509CertificateTemplates_Vtbl {
         iid == &<IX509CertificateTemplates as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509EndorsementKey_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetProviderName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -10021,9 +10021,9 @@ pub trait IX509EndorsementKey_Impl: Sized + super::super::super::System::Com::ID
     fn Open(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509EndorsementKey {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509EndorsementKey_Vtbl {
     pub const fn new<Identity: IX509EndorsementKey_Impl, const OFFSET: isize>() -> IX509EndorsementKey_Vtbl {
         unsafe extern "system" fn ProviderName<Identity: IX509EndorsementKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -10125,7 +10125,7 @@ impl IX509EndorsementKey_Vtbl {
         iid == &<IX509EndorsementKey as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509Enrollment_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
     fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -10151,9 +10151,9 @@ pub trait IX509Enrollment_Impl: Sized + super::super::super::System::Com::IDispa
     fn RequestId(&self) -> windows_core::Result<i32>;
     fn CAConfigString(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509Enrollment {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509Enrollment_Vtbl {
     pub const fn new<Identity: IX509Enrollment_Impl, const OFFSET: isize>() -> IX509Enrollment_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
@@ -10363,7 +10363,7 @@ impl IX509Enrollment_Vtbl {
         iid == &<IX509Enrollment as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509Enrollment2_Impl: Sized + IX509Enrollment_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: Option<&IX509EnrollmentPolicyServer>, ptemplate: Option<&IX509CertificateTemplate>) -> windows_core::Result<()>;
     fn InstallResponse2(&self, restrictions: InstallResponseRestrictionFlags, strresponse: &windows_core::BSTR, encoding: EncodingType, strpassword: &windows_core::BSTR, strenrollmentpolicyserverurl: &windows_core::BSTR, strenrollmentpolicyserverid: &windows_core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: X509EnrollmentAuthFlags) -> windows_core::Result<()>;
@@ -10371,9 +10371,9 @@ pub trait IX509Enrollment2_Impl: Sized + IX509Enrollment_Impl {
     fn Template(&self) -> windows_core::Result<IX509CertificateTemplate>;
     fn RequestIdString(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509Enrollment2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509Enrollment2_Vtbl {
     pub const fn new<Identity: IX509Enrollment2_Impl, const OFFSET: isize>() -> IX509Enrollment2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut core::ffi::c_void, ptemplate: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10427,16 +10427,16 @@ impl IX509Enrollment2_Vtbl {
         iid == &<IX509Enrollment2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Enrollment as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509EnrollmentHelper_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn AddPolicyServer(&self, strenrollmentpolicyserveruri: &windows_core::BSTR, strenrollmentpolicyid: &windows_core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AddEnrollmentServer(&self, strenrollmentserveruri: &windows_core::BSTR, authflags: X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Enroll(&self, strenrollmentpolicyserveruri: &windows_core::BSTR, strtemplatename: &windows_core::BSTR, encoding: EncodingType, enrollflags: WebEnrollmentFlags) -> windows_core::Result<windows_core::BSTR>;
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509EnrollmentHelper {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509EnrollmentHelper_Vtbl {
     pub const fn new<Identity: IX509EnrollmentHelper_Impl, const OFFSET: isize>() -> IX509EnrollmentHelper_Vtbl {
         unsafe extern "system" fn AddPolicyServer<Identity: IX509EnrollmentHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strenrollmentpolicyserveruri: core::mem::MaybeUninit<windows_core::BSTR>, strenrollmentpolicyid: core::mem::MaybeUninit<windows_core::BSTR>, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: X509EnrollmentAuthFlags, strcredential: core::mem::MaybeUninit<windows_core::BSTR>, strpassword: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -10473,7 +10473,7 @@ impl IX509EnrollmentHelper_Vtbl {
         iid == &<IX509EnrollmentHelper as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509EnrollmentPolicyServer_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, bstrpolicyserverurl: &windows_core::BSTR, bstrpolicyserverid: &windows_core::BSTR, authflags: X509EnrollmentAuthFlags, fisuntrusted: super::super::super::Foundation::VARIANT_BOOL, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
     fn LoadPolicy(&self, option: X509EnrollmentPolicyLoadOption) -> windows_core::Result<()>;
@@ -10495,14 +10495,14 @@ pub trait IX509EnrollmentPolicyServer_Impl: Sized + super::super::super::System:
     fn GetAuthFlags(&self) -> windows_core::Result<X509EnrollmentAuthFlags>;
     fn SetCredential(&self, hwndparent: i32, flag: X509EnrollmentAuthFlags, strcredential: &windows_core::BSTR, strpassword: &windows_core::BSTR) -> windows_core::Result<()>;
     fn QueryChanges(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
-    fn InitializeImport(&self, val: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn Export(&self, exportflags: X509EnrollmentPolicyExportFlags) -> windows_core::Result<windows_core::VARIANT>;
+    fn InitializeImport(&self, val: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Export(&self, exportflags: X509EnrollmentPolicyExportFlags) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn Cost(&self) -> windows_core::Result<u32>;
     fn SetCost(&self, value: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509EnrollmentPolicyServer {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509EnrollmentPolicyServer_Vtbl {
     pub const fn new<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>() -> IX509EnrollmentPolicyServer_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpolicyserverurl: core::mem::MaybeUninit<windows_core::BSTR>, bstrpolicyserverid: core::mem::MaybeUninit<windows_core::BSTR>, authflags: X509EnrollmentAuthFlags, fisuntrusted: super::super::super::Foundation::VARIANT_BOOL, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
@@ -10681,11 +10681,11 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InitializeImport<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitializeImport<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IX509EnrollmentPolicyServer_Impl::InitializeImport(this, core::mem::transmute(&val)).into()
         }
-        unsafe extern "system" fn Export<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exportflags: X509EnrollmentPolicyExportFlags, pval: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Export<Identity: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exportflags: X509EnrollmentPolicyExportFlags, pval: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IX509EnrollmentPolicyServer_Impl::Export(this, core::mem::transmute_copy(&exportflags)) {
                 Ok(ok__) => {
@@ -10741,7 +10741,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
         iid == &<IX509EnrollmentPolicyServer as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509EnrollmentStatus_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn AppendText(&self, strtext: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Text(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -10756,9 +10756,9 @@ pub trait IX509EnrollmentStatus_Impl: Sized + super::super::super::System::Com::
     fn SetError(&self, value: windows_core::HRESULT) -> windows_core::Result<()>;
     fn ErrorText(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509EnrollmentStatus {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509EnrollmentStatus_Vtbl {
     pub const fn new<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>() -> IX509EnrollmentStatus_Vtbl {
         unsafe extern "system" fn AppendText<Identity: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtext: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -10865,13 +10865,13 @@ impl IX509EnrollmentStatus_Vtbl {
         iid == &<IX509EnrollmentStatus as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509EnrollmentWebClassFactory_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn CreateObject(&self, strprogid: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509EnrollmentWebClassFactory {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509EnrollmentWebClassFactory_Vtbl {
     pub const fn new<Identity: IX509EnrollmentWebClassFactory_Impl, const OFFSET: isize>() -> IX509EnrollmentWebClassFactory_Vtbl {
         unsafe extern "system" fn CreateObject<Identity: IX509EnrollmentWebClassFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprogid: core::mem::MaybeUninit<windows_core::BSTR>, ppiunknown: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10890,7 +10890,7 @@ impl IX509EnrollmentWebClassFactory_Vtbl {
         iid == &<IX509EnrollmentWebClassFactory as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509Extension_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pobjectid: Option<&IObjectId>, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ObjectId(&self) -> windows_core::Result<IObjectId>;
@@ -10898,9 +10898,9 @@ pub trait IX509Extension_Impl: Sized + super::super::super::System::Com::IDispat
     fn Critical(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn SetCritical(&self, value: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509Extension {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509Extension_Vtbl {
     pub const fn new<Identity: IX509Extension_Impl, const OFFSET: isize>() -> IX509Extension_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509Extension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, encoding: EncodingType, strencodeddata: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -10954,15 +10954,15 @@ impl IX509Extension_Vtbl {
         iid == &<IX509Extension as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509ExtensionAlternativeNames_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: Option<&IAlternativeNames>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AlternativeNames(&self) -> windows_core::Result<IAlternativeNames>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509ExtensionAlternativeNames {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509ExtensionAlternativeNames_Vtbl {
     pub const fn new<Identity: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>() -> IX509ExtensionAlternativeNames_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10994,15 +10994,15 @@ impl IX509ExtensionAlternativeNames_Vtbl {
         iid == &<IX509ExtensionAlternativeNames as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509ExtensionAuthorityKeyIdentifier_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn get_AuthorityKeyIdentifier(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509ExtensionAuthorityKeyIdentifier {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
     pub const fn new<Identity: IX509ExtensionAuthorityKeyIdentifier_Impl, const OFFSET: isize>() -> IX509ExtensionAuthorityKeyIdentifier_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionAuthorityKeyIdentifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strkeyidentifier: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -11034,16 +11034,16 @@ impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
         iid == &<IX509ExtensionAuthorityKeyIdentifier as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509ExtensionBasicConstraints_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, isca: super::super::super::Foundation::VARIANT_BOOL, pathlenconstraint: i32) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn IsCA(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn PathLenConstraint(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509ExtensionBasicConstraints {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509ExtensionBasicConstraints_Vtbl {
     pub const fn new<Identity: IX509ExtensionBasicConstraints_Impl, const OFFSET: isize>() -> IX509ExtensionBasicConstraints_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionBasicConstraints_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isca: super::super::super::Foundation::VARIANT_BOOL, pathlenconstraint: i32) -> windows_core::HRESULT {
@@ -11086,15 +11086,15 @@ impl IX509ExtensionBasicConstraints_Vtbl {
         iid == &<IX509ExtensionBasicConstraints as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509ExtensionCertificatePolicies_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: Option<&ICertificatePolicies>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Policies(&self) -> windows_core::Result<ICertificatePolicies>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509ExtensionCertificatePolicies {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509ExtensionCertificatePolicies_Vtbl {
     pub const fn new<Identity: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>() -> IX509ExtensionCertificatePolicies_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11126,15 +11126,15 @@ impl IX509ExtensionCertificatePolicies_Vtbl {
         iid == &<IX509ExtensionCertificatePolicies as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509ExtensionEnhancedKeyUsage_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: Option<&IObjectIds>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn EnhancedKeyUsage(&self) -> windows_core::Result<IObjectIds>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509ExtensionEnhancedKeyUsage {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509ExtensionEnhancedKeyUsage_Vtbl {
     pub const fn new<Identity: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>() -> IX509ExtensionEnhancedKeyUsage_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11166,15 +11166,15 @@ impl IX509ExtensionEnhancedKeyUsage_Vtbl {
         iid == &<IX509ExtensionEnhancedKeyUsage as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509ExtensionKeyUsage_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, usageflags: X509KeyUsageFlags) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn KeyUsage(&self) -> windows_core::Result<X509KeyUsageFlags>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509ExtensionKeyUsage {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509ExtensionKeyUsage_Vtbl {
     pub const fn new<Identity: IX509ExtensionKeyUsage_Impl, const OFFSET: isize>() -> IX509ExtensionKeyUsage_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionKeyUsage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usageflags: X509KeyUsageFlags) -> windows_core::HRESULT {
@@ -11206,15 +11206,15 @@ impl IX509ExtensionKeyUsage_Vtbl {
         iid == &<IX509ExtensionKeyUsage as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509ExtensionMSApplicationPolicies_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: Option<&ICertificatePolicies>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Policies(&self) -> windows_core::Result<ICertificatePolicies>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509ExtensionMSApplicationPolicies {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509ExtensionMSApplicationPolicies_Vtbl {
     pub const fn new<Identity: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>() -> IX509ExtensionMSApplicationPolicies_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11246,15 +11246,15 @@ impl IX509ExtensionMSApplicationPolicies_Vtbl {
         iid == &<IX509ExtensionMSApplicationPolicies as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509ExtensionSmimeCapabilities_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: Option<&ISmimeCapabilities>) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SmimeCapabilities(&self) -> windows_core::Result<ISmimeCapabilities>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509ExtensionSmimeCapabilities {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509ExtensionSmimeCapabilities_Vtbl {
     pub const fn new<Identity: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>() -> IX509ExtensionSmimeCapabilities_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11286,15 +11286,15 @@ impl IX509ExtensionSmimeCapabilities_Vtbl {
         iid == &<IX509ExtensionSmimeCapabilities as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509ExtensionSubjectKeyIdentifier_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn get_SubjectKeyIdentifier(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509ExtensionSubjectKeyIdentifier {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
     pub const fn new<Identity: IX509ExtensionSubjectKeyIdentifier_Impl, const OFFSET: isize>() -> IX509ExtensionSubjectKeyIdentifier_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionSubjectKeyIdentifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, strkeyidentifier: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -11326,7 +11326,7 @@ impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
         iid == &<IX509ExtensionSubjectKeyIdentifier as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509ExtensionTemplate_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, ptemplateoid: Option<&IObjectId>, majorversion: i32, minorversion: i32) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -11334,9 +11334,9 @@ pub trait IX509ExtensionTemplate_Impl: Sized + IX509Extension_Impl {
     fn MajorVersion(&self) -> windows_core::Result<i32>;
     fn MinorVersion(&self) -> windows_core::Result<i32>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509ExtensionTemplate {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509ExtensionTemplate_Vtbl {
     pub const fn new<Identity: IX509ExtensionTemplate_Impl, const OFFSET: isize>() -> IX509ExtensionTemplate_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptemplateoid: *mut core::ffi::c_void, majorversion: i32, minorversion: i32) -> windows_core::HRESULT {
@@ -11390,15 +11390,15 @@ impl IX509ExtensionTemplate_Vtbl {
         iid == &<IX509ExtensionTemplate as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509ExtensionTemplateName_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, strtemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn TemplateName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509ExtensionTemplateName {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509ExtensionTemplateName_Vtbl {
     pub const fn new<Identity: IX509ExtensionTemplateName_Impl, const OFFSET: isize>() -> IX509ExtensionTemplateName_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: IX509ExtensionTemplateName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtemplatename: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -11430,7 +11430,7 @@ impl IX509ExtensionTemplateName_Vtbl {
         iid == &<IX509ExtensionTemplateName as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509Extension as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509Extensions_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<IX509Extension>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -11441,9 +11441,9 @@ pub trait IX509Extensions_Impl: Sized + super::super::super::System::Com::IDispa
     fn get_IndexByObjectId(&self, pobjectid: Option<&IObjectId>) -> windows_core::Result<i32>;
     fn AddRange(&self, pvalue: Option<&IX509Extensions>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509Extensions {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509Extensions_Vtbl {
     pub const fn new<Identity: IX509Extensions_Impl, const OFFSET: isize>() -> IX509Extensions_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: IX509Extensions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11518,13 +11518,13 @@ impl IX509Extensions_Vtbl {
         iid == &<IX509Extensions as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509MachineEnrollmentFactory_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn CreateObject(&self, strprogid: &windows_core::BSTR) -> windows_core::Result<IX509EnrollmentHelper>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509MachineEnrollmentFactory {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509MachineEnrollmentFactory_Vtbl {
     pub const fn new<Identity: IX509MachineEnrollmentFactory_Impl, const OFFSET: isize>() -> IX509MachineEnrollmentFactory_Vtbl {
         unsafe extern "system" fn CreateObject<Identity: IX509MachineEnrollmentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprogid: core::mem::MaybeUninit<windows_core::BSTR>, ppihelper: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11543,15 +11543,15 @@ impl IX509MachineEnrollmentFactory_Vtbl {
         iid == &<IX509MachineEnrollmentFactory as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509NameValuePair_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, strname: &windows_core::BSTR, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509NameValuePair {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509NameValuePair_Vtbl {
     pub const fn new<Identity: IX509NameValuePair_Impl, const OFFSET: isize>() -> IX509NameValuePair_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509NameValuePair_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, strvalue: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -11589,7 +11589,7 @@ impl IX509NameValuePair_Vtbl {
         iid == &<IX509NameValuePair as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509NameValuePairs_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<IX509NameValuePair>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -11598,9 +11598,9 @@ pub trait IX509NameValuePairs_Impl: Sized + super::super::super::System::Com::ID
     fn Remove(&self, index: i32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509NameValuePairs {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509NameValuePairs_Vtbl {
     pub const fn new<Identity: IX509NameValuePairs_Impl, const OFFSET: isize>() -> IX509NameValuePairs_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: IX509NameValuePairs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11659,7 +11659,7 @@ impl IX509NameValuePairs_Vtbl {
         iid == &<IX509NameValuePairs as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509PolicyServerListManager_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_ItemByIndex(&self, index: i32) -> windows_core::Result<IX509PolicyServerUrl>;
     fn Count(&self) -> windows_core::Result<i32>;
@@ -11669,9 +11669,9 @@ pub trait IX509PolicyServerListManager_Impl: Sized + super::super::super::System
     fn Clear(&self) -> windows_core::Result<()>;
     fn Initialize(&self, context: X509CertificateEnrollmentContext, flags: PolicyServerUrlFlags) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509PolicyServerListManager {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509PolicyServerListManager_Vtbl {
     pub const fn new<Identity: IX509PolicyServerListManager_Impl, const OFFSET: isize>() -> IX509PolicyServerListManager_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11735,7 +11735,7 @@ impl IX509PolicyServerListManager_Vtbl {
         iid == &<IX509PolicyServerListManager as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509PolicyServerUrl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
     fn Url(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -11753,9 +11753,9 @@ pub trait IX509PolicyServerUrl_Impl: Sized + super::super::super::System::Com::I
     fn UpdateRegistry(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
     fn RemoveFromRegistry(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509PolicyServerUrl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509PolicyServerUrl_Vtbl {
     pub const fn new<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>() -> IX509PolicyServerUrl_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509PolicyServerUrl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: X509CertificateEnrollmentContext) -> windows_core::HRESULT {
@@ -11877,7 +11877,7 @@ impl IX509PolicyServerUrl_Vtbl {
         iid == &<IX509PolicyServerUrl as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509PrivateKey_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Open(&self) -> windows_core::Result<()>;
     fn Create(&self) -> windows_core::Result<()>;
@@ -11938,9 +11938,9 @@ pub trait IX509PrivateKey_Impl: Sized + super::super::super::System::Com::IDispa
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetDescription(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509PrivateKey {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509PrivateKey_Vtbl {
     pub const fn new<Identity: IX509PrivateKey_Impl, const OFFSET: isize>() -> IX509PrivateKey_Vtbl {
         unsafe extern "system" fn Open<Identity: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12409,7 +12409,7 @@ impl IX509PrivateKey_Vtbl {
         iid == &<IX509PrivateKey as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509PrivateKey2_Impl: Sized + IX509PrivateKey_Impl {
     fn HardwareKeyUsage(&self) -> windows_core::Result<X509HardwareKeyUsageFlags>;
     fn SetHardwareKeyUsage(&self, value: X509HardwareKeyUsageFlags) -> windows_core::Result<()>;
@@ -12422,9 +12422,9 @@ pub trait IX509PrivateKey2_Impl: Sized + IX509PrivateKey_Impl {
     fn ParametersExportType(&self) -> windows_core::Result<X509KeyParametersExportType>;
     fn SetParametersExportType(&self, value: X509KeyParametersExportType) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509PrivateKey2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509PrivateKey2_Vtbl {
     pub const fn new<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>() -> IX509PrivateKey2_Vtbl {
         unsafe extern "system" fn HardwareKeyUsage<Identity: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut X509HardwareKeyUsageFlags) -> windows_core::HRESULT {
@@ -12515,7 +12515,7 @@ impl IX509PrivateKey2_Vtbl {
         iid == &<IX509PrivateKey2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509PrivateKey as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509PublicKey_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pobjectid: Option<&IObjectId>, strencodedkey: &windows_core::BSTR, strencodedparameters: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
     fn InitializeFromEncodedPublicKeyInfo(&self, strencodedpublickeyinfo: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
@@ -12525,9 +12525,9 @@ pub trait IX509PublicKey_Impl: Sized + super::super::super::System::Com::IDispat
     fn get_EncodedParameters(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn ComputeKeyIdentifier(&self, algorithm: KeyIdentifierHashAlgorithm, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509PublicKey {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509PublicKey_Vtbl {
     pub const fn new<Identity: IX509PublicKey_Impl, const OFFSET: isize>() -> IX509PublicKey_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectid: *mut core::ffi::c_void, strencodedkey: core::mem::MaybeUninit<windows_core::BSTR>, strencodedparameters: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType) -> windows_core::HRESULT {
@@ -12603,7 +12603,7 @@ impl IX509PublicKey_Vtbl {
         iid == &<IX509PublicKey as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509SCEPEnrollment_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, prequest: Option<&IX509CertificateRequestPkcs10>, strthumbprint: &windows_core::BSTR, thumprintencoding: EncodingType, strservercertificates: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<()>;
     fn InitializeForPending(&self, context: X509CertificateEnrollmentContext) -> windows_core::Result<()>;
@@ -12628,9 +12628,9 @@ pub trait IX509SCEPEnrollment_Impl: Sized + super::super::super::System::Com::ID
     fn SetSilent(&self, value: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn DeleteRequest(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509SCEPEnrollment {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509SCEPEnrollment_Vtbl {
     pub const fn new<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>() -> IX509SCEPEnrollment_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prequest: *mut core::ffi::c_void, strthumbprint: core::mem::MaybeUninit<windows_core::BSTR>, thumprintencoding: EncodingType, strservercertificates: core::mem::MaybeUninit<windows_core::BSTR>, encoding: EncodingType) -> windows_core::HRESULT {
@@ -12829,7 +12829,7 @@ impl IX509SCEPEnrollment_Vtbl {
         iid == &<IX509SCEPEnrollment as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509SCEPEnrollment2_Impl: Sized + IX509SCEPEnrollment_Impl {
     fn CreateChallengeAnswerMessage(&self, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR>;
     fn ProcessResponseMessage2(&self, flags: X509SCEPProcessMessageFlags, strresponse: &windows_core::BSTR, encoding: EncodingType) -> windows_core::Result<X509SCEPDisposition>;
@@ -12838,9 +12838,9 @@ pub trait IX509SCEPEnrollment2_Impl: Sized + IX509SCEPEnrollment_Impl {
     fn ActivityId(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetActivityId(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509SCEPEnrollment2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509SCEPEnrollment2_Vtbl {
     pub const fn new<Identity: IX509SCEPEnrollment2_Impl, const OFFSET: isize>() -> IX509SCEPEnrollment2_Vtbl {
         unsafe extern "system" fn CreateChallengeAnswerMessage<Identity: IX509SCEPEnrollment2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encoding: EncodingType, pvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -12911,7 +12911,7 @@ impl IX509SCEPEnrollment2_Vtbl {
         iid == &<IX509SCEPEnrollment2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IX509SCEPEnrollment as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509SCEPEnrollmentHelper_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, strserverurl: &windows_core::BSTR, strrequestheaders: &windows_core::BSTR, prequest: Option<&IX509CertificateRequestPkcs10>, strcacertificatethumbprint: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeForPending(&self, strserverurl: &windows_core::BSTR, strrequestheaders: &windows_core::BSTR, context: X509CertificateEnrollmentContext, strtransactionid: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -12920,9 +12920,9 @@ pub trait IX509SCEPEnrollmentHelper_Impl: Sized + super::super::super::System::C
     fn X509SCEPEnrollment(&self) -> windows_core::Result<IX509SCEPEnrollment>;
     fn ResultMessageText(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509SCEPEnrollmentHelper {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509SCEPEnrollmentHelper_Vtbl {
     pub const fn new<Identity: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>() -> IX509SCEPEnrollmentHelper_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strserverurl: core::mem::MaybeUninit<windows_core::BSTR>, strrequestheaders: core::mem::MaybeUninit<windows_core::BSTR>, prequest: *mut core::ffi::c_void, strcacertificatethumbprint: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -12987,7 +12987,7 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
         iid == &<IX509SCEPEnrollmentHelper as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IX509SignatureInformation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn HashAlgorithm(&self) -> windows_core::Result<IObjectId>;
     fn SetHashAlgorithm(&self, pvalue: Option<&IObjectId>) -> windows_core::Result<()>;
@@ -13003,9 +13003,9 @@ pub trait IX509SignatureInformation_Impl: Sized + super::super::super::System::C
     fn GetSignatureAlgorithm(&self, pkcs7signature: super::super::super::Foundation::VARIANT_BOOL, signaturekey: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IObjectId>;
     fn SetDefaultValues(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IX509SignatureInformation {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IX509SignatureInformation_Vtbl {
     pub const fn new<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>() -> IX509SignatureInformation_Vtbl {
         unsafe extern "system" fn HashAlgorithm<Identity: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -1,5 +1,6 @@
 use windows::{
-    core::*, Win32::System::Com::*, Win32::UI::Shell::*, Win32::UI::WindowsAndMessaging::*,
+    core::*, Win32::System::Com::*, Win32::System::Variant::*, Win32::UI::Shell::*,
+    Win32::UI::WindowsAndMessaging::*,
 };
 
 fn main() -> Result<()> {

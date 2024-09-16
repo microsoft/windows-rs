@@ -1,10 +1,10 @@
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQApplication_Impl: Sized + super::Com::IDispatch_Impl {
     fn MachineIdOfMachineName(&self, machinename: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQApplication {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQApplication_Vtbl {
     pub const fn new<Identity: IMSMQApplication_Impl, const OFFSET: isize>() -> IMSMQApplication_Vtbl {
         unsafe extern "system" fn MachineIdOfMachineName<Identity: IMSMQApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinename: core::mem::MaybeUninit<windows_core::BSTR>, pbstrguid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -23,9 +23,9 @@ impl IMSMQApplication_Vtbl {
         iid == &<IMSMQApplication as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQApplication2_Impl: Sized + IMSMQApplication_Impl {
-    fn RegisterCertificate(&self, flags: *const windows_core::VARIANT, externalcertificate: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn RegisterCertificate(&self, flags: *const super::Variant::VARIANT, externalcertificate: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn MachineNameOfMachineId(&self, bstrguid: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn MSMQVersionMajor(&self) -> windows_core::Result<i16>;
     fn MSMQVersionMinor(&self) -> windows_core::Result<i16>;
@@ -33,12 +33,12 @@ pub trait IMSMQApplication2_Impl: Sized + IMSMQApplication_Impl {
     fn IsDsEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQApplication2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQApplication2_Vtbl {
     pub const fn new<Identity: IMSMQApplication2_Impl, const OFFSET: isize>() -> IMSMQApplication2_Vtbl {
-        unsafe extern "system" fn RegisterCertificate<Identity: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *const core::mem::MaybeUninit<windows_core::VARIANT>, externalcertificate: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterCertificate<Identity: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *const core::mem::MaybeUninit<super::Variant::VARIANT>, externalcertificate: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQApplication2_Impl::RegisterCertificate(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&externalcertificate)).into()
         }
@@ -117,25 +117,25 @@ impl IMSMQApplication2_Vtbl {
         iid == &<IMSMQApplication2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IMSMQApplication as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQApplication3_Impl: Sized + IMSMQApplication2_Impl {
-    fn ActiveQueues(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn PrivateQueues(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn ActiveQueues(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn PrivateQueues(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn DirectoryServiceServer(&self) -> windows_core::Result<windows_core::BSTR>;
     fn IsConnected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn BytesInAllQueues(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn BytesInAllQueues(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SetMachine(&self, bstrmachine: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Machine(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Connect(&self) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
     fn Tidy(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQApplication3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQApplication3_Vtbl {
     pub const fn new<Identity: IMSMQApplication3_Impl, const OFFSET: isize>() -> IMSMQApplication3_Vtbl {
-        unsafe extern "system" fn ActiveQueues<Identity: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvactivequeues: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActiveQueues<Identity: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvactivequeues: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQApplication3_Impl::ActiveQueues(this) {
                 Ok(ok__) => {
@@ -145,7 +145,7 @@ impl IMSMQApplication3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrivateQueues<Identity: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvprivatequeues: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PrivateQueues<Identity: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvprivatequeues: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQApplication3_Impl::PrivateQueues(this) {
                 Ok(ok__) => {
@@ -175,7 +175,7 @@ impl IMSMQApplication3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BytesInAllQueues<Identity: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinallqueues: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BytesInAllQueues<Identity: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinallqueues: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQApplication3_Impl::BytesInAllQueues(this) {
                 Ok(ok__) => {
@@ -229,18 +229,18 @@ impl IMSMQApplication3_Vtbl {
         iid == &<IMSMQApplication3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IMSMQApplication as windows_core::Interface>::IID || iid == &<IMSMQApplication2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQCollection_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Item(&self, index: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>;
+    fn Item(&self, index: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQCollection {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQCollection_Vtbl {
     pub const fn new<Identity: IMSMQCollection_Impl, const OFFSET: isize>() -> IMSMQCollection_Vtbl {
-        unsafe extern "system" fn Item<Identity: IMSMQCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: *const core::mem::MaybeUninit<windows_core::VARIANT>, pvarret: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: IMSMQCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: *const core::mem::MaybeUninit<super::Variant::VARIANT>, pvarret: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
@@ -281,13 +281,13 @@ impl IMSMQCollection_Vtbl {
         iid == &<IMSMQCollection as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQCoordinatedTransactionDispenser_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> windows_core::Result<IMSMQTransaction>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQCoordinatedTransactionDispenser {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQCoordinatedTransactionDispenser_Vtbl {
     pub const fn new<Identity: IMSMQCoordinatedTransactionDispenser_Impl, const OFFSET: isize>() -> IMSMQCoordinatedTransactionDispenser_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: IMSMQCoordinatedTransactionDispenser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -306,14 +306,14 @@ impl IMSMQCoordinatedTransactionDispenser_Vtbl {
         iid == &<IMSMQCoordinatedTransactionDispenser as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQCoordinatedTransactionDispenser2_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> windows_core::Result<IMSMQTransaction2>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQCoordinatedTransactionDispenser2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
     pub const fn new<Identity: IMSMQCoordinatedTransactionDispenser2_Impl, const OFFSET: isize>() -> IMSMQCoordinatedTransactionDispenser2_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: IMSMQCoordinatedTransactionDispenser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -346,14 +346,14 @@ impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
         iid == &<IMSMQCoordinatedTransactionDispenser2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQCoordinatedTransactionDispenser3_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> windows_core::Result<IMSMQTransaction3>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQCoordinatedTransactionDispenser3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
     pub const fn new<Identity: IMSMQCoordinatedTransactionDispenser3_Impl, const OFFSET: isize>() -> IMSMQCoordinatedTransactionDispenser3_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: IMSMQCoordinatedTransactionDispenser3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -386,7 +386,7 @@ impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
         iid == &<IMSMQCoordinatedTransactionDispenser3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQDestination_Impl: Sized + super::Com::IDispatch_Impl {
     fn Open(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
@@ -403,9 +403,9 @@ pub trait IMSMQDestination_Impl: Sized + super::Com::IDispatch_Impl {
     fn putref_Destinations(&self, pdestinations: Option<&super::Com::IDispatch>) -> windows_core::Result<()>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQDestination {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQDestination_Vtbl {
     pub const fn new<Identity: IMSMQDestination_Impl, const OFFSET: isize>() -> IMSMQDestination_Vtbl {
         unsafe extern "system" fn Open<Identity: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -528,11 +528,11 @@ impl IMSMQDestination_Vtbl {
         iid == &<IMSMQDestination as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQEvent_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQEvent_Vtbl {
     pub const fn new<Identity: IMSMQEvent_Impl, const OFFSET: isize>() -> IMSMQEvent_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -541,13 +541,13 @@ impl IMSMQEvent_Vtbl {
         iid == &<IMSMQEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQEvent2_Impl: Sized + IMSMQEvent_Impl {
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQEvent2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQEvent2_Vtbl {
     pub const fn new<Identity: IMSMQEvent2_Impl, const OFFSET: isize>() -> IMSMQEvent2_Vtbl {
         unsafe extern "system" fn Properties<Identity: IMSMQEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -566,11 +566,11 @@ impl IMSMQEvent2_Vtbl {
         iid == &<IMSMQEvent2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IMSMQEvent as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQEvent3_Impl: Sized + IMSMQEvent2_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQEvent3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQEvent3_Vtbl {
     pub const fn new<Identity: IMSMQEvent3_Impl, const OFFSET: isize>() -> IMSMQEvent3_Vtbl {
         Self { base__: IMSMQEvent2_Vtbl::new::<Identity, OFFSET>() }
@@ -579,9 +579,9 @@ impl IMSMQEvent3_Vtbl {
         iid == &<IMSMQEvent3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IMSMQEvent as windows_core::Interface>::IID || iid == &<IMSMQEvent2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQManagement_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Init(&self, machine: *const windows_core::VARIANT, pathname: *const windows_core::VARIANT, formatname: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Init(&self, machine: *const super::Variant::VARIANT, pathname: *const super::Variant::VARIANT, formatname: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn FormatName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Machine(&self) -> windows_core::Result<windows_core::BSTR>;
     fn MessageCount(&self) -> windows_core::Result<i32>;
@@ -589,14 +589,14 @@ pub trait IMSMQManagement_Impl: Sized + super::Com::IDispatch_Impl {
     fn QueueType(&self) -> windows_core::Result<i32>;
     fn IsLocal(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn TransactionalStatus(&self) -> windows_core::Result<i32>;
-    fn BytesInQueue(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn BytesInQueue(&self) -> windows_core::Result<super::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQManagement {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQManagement_Vtbl {
     pub const fn new<Identity: IMSMQManagement_Impl, const OFFSET: isize>() -> IMSMQManagement_Vtbl {
-        unsafe extern "system" fn Init<Identity: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machine: *const core::mem::MaybeUninit<windows_core::VARIANT>, pathname: *const core::mem::MaybeUninit<windows_core::VARIANT>, formatname: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Init<Identity: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machine: *const core::mem::MaybeUninit<super::Variant::VARIANT>, pathname: *const core::mem::MaybeUninit<super::Variant::VARIANT>, formatname: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQManagement_Impl::Init(this, core::mem::transmute_copy(&machine), core::mem::transmute_copy(&pathname), core::mem::transmute_copy(&formatname)).into()
         }
@@ -670,7 +670,7 @@ impl IMSMQManagement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BytesInQueue<Identity: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinqueue: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BytesInQueue<Identity: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinqueue: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQManagement_Impl::BytesInQueue(this) {
                 Ok(ok__) => {
@@ -697,7 +697,7 @@ impl IMSMQManagement_Vtbl {
         iid == &<IMSMQManagement as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQMessage_Impl: Sized + super::Com::IDispatch_Impl {
     fn Class(&self) -> windows_core::Result<i32>;
     fn PrivLevel(&self) -> windows_core::Result<i32>;
@@ -719,13 +719,13 @@ pub trait IMSMQMessage_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetAppSpecific(&self, lappspecific: i32) -> windows_core::Result<()>;
     fn SourceMachineGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn BodyLength(&self) -> windows_core::Result<i32>;
-    fn Body(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetBody(&self, varbody: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Body(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetBody(&self, varbody: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AdminQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo>;
     fn putref_AdminQueueInfo(&self, pqinfoadmin: Option<&IMSMQQueueInfo>) -> windows_core::Result<()>;
-    fn Id(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn CorrelationId(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetCorrelationId(&self, varmsgid: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Id(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn CorrelationId(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetCorrelationId(&self, varmsgid: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Ack(&self) -> windows_core::Result<i32>;
     fn SetAck(&self, lack: i32) -> windows_core::Result<()>;
     fn Label(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -738,20 +738,20 @@ pub trait IMSMQMessage_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetHashAlgorithm(&self, lhashalg: i32) -> windows_core::Result<()>;
     fn EncryptAlgorithm(&self) -> windows_core::Result<i32>;
     fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> windows_core::Result<()>;
-    fn SentTime(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn ArrivedTime(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SentTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn ArrivedTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn DestinationQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo>;
-    fn SenderCertificate(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetSenderCertificate(&self, varsendercert: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn SenderId(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SenderCertificate(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetSenderCertificate(&self, varsendercert: &super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn SenderId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SenderIdType(&self) -> windows_core::Result<i32>;
     fn SetSenderIdType(&self, lsenderidtype: i32) -> windows_core::Result<()>;
-    fn Send(&self, destinationqueue: Option<&IMSMQQueue>, transaction: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Send(&self, destinationqueue: Option<&IMSMQQueue>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQMessage {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQMessage_Vtbl {
     pub const fn new<Identity: IMSMQMessage_Impl, const OFFSET: isize>() -> IMSMQMessage_Vtbl {
         unsafe extern "system" fn Class<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plclass: *mut i32) -> windows_core::HRESULT {
@@ -906,7 +906,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Body<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Body<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage_Impl::Body(this) {
                 Ok(ok__) => {
@@ -916,7 +916,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBody<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBody<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
         }
@@ -934,7 +934,7 @@ impl IMSMQMessage_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage_Impl::putref_AdminQueueInfo(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
-        unsafe extern "system" fn Id<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage_Impl::Id(this) {
                 Ok(ok__) => {
@@ -944,7 +944,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CorrelationId<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CorrelationId<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage_Impl::CorrelationId(this) {
                 Ok(ok__) => {
@@ -954,7 +954,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCorrelationId<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCorrelationId<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
         }
@@ -1042,7 +1042,7 @@ impl IMSMQMessage_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
-        unsafe extern "system" fn SentTime<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SentTime<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage_Impl::SentTime(this) {
                 Ok(ok__) => {
@@ -1052,7 +1052,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ArrivedTime<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ArrivedTime<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
@@ -1072,7 +1072,7 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SenderCertificate<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderCertificate<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
@@ -1082,11 +1082,11 @@ impl IMSMQMessage_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderCertificate<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderCertificate<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
-        unsafe extern "system" fn SenderId<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderId<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage_Impl::SenderId(this) {
                 Ok(ok__) => {
@@ -1110,7 +1110,7 @@ impl IMSMQMessage_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
-        unsafe extern "system" fn Send<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Send<Identity: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
         }
@@ -1175,7 +1175,7 @@ impl IMSMQMessage_Vtbl {
         iid == &<IMSMQMessage as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQMessage2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Class(&self) -> windows_core::Result<i32>;
     fn PrivLevel(&self) -> windows_core::Result<i32>;
@@ -1197,13 +1197,13 @@ pub trait IMSMQMessage2_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetAppSpecific(&self, lappspecific: i32) -> windows_core::Result<()>;
     fn SourceMachineGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn BodyLength(&self) -> windows_core::Result<i32>;
-    fn Body(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetBody(&self, varbody: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Body(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetBody(&self, varbody: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AdminQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo>;
     fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: Option<&IMSMQQueueInfo>) -> windows_core::Result<()>;
-    fn Id(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn CorrelationId(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetCorrelationId(&self, varmsgid: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Id(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn CorrelationId(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetCorrelationId(&self, varmsgid: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Ack(&self) -> windows_core::Result<i32>;
     fn SetAck(&self, lack: i32) -> windows_core::Result<()>;
     fn Label(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1216,35 +1216,35 @@ pub trait IMSMQMessage2_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetHashAlgorithm(&self, lhashalg: i32) -> windows_core::Result<()>;
     fn EncryptAlgorithm(&self) -> windows_core::Result<i32>;
     fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> windows_core::Result<()>;
-    fn SentTime(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn ArrivedTime(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SentTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn ArrivedTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn DestinationQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo2>;
-    fn SenderCertificate(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetSenderCertificate(&self, varsendercert: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn SenderId(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SenderCertificate(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetSenderCertificate(&self, varsendercert: &super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn SenderId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SenderIdType(&self) -> windows_core::Result<i32>;
     fn SetSenderIdType(&self, lsenderidtype: i32) -> windows_core::Result<()>;
-    fn Send(&self, destinationqueue: Option<&IMSMQQueue2>, transaction: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Send(&self, destinationqueue: Option<&IMSMQQueue2>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()>;
     fn SenderVersion(&self) -> windows_core::Result<i32>;
-    fn Extension(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetExtension(&self, varextension: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Extension(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetExtension(&self, varextension: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn ConnectorTypeGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &windows_core::BSTR) -> windows_core::Result<()>;
     fn TransactionStatusQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo2>;
-    fn DestinationSymmetricKey(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetDestinationSymmetricKey(&self, vardestsymmkey: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn Signature(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetSignature(&self, varsignature: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn DestinationSymmetricKey(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetDestinationSymmetricKey(&self, vardestsymmkey: &super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Signature(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetSignature(&self, varsignature: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AuthenticationProviderType(&self) -> windows_core::Result<i32>;
     fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> windows_core::Result<()>;
     fn AuthenticationProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetAuthenticationProviderName(&self, bstrauthprovname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetSenderId(&self, varsenderid: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetSenderId(&self, varsenderid: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn MsgClass(&self) -> windows_core::Result<i32>;
     fn SetMsgClass(&self, lmsgclass: i32) -> windows_core::Result<()>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn TransactionId(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn TransactionId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn IsFirstInTransaction(&self) -> windows_core::Result<i16>;
     fn IsLastInTransaction(&self) -> windows_core::Result<i16>;
     fn ResponseQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo2>;
@@ -1253,9 +1253,9 @@ pub trait IMSMQMessage2_Impl: Sized + super::Com::IDispatch_Impl {
     fn putref_AdminQueueInfo(&self, pqinfoadmin: Option<&IMSMQQueueInfo2>) -> windows_core::Result<()>;
     fn ReceivedAuthenticationLevel(&self) -> windows_core::Result<i16>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQMessage2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQMessage2_Vtbl {
     pub const fn new<Identity: IMSMQMessage2_Impl, const OFFSET: isize>() -> IMSMQMessage2_Vtbl {
         unsafe extern "system" fn Class<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plclass: *mut i32) -> windows_core::HRESULT {
@@ -1410,7 +1410,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Body<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Body<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage2_Impl::Body(this) {
                 Ok(ok__) => {
@@ -1420,7 +1420,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBody<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBody<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
         }
@@ -1438,7 +1438,7 @@ impl IMSMQMessage2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::putref_AdminQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
-        unsafe extern "system" fn Id<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage2_Impl::Id(this) {
                 Ok(ok__) => {
@@ -1448,7 +1448,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CorrelationId<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CorrelationId<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage2_Impl::CorrelationId(this) {
                 Ok(ok__) => {
@@ -1458,7 +1458,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCorrelationId<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCorrelationId<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
         }
@@ -1546,7 +1546,7 @@ impl IMSMQMessage2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
-        unsafe extern "system" fn SentTime<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SentTime<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage2_Impl::SentTime(this) {
                 Ok(ok__) => {
@@ -1556,7 +1556,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ArrivedTime<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ArrivedTime<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage2_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
@@ -1576,7 +1576,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SenderCertificate<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderCertificate<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage2_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
@@ -1586,11 +1586,11 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderCertificate<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderCertificate<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
-        unsafe extern "system" fn SenderId<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderId<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage2_Impl::SenderId(this) {
                 Ok(ok__) => {
@@ -1614,7 +1614,7 @@ impl IMSMQMessage2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
-        unsafe extern "system" fn Send<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Send<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
         }
@@ -1632,7 +1632,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Extension<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Extension<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage2_Impl::Extension(this) {
                 Ok(ok__) => {
@@ -1642,7 +1642,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtension<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExtension<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::SetExtension(this, core::mem::transmute(&varextension)).into()
         }
@@ -1670,7 +1670,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestinationSymmetricKey<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DestinationSymmetricKey<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage2_Impl::DestinationSymmetricKey(this) {
                 Ok(ok__) => {
@@ -1680,11 +1680,11 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::SetDestinationSymmetricKey(this, core::mem::transmute(&vardestsymmkey)).into()
         }
-        unsafe extern "system" fn Signature<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Signature<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage2_Impl::Signature(this) {
                 Ok(ok__) => {
@@ -1694,7 +1694,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignature<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSignature<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::SetSignature(this, core::mem::transmute(&varsignature)).into()
         }
@@ -1726,7 +1726,7 @@ impl IMSMQMessage2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::SetAuthenticationProviderName(this, core::mem::transmute(&bstrauthprovname)).into()
         }
-        unsafe extern "system" fn SetSenderId<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderId<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage2_Impl::SetSenderId(this, core::mem::transmute(&varsenderid)).into()
         }
@@ -1754,7 +1754,7 @@ impl IMSMQMessage2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransactionId<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransactionId<Identity: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage2_Impl::TransactionId(this) {
                 Ok(ok__) => {
@@ -1905,7 +1905,7 @@ impl IMSMQMessage2_Vtbl {
         iid == &<IMSMQMessage2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Class(&self) -> windows_core::Result<i32>;
     fn PrivLevel(&self) -> windows_core::Result<i32>;
@@ -1927,13 +1927,13 @@ pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetAppSpecific(&self, lappspecific: i32) -> windows_core::Result<()>;
     fn SourceMachineGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn BodyLength(&self) -> windows_core::Result<i32>;
-    fn Body(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetBody(&self, varbody: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Body(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetBody(&self, varbody: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AdminQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo>;
     fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: Option<&IMSMQQueueInfo>) -> windows_core::Result<()>;
-    fn Id(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn CorrelationId(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetCorrelationId(&self, varmsgid: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Id(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn CorrelationId(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetCorrelationId(&self, varmsgid: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Ack(&self) -> windows_core::Result<i32>;
     fn SetAck(&self, lack: i32) -> windows_core::Result<()>;
     fn Label(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1946,35 +1946,35 @@ pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetHashAlgorithm(&self, lhashalg: i32) -> windows_core::Result<()>;
     fn EncryptAlgorithm(&self) -> windows_core::Result<i32>;
     fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> windows_core::Result<()>;
-    fn SentTime(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn ArrivedTime(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SentTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn ArrivedTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn DestinationQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo3>;
-    fn SenderCertificate(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetSenderCertificate(&self, varsendercert: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn SenderId(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SenderCertificate(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetSenderCertificate(&self, varsendercert: &super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn SenderId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SenderIdType(&self) -> windows_core::Result<i32>;
     fn SetSenderIdType(&self, lsenderidtype: i32) -> windows_core::Result<()>;
-    fn Send(&self, destinationqueue: Option<&super::Com::IDispatch>, transaction: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Send(&self, destinationqueue: Option<&super::Com::IDispatch>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()>;
     fn SenderVersion(&self) -> windows_core::Result<i32>;
-    fn Extension(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetExtension(&self, varextension: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Extension(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetExtension(&self, varextension: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn ConnectorTypeGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &windows_core::BSTR) -> windows_core::Result<()>;
     fn TransactionStatusQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo3>;
-    fn DestinationSymmetricKey(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetDestinationSymmetricKey(&self, vardestsymmkey: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn Signature(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetSignature(&self, varsignature: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn DestinationSymmetricKey(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetDestinationSymmetricKey(&self, vardestsymmkey: &super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Signature(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetSignature(&self, varsignature: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AuthenticationProviderType(&self) -> windows_core::Result<i32>;
     fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> windows_core::Result<()>;
     fn AuthenticationProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetAuthenticationProviderName(&self, bstrauthprovname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetSenderId(&self, varsenderid: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetSenderId(&self, varsenderid: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn MsgClass(&self) -> windows_core::Result<i32>;
     fn SetMsgClass(&self, lmsgclass: i32) -> windows_core::Result<()>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn TransactionId(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn TransactionId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn IsFirstInTransaction(&self) -> windows_core::Result<i16>;
     fn IsLastInTransaction(&self) -> windows_core::Result<i16>;
     fn ResponseQueueInfo_v2(&self) -> windows_core::Result<IMSMQQueueInfo2>;
@@ -1989,19 +1989,19 @@ pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn ResponseDestination(&self) -> windows_core::Result<super::Com::IDispatch>;
     fn putref_ResponseDestination(&self, pdestresponse: Option<&super::Com::IDispatch>) -> windows_core::Result<()>;
     fn Destination(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn LookupId(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn LookupId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn IsAuthenticated2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsFirstInTransaction2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsLastInTransaction2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn AttachCurrentSecurityContext2(&self) -> windows_core::Result<()>;
     fn SoapEnvelope(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CompoundMessage(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn CompoundMessage(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SetSoapHeader(&self, bstrsoapheader: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetSoapBody(&self, bstrsoapbody: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQMessage3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQMessage3_Vtbl {
     pub const fn new<Identity: IMSMQMessage3_Impl, const OFFSET: isize>() -> IMSMQMessage3_Vtbl {
         unsafe extern "system" fn Class<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plclass: *mut i32) -> windows_core::HRESULT {
@@ -2156,7 +2156,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Body<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Body<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::Body(this) {
                 Ok(ok__) => {
@@ -2166,7 +2166,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBody<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBody<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
         }
@@ -2184,7 +2184,7 @@ impl IMSMQMessage3_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::putref_AdminQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
-        unsafe extern "system" fn Id<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::Id(this) {
                 Ok(ok__) => {
@@ -2194,7 +2194,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CorrelationId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CorrelationId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::CorrelationId(this) {
                 Ok(ok__) => {
@@ -2204,7 +2204,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCorrelationId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCorrelationId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
         }
@@ -2292,7 +2292,7 @@ impl IMSMQMessage3_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
-        unsafe extern "system" fn SentTime<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SentTime<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::SentTime(this) {
                 Ok(ok__) => {
@@ -2302,7 +2302,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ArrivedTime<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ArrivedTime<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
@@ -2322,7 +2322,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SenderCertificate<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderCertificate<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
@@ -2332,11 +2332,11 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderCertificate<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderCertificate<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
-        unsafe extern "system" fn SenderId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::SenderId(this) {
                 Ok(ok__) => {
@@ -2360,7 +2360,7 @@ impl IMSMQMessage3_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
-        unsafe extern "system" fn Send<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Send<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
         }
@@ -2378,7 +2378,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Extension<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Extension<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::Extension(this) {
                 Ok(ok__) => {
@@ -2388,7 +2388,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtension<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExtension<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::SetExtension(this, core::mem::transmute(&varextension)).into()
         }
@@ -2416,7 +2416,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestinationSymmetricKey<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DestinationSymmetricKey<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::DestinationSymmetricKey(this) {
                 Ok(ok__) => {
@@ -2426,11 +2426,11 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::SetDestinationSymmetricKey(this, core::mem::transmute(&vardestsymmkey)).into()
         }
-        unsafe extern "system" fn Signature<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Signature<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::Signature(this) {
                 Ok(ok__) => {
@@ -2440,7 +2440,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignature<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSignature<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::SetSignature(this, core::mem::transmute(&varsignature)).into()
         }
@@ -2472,7 +2472,7 @@ impl IMSMQMessage3_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::SetAuthenticationProviderName(this, core::mem::transmute(&bstrauthprovname)).into()
         }
-        unsafe extern "system" fn SetSenderId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage3_Impl::SetSenderId(this, core::mem::transmute(&varsenderid)).into()
         }
@@ -2500,7 +2500,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransactionId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransactionId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::TransactionId(this) {
                 Ok(ok__) => {
@@ -2620,7 +2620,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LookupId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlookupid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LookupId<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlookupid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::LookupId(this) {
                 Ok(ok__) => {
@@ -2674,7 +2674,7 @@ impl IMSMQMessage3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompoundMessage<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcompoundmessage: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CompoundMessage<Identity: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcompoundmessage: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage3_Impl::CompoundMessage(this) {
                 Ok(ok__) => {
@@ -2791,7 +2791,7 @@ impl IMSMQMessage3_Vtbl {
         iid == &<IMSMQMessage3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn Class(&self) -> windows_core::Result<i32>;
     fn PrivLevel(&self) -> windows_core::Result<i32>;
@@ -2813,13 +2813,13 @@ pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetAppSpecific(&self, lappspecific: i32) -> windows_core::Result<()>;
     fn SourceMachineGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn BodyLength(&self) -> windows_core::Result<i32>;
-    fn Body(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetBody(&self, varbody: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Body(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetBody(&self, varbody: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AdminQueueInfo_v1(&self) -> windows_core::Result<IMSMQQueueInfo>;
     fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: Option<&IMSMQQueueInfo>) -> windows_core::Result<()>;
-    fn Id(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn CorrelationId(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetCorrelationId(&self, varmsgid: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Id(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn CorrelationId(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetCorrelationId(&self, varmsgid: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Ack(&self) -> windows_core::Result<i32>;
     fn SetAck(&self, lack: i32) -> windows_core::Result<()>;
     fn Label(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2832,35 +2832,35 @@ pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetHashAlgorithm(&self, lhashalg: i32) -> windows_core::Result<()>;
     fn EncryptAlgorithm(&self) -> windows_core::Result<i32>;
     fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> windows_core::Result<()>;
-    fn SentTime(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn ArrivedTime(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SentTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn ArrivedTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn DestinationQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo4>;
-    fn SenderCertificate(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetSenderCertificate(&self, varsendercert: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn SenderId(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn SenderCertificate(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetSenderCertificate(&self, varsendercert: &super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn SenderId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SenderIdType(&self) -> windows_core::Result<i32>;
     fn SetSenderIdType(&self, lsenderidtype: i32) -> windows_core::Result<()>;
-    fn Send(&self, destinationqueue: Option<&super::Com::IDispatch>, transaction: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Send(&self, destinationqueue: Option<&super::Com::IDispatch>, transaction: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AttachCurrentSecurityContext(&self) -> windows_core::Result<()>;
     fn SenderVersion(&self) -> windows_core::Result<i32>;
-    fn Extension(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetExtension(&self, varextension: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Extension(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetExtension(&self, varextension: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn ConnectorTypeGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &windows_core::BSTR) -> windows_core::Result<()>;
     fn TransactionStatusQueueInfo(&self) -> windows_core::Result<IMSMQQueueInfo4>;
-    fn DestinationSymmetricKey(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetDestinationSymmetricKey(&self, vardestsymmkey: &windows_core::VARIANT) -> windows_core::Result<()>;
-    fn Signature(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetSignature(&self, varsignature: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn DestinationSymmetricKey(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetDestinationSymmetricKey(&self, vardestsymmkey: &super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Signature(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetSignature(&self, varsignature: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn AuthenticationProviderType(&self) -> windows_core::Result<i32>;
     fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> windows_core::Result<()>;
     fn AuthenticationProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetAuthenticationProviderName(&self, bstrauthprovname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetSenderId(&self, varsenderid: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn SetSenderId(&self, varsenderid: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn MsgClass(&self) -> windows_core::Result<i32>;
     fn SetMsgClass(&self, lmsgclass: i32) -> windows_core::Result<()>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn TransactionId(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn TransactionId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn IsFirstInTransaction(&self) -> windows_core::Result<i16>;
     fn IsLastInTransaction(&self) -> windows_core::Result<i16>;
     fn ResponseQueueInfo_v2(&self) -> windows_core::Result<IMSMQQueueInfo2>;
@@ -2875,19 +2875,19 @@ pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn ResponseDestination(&self) -> windows_core::Result<super::Com::IDispatch>;
     fn putref_ResponseDestination(&self, pdestresponse: Option<&super::Com::IDispatch>) -> windows_core::Result<()>;
     fn Destination(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn LookupId(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn LookupId(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn IsAuthenticated2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsFirstInTransaction2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsLastInTransaction2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn AttachCurrentSecurityContext2(&self) -> windows_core::Result<()>;
     fn SoapEnvelope(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CompoundMessage(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn CompoundMessage(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn SetSoapHeader(&self, bstrsoapheader: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetSoapBody(&self, bstrsoapbody: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQMessage4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQMessage4_Vtbl {
     pub const fn new<Identity: IMSMQMessage4_Impl, const OFFSET: isize>() -> IMSMQMessage4_Vtbl {
         unsafe extern "system" fn Class<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plclass: *mut i32) -> windows_core::HRESULT {
@@ -3042,7 +3042,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Body<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Body<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::Body(this) {
                 Ok(ok__) => {
@@ -3052,7 +3052,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBody<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBody<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
         }
@@ -3070,7 +3070,7 @@ impl IMSMQMessage4_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::putref_AdminQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
-        unsafe extern "system" fn Id<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Id<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::Id(this) {
                 Ok(ok__) => {
@@ -3080,7 +3080,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CorrelationId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CorrelationId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::CorrelationId(this) {
                 Ok(ok__) => {
@@ -3090,7 +3090,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCorrelationId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCorrelationId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
         }
@@ -3178,7 +3178,7 @@ impl IMSMQMessage4_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
-        unsafe extern "system" fn SentTime<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SentTime<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::SentTime(this) {
                 Ok(ok__) => {
@@ -3188,7 +3188,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ArrivedTime<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ArrivedTime<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
@@ -3208,7 +3208,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SenderCertificate<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderCertificate<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
@@ -3218,11 +3218,11 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderCertificate<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderCertificate<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
-        unsafe extern "system" fn SenderId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SenderId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::SenderId(this) {
                 Ok(ok__) => {
@@ -3246,7 +3246,7 @@ impl IMSMQMessage4_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
-        unsafe extern "system" fn Send<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Send<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
         }
@@ -3264,7 +3264,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Extension<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Extension<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::Extension(this) {
                 Ok(ok__) => {
@@ -3274,7 +3274,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtension<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExtension<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::SetExtension(this, core::mem::transmute(&varextension)).into()
         }
@@ -3302,7 +3302,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DestinationSymmetricKey<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DestinationSymmetricKey<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::DestinationSymmetricKey(this) {
                 Ok(ok__) => {
@@ -3312,11 +3312,11 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDestinationSymmetricKey<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::SetDestinationSymmetricKey(this, core::mem::transmute(&vardestsymmkey)).into()
         }
-        unsafe extern "system" fn Signature<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Signature<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::Signature(this) {
                 Ok(ok__) => {
@@ -3326,7 +3326,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignature<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSignature<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::SetSignature(this, core::mem::transmute(&varsignature)).into()
         }
@@ -3358,7 +3358,7 @@ impl IMSMQMessage4_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::SetAuthenticationProviderName(this, core::mem::transmute(&bstrauthprovname)).into()
         }
-        unsafe extern "system" fn SetSenderId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSenderId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQMessage4_Impl::SetSenderId(this, core::mem::transmute(&varsenderid)).into()
         }
@@ -3386,7 +3386,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransactionId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransactionId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::TransactionId(this) {
                 Ok(ok__) => {
@@ -3506,7 +3506,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LookupId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlookupid: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn LookupId<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlookupid: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::LookupId(this) {
                 Ok(ok__) => {
@@ -3560,7 +3560,7 @@ impl IMSMQMessage4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompoundMessage<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcompoundmessage: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CompoundMessage<Identity: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcompoundmessage: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQMessage4_Impl::CompoundMessage(this) {
                 Ok(ok__) => {
@@ -3677,18 +3677,18 @@ impl IMSMQMessage4_Vtbl {
         iid == &<IMSMQMessage4 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQOutgoingQueueManagement_Impl: Sized + IMSMQManagement_Impl {
     fn State(&self) -> windows_core::Result<i32>;
-    fn NextHops(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn NextHops(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn EodGetSendInfo(&self) -> windows_core::Result<IMSMQCollection>;
     fn Resume(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn EodResend(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQOutgoingQueueManagement {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQOutgoingQueueManagement_Vtbl {
     pub const fn new<Identity: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>() -> IMSMQOutgoingQueueManagement_Vtbl {
         unsafe extern "system" fn State<Identity: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstate: *mut i32) -> windows_core::HRESULT {
@@ -3701,7 +3701,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NextHops<Identity: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvnexthops: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn NextHops<Identity: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvnexthops: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQOutgoingQueueManagement_Impl::NextHops(this) {
                 Ok(ok__) => {
@@ -3747,17 +3747,17 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
         iid == &<IMSMQOutgoingQueueManagement as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IMSMQManagement as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQPrivateDestination_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Handle(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetHandle(&self, varhandle: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Handle(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetHandle(&self, varhandle: &super::Variant::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQPrivateDestination {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQPrivateDestination_Vtbl {
     pub const fn new<Identity: IMSMQPrivateDestination_Impl, const OFFSET: isize>() -> IMSMQPrivateDestination_Vtbl {
-        unsafe extern "system" fn Handle<Identity: IMSMQPrivateDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Handle<Identity: IMSMQPrivateDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQPrivateDestination_Impl::Handle(this) {
                 Ok(ok__) => {
@@ -3767,7 +3767,7 @@ impl IMSMQPrivateDestination_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHandle<Identity: IMSMQPrivateDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varhandle: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHandle<Identity: IMSMQPrivateDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varhandle: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQPrivateDestination_Impl::SetHandle(this, core::mem::transmute(&varhandle)).into()
         }
@@ -3777,15 +3777,15 @@ impl IMSMQPrivateDestination_Vtbl {
         iid == &<IMSMQPrivateDestination as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQPrivateEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Hwnd(&self) -> windows_core::Result<i32>;
     fn FireArrivedEvent(&self, pq: Option<&IMSMQQueue>, msgcursor: i32) -> windows_core::Result<()>;
     fn FireArrivedErrorEvent(&self, pq: Option<&IMSMQQueue>, hrstatus: windows_core::HRESULT, msgcursor: i32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQPrivateEvent {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQPrivateEvent_Vtbl {
     pub const fn new<Identity: IMSMQPrivateEvent_Impl, const OFFSET: isize>() -> IMSMQPrivateEvent_Vtbl {
         unsafe extern "system" fn Hwnd<Identity: IMSMQPrivateEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phwnd: *mut i32) -> windows_core::HRESULT {
@@ -3817,16 +3817,28 @@ impl IMSMQPrivateEvent_Vtbl {
         iid == &<IMSMQPrivateEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQuery_Impl: Sized + super::Com::IDispatch_Impl {
-    fn LookupQueue(&self, queueguid: *const windows_core::VARIANT, servicetypeguid: *const windows_core::VARIANT, label: *const windows_core::VARIANT, createtime: *const windows_core::VARIANT, modifytime: *const windows_core::VARIANT, relservicetype: *const windows_core::VARIANT, rellabel: *const windows_core::VARIANT, relcreatetime: *const windows_core::VARIANT, relmodifytime: *const windows_core::VARIANT) -> windows_core::Result<IMSMQQueueInfos>;
+    fn LookupQueue(&self, queueguid: *const super::Variant::VARIANT, servicetypeguid: *const super::Variant::VARIANT, label: *const super::Variant::VARIANT, createtime: *const super::Variant::VARIANT, modifytime: *const super::Variant::VARIANT, relservicetype: *const super::Variant::VARIANT, rellabel: *const super::Variant::VARIANT, relcreatetime: *const super::Variant::VARIANT, relmodifytime: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQQueueInfos>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQuery {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQuery_Vtbl {
     pub const fn new<Identity: IMSMQQuery_Impl, const OFFSET: isize>() -> IMSMQQuery_Vtbl {
-        unsafe extern "system" fn LookupQueue<Identity: IMSMQQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>, servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>, label: *const core::mem::MaybeUninit<windows_core::VARIANT>, createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>, modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>, relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>, rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>, relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>, relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppqinfos: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LookupQueue<Identity: IMSMQQuery_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            queueguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            label: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            ppqinfos: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQuery_Impl::LookupQueue(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
@@ -3842,17 +3854,29 @@ impl IMSMQQuery_Vtbl {
         iid == &<IMSMQQuery as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQuery2_Impl: Sized + super::Com::IDispatch_Impl {
-    fn LookupQueue(&self, queueguid: *const windows_core::VARIANT, servicetypeguid: *const windows_core::VARIANT, label: *const windows_core::VARIANT, createtime: *const windows_core::VARIANT, modifytime: *const windows_core::VARIANT, relservicetype: *const windows_core::VARIANT, rellabel: *const windows_core::VARIANT, relcreatetime: *const windows_core::VARIANT, relmodifytime: *const windows_core::VARIANT) -> windows_core::Result<IMSMQQueueInfos2>;
+    fn LookupQueue(&self, queueguid: *const super::Variant::VARIANT, servicetypeguid: *const super::Variant::VARIANT, label: *const super::Variant::VARIANT, createtime: *const super::Variant::VARIANT, modifytime: *const super::Variant::VARIANT, relservicetype: *const super::Variant::VARIANT, rellabel: *const super::Variant::VARIANT, relcreatetime: *const super::Variant::VARIANT, relmodifytime: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQQueueInfos2>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQuery2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQuery2_Vtbl {
     pub const fn new<Identity: IMSMQQuery2_Impl, const OFFSET: isize>() -> IMSMQQuery2_Vtbl {
-        unsafe extern "system" fn LookupQueue<Identity: IMSMQQuery2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>, servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>, label: *const core::mem::MaybeUninit<windows_core::VARIANT>, createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>, modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>, relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>, rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>, relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>, relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppqinfos: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LookupQueue<Identity: IMSMQQuery2_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            queueguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            label: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            ppqinfos: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQuery2_Impl::LookupQueue(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
@@ -3882,18 +3906,30 @@ impl IMSMQQuery2_Vtbl {
         iid == &<IMSMQQuery2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQuery3_Impl: Sized + super::Com::IDispatch_Impl {
-    fn LookupQueue_v2(&self, queueguid: *const windows_core::VARIANT, servicetypeguid: *const windows_core::VARIANT, label: *const windows_core::VARIANT, createtime: *const windows_core::VARIANT, modifytime: *const windows_core::VARIANT, relservicetype: *const windows_core::VARIANT, rellabel: *const windows_core::VARIANT, relcreatetime: *const windows_core::VARIANT, relmodifytime: *const windows_core::VARIANT) -> windows_core::Result<IMSMQQueueInfos3>;
+    fn LookupQueue_v2(&self, queueguid: *const super::Variant::VARIANT, servicetypeguid: *const super::Variant::VARIANT, label: *const super::Variant::VARIANT, createtime: *const super::Variant::VARIANT, modifytime: *const super::Variant::VARIANT, relservicetype: *const super::Variant::VARIANT, rellabel: *const super::Variant::VARIANT, relcreatetime: *const super::Variant::VARIANT, relmodifytime: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQQueueInfos3>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn LookupQueue(&self, queueguid: *const windows_core::VARIANT, servicetypeguid: *const windows_core::VARIANT, label: *const windows_core::VARIANT, createtime: *const windows_core::VARIANT, modifytime: *const windows_core::VARIANT, relservicetype: *const windows_core::VARIANT, rellabel: *const windows_core::VARIANT, relcreatetime: *const windows_core::VARIANT, relmodifytime: *const windows_core::VARIANT, multicastaddress: *const windows_core::VARIANT, relmulticastaddress: *const windows_core::VARIANT) -> windows_core::Result<IMSMQQueueInfos3>;
+    fn LookupQueue(&self, queueguid: *const super::Variant::VARIANT, servicetypeguid: *const super::Variant::VARIANT, label: *const super::Variant::VARIANT, createtime: *const super::Variant::VARIANT, modifytime: *const super::Variant::VARIANT, relservicetype: *const super::Variant::VARIANT, rellabel: *const super::Variant::VARIANT, relcreatetime: *const super::Variant::VARIANT, relmodifytime: *const super::Variant::VARIANT, multicastaddress: *const super::Variant::VARIANT, relmulticastaddress: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQQueueInfos3>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQuery3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQuery3_Vtbl {
     pub const fn new<Identity: IMSMQQuery3_Impl, const OFFSET: isize>() -> IMSMQQuery3_Vtbl {
-        unsafe extern "system" fn LookupQueue_v2<Identity: IMSMQQuery3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>, servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>, label: *const core::mem::MaybeUninit<windows_core::VARIANT>, createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>, modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>, relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>, rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>, relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>, relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppqinfos: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LookupQueue_v2<Identity: IMSMQQuery3_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            queueguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            label: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            ppqinfos: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQuery3_Impl::LookupQueue_v2(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
@@ -3915,17 +3951,17 @@ impl IMSMQQuery3_Vtbl {
         }
         unsafe extern "system" fn LookupQueue<Identity: IMSMQQuery3_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            label: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            multicastaddress: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            relmulticastaddress: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            queueguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            label: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            multicastaddress: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relmulticastaddress: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
             ppqinfos: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3948,18 +3984,30 @@ impl IMSMQQuery3_Vtbl {
         iid == &<IMSMQQuery3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQuery4_Impl: Sized + super::Com::IDispatch_Impl {
-    fn LookupQueue_v2(&self, queueguid: *const windows_core::VARIANT, servicetypeguid: *const windows_core::VARIANT, label: *const windows_core::VARIANT, createtime: *const windows_core::VARIANT, modifytime: *const windows_core::VARIANT, relservicetype: *const windows_core::VARIANT, rellabel: *const windows_core::VARIANT, relcreatetime: *const windows_core::VARIANT, relmodifytime: *const windows_core::VARIANT) -> windows_core::Result<IMSMQQueueInfos4>;
+    fn LookupQueue_v2(&self, queueguid: *const super::Variant::VARIANT, servicetypeguid: *const super::Variant::VARIANT, label: *const super::Variant::VARIANT, createtime: *const super::Variant::VARIANT, modifytime: *const super::Variant::VARIANT, relservicetype: *const super::Variant::VARIANT, rellabel: *const super::Variant::VARIANT, relcreatetime: *const super::Variant::VARIANT, relmodifytime: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQQueueInfos4>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn LookupQueue(&self, queueguid: *const windows_core::VARIANT, servicetypeguid: *const windows_core::VARIANT, label: *const windows_core::VARIANT, createtime: *const windows_core::VARIANT, modifytime: *const windows_core::VARIANT, relservicetype: *const windows_core::VARIANT, rellabel: *const windows_core::VARIANT, relcreatetime: *const windows_core::VARIANT, relmodifytime: *const windows_core::VARIANT, multicastaddress: *const windows_core::VARIANT, relmulticastaddress: *const windows_core::VARIANT) -> windows_core::Result<IMSMQQueueInfos4>;
+    fn LookupQueue(&self, queueguid: *const super::Variant::VARIANT, servicetypeguid: *const super::Variant::VARIANT, label: *const super::Variant::VARIANT, createtime: *const super::Variant::VARIANT, modifytime: *const super::Variant::VARIANT, relservicetype: *const super::Variant::VARIANT, rellabel: *const super::Variant::VARIANT, relcreatetime: *const super::Variant::VARIANT, relmodifytime: *const super::Variant::VARIANT, multicastaddress: *const super::Variant::VARIANT, relmulticastaddress: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQQueueInfos4>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQuery4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQuery4_Vtbl {
     pub const fn new<Identity: IMSMQQuery4_Impl, const OFFSET: isize>() -> IMSMQQuery4_Vtbl {
-        unsafe extern "system" fn LookupQueue_v2<Identity: IMSMQQuery4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>, servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>, label: *const core::mem::MaybeUninit<windows_core::VARIANT>, createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>, modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>, relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>, rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>, relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>, relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppqinfos: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LookupQueue_v2<Identity: IMSMQQuery4_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            queueguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            label: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            ppqinfos: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQuery4_Impl::LookupQueue_v2(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
@@ -3981,17 +4029,17 @@ impl IMSMQQuery4_Vtbl {
         }
         unsafe extern "system" fn LookupQueue<Identity: IMSMQQuery4_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            queueguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            servicetypeguid: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            label: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            createtime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            modifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            relservicetype: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            rellabel: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            relcreatetime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            relmodifytime: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            multicastaddress: *const core::mem::MaybeUninit<windows_core::VARIANT>,
-            relmulticastaddress: *const core::mem::MaybeUninit<windows_core::VARIANT>,
+            queueguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            servicetypeguid: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            label: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            createtime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            modifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relservicetype: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            rellabel: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relcreatetime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relmodifytime: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            multicastaddress: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
+            relmulticastaddress: *const core::mem::MaybeUninit<super::Variant::VARIANT>,
             ppqinfos: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4014,7 +4062,7 @@ impl IMSMQQuery4_Vtbl {
         iid == &<IMSMQQuery4 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueue_Impl: Sized + super::Com::IDispatch_Impl {
     fn Access(&self) -> windows_core::Result<i32>;
     fn ShareMode(&self) -> windows_core::Result<i32>;
@@ -4022,17 +4070,17 @@ pub trait IMSMQQueue_Impl: Sized + super::Com::IDispatch_Impl {
     fn Handle(&self) -> windows_core::Result<i32>;
     fn IsOpen(&self) -> windows_core::Result<i16>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn Receive(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn Peek(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn EnableNotification(&self, event: Option<&IMSMQEvent>, cursor: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Receive(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn Peek(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn EnableNotification(&self, event: Option<&IMSMQEvent>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn ReceiveCurrent(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn PeekNext(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn PeekCurrent(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn ReceiveCurrent(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn PeekNext(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn PeekCurrent(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueue {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueue_Vtbl {
     pub const fn new<Identity: IMSMQQueue_Impl, const OFFSET: isize>() -> IMSMQQueue_Vtbl {
         unsafe extern "system" fn Access<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, placcess: *mut i32) -> windows_core::HRESULT {
@@ -4089,7 +4137,7 @@ impl IMSMQQueue_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue_Impl::Close(this).into()
         }
-        unsafe extern "system" fn Receive<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4099,7 +4147,7 @@ impl IMSMQQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4109,7 +4157,7 @@ impl IMSMQQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableNotification<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableNotification<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
         }
@@ -4117,7 +4165,7 @@ impl IMSMQQueue_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn ReceiveCurrent<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4127,7 +4175,7 @@ impl IMSMQQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4137,7 +4185,7 @@ impl IMSMQQueue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent<Identity: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4168,7 +4216,7 @@ impl IMSMQQueue_Vtbl {
         iid == &<IMSMQQueue as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueue2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Access(&self) -> windows_core::Result<i32>;
     fn ShareMode(&self) -> windows_core::Result<i32>;
@@ -4176,23 +4224,23 @@ pub trait IMSMQQueue2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Handle(&self) -> windows_core::Result<i32>;
     fn IsOpen(&self) -> windows_core::Result<i16>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn Receive_v1(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn Peek_v1(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn EnableNotification(&self, event: Option<&IMSMQEvent2>, cursor: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Receive_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn Peek_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn EnableNotification(&self, event: Option<&IMSMQEvent2>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn ReceiveCurrent_v1(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn PeekNext_v1(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn PeekCurrent_v1(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn Receive(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage2>;
-    fn Peek(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage2>;
-    fn ReceiveCurrent(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage2>;
-    fn PeekNext(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage2>;
-    fn PeekCurrent(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage2>;
+    fn ReceiveCurrent_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn PeekNext_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn Receive(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage2>;
+    fn Peek(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage2>;
+    fn ReceiveCurrent(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage2>;
+    fn PeekNext(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage2>;
+    fn PeekCurrent(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage2>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueue2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueue2_Vtbl {
     pub const fn new<Identity: IMSMQQueue2_Impl, const OFFSET: isize>() -> IMSMQQueue2_Vtbl {
         unsafe extern "system" fn Access<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, placcess: *mut i32) -> windows_core::HRESULT {
@@ -4249,7 +4297,7 @@ impl IMSMQQueue2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue2_Impl::Close(this).into()
         }
-        unsafe extern "system" fn Receive_v1<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive_v1<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue2_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4259,7 +4307,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek_v1<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek_v1<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue2_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4269,7 +4317,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableNotification<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableNotification<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue2_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
         }
@@ -4277,7 +4325,7 @@ impl IMSMQQueue2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue2_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn ReceiveCurrent_v1<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent_v1<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue2_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4287,7 +4335,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext_v1<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext_v1<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue2_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4297,7 +4345,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent_v1<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent_v1<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue2_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4307,7 +4355,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Receive<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue2_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4317,7 +4365,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue2_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4327,7 +4375,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveCurrent<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue2_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4337,7 +4385,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue2_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4347,7 +4395,7 @@ impl IMSMQQueue2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent<Identity: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue2_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4394,7 +4442,7 @@ impl IMSMQQueue2_Vtbl {
         iid == &<IMSMQQueue2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueue3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Access(&self) -> windows_core::Result<i32>;
     fn ShareMode(&self) -> windows_core::Result<i32>;
@@ -4402,36 +4450,36 @@ pub trait IMSMQQueue3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Handle(&self) -> windows_core::Result<i32>;
     fn IsOpen(&self) -> windows_core::Result<i16>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn Receive_v1(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn Peek_v1(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn EnableNotification(&self, event: Option<&IMSMQEvent3>, cursor: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Receive_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn Peek_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn EnableNotification(&self, event: Option<&IMSMQEvent3>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn ReceiveCurrent_v1(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn PeekNext_v1(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn PeekCurrent_v1(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn Receive(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn Peek(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn ReceiveCurrent(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn PeekNext(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn PeekCurrent(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn ReceiveCurrent_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn PeekNext_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn Receive(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn Peek(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn ReceiveCurrent(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn PeekNext(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn PeekCurrent(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn Handle2(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn ReceiveByLookupId(&self, lookupid: &windows_core::VARIANT, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn ReceiveNextByLookupId(&self, lookupid: &windows_core::VARIANT, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn ReceivePreviousByLookupId(&self, lookupid: &windows_core::VARIANT, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn ReceiveFirstByLookupId(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn ReceiveLastByLookupId(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn PeekByLookupId(&self, lookupid: &windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn PeekNextByLookupId(&self, lookupid: &windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn PeekPreviousByLookupId(&self, lookupid: &windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn PeekFirstByLookupId(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
-    fn PeekLastByLookupId(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn Handle2(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn ReceiveByLookupId(&self, lookupid: &super::Variant::VARIANT, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn ReceiveNextByLookupId(&self, lookupid: &super::Variant::VARIANT, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn ReceivePreviousByLookupId(&self, lookupid: &super::Variant::VARIANT, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn ReceiveFirstByLookupId(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn ReceiveLastByLookupId(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn PeekByLookupId(&self, lookupid: &super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn PeekNextByLookupId(&self, lookupid: &super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn PeekPreviousByLookupId(&self, lookupid: &super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
+    fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage3>;
     fn Purge(&self) -> windows_core::Result<()>;
     fn IsOpen2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueue3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueue3_Vtbl {
     pub const fn new<Identity: IMSMQQueue3_Impl, const OFFSET: isize>() -> IMSMQQueue3_Vtbl {
         unsafe extern "system" fn Access<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, placcess: *mut i32) -> windows_core::HRESULT {
@@ -4488,7 +4536,7 @@ impl IMSMQQueue3_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue3_Impl::Close(this).into()
         }
-        unsafe extern "system" fn Receive_v1<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive_v1<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4498,7 +4546,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek_v1<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek_v1<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4508,7 +4556,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableNotification<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableNotification<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue3_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
         }
@@ -4516,7 +4564,7 @@ impl IMSMQQueue3_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue3_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn ReceiveCurrent_v1<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent_v1<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4526,7 +4574,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext_v1<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext_v1<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4536,7 +4584,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent_v1<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent_v1<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4546,7 +4594,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Receive<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4556,7 +4604,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4566,7 +4614,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveCurrent<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4576,7 +4624,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4586,7 +4634,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4606,7 +4654,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handle2<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Handle2<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::Handle2(this) {
                 Ok(ok__) => {
@@ -4616,7 +4664,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::ReceiveByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4626,7 +4674,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveNextByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveNextByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::ReceiveNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4636,7 +4684,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceivePreviousByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceivePreviousByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::ReceivePreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4646,7 +4694,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveFirstByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveFirstByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::ReceiveFirstByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4656,7 +4704,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveLastByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveLastByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::ReceiveLastByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4666,7 +4714,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::PeekByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4676,7 +4724,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNextByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNextByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::PeekNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4686,7 +4734,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekPreviousByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekPreviousByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::PeekPreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4696,7 +4744,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekFirstByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekFirstByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::PeekFirstByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4706,7 +4754,7 @@ impl IMSMQQueue3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekLastByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekLastByLookupId<Identity: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue3_Impl::PeekLastByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4770,7 +4818,7 @@ impl IMSMQQueue3_Vtbl {
         iid == &<IMSMQQueue3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueue4_Impl: Sized + super::Com::IDispatch_Impl {
     fn Access(&self) -> windows_core::Result<i32>;
     fn ShareMode(&self) -> windows_core::Result<i32>;
@@ -4778,37 +4826,37 @@ pub trait IMSMQQueue4_Impl: Sized + super::Com::IDispatch_Impl {
     fn Handle(&self) -> windows_core::Result<i32>;
     fn IsOpen(&self) -> windows_core::Result<i16>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn Receive_v1(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn Peek_v1(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn EnableNotification(&self, event: Option<&IMSMQEvent3>, cursor: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Receive_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn Peek_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn EnableNotification(&self, event: Option<&IMSMQEvent3>, cursor: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn ReceiveCurrent_v1(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn PeekNext_v1(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn PeekCurrent_v1(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage>;
-    fn Receive(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn Peek(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn ReceiveCurrent(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn PeekNext(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn PeekCurrent(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, receivetimeout: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn ReceiveCurrent_v1(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn PeekNext_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage>;
+    fn Receive(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn Peek(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn ReceiveCurrent(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn PeekNext(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn PeekCurrent(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, receivetimeout: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn Handle2(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn ReceiveByLookupId(&self, lookupid: &windows_core::VARIANT, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn ReceiveNextByLookupId(&self, lookupid: &windows_core::VARIANT, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn ReceivePreviousByLookupId(&self, lookupid: &windows_core::VARIANT, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn ReceiveFirstByLookupId(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn ReceiveLastByLookupId(&self, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn PeekByLookupId(&self, lookupid: &windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn PeekNextByLookupId(&self, lookupid: &windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn PeekPreviousByLookupId(&self, lookupid: &windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn PeekFirstByLookupId(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
-    fn PeekLastByLookupId(&self, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn Handle2(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn ReceiveByLookupId(&self, lookupid: &super::Variant::VARIANT, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn ReceiveNextByLookupId(&self, lookupid: &super::Variant::VARIANT, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn ReceivePreviousByLookupId(&self, lookupid: &super::Variant::VARIANT, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn ReceiveFirstByLookupId(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn ReceiveLastByLookupId(&self, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn PeekByLookupId(&self, lookupid: &super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn PeekNextByLookupId(&self, lookupid: &super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn PeekPreviousByLookupId(&self, lookupid: &super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
     fn Purge(&self) -> windows_core::Result<()>;
     fn IsOpen2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn ReceiveByLookupIdAllowPeek(&self, lookupid: &windows_core::VARIANT, transaction: *const windows_core::VARIANT, wantdestinationqueue: *const windows_core::VARIANT, wantbody: *const windows_core::VARIANT, wantconnectortype: *const windows_core::VARIANT) -> windows_core::Result<IMSMQMessage4>;
+    fn ReceiveByLookupIdAllowPeek(&self, lookupid: &super::Variant::VARIANT, transaction: *const super::Variant::VARIANT, wantdestinationqueue: *const super::Variant::VARIANT, wantbody: *const super::Variant::VARIANT, wantconnectortype: *const super::Variant::VARIANT) -> windows_core::Result<IMSMQMessage4>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueue4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueue4_Vtbl {
     pub const fn new<Identity: IMSMQQueue4_Impl, const OFFSET: isize>() -> IMSMQQueue4_Vtbl {
         unsafe extern "system" fn Access<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, placcess: *mut i32) -> windows_core::HRESULT {
@@ -4865,7 +4913,7 @@ impl IMSMQQueue4_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue4_Impl::Close(this).into()
         }
-        unsafe extern "system" fn Receive_v1<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive_v1<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4875,7 +4923,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek_v1<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek_v1<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4885,7 +4933,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableNotification<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableNotification<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue4_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
         }
@@ -4893,7 +4941,7 @@ impl IMSMQQueue4_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueue4_Impl::Reset(this).into()
         }
-        unsafe extern "system" fn ReceiveCurrent_v1<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent_v1<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4903,7 +4951,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext_v1<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext_v1<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4913,7 +4961,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent_v1<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent_v1<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
@@ -4923,7 +4971,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Receive<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Receive<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4933,7 +4981,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Peek<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Peek<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4943,7 +4991,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveCurrent<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveCurrent<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4953,7 +5001,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNext<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNext<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4963,7 +5011,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekCurrent<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekCurrent<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, receivetimeout: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -4983,7 +5031,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Handle2<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Handle2<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::Handle2(this) {
                 Ok(ok__) => {
@@ -4993,7 +5041,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::ReceiveByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -5003,7 +5051,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveNextByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveNextByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::ReceiveNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -5013,7 +5061,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceivePreviousByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceivePreviousByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::ReceivePreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -5023,7 +5071,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveFirstByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveFirstByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::ReceiveFirstByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -5033,7 +5081,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveLastByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveLastByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::ReceiveLastByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -5043,7 +5091,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::PeekByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -5053,7 +5101,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekNextByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekNextByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::PeekNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -5063,7 +5111,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekPreviousByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekPreviousByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::PeekPreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -5073,7 +5121,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekFirstByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekFirstByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::PeekFirstByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -5083,7 +5131,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PeekLastByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PeekLastByLookupId<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::PeekLastByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -5107,7 +5155,7 @@ impl IMSMQQueue4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReceiveByLookupIdAllowPeek<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const core::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReceiveByLookupIdAllowPeek<Identity: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: core::mem::MaybeUninit<super::Variant::VARIANT>, transaction: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantdestinationqueue: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantbody: *const core::mem::MaybeUninit<super::Variant::VARIANT>, wantconnectortype: *const core::mem::MaybeUninit<super::Variant::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueue4_Impl::ReceiveByLookupIdAllowPeek(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
@@ -5158,7 +5206,7 @@ impl IMSMQQueue4_Vtbl {
         iid == &<IMSMQQueue4 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueueInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn QueueGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ServiceTypeGuid(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -5178,22 +5226,22 @@ pub trait IMSMQQueueInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetQuota(&self, lquota: i32) -> windows_core::Result<()>;
     fn BasePriority(&self) -> windows_core::Result<i32>;
     fn SetBasePriority(&self, lbasepriority: i32) -> windows_core::Result<()>;
-    fn CreateTime(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn ModifyTime(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn CreateTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn ModifyTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn Authenticate(&self) -> windows_core::Result<i32>;
     fn SetAuthenticate(&self, lauthenticate: i32) -> windows_core::Result<()>;
     fn JournalQuota(&self) -> windows_core::Result<i32>;
     fn SetJournalQuota(&self, ljournalquota: i32) -> windows_core::Result<()>;
     fn IsWorldReadable(&self) -> windows_core::Result<i16>;
-    fn Create(&self, istransactional: *const windows_core::VARIANT, isworldreadable: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Create(&self, istransactional: *const super::Variant::VARIANT, isworldreadable: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
     fn Open(&self, access: i32, sharemode: i32) -> windows_core::Result<IMSMQQueue>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn Update(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueueInfo {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueueInfo_Vtbl {
     pub const fn new<Identity: IMSMQQueueInfo_Impl, const OFFSET: isize>() -> IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn QueueGuid<Identity: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -5328,7 +5376,7 @@ impl IMSMQQueueInfo_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueueInfo_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
-        unsafe extern "system" fn CreateTime<Identity: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTime<Identity: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueInfo_Impl::CreateTime(this) {
                 Ok(ok__) => {
@@ -5338,7 +5386,7 @@ impl IMSMQQueueInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModifyTime<Identity: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModifyTime<Identity: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueInfo_Impl::ModifyTime(this) {
                 Ok(ok__) => {
@@ -5386,7 +5434,7 @@ impl IMSMQQueueInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Identity: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<super::Variant::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueueInfo_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
         }
@@ -5450,7 +5498,7 @@ impl IMSMQQueueInfo_Vtbl {
         iid == &<IMSMQQueueInfo as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueueInfo2_Impl: Sized + super::Com::IDispatch_Impl {
     fn QueueGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ServiceTypeGuid(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -5470,26 +5518,26 @@ pub trait IMSMQQueueInfo2_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetQuota(&self, lquota: i32) -> windows_core::Result<()>;
     fn BasePriority(&self) -> windows_core::Result<i32>;
     fn SetBasePriority(&self, lbasepriority: i32) -> windows_core::Result<()>;
-    fn CreateTime(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn ModifyTime(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn CreateTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn ModifyTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn Authenticate(&self) -> windows_core::Result<i32>;
     fn SetAuthenticate(&self, lauthenticate: i32) -> windows_core::Result<()>;
     fn JournalQuota(&self) -> windows_core::Result<i32>;
     fn SetJournalQuota(&self, ljournalquota: i32) -> windows_core::Result<()>;
     fn IsWorldReadable(&self) -> windows_core::Result<i16>;
-    fn Create(&self, istransactional: *const windows_core::VARIANT, isworldreadable: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Create(&self, istransactional: *const super::Variant::VARIANT, isworldreadable: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
     fn Open(&self, access: i32, sharemode: i32) -> windows_core::Result<IMSMQQueue2>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn Update(&self) -> windows_core::Result<()>;
     fn PathNameDNS(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn Security(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetSecurity(&self, varsecurity: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Security(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetSecurity(&self, varsecurity: &super::Variant::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueueInfo2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueueInfo2_Vtbl {
     pub const fn new<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>() -> IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn QueueGuid<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -5624,7 +5672,7 @@ impl IMSMQQueueInfo2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueueInfo2_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
-        unsafe extern "system" fn CreateTime<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTime<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueInfo2_Impl::CreateTime(this) {
                 Ok(ok__) => {
@@ -5634,7 +5682,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModifyTime<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModifyTime<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueInfo2_Impl::ModifyTime(this) {
                 Ok(ok__) => {
@@ -5682,7 +5730,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<super::Variant::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueueInfo2_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
         }
@@ -5728,7 +5776,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Security<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Security<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueInfo2_Impl::Security(this) {
                 Ok(ok__) => {
@@ -5738,7 +5786,7 @@ impl IMSMQQueueInfo2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecurity<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSecurity<Identity: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueueInfo2_Impl::SetSecurity(this, core::mem::transmute(&varsecurity)).into()
         }
@@ -5784,7 +5832,7 @@ impl IMSMQQueueInfo2_Vtbl {
         iid == &<IMSMQQueueInfo2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueueInfo3_Impl: Sized + super::Com::IDispatch_Impl {
     fn QueueGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ServiceTypeGuid(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -5804,31 +5852,31 @@ pub trait IMSMQQueueInfo3_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetQuota(&self, lquota: i32) -> windows_core::Result<()>;
     fn BasePriority(&self) -> windows_core::Result<i32>;
     fn SetBasePriority(&self, lbasepriority: i32) -> windows_core::Result<()>;
-    fn CreateTime(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn ModifyTime(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn CreateTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn ModifyTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn Authenticate(&self) -> windows_core::Result<i32>;
     fn SetAuthenticate(&self, lauthenticate: i32) -> windows_core::Result<()>;
     fn JournalQuota(&self) -> windows_core::Result<i32>;
     fn SetJournalQuota(&self, ljournalquota: i32) -> windows_core::Result<()>;
     fn IsWorldReadable(&self) -> windows_core::Result<i16>;
-    fn Create(&self, istransactional: *const windows_core::VARIANT, isworldreadable: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Create(&self, istransactional: *const super::Variant::VARIANT, isworldreadable: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
     fn Open(&self, access: i32, sharemode: i32) -> windows_core::Result<IMSMQQueue3>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn Update(&self) -> windows_core::Result<()>;
     fn PathNameDNS(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn Security(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetSecurity(&self, varsecurity: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Security(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetSecurity(&self, varsecurity: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn IsTransactional2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsWorldReadable2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MulticastAddress(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetMulticastAddress(&self, bstrmulticastaddress: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ADsPath(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueueInfo3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueueInfo3_Vtbl {
     pub const fn new<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>() -> IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn QueueGuid<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -5963,7 +6011,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueueInfo3_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
-        unsafe extern "system" fn CreateTime<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTime<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueInfo3_Impl::CreateTime(this) {
                 Ok(ok__) => {
@@ -5973,7 +6021,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModifyTime<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModifyTime<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueInfo3_Impl::ModifyTime(this) {
                 Ok(ok__) => {
@@ -6021,7 +6069,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<super::Variant::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueueInfo3_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
         }
@@ -6067,7 +6115,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Security<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Security<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueInfo3_Impl::Security(this) {
                 Ok(ok__) => {
@@ -6077,7 +6125,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecurity<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSecurity<Identity: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueueInfo3_Impl::SetSecurity(this, core::mem::transmute(&varsecurity)).into()
         }
@@ -6172,7 +6220,7 @@ impl IMSMQQueueInfo3_Vtbl {
         iid == &<IMSMQQueueInfo3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueueInfo4_Impl: Sized + super::Com::IDispatch_Impl {
     fn QueueGuid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ServiceTypeGuid(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -6192,31 +6240,31 @@ pub trait IMSMQQueueInfo4_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetQuota(&self, lquota: i32) -> windows_core::Result<()>;
     fn BasePriority(&self) -> windows_core::Result<i32>;
     fn SetBasePriority(&self, lbasepriority: i32) -> windows_core::Result<()>;
-    fn CreateTime(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn ModifyTime(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn CreateTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn ModifyTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn Authenticate(&self) -> windows_core::Result<i32>;
     fn SetAuthenticate(&self, lauthenticate: i32) -> windows_core::Result<()>;
     fn JournalQuota(&self) -> windows_core::Result<i32>;
     fn SetJournalQuota(&self, ljournalquota: i32) -> windows_core::Result<()>;
     fn IsWorldReadable(&self) -> windows_core::Result<i16>;
-    fn Create(&self, istransactional: *const windows_core::VARIANT, isworldreadable: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Create(&self, istransactional: *const super::Variant::VARIANT, isworldreadable: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
     fn Open(&self, access: i32, sharemode: i32) -> windows_core::Result<IMSMQQueue4>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn Update(&self) -> windows_core::Result<()>;
     fn PathNameDNS(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn Security(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn SetSecurity(&self, varsecurity: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Security(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetSecurity(&self, varsecurity: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn IsTransactional2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsWorldReadable2(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MulticastAddress(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetMulticastAddress(&self, bstrmulticastaddress: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ADsPath(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueueInfo4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueueInfo4_Vtbl {
     pub const fn new<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>() -> IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn QueueGuid<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
@@ -6351,7 +6399,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueueInfo4_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
-        unsafe extern "system" fn CreateTime<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTime<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueInfo4_Impl::CreateTime(this) {
                 Ok(ok__) => {
@@ -6361,7 +6409,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ModifyTime<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModifyTime<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueInfo4_Impl::ModifyTime(this) {
                 Ok(ok__) => {
@@ -6409,7 +6457,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const core::mem::MaybeUninit<super::Variant::VARIANT>, isworldreadable: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueueInfo4_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
         }
@@ -6455,7 +6503,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Security<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Security<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueInfo4_Impl::Security(this) {
                 Ok(ok__) => {
@@ -6465,7 +6513,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecurity<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSecurity<Identity: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQQueueInfo4_Impl::SetSecurity(this, core::mem::transmute(&varsecurity)).into()
         }
@@ -6560,14 +6608,14 @@ impl IMSMQQueueInfo4_Vtbl {
         iid == &<IMSMQQueueInfo4 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueueInfos_Impl: Sized + super::Com::IDispatch_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Next(&self) -> windows_core::Result<IMSMQQueueInfo>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueueInfos {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueueInfos_Vtbl {
     pub const fn new<Identity: IMSMQQueueInfos_Impl, const OFFSET: isize>() -> IMSMQQueueInfos_Vtbl {
         unsafe extern "system" fn Reset<Identity: IMSMQQueueInfos_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6590,15 +6638,15 @@ impl IMSMQQueueInfos_Vtbl {
         iid == &<IMSMQQueueInfos as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueueInfos2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Next(&self) -> windows_core::Result<IMSMQQueueInfo2>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueueInfos2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueueInfos2_Vtbl {
     pub const fn new<Identity: IMSMQQueueInfos2_Impl, const OFFSET: isize>() -> IMSMQQueueInfos2_Vtbl {
         unsafe extern "system" fn Reset<Identity: IMSMQQueueInfos2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6636,15 +6684,15 @@ impl IMSMQQueueInfos2_Vtbl {
         iid == &<IMSMQQueueInfos2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueueInfos3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Next(&self) -> windows_core::Result<IMSMQQueueInfo3>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueueInfos3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueueInfos3_Vtbl {
     pub const fn new<Identity: IMSMQQueueInfos3_Impl, const OFFSET: isize>() -> IMSMQQueueInfos3_Vtbl {
         unsafe extern "system" fn Reset<Identity: IMSMQQueueInfos3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6682,15 +6730,15 @@ impl IMSMQQueueInfos3_Vtbl {
         iid == &<IMSMQQueueInfos3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueueInfos4_Impl: Sized + super::Com::IDispatch_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Next(&self) -> windows_core::Result<IMSMQQueueInfo4>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueueInfos4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueueInfos4_Vtbl {
     pub const fn new<Identity: IMSMQQueueInfos4_Impl, const OFFSET: isize>() -> IMSMQQueueInfos4_Vtbl {
         unsafe extern "system" fn Reset<Identity: IMSMQQueueInfos4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6728,15 +6776,15 @@ impl IMSMQQueueInfos4_Vtbl {
         iid == &<IMSMQQueueInfos4 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQQueueManagement_Impl: Sized + IMSMQManagement_Impl {
     fn JournalMessageCount(&self) -> windows_core::Result<i32>;
-    fn BytesInJournal(&self) -> windows_core::Result<windows_core::VARIANT>;
-    fn EodGetReceiveInfo(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn BytesInJournal(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn EodGetReceiveInfo(&self) -> windows_core::Result<super::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQQueueManagement {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQQueueManagement_Vtbl {
     pub const fn new<Identity: IMSMQQueueManagement_Impl, const OFFSET: isize>() -> IMSMQQueueManagement_Vtbl {
         unsafe extern "system" fn JournalMessageCount<Identity: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournalmessagecount: *mut i32) -> windows_core::HRESULT {
@@ -6749,7 +6797,7 @@ impl IMSMQQueueManagement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BytesInJournal<Identity: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinjournal: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn BytesInJournal<Identity: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinjournal: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueManagement_Impl::BytesInJournal(this) {
                 Ok(ok__) => {
@@ -6759,7 +6807,7 @@ impl IMSMQQueueManagement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EodGetReceiveInfo<Identity: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvcollection: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EodGetReceiveInfo<Identity: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvcollection: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQQueueManagement_Impl::EodGetReceiveInfo(this) {
                 Ok(ok__) => {
@@ -6780,15 +6828,15 @@ impl IMSMQQueueManagement_Vtbl {
         iid == &<IMSMQQueueManagement as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IMSMQManagement as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQTransaction_Impl: Sized + super::Com::IDispatch_Impl {
     fn Transaction(&self) -> windows_core::Result<i32>;
-    fn Commit(&self, fretaining: *const windows_core::VARIANT, grftc: *const windows_core::VARIANT, grfrm: *const windows_core::VARIANT) -> windows_core::Result<()>;
-    fn Abort(&self, fretaining: *const windows_core::VARIANT, fasync: *const windows_core::VARIANT) -> windows_core::Result<()>;
+    fn Commit(&self, fretaining: *const super::Variant::VARIANT, grftc: *const super::Variant::VARIANT, grfrm: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Abort(&self, fretaining: *const super::Variant::VARIANT, fasync: *const super::Variant::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQTransaction {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQTransaction_Vtbl {
     pub const fn new<Identity: IMSMQTransaction_Impl, const OFFSET: isize>() -> IMSMQTransaction_Vtbl {
         unsafe extern "system" fn Transaction<Identity: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltransaction: *mut i32) -> windows_core::HRESULT {
@@ -6801,11 +6849,11 @@ impl IMSMQTransaction_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Commit<Identity: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: *const core::mem::MaybeUninit<windows_core::VARIANT>, grftc: *const core::mem::MaybeUninit<windows_core::VARIANT>, grfrm: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Commit<Identity: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: *const core::mem::MaybeUninit<super::Variant::VARIANT>, grftc: *const core::mem::MaybeUninit<super::Variant::VARIANT>, grfrm: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQTransaction_Impl::Commit(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&grftc), core::mem::transmute_copy(&grfrm)).into()
         }
-        unsafe extern "system" fn Abort<Identity: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: *const core::mem::MaybeUninit<windows_core::VARIANT>, fasync: *const core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Abort<Identity: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: *const core::mem::MaybeUninit<super::Variant::VARIANT>, fasync: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQTransaction_Impl::Abort(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&fasync)).into()
         }
@@ -6820,17 +6868,17 @@ impl IMSMQTransaction_Vtbl {
         iid == &<IMSMQTransaction as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQTransaction2_Impl: Sized + IMSMQTransaction_Impl {
-    fn InitNew(&self, vartransaction: &windows_core::VARIANT) -> windows_core::Result<()>;
+    fn InitNew(&self, vartransaction: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQTransaction2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQTransaction2_Vtbl {
     pub const fn new<Identity: IMSMQTransaction2_Impl, const OFFSET: isize>() -> IMSMQTransaction2_Vtbl {
-        unsafe extern "system" fn InitNew<Identity: IMSMQTransaction2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartransaction: core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitNew<Identity: IMSMQTransaction2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartransaction: core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSMQTransaction2_Impl::InitNew(this, core::mem::transmute(&vartransaction)).into()
         }
@@ -6850,16 +6898,16 @@ impl IMSMQTransaction2_Vtbl {
         iid == &<IMSMQTransaction2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IMSMQTransaction as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQTransaction3_Impl: Sized + IMSMQTransaction2_Impl {
-    fn ITransaction(&self) -> windows_core::Result<windows_core::VARIANT>;
+    fn ITransaction(&self) -> windows_core::Result<super::Variant::VARIANT>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQTransaction3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQTransaction3_Vtbl {
     pub const fn new<Identity: IMSMQTransaction3_Impl, const OFFSET: isize>() -> IMSMQTransaction3_Vtbl {
-        unsafe extern "system" fn ITransaction<Identity: IMSMQTransaction3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaritransaction: *mut core::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ITransaction<Identity: IMSMQTransaction3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaritransaction: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSMQTransaction3_Impl::ITransaction(this) {
                 Ok(ok__) => {
@@ -6875,13 +6923,13 @@ impl IMSMQTransaction3_Vtbl {
         iid == &<IMSMQTransaction3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IMSMQTransaction as windows_core::Interface>::IID || iid == &<IMSMQTransaction2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQTransactionDispenser_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> windows_core::Result<IMSMQTransaction>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQTransactionDispenser {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQTransactionDispenser_Vtbl {
     pub const fn new<Identity: IMSMQTransactionDispenser_Impl, const OFFSET: isize>() -> IMSMQTransactionDispenser_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: IMSMQTransactionDispenser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6900,14 +6948,14 @@ impl IMSMQTransactionDispenser_Vtbl {
         iid == &<IMSMQTransactionDispenser as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQTransactionDispenser2_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> windows_core::Result<IMSMQTransaction2>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQTransactionDispenser2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQTransactionDispenser2_Vtbl {
     pub const fn new<Identity: IMSMQTransactionDispenser2_Impl, const OFFSET: isize>() -> IMSMQTransactionDispenser2_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: IMSMQTransactionDispenser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6940,14 +6988,14 @@ impl IMSMQTransactionDispenser2_Vtbl {
         iid == &<IMSMQTransactionDispenser2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSMQTransactionDispenser3_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> windows_core::Result<IMSMQTransaction3>;
     fn Properties(&self) -> windows_core::Result<super::Com::IDispatch>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMSMQTransactionDispenser3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSMQTransactionDispenser3_Vtbl {
     pub const fn new<Identity: IMSMQTransactionDispenser3_Impl, const OFFSET: isize>() -> IMSMQTransactionDispenser3_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: IMSMQTransactionDispenser3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6980,11 +7028,11 @@ impl IMSMQTransactionDispenser3_Vtbl {
         iid == &<IMSMQTransactionDispenser3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _DMSMQEventEvents_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for _DMSMQEventEvents {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _DMSMQEventEvents_Vtbl {
     pub const fn new<Identity: _DMSMQEventEvents_Impl, const OFFSET: isize>() -> _DMSMQEventEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }

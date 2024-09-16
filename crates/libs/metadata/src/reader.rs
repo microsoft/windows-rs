@@ -17,28 +17,18 @@ pub struct Reader {
     // The reader needs to store the filter since standalone code generation needs more than just the filtered items
     // in order to chase dependencies automatically. This is why `Reader::filter` can't just filter everything up front.
     filter: Filter,
-
-    sys: bool,
 }
 
 impl Reader {
     pub fn new(files: Vec<File>) -> &'static Self {
-        let mut config = BTreeMap::new();
-        config.insert("sys", "");
-        Self::filter(files, &[], &[], &config)
+        Self::filter(files, &[], &[])
     }
 
-    pub fn filter(
-        files: Vec<File>,
-        include: &[&str],
-        exclude: &[&str],
-        config: &BTreeMap<&str, &str>,
-    ) -> &'static Self {
+    pub fn filter(files: Vec<File>, include: &[&str], exclude: &[&str]) -> &'static Self {
         let reader: &'static mut Reader = Box::leak(Box::new(Self {
             items: Default::default(),
             nested: Default::default(),
             filter: Filter::new(include, exclude),
-            sys: config.contains_key("sys"),
         }));
 
         for mut file in files {
@@ -243,8 +233,6 @@ impl Reader {
             TypeName::PSTR => Some(Type::Name(name)),
             TypeName::PWSTR => Some(Type::Name(name)),
             TypeName::Type => Some(Type::Name(name)),
-            TypeName::VARIANT if !self.sys => Some(Type::Name(name)),
-            TypeName::PROPVARIANT if !self.sys => Some(Type::Name(name)),
 
             _ => None,
         }

@@ -217,6 +217,10 @@ fn gen_clone(
             .flags()
             .contains(metadata::TypeAttributes::WindowsRuntime)
         || def.class_layout().is_some()
+        || matches!(
+            def.type_name(),
+            metadata::TypeName::VARIANT | metadata::TypeName::PROPVARIANT
+        )
     {
         quote! {}
     } else {

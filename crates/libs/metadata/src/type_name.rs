@@ -32,13 +32,10 @@ impl TypeName {
     pub const PWSTR: Self = Self("Windows.Win32.Foundation", "PWSTR");
     pub const PSTR: Self = Self("Windows.Win32.Foundation", "PSTR");
     pub const BSTR: Self = Self("Windows.Win32.Foundation", "BSTR");
-    pub const HANDLE: Self = Self("Windows.Win32.Foundation", "HANDLE");
     pub const HRESULT: Self = Self("Windows.Win32.Foundation", "HRESULT");
     pub const CHAR: Self = Self("Windows.Win32.Foundation", "CHAR");
     pub const BOOL: Self = Self("Windows.Win32.Foundation", "BOOL");
-    pub const WIN32_ERROR: Self = Self("Windows.Win32.Foundation", "WIN32_ERROR");
     pub const NTSTATUS: Self = Self("Windows.Win32.Foundation", "NTSTATUS");
-    pub const RPC_STATUS: Self = Self("Windows.Win32.System.Rpc", "RPC_STATUS");
 
     pub const D2D_MATRIX_3X2_F: Self =
         Self("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F");
@@ -46,9 +43,6 @@ impl TypeName {
     pub const IUnknown: Self = Self("Windows.Win32.System.Com", "IUnknown");
     pub const HSTRING: Self = Self("Windows.Win32.System.WinRT", "HSTRING");
     pub const IInspectable: Self = Self("Windows.Win32.System.WinRT", "IInspectable");
-    pub const IRestrictedErrorInfo: Self =
-        Self("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
-    pub const IDispatch: Self = Self("Windows.Win32.System.Com", "IDispatch");
 
     pub const VARIANT: Self = Self("Windows.Win32.System.Variant", "VARIANT");
     pub const PROPVARIANT: Self = Self("Windows.Win32.System.Com.StructuredStorage", "PROPVARIANT");
