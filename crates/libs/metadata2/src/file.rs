@@ -664,7 +664,7 @@ impl File {
         first
     }
 
-    pub fn table<R: AsRow>(&'static self) -> RowIterator<R> {
+    pub(crate) fn table<R: AsRow>(&'static self) -> RowIterator<R> {
         RowIterator::new(self, 0..self.tables[R::TABLE].len)
     }
 }
