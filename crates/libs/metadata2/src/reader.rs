@@ -75,15 +75,15 @@ impl Reader {
                         }
                         TypeKind::Class => {
                             if name == "Apis" {
-                                for def in def.methods() {
-                                    let name = def.name();
-                                    let item = CppItem::Fn(CppFn { def, namespace });
+                                for method in def.methods() {
+                                    let name = method.name();
+                                    let item = CppItem::Fn(CppFn { def, method });
                                     push(items, name, item);
                                 }
 
-                                for def in def.fields() {
-                                    let name = def.name();
-                                    let item = CppItem::Const(CppConst { def });
+                                for field in def.fields() {
+                                    let name = field.name();
+                                    let item = CppItem::Const(CppConst { def, field });
                                     push(items, name, item);
                                 }
                             }
@@ -93,10 +93,10 @@ impl Reader {
                             push(items, name, item);
 
                             if !def.has_attribute("ScopedEnumAttribute") {
-                                for def in def.fields() {
-                                    if def.flags().contains(FieldAttributes::Literal) {
-                                        let name = def.name();
-                                        let item = CppItem::Const(CppConst { def });
+                                for field in def.fields() {
+                                    if field.flags().contains(FieldAttributes::Literal) {
+                                        let name = field.name();
+                                        let item = CppItem::Const(CppConst { def, field });
                                         push(items, name, item);
                                     }
                                 }

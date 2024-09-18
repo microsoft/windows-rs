@@ -89,4 +89,12 @@ impl TypeDefOrRef {
             rest => unimplemented!("{rest:?}"),
         }
     }
+
+    pub fn resolve(&self) -> TypeDef {
+        match self {
+            Self::TypeDef(def) => *def,
+            Self::TypeRef(def) => def.resolve(),
+            rest => unimplemented!("{rest:?}"),
+        }
+    }
 }

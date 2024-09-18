@@ -277,12 +277,19 @@ impl Field {
         self.str(1)
     }
 
+    pub fn signature(&self) -> Blob {
+        self.blob(2)
+    }
+
     pub fn constant(&self) -> Option<Constant> {
         self.file()
             .equal_range(1, HasConstant::Field(*self).encode())
             .next()
     }
 
+    // // Although all Field records have an enclosing TypeDef, those that represent constants are unrelated
+    // // and the encosing TypeDef isn't always available but the type is still necessary. The encosing TypeDef
+    // // is only necessary when resolving nested types.
     // pub fn ty(&self, enclosing: Option<TypeDef>) -> Type {
     //     let mut blob = self.blob(2);
     //     blob.read_usize();
@@ -482,7 +489,7 @@ impl TypeDef {
     //     if let Some(constant) = field.constant() {
     //         constant.ty()
     //     } else {
-    //         field.ty(Some(*self))
+    //         field.ty(None)
     //     }
     // }
 
@@ -549,6 +556,13 @@ impl TypeRef {
 
     pub fn resolution_scope(&self) -> ResolutionScope {
         self.decode(0)
+    }
+
+    pub fn resolve(&self) -> TypeDef {
+        self.reader()
+            .get(self.namespace(), self.name())
+            .unwrap()
+            .type_def()
     }
 }
 
