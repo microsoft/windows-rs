@@ -26,6 +26,7 @@ impl Reader {
                 let namespace = def.namespace();
 
                 if namespace.is_empty() {
+                    // This skips over nested TypeDefs.
                     continue;
                 }
 
@@ -44,75 +45,56 @@ impl Reader {
                         TypeKind::Delegate => items.insert(name, Item::Delegate(Delegate { def })),
                     };
                 } else {
+                    fn push(
+                        items: &mut HashMap<&'static str, Item>,
+                        name: &'static str,
+                        item: CppItem,
+                    ) {
+                        match items.entry(name) {
+                            Occupied(mut existing) => {
+                                if let Item::Cpp(existing) = existing.get_mut() {
+                                    existing.push(item);
+                                } else {
+                                    panic!("Type mismatch");
+                                }
+                            }
+                            Vacant(entry) => {
+                                entry.insert(Item::Cpp(vec![item]));
+                            }
+                        }
+                    }
+
                     match kind {
                         TypeKind::Interface => {
                             let item = CppItem::Interface(CppInterface { def });
-
-                            match items.entry(name) {
-                                Occupied(mut existing) => {
-                                    if let Item::Cpp(existing) = existing.get_mut() {
-                                        existing.push(item);
-                                    } else {
-                                        panic!("Type mismatch {existing:?} and {item:?}");
-                                    }
-                                }
-                                Vacant(entry) => {
-                                    entry.insert(Item::Cpp(vec![item]));
-                                }
-                            }
+                            push(items, name, item);
                         }
                         TypeKind::Class => {
                             if name == "Apis" {
                                 for def in def.methods() {
                                     let name = def.name();
                                     let item = CppItem::Fn(CppFn { def, namespace });
-
-                                    match items.entry(name) {
-                                        Occupied(mut existing) => {
-                                            if let Item::Cpp(existing) = existing.get_mut() {
-                                                existing.push(item);
-                                            } else {
-                                                panic!("Type mismatch {existing:?} and {item:?}");
-                                            }
-                                        }
-                                        Vacant(entry) => {
-                                            entry.insert(Item::Cpp(vec![item]));
-                                        }
-                                    }
+                                    push(items, name, item);
                                 }
 
                                 for def in def.fields() {
                                     let name = def.name();
                                     let item = CppItem::Const(CppConst { def });
-
-                                    match items.entry(name) {
-                                        Occupied(mut existing) => {
-                                            if let Item::Cpp(existing) = existing.get_mut() {
-                                                existing.push(item);
-                                            } else {
-                                                panic!("Type mismatch {existing:?} and {item:?}");
-                                            }
-                                        }
-                                        Vacant(entry) => {
-                                            entry.insert(Item::Cpp(vec![item]));
-                                        }
-                                    }
+                                    push(items, name, item);
                                 }
                             }
                         }
                         TypeKind::Enum => {
                             let item = CppItem::Enum(CppEnum { def });
+                            push(items, name, item);
 
-                            match items.entry(name) {
-                                Occupied(mut existing) => {
-                                    if let Item::Cpp(existing) = existing.get_mut() {
-                                        existing.push(item);
-                                    } else {
-                                        panic!("Type mismatch {existing:?} and {item:?}");
+                            if !def.has_attribute("ScopedEnumAttribute") {
+                                for def in def.fields() {
+                                    if def.flags().contains(FieldAttributes::Literal) {
+                                        let name = def.name();
+                                        let item = CppItem::Const(CppConst { def });
+                                        push(items, name, item);
                                     }
-                                }
-                                Vacant(entry) => {
-                                    entry.insert(Item::Cpp(vec![item]));
                                 }
                             }
                         }
@@ -134,35 +116,11 @@ impl Reader {
                             }
 
                             let item = CppItem::Struct(make(def, &nested));
-
-                            match items.entry(name) {
-                                Occupied(mut existing) => {
-                                    if let Item::Cpp(existing) = existing.get_mut() {
-                                        existing.push(item);
-                                    } else {
-                                        panic!("Type mismatch {existing:?} and {item:?}");
-                                    }
-                                }
-                                Vacant(entry) => {
-                                    entry.insert(Item::Cpp(vec![item]));
-                                }
-                            }
+                            push(items, name, item);
                         }
                         TypeKind::Delegate => {
                             let item = CppItem::Delegate(CppDelegate { def });
-
-                            match items.entry(name) {
-                                Occupied(mut existing) => {
-                                    if let Item::Cpp(existing) = existing.get_mut() {
-                                        existing.push(item);
-                                    } else {
-                                        panic!("Type mismatch {existing:?} and {item:?}");
-                                    }
-                                }
-                                Vacant(entry) => {
-                                    entry.insert(Item::Cpp(vec![item]));
-                                }
-                            }
+                            push(items, name, item);
                         }
                     };
                 }
