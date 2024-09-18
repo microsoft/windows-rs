@@ -286,22 +286,6 @@ impl Field {
             .equal_range(1, HasConstant::Field(*self).encode())
             .next()
     }
-
-    // // Although all Field records have an enclosing TypeDef, those that represent constants are unrelated
-    // // and the encosing TypeDef isn't always available but the type is still necessary. The encosing TypeDef
-    // // is only necessary when resolving nested types.
-    // pub fn ty(&self, enclosing: Option<TypeDef>) -> Type {
-    //     let mut blob = self.blob(2);
-    //     blob.read_usize();
-    //     blob.read_modifiers();
-    //     let def = self.reader().type_from_blob(&mut blob, enclosing, &[]);
-
-    //     if self.has_attribute("ConstAttribute") {
-    //         def.to_const_type().to_const_ptr()
-    //     } else {
-    //         def
-    //     }
-    // }
 }
 
 impl GenericParam {
@@ -558,11 +542,17 @@ impl TypeRef {
         self.decode(0)
     }
 
-    pub fn resolve(&self) -> TypeDef {
+    pub fn type_def(&self) -> TypeDef {
         self.reader()
             .get(self.namespace(), self.name())
             .unwrap()
             .type_def()
+    }
+}
+
+impl TypeSpec {
+    pub fn ty(&self, generics: &[Type]) -> Type {
+            self.blob(0).winrt_type_from_spec(generics)
     }
 }
 
