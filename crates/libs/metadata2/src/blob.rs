@@ -178,4 +178,104 @@ impl Blob {
     fn offset(&mut self, offset: usize) {
         self.slice = &self.slice[offset..];
     }
+
+    pub fn winrt_type_from_blob(&mut self, generics: &[Type]) -> Type {
+        // Used by WinRT to indicate that a struct input parameter is passed by reference rather than by value on the ABI.
+        let is_const = self
+            .read_modifiers()
+            .iter()
+            .any(|def| def.type_name() == TypeName::IsConst);
+
+        // Used by WinRT to indicate an output parameter, but there are other ways to determine this direction so here
+        // it is only used to distinguish between slices and heap-allocated arrays.
+        let is_ref = self.try_read(ELEMENT_TYPE_BYREF as usize);
+
+        if self.try_read(ELEMENT_TYPE_VOID as usize) {
+            return Type::Void;
+        }
+
+        let is_array = self.try_read(ELEMENT_TYPE_SZARRAY as usize); // Used by WinRT to indicate an array
+
+        let kind = self.winrt_type_from_spec(generics);
+
+        if is_const {
+            Type::ConstRef(Box::new(kind))
+        } else if is_array {
+            if is_ref {
+                Type::WinrtArrayRef(Box::new(kind))
+            } else {
+                Type::WinrtArray(Box::new(kind))
+            }
+        } else {
+            kind
+        }
+    }
+
+    pub fn winrt_type_from_spec(&mut self, generics: &[Type]) -> Type {
+        let code = self.read_usize();
+
+        Type::from_code(code).unwrap_or_else(|| match code as u8 {
+            ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => {
+                self.decode::<TypeDefOrRef>().ty(generics)
+            }
+            ELEMENT_TYPE_VAR => generics[self.read_usize()].clone(),
+            ELEMENT_TYPE_GENERICINST => {
+                self.read_usize(); // ELEMENT_TYPE_VALUETYPE or ELEMENT_TYPE_CLASS
+
+                let def = self.decode::<TypeDefOrRef>().type_def();
+
+                let mut args = Vec::with_capacity(self.read_usize());
+
+                for _ in 0..args.capacity() {
+                    args.push(self.winrt_type_from_spec(generics));
+                }
+
+                Type::TypeDef(def, args)
+            }
+            rest => unimplemented!("{rest:?}"),
+        })
+    }
+
+    pub fn cpp_type_from_blob(&mut self, enclosing: Option<&CppStruct>) -> Type {
+        if self.try_read(ELEMENT_TYPE_VOID as usize) {
+            return Type::Void;
+        }
+
+        let mut pointers = 0;
+
+        while self.try_read(ELEMENT_TYPE_PTR as usize) {
+            pointers += 1;
+        }
+
+        let code = self.read_usize();
+
+        let mut ty = Type::from_code(code).unwrap_or_else(|| match code as u8 {
+            ELEMENT_TYPE_VALUETYPE => {
+                let code: TypeDefOrRef = self.decode();
+                let full_name = code.type_name();
+
+                if let Some(enclosing) = enclosing {
+                    if full_name.namespace().is_empty() {
+                        return Type::TypeDef(enclosing.nested[full_name.name()].def, vec![]);
+                    }
+                }
+
+                code.ty(&[])
+            }
+            ELEMENT_TYPE_ARRAY => {
+                let ty = self.cpp_type_from_blob(enclosing);
+                let _rank = self.read_usize();
+                let _count = self.read_usize();
+                let bounds = self.read_usize();
+                Type::Win32Array(Box::new(ty), bounds)
+            }
+            rest => unimplemented!("{rest:?}"),
+        });
+
+        if pointers > 0 {
+            ty = Type::MutPtr(Box::new(ty), pointers);
+        }
+
+        ty
+    }
 }

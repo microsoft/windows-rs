@@ -90,11 +90,19 @@ impl TypeDefOrRef {
         }
     }
 
-    pub fn resolve(&self) -> TypeDef {
+    pub fn type_def(&self) -> TypeDef {
         match self {
             Self::TypeDef(def) => *def,
             Self::TypeRef(def) => def.resolve(),
             rest => unimplemented!("{rest:?}"),
+        }
+    }
+
+    pub fn ty(&self, generics: &[Type]) -> Type {
+        match self {
+            Self::TypeDef(def) => Type::TypeDef(*def, vec![]),
+            Self::TypeRef(def) => Type::TypeDef(def.resolve(), vec![]),
+            Self::TypeSpec(spec) => spec.blob(0).winrt_type_from_spec(generics),
         }
     }
 }
