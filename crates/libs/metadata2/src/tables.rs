@@ -3,7 +3,7 @@ use super::*;
 macro_rules! tables {
     ($(($name:ident, $table:literal))+) => {
         $(
-        #[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
+        #[derive(Copy, Clone, Hash, PartialEq, Eq, Ord, PartialOrd)]
         pub struct $name(pub Row);
         impl AsRow for $name {
             const TABLE: usize = $table;
@@ -36,6 +36,113 @@ tables! {
     (TypeDef, 8)
     (TypeRef, 9)
     (TypeSpec, 10)
+}
+
+impl std::fmt::Debug for AssemblyRef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("AssemblyRef").field(&self.0).finish()
+    }
+}
+
+impl std::fmt::Debug for Attribute {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("Attribute").field(&self.name()).finish()
+    }
+}
+
+impl std::fmt::Debug for ClassLayout {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("ClassLayout")
+            .field(&self.packing_size())
+            .finish()
+    }
+}
+
+impl std::fmt::Debug for Constant {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("Constant").field(&self.value()).finish()
+    }
+}
+
+impl std::fmt::Debug for Field {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("Field").field(&self.name()).finish()
+    }
+}
+
+impl std::fmt::Debug for GenericParam {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("GenericParam").field(&self.name()).finish()
+    }
+}
+
+impl std::fmt::Debug for ImplMap {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("ImplMap").field(&self.import_name()).finish()
+    }
+}
+
+impl std::fmt::Debug for InterfaceImpl {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("InterfaceImpl").field(&self.ty(&[])).finish()
+    }
+}
+
+impl std::fmt::Debug for MemberRef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("MemberRef").field(&self.name()).finish()
+    }
+}
+
+impl std::fmt::Debug for MethodDef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("MethodDef").field(&self.name()).finish()
+    }
+}
+
+impl std::fmt::Debug for Module {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("Module").field(&self.0).finish()
+    }
+}
+
+impl std::fmt::Debug for ModuleRef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("ModuleRef").field(&self.name()).finish()
+    }
+}
+
+impl std::fmt::Debug for NestedClass {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("NestedClass")
+            .field("inner", &self.inner())
+            .field("outer", &self.outer())
+            .finish()
+    }
+}
+
+impl std::fmt::Debug for Param {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("Param").field(&self.name()).finish()
+    }
+}
+
+impl std::fmt::Debug for TypeDef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("TypeDef").field(&self.type_name()).finish()
+    }
+}
+
+impl std::fmt::Debug for TypeRef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("TypeRef").field(&self.type_name()).finish()
+    }
+}
+
+impl std::fmt::Debug for TypeSpec {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("TypeSpec").field(&self.0).finish()
+    }
 }
 
 impl Attribute {

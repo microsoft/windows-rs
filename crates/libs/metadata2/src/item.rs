@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub enum Item {
     Interface(Interface),
     Class(Class),
@@ -8,57 +8,64 @@ pub enum Item {
     Struct(Struct),
     Delegate(Delegate),
 
-    // The CppXxx variants store a container of definitions to support different architectures.
-    CppInterface(Vec<CppInterface>),
-    CppEnum(Vec<CppEnum>),
-    CppStruct(Vec<CppStruct>),
-    CppCallback(Vec<CppCallback>),
-    CppConst(Vec<CppConst>),
-    CppFn(Vec<CppFn>),
+    // This grouping for Cpp definitions is a little awkward but necessary because Win32 metadata may have:
+    // * multiple definitions of the same type for different architectures
+    // * mutliple definitions of different types with the same name
+    Cpp(Vec<CppItem>),
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
+pub enum CppItem {
+    Interface(CppInterface),
+    Enum(CppEnum),
+    Struct(CppStruct),
+    Delegate(CppDelegate),
+    Const(CppConst),
+    Fn(CppFn),
+}
+
+#[derive(Clone, Debug)]
 pub struct Interface {
     pub def: TypeDef,
 }
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Class {
     pub def: TypeDef,
 }
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Enum {
     pub def: TypeDef,
 }
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Struct {
     pub def: TypeDef,
 }
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Delegate {
     pub def: TypeDef,
 }
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct CppInterface {
     pub def: TypeDef,
 }
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct CppEnum {
     pub def: TypeDef,
 }
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct CppStruct {
     pub def: TypeDef,
     pub nested: HashMap<&'static str, CppStruct>,
 }
-#[derive(Clone)]
-pub struct CppCallback {
+#[derive(Clone, Debug)]
+pub struct CppDelegate {
     pub def: TypeDef,
 }
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct CppConst {
     pub def: Field,
 }
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct CppFn {
     pub def: MethodDef,
 
