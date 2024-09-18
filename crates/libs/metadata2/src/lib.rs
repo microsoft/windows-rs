@@ -54,11 +54,11 @@ pub struct Signature {
 }
 
 impl Signature {
-    pub fn size(&self) -> usize {
-        self.params
-            .iter()
-            .fold(0, |sum, param| sum + std::cmp::max(4, param.0.size()))
-    }
+    // pub fn size(&self) -> usize {
+    //     self.params
+    //         .iter()
+    //         .fold(0, |sum, param| sum + std::cmp::max(4, param.0.size()))
+    // }
 }
 
 #[derive(Copy, Clone, PartialEq, Eq, Debug, PartialOrd, Ord)]

@@ -38,15 +38,15 @@ impl Blob {
         D::decode(self.file, self.read_usize())
     }
 
-    pub(crate) fn try_read(&mut self, expected: usize) -> bool {
-        let (value, offset) = self.peek();
-        if value == expected {
-            self.offset(offset);
-            true
-        } else {
-            false
-        }
-    }
+    // pub(crate) fn try_read(&mut self, expected: usize) -> bool {
+    //     let (value, offset) = self.peek();
+    //     if value == expected {
+    //         self.offset(offset);
+    //         true
+    //     } else {
+    //         false
+    //     }
+    // }
 
     pub(crate) fn read_modifiers(&mut self) -> Vec<TypeDefOrRef> {
         let mut mods = vec![];

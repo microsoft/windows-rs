@@ -84,7 +84,7 @@ impl std::fmt::Debug for ImplMap {
 
 impl std::fmt::Debug for InterfaceImpl {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_tuple("InterfaceImpl").field(&self.ty(&[])).finish()
+        f.debug_tuple("InterfaceImpl").field(&self.0).finish()
     }
 }
 
@@ -166,75 +166,75 @@ impl Attribute {
         ty.type_name()
     }
 
-    pub fn args(&self) -> Vec<(&'static str, Value)> {
-        let AttributeType::MemberRef(member) = self.ty();
-        let mut sig = member.blob(2);
-        let mut values = self.blob(2);
-        let prolog = values.read_u16();
-        std::debug_assert_eq!(prolog, 1);
-        let this_and_gen_param_count = sig.read_usize();
-        std::debug_assert_eq!(this_and_gen_param_count, 32);
-        let fixed_arg_count = sig.read_usize();
-        let ret_type = sig.read_usize();
-        std::debug_assert_eq!(ret_type, 1);
-        let mut args = Vec::with_capacity(fixed_arg_count);
-        let reader = self.reader();
+    // pub fn args(&self) -> Vec<(&'static str, Value)> {
+    //     let AttributeType::MemberRef(member) = self.ty();
+    //     let mut sig = member.blob(2);
+    //     let mut values = self.blob(2);
+    //     let prolog = values.read_u16();
+    //     std::debug_assert_eq!(prolog, 1);
+    //     let this_and_gen_param_count = sig.read_usize();
+    //     std::debug_assert_eq!(this_and_gen_param_count, 32);
+    //     let fixed_arg_count = sig.read_usize();
+    //     let ret_type = sig.read_usize();
+    //     std::debug_assert_eq!(ret_type, 1);
+    //     let mut args = Vec::with_capacity(fixed_arg_count);
+    //     let reader = self.reader();
 
-        for _ in 0..fixed_arg_count {
-            let arg = match reader.type_from_blob(&mut sig, None, &[]) {
-                Type::Bool => Value::Bool(values.read_bool()),
-                Type::I8 => Value::I8(values.read_i8()),
-                Type::U8 => Value::U8(values.read_u8()),
-                Type::I16 => Value::I16(values.read_i16()),
-                Type::U16 => Value::U16(values.read_u16()),
-                Type::I32 => Value::I32(values.read_i32()),
-                Type::U32 => Value::U32(values.read_u32()),
-                Type::I64 => Value::I64(values.read_i64()),
-                Type::U64 => Value::U64(values.read_u64()),
-                Type::String => Value::String(values.read_str().to_string()),
-                Type::Name(TypeName::Type) => Value::TypeName(TypeName::parse(values.read_str())),
-                Type::TypeDef(def, _) => {
-                    Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type())))
-                }
-                rest => unimplemented!("{rest:?}"),
-            };
+    //     for _ in 0..fixed_arg_count {
+    //         let arg = match reader.type_from_blob(&mut sig, None, &[]) {
+    //             Type::Bool => Value::Bool(values.read_bool()),
+    //             Type::I8 => Value::I8(values.read_i8()),
+    //             Type::U8 => Value::U8(values.read_u8()),
+    //             Type::I16 => Value::I16(values.read_i16()),
+    //             Type::U16 => Value::U16(values.read_u16()),
+    //             Type::I32 => Value::I32(values.read_i32()),
+    //             Type::U32 => Value::U32(values.read_u32()),
+    //             Type::I64 => Value::I64(values.read_i64()),
+    //             Type::U64 => Value::U64(values.read_u64()),
+    //             Type::String => Value::String(values.read_str().to_string()),
+    //             Type::Name(TypeName::Type) => Value::TypeName(TypeName::parse(values.read_str())),
+    //             Type::TypeDef(def, _) => {
+    //                 Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type())))
+    //             }
+    //             rest => unimplemented!("{rest:?}"),
+    //         };
 
-            args.push(("", arg));
-        }
+    //         args.push(("", arg));
+    //     }
 
-        let named_arg_count = values.read_u16();
-        args.reserve(named_arg_count as usize);
+    //     let named_arg_count = values.read_u16();
+    //     args.reserve(named_arg_count as usize);
 
-        for _ in 0..named_arg_count {
-            let _id = values.read_u8();
-            let arg_type = values.read_u8();
-            let mut name = values.read_str();
-            let arg = match arg_type {
-                ELEMENT_TYPE_BOOLEAN => Value::Bool(values.read_bool()),
-                ELEMENT_TYPE_I2 => Value::I16(values.read_i16()),
-                ELEMENT_TYPE_I4 => Value::I32(values.read_i32()),
-                ELEMENT_TYPE_U4 => Value::U32(values.read_u32()),
-                ELEMENT_TYPE_STRING => Value::String(values.read_str().to_string()),
-                0x50 => Value::TypeName(TypeName::parse(values.read_str())),
-                0x55 => {
-                    let type_name = TypeName::parse(name);
-                    let def = reader
-                        .get_type_def(type_name.namespace(), type_name.name())
-                        .next()
-                        .expect("Type not found");
-                    name = values.read_str();
-                    Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type())))
-                }
-                rest => unimplemented!("{rest:?}"),
-            };
-            args.push((name, arg));
-        }
+    //     for _ in 0..named_arg_count {
+    //         let _id = values.read_u8();
+    //         let arg_type = values.read_u8();
+    //         let mut name = values.read_str();
+    //         let arg = match arg_type {
+    //             ELEMENT_TYPE_BOOLEAN => Value::Bool(values.read_bool()),
+    //             ELEMENT_TYPE_I2 => Value::I16(values.read_i16()),
+    //             ELEMENT_TYPE_I4 => Value::I32(values.read_i32()),
+    //             ELEMENT_TYPE_U4 => Value::U32(values.read_u32()),
+    //             ELEMENT_TYPE_STRING => Value::String(values.read_str().to_string()),
+    //             0x50 => Value::TypeName(TypeName::parse(values.read_str())),
+    //             0x55 => {
+    //                 let type_name = TypeName::parse(name);
+    //                 let def = reader
+    //                     .get_type_def(type_name.namespace(), type_name.name())
+    //                     .next()
+    //                     .expect("Type not found");
+    //                 name = values.read_str();
+    //                 Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type())))
+    //             }
+    //             rest => unimplemented!("{rest:?}"),
+    //         };
+    //         args.push((name, arg));
+    //     }
 
-        debug_assert_eq!(sig.len(), 0);
-        debug_assert_eq!(values.len(), 0);
+    //     debug_assert_eq!(sig.len(), 0);
+    //     debug_assert_eq!(values.len(), 0);
 
-        args
-    }
+    //     args
+    // }
 }
 
 impl ClassLayout {
@@ -283,18 +283,18 @@ impl Field {
             .next()
     }
 
-    pub fn ty(&self, enclosing: Option<TypeDef>) -> Type {
-        let mut blob = self.blob(2);
-        blob.read_usize();
-        blob.read_modifiers();
-        let def = self.reader().type_from_blob(&mut blob, enclosing, &[]);
+    // pub fn ty(&self, enclosing: Option<TypeDef>) -> Type {
+    //     let mut blob = self.blob(2);
+    //     blob.read_usize();
+    //     blob.read_modifiers();
+    //     let def = self.reader().type_from_blob(&mut blob, enclosing, &[]);
 
-        if self.has_attribute("ConstAttribute") {
-            def.to_const_type().to_const_ptr()
-        } else {
-            def
-        }
-    }
+    //     if self.has_attribute("ConstAttribute") {
+    //         def.to_const_type().to_const_ptr()
+    //     } else {
+    //         def
+    //     }
+    // }
 }
 
 impl GenericParam {
@@ -322,9 +322,9 @@ impl ImplMap {
 }
 
 impl InterfaceImpl {
-    pub fn ty(&self, generics: &[Type]) -> Type {
-        self.reader().type_from_ref(self.decode(1), None, generics)
-    }
+    // pub fn ty(&self, generics: &[Type]) -> Type {
+    //     self.reader().type_from_ref(self.decode(1), None, generics)
+    // }
 }
 
 impl MemberRef {
@@ -364,32 +364,32 @@ impl MethodDef {
         self.impl_map().map_or("", |map| map.scope().name())
     }
 
-    pub fn signature(&self, generics: &[Type]) -> Signature {
-        let reader = self.reader();
-        let mut blob = self.blob(4);
-        let call_flags = MethodCallAttributes(blob.read_usize() as u8);
-        let _param_count = blob.read_usize();
-        let return_type = reader.type_from_blob(&mut blob, None, generics);
-        let mut return_param = None;
+    // pub fn signature(&self, generics: &[Type]) -> Signature {
+    //     let reader = self.reader();
+    //     let mut blob = self.blob(4);
+    //     let call_flags = MethodCallAttributes(blob.read_usize() as u8);
+    //     let _param_count = blob.read_usize();
+    //     let return_type = reader.type_from_blob(&mut blob, None, generics);
+    //     let mut return_param = None;
 
-        let params = self
-            .params()
-            .filter_map(|param| {
-                if param.sequence() == 0 {
-                    return_param = Some(param);
-                    None
-                } else {
-                    Some((reader.type_from_blob(&mut blob, None, generics), param))
-                }
-            })
-            .collect();
+    //     let params = self
+    //         .params()
+    //         .filter_map(|param| {
+    //             if param.sequence() == 0 {
+    //                 return_param = Some(param);
+    //                 None
+    //             } else {
+    //                 Some((reader.type_from_blob(&mut blob, None, generics), param))
+    //             }
+    //         })
+    //         .collect();
 
-        Signature {
-            call_flags,
-            return_type: (return_type, return_param),
-            params,
-        }
-    }
+    //     Signature {
+    //         call_flags,
+    //         return_type: (return_type, return_param),
+    //         params,
+    //     }
+    // }
 }
 
 impl ModuleRef {
@@ -477,14 +477,14 @@ impl TypeDef {
         self.file().equal_range(2, self.index() + 1).next()
     }
 
-    pub fn underlying_type(&self) -> Type {
-        let field = self.fields().next().expect("Field not found");
-        if let Some(constant) = field.constant() {
-            constant.ty()
-        } else {
-            field.ty(Some(*self))
-        }
-    }
+    // pub fn underlying_type(&self) -> Type {
+    //     let field = self.fields().next().expect("Field not found");
+    //     if let Some(constant) = field.constant() {
+    //         constant.ty()
+    //     } else {
+    //         field.ty(Some(*self))
+    //     }
+    // }
 
     pub fn kind(&self) -> TypeKind {
         match self.extends() {
@@ -496,42 +496,42 @@ impl TypeDef {
         }
     }
 
-    pub fn size(&self) -> usize {
-        match self.kind() {
-            TypeKind::Struct => {
-                if self.flags().contains(TypeAttributes::ExplicitLayout) {
-                    self.fields()
-                        .map(|field| field.ty(Some(*self)).size())
-                        .max()
-                        .unwrap_or(1)
-                } else {
-                    let mut sum = 0;
-                    for field in self.fields() {
-                        let ty = field.ty(Some(*self));
-                        let size = ty.size();
-                        let align = ty.align();
-                        sum = (sum + (align - 1)) & !(align - 1);
-                        sum += size;
-                    }
-                    sum
-                }
-            }
-            TypeKind::Enum => self.underlying_type().size(),
-            _ => 4,
-        }
-    }
+    // pub fn size(&self) -> usize {
+    //     match self.kind() {
+    //         TypeKind::Struct => {
+    //             if self.flags().contains(TypeAttributes::ExplicitLayout) {
+    //                 self.fields()
+    //                     .map(|field| field.ty(Some(*self)).size())
+    //                     .max()
+    //                     .unwrap_or(1)
+    //             } else {
+    //                 let mut sum = 0;
+    //                 for field in self.fields() {
+    //                     let ty = field.ty(Some(*self));
+    //                     let size = ty.size();
+    //                     let align = ty.align();
+    //                     sum = (sum + (align - 1)) & !(align - 1);
+    //                     sum += size;
+    //                 }
+    //                 sum
+    //             }
+    //         }
+    //         TypeKind::Enum => self.underlying_type().size(),
+    //         _ => 4,
+    //     }
+    // }
 
-    pub fn align(&self) -> usize {
-        match self.kind() {
-            TypeKind::Struct => self
-                .fields()
-                .map(|field| field.ty(Some(*self)).align())
-                .max()
-                .unwrap_or(1),
-            TypeKind::Enum => self.underlying_type().align(),
-            _ => 4,
-        }
-    }
+    // pub fn align(&self) -> usize {
+    //     match self.kind() {
+    //         TypeKind::Struct => self
+    //             .fields()
+    //             .map(|field| field.ty(Some(*self)).align())
+    //             .max()
+    //             .unwrap_or(1),
+    //         TypeKind::Enum => self.underlying_type().align(),
+    //         _ => 4,
+    //     }
+    // }
 }
 
 impl TypeRef {

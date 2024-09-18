@@ -1,15 +1,19 @@
 use super::*;
 use std::collections::hash_map::Entry::*;
 
-pub struct Reader {
-    pub items: HashMap<&'static str, HashMap<&'static str, Item>>,
+pub struct Reader(HashMap<&'static str, HashMap<&'static str, Item>>);
+
+impl std::ops::Deref for Reader {
+    type Target = HashMap<&'static str, HashMap<&'static str, Item>>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
 }
 
 impl Reader {
     pub fn new(files: Vec<File>) -> &'static Self {
-        let reader: &'static mut Reader = Box::leak(Box::new(Self {
-            items: Default::default(),
-        }));
+        let reader: &'static mut Reader = Box::leak(Box::new(Self(Default::default())));
 
         for mut file in files {
             file.reader = reader as *mut Reader;
@@ -26,11 +30,11 @@ impl Reader {
                 let namespace = def.namespace();
 
                 if namespace.is_empty() {
-                    // This skips over nested TypeDefs.
+                    // This skips over nested types.
                     continue;
                 }
 
-                let items = reader.items.entry(namespace).or_default();
+                let items = reader.0.entry(namespace).or_default();
                 let name = def.name();
                 let kind = def.kind();
 
@@ -130,101 +134,7 @@ impl Reader {
         reader
     }
 
-    //         match kind {
-    //             TypeKind::Interface => {
-    //                 push(items, CppItem::Interface(CppInterface { def }));
-    //             }
-    //             TypeKind::Class => {
-    //                 if name != "Apis" {
-    //                     unimplemented!("Non-WinRT class not called `Apis`");
-    //                 }
-
-    //                 for method in def.methods() {
-
-    //                 }
-
-    //                 for field in def.fields() {
-
-    //                 }
-    //             }
-    //             TypeKind::Enum => {
-    //                 push(items, CppItem::Enum(CppEnum { def }));
-    //             }
-    //             TypeKind::Struct => {
-    //                 push(items, CppItem::Interface(CppInterface { def }));
-    //             }
-    //             TypeKind::Delegate => {
-
-    //             }
-    //         }
-    //     }
-
-    //     if name == "Apis" {
-    //         for method in def.methods() {
-    //             namespace_items
-    //                 .entry(method.name())
-    //                 .or_default()
-    //                 .push(Item::Fn(method, namespace));
-    //         }
-
-    //         for field in def.fields() {
-    //             namespace_items
-    //                 .entry(field.name())
-    //                 .or_default()
-    //                 .push(Item::Const(field));
-    //         }
-    //     } else {
-    //         namespace_items
-    //             .entry(name)
-    //             .or_default()
-    //             .push(Item::Type(def));
-
-    //         // TODO: these should all be fields on the Apis class so we don't have to go looking for all of these as well.
-    //         if def.extends() == Some(TypeName::Enum)
-    //             && !def.flags().contains(TypeAttributes::WindowsRuntime)
-    //             && !def.has_attribute("ScopedEnumAttribute")
-    //         {
-    //             for field in def
-    //                 .fields()
-    //                 .filter(|field| field.flags().contains(FieldAttributes::Literal))
-    //             {
-    //                 namespace_items
-    //                     .entry(field.name())
-    //                     .or_default()
-    //                     .push(Item::Const(field));
-    //             }
-    //         }
-    //     }
-    // }
-    //     }
-
-    //     reader
-    // }
-
-    pub fn type_from_blob(
-        &self,
-        _blob: &mut Blob,
-        _enclosing: Option<TypeDef>,
-        _generics: &[Type],
-    ) -> Type {
-        todo!()
-    }
-
-    pub fn get_type_def(
-        &self,
-        _namespace: &str,
-        _name: &str,
-    ) -> impl Iterator<Item = TypeDef> + '_ {
-        todo!();
-        None.into_iter()
-    }
-
-    pub fn type_from_ref(
-        &self,
-        _code: TypeDefOrRef,
-        _enclosing: Option<TypeDef>,
-        _generics: &[Type],
-    ) -> Type {
-        todo!();
+    pub fn get(&self, namespace: &str, name: &str) -> Option<&Item> {
+        self.0.get(namespace).and_then(|items| items.get(name))
     }
 }
