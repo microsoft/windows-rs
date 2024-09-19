@@ -1,0 +1,360 @@
+name: raw-dylib
+
+on:
+  pull_request:
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
+    branches:
+      - master
+
+env:
+  RUSTFLAGS: --cfg windows_raw_dylib
+
+jobs:
+  check:
+    runs-on: windows-2022
+
+    strategy:
+      matrix:
+        include:
+          - version: stable
+            host: x86_64-pc-windows-msvc
+            target: x86_64-pc-windows-msvc
+            etc:
+          - version: nightly
+            host: x86_64-pc-windows-msvc
+            target: i686-pc-windows-msvc
+            etc:
+          - version: nightly
+            host: x86_64-pc-windows-gnu
+            target: x86_64-pc-windows-gnu
+            etc:
+          - version: stable
+            host: x86_64-pc-windows-gnu
+            target: i686-pc-windows-gnu
+            etc:
+          - version: stable
+            host: x86_64-pc-windows-msvc
+            target: aarch64-pc-windows-msvc
+            etc: --no-run
+          - version: nightly
+            host: x86_64-pc-windows-msvc
+            target: aarch64-pc-windows-msvc
+            etc: --no-run
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Update toolchain
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.host }}
+      - name: Add toolchain target
+        run: rustup target add ${{ matrix.target }}
+      - name: Install fmt
+        run: rustup component add rustfmt
+      - name: Fix environment
+        uses: ./.github/actions/fix-environment
+      - name: Clean
+        run:  cargo clean
+      - name: Test cppwinrt
+        run:  cargo test -p cppwinrt --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test helpers
+        run:  cargo test -p helpers --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_bits
+        run:  cargo test -p sample_bits --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_com_uri
+        run:  cargo test -p sample_com_uri --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_component_hello_world
+        run:  cargo test -p sample_component_hello_world --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_component_json_validator
+        run:  cargo test -p sample_component_json_validator --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_component_json_validator_client
+        run:  cargo test -p sample_component_json_validator_client --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_component_json_validator_winrt
+        run:  cargo test -p sample_component_json_validator_winrt --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_component_json_validator_winrt_client
+        run:  cargo test -p sample_component_json_validator_winrt_client --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_component_json_validator_winrt_client_cpp
+        run:  cargo test -p sample_component_json_validator_winrt_client_cpp --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_consent
+        run:  cargo test -p sample_consent --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_core_app
+        run:  cargo test -p sample_core_app --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_counter
+        run:  cargo test -p sample_counter --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_counter_sys
+        run:  cargo test -p sample_counter_sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_create_window
+        run:  cargo test -p sample_create_window --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_create_window_sys
+        run:  cargo test -p sample_create_window_sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_credentials
+        run:  cargo test -p sample_credentials --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_data_protection
+        run:  cargo test -p sample_data_protection --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_dcomp
+        run:  cargo test -p sample_dcomp --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_delay_load
+        run:  cargo test -p sample_delay_load --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_delay_load_sys
+        run:  cargo test -p sample_delay_load_sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_device_watcher
+        run:  cargo test -p sample_device_watcher --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_direct2d
+        run:  cargo test -p sample_direct2d --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_direct3d12
+        run:  cargo test -p sample_direct3d12 --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_enum_windows
+        run:  cargo test -p sample_enum_windows --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_enum_windows_sys
+        run:  cargo test -p sample_enum_windows_sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_file_dialogs
+        run:  cargo test -p sample_file_dialogs --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_kernel_event
+        run:  cargo test -p sample_kernel_event --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_memory_buffer
+        run:  cargo test -p sample_memory_buffer --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_message_box
+        run:  cargo test -p sample_message_box --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_message_box_sys
+        run:  cargo test -p sample_message_box_sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_ocr
+        run:  cargo test -p sample_ocr --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_overlapped
+        run:  cargo test -p sample_overlapped --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_privileges
+        run:  cargo test -p sample_privileges --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_privileges_sys
+        run:  cargo test -p sample_privileges_sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_rss
+        run:  cargo test -p sample_rss --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_shell
+        run:  cargo test -p sample_shell --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_simple
+        run:  cargo test -p sample_simple --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_spellchecker
+        run:  cargo test -p sample_spellchecker --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_task_dialog
+        run:  cargo test -p sample_task_dialog --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_task_dialog_sys
+        run:  cargo test -p sample_task_dialog_sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_thread_pool_work
+        run:  cargo test -p sample_thread_pool_work --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_thread_pool_work_sys
+        run:  cargo test -p sample_thread_pool_work_sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_uiautomation
+        run:  cargo test -p sample_uiautomation --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_wmi
+        run:  cargo test -p sample_wmi --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test sample_xml
+        run:  cargo test -p sample_xml --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_agile
+        run:  cargo test -p test_agile --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_agile_reference
+        run:  cargo test -p test_agile_reference --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_alternate_success_code
+        run:  cargo test -p test_alternate_success_code --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_arch
+        run:  cargo test -p test_arch --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
+      - name: Test test_arch_feature
+        run:  cargo test -p test_arch_feature --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_array
+        run:  cargo test -p test_array --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_async
+        run:  cargo test -p test_async --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_bcrypt
+        run:  cargo test -p test_bcrypt --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_bindgen
+        run:  cargo test -p test_bindgen --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_calling_convention
+        run:  cargo test -p test_calling_convention --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_cfg_generic
+        run:  cargo test -p test_cfg_generic --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_class_hierarchy
+        run:  cargo test -p test_class_hierarchy --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_collections
+        run:  cargo test -p test_collections --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_component
+        run:  cargo test -p test_component --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_component_client
+        run:  cargo test -p test_component_client --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_composable
+        run:  cargo test -p test_composable --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_composable_client
+        run:  cargo test -p test_composable_client --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_const_fields
+        run:  cargo test -p test_const_fields --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_const_params
+        run:  cargo test -p test_const_params --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_const_ptrs
+        run:  cargo test -p test_const_ptrs --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_constructors
+        run:  cargo test -p test_constructors --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_constructors_client
+        run:  cargo test -p test_constructors_client --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_core
+        run:  cargo test -p test_core --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_debug
+        run:  cargo test -p test_debug --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_debugger_visualizer
+        run:  cargo test -p test_debugger_visualizer --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_deprecated
+        run:  cargo test -p test_deprecated --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_dispatch
+        run:  cargo test -p test_dispatch --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_does_not_return
+        run:  cargo test -p test_does_not_return --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_enums
+        run:  cargo test -p test_enums --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_error
+        run:  cargo test -p test_error --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_event
+        run:  cargo test -p test_event --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_extensions
+        run:  cargo test -p test_extensions --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_handles
+        run:  cargo test -p test_handles --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_implement
+        run:  cargo test -p test_implement --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_implement_core
+        run:  cargo test -p test_implement_core --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_interface
+        run:  cargo test -p test_interface --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_interface_core
+        run:  cargo test -p test_interface_core --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_interop
+        run:  cargo test -p test_interop --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_lib
+        run:  cargo test -p test_lib --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_linux
+        run:  cargo test -p test_linux --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_literals
+        run:  cargo test -p test_literals --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_match
+        run:  cargo test -p test_match --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_matrix3x2
+        run:  cargo test -p test_matrix3x2 --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_metadata
+        run:  cargo test -p test_metadata --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_msrv
+        run:  cargo test -p test_msrv --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_no_std
+        run:  cargo test -p test_no_std --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_no_use
+        run:  cargo test -p test_no_use --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_noexcept
+        run:  cargo test -p test_noexcept --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_not_dll
+        run:  cargo test -p test_not_dll --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_query_signature
+        run:  cargo test -p test_query_signature --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_readme
+        run:  cargo test -p test_readme --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_reference_float
+        run:  cargo test -p test_reference_float --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_registry
+        run:  cargo test -p test_registry --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_registry_default
+        run:  cargo test -p test_registry_default --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Clean
+        run:  cargo clean
+      - name: Test test_reserved
+        run:  cargo test -p test_reserved --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_resources
+        run:  cargo test -p test_resources --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_result
+        run:  cargo test -p test_result --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_return_handle
+        run:  cargo test -p test_return_handle --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_return_struct
+        run:  cargo test -p test_return_struct --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_standalone
+        run:  cargo test -p test_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_string_param
+        run:  cargo test -p test_string_param --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_strings
+        run:  cargo test -p test_strings --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_structs
+        run:  cargo test -p test_structs --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_sys
+        run:  cargo test -p test_sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_targets
+        run:  cargo test -p test_targets --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_unions
+        run:  cargo test -p test_unions --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_variant
+        run:  cargo test -p test_variant --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_wdk
+        run:  cargo test -p test_wdk --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_weak
+        run:  cargo test -p test_weak --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_weak_ref
+        run:  cargo test -p test_weak_ref --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_win32
+        run:  cargo test -p test_win32 --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_win32_arrays
+        run:  cargo test -p test_win32_arrays --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_window_long
+        run:  cargo test -p test_window_long --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_winrt
+        run:  cargo test -p test_winrt --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_bindings
+        run:  cargo test -p tool_bindings --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_gnu
+        run:  cargo test -p tool_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_license
+        run:  cargo test -p tool_license --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_msvc
+        run:  cargo test -p tool_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_standalone
+        run:  cargo test -p tool_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test tool_yml
+        run:  cargo test -p tool_yml --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows
+        run:  cargo test -p windows --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-bindgen
+        run:  cargo test -p windows-bindgen --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-core
+        run:  cargo test -p windows-core --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-implement
+        run:  cargo test -p windows-implement --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-interface
+        run:  cargo test -p windows-interface --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-metadata
+        run:  cargo test -p windows-metadata --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-registry
+        run:  cargo test -p windows-registry --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-result
+        run:  cargo test -p windows-result --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-strings
+        run:  cargo test -p windows-strings --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-sys
+        run:  cargo test -p windows-sys --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-targets
+        run:  cargo test -p windows-targets --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows-version
+        run:  cargo test -p windows-version --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows_aarch64_gnullvm
+        run:  cargo test -p windows_aarch64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows_aarch64_msvc
+        run:  cargo test -p windows_aarch64_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows_i686_gnu
+        run:  cargo test -p windows_i686_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows_i686_gnullvm
+        run:  cargo test -p windows_i686_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows_i686_msvc
+        run:  cargo test -p windows_i686_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows_x86_64_gnu
+        run:  cargo test -p windows_x86_64_gnu --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows_x86_64_gnullvm
+        run:  cargo test -p windows_x86_64_gnullvm --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test windows_x86_64_msvc
+        run:  cargo test -p windows_x86_64_msvc --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Check diff
+        shell: bash
+        run: |
+          git add -N .
+          git diff --exit-code || (echo 'Tests changed code in the repo.'; exit 1)
