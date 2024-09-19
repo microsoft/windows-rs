@@ -4,7 +4,6 @@ fn main() {
     }
 
     println!("cargo:rerun-if-changed=src/client.cpp");
-    println!("cargo:rustc-link-lib=windows.0.52.0");
 
     let include = std::env::var("OUT_DIR").unwrap();
 
