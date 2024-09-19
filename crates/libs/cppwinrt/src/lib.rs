@@ -14,7 +14,7 @@ where
     let mut path = std::env::temp_dir();
     path.push(format!("cppwinrt-{VERSION}.exe"));
 
-    std::fs::write(&path, std::include_bytes!("../cppwinrt.exe")).unwrap();
+    _ = std::fs::write(&path, std::include_bytes!("../cppwinrt.exe"));
     let mut command = std::process::Command::new(&path);
     command.args(args);
     let output = command.output().expect("failed to run cppwinrt");
