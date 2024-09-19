@@ -1,10 +1,18 @@
 [build]
 rustflags = [
     "-D", "warnings",
-    "-C", "linker=rust-lld",
 
     # "--cfg", "windows_debugger_visualizer",
     # "--cfg", "windows_raw_dylib",
     # "--cfg", "windows_slim_errors",
     # "-C", "target-feature=+crt-static",
 ]
+
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld"
+
+[target.i686-pc-windows-msvc]
+linker = "rust-lld"
+
+[target.aarch64-pc-windows-msvc]
+linker = "rust-lld"
