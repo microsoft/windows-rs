@@ -7,7 +7,7 @@ fn main() {
     let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
     let mut command = std::process::Command::new("midlrt.exe");
     println!("cargo:rerun-if-changed=src/interop.cpp");
-    println!("cargo:rustc-link-lib=windows.0.52.0");
+    println!("cargo:rustc-link-lib=onecoreuap");
 
     command.args([
         "/winrt",

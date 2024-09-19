@@ -1,12 +1,12 @@
 mod bindings;
-use jsonschema::JSONSchema;
+use jsonschema::Validator;
 use windows::{core::*, Win32::Foundation::*, Win32::System::WinRT::*};
 
 // The `JsonValidator` struct represents the implementation of the `JsonValidator` class.
 // The `implement` attribute provides the boilerplate COM and WinRT implementation support.
 #[implement(bindings::JsonValidator)]
 struct JsonValidator {
-    schema: JSONSchema,
+    schema: Validator,
 }
 
 // Implement the `IJsonValidator` interface.
@@ -49,8 +49,8 @@ impl bindings::IJsonValidatorFactory_Impl for JsonValidatorFactory_Impl {
     fn CreateInstance(&self, schema: &HSTRING) -> Result<bindings::JsonValidator> {
         let schema = json_from_hstring(schema)?;
 
-        let schema = JSONSchema::compile(&schema)
-            .map_err(|error| Error::new(E_INVALIDARG, error.to_string()))?;
+        let schema =
+            Validator::new(&schema).map_err(|error| Error::new(E_INVALIDARG, error.to_string()))?;
 
         Ok(JsonValidator { schema }.into())
     }

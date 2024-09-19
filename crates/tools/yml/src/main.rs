@@ -1,13 +1,15 @@
 use std::fmt::Write;
 
 fn main() {
-    test_yml();
+    test_yml("test", false);
+    test_yml("raw-dylib", true);
     clippy_yml();
     no_default_features_yml();
 }
 
-fn test_yml() {
-    let mut yml = r"name: test
+fn test_yml(name: &str, raw_dylib: bool) {
+    let mut yml = format!(
+        r"name: {name}
 
 on:
   pull_request:
@@ -17,7 +19,21 @@ on:
       - 'web/**'
     branches:
       - master
+"
+    );
 
+    if raw_dylib {
+        write!(
+            &mut yml,
+            r"
+env:
+  RUSTFLAGS: --cfg windows_raw_dylib
+"
+        )
+        .unwrap();
+    }
+
+    write!(&mut yml, r"
 jobs:
   check:
     runs-on: windows-2022
@@ -54,14 +70,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Update toolchain
-        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.host }}
+        run: rustup update --no-self-update ${{{{ matrix.version }}}} && rustup default ${{{{ matrix.version }}}}-${{{{ matrix.host }}}}
       - name: Add toolchain target
-        run: rustup target add ${{ matrix.target }}
+        run: rustup target add ${{{{ matrix.target }}}}
       - name: Install fmt
         run: rustup component add rustfmt
       - name: Fix environment
         uses: ./.github/actions/fix-environment"
-        .to_string();
+    ).unwrap();
 
     // This unrolling is required since "cargo test --all" consumes too much memory for the GitHub hosted runners
     // and the occasional "cargo clean" is required to avoid running out of disk space in the same runners.
@@ -98,7 +114,7 @@ jobs:
     )
     .unwrap();
 
-    std::fs::write(".github/workflows/test.yml", yml.as_bytes()).unwrap();
+    std::fs::write(format!(".github/workflows/{name}.yml"), yml.as_bytes()).unwrap();
 }
 
 fn clippy_yml() {

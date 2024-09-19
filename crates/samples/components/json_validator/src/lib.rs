@@ -1,4 +1,4 @@
-use jsonschema::JSONSchema;
+use jsonschema::Validator;
 use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
 
 // Creates a JSON validator object with the given schema. The returned handle must be freed
@@ -35,7 +35,7 @@ unsafe extern "system" fn ValidateJson(
 #[no_mangle]
 unsafe extern "system" fn CloseJsonValidator(handle: usize) {
     if handle != 0 {
-        _ = Box::from_raw(handle as *mut JSONSchema);
+        _ = Box::from_raw(handle as *mut Validator);
     }
 }
 
@@ -43,8 +43,8 @@ unsafe extern "system" fn CloseJsonValidator(handle: usize) {
 unsafe fn create_validator(schema: *const u8, schema_len: usize, handle: *mut usize) -> Result<()> {
     let schema = json_from_raw_parts(schema, schema_len)?;
 
-    let compiled = JSONSchema::compile(&schema)
-        .map_err(|error| Error::new(E_INVALIDARG, error.to_string()))?;
+    let compiled =
+        Validator::new(&schema).map_err(|error| Error::new(E_INVALIDARG, error.to_string()))?;
 
     if handle.is_null() {
         return Err(E_POINTER.into());
@@ -70,9 +70,9 @@ unsafe fn validate(
 
     let value = json_from_raw_parts(value, value_len)?;
 
-    // This looks a bit tricky but we're just turning the opaque handle into `JSONSchema` pointer
+    // This looks a bit tricky but we're just turning the opaque handle into `Validator` pointer
     // and then returning a reference to avoid taking ownership of it.
-    let schema = &*(handle as *const JSONSchema);
+    let schema = &*(handle as *const Validator);
 
     if schema.is_valid(&value) {
         if !sanitized_value.is_null() && !sanitized_value_len.is_null() {
