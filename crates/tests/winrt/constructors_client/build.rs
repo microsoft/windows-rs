@@ -4,6 +4,7 @@ fn main() {
     }
 
     println!("cargo:rerun-if-changed=src/interop.cpp");
+    println!("cargo:rustc-link-lib=onecoreuap");
 
     windows_bindgen::bindgen([
         "--in",
