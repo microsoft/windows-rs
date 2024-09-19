@@ -333,7 +333,7 @@ impl Reader {
         }
     }
 
-    fn type_from_blob_impl(
+    pub fn type_from_blob_impl(
         &self,
         blob: &mut Blob,
         enclosing: Option<TypeDef>,

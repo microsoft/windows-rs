@@ -76,7 +76,7 @@ impl Attribute {
         let reader = self.reader();
 
         for _ in 0..fixed_arg_count {
-            let arg = match reader.type_from_blob(&mut sig, None, &[]) {
+            let arg = match reader.type_from_blob_impl(&mut sig, None, &[]) {
                 Type::Bool => Value::Bool(values.read_bool()),
                 Type::I8 => Value::I8(values.read_i8()),
                 Type::U8 => Value::U8(values.read_u8()),
