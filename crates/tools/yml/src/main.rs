@@ -8,7 +8,8 @@ fn main() {
 }
 
 fn test_yml(name: &str, raw_dylib: bool) {
-    let mut yml = format!(r"name: {name}
+    let mut yml = format!(
+        r"name: {name}
 
 on:
   pull_request:
@@ -18,16 +19,21 @@ on:
       - 'web/**'
     branches:
       - master
-");
+"
+    );
 
-      if raw_dylib {
-        write!(&mut yml, r"
+    if raw_dylib {
+        write!(
+            &mut yml,
+            r"
 env:
   RUSTFLAGS: --cfg windows_raw_dylib
-").unwrap();
-      }
+"
+        )
+        .unwrap();
+    }
 
-      write!(&mut yml, r"
+    write!(&mut yml, r"
 jobs:
   check:
     runs-on: windows-2022
