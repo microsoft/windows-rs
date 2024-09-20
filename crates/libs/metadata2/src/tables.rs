@@ -542,19 +542,19 @@ impl TypeRef {
         self.decode(0)
     }
 
-    pub fn type_def(&self) -> TypeDef {
-        self.reader()
-            .get(self.namespace(), self.name())
-            .unwrap()
-            .type_def()
-    }
+    // pub fn type_def(&self) -> TypeDef {
+    //     self.reader()
+    //         .get(self.namespace(), self.name())
+    //         .unwrap()
+    //         .type_def()
+    // }
 }
 
-impl TypeSpec {
-    pub fn ty(&self, generics: &[Type]) -> Type {
-            self.blob(0).winrt_type_from_spec(generics)
-    }
-}
+// impl TypeSpec {
+//     pub fn ty(&self, generics: &[Type]) -> Type {
+//             self.blob(0).winrt_type_from_spec(generics)
+//     }
+// }
 
 fn trim_tick(name: &str) -> &str {
     if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {

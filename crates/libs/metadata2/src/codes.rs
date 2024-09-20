@@ -90,19 +90,19 @@ impl TypeDefOrRef {
         }
     }
 
-    pub fn type_def(&self) -> TypeDef {
-        match self {
-            Self::TypeDef(def) => *def,
-            Self::TypeRef(def) => def.type_def(),
-            rest => unimplemented!("{rest:?}"),
-        }
-    }
+    // pub fn type_def(&self) -> TypeDef {
+    //     match self {
+    //         Self::TypeDef(def) => *def,
+    //         Self::TypeRef(def) => def.type_def(),
+    //         rest => unimplemented!("{rest:?}"),
+    //     }
+    // }
 
-    pub fn ty(&self, generics: &[Type]) -> Type {
-        match self {
-            Self::TypeDef(def) => Type::TypeDef(*def, vec![]),
-            Self::TypeRef(def) => Type::TypeDef(def.type_def(), vec![]),
-            Self::TypeSpec(spec) => spec.ty(generics),
-        }
-    }
+    // pub fn ty(&self, generics: &[Type]) -> Type {
+    //     match self {
+    //         Self::TypeDef(def) => Type::TypeDef(*def, vec![]),
+    //         Self::TypeRef(def) => Type::TypeDef(def.type_def(), vec![]),
+    //         Self::TypeSpec(spec) => spec.ty(generics),
+    //     }
+    // }
 }
