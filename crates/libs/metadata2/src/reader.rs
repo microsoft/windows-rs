@@ -27,7 +27,6 @@ impl Reader {
         for mut file in files {
             file.reader = reader;
             let file = Box::leak(Box::new(file));
-
             let mut nested = HashMap::<TypeDef, Vec<TypeDef>>::new();
 
             for key in file.table::<NestedClass>() {
@@ -49,19 +48,16 @@ impl Reader {
 
                 if def.flags().contains(TypeAttributes::WindowsRuntime) {
                     let item = match kind {
-                        TypeKind::Interface => Item::Interface(Interface { def }),
                         TypeKind::Class => Item::Class(Class { def }),
-                        TypeKind::Enum => Item::Enum(Enum { def }),
-                        TypeKind::Struct => Item::Struct(Struct { def }),
                         TypeKind::Delegate => Item::Delegate(Delegate { def }),
+                        TypeKind::Enum => Item::Enum(Enum { def }),
+                        TypeKind::Interface => Item::Interface(Interface { def }),
+                        TypeKind::Struct => Item::Struct(Struct { def }),
                     };
 
                     insert(items, name, item);
                 } else {
                     match kind {
-                        TypeKind::Interface => {
-                            insert(items, name, Item::CppInterface(CppInterface { def }));
-                        }
                         TypeKind::Class => {
                             if name == "Apis" {
                                 for method in def.methods() {
@@ -74,6 +70,9 @@ impl Reader {
                                     insert(items, name, Item::CppConst(CppConst { def, field }));
                                 }
                             }
+                        }
+                        TypeKind::Delegate => {
+                            insert(items, name, Item::CppDelegate(CppDelegate { def }));
                         }
                         TypeKind::Enum => {
                             insert(items, name, Item::CppEnum(CppEnum { def }));
@@ -90,6 +89,9 @@ impl Reader {
                                     }
                                 }
                             }
+                        }
+                        TypeKind::Interface => {
+                            insert(items, name, Item::CppInterface(CppInterface { def }));
                         }
                         TypeKind::Struct => {
                             fn make(
@@ -109,9 +111,6 @@ impl Reader {
                             }
 
                             insert(items, name, Item::CppStruct(make(def, &nested)));
-                        }
-                        TypeKind::Delegate => {
-                            insert(items, name, Item::CppDelegate(CppDelegate { def }));
                         }
                     };
                 }
