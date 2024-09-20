@@ -132,14 +132,13 @@ impl Reader {
             .flatten()
     }
 
-    pub fn flat_get(
-        &'static self,
-        name: &'static str,
-    ) -> impl Iterator<Item = &'static Item> + 'static {
+    // This doesn't return an iterator as that would require `name` to be a static reference.
+    pub fn flat_get(&self, name: &str) -> Vec<&Item> {
         self.0
             .values()
             .flatten()
-            .filter_map(move |(key, value)| (*key == name).then_some(value))
+            .filter_map(|(key, value)| (*key == name).then_some(value))
             .flatten()
+            .collect()
     }
 }
