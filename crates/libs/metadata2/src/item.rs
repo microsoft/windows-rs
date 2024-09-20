@@ -14,8 +14,6 @@ pub enum Item {
     CppFn(CppFn),
     CppInterface(CppInterface),
     CppStruct(CppStruct),
-
-    Overload(Vec<Self>),
 }
 
 #[derive(Debug)]
