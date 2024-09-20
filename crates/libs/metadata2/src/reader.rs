@@ -1,6 +1,9 @@
 use super::*;
 use std::collections::hash_map::Entry::*;
 
+// TODO: this is the index for general type queries e.g. when there's a TypeRef or Blob that refers to a type by name
+// then there's transmformations to flatten or filter this but the reader remains immutable to support the queries.
+// This filtering process can then maybe remove actual duplicates?
 pub struct Reader(HashMap<&'static str, HashMap<&'static str, Item>>);
 
 impl std::ops::Deref for Reader {
@@ -30,13 +33,30 @@ impl Reader {
                 let namespace = def.namespace();
 
                 if namespace.is_empty() {
-                    // This skips over nested types.
+                    // This skips the nested types as we've already retrieved them.
                     continue;
                 }
 
                 let items = reader.0.entry(namespace).or_default();
                 let name = def.name();
                 let kind = def.kind();
+
+                fn push(
+                    items: &mut HashMap<&'static str, Item>,
+                    name: &'static str,
+                    item: Item,
+                ) {
+                    match items.entry(name) {
+                        Occupied(mut existing) => {
+                            match existing.get_mut() {
+                                Item::Overload(existing) => existing.push(item),
+                            }
+                        }
+                        Vacant(entry) => {
+                            entry.insert(Item::Cpp(vec![item]));
+                        }
+                    }
+                }
 
                 if def.flags().contains(TypeAttributes::WindowsRuntime) {
                     match kind {
@@ -49,24 +69,7 @@ impl Reader {
                         TypeKind::Delegate => items.insert(name, Item::Delegate(Delegate { def })),
                     };
                 } else {
-                    fn push(
-                        items: &mut HashMap<&'static str, Item>,
-                        name: &'static str,
-                        item: CppItem,
-                    ) {
-                        match items.entry(name) {
-                            Occupied(mut existing) => {
-                                if let Item::Cpp(existing) = existing.get_mut() {
-                                    existing.push(item);
-                                } else {
-                                    panic!("Type mismatch");
-                                }
-                            }
-                            Vacant(entry) => {
-                                entry.insert(Item::Cpp(vec![item]));
-                            }
-                        }
-                    }
+
 
                     match kind {
                         TypeKind::Interface => {
