@@ -131,4 +131,15 @@ impl Reader {
             .into_iter()
             .flatten()
     }
+
+    pub fn flat_get(
+        &'static self,
+        name: &'static str,
+    ) -> impl Iterator<Item = &'static Item> + 'static {
+        self.0
+            .values()
+            .flatten()
+            .filter_map(move |(key, value)| (*key == name).then_some(value))
+            .flatten()
+    }
 }
