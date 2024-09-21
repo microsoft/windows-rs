@@ -122,18 +122,16 @@ impl Reader {
 
     /// Gets all items matching the given namespace and name.
     pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = &Item> + '_ {
-        self.0
-            .get(namespace)
+        self.get(namespace)
             .and_then(|items| items.get(name))
             .into_iter()
             .flatten()
     }
 
-    /// Gets all items with the given name from all namespaces.
+    /// Gets all items with the given name regardless of namespace.
     pub fn with_name(&self, name: &str) -> Vec<&Item> {
         // This doesn't return an iterator as that would require `name` to be a static reference.
-        self.0
-            .values()
+        self.values()
             .flatten()
             .filter_map(|(key, value)| (*key == name).then_some(value))
             .flatten()
@@ -142,8 +140,7 @@ impl Reader {
 
     /// Gets all items from the given namespace.
     pub fn with_namespace(&self, namespace: &str) -> impl Iterator<Item = &Item> + '_ {
-        self.0
-            .get(namespace)
+        self.get(namespace)
             .into_iter()
             .flat_map(|map| map.values())
             .flatten()
