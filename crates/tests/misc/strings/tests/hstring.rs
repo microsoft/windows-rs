@@ -267,7 +267,7 @@ fn hstring_compat() -> Result<()> {
         let mut header: sys::HSTRING_HEADER = std::mem::zeroed();
         let mut stack_hstring: sys::HSTRING = std::mem::zeroed();
         let hresult = sys::WindowsCreateStringReference(
-            HSTRING::from("World").as_ptr(),
+            [87, 111, 114, 108, 100, 0].as_ptr(),
             5,
             &mut header,
             &mut stack_hstring,
