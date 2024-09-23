@@ -306,6 +306,19 @@ fn deref_as_slice() {
     unsafe {
         assert_eq!(*ptr.as_wide(), *deref);
     }
+
+    let empty = HSTRING::new();
+    assert!(empty.is_empty());
+    assert_eq!(empty.len(), 0);
+    assert_eq!(*empty, []);
+
+    unsafe {
+        assert_eq!(wcslen(empty.as_ptr()), 0);
+    }
+}
+
+extern "C" {
+    pub fn wcslen(s: *const u16) -> usize;
 }
 
 mod sys {

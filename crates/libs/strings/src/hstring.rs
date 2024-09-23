@@ -14,18 +14,6 @@ impl HSTRING {
         Self(core::ptr::null_mut())
     }
 
-    /// Returns a raw pointer to the `HSTRING` buffer.
-    ///
-    /// This string pointer is null-terminated so it will never be a null pointer.
-    pub fn as_ptr(&self) -> *const u16 {
-        if let Some(header) = self.as_header() {
-            header.data
-        } else {
-            const EMPTY: [u16; 1] = [0];
-            EMPTY.as_ptr()
-        }
-    }
-
     /// Create a `HSTRING` from a slice of 16 bit characters (wchars).
     pub fn from_wide(value: &[u16]) -> Self {
         unsafe { Self::from_wide_iter(value.iter().copied(), value.len()) }
@@ -77,7 +65,10 @@ impl Deref for HSTRING {
         if let Some(header) = self.as_header() {
             unsafe { core::slice::from_raw_parts(header.data, header.len as usize) }
         } else {
-            &[]
+            // This ensures that if `as_ptr` is called on the slice that the resulting pointer
+            // will still refer to a null-terminated string.
+            const EMPTY: [u16; 1] = [0];
+            &EMPTY[..0]
         }
     }
 }
