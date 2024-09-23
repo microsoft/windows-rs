@@ -6,18 +6,6 @@ use core::ops::Deref;
 #[repr(transparent)]
 pub struct HSTRING(pub(crate) *mut HStringHeader);
 
-impl Deref for HSTRING {
-    type Target = [u16];
-
-    fn deref(&self) -> &[u16] {
-        if let Some(header) = self.as_header() {
-            unsafe { core::slice::from_raw_parts(header.data, header.len as usize) }
-        } else {
-            &[]
-        }
-    }
-}
-
 impl HSTRING {
     /// Create an empty `HSTRING`.
     ///
@@ -79,6 +67,18 @@ impl HSTRING {
 
     fn as_header(&self) -> Option<&HStringHeader> {
         unsafe { self.0.as_ref() }
+    }
+}
+
+impl Deref for HSTRING {
+    type Target = [u16];
+
+    fn deref(&self) -> &[u16] {
+        if let Some(header) = self.as_header() {
+            unsafe { core::slice::from_raw_parts(header.data, header.len as usize) }
+        } else {
+            &[]
+        }
     }
 }
 
