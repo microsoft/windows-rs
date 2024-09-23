@@ -119,10 +119,7 @@ fn lite() -> Result<()> {
 
         writer.WriteStartElement(&HSTRING::from("html"))?;
         writer.WriteAttributeString(&HSTRING::from("no-value"), None)?;
-        writer.WriteAttributeString(
-            &HSTRING::from("with-value"),
-            Some(&HSTRING::from("value")),
-        )?;
+        writer.WriteAttributeString(&HSTRING::from("with-value"), Some(&HSTRING::from("value")))?;
         writer.WriteEndElement(&HSTRING::from("html"))?;
         writer.Flush()?;
 
