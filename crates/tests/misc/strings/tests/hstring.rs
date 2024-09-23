@@ -232,7 +232,7 @@ fn hstring_compat() -> Result<()> {
         let result = WindowsConcatString(&hey, &world)?;
         assert_eq!(result, "HeyWorld");
 
-        let result = WindowsCreateString(Some(&hey.as_wide()))?;
+        let result = WindowsCreateString(Some(&hey))?;
         assert_eq!(result, "Hey");
 
         let result = WindowsDuplicateString(&hey)?;
@@ -290,6 +290,35 @@ fn hstring_compat() -> Result<()> {
 
         Ok(())
     }
+}
+
+#[test]
+fn deref_as_slice() {
+    let deref = HSTRING::from("0123456789");
+    assert!(!deref.is_empty());
+    assert_eq!(deref.len(), 10);
+    assert_eq!(HSTRING::from_wide(&deref[..=3]), "0123");
+    assert!(deref.ends_with(&deref[7..=9]));
+    assert_eq!(deref.get(5), Some(b'5' as u16).as_ref());
+    let ptr = PCWSTR(deref.as_ptr());
+    assert_eq!(deref.cmp(&deref), std::cmp::Ordering::Equal);
+
+    unsafe {
+        assert_eq!(*ptr.as_wide(), *deref);
+    }
+
+    let empty = HSTRING::new();
+    assert!(empty.is_empty());
+    assert_eq!(empty.len(), 0);
+    assert_eq!(*empty, []);
+
+    unsafe {
+        assert_eq!(wcslen(empty.as_ptr()), 0);
+    }
+}
+
+extern "C" {
+    pub fn wcslen(s: *const u16) -> usize;
 }
 
 mod sys {
