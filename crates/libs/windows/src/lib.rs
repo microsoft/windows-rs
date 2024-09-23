@@ -8,9 +8,11 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 
 #![cfg(windows)]
 #![doc(html_no_source)]
-#![allow(non_snake_case, clashing_extern_declarations, non_upper_case_globals, non_camel_case_types, missing_docs, dead_code, improper_ctypes, clippy::all)]
+#![allow(non_snake_case, clashing_extern_declarations, non_upper_case_globals, non_camel_case_types, missing_docs, dead_code, clippy::all)]
 #![cfg_attr(not(feature = "docs"), doc(hidden))]
 #![cfg_attr(all(not(feature = "std")), no_std)]
+// TODO: workaround for https://github.com/rust-lang/rust/issues/130757
+#![allow(improper_ctypes)]
 
 #[allow(unused_extern_crates)]
 extern crate self as windows;
