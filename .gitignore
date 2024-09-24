@@ -2,4 +2,4 @@
 /.vs
 /target
 *.lock
-*.winmd
+

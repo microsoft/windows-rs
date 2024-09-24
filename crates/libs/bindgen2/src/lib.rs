@@ -3,7 +3,6 @@
 // TODO: remove this once bindgen2 is up and running
 #![allow(dead_code)]
 
-mod args;
 mod io;
 mod panic;
 mod winmd;
@@ -27,7 +26,7 @@ where
     I: IntoIterator<Item = S>,
     S: AsRef<str>,
 {
-    let args = args::expand(args);
+    let args = expand_args(args);
     let mut kind = ArgKind::None;
     let mut output = None;
     let mut input = Vec::new();
@@ -71,5 +70,122 @@ where
                 }
             }
         }
+    }
+
+    let Some(_output) = output else {
+        panic("one `--out` is required");
+    };
+
+    // This isn't strictly necessary but avoids a common newbie pitfall where all metadata
+    // would be generated when building a component for a specific API.
+    if include.is_empty() {
+        panic("at least one `--filter` must be specified");
+    }
+
+    let reader = winmd::Reader::new(expand_input(&input));
+    include.iter().for_each(|path| verify_filter(reader, path));
+    exclude.iter().for_each(|path| verify_filter(reader, path));
+}
+
+fn verify_filter(reader: &winmd::Reader, filter: &str) {
+    if reader.with_namespace(filter).next().is_some() {
+        return;
+    }   
+
+    let is_empty = if let Some((namespace, name)) = filter.rsplit_once('.') {
+        reader.with_full_name(namespace, name).next().is_none()
+    } else {
+        reader.with_name(filter).is_empty()
+    };
+    
+    if is_empty {
+        panic::with_path("invalid type filter", filter)
+    }
+}
+
+fn expand_args<I, S>(args: I) -> Vec<String>
+where
+    I: IntoIterator<Item = S>,
+    S: AsRef<str>,
+{
+    fn expand_args<I, S>(result: &mut Vec<String>, args: I)
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        let mut expand = false;
+
+        for arg in args.into_iter().map(|arg| arg.as_ref().to_string()) {
+            if arg.starts_with('-') {
+                expand = false;
+            }
+            if expand {
+                for args in io::read_file_lines(&arg) {
+                    if !args.starts_with("//") {
+                        expand_args(result, [args]);
+                    }
+                }
+            } else if arg == "--etc" {
+                expand = true;
+            } else {
+                result.push(arg);
+            }
+        }
+    }
+
+    let mut result = vec![];
+    expand_args(&mut result, args);
+    result
+}
+
+fn expand_input(input: &[&str]) -> Vec<winmd::File> {
+    fn expand_input(result: &mut Vec<String>, input: &str) {
+        let path = std::path::Path::new(input);
+
+        if path.is_dir() {
+            let prev_len = result.len();
+
+            for path in path
+                .read_dir()
+                .unwrap_or_else(|_| panic::with_path("failed to read directory", input))
+                .flatten()
+                .map(|entry| entry.path())
+            {
+                if path.is_file() {
+                    result.push(path.to_string_lossy().to_string());
+                }
+            }
+
+            if result.len() == prev_len {
+                panic::with_path("failed to find files in directory", input);
+            }
+        } else {
+            result.push(input.to_string());
+        }
+    }
+
+    let mut paths = vec![];
+
+    for input in input {
+        expand_input(&mut paths, input);
+    }
+
+    if paths.is_empty() {
+        vec![
+            winmd::File::new(std::include_bytes!("../default/Windows.winmd").to_vec()).unwrap(),
+            winmd::File::new(std::include_bytes!("../default/Windows.Win32.winmd").to_vec())
+                .unwrap(),
+            winmd::File::new(std::include_bytes!("../default/Windows.Wdk.winmd").to_vec()).unwrap(),
+        ]
+    } else {
+        paths
+            .iter()
+            .map(|path| {
+                let bytes = std::fs::read(path)
+                    .unwrap_or_else(|_| panic::with_path("failed to read binary file", path));
+                winmd::File::new(bytes)
+                    .unwrap_or_else(|| panic::with_path("failed to read .winmd format", path))
+            })
+            .collect()
     }
 }
