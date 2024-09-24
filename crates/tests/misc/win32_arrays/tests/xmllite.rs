@@ -117,13 +117,10 @@ fn lite() -> Result<()> {
         let writer = writer.unwrap();
         writer.SetOutput(&stream)?;
 
-        writer.WriteStartElement(HSTRING::from("html").as_wide())?;
-        writer.WriteAttributeString(HSTRING::from("no-value").as_wide(), None)?;
-        writer.WriteAttributeString(
-            HSTRING::from("with-value").as_wide(),
-            Some(HSTRING::from("value").as_wide()),
-        )?;
-        writer.WriteEndElement(HSTRING::from("html").as_wide())?;
+        writer.WriteStartElement(&HSTRING::from("html"))?;
+        writer.WriteAttributeString(&HSTRING::from("no-value"), None)?;
+        writer.WriteAttributeString(&HSTRING::from("with-value"), Some(&HSTRING::from("value")))?;
+        writer.WriteEndElement(&HSTRING::from("html"))?;
         writer.Flush()?;
 
         let mut pos = 0;

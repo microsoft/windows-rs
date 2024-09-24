@@ -4,7 +4,6 @@ use windows_strings::*;
 fn hstring() {
     let s = HSTRING::from("hello");
     assert_eq!(s.len(), 5);
-    assert_eq!(s.as_wide().len(), 5);
 }
 
 #[test]
@@ -36,7 +35,7 @@ fn hstring_builder() {
     b.copy_from_slice(&HELLO00);
     let h: HSTRING = b.into();
     assert_eq!(h.len(), 7);
-    assert_eq!(h.as_wide(), HELLO00);
+    assert_eq!(*h, HELLO00);
 
     // But trim_end can avoid that.
     let mut b = HStringBuilder::new(7);
@@ -44,7 +43,7 @@ fn hstring_builder() {
     b.trim_end();
     let h: HSTRING = b.into();
     assert_eq!(h.len(), 5);
-    assert_eq!(h.as_wide(), HELLO);
+    assert_eq!(*h, HELLO);
 
     // HStringBuilder will initialize memory to zero.
     let b = HStringBuilder::new(5);

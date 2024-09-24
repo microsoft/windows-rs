@@ -343,7 +343,7 @@ mod error_info {
                 }
             }
 
-            Some(String::from_utf16_lossy(wide_trim_end(message.as_wide())))
+            Some(String::from_utf16_lossy(wide_trim_end(&message)))
         }
 
         pub(crate) fn as_ptr(&self) -> *mut core::ffi::c_void {
