@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn args<I, S>(args: I) -> Vec<String>
+pub fn expand<I, S>(args: I) -> Vec<String>
 where
     I: IntoIterator<Item = S>,
     S: AsRef<str>,
