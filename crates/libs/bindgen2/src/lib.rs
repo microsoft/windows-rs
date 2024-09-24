@@ -79,7 +79,7 @@ where
     // This isn't strictly necessary but avoids a common newbie pitfall where all metadata
     // would be generated when building a component for a specific API.
     if include.is_empty() {
-        panic("at least one `--filter` must be specified");
+        panic("at least one `--filter` is required");
     }
 
     let reader = winmd::Reader::new(expand_input(&input));
@@ -90,14 +90,14 @@ where
 fn verify_filter(reader: &winmd::Reader, filter: &str) {
     if reader.with_namespace(filter).next().is_some() {
         return;
-    }   
+    }
 
     let is_empty = if let Some((namespace, name)) = filter.rsplit_once('.') {
         reader.with_full_name(namespace, name).next().is_none()
     } else {
         reader.with_name(filter).is_empty()
     };
-    
+
     if is_empty {
         panic::with_path("invalid type filter", filter)
     }
@@ -171,18 +171,21 @@ fn expand_input(input: &[&str]) -> Vec<winmd::File> {
     }
 
     if paths.is_empty() {
-        vec![
-            winmd::File::new(std::include_bytes!("../default/Windows.winmd").to_vec()).unwrap(),
-            winmd::File::new(std::include_bytes!("../default/Windows.Win32.winmd").to_vec())
-                .unwrap(),
-            winmd::File::new(std::include_bytes!("../default/Windows.Wdk.winmd").to_vec()).unwrap(),
+        [
+            std::include_bytes!("../default/Windows.winmd").to_vec(),
+            std::include_bytes!("../default/Windows.Win32.winmd").to_vec(),
+            std::include_bytes!("../default/Windows.Wdk.winmd").to_vec(),
         ]
+        .into_iter()
+        .map(|bytes| winmd::File::new(bytes).unwrap())
+        .collect()
     } else {
         paths
             .iter()
             .map(|path| {
                 let bytes = std::fs::read(path)
                     .unwrap_or_else(|_| panic::with_path("failed to read binary file", path));
+
                 winmd::File::new(bytes)
                     .unwrap_or_else(|| panic::with_path("failed to read .winmd format", path))
             })
