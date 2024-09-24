@@ -1,5 +1,3 @@
-#![allow(non_upper_case_globals)]
-
 macro_rules! flags {
     ($name:ident, $size:ty) => {
         #[derive(Default, Copy, Clone, PartialEq, Eq, Debug, Ord, PartialOrd)]

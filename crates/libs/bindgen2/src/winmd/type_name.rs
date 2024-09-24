@@ -1,5 +1,3 @@
-#![allow(non_upper_case_globals)]
-
 #[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub struct TypeName(pub &'static str, pub &'static str);
 

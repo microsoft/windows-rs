@@ -66,11 +66,13 @@ impl Type {
     }
 
     /// Converts the `Type` to an equivalent `const` variant if appropriate.
-    pub fn to_const_type(self) -> Self {
+    pub fn into_const_type(self) -> Self {
         match self {
-            Self::MutPtr(kind, pointers) => Self::MutPtr(Box::new(kind.to_const_type()), pointers),
+            Self::MutPtr(kind, pointers) => {
+                Self::MutPtr(Box::new(kind.into_const_type()), pointers)
+            }
             Self::ConstPtr(kind, pointers) => {
-                Self::ConstPtr(Box::new(kind.to_const_type()), pointers)
+                Self::ConstPtr(Box::new(kind.into_const_type()), pointers)
             }
             Self::Name(TypeName::PSTR) => Self::Const(TypeName::PSTR),
             Self::Name(TypeName::PWSTR) => Self::Const(TypeName::PWSTR),
@@ -91,7 +93,7 @@ impl Type {
     }
 
     /// Converts a mutable pointer type, if appropriate, to a const pointer type.
-    pub fn to_const_ptr(self) -> Self {
+    pub fn into_const_ptr(self) -> Self {
         match self {
             Self::MutPtr(kind, pointers) => Self::ConstPtr(kind, pointers),
             _ => self,

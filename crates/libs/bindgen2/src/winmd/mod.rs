@@ -1,8 +1,4 @@
-#![doc = include_str!("../readme.md")]
-#![doc(hidden)]
-
-use std::cmp::Ordering;
-use std::collections::*;
+use super::*;
 
 mod attributes;
 mod bindings;

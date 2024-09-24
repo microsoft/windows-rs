@@ -18,20 +18,18 @@ Read metadata as needed:
 ```rust,no_run
 use windows_metadata::*;
 
-fn main() {
-    let bytes = std::fs::read(r#"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd"#)
-        .expect("File not found");
+let bytes = std::fs::read(r#"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd"#)
+    .expect("File not found");
 
-    let file = File::new(bytes).expect("Invalid metadata");
+let file = File::new(bytes).expect("Invalid metadata");
 
-    let reader = Reader::new(vec![file]);
+let reader = Reader::new(vec![file]);
 
-    for def in reader.get_type_def("Windows.Foundation", "IAsyncInfo") {
-        println!("{}", def.name());
+for def in reader.get_type_def("Windows.Foundation", "IAsyncInfo") {
+    println!("{}", def.name());
 
-        for method in def.methods() {
-            println!("{}", method.name());
-        }
+    for method in def.methods() {
+        println!("{}", method.name());
     }
 }
 ```
