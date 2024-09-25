@@ -1,21 +1,25 @@
 #![doc = include_str!("../readme.md")]
-#![allow(non_upper_case_globals, clippy::enum_variant_names)]
+#![allow(
+    non_upper_case_globals,
+    clippy::enum_variant_names,
+    clippy::upper_case_acronyms
+)]
 // TODO: remove this once bindgen2 is up and running
 #![allow(dead_code)]
 
+mod filter;
 mod io;
 mod panic;
+mod tree;
 mod winmd;
 mod writer;
-mod tree;
-mod filter;
 
+use filter::Filter;
 use panic::panic;
 use std::cmp::Ordering;
 use std::collections::*;
-use writer::Writer;
 use tree::Tree;
-use filter::Filter;
+use writer::Writer;
 
 /// The Windows code generator.
 pub fn bindgen<I, S>(args: I)
@@ -68,7 +72,7 @@ where
         panic("cannot combine `--package` and `--flatten` options");
     }
 
-    let Some(output) = output.map(|output|output.to_string()) else {
+    let Some(output) = output.map(|output| output.to_string()) else {
         panic("one `--out` is required");
     };
 

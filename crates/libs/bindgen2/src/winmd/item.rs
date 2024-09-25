@@ -63,3 +63,28 @@ pub struct CppFn {
     pub def: TypeDef,
     pub method: MethodDef,
 }
+
+impl Item {
+    // pub fn type_name(&self) -> TypeName {
+    //     match self {
+    //         Self::Class(item) => item.def.type_name(),
+    //         Self::Delegate(item) => item.def.type_name(),
+    //         Self::Enum(item) => item.def.type_name(),
+    //         Self::Interface(item) => item.def.type_name(),
+    //         Self::Struct(item) => item.def.type_name(),
+
+    //         Self::CppConst(item) => TypeName(item.def.namespace(), item.field.name()),
+    //         Self::CppDelegate(item) => item.def.type_name(),
+    //         Self::CppEnum(item) => item.def.type_name(),
+    //         Self::CppFn(item) => TypeName(item.def.namespace(), item.method.name()),
+    //         Self::CppInterface(item) => item.def.type_name(),
+    //         Self::CppStruct(item) => item.def.type_name(),
+    //     }
+    // }
+
+    // TODO: after this is done, build a new filter with addition type names?
+    // Also use for building cfg attributes for writer.package
+    // pub fn dependencies(&self, set: &mut HashSet<Type>) {
+
+    // }
+}
