@@ -7,18 +7,13 @@ mod io;
 mod panic;
 mod winmd;
 mod writer;
+mod tree;
 
 use panic::panic;
 use std::cmp::Ordering;
 use std::collections::*;
-
-enum ArgKind {
-    None,
-    Input,
-    Output,
-    Filter,
-    Config,
-}
+use writer::Writer;
+use tree::Tree;
 
 /// The Windows code generator.
 pub fn bindgen<I, S>(args: I)
@@ -32,7 +27,8 @@ where
     let mut input = Vec::new();
     let mut include = Vec::new();
     let mut exclude = Vec::new();
-    let mut config = HashMap::new();
+    let mut flatten = false;
+    let mut package = false;
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -44,7 +40,8 @@ where
                 "--in" => kind = ArgKind::Input,
                 "--out" => kind = ArgKind::Output,
                 "--filter" => kind = ArgKind::Filter,
-                "--config" => kind = ArgKind::Config,
+                "--flatten" => flatten = true,
+                "--package" => package = true,
                 _ => panic("invalid option"),
             },
             ArgKind::Output => {
@@ -62,17 +59,14 @@ where
                     include.push(arg.as_str());
                 }
             }
-            ArgKind::Config => {
-                if let Some((key, value)) = arg.split_once('=') {
-                    config.insert(key, value);
-                } else {
-                    config.insert(arg, "");
-                }
-            }
         }
     }
 
-    let Some(_output) = output else {
+    if package && flatten {
+        panic("cannot combine `--package` and `--flatten` options");
+    }
+
+    let Some(output) = output.map(|output|output.to_string()) else {
         panic("one `--out` is required");
     };
 
@@ -85,6 +79,23 @@ where
     let reader = winmd::Reader::new(expand_input(&input));
     include.iter().for_each(|path| verify_filter(reader, path));
     exclude.iter().for_each(|path| verify_filter(reader, path));
+
+    let tree = Tree::new(reader, &include, &exclude);
+
+    let writer = Writer {
+        output,
+        flatten,
+        package,
+    };
+
+    writer.write(tree)
+}
+
+enum ArgKind {
+    None,
+    Input,
+    Output,
+    Filter,
 }
 
 fn verify_filter(reader: &winmd::Reader, filter: &str) {
