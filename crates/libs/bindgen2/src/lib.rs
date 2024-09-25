@@ -8,12 +8,14 @@ mod panic;
 mod winmd;
 mod writer;
 mod tree;
+mod filter;
 
 use panic::panic;
 use std::cmp::Ordering;
 use std::collections::*;
 use writer::Writer;
 use tree::Tree;
+use filter::Filter;
 
 /// The Windows code generator.
 pub fn bindgen<I, S>(args: I)
@@ -80,7 +82,8 @@ where
     include.iter().for_each(|path| verify_filter(reader, path));
     exclude.iter().for_each(|path| verify_filter(reader, path));
 
-    let tree = Tree::new(reader, &include, &exclude);
+    let filter = Filter::new(&include, &exclude);
+    let tree = Tree::new(reader, &filter, flatten);
 
     let writer = Writer {
         output,
