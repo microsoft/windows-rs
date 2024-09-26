@@ -8,13 +8,17 @@ pub struct Tree {
 }
 
 impl Tree {
-    pub fn new(reader: &winmd::Reader, filter: &Filter) -> Self {
+    pub fn new(reader: &winmd::Reader, filter: &Filter, include_dependencies: bool) -> Self {
         let mut tree = Tree::with_namespace("");
 
         for namespace in reader.keys() {
             if filter.includes_namespace(namespace) {
                 tree.insert_namespace(reader, filter, namespace, 0);
             }
+        }
+
+        if include_dependencies {
+
         }
 
         tree
@@ -54,15 +58,5 @@ impl Tree {
         }
 
         tree
-    }
-
-    // TODO: This function takes the tree and expands it to include required dependencies.
-    pub fn with_dependencies(self) -> Self {
-        self
-    }
-
-    // TODO: this should be used when the --flatten option is requested to avoid module nesting of output
-    pub fn flatten(self) -> Self {
-        self
     }
 }

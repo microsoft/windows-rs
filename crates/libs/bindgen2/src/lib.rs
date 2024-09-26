@@ -84,13 +84,9 @@ where
 
     let reader = winmd::Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
-    let mut tree = Tree::new(reader, &filter);
+    let tree = Tree::new(reader, &filter, !package);
 
-    if flatten {
-        tree = tree.flatten();
-    }
-
-    dbg!(&filter);
+    dbg!(&tree);
 
     let writer = Writer {
         output,
