@@ -3,19 +3,28 @@ use super::*;
 #[derive(Debug)]
 pub struct Tree {
     pub namespace: &'static str,
-    pub nested: HashMap<&'static str, Tree>,
+    pub nested: HashMap<&'static str, Self>,
     pub items: HashSet<&'static str>,
 }
 
 impl Tree {
     pub fn new(reader: &winmd::Reader, filter: &Filter, include_dependencies: bool) -> Self {
-        let mut tree = Tree::with_namespace("");
+        let mut tree = Self::with_namespace("");
         let mut dependencies = HashMap::new();
-        let dependencies = &include_dependencies.then(|| &mut dependencies);
 
         for namespace in reader.keys() {
             if filter.includes_namespace(namespace) {
-                tree.insert_namespace(reader, filter, dependencies, namespace, 0);
+                let tree = tree.insert_namespace(namespace);
+
+                for name in reader[namespace].keys() {
+                    if filter.includes_type_name(namespace, name) {
+                        tree.items.insert(name);
+
+                        if include_dependencies {
+                            reader.dependencies(namespace, name, &mut dependencies);
+                        }
+                    }
+                }
             }
         }
 
@@ -38,52 +47,29 @@ impl Tree {
         }
     }
 
-    fn insert_namespace(
-        &mut self,
-        reader: &winmd::Reader,
-        filter: &Filter,
-        dependencies: &Option<&mut HashMap<&'static str, HashSet<&'static str>>>,
-        namespace: &'static str,
-        pos: usize,
-    ) {
-        if let Some(next) = namespace[pos..].find('.') {
-            let next = pos + next;
-            self.nested
-                .entry(&namespace[pos..next])
-                .or_insert_with(|| Self::with_namespace(&namespace[..next]))
-                .insert_namespace(reader, filter, dependencies, namespace, next + 1);
-        } else {
-            let tree = self
-                .nested
-                .entry(&namespace[pos..])
-                .or_insert_with(|| Self::with_namespace(namespace));
+    fn insert_namespace(&mut self, namespace: &'static str) -> &mut Self {
+        fn insert_namespace<'a>(
+            parent: &'a mut Tree,
+            namespace: &'static str,
+            pos: usize,
+        ) -> &'a mut Tree {
+            if let Some(next) = namespace[pos..].find('.') {
+                let next = pos + next;
 
-            for name in reader[namespace].keys() {
-                if filter.includes_type_name(namespace, name) {
-                    tree.items.insert(name);
+                let parent = parent
+                    .nested
+                    .entry(&namespace[pos..next])
+                    .or_insert_with(|| Tree::with_namespace(&namespace[..next]));
 
-                    // if let Some(dependencies) = dependencies {
-                    //     // TODO: ask reader for dependencies of item
-                    // }
-                }
+                insert_namespace(parent, namespace, next + 1)
+            } else {
+                parent
+                    .nested
+                    .entry(&namespace[pos..])
+                    .or_insert_with(|| Tree::with_namespace(namespace))
             }
         }
+
+        insert_namespace(self, namespace, 0)
     }
-
-    // fn insert_dependency(&mut self, namespace: &'static str, pos: usize, name: &'static str) {
-    //     let tree = if let Some(next) = namespace[pos..].find('.') {
-    //         let next = pos + next;
-    //         self.nested
-    //             .entry(&namespace[pos..next])
-    //             .or_insert_with(|| Self::with_namespace(&namespace[..next]))
-    //             .insert_dependency(, namespace, next + 1, name)
-    //     } else {
-    //         self.nested
-    //             .entry(&namespace[pos..])
-    //             .or_insert_with(|| Self::with_namespace(namespace))
-    //     };
-
-    //     tree.items.insert(name);
-    //     tree
-    // }
 }
