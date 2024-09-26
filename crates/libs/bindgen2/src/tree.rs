@@ -94,7 +94,7 @@ fn item_dependencies(item: &winmd::Item, dependencies: &mut Dependencies) {
     }
 }
 
-fn class_dependencies(def: winmd::TypeDef, dependencies: &mut Dependencies) {
+fn class_dependencies(_def: winmd::TypeDef, _dependencies: &mut Dependencies) {
 
 }
 
@@ -115,11 +115,11 @@ fn struct_dependencies(_def: winmd::TypeDef, _dependencies: &mut Dependencies) {
 }
 
 fn cpp_struct_dependencies(_item: &winmd::CppStruct, _dependencies: &mut Dependencies) {
-
+    // TODO: call struct_dependencies recursively for nested structs
 }
 
 fn cpp_fn_dependencies(_item: &winmd::CppFn, _dependencies: &mut Dependencies) {
-
+    
 }
 
 fn cpp_const_dependencies(_item: &winmd::CppConst, _dependencies: &mut Dependencies) {
