@@ -70,7 +70,7 @@ impl Type {
         }
     }
 
-    pub fn to_underlying_type(&self) -> Self {
+    fn to_underlying_type(&self) -> Self {
         match self {
             Self::PtrMut(ty, _) => *ty.clone(),
             Self::PtrConst(ty, _) => *ty.clone(),
@@ -78,6 +78,7 @@ impl Type {
             Self::Array(ty) => *ty.clone(),
             Self::ArrayRef(ty) => *ty.clone(),
             Self::ConstRef(ty) => *ty.clone(),
+            Self::PrimitiveOrEnum(_, def) => Self::TypeDef(*def, vec![]),
             _ => self.clone(),
         }
     }
@@ -113,9 +114,14 @@ impl Type {
     //         return;
     //     }
 
-    //     let Self::TypeDef(def, generics) = ty else {
-    //         return;
-    //     }
+    //     // TODO: maybe self.item() or self.type_name()
 
+    //     let 
+    //         Self::TypeDef(def, generics) = ty else {
+    //             return;
+    //         };
+
+    //         // TODO: get the `Item` from the reader again to be able to retrieve the nested types etc.
+    //     }
     // }
 }

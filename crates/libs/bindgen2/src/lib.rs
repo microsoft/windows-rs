@@ -87,7 +87,13 @@ where
     exclude.iter().for_each(|path| verify_filter(reader, path));
 
     let filter = Filter::new(&include, &exclude);
-    let tree = Tree::new(reader, &filter, flatten);
+    let mut tree = Tree::new(reader, &filter);
+
+    if flatten {
+        tree = tree.flatten();
+    }
+
+    dbg!(&tree);
 
     let writer = Writer {
         output,
@@ -95,7 +101,7 @@ where
         package,
     };
 
-    writer.write(tree)
+    writer.write(&tree)
 }
 
 enum ArgKind {

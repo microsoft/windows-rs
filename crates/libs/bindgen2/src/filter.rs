@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct Filter(Vec<(String, bool)>);
 
 impl Filter {

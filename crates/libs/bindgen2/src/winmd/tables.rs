@@ -523,6 +523,10 @@ impl TypeDef {
     //         _ => 4,
     //     }
     // }
+
+    // pub fn dependencies(&self, set: &mut HashSet<Type>) {
+
+    // }
 }
 
 impl TypeRef {
