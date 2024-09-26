@@ -83,17 +83,14 @@ where
     }
 
     let reader = winmd::Reader::new(expand_input(&input));
-    include.iter().for_each(|path| verify_filter(reader, path));
-    exclude.iter().for_each(|path| verify_filter(reader, path));
-
-    let filter = Filter::new(&include, &exclude);
+    let filter = Filter::new(reader, &include, &exclude);
     let mut tree = Tree::new(reader, &filter);
 
     if flatten {
         tree = tree.flatten();
     }
 
-    dbg!(&tree);
+    dbg!(&filter);
 
     let writer = Writer {
         output,
@@ -109,22 +106,6 @@ enum ArgKind {
     Input,
     Output,
     Filter,
-}
-
-fn verify_filter(reader: &winmd::Reader, filter: &str) {
-    if reader.with_namespace(filter).next().is_some() {
-        return;
-    }
-
-    let is_empty = if let Some((namespace, name)) = filter.rsplit_once('.') {
-        reader.with_full_name(namespace, name).next().is_none()
-    } else {
-        reader.with_name(filter).is_empty()
-    };
-
-    if is_empty {
-        panic::with_path("invalid type filter", filter)
-    }
 }
 
 fn expand_args<I, S>(args: I) -> Vec<String>

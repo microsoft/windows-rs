@@ -28,7 +28,13 @@ impl Tree {
         }
     }
 
-    fn insert_namespace(&mut self,  reader: &winmd::Reader, filter:&Filter, namespace: &'static str, pos: usize) -> &mut Self {
+    fn insert_namespace(
+        &mut self,
+        reader: &winmd::Reader,
+        filter: &Filter,
+        namespace: &'static str,
+        pos: usize,
+    ) -> &mut Self {
         let tree = if let Some(next) = namespace[pos..].find('.') {
             let next = pos + next;
             self.nested

@@ -91,7 +91,7 @@ impl Item {
     //         Self::Enum(item) => item.def.dependencies(set),
     //         Self::Interface(item) => item.def.dependencies(set),
     //         Self::Struct(item) => item.def.dependencies(set),
-             
+
     //         Self::CppConst(item) => todo!(),
     //         Self::CppDelegate(item) => item.def.dependencies(set),
     //         Self::CppEnum(item) => item.def.dependencies(set),

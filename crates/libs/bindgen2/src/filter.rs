@@ -1,17 +1,21 @@
+use super::*;
+
 #[derive(Debug)]
 pub struct Filter(Vec<(String, bool)>);
 
 impl Filter {
-    pub fn new(include: &[&str], exclude: &[&str]) -> Self {
+    pub fn new(reader: &winmd::Reader, include: &[&str], exclude: &[&str]) -> Self {
         let mut rules = vec![];
 
-        for include in include {
-            rules.push((include.to_string(), true));
+        for filter in include {
+            push_filter(reader, &mut rules, filter, true);
         }
 
-        for exclude in exclude {
-            rules.push((exclude.to_string(), false));
+        for filter in exclude {
+            push_filter(reader, &mut rules, filter, false)
         }
+
+        debug_assert!(!rules.is_empty());
 
         rules.sort_unstable_by(|left, right| {
             let left = (left.0.len(), !left.1);
@@ -23,8 +27,6 @@ impl Filter {
     }
 
     pub fn includes_namespace(&self, namespace: &str) -> bool {
-        debug_assert!(!self.0.is_empty());
-
         for rule in &self.0 {
             if rule.1 {
                 // include
@@ -46,8 +48,6 @@ impl Filter {
     }
 
     pub fn includes_type_name(&self, namespace: &str, name: &str) -> bool {
-        debug_assert!(!self.0.is_empty());
-
         for rule in &self.0 {
             if match_type_name(&rule.0, namespace, name) {
                 return rule.1;
@@ -55,6 +55,33 @@ impl Filter {
         }
 
         false
+    }
+}
+
+fn push_filter(
+    reader: &winmd::Reader,
+    rules: &mut Vec<(String, bool)>,
+    filter: &str,
+    include: bool,
+) {
+    let len = rules.len();
+
+    if reader.with_namespace(filter).next().is_some() {
+        rules.push((filter.to_string(), include));
+    } else if let Some((namespace, name)) = filter.rsplit_once('.') {
+        if reader.with_full_name(namespace, name).next().is_some() {
+            rules.push((filter.to_string(), include));
+        }
+    } else {
+        for (namespace, items) in reader.iter() {
+            if items.get(filter).is_some() {
+                rules.push((format!("{namespace}.{filter}"), include));
+            }
+        }
+    }
+
+    if rules.len() == len {
+        panic::with_path("invalid type filter", filter);
     }
 }
 

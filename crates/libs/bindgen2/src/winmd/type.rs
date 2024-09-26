@@ -116,7 +116,7 @@ impl Type {
 
     //     // TODO: maybe self.item() or self.type_name()
 
-    //     let 
+    //     let
     //         Self::TypeDef(def, generics) = ty else {
     //             return;
     //         };
