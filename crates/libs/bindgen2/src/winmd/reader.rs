@@ -145,12 +145,4 @@ impl Reader {
             .flat_map(|map| map.values())
             .flatten()
     }
-
-    pub fn dependencies(
-        &self,
-        namespace: &str,
-        name: &str,
-        dependencies: &mut HashMap<&'static str, HashSet<&'static str>>,
-    ) {
-    }
 }
