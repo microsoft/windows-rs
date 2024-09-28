@@ -65,3 +65,7 @@ pub enum TypeKind {
     Struct,
     Delegate,
 }
+
+// TODO: for primitive dependencies (e.g. HSTRING, GUID, IUnknown) use the root namespace of ""
+// so that standalone code generation can generate them as needed.
+type Dependencies = HashMap<&'static str, HashSet<&'static str>>;

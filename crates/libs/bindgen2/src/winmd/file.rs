@@ -667,6 +667,11 @@ impl File {
     pub(crate) fn table<R: AsRow>(&'static self) -> RowIterator<R> {
         RowIterator::new(self, 0..self.tables[R::TABLE].len)
     }
+
+    pub(crate) fn reader(&self) -> &'static Reader {
+        // Safety: At this point the File is already pointing to a valid Reader.
+        unsafe { &*self.reader }
+    }
 }
 
 fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Option<&IMAGE_SECTION_HEADER> {

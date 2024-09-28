@@ -97,7 +97,7 @@ impl Reader {
                             fn make(
                                 def: TypeDef,
                                 nested: &HashMap<TypeDef, Vec<TypeDef>>,
-                            ) -> CppStruct {
+                            ) -> Item {
                                 let mut item = CppStruct {
                                     def,
                                     nested: HashMap::new(),
@@ -107,10 +107,10 @@ impl Reader {
                                     item.nested.insert(def.name(), make(*def, nested));
                                 }
 
-                                item
+                                Item::CppStruct(item)
                             }
 
-                            insert(items, name, Item::CppStruct(make(def, &nested)));
+                            insert(items, name, make(def, &nested));
                         }
                     };
                 }

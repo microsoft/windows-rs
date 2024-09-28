@@ -245,7 +245,7 @@ impl ClassLayout {
 
 impl Constant {
     pub fn ty(&self) -> Type {
-        Type::from_code(self.usize(0)).expect("Constant type not found")
+        Type::from_element_type(self.usize(0)).unwrap_or_else(||panic("`Constant` type invalid"))
     }
 
     pub fn value(&self) -> Value {
@@ -285,6 +285,20 @@ impl Field {
         self.file()
             .equal_range(1, HasConstant::Field(*self).encode())
             .next()
+    }
+
+    pub fn ty(&self, enclosing: Option<&'static CppStruct>) -> Type {
+        let mut blob = self.blob(2);
+        blob.read_usize();
+        blob.read_modifiers();
+
+        let ty = Type::from_blob(&mut blob, enclosing, &[]);
+
+        if self.has_attribute("ConstAttribute") {
+            ty.to_const_type().to_const_ptr()
+        } else {
+            ty
+        }
     }
 }
 
