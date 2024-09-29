@@ -4,6 +4,7 @@ mod attributes;
 mod bindings;
 mod blob;
 mod codes;
+mod dependencies;
 mod file;
 mod item;
 mod reader;
@@ -16,6 +17,7 @@ pub use attributes::*;
 use bindings::*;
 use blob::*;
 pub use codes::*;
+pub use dependencies::*;
 pub use file::*;
 pub use item::*;
 pub use r#type::*;
@@ -65,7 +67,3 @@ pub enum TypeKind {
     Struct,
     Delegate,
 }
-
-// TODO: for primitive dependencies (e.g. HSTRING, GUID, IUnknown) use the root namespace of ""
-// so that standalone code generation can generate them as needed.
-type Dependencies = HashMap<&'static str, HashSet<&'static str>>;

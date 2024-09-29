@@ -62,7 +62,6 @@ impl Type {
         }
     }
 
-    
     pub fn from_ref(
         code: TypeDefOrRef,
         enclosing: Option<&'static CppStruct>,
@@ -84,7 +83,9 @@ impl Type {
             }
         }
 
-        if let Some(item) = code.reader().with_full_name(full_name.namespace(), full_name.name())
+        if let Some(item) = code
+            .reader()
+            .with_full_name(full_name.namespace(), full_name.name())
             .next()
         {
             Type::Item(item)
@@ -167,7 +168,9 @@ impl Type {
                 blob.read_usize(); // ELEMENT_TYPE_VALUETYPE or ELEMENT_TYPE_CLASS
 
                 let type_name = blob.decode::<TypeDefOrRef>().type_name();
-                let def = blob.reader().with_full_name(type_name.namespace(), type_name.name())
+                let def = blob
+                    .reader()
+                    .with_full_name(type_name.namespace(), type_name.name())
                     .next()
                     .unwrap_or_else(|| panic!("Type not found: {}", type_name));
                 let mut args = Vec::with_capacity(blob.read_usize());
@@ -188,19 +191,6 @@ impl Type {
             Self::PtrConst(ty, pointers) => Self::PtrConst(Box::new(ty.to_const_type()), *pointers),
             Self::PSTR => Self::PCSTR,
             Self::PWSTR => Self::PCWSTR,
-            _ => self.clone(),
-        }
-    }
-
-    fn to_underlying_type(&self) -> Self {
-        match self {
-            Self::PtrMut(ty, _) => *ty.clone(),
-            Self::PtrConst(ty, _) => *ty.clone(),
-            Self::ArrayFixed(ty, _) => *ty.clone(),
-            Self::Array(ty) => *ty.clone(),
-            Self::ArrayRef(ty) => *ty.clone(),
-            Self::ConstRef(ty) => *ty.clone(),
-            Self::PrimitiveOrEnum(_, ty) => *ty.clone(),
             _ => self.clone(),
         }
     }
@@ -229,29 +219,53 @@ impl Type {
         }
     }
 
-    pub fn type_name(&self) -> TypeName {
-        match self {
-            Self::Item(item) => item.type_name(),
-            Self::String => TypeName("System", "String"),
-            Self::Object => TypeName("System", "Object"),
-            Self::PSTR => TypeName("System", "PSTR"),
-            Self::PCSTR => TypeName("System", "PCSTR"),
-            Self::PWSTR => TypeName("System", "PWSTR"),
-            Self::PCWSTR => TypeName("System", "PCWSTR"),
-            rest => TypeName("System", "Other"),
-        }
-    }
-
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        let ty = self.to_underlying_type();
-        let full_name = ty.type_name();
+        // First get the underlying type.
+        let ty = match self {
+            Self::PtrMut(ty, _) => ty,
+            Self::PtrConst(ty, _) => ty,
+            Self::ArrayFixed(ty, _) => ty,
+            Self::Array(ty) => ty,
+            Self::ArrayRef(ty) => ty,
+            Self::ConstRef(ty) => ty,
+            Self::PrimitiveOrEnum(_, ty) => ty,
+            _ => self,
+        };
 
-        if !dependencies.entry(full_name.namespace()).or_default().insert(full_name.name()) {
-            return;
-        }
-
+        // Then insert its name into the dependencies map.
         match ty {
-            Self::Item(item) => item.dependencies(dependencies),
+            Self::String => {
+                dependencies.insert("System", "String");
+            }
+            Self::Object => {
+                dependencies.insert("System", "Object");
+            }
+            Self::PSTR => {
+                dependencies.insert("System", "PSTR");
+            }
+            Self::PCSTR => {
+                dependencies.insert("System", "PCSTR");
+            }
+            Self::PWSTR => {
+                dependencies.insert("System", "PWSTR");
+            }
+            Self::PCWSTR => {
+                dependencies.insert("System", "PCWSTR");
+            }
+            Self::Item(item) => {
+                // Only chase dependencies if it was not previously added.
+                if dependencies.insert(item.namespace(), item.name()) {
+                    item.dependencies(dependencies);
+                }
+            }
+            Self::Generic(item, generics) => {
+                // Only chase dependencies if it was not previously added.
+                if dependencies.insert(item.namespace(), item.name()) {
+                    item.dependencies(dependencies);
+                }
+
+                generics.iter().for_each(|ty| ty.dependencies(dependencies));
+            }
             _ => {}
         }
     }

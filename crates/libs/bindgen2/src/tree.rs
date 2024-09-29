@@ -8,9 +8,13 @@ pub struct Tree {
 }
 
 impl Tree {
-    pub fn new(reader: &'static winmd::Reader, filter: &Filter, include_dependencies: bool) -> Self {
+    pub fn new(
+        reader: &'static winmd::Reader,
+        filter: &Filter,
+        include_dependencies: bool,
+    ) -> Self {
         let mut tree = Self::with_namespace("");
-        let mut dependencies = HashMap::new();
+        let mut dependencies = winmd::Dependencies::new();
 
         for namespace in reader.keys() {
             if filter.includes_namespace(namespace) {
@@ -31,7 +35,7 @@ impl Tree {
         }
 
         if include_dependencies {
-            for (namespace, names) in &dependencies {
+            for (namespace, names) in dependencies.iter() {
                 for name in names {
                     //println!("dependency: {namespace}.{name}");
                     tree.insert_namespace(namespace).items.insert(name);
@@ -76,6 +80,3 @@ impl Tree {
         insert_namespace(self, namespace, 0)
     }
 }
-
-
-

@@ -94,10 +94,7 @@ impl Reader {
                             insert(items, name, Item::CppInterface(CppInterface { def }));
                         }
                         TypeKind::Struct => {
-                            fn make(
-                                def: TypeDef,
-                                nested: &HashMap<TypeDef, Vec<TypeDef>>,
-                            ) -> Item {
+                            fn make(def: TypeDef, nested: &HashMap<TypeDef, Vec<TypeDef>>) -> Item {
                                 let mut item = CppStruct {
                                     def,
                                     nested: HashMap::new(),
