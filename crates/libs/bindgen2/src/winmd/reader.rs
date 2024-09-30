@@ -42,6 +42,12 @@ impl Reader {
                     continue;
                 }
 
+                if def.has_attribute("ApiContractAttribute")  {
+                    continue;
+                }
+
+                // TODO: skip over attributes too?
+
                 let items = reader.0.entry(namespace).or_default();
                 let name = def.name();
                 let category = Category::new(def);

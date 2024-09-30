@@ -37,11 +37,14 @@ where
     let mut input = Vec::new();
     let mut include = Vec::new();
     let mut exclude = Vec::new();
+
     let mut flat = false;
-    let mut package = false;
+    let mut minimal = false;
     let mut no_allow = false;
     let mut no_comment = false;
+    let mut package = false;
     let mut rustfmt = String::new();
+    let mut sys = false;
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -55,9 +58,11 @@ where
                 "--filter" => kind = ArgKind::Filter,
                 "--rustfmt" => kind = ArgKind::Rustfmt,
                 "--flat" => flat = true,
-                "--package" => package = true,
+                "--minimal" => minimal = true,
                 "--no-allow" => no_allow = true,
                 "--no-comment" => no_comment = true,
+                "--package" => package = true,
+                "--sys" => sys = true,
                 _ => panic!("windows-bindgen: invalid option `{arg}`"),
             },
             ArgKind::Output => {
@@ -98,14 +103,19 @@ where
     let tree = NameTree::new(reader, &filter, !package);
     let items = ItemTree::new(reader, &tree);
 
+    // TODO: perhaps pass "name" tree to writer so that it can further use it to determine whether optional dependencies should be included
+    // such as for interface methods.
+
     let writer = Writer {
         reader,
         output,
         flat,
-        package,
+        minimal,
         no_allow,
         no_comment,
+        package,
         rustfmt,
+        sys
     };
 
     writer.write(&items)
