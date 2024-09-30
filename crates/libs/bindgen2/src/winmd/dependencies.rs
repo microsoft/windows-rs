@@ -1,8 +1,5 @@
 use super::*;
 
-// TODO: for primitive dependencies (e.g. HSTRING, GUID, IUnknown) use the root namespace of ""
-// so that standalone code generation can generate them as needed.
-
 type Map = HashMap<&'static str, HashSet<&'static str>>;
 
 pub struct Dependencies(Map);
@@ -12,7 +9,7 @@ impl Dependencies {
         Self(Map::new())
     }
 
-    pub fn insert(&mut self, namespace: &'static str, name: &'static str) -> bool {
+    fn insert(&mut self, namespace: &'static str, name: &'static str) -> bool {
         self.entry(namespace).or_default().insert(name)
     }
 }
@@ -90,6 +87,7 @@ impl Type {
     }
 }
 
+// TODO: and how to deal with limiting dependencies from undesired interface methods?
 impl Signature {
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         self.return_type.0.dependencies(dependencies);
@@ -100,7 +98,6 @@ impl Signature {
 }
 
 impl Item {
-    // TODO: this really should be on the Iterm,TypeDef,MEthodDef, etc so that bindgen can use it for generating cfg attributes easily.
     pub fn dependencies(&'static self, dependencies: &mut Dependencies) {
         match self {
             winmd::Item::Class(item) => item.dependencies(dependencies),
@@ -119,19 +116,27 @@ impl Item {
 }
 
 impl Class {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
+    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
+        panic!("windows-bindgen")
+    }
 }
 
 impl Delegate {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
+    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
+        panic!("windows-bindgen")
+    }
 }
 
 impl Enum {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
+    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
+        panic!("windows-bindgen")
+    }
 }
 
 impl Interface {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
+    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
+        panic!("windows-bindgen")
+    }
 }
 
 impl Struct {
@@ -149,11 +154,15 @@ impl CppConst {
 }
 
 impl CppDelegate {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
+    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
+        panic!("windows-bindgen")
+    }
 }
 
 impl CppEnum {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
+    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
+        panic!("windows-bindgen")
+    }
 }
 
 impl CppFn {
@@ -163,7 +172,9 @@ impl CppFn {
 }
 
 impl CppInterface {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
+    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
+        panic!("windows-bindgen")
+    }
 }
 
 impl CppStruct {

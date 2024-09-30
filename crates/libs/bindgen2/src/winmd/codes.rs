@@ -15,7 +15,7 @@ macro_rules! code {
                 let (kind, row) = (code & ((1 << $size) - 1), (code >> $size) - 1);
                 match kind {
                     $($code => Self::$table($table(Row::new(file, row))),)*
-                    rest => unimplemented!("{rest:?}"),
+                    rest => panic!("windows-bindgen: {rest:?}"),
                 }
             }
         }
@@ -86,7 +86,7 @@ impl TypeDefOrRef {
         match self {
             Self::TypeDef(row) => row.name(),
             Self::TypeRef(row) => row.name(),
-            rest => unimplemented!("{rest:?}"),
+            rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
 
@@ -94,7 +94,7 @@ impl TypeDefOrRef {
         match self {
             Self::TypeDef(row) => row.namespace(),
             Self::TypeRef(row) => row.namespace(),
-            rest => unimplemented!("{rest:?}"),
+            rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
 
@@ -105,20 +105,4 @@ impl TypeDefOrRef {
             Self::TypeSpec(row) => row.reader(),
         }
     }
-
-    // pub fn type_def(&self) -> TypeDef {
-    //     match self {
-    //         Self::TypeDef(def) => *def,
-    //         Self::TypeRef(def) => def.type_def(),
-    //         rest => unimplemented!("{rest:?}"),
-    //     }
-    // }
-
-    // pub fn ty(&self, generics: &[Type]) -> Type {
-    //     match self {
-    //         Self::TypeDef(def) => Type::TypeDef(*def, vec![]),
-    //         Self::TypeRef(def) => Type::TypeDef(def.type_def(), vec![]),
-    //         Self::TypeSpec(spec) => spec.ty(generics),
-    //     }
-    // }
 }

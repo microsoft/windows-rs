@@ -97,16 +97,3 @@ impl Item {
         }
     }
 }
-
-//
-//
-//
-//
-//
-// TODO: maybe need these *only* on TypeDef so we can chase dependencies through method signatures?
-//
-// TODO: and how to deal with limiting dependencies from undesired interface methods?
-//
-//
-//
-//

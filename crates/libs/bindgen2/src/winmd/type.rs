@@ -201,7 +201,7 @@ impl Type {
 
                 Type::Generic(def, args)
             }
-            rest => unimplemented!("{rest:?}"),
+            rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
 
@@ -235,7 +235,7 @@ impl Type {
             Self::PtrMut(ty, pointers) => Self::PtrMut(ty.clone(), pointers - 1),
             Self::PSTR | Self::PCSTR => Self::U8,
             Self::PWSTR | Self::PCWSTR => Self::U16,
-            rest => unimplemented!("{rest:?}"),
+            rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
 }

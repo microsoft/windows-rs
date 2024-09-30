@@ -190,7 +190,7 @@ impl Attribute {
     //             Type::TypeDef(def, _) => {
     //                 Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type())))
     //             }
-    //             rest => unimplemented!("{rest:?}"),
+    //             rest => panic!("windows-bindgen: {rest:?}"),
     //         };
 
     //         args.push(("", arg));
@@ -219,7 +219,7 @@ impl Attribute {
     //                 name = values.read_str();
     //                 Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type())))
     //             }
-    //             rest => unimplemented!("{rest:?}"),
+    //             rest => panic!("windows-bindgen: {rest:?}"),
     //         };
     //         args.push((name, arg));
     //     }
@@ -258,7 +258,7 @@ impl Constant {
             Type::F32 => Value::F32(blob.read_f32()),
             Type::F64 => Value::F64(blob.read_f64()),
             Type::String => Value::String(blob.read_utf16()),
-            rest => unimplemented!("{rest:?}"),
+            rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
 }
