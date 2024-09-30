@@ -82,13 +82,20 @@ code! { ResolutionScope(2)
 }
 
 impl TypeDefOrRef {
-    pub fn type_name(&self) -> TypeName {
+    
+    pub fn name(&self) -> &'static str {
         match self {
-            Self::TypeDef(row) => row.type_name(),
-            Self::TypeRef(row) => row.type_name(),
+            Self::TypeDef(row) => row.name(),
+            Self::TypeRef(row) => row.name(),
             rest => unimplemented!("{rest:?}"),
-        }
-    }
+        }    }
+
+    pub fn namespace(&self) -> &'static str {
+        match self {
+            Self::TypeDef(row) => row.namespace(),
+            Self::TypeRef(row) => row.namespace(),
+            rest => unimplemented!("{rest:?}"),
+        }    }
 
     pub fn reader(&self) -> &'static Reader {
         match self {

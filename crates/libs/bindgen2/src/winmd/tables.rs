@@ -129,13 +129,13 @@ impl std::fmt::Debug for Param {
 
 impl std::fmt::Debug for TypeDef {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_tuple("TypeDef").field(&self.type_name()).finish()
+        write!(f, "TypeDef({}.{})", self.namespace(), self.name())
     }
 }
 
 impl std::fmt::Debug for TypeRef {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_tuple("TypeRef").field(&self.type_name()).finish()
+        write!(f, "TypeRef({}.{})", self.namespace(), self.name())
     }
 }
 
@@ -158,12 +158,6 @@ impl Attribute {
         let AttributeType::MemberRef(ctor) = self.ty();
         let MemberRefParent::TypeRef(ty) = ctor.parent();
         ty.name()
-    }
-
-    pub fn type_name(&self) -> TypeName {
-        let AttributeType::MemberRef(ctor) = self.ty();
-        let MemberRefParent::TypeRef(ty) = ctor.parent();
-        ty.type_name()
     }
 
     // pub fn args(&self) -> Vec<(&'static str, Value)> {
@@ -440,18 +434,14 @@ impl TypeDef {
         self.str(2)
     }
 
-    pub fn type_name(&self) -> TypeName {
-        TypeName(self.namespace(), self.name())
-    }
-
-    pub fn extends(&self) -> Option<TypeName> {
+    pub fn extends(&self) -> Option<TypeDefOrRef> {
         let extends = self.usize(3);
 
         if extends == 0 {
             return None;
         }
 
-        Some(TypeDefOrRef::decode(self.file(), extends).type_name())
+        Some(TypeDefOrRef::decode(self.file(), extends))
     }
 
     pub fn methods(&self) -> RowIterator<MethodDef> {
@@ -492,12 +482,15 @@ impl TypeDef {
     // }
 
     pub fn kind(&self) -> TypeKind {
-        match self.extends() {
-            None => TypeKind::Interface,
-            Some(TypeName::Enum) => TypeKind::Enum,
-            Some(TypeName::Delegate) => TypeKind::Delegate,
-            Some(TypeName::Struct) => TypeKind::Struct,
-            Some(_) => TypeKind::Class,
+        if let Some(extends) = self.extends() {
+            match TypeName(extends.namespace(), extends.name()) {
+                TypeName::Enum => TypeKind::Enum,
+                TypeName::Delegate => TypeKind::Delegate,
+                TypeName::Struct => TypeKind::Struct,
+                _ => TypeKind::Class,
+            }
+        } else {
+            TypeKind::Interface
         }
     }
 
@@ -550,10 +543,6 @@ impl TypeRef {
 
     pub fn namespace(&self) -> &'static str {
         self.str(2)
-    }
-
-    pub fn type_name(&self) -> TypeName {
-        TypeName(self.namespace(), self.name())
     }
 
     pub fn resolution_scope(&self) -> ResolutionScope {

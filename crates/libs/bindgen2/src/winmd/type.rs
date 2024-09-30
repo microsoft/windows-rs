@@ -72,20 +72,21 @@ impl Type {
             return Self::from_blob_impl(&mut blob, None, generics);
         }
 
-        let full_name = code.type_name();
+        let namespace = code.namespace();
+        let name = code.name();
 
         // TODO: remapping happens here
 
         // TODO: this needs to be deferred via a TypeName's optional nested type name?
         if let Some(outer) = enclosing {
-            if full_name.namespace().is_empty() {
-                return Type::Item(&outer.nested[full_name.name()]);
+            if namespace.is_empty() {
+                return Type::Item(&outer.nested[name]);
             }
         }
 
         if let Some(item) = code
             .reader()
-            .with_full_name(full_name.namespace(), full_name.name())
+            .with_full_name(namespace, name)
             .next()
         {
             Type::Item(item)
@@ -103,7 +104,9 @@ impl Type {
         let is_const = blob
             .read_modifiers()
             .iter()
-            .any(|def| def.type_name() == TypeName::IsConst);
+            .any(|def| {
+                let type_name = TypeName(def.namespace(), def.name());
+                 type_name == TypeName::IsConst} );
 
         // Used by WinRT to indicate an output parameter, but there are other ways to determine this direction so here
         // it is only used to distinguish between slices and heap-allocated arrays.
@@ -167,12 +170,14 @@ impl Type {
             ELEMENT_TYPE_GENERICINST => {
                 blob.read_usize(); // ELEMENT_TYPE_VALUETYPE or ELEMENT_TYPE_CLASS
 
-                let type_name = blob.decode::<TypeDefOrRef>().type_name();
+                let code = blob.decode::<TypeDefOrRef>();
+                let namespace = code.namespace();
+                let name = code.name();
                 let def = blob
                     .reader()
-                    .with_full_name(type_name.namespace(), type_name.name())
+                    .with_full_name(namespace, name)
                     .next()
-                    .unwrap_or_else(|| panic!("Type not found: {}", type_name));
+                    .unwrap_or_else(|| panic!("Type not found: {namespace}.{name}"));
                 let mut args = Vec::with_capacity(blob.read_usize());
 
                 for _ in 0..args.capacity() {
