@@ -182,11 +182,13 @@ fn expand_input(input: &[&str]) -> Vec<winmd::File> {
         paths
             .iter()
             .map(|path| {
-                let bytes = std::fs::read(path)
-                    .unwrap_or_else(|_| panic!("windows-bindgen: failed to read binary file `{path}`"));
+                let bytes = std::fs::read(path).unwrap_or_else(|_| {
+                    panic!("windows-bindgen: failed to read binary file `{path}`")
+                });
 
-                winmd::File::new(bytes)
-                    .unwrap_or_else(|| panic!("windows-bindgen: failed to read .winmd format `{path}`"))
+                winmd::File::new(bytes).unwrap_or_else(|| {
+                    panic!("windows-bindgen: failed to read .winmd format `{path}`")
+                })
             })
             .collect()
     }
