@@ -26,6 +26,7 @@ pub enum Type {
     PWSTR,
     PCWSTR,
     GUID,
+    HRESULT,
 
     Item(&'static Item),
     Generic(&'static Item, Vec<Self>),
@@ -42,6 +43,10 @@ pub enum Type {
 fn remap(namespace: &'static str, name:&'static str) -> Option<Type> {
     match TypeName(namespace, name) {
         TypeName::GUID => Some(Type::GUID),
+        TypeName::HResult => Some(Type::HRESULT),
+        TypeName::HRESULT => Some(Type::HRESULT),
+        TypeName::PSTR => Some(Type::PSTR),
+        TypeName::PWSTR => Some(Type::PWSTR),
         _ => None,
     }
 }

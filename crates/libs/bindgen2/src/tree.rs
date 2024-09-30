@@ -77,6 +77,10 @@ impl Tree {
             }
         }
 
-        insert_namespace(self, namespace, 0)
+        if namespace.is_empty() {
+            self 
+        } else {
+            insert_namespace(self, namespace, 0)
+        }
     }
 }

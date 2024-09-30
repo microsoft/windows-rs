@@ -49,22 +49,28 @@ impl Type {
         // Then insert its name into the dependencies map.
         match ty {
             Self::String => {
-                dependencies.insert("System", "String");
+                dependencies.insert("", "String");
             }
             Self::Object => {
-                dependencies.insert("System", "Object");
+                dependencies.insert("", "Object");
             }
             Self::PSTR => {
-                dependencies.insert("System", "PSTR");
+                dependencies.insert("", "PSTR");
             }
             Self::PCSTR => {
-                dependencies.insert("System", "PCSTR");
+                dependencies.insert("", "PCSTR");
             }
             Self::PWSTR => {
-                dependencies.insert("System", "PWSTR");
+                dependencies.insert("", "PWSTR");
             }
             Self::PCWSTR => {
-                dependencies.insert("System", "PCWSTR");
+                dependencies.insert("", "PCWSTR");
+            }
+            Self::GUID => {
+                dependencies.insert("", "GUID");
+            }
+            Self::HRESULT => {
+                dependencies.insert("", "HRESULT");
             }
             Self::Item(item) => {
                 // Only chase dependencies if it was not previously added.
@@ -137,7 +143,9 @@ impl Struct {
 }
 
 impl CppConst {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+        self.field.ty(None).dependencies(dependencies);
+    }
 }
 
 impl CppDelegate {
