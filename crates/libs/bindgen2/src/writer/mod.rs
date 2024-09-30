@@ -13,11 +13,6 @@ impl Writer {
     pub fn write(&self, tree: &ItemTree) {
         dbg!(tree);
 
-        // TODO: before we write the output, we need to build the complete tree of what's needed.
-        // The tree can then be flattened if self.flatten before the tree is passed to either
-        // write_package or write_file. The tree needs to be populated either with a minimal or complete
-        // set of dependencies.
-
         if self.package {
             self.write_package(tree);
         } else {
@@ -53,7 +48,6 @@ impl Writer {
         todo!()
     }
 
-    // TODO: This should call write_file for each file in the package
     fn write_package(&self, _tree: &ItemTree) {}
 
     fn write_item(&self, item: &'static Item) -> TokenStream {

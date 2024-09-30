@@ -1,16 +1,18 @@
 use super::*;
 
+// This uses BTree rather than Hash as we're getting close to writing the tokens in sorted order.
 #[derive(Debug)]
 pub struct ItemTree {
-    // TODO: need this namespace?
-    pub namespace: &'static str,
     pub nested: BTreeMap<&'static str, Self>,
     pub items: BTreeSet<&'static Item>,
 }
 
 impl ItemTree {
     pub fn new(reader: &'static Reader, tree: &Tree) -> Self {
-        let mut new = Self::with_namespace(tree.namespace);
+        let mut new = Self {
+            nested: BTreeMap::new(),
+            items: BTreeSet::new(),
+        };
 
         for name in &tree.items {
             for item in reader.with_full_name(tree.namespace, name) {
@@ -23,13 +25,5 @@ impl ItemTree {
         }
 
         new
-    }
-
-    fn with_namespace(namespace: &'static str) -> Self {
-        Self {
-            namespace,
-            nested: BTreeMap::new(),
-            items: BTreeSet::new(),
-        }
     }
 }
