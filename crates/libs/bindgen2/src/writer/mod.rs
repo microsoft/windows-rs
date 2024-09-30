@@ -1,5 +1,9 @@
-mod r#struct;
+mod cpp_enum;
+mod cpp_fn;
+mod cpp_struct;
+mod r#enum;
 mod format;
+mod r#struct;
 
 use super::*;
 
@@ -15,8 +19,6 @@ pub struct Writer {
 
 impl Writer {
     pub fn write(&self, tree: &ItemTree) {
-        dbg!(tree);
-
         if self.package {
             self.write_package(tree);
         } else {
@@ -58,7 +60,7 @@ impl Writer {
         for (name, tree) in &tree.nested {
             let name = to_ident(name);
             let nested = self.write_modules(tree);
-            tokens.combine(quote!{ pub mod #name { #nested } });
+            tokens.combine(quote! { pub mod #name { #nested } });
         }
 
         tokens
@@ -69,6 +71,10 @@ impl Writer {
     fn write_item(&self, item: &'static Item) -> TokenStream {
         match item {
             Item::Struct(def) => self.write_struct(def),
+            Item::Enum(def) => self.write_enum(def),
+            Item::CppStruct(def) => self.write_cpp_struct(def),
+            Item::CppEnum(def) => self.write_cpp_enum(def),
+            Item::CppFn(def) => self.write_cpp_fn(def),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }

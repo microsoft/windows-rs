@@ -1,7 +1,7 @@
 use super::*;
 
 impl Writer {
-    pub fn write_struct(&self, def: &Struct) -> TokenStream {
+    pub fn write_cpp_struct(&self, def: &CppStruct) -> TokenStream {
         let name = to_ident(def.def.name());
         quote! { pub struct #name { } }
     }

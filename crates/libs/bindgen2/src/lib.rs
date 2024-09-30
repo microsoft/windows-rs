@@ -10,18 +10,18 @@
 mod filter;
 mod io;
 mod item_tree;
+mod name_tree;
 mod tokens;
-mod tree;
 mod winmd;
 mod writer;
 
 use filter::*;
 use io::*;
 use item_tree::*;
+use name_tree::*;
 use std::cmp::Ordering;
 use std::collections::*;
 use tokens::*;
-use tree::*;
 use winmd::*;
 use writer::*;
 
@@ -95,10 +95,8 @@ where
 
     let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
-    let tree = Tree::new(reader, &filter, !package);
+    let tree = NameTree::new(reader, &filter, !package);
     let items = ItemTree::new(reader, &tree);
-
-    // dbg!(&tree);
 
     let writer = Writer {
         reader,

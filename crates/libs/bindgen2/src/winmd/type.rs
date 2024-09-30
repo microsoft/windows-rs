@@ -196,7 +196,7 @@ impl Type {
                     .unwrap_or_else(|| {
                         panic!("windows-bindgen: type not found: {namespace}.{name}")
                     });
-                    
+
                 let mut args = Vec::with_capacity(blob.read_usize());
 
                 for _ in 0..args.capacity() {

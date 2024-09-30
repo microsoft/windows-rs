@@ -1,13 +1,13 @@
 use super::*;
 
 #[derive(Debug)]
-pub struct Tree {
+pub struct NameTree {
     pub namespace: &'static str,
     pub nested: HashMap<&'static str, Self>,
     pub items: HashSet<&'static str>,
 }
 
-impl Tree {
+impl NameTree {
     pub fn new(reader: &'static Reader, filter: &Filter, include_dependencies: bool) -> Self {
         let mut tree = Self::with_namespace("");
         let mut dependencies = Dependencies::new();
@@ -51,24 +51,24 @@ impl Tree {
 
     fn insert_namespace(&mut self, namespace: &'static str) -> &mut Self {
         fn insert_namespace<'a>(
-            parent: &'a mut Tree,
+            parent: &'a mut NameTree,
             namespace: &'static str,
             pos: usize,
-        ) -> &'a mut Tree {
+        ) -> &'a mut NameTree {
             if let Some(next) = namespace[pos..].find('.') {
                 let next = pos + next;
 
                 let parent = parent
                     .nested
                     .entry(&namespace[pos..next])
-                    .or_insert_with(|| Tree::with_namespace(&namespace[..next]));
+                    .or_insert_with(|| NameTree::with_namespace(&namespace[..next]));
 
                 insert_namespace(parent, namespace, next + 1)
             } else {
                 parent
                     .nested
                     .entry(&namespace[pos..])
-                    .or_insert_with(|| Tree::with_namespace(namespace))
+                    .or_insert_with(|| NameTree::with_namespace(namespace))
             }
         }
 

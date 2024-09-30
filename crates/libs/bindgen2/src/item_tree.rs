@@ -8,7 +8,7 @@ pub struct ItemTree {
 }
 
 impl ItemTree {
-    pub fn new(reader: &'static Reader, tree: &Tree) -> Self {
+    pub fn new(reader: &'static Reader, tree: &NameTree) -> Self {
         let mut new = Self {
             nested: BTreeMap::new(),
             items: BTreeSet::new(),
