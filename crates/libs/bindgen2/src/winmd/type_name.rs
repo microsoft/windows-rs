@@ -2,9 +2,6 @@
 pub struct TypeName(pub &'static str, pub &'static str);
 
 impl TypeName {
-    pub const Enum: Self = Self("System", "Enum");
-    pub const Delegate: Self = Self("System", "MulticastDelegate");
-    pub const Struct: Self = Self("System", "ValueType");
     pub const Object: Self = Self("System", "Object");
     pub const GUID: Self = Self("System", "Guid");
     pub const Type: Self = Self("System", "Type");

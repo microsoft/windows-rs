@@ -45,12 +45,3 @@ pub enum Value {
     TypeName(TypeName),
     EnumDef(TypeDef, Box<Self>),
 }
-
-#[derive(Copy, Clone, PartialEq, Eq, Debug, PartialOrd, Ord)]
-pub enum TypeKind {
-    Interface,
-    Class,
-    Enum,
-    Struct,
-    Delegate,
-}

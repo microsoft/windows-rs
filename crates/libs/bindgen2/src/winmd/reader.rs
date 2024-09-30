@@ -44,21 +44,21 @@ impl Reader {
 
                 let items = reader.0.entry(namespace).or_default();
                 let name = def.name();
-                let kind = def.kind();
+                let category = Category::new(def);
 
                 if def.flags().contains(TypeAttributes::WindowsRuntime) {
-                    let item = match kind {
-                        TypeKind::Class => Item::Class(Class { def }),
-                        TypeKind::Delegate => Item::Delegate(Delegate { def }),
-                        TypeKind::Enum => Item::Enum(Enum { def }),
-                        TypeKind::Interface => Item::Interface(Interface { def }),
-                        TypeKind::Struct => Item::Struct(Struct { def }),
+                    let item = match category {
+                        Category::Class => Item::Class(Class { def }),
+                        Category::Delegate => Item::Delegate(Delegate { def }),
+                        Category::Enum => Item::Enum(Enum { def }),
+                        Category::Interface => Item::Interface(Interface { def }),
+                        Category::Struct => Item::Struct(Struct { def }),
                     };
 
                     insert(items, name, item);
                 } else {
-                    match kind {
-                        TypeKind::Class => {
+                    match category {
+                        Category::Class => {
                             if name == "Apis" {
                                 for method in def.methods() {
                                     let name = method.name();
@@ -71,10 +71,10 @@ impl Reader {
                                 }
                             }
                         }
-                        TypeKind::Delegate => {
+                        Category::Delegate => {
                             insert(items, name, Item::CppDelegate(CppDelegate { def }));
                         }
-                        TypeKind::Enum => {
+                        Category::Enum => {
                             insert(items, name, Item::CppEnum(CppEnum { def }));
 
                             if !def.has_attribute("ScopedEnumAttribute") {
@@ -90,10 +90,10 @@ impl Reader {
                                 }
                             }
                         }
-                        TypeKind::Interface => {
+                        Category::Interface => {
                             insert(items, name, Item::CppInterface(CppInterface { def }));
                         }
-                        TypeKind::Struct => {
+                        Category::Struct => {
                             fn make(def: TypeDef, nested: &HashMap<TypeDef, Vec<TypeDef>>) -> Item {
                                 let mut item = CppStruct {
                                     def,
@@ -141,5 +141,32 @@ impl Reader {
             .into_iter()
             .flat_map(|map| map.values())
             .flatten()
+    }
+}
+
+enum Category {
+    Interface,
+    Class,
+    Enum,
+    Struct,
+    Delegate,
+}
+
+impl Category {
+    fn new(def: TypeDef) -> Self {
+        if let Some(extends) = def.extends() {
+            if extends.namespace() == "System" {
+                match extends.name() {
+                    "Enum" => Self::Enum,
+                    "MulticastDelegate" => Self::Delegate,
+                    "ValueType" => Self::Struct,
+                    _ => Self::Class,
+                }
+            } else {
+                Self::Class
+            }
+        } else {
+            Self::Interface
+        }
     }
 }

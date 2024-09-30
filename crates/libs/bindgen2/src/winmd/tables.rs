@@ -481,20 +481,6 @@ impl TypeDef {
     //     }
     // }
 
-    // TODO: get rid of this as its just for the reader
-    pub fn kind(&self) -> TypeKind {
-        if let Some(extends) = self.extends() {
-            match TypeName(extends.namespace(), extends.name()) {
-                TypeName::Enum => TypeKind::Enum,
-                TypeName::Delegate => TypeKind::Delegate,
-                TypeName::Struct => TypeKind::Struct,
-                _ => TypeKind::Class,
-            }
-        } else {
-            TypeKind::Interface
-        }
-    }
-
     // pub fn size(&self) -> usize {
     //     match self.kind() {
     //         TypeKind::Struct => {
