@@ -102,15 +102,14 @@ impl Item {
         match self {
             winmd::Item::Class(item) => item.dependencies(dependencies),
             winmd::Item::Delegate(item) => item.dependencies(dependencies),
-            winmd::Item::Enum(item) => item.dependencies(dependencies),
             winmd::Item::Interface(item) => item.dependencies(dependencies),
             winmd::Item::Struct(item) => item.dependencies(dependencies),
             winmd::Item::CppConst(item) => item.dependencies(dependencies),
             winmd::Item::CppDelegate(item) => item.dependencies(dependencies),
-            winmd::Item::CppEnum(item) => item.dependencies(dependencies),
             winmd::Item::CppFn(item) => item.dependencies(dependencies),
             winmd::Item::CppInterface(item) => item.dependencies(dependencies),
             winmd::Item::CppStruct(item) => item.dependencies(dependencies),
+            _ => {}
         }
     }
 }
@@ -122,12 +121,6 @@ impl Class {
 }
 
 impl Delegate {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
-        panic!("windows-bindgen")
-    }
-}
-
-impl Enum {
     pub fn dependencies(&self, _dependencies: &mut Dependencies) {
         panic!("windows-bindgen")
     }
@@ -154,12 +147,6 @@ impl CppConst {
 }
 
 impl CppDelegate {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
-        panic!("windows-bindgen")
-    }
-}
-
-impl CppEnum {
     pub fn dependencies(&self, _dependencies: &mut Dependencies) {
         panic!("windows-bindgen")
     }
