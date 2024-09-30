@@ -81,7 +81,7 @@ fn push_filter(
     }
 
     if rules.len() == len {
-        panic::with_path("invalid type filter", filter);
+        panic!("windows-bindgen: invalid type filter `{filter}`");
     }
 }
 

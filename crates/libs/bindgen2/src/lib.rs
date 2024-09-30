@@ -9,13 +9,11 @@
 
 mod filter;
 mod io;
-mod panic;
 mod tree;
 mod winmd;
 mod writer;
 
 use filter::Filter;
-use panic::panic;
 use std::cmp::Ordering;
 use std::collections::*;
 use tree::Tree;
@@ -48,13 +46,13 @@ where
                 "--filter" => kind = ArgKind::Filter,
                 "--flatten" => flatten = true,
                 "--package" => package = true,
-                _ => panic("invalid option"),
+                _ => panic!("windows-bindgen: invalid option"),
             },
             ArgKind::Output => {
                 if output.is_none() {
                     output = Some(arg.as_str());
                 } else {
-                    panic("too many outputs");
+                    panic!("windows-bindgen: too many outputs");
                 }
             }
             ArgKind::Input => input.push(arg.as_str()),
@@ -69,17 +67,17 @@ where
     }
 
     if package && flatten {
-        panic("cannot combine `--package` and `--flatten` options");
+        panic!("windows-bindgen: cannot combine `--package` and `--flatten` options");
     }
 
     let Some(output) = output.map(|output| output.to_string()) else {
-        panic("one `--out` is required");
+        panic!("windows-bindgen: one `--out` is required");
     };
 
     // This isn't strictly necessary but avoids a common newbie pitfall where all metadata
     // would be generated when building a component for a specific API.
     if include.is_empty() {
-        panic("at least one `--filter` is required");
+        panic!("windows-bindgen: at least one `--filter` is required");
     }
 
     let reader = winmd::Reader::new(expand_input(&input));
@@ -148,7 +146,7 @@ fn expand_input(input: &[&str]) -> Vec<winmd::File> {
 
             for path in path
                 .read_dir()
-                .unwrap_or_else(|_| panic::with_path("failed to read directory", input))
+                .unwrap_or_else(|_| panic!("windows-bindgen: failed to read directory `{input}`"))
                 .flatten()
                 .map(|entry| entry.path())
             {
@@ -158,7 +156,7 @@ fn expand_input(input: &[&str]) -> Vec<winmd::File> {
             }
 
             if result.len() == prev_len {
-                panic::with_path("failed to find files in directory", input);
+                panic!("windows-bindgen: failed to find files in directory `{input}`");
             }
         } else {
             result.push(input.to_string());
@@ -185,10 +183,10 @@ fn expand_input(input: &[&str]) -> Vec<winmd::File> {
             .iter()
             .map(|path| {
                 let bytes = std::fs::read(path)
-                    .unwrap_or_else(|_| panic::with_path("failed to read binary file", path));
+                    .unwrap_or_else(|_| panic!("windows-bindgen: failed to read binary file `{path}`"));
 
                 winmd::File::new(bytes)
-                    .unwrap_or_else(|| panic::with_path("failed to read .winmd format", path))
+                    .unwrap_or_else(|| panic!("windows-bindgen: failed to read .winmd format `{path}`"))
             })
             .collect()
     }
