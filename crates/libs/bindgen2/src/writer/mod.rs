@@ -3,6 +3,7 @@ mod r#struct;
 use super::*;
 
 pub struct Writer {
+    pub reader: &'static Reader,
     pub output: String,
     pub flatten: bool,
     pub package: bool,
@@ -22,11 +23,29 @@ impl Writer {
         }
     }
 
-    // TODO: this should have arg providing what to write to file
-    fn write_file(&self, _tree: &Tree) {}
+    fn write_file(&self, tree: &Tree) {
+        if self.flatten {
+            self.write_flat(tree);
+        } else {
+            self.write_modules(tree);
+        }
+    }
+
+    fn write_flat(&self, _tree: &Tree) {
+    }
+
+    fn write_modules(&self, _tree: &Tree) {
+
+    }
 
     // TODO: This should call write_file for each file in the package
     fn write_package(&self, _tree: &Tree) {}
+
+    fn write_type_name(&self, namespace: &str, name: &str) {
+        for item in self.reader.with_full_name(namespace, name) {
+            self.write_item(item);
+        }
+    }
 
     fn write_item(&self, item: &Item) {
         match item {

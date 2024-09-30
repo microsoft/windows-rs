@@ -4,7 +4,7 @@ use super::*;
 pub struct Filter(Vec<(String, bool)>);
 
 impl Filter {
-    pub fn new(reader: &winmd::Reader, include: &[&str], exclude: &[&str]) -> Self {
+    pub fn new(reader: &Reader, include: &[&str], exclude: &[&str]) -> Self {
         let mut rules = vec![];
 
         for filter in include {
@@ -59,7 +59,7 @@ impl Filter {
 }
 
 fn push_filter(
-    reader: &winmd::Reader,
+    reader: &Reader,
     rules: &mut Vec<(String, bool)>,
     filter: &str,
     include: bool,

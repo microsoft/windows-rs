@@ -13,11 +13,11 @@ mod tree;
 mod winmd;
 mod writer;
 
-use filter::Filter;
+use filter::*;
 use std::cmp::Ordering;
 use std::collections::*;
-use tree::Tree;
-use writer::Writer;
+use tree::*;
+use writer::*;
 use winmd::*;
 
 /// The Windows code generator.
@@ -81,13 +81,14 @@ where
         panic!("windows-bindgen: at least one `--filter` is required");
     }
 
-    let reader = winmd::Reader::new(expand_input(&input));
+    let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
     let tree = Tree::new(reader, &filter, !package);
 
     dbg!(&tree);
 
     let writer = Writer {
+        reader,
         output,
         flatten,
         package,
@@ -138,7 +139,7 @@ where
     result
 }
 
-fn expand_input(input: &[&str]) -> Vec<winmd::File> {
+fn expand_input(input: &[&str]) -> Vec<File> {
     fn expand_input(result: &mut Vec<String>, input: &str) {
         let path = std::path::Path::new(input);
 
@@ -177,7 +178,7 @@ fn expand_input(input: &[&str]) -> Vec<winmd::File> {
             std::include_bytes!("../default/Windows.Wdk.winmd").to_vec(),
         ]
         .into_iter()
-        .map(|bytes| winmd::File::new(bytes).unwrap())
+        .map(|bytes| File::new(bytes).unwrap())
         .collect()
     } else {
         paths
@@ -187,7 +188,7 @@ fn expand_input(input: &[&str]) -> Vec<winmd::File> {
                     panic!("windows-bindgen: failed to read binary file `{path}`")
                 });
 
-                winmd::File::new(bytes).unwrap_or_else(|| {
+                File::new(bytes).unwrap_or_else(|| {
                     panic!("windows-bindgen: failed to read .winmd format `{path}`")
                 })
             })

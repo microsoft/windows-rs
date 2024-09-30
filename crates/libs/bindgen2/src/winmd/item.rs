@@ -67,33 +67,33 @@ pub struct CppFn {
 impl Item {
     pub fn namespace(&self) -> &'static str {
         match self {
-            winmd::Item::Class(item) => item.def.namespace(),
-            winmd::Item::Delegate(item) => item.def.namespace(),
-            winmd::Item::Enum(item) => item.def.namespace(),
-            winmd::Item::Interface(item) => item.def.namespace(),
-            winmd::Item::Struct(item) => item.def.namespace(),
-            winmd::Item::CppDelegate(item) => item.def.namespace(),
-            winmd::Item::CppEnum(item) => item.def.namespace(),
-            winmd::Item::CppInterface(item) => item.def.namespace(),
-            winmd::Item::CppStruct(item) => item.def.namespace(),
-            winmd::Item::CppConst(item) => item.def.namespace(),
-            winmd::Item::CppFn(item) => item.def.namespace(),
+            Item::Class(item) => item.def.namespace(),
+            Item::Delegate(item) => item.def.namespace(),
+            Item::Enum(item) => item.def.namespace(),
+            Item::Interface(item) => item.def.namespace(),
+            Item::Struct(item) => item.def.namespace(),
+            Item::CppDelegate(item) => item.def.namespace(),
+            Item::CppEnum(item) => item.def.namespace(),
+            Item::CppInterface(item) => item.def.namespace(),
+            Item::CppStruct(item) => item.def.namespace(),
+            Item::CppConst(item) => item.def.namespace(),
+            Item::CppFn(item) => item.def.namespace(),
         }
     }
 
     pub fn name(&self) -> &'static str {
         match self {
-            winmd::Item::Class(item) => item.def.name(),
-            winmd::Item::Delegate(item) => item.def.name(),
-            winmd::Item::Enum(item) => item.def.name(),
-            winmd::Item::Interface(item) => item.def.name(),
-            winmd::Item::Struct(item) => item.def.name(),
-            winmd::Item::CppDelegate(item) => item.def.name(),
-            winmd::Item::CppEnum(item) => item.def.name(),
-            winmd::Item::CppInterface(item) => item.def.name(),
-            winmd::Item::CppStruct(item) => item.def.name(),
-            winmd::Item::CppConst(item) => item.field.name(),
-            winmd::Item::CppFn(item) => item.method.name(),
+            Item::Class(item) => item.def.name(),
+            Item::Delegate(item) => item.def.name(),
+            Item::Enum(item) => item.def.name(),
+            Item::Interface(item) => item.def.name(),
+            Item::Struct(item) => item.def.name(),
+            Item::CppDelegate(item) => item.def.name(),
+            Item::CppEnum(item) => item.def.name(),
+            Item::CppInterface(item) => item.def.name(),
+            Item::CppStruct(item) => item.def.name(),
+            Item::CppConst(item) => item.field.name(),
+            Item::CppFn(item) => item.method.name(),
         }
     }
 }

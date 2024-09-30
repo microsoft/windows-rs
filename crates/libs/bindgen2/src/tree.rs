@@ -9,12 +9,12 @@ pub struct Tree {
 
 impl Tree {
     pub fn new(
-        reader: &'static winmd::Reader,
+        reader: &'static Reader,
         filter: &Filter,
         include_dependencies: bool,
     ) -> Self {
         let mut tree = Self::with_namespace("");
-        let mut dependencies = winmd::Dependencies::new();
+        let mut dependencies = Dependencies::new();
 
         for namespace in reader.keys() {
             if filter.includes_namespace(namespace) {

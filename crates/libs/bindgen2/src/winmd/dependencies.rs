@@ -100,15 +100,15 @@ impl Signature {
 impl Item {
     pub fn dependencies(&'static self, dependencies: &mut Dependencies) {
         match self {
-            winmd::Item::Class(item) => item.dependencies(dependencies),
-            winmd::Item::Delegate(item) => item.dependencies(dependencies),
-            winmd::Item::Interface(item) => item.dependencies(dependencies),
-            winmd::Item::Struct(item) => item.dependencies(dependencies),
-            winmd::Item::CppConst(item) => item.dependencies(dependencies),
-            winmd::Item::CppDelegate(item) => item.dependencies(dependencies),
-            winmd::Item::CppFn(item) => item.dependencies(dependencies),
-            winmd::Item::CppInterface(item) => item.dependencies(dependencies),
-            winmd::Item::CppStruct(item) => item.dependencies(dependencies),
+            Item::Class(item) => item.dependencies(dependencies),
+            Item::Delegate(item) => item.dependencies(dependencies),
+            Item::Interface(item) => item.dependencies(dependencies),
+            Item::Struct(item) => item.dependencies(dependencies),
+            Item::CppConst(item) => item.dependencies(dependencies),
+            Item::CppDelegate(item) => item.dependencies(dependencies),
+            Item::CppFn(item) => item.dependencies(dependencies),
+            Item::CppInterface(item) => item.dependencies(dependencies),
+            Item::CppStruct(item) => item.dependencies(dependencies),
             _ => {}
         }
     }
