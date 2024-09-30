@@ -1,4 +1,4 @@
-mod r#struct; 
+mod r#struct;
 
 use super::*;
 
@@ -10,7 +10,9 @@ pub struct Writer {
 }
 
 impl Writer {
-    pub fn write(&self, tree: &Tree) {
+    pub fn write(&self, tree: &ItemTree) {
+        dbg!(tree);
+
         // TODO: before we write the output, we need to build the complete tree of what's needed.
         // The tree can then be flattened if self.flatten before the tree is passed to either
         // write_package or write_file. The tree needs to be populated either with a minimal or complete
@@ -23,31 +25,38 @@ impl Writer {
         }
     }
 
-    fn write_file(&self, tree: &Tree) {
-        if self.flatten {
-            self.write_flat(tree);
+    fn write_file(&self, tree: &ItemTree) {
+        let tokens = if self.flatten {
+            self.write_flat(tree)
         } else {
-            self.write_modules(tree);
+            self.write_modules(tree)
+        };
+
+        write_to_file(&self.output, tokens);
+    }
+
+    fn write_flat(&self, tree: &ItemTree) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        for item in &tree.items {
+            tokens.combine(self.write_item(item));
         }
+
+        for tree in tree.nested.values() {
+            tokens.combine(self.write_flat(tree));
+        }
+
+        tokens
     }
 
-    fn write_flat(&self, _tree: &Tree) {
-    }
-
-    fn write_modules(&self, _tree: &Tree) {
-
+    fn write_modules(&self, _tree: &ItemTree) -> TokenStream {
+        todo!()
     }
 
     // TODO: This should call write_file for each file in the package
-    fn write_package(&self, _tree: &Tree) {}
+    fn write_package(&self, _tree: &ItemTree) {}
 
-    fn write_type_name(&self, namespace: &str, name: &str) {
-        for item in self.reader.with_full_name(namespace, name) {
-            self.write_item(item);
-        }
-    }
-
-    fn write_item(&self, item: &Item) {
+    fn write_item(&self, item: &'static Item) -> TokenStream {
         match item {
             Item::Struct(def) => self.write_struct(def),
             rest => panic!("windows-bindgen: {rest:?}"),

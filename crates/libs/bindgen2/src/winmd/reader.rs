@@ -97,7 +97,7 @@ impl Reader {
                             fn make(def: TypeDef, nested: &HashMap<TypeDef, Vec<TypeDef>>) -> Item {
                                 let mut item = CppStruct {
                                     def,
-                                    nested: HashMap::new(),
+                                    nested: BTreeMap::new(),
                                 };
 
                                 for def in nested.get(&def).into_iter().flatten() {

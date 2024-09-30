@@ -8,11 +8,7 @@ pub struct Tree {
 }
 
 impl Tree {
-    pub fn new(
-        reader: &'static Reader,
-        filter: &Filter,
-        include_dependencies: bool,
-    ) -> Self {
+    pub fn new(reader: &'static Reader, filter: &Filter, include_dependencies: bool) -> Self {
         let mut tree = Self::with_namespace("");
         let mut dependencies = Dependencies::new();
 

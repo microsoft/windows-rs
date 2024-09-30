@@ -58,12 +58,7 @@ impl Filter {
     }
 }
 
-fn push_filter(
-    reader: &Reader,
-    rules: &mut Vec<(String, bool)>,
-    filter: &str,
-    include: bool,
-) {
+fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, include: bool) {
     let len = rules.len();
 
     if reader.with_namespace(filter).next().is_some() {

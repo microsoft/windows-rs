@@ -1,6 +1,7 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
+// TODO: implement Ord for CppFn manually so that it sorts by library and then name
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Item {
     Class(Class),
     Delegate(Delegate),
@@ -16,49 +17,49 @@ pub enum Item {
     CppStruct(CppStruct),
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Interface {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Class {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Enum {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Struct {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Delegate {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct CppInterface {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct CppEnum {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct CppStruct {
     pub def: TypeDef,
-    pub nested: HashMap<&'static str, Item>,
+    pub nested: BTreeMap<&'static str, Item>,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct CppDelegate {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct CppConst {
     pub def: TypeDef,
     pub field: Field,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct CppFn {
     pub def: TypeDef,
     pub method: MethodDef,

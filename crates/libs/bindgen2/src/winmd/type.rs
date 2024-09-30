@@ -188,11 +188,15 @@ impl Type {
                 let code = blob.decode::<TypeDefOrRef>();
                 let namespace = code.namespace();
                 let name = code.name();
+
                 let def = blob
                     .reader()
                     .with_full_name(namespace, name)
                     .next()
-                    .unwrap_or_else(|| panic!("windows-bindgen: type not found: {namespace}.{name}"));
+                    .unwrap_or_else(|| {
+                        panic!("windows-bindgen: type not found: {namespace}.{name}")
+                    });
+                    
                 let mut args = Vec::with_capacity(blob.read_usize());
 
                 for _ in 0..args.capacity() {

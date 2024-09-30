@@ -9,16 +9,21 @@
 
 mod filter;
 mod io;
+mod item_tree;
+mod tokens;
 mod tree;
 mod winmd;
 mod writer;
 
 use filter::*;
+use io::*;
+use item_tree::*;
 use std::cmp::Ordering;
 use std::collections::*;
+use tokens::*;
 use tree::*;
-use writer::*;
 use winmd::*;
+use writer::*;
 
 /// The Windows code generator.
 pub fn bindgen<I, S>(args: I)
@@ -84,8 +89,9 @@ where
     let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
     let tree = Tree::new(reader, &filter, !package);
+    let items = ItemTree::new(reader, &tree);
 
-    dbg!(&tree);
+    // dbg!(&tree);
 
     let writer = Writer {
         reader,
@@ -94,7 +100,7 @@ where
         package,
     };
 
-    writer.write(&tree)
+    writer.write(&items)
 }
 
 enum ArgKind {
