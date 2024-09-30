@@ -1,4 +1,5 @@
 mod r#struct;
+mod format;
 
 use super::*;
 
@@ -7,6 +8,9 @@ pub struct Writer {
     pub output: String,
     pub flat: bool,
     pub package: bool,
+    pub no_comment: bool,
+    pub no_allow: bool,
+    pub rustfmt: String,
 }
 
 impl Writer {
@@ -27,7 +31,7 @@ impl Writer {
             self.write_modules(tree)
         };
 
-        write_to_file(&self.output, tokens);
+        write_to_file(&self.output, self.format(&tokens.into_string()));
     }
 
     fn write_flat(&self, tree: &ItemTree) -> TokenStream {

@@ -39,6 +39,9 @@ where
     let mut exclude = Vec::new();
     let mut flat = false;
     let mut package = false;
+    let mut no_allow = false;
+    let mut no_comment = false;
+    let mut rustfmt = String::new();
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -50,8 +53,11 @@ where
                 "--in" => kind = ArgKind::Input,
                 "--out" => kind = ArgKind::Output,
                 "--filter" => kind = ArgKind::Filter,
+                "--rustfmt" => kind = ArgKind::Rustfmt,
                 "--flat" => flat = true,
                 "--package" => package = true,
+                "--no-allow" => no_allow = true,
+                "--no-comment" => no_comment = true,
                 _ => panic!("windows-bindgen: invalid option `{arg}`"),
             },
             ArgKind::Output => {
@@ -69,6 +75,7 @@ where
                     include.push(arg.as_str());
                 }
             }
+            ArgKind::Rustfmt => rustfmt = arg.to_string(),
         }
     }
 
@@ -98,6 +105,9 @@ where
         output,
         flat,
         package,
+        no_allow,
+        no_comment,
+        rustfmt,
     };
 
     writer.write(&items)
@@ -108,6 +118,7 @@ enum ArgKind {
     Input,
     Output,
     Filter,
+    Rustfmt,
 }
 
 fn expand_args<I, S>(args: I) -> Vec<String>
