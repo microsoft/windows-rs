@@ -15,6 +15,8 @@ pub enum Item {
     CppFn(CppFn),
     CppInterface(CppInterface),
     CppStruct(CppStruct),
+
+    // TODO: have psuedo items for the core types like PWSTR so that those can be written out for standalone code gen?
 }
 
 #[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]

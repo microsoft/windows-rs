@@ -37,7 +37,7 @@ where
     let mut input = Vec::new();
     let mut include = Vec::new();
     let mut exclude = Vec::new();
-    let mut flatten = false;
+    let mut flat = false;
     let mut package = false;
 
     for arg in &args {
@@ -50,9 +50,9 @@ where
                 "--in" => kind = ArgKind::Input,
                 "--out" => kind = ArgKind::Output,
                 "--filter" => kind = ArgKind::Filter,
-                "--flatten" => flatten = true,
+                "--flat" => flat = true,
                 "--package" => package = true,
-                _ => panic!("windows-bindgen: invalid option"),
+                _ => panic!("windows-bindgen: invalid option `{arg}`"),
             },
             ArgKind::Output => {
                 if output.is_none() {
@@ -72,8 +72,8 @@ where
         }
     }
 
-    if package && flatten {
-        panic!("windows-bindgen: cannot combine `--package` and `--flatten` options");
+    if package && flat {
+        panic!("windows-bindgen: cannot combine `--package` and `--flat` options");
     }
 
     let Some(output) = output.map(|output| output.to_string()) else {
@@ -96,7 +96,7 @@ where
     let writer = Writer {
         reader,
         output,
-        flatten,
+        flat,
         package,
     };
 

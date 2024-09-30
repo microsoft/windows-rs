@@ -5,7 +5,7 @@ use super::*;
 pub struct Writer {
     pub reader: &'static Reader,
     pub output: String,
-    pub flatten: bool,
+    pub flat: bool,
     pub package: bool,
 }
 
@@ -21,7 +21,7 @@ impl Writer {
     }
 
     fn write_file(&self, tree: &ItemTree) {
-        let tokens = if self.flatten {
+        let tokens = if self.flat {
             self.write_flat(tree)
         } else {
             self.write_modules(tree)
@@ -44,8 +44,20 @@ impl Writer {
         tokens
     }
 
-    fn write_modules(&self, _tree: &ItemTree) -> TokenStream {
-        todo!()
+    fn write_modules(&self, tree: &ItemTree) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        for item in &tree.items {
+            tokens.combine(self.write_item(item));
+        }
+
+        for (name, tree) in &tree.nested {
+            let name = to_ident(name);
+            let nested = self.write_modules(tree);
+            tokens.combine(quote!{ pub mod #name { #nested } });
+        }
+
+        tokens
     }
 
     fn write_package(&self, _tree: &ItemTree) {}
