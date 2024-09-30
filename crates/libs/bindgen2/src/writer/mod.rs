@@ -1,3 +1,5 @@
+mod r#struct; 
+
 use super::*;
 
 pub struct Writer {
@@ -25,4 +27,11 @@ impl Writer {
 
     // TODO: This should call write_file for each file in the package
     fn write_package(&self, _tree: &Tree) {}
+
+    fn write_item(&self, item: &Item) {
+        match item {
+            Item::Struct(def) => self.write_struct(def),
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
 }

@@ -108,7 +108,7 @@ impl Type {
         if let Some(item) = code.reader().with_full_name(namespace, name).next() {
             Type::Item(item)
         } else {
-            panic!("Type not found: {namespace}.{name}")
+            panic!("windows-bindgen: type not found: {namespace}.{name}")
         }
     }
 
@@ -192,7 +192,7 @@ impl Type {
                     .reader()
                     .with_full_name(namespace, name)
                     .next()
-                    .unwrap_or_else(|| panic!("Type not found: {namespace}.{name}"));
+                    .unwrap_or_else(|| panic!("windows-bindgen: type not found: {namespace}.{name}"));
                 let mut args = Vec::with_capacity(blob.read_usize());
 
                 for _ in 0..args.capacity() {

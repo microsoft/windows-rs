@@ -37,7 +37,6 @@ impl Tree {
         if include_dependencies {
             for (namespace, names) in dependencies.iter() {
                 for name in names {
-                    //println!("dependency: {namespace}.{name}");
                     tree.insert_namespace(namespace).items.insert(name);
                 }
             }

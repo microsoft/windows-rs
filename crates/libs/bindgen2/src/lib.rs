@@ -18,6 +18,7 @@ use std::cmp::Ordering;
 use std::collections::*;
 use tree::Tree;
 use writer::Writer;
+use winmd::*;
 
 /// The Windows code generator.
 pub fn bindgen<I, S>(args: I)
