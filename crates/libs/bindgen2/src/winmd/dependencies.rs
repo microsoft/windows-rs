@@ -32,7 +32,6 @@ impl std::ops::DerefMut for Dependencies {
 }
 
 impl Type {
-    
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         // First get the underlying type.
         let ty = match self {
@@ -94,29 +93,30 @@ impl Type {
 impl Signature {
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         self.return_type.0.dependencies(dependencies);
-        self.params.iter().for_each(|(ty, _)| ty.dependencies(dependencies));
+        self.params
+            .iter()
+            .for_each(|(ty, _)| ty.dependencies(dependencies));
     }
 }
 
 impl Item {
-        // TODO: this really should be on the Iterm,TypeDef,MEthodDef, etc so that bindgen can use it for generating cfg attributes easily.
-        pub fn dependencies(&'static self, dependencies: &mut Dependencies) {
-            match self {
-                winmd::Item::Class(item) => item.dependencies(dependencies),
-                winmd::Item::Delegate(item) => item.dependencies(dependencies),
-                winmd::Item::Enum(item) => item.dependencies(dependencies),
-                winmd::Item::Interface(item) => item.dependencies(dependencies),
-                winmd::Item::Struct(item) => item.dependencies(dependencies),
-                winmd::Item::CppConst(item) => item.dependencies(dependencies),
-                winmd::Item::CppDelegate(item) => item.dependencies(dependencies),
-                winmd::Item::CppEnum(item) => item.dependencies(dependencies),
-                winmd::Item::CppFn(item) => item.dependencies(dependencies),
-                winmd::Item::CppInterface(item) => item.dependencies(dependencies),
-                winmd::Item::CppStruct(item) => item.dependencies(dependencies),
-            }
+    // TODO: this really should be on the Iterm,TypeDef,MEthodDef, etc so that bindgen can use it for generating cfg attributes easily.
+    pub fn dependencies(&'static self, dependencies: &mut Dependencies) {
+        match self {
+            winmd::Item::Class(item) => item.dependencies(dependencies),
+            winmd::Item::Delegate(item) => item.dependencies(dependencies),
+            winmd::Item::Enum(item) => item.dependencies(dependencies),
+            winmd::Item::Interface(item) => item.dependencies(dependencies),
+            winmd::Item::Struct(item) => item.dependencies(dependencies),
+            winmd::Item::CppConst(item) => item.dependencies(dependencies),
+            winmd::Item::CppDelegate(item) => item.dependencies(dependencies),
+            winmd::Item::CppEnum(item) => item.dependencies(dependencies),
+            winmd::Item::CppFn(item) => item.dependencies(dependencies),
+            winmd::Item::CppInterface(item) => item.dependencies(dependencies),
+            winmd::Item::CppStruct(item) => item.dependencies(dependencies),
         }
+    }
 }
-
 
 impl Class {
     pub fn dependencies(&self, _dependencies: &mut Dependencies) {}

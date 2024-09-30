@@ -20,13 +20,14 @@ pub enum Type {
     String,
     Object,
 
-    // TODO: add other "core" types like BSTR/HRESULT/GUID/IUnknown?
     PSTR,
     PCSTR,
     PWSTR,
     PCWSTR,
     GUID,
     HRESULT,
+    IUnknown,
+    BSTR,
 
     Item(&'static Item),
     Generic(&'static Item, Vec<Self>),
@@ -40,13 +41,18 @@ pub enum Type {
     PrimitiveOrEnum(Box<Self>, Box<Self>),
 }
 
-fn remap(namespace: &'static str, name:&'static str) -> Option<Type> {
+fn remap(namespace: &'static str, name: &'static str) -> Option<Type> {
     match TypeName(namespace, name) {
         TypeName::GUID => Some(Type::GUID),
         TypeName::HResult => Some(Type::HRESULT),
         TypeName::HRESULT => Some(Type::HRESULT),
         TypeName::PSTR => Some(Type::PSTR),
         TypeName::PWSTR => Some(Type::PWSTR),
+        TypeName::HSTRING => Some(Type::String),
+        TypeName::BSTR => Some(Type::BSTR),
+        TypeName::IInspectable => Some(Type::Object),
+        TypeName::CHAR => Some(Type::I8),
+        TypeName::IUnknown => Some(Type::IUnknown),
         _ => None,
     }
 }
@@ -99,11 +105,7 @@ impl Type {
             }
         }
 
-        if let Some(item) = code
-            .reader()
-            .with_full_name(namespace, name)
-            .next()
-        {
+        if let Some(item) = code.reader().with_full_name(namespace, name).next() {
             Type::Item(item)
         } else {
             panic!("Type not found: {namespace}.{name}")
@@ -116,12 +118,10 @@ impl Type {
         generics: &[Type],
     ) -> Self {
         // Used by WinRT to indicate that a struct input parameter is passed by reference rather than by value on the ABI.
-        let is_const = blob
-            .read_modifiers()
-            .iter()
-            .any(|def| {
-                let type_name = TypeName(def.namespace(), def.name());
-                 type_name == TypeName::IsConst} );
+        let is_const = blob.read_modifiers().iter().any(|def| {
+            let type_name = TypeName(def.namespace(), def.name());
+            type_name == TypeName::IsConst
+        });
 
         // Used by WinRT to indicate an output parameter, but there are other ways to determine this direction so here
         // it is only used to distinguish between slices and heap-allocated arrays.
@@ -238,5 +238,4 @@ impl Type {
             rest => unimplemented!("{rest:?}"),
         }
     }
-
 }

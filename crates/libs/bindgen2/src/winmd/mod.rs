@@ -9,10 +9,10 @@ mod file;
 mod item;
 mod reader;
 mod row;
+mod signature;
 mod tables;
 mod r#type;
 mod type_name;
-mod signature;
 
 pub use attributes::*;
 use bindings::*;
@@ -24,9 +24,9 @@ pub use item::*;
 pub use r#type::*;
 pub use reader::*;
 pub use row::*;
+pub use signature::*;
 pub use tables::*;
 pub use type_name::*;
-pub use signature::*;
 
 #[derive(Debug)]
 pub enum Value {
@@ -45,8 +45,6 @@ pub enum Value {
     TypeName(TypeName),
     EnumDef(TypeDef, Box<Self>),
 }
-
-
 
 #[derive(Copy, Clone, PartialEq, Eq, Debug, PartialOrd, Ord)]
 pub enum TypeKind {

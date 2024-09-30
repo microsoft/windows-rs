@@ -78,7 +78,7 @@ impl Tree {
         }
 
         if namespace.is_empty() {
-            self 
+            self
         } else {
             insert_namespace(self, namespace, 0)
         }

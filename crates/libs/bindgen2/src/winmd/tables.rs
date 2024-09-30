@@ -530,7 +530,6 @@ impl TypeDef {
     //         _ => 4,
     //     }
     // }
-
 }
 
 impl TypeRef {

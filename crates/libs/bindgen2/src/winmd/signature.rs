@@ -8,8 +8,6 @@ pub struct Signature {
 }
 
 impl Signature {
-
-
     // pub fn size(&self) -> usize {
     //     self.params
     //         .iter()

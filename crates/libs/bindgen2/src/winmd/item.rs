@@ -94,10 +94,8 @@ impl Item {
             winmd::Item::CppStruct(item) => item.def.name(),
             winmd::Item::CppConst(item) => item.field.name(),
             winmd::Item::CppFn(item) => item.method.name(),
-                }
+        }
     }
-
-
 }
 
 //
