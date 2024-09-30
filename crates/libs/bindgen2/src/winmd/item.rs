@@ -76,7 +76,8 @@ impl Item {
             winmd::Item::CppEnum(item) => item.def.namespace(),
             winmd::Item::CppInterface(item) => item.def.namespace(),
             winmd::Item::CppStruct(item) => item.def.namespace(),
-            rest => unimplemented!("{rest:?}"),
+            winmd::Item::CppConst(item) => item.def.namespace(),
+            winmd::Item::CppFn(item) => item.def.namespace(),
         }
     }
 
@@ -91,26 +92,12 @@ impl Item {
             winmd::Item::CppEnum(item) => item.def.name(),
             winmd::Item::CppInterface(item) => item.def.name(),
             winmd::Item::CppStruct(item) => item.def.name(),
-            rest => unimplemented!("{rest:?}"),
-        }
+            winmd::Item::CppConst(item) => item.field.name(),
+            winmd::Item::CppFn(item) => item.method.name(),
+                }
     }
 
-    // TODO: this really should be on the Iterm,TypeDef,MEthodDef, etc so that bindgen can use it for generating cfg attributes easily.
-    pub fn dependencies(&'static self, dependencies: &mut Dependencies) {
-        match self {
-            winmd::Item::Class(item) => item.dependencies(dependencies),
-            winmd::Item::Delegate(item) => item.dependencies(dependencies),
-            winmd::Item::Enum(item) => item.dependencies(dependencies),
-            winmd::Item::Interface(item) => item.dependencies(dependencies),
-            winmd::Item::Struct(item) => item.dependencies(dependencies),
-            winmd::Item::CppConst(item) => item.dependencies(dependencies),
-            winmd::Item::CppDelegate(item) => item.dependencies(dependencies),
-            winmd::Item::CppEnum(item) => item.dependencies(dependencies),
-            winmd::Item::CppFn(item) => item.dependencies(dependencies),
-            winmd::Item::CppInterface(item) => item.dependencies(dependencies),
-            winmd::Item::CppStruct(item) => item.dependencies(dependencies),
-        }
-    }
+
 }
 
 //
@@ -125,55 +112,3 @@ impl Item {
 //
 //
 //
-
-impl Class {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
-}
-
-impl Delegate {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
-}
-
-impl Enum {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
-}
-
-impl Interface {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
-}
-
-impl Struct {
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        for field in self.def.fields() {
-            field.ty(None).dependencies(dependencies);
-        }
-    }
-}
-
-impl CppConst {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
-}
-
-impl CppDelegate {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
-}
-
-impl CppEnum {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
-}
-
-impl CppFn {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
-}
-
-impl CppInterface {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {}
-}
-
-impl CppStruct {
-    pub fn dependencies(&'static self, dependencies: &mut Dependencies) {
-        for field in self.def.fields() {
-            field.ty(Some(self)).dependencies(dependencies);
-        }
-    }
-}

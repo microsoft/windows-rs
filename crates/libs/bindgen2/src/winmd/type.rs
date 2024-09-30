@@ -25,6 +25,7 @@ pub enum Type {
     PCSTR,
     PWSTR,
     PCWSTR,
+    GUID,
 
     Item(&'static Item),
     Generic(&'static Item, Vec<Self>),
@@ -36,6 +37,13 @@ pub enum Type {
     ArrayRef(Box<Self>),
     ConstRef(Box<Self>),
     PrimitiveOrEnum(Box<Self>, Box<Self>),
+}
+
+fn remap(namespace: &'static str, name:&'static str) -> Option<Type> {
+    match TypeName(namespace, name) {
+        TypeName::GUID => Some(Type::GUID),
+        _ => None,
+    }
 }
 
 impl Type {
@@ -75,7 +83,9 @@ impl Type {
         let namespace = code.namespace();
         let name = code.name();
 
-        // TODO: remapping happens here
+        if let Some(ty) = remap(namespace, name) {
+            return ty;
+        }
 
         // TODO: this needs to be deferred via a TypeName's optional nested type name?
         if let Some(outer) = enclosing {
@@ -91,7 +101,7 @@ impl Type {
         {
             Type::Item(item)
         } else {
-            todo!()
+            panic!("Type not found: {namespace}.{name}")
         }
     }
 
@@ -224,54 +234,4 @@ impl Type {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        // First get the underlying type.
-        let ty = match self {
-            Self::PtrMut(ty, _) => ty,
-            Self::PtrConst(ty, _) => ty,
-            Self::ArrayFixed(ty, _) => ty,
-            Self::Array(ty) => ty,
-            Self::ArrayRef(ty) => ty,
-            Self::ConstRef(ty) => ty,
-            Self::PrimitiveOrEnum(_, ty) => ty,
-            _ => self,
-        };
-
-        // Then insert its name into the dependencies map.
-        match ty {
-            Self::String => {
-                dependencies.insert("System", "String");
-            }
-            Self::Object => {
-                dependencies.insert("System", "Object");
-            }
-            Self::PSTR => {
-                dependencies.insert("System", "PSTR");
-            }
-            Self::PCSTR => {
-                dependencies.insert("System", "PCSTR");
-            }
-            Self::PWSTR => {
-                dependencies.insert("System", "PWSTR");
-            }
-            Self::PCWSTR => {
-                dependencies.insert("System", "PCWSTR");
-            }
-            Self::Item(item) => {
-                // Only chase dependencies if it was not previously added.
-                if dependencies.insert(item.namespace(), item.name()) {
-                    item.dependencies(dependencies);
-                }
-            }
-            Self::Generic(item, generics) => {
-                // Only chase dependencies if it was not previously added.
-                if dependencies.insert(item.namespace(), item.name()) {
-                    item.dependencies(dependencies);
-                }
-
-                generics.iter().for_each(|ty| ty.dependencies(dependencies));
-            }
-            _ => {}
-        }
-    }
 }

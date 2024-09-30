@@ -363,32 +363,31 @@ impl MethodDef {
         self.impl_map().map_or("", |map| map.scope().name())
     }
 
-    // pub fn signature(&self, generics: &[Type]) -> Signature {
-    //     let reader = self.reader();
-    //     let mut blob = self.blob(4);
-    //     let call_flags = MethodCallAttributes(blob.read_usize() as u8);
-    //     let _param_count = blob.read_usize();
-    //     let return_type = reader.type_from_blob(&mut blob, None, generics);
-    //     let mut return_param = None;
+    pub fn signature(&self, generics: &[Type]) -> Signature {
+        let mut blob = self.blob(4);
+        let call_flags = MethodCallAttributes(blob.read_usize() as u8);
+        let _param_count = blob.read_usize();
+        let return_type = Type::from_blob(&mut blob, None, generics);
+        let mut return_param = None;
 
-    //     let params = self
-    //         .params()
-    //         .filter_map(|param| {
-    //             if param.sequence() == 0 {
-    //                 return_param = Some(param);
-    //                 None
-    //             } else {
-    //                 Some((reader.type_from_blob(&mut blob, None, generics), param))
-    //             }
-    //         })
-    //         .collect();
+        let params = self
+            .params()
+            .filter_map(|param| {
+                if param.sequence() == 0 {
+                    return_param = Some(param);
+                    None
+                } else {
+                    Some((Type::from_blob(&mut blob, None, generics), param))
+                }
+            })
+            .collect();
 
-    //     Signature {
-    //         call_flags,
-    //         return_type: (return_type, return_param),
-    //         params,
-    //     }
-    // }
+        Signature {
+            call_flags,
+            return_type: (return_type, return_param),
+            params,
+        }
+    }
 }
 
 impl ModuleRef {
@@ -481,6 +480,7 @@ impl TypeDef {
     //     }
     // }
 
+    // TODO: get rid of this as its just for the reader
     pub fn kind(&self) -> TypeKind {
         if let Some(extends) = self.extends() {
             match TypeName(extends.namespace(), extends.name()) {
@@ -531,9 +531,6 @@ impl TypeDef {
     //     }
     // }
 
-    // pub fn dependencies(&self, set: &mut HashSet<Type>) {
-
-    // }
 }
 
 impl TypeRef {
