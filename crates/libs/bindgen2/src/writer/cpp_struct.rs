@@ -2,7 +2,7 @@ use super::*;
 
 impl Writer {
     pub fn write_cpp_struct(&self, item: &'static CppStruct) -> TokenStream {
-        let name = to_ident(item.def.name());
+        let name = to_ident(item.name());
 
         let fields: Vec<_> = item
             .def
@@ -27,7 +27,7 @@ impl Writer {
             quote! { CloneType }
         };
 
-        quote! {
+        let mut tokens = quote! {
             #[repr(C)]
             #[derive(#derive)]
             pub struct #name {
@@ -41,6 +41,12 @@ impl Writer {
             impl windows_core::TypeKind for #name {
                 type TypeKind = windows_core::#type_kind;
             }
+        };
+
+        for nested in item.nested.values() {
+            tokens.combine(self.write_item(nested));
         }
+
+        tokens
     }
 }
