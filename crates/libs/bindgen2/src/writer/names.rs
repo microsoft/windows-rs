@@ -19,6 +19,16 @@ impl Writer {
             Type::ISize => quote! { isize },
             Type::USize => quote! { usize },
             Type::Item(item) => self.write_item_name(&item),
+            Type::PtrMut(ty, pointers) => {
+                let pointers = write_ptr_mut(*pointers);
+                let ty = self.write_default_name(ty);
+                quote! { #pointers #ty }
+            }
+            Type::PtrConst(ty, pointers) => {
+                let pointers = write_ptr_const(*pointers);
+                let ty = self.write_default_name(ty);
+                quote! { #pointers #ty }
+            }
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
@@ -46,6 +56,11 @@ impl Writer {
                 let namespace = self.write_namespace(item.def.namespace());
                 quote! { #namespace #name }
             }
+            Item::CppStruct(item) => {
+                let name = to_ident(item.def.name());
+                let namespace = self.write_namespace(item.def.namespace());
+                quote! { #namespace #name }
+            }
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
@@ -57,34 +72,42 @@ impl Writer {
 
         // TODO: should this be more general than just "Windows.*"?
         let is_external =
-        namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");
-    let mut relative = self.namespace.split('.').peekable();
-    let mut namespace = namespace.split('.').peekable();
+            namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");
+        let mut relative = self.namespace.split('.').peekable();
+        let mut namespace = namespace.split('.').peekable();
 
-    while relative.peek() == namespace.peek() {
-        if relative.next().is_none() {
-            break;
+        while relative.peek() == namespace.peek() {
+            if relative.next().is_none() {
+                break;
+            }
+
+            namespace.next();
         }
 
-        namespace.next();
-    }
+        let mut tokens = TokenStream::new();
 
-    let mut tokens = TokenStream::new();
-
-    if is_external {
-        tokens.push_str("windows::");
-        namespace.next();
-    } else {
-        for _ in 0..relative.count() {
-            tokens.push_str("super::");
+        if is_external {
+            tokens.push_str("windows::");
+            namespace.next();
+        } else {
+            for _ in 0..relative.count() {
+                tokens.push_str("super::");
+            }
         }
-    }
 
-    for namespace in namespace {
-        tokens.push_str(namespace);
-        tokens.push_str("::");
-    }
+        for namespace in namespace {
+            tokens.push_str(namespace);
+            tokens.push_str("::");
+        }
 
-    tokens
+        tokens
     }
+}
+
+fn write_ptr_mut(pointers: usize) -> TokenStream {
+    "*mut ".repeat(pointers).into()
+}
+
+fn write_ptr_const(pointers: usize) -> TokenStream {
+    "*const ".repeat(pointers).into()
 }

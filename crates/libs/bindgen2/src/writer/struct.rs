@@ -12,11 +12,8 @@ impl Writer {
 
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
 
-        let derive = if is_copyable {
-            quote! { Clone, Copy, Debug, Default, PartialEq }
-        } else {
-            quote! { Clone, Debug, Default, PartialEq }
-        };
+        let derive = quote! { Clone, Debug, Default, PartialEq };
+        // TODO: add any user-defined derive names
 
         let fields = fields.iter().map(|(name, ty)| {
             let name = to_ident(name);
