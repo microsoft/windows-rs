@@ -49,6 +49,7 @@ pub struct CppEnum {
 #[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct CppStruct {
     pub def: TypeDef,
+    pub name: String,
     pub nested: BTreeMap<&'static str, Item>,
 }
 #[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
@@ -134,5 +135,15 @@ impl Struct {
         }
         signature.push(')');
         signature
+    }
+}
+
+impl CppStruct {
+    pub fn name(&self) -> &str {
+        if self.name.is_empty() {
+            self.def.name()
+        } else {
+            &self.name
+        }
     }
 }

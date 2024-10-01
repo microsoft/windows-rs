@@ -57,7 +57,7 @@ impl Writer {
                 quote! { #namespace #name }
             }
             Item::CppStruct(item) => {
-                let name = to_ident(item.def.name());
+                let name = to_ident(item.name());
                 let namespace = self.write_namespace(item.def.namespace());
                 quote! { #namespace #name }
             }
@@ -66,7 +66,7 @@ impl Writer {
     }
 
     fn write_namespace(&self, namespace: &str) -> TokenStream {
-        if self.flat || namespace == self.namespace {
+        if self.flat || namespace.is_empty() || namespace == self.namespace {
             return quote! {};
         }
 

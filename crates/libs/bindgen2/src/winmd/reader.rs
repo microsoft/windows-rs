@@ -100,20 +100,21 @@ impl Reader {
                             insert(items, name, Item::CppInterface(CppInterface { def }));
                         }
                         Category::Struct => {
-                            fn make(def: TypeDef, nested: &HashMap<TypeDef, Vec<TypeDef>>) -> Item {
+                            fn make(def: TypeDef, name:String, nested: &HashMap<TypeDef, Vec<TypeDef>>) -> Item {
                                 let mut item = CppStruct {
                                     def,
+                                    name,
                                     nested: BTreeMap::new(),
                                 };
 
-                                for def in nested.get(&def).into_iter().flatten() {
-                                    item.nested.insert(def.name(), make(*def, nested));
+                                for (index, def) in nested.get(&def).into_iter().flatten().enumerate() {
+                                    item.nested.insert(def.name(), make(*def, format!("{}_{index}", item.name()), nested));
                                 }
 
                                 Item::CppStruct(item)
                             }
 
-                            insert(items, name, make(def, &nested));
+                            insert(items, name, make(def, String::new(), &nested));
                         }
                     };
                 }
