@@ -3,6 +3,7 @@ mod cpp_fn;
 mod cpp_struct;
 mod r#enum;
 mod format;
+mod name;
 mod r#struct;
 
 use super::*;
@@ -11,7 +12,7 @@ pub struct Writer {
     pub reader: &'static Reader,
     pub output: String,
     pub flat: bool,
-    pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
+    // pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
     pub no_allow: bool,
     pub no_comment: bool,
     pub package: bool,
@@ -77,7 +78,7 @@ impl Writer {
             Item::CppStruct(def) => self.write_cpp_struct(def),
             Item::CppEnum(def) => self.write_cpp_enum(def),
             Item::CppFn(def) => self.write_cpp_fn(def),
-            rest => panic!("windows-bindgen: {rest:?}"),
+            _ => quote! {},
         }
     }
 }

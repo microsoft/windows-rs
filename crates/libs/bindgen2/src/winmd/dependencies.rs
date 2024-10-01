@@ -29,7 +29,7 @@ impl std::ops::DerefMut for Dependencies {
 }
 
 impl Type {
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies, minimal: bool) {
         // First get the underlying type.
         let ty = match self {
             Self::PtrMut(ty, _) => ty,
@@ -71,16 +71,18 @@ impl Type {
             Self::Item(item) => {
                 // Only chase dependencies if it was not previously added.
                 if dependencies.insert(item.namespace(), item.name()) {
-                    item.dependencies(dependencies);
+                    item.dependencies(dependencies, minimal);
                 }
             }
             Self::Generic(item, generics) => {
                 // Only chase dependencies if it was not previously added.
                 if dependencies.insert(item.namespace(), item.name()) {
-                    item.dependencies(dependencies);
+                    item.dependencies(dependencies, minimal);
                 }
 
-                generics.iter().for_each(|ty| ty.dependencies(dependencies));
+                generics
+                    .iter()
+                    .for_each(|ty| ty.dependencies(dependencies, minimal));
             }
             _ => {}
         }
@@ -89,85 +91,77 @@ impl Type {
 
 // TODO: and how to deal with limiting dependencies from undesired interface methods?
 impl Signature {
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        self.return_type.0.dependencies(dependencies);
+    pub fn dependencies(&self, dependencies: &mut Dependencies, minimal: bool) {
+        self.return_type.0.dependencies(dependencies, minimal);
         self.params
             .iter()
-            .for_each(|(ty, _)| ty.dependencies(dependencies));
+            .for_each(|(ty, _)| ty.dependencies(dependencies, minimal));
     }
 }
 
 impl Item {
-    pub fn dependencies(&'static self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&'static self, dependencies: &mut Dependencies, minimal: bool) {
         match self {
-            Item::Class(item) => item.dependencies(dependencies),
-            Item::Delegate(item) => item.dependencies(dependencies),
-            Item::Interface(item) => item.dependencies(dependencies),
-            Item::Struct(item) => item.dependencies(dependencies),
-            Item::CppConst(item) => item.dependencies(dependencies),
-            Item::CppDelegate(item) => item.dependencies(dependencies),
-            Item::CppFn(item) => item.dependencies(dependencies),
-            Item::CppInterface(item) => item.dependencies(dependencies),
-            Item::CppStruct(item) => item.dependencies(dependencies),
+            Item::Class(item) => item.dependencies(dependencies, minimal),
+            Item::Delegate(item) => item.dependencies(dependencies, minimal),
+            Item::Interface(item) => item.dependencies(dependencies, minimal),
+            Item::Struct(item) => item.dependencies(dependencies, minimal),
+            Item::CppConst(item) => item.dependencies(dependencies, minimal),
+            Item::CppDelegate(item) => item.dependencies(dependencies, minimal),
+            Item::CppFn(item) => item.dependencies(dependencies, minimal),
+            Item::CppInterface(item) => item.dependencies(dependencies, minimal),
+            Item::CppStruct(item) => item.dependencies(dependencies, minimal),
             _ => {}
         }
     }
 }
 
 impl Class {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
-        panic!("windows-bindgen")
-    }
+    pub fn dependencies(&self, _dependencies: &mut Dependencies, _minimal: bool) {}
 }
 
 impl Delegate {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
-        panic!("windows-bindgen")
-    }
+    pub fn dependencies(&self, _dependencies: &mut Dependencies, _minimal: bool) {}
 }
 
 impl Interface {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
-        panic!("windows-bindgen")
-    }
+    pub fn dependencies(&self, _dependencies: &mut Dependencies, _minimal: bool) {}
 }
 
 impl Struct {
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies, minimal: bool) {
         for field in self.def.fields() {
-            field.ty(None).dependencies(dependencies);
+            field.ty(None).dependencies(dependencies, minimal);
         }
     }
 }
 
 impl CppConst {
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        self.field.ty(None).dependencies(dependencies);
+    pub fn dependencies(&self, dependencies: &mut Dependencies, minimal: bool) {
+        self.field.ty(None).dependencies(dependencies, minimal);
     }
 }
 
 impl CppDelegate {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
-        panic!("windows-bindgen")
-    }
+    pub fn dependencies(&self, _dependencies: &mut Dependencies, _minimal: bool) {}
 }
 
 impl CppFn {
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        self.method.signature(&[]).dependencies(dependencies);
+    pub fn dependencies(&self, dependencies: &mut Dependencies, minimal: bool) {
+        self.method
+            .signature(&[])
+            .dependencies(dependencies, minimal);
     }
 }
 
 impl CppInterface {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies) {
-        panic!("windows-bindgen")
-    }
+    pub fn dependencies(&self, _dependencies: &mut Dependencies, _minimal: bool) {}
 }
 
 impl CppStruct {
-    pub fn dependencies(&'static self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&'static self, dependencies: &mut Dependencies, minimal: bool) {
         for field in self.def.fields() {
-            field.ty(Some(self)).dependencies(dependencies);
+            field.ty(Some(self)).dependencies(dependencies, minimal);
         }
     }
 }

@@ -8,7 +8,12 @@ pub struct NameTree {
 }
 
 impl NameTree {
-    pub fn new(reader: &'static Reader, filter: &Filter, include_dependencies: bool) -> Self {
+    pub fn new(
+        reader: &'static Reader,
+        filter: &Filter,
+        include_dependencies: bool,
+        minimal: bool,
+    ) -> Self {
         let mut tree = Self::with_namespace("");
         let mut dependencies = Dependencies::new();
 
@@ -22,7 +27,7 @@ impl NameTree {
 
                         if include_dependencies {
                             for item in &reader[namespace][name] {
-                                item.dependencies(&mut dependencies);
+                                item.dependencies(&mut dependencies, minimal);
                             }
                         }
                     }

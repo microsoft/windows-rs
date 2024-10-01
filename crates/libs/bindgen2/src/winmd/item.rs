@@ -69,33 +69,70 @@ pub struct CppFn {
 impl Item {
     pub fn namespace(&self) -> &'static str {
         match self {
-            Item::Class(item) => item.def.namespace(),
-            Item::Delegate(item) => item.def.namespace(),
-            Item::Enum(item) => item.def.namespace(),
-            Item::Interface(item) => item.def.namespace(),
-            Item::Struct(item) => item.def.namespace(),
-            Item::CppDelegate(item) => item.def.namespace(),
-            Item::CppEnum(item) => item.def.namespace(),
-            Item::CppInterface(item) => item.def.namespace(),
-            Item::CppStruct(item) => item.def.namespace(),
-            Item::CppConst(item) => item.def.namespace(),
-            Item::CppFn(item) => item.def.namespace(),
+            Self::Class(item) => item.def.namespace(),
+            Self::Delegate(item) => item.def.namespace(),
+            Self::Enum(item) => item.def.namespace(),
+            Self::Interface(item) => item.def.namespace(),
+            Self::Struct(item) => item.def.namespace(),
+            Self::CppDelegate(item) => item.def.namespace(),
+            Self::CppEnum(item) => item.def.namespace(),
+            Self::CppInterface(item) => item.def.namespace(),
+            Self::CppStruct(item) => item.def.namespace(),
+            Self::CppConst(item) => item.def.namespace(),
+            Self::CppFn(item) => item.def.namespace(),
         }
     }
 
     pub fn name(&self) -> &'static str {
         match self {
-            Item::Class(item) => item.def.name(),
-            Item::Delegate(item) => item.def.name(),
-            Item::Enum(item) => item.def.name(),
-            Item::Interface(item) => item.def.name(),
-            Item::Struct(item) => item.def.name(),
-            Item::CppDelegate(item) => item.def.name(),
-            Item::CppEnum(item) => item.def.name(),
-            Item::CppInterface(item) => item.def.name(),
-            Item::CppStruct(item) => item.def.name(),
-            Item::CppConst(item) => item.field.name(),
-            Item::CppFn(item) => item.method.name(),
+            Self::Class(item) => item.def.name(),
+            Self::Delegate(item) => item.def.name(),
+            Self::Enum(item) => item.def.name(),
+            Self::Interface(item) => item.def.name(),
+            Self::Struct(item) => item.def.name(),
+            Self::CppDelegate(item) => item.def.name(),
+            Self::CppEnum(item) => item.def.name(),
+            Self::CppInterface(item) => item.def.name(),
+            Self::CppStruct(item) => item.def.name(),
+            Self::CppConst(item) => item.field.name(),
+            Self::CppFn(item) => item.method.name(),
         }
+    }
+
+    pub fn is_nullable(&self) -> bool {
+        matches!(
+            self,
+            Self::Class(_) | Self::Interface(_) | Self::Delegate(_) | Self::CppInterface(_)
+        )
+    }
+
+    pub fn is_copyable(&self) -> bool {
+        matches!(self, Self::Enum(_) | Self::CppEnum(_))
+    }
+}
+
+// TODO: put signatures in their own rs file?
+impl Item {
+    pub fn signature(&self) -> String {
+        match self {
+            // Self::Class(item) => item.signature(),
+            // Self::Delegate(item) => item.signature(),
+            // Self::Enum(item) => item.signature(),
+            // Self::Interface(item) => item.signature(),
+            Self::Struct(item) => item.signature(),
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
+}
+
+impl Struct {
+    pub fn signature(&self) -> String {
+        let mut signature = format!("struct({}.{}", self.def.namespace(), self.def.name());
+        for field in self.def.fields() {
+            signature.push(';');
+            signature.push_str(&field.ty(None).signature());
+        }
+        signature.push(')');
+        signature
     }
 }

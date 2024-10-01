@@ -100,7 +100,11 @@ where
 
     let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
-    let tree = NameTree::new(reader, &filter, !package);
+
+    // TODO: maybe pass this "name" tree to the writer so that when it comes to generating methods it can figure out whether to include
+    // it based on whether its parameters are included. It may be excluded by "--minimal" was specified.
+    let tree = NameTree::new(reader, &filter, !package, minimal);
+
     let items = ItemTree::new(reader, &tree);
 
     // TODO: perhaps pass "name" tree to writer so that it can further use it to determine whether optional dependencies should be included
@@ -110,12 +114,11 @@ where
         reader,
         output,
         flat,
-        minimal,
         no_allow,
         no_comment,
         package,
         rustfmt,
-        sys
+        sys,
     };
 
     writer.write(&items)

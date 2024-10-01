@@ -42,7 +42,7 @@ impl Reader {
                     continue;
                 }
 
-                if def.has_attribute("ApiContractAttribute")  {
+                if def.has_attribute("ApiContractAttribute") {
                     continue;
                 }
 
