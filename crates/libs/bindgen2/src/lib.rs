@@ -113,6 +113,7 @@ where
     let writer = Writer {
         reader,
         output,
+        namespace: "",
         flat,
         no_allow,
         no_comment,

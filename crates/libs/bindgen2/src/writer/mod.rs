@@ -3,14 +3,16 @@ mod cpp_fn;
 mod cpp_struct;
 mod r#enum;
 mod format;
-mod name;
+mod names;
 mod r#struct;
 
 use super::*;
 
+#[derive(Clone)]
 pub struct Writer {
     pub reader: &'static Reader,
     pub output: String,
+    pub namespace: &'static str,
     pub flat: bool,
     // pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
     pub no_allow: bool,
@@ -21,6 +23,12 @@ pub struct Writer {
 }
 
 impl Writer {
+    fn with_namespace(&self, namespace: &'static str) -> Self {
+        let mut clone = self.clone();
+        clone.namespace = namespace;
+        clone
+    }
+
     pub fn write(&self, tree: &ItemTree) {
         if self.package {
             self.write_package(tree);
@@ -62,7 +70,7 @@ impl Writer {
 
         for (name, tree) in &tree.nested {
             let name = to_ident(name);
-            let nested = self.write_modules(tree);
+            let nested = self.with_namespace(tree.namespace).write_modules(tree);
             tokens.combine(quote! { pub mod #name { #nested } });
         }
 

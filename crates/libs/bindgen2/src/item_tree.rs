@@ -3,6 +3,7 @@ use super::*;
 // This uses BTree rather than Hash as we're getting close to writing the tokens in sorted order.
 #[derive(Debug)]
 pub struct ItemTree {
+    pub namespace: &'static str,
     pub nested: BTreeMap<&'static str, Self>,
     pub items: BTreeSet<&'static Item>,
 }
@@ -10,6 +11,7 @@ pub struct ItemTree {
 impl ItemTree {
     pub fn new(reader: &'static Reader, tree: &NameTree) -> Self {
         let mut new = Self {
+            namespace: tree.namespace,
             nested: BTreeMap::new(),
             items: BTreeSet::new(),
         };
