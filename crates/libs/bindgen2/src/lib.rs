@@ -21,6 +21,7 @@ use item_tree::*;
 use name_tree::*;
 use std::cmp::Ordering;
 use std::collections::*;
+use std::fmt::Write;
 use tokens::*;
 use winmd::*;
 use writer::*;

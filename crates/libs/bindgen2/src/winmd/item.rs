@@ -118,7 +118,7 @@ impl Item {
         match self {
             // Self::Class(item) => item.signature(),
             // Self::Delegate(item) => item.signature(),
-            // Self::Enum(item) => item.signature(),
+            Self::Enum(item) => item.signature(),
             // Self::Interface(item) => item.signature(),
             Self::Struct(item) => item.signature(),
             rest => panic!("windows-bindgen: {rest:?}"),
@@ -145,5 +145,16 @@ impl CppStruct {
         } else {
             &self.name
         }
+    }
+}
+
+impl Enum {
+    pub fn signature(&self) -> String {
+        format!(
+            "enum({}.{};{})",
+            self.def.namespace(),
+            self.def.name(),
+            self.def.underlying_type().signature()
+        )
     }
 }

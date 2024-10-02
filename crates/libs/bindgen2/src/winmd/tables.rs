@@ -472,14 +472,17 @@ impl TypeDef {
         self.file().equal_range(2, self.index() + 1).next()
     }
 
-    // pub fn underlying_type(&self) -> Type {
-    //     let field = self.fields().next().expect("Field not found");
-    //     if let Some(constant) = field.constant() {
-    //         constant.ty()
-    //     } else {
-    //         field.ty(None)
-    //     }
-    // }
+    pub fn underlying_type(&self) -> Type {
+        let field = self
+            .fields()
+            .next()
+            .expect("windows-bindgen: field not found");
+        if let Some(constant) = field.constant() {
+            constant.ty()
+        } else {
+            field.ty(None)
+        }
+    }
 
     // pub fn size(&self) -> usize {
     //     match self.kind() {

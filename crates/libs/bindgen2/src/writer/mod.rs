@@ -3,6 +3,7 @@ mod cpp_fn;
 mod cpp_struct;
 mod r#enum;
 mod format;
+mod literals;
 mod names;
 mod r#struct;
 

@@ -18,7 +18,7 @@ impl Writer {
             Type::F64 => quote! { f64 },
             Type::ISize => quote! { isize },
             Type::USize => quote! { usize },
-            Type::Item(item) => self.write_item_name(&item),
+            Type::Item(item) => self.write_item_name(item),
             Type::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
                 let ty = self.write_default_name(ty);
