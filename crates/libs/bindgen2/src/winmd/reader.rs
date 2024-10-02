@@ -42,31 +42,41 @@ impl Reader {
                     continue;
                 }
 
-                if def.has_attribute("ApiContractAttribute") {
-                    continue;
-                }
-
-                // TODO: skip over attributes too?
-
                 let items = reader.0.entry(namespace).or_default();
                 let name = def.name();
                 let category = Category::new(def);
 
                 if def.flags().contains(TypeAttributes::WindowsRuntime) {
                     let item = match category {
+                        Category::Attribute => continue,
                         Category::Class => Item::Class(Class { def }),
                         Category::Delegate => Item::Delegate(Delegate { def }),
                         Category::Enum => Item::Enum(Enum { def }),
                         Category::Interface => Item::Interface(Interface { def }),
-                        Category::Struct => Item::Struct(Struct { def }),
+                        Category::Struct => {
+                            // Skip marker types representing API contracts.
+                            if def.has_attribute("ApiContractAttribute") {
+                                continue;
+                            }
+
+                             Item::Struct(Struct { def }) 
+                            }
                     };
 
                     insert(items, name, item);
                 } else {
                     match category {
+                        Category::Attribute => continue,
                         Category::Class => {
                             if name == "Apis" {
                                 for method in def.methods() {
+                                    if let Some(map) = method.impl_map() {
+                                        // Skip inline and ordinal functions.
+                                        if map.scope().name() == "FORCEINLINE" || map.import_name().starts_with("#") {
+                                            continue;
+                                        }
+                                    }
+
                                     let name = method.name();
                                     insert(items, name, Item::CppFn(CppFn { def, method }));
                                 }
@@ -166,6 +176,7 @@ enum Category {
     Enum,
     Struct,
     Delegate,
+    Attribute,
 }
 
 impl Category {
@@ -176,6 +187,7 @@ impl Category {
                     "Enum" => Self::Enum,
                     "MulticastDelegate" => Self::Delegate,
                     "ValueType" => Self::Struct,
+                    "Attribute" => Self::Attribute,
                     _ => Self::Class,
                 }
             } else {

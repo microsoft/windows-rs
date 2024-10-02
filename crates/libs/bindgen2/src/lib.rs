@@ -108,6 +108,8 @@ where
 
     let items = ItemTree::new(reader, &tree);
 
+    // panic!("{:#?}", &items);
+
     // TODO: perhaps pass "name" tree to writer so that it can further use it to determine whether optional dependencies should be included
     // such as for interface methods.
 
