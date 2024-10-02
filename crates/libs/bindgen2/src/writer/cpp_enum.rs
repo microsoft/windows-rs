@@ -5,6 +5,8 @@ impl Writer {
         let name = to_ident(item.def.name());
         let underlying_type = self.write_name(&item.def.underlying_type());
 
+        // TODO: avoid unscoped enums?
+
         let fields = item
             .def
             .fields()
