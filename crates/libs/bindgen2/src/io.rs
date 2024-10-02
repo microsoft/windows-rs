@@ -22,3 +22,8 @@ pub fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) {
     std::fs::write(path, contents)
         .unwrap_or_else(|_| panic!("windows-bindgen: failed to write file `{path}`"));
 }
+
+// pub fn directory(path: &str) -> &str {
+//     path.rsplit_once(['/', '\\'])
+//         .map_or("", |(directory, _)| directory)
+// }

@@ -8,6 +8,7 @@ mod names;
 mod r#struct;
 
 use super::*;
+use rayon::prelude::*;
 
 #[derive(Clone)]
 pub struct Writer {
@@ -78,7 +79,34 @@ impl Writer {
         tokens
     }
 
-    fn write_package(&self, _tree: &ItemTree) {}
+    fn write_package(&self, tree: &ItemTree) {
+        for name in tree.nested.keys() {
+            _ = std::fs::remove_dir_all(format!("{}/src/{name}", &self.output));
+        }
+
+        let trees = tree.flatten();
+
+        trees.par_iter().for_each(|tree| {
+            let directory = format!("{}/src/{}", &self.output, tree.namespace.replace('.', "/"));
+
+            let mut tokens = TokenStream::new();
+
+            for (name, _tree) in &tree.nested {
+                let name = to_ident(name);
+
+                tokens.combine(quote! {
+                    pub mod #name;
+                });
+            }
+
+            for item in &tree.items {
+                tokens.combine(self.write_item(item));
+            }
+
+            let output = format!("{directory}/mod.rs");
+            write_to_file(&output, self.format(&tokens.into_string()));
+        });
+    }
 
     fn write_item(&self, item: &'static Item) -> TokenStream {
         match item {

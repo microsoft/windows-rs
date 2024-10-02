@@ -28,4 +28,14 @@ impl ItemTree {
 
         new
     }
+
+    pub fn flatten(&self) -> Vec<&Self> {
+        let mut flatten = if self.namespace.is_empty() {
+            vec![]
+        } else {
+            vec![self]
+        };
+        flatten.extend(self.nested.values().flat_map(|tree| tree.flatten()));
+        flatten
+    }
 }

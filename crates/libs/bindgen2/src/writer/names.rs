@@ -1,6 +1,18 @@
 use super::*;
 
 impl Writer {
+    pub fn write_crate(&self) -> TokenStream {
+        if self.sys {
+            if self.package {
+                quote! { windows_sys:: }
+            } else {
+                quote! {}
+            }
+        } else {
+            quote! { windows_core:: }
+        }
+    }
+
     pub fn write_name(&self, ty: &Type) -> TokenStream {
         match ty {
             Type::Void => quote! { core::ffi::c_void },
@@ -18,6 +30,22 @@ impl Writer {
             Type::F64 => quote! { f64 },
             Type::ISize => quote! { isize },
             Type::USize => quote! { usize },
+            Type::PSTR => {
+                let name = self.write_crate();
+                quote! { #name PSTR }
+            }
+            Type::PCSTR => {
+                let name = self.write_crate();
+                quote! { #name PCSTR }
+            }
+            Type::PWSTR => {
+                let name = self.write_crate();
+                quote! { #name PWSTR }
+            }
+            Type::PCWSTR => {
+                let name = self.write_crate();
+                quote! { #name PCWSTR }
+            }
             Type::Item(item) => self.write_item_name(item),
             Type::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
@@ -28,6 +56,11 @@ impl Writer {
                 let pointers = write_ptr_const(*pointers);
                 let ty = self.write_default_name(ty);
                 quote! { #pointers #ty }
+            }
+            Type::ArrayFixed(ty, len) => {
+                let name = self.write_default_name(ty);
+                let len = Literal::usize_unsuffixed(*len);
+                quote! { [#name; #len] }
             }
             rest => panic!("windows-bindgen: {rest:?}"),
         }
@@ -50,19 +83,23 @@ impl Writer {
     }
 
     fn write_item_name(&self, item: &Item) -> TokenStream {
-        match item {
-            Item::Struct(item) => {
-                let name = to_ident(item.def.name());
-                let namespace = self.write_namespace(item.def.namespace());
-                quote! { #namespace #name }
-            }
-            Item::CppStruct(item) => {
-                let name = to_ident(item.name());
-                let namespace = self.write_namespace(item.def.namespace());
-                quote! { #namespace #name }
-            }
-            rest => panic!("windows-bindgen: {rest:?}"),
-        }
+        let name = to_ident(item.name());
+        let namespace = self.write_namespace(item.namespace());
+        quote! { #namespace #name }
+
+        // match item {
+        //     Item::Struct(item) => {
+        //         let name = to_ident(item.def.name());
+        //         let namespace = self.write_namespace(item.def.namespace());
+        //         quote! { #namespace #name }
+        //     }
+        //     Item::CppStruct(item) => {
+        //         let name = to_ident(item.name());
+        //         let namespace = self.write_namespace(item.def.namespace());
+        //         quote! { #namespace #name }
+        //     }
+        //     rest => panic!("windows-bindgen: {rest:?}"),
+        // }
     }
 
     fn write_namespace(&self, namespace: &str) -> TokenStream {

@@ -16,7 +16,7 @@ impl Writer {
             )
         };
 
-        let allow = if self.package || self.no_allow {
+        let allow = if self.no_allow {
             ""
         } else {
             "#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]\n\n"
