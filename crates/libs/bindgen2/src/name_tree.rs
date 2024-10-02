@@ -7,13 +7,15 @@ pub struct NameTree {
     pub items: HashSet<&'static str>,
 }
 
+// TODO: can't just use filter onces name tree is built since the filter won't include dependencies
+
 impl NameTree {
     pub fn new(
         reader: &'static Reader,
         filter: &Filter,
         include_dependencies: bool,
         minimal: bool,
-    ) -> Self {
+    ) -> &'static Self {
         let mut tree = Self::with_namespace("");
         let mut dependencies = Dependencies::new();
 
@@ -43,7 +45,18 @@ impl NameTree {
             }
         }
 
-        tree
+        Box::leak(Box::new(tree))
+    }
+
+    pub fn includes_namespace(&self, namespace: &str) -> bool {
+        println!("includes_namespace {}", namespace);
+
+        if let Some(next) = namespace.find('.') {
+            self.nested.get(&namespace[..next]).map_or(false, |tree|tree.includes_namespace(&namespace[next + 1..]))
+        }
+         else {
+            self.nested.contains_key(namespace)
+         }
     }
 
     fn with_namespace(namespace: &'static str) -> Self {

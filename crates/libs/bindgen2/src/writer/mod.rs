@@ -13,6 +13,7 @@ use rayon::prelude::*;
 #[derive(Clone)]
 pub struct Writer {
     pub reader: &'static Reader,
+    pub tree: &'static NameTree,
     pub output: String,
     pub namespace: &'static str,
     pub flat: bool,
@@ -99,8 +100,10 @@ impl Writer {
                 });
             }
 
+            let writer = self.with_namespace(tree.namespace);
+
             for item in &tree.items {
-                tokens.combine(self.write_item(item));
+                tokens.combine(writer.write_item(item));
             }
 
             let output = format!("{directory}/mod.rs");

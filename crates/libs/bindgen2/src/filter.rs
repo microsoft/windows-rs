@@ -4,7 +4,7 @@ use super::*;
 pub struct Filter(Vec<(String, bool)>);
 
 impl Filter {
-    pub fn new(reader: &Reader, include: &[&str], exclude: &[&str]) -> Self {
+    pub fn new(reader: &Reader, include: &[&str], exclude: &[&str]) -> &'static Self {
         let mut rules = vec![];
 
         for filter in include {
@@ -23,7 +23,7 @@ impl Filter {
             left.cmp(&right).reverse()
         });
 
-        Self(rules)
+        Box::leak(Box::new(Self(rules)))
     }
 
     pub fn includes_namespace(&self, namespace: &str) -> bool {
@@ -59,25 +59,38 @@ impl Filter {
 }
 
 fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, include: bool) {
-    let len = rules.len();
-
     if reader.with_namespace(filter).next().is_some() {
         rules.push((filter.to_string(), include));
-    } else if let Some((namespace, name)) = filter.rsplit_once('.') {
+        return;
+    }
+    
+    if let Some((namespace, name)) = filter.rsplit_once('.') {
         if reader.with_full_name(namespace, name).next().is_some() {
             rules.push((filter.to_string(), include));
-        }
-    } else {
-        for (namespace, items) in reader.iter() {
-            if items.get(filter).is_some() {
-                rules.push((format!("{namespace}.{filter}"), include));
-            }
+            return ;
         }
     }
 
-    if rules.len() == len {
-        panic!("windows-bindgen: invalid type filter `{filter}`");
+    let mut pushed = false;
+
+    for (namespace, items) in reader.iter() {
+        if items.get(filter).is_some() {
+            rules.push((format!("{namespace}.{filter}"), include));
+            pushed = true;
+        }
     }
+
+    if pushed {
+        return;
+    }
+
+    if reader.keys().any(|namespace|
+        namespace.starts_with(filter) && namespace.as_bytes().get(filter.len()) == Some(&b'.')) {
+            rules.push((filter.to_string(), include));
+            return;
+    }
+
+        panic!("windows-bindgen: invalid type filter `{filter}`");
 }
 
 fn match_type_name(rule: &str, namespace: &str, name: &str) -> bool {

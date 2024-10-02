@@ -104,17 +104,20 @@ where
 
     // TODO: maybe pass this "name" tree to the writer so that when it comes to generating methods it can figure out whether to include
     // it based on whether its parameters are included. It may be excluded by "--minimal" was specified.
-    let tree = NameTree::new(reader, &filter, !package, minimal);
+    let tree = NameTree::new(reader, filter, !package, minimal);
 
-    let items = ItemTree::new(reader, &tree);
+    // dbg!("{:#?}", &tree);
+
+    let _items = ItemTree::new(reader, &tree);
 
     // panic!("{:#?}", &items);
 
     // TODO: perhaps pass "name" tree to writer so that it can further use it to determine whether optional dependencies should be included
     // such as for interface methods.
 
-    let writer = Writer {
+    let _writer = Writer {
         reader,
+        tree,
         output,
         namespace: "",
         flat,
@@ -125,7 +128,7 @@ where
         sys,
     };
 
-    writer.write(&items)
+    // writer.write(&items)
 }
 
 enum ArgKind {

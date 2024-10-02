@@ -107,9 +107,10 @@ impl Writer {
             return quote! {};
         }
 
-        // TODO: should this be more general than just "Windows.*"?
-        let is_external =
-            namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");
+        if !self.tree.includes_namespace(namespace) {
+            todo!("deal with external references `{namespace}`");
+        }
+
         let mut relative = self.namespace.split('.').peekable();
         let mut namespace = namespace.split('.').peekable();
 
@@ -123,13 +124,8 @@ impl Writer {
 
         let mut tokens = TokenStream::new();
 
-        if is_external {
-            tokens.push_str("windows::");
-            namespace.next();
-        } else {
-            for _ in 0..relative.count() {
-                tokens.push_str("super::");
-            }
+        for _ in 0..relative.count() {
+            tokens.push_str("super::");
         }
 
         for namespace in namespace {
