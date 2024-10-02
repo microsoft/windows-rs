@@ -6,6 +6,7 @@ edition = "2021"
 rust-version = "1.70"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
+documentation = "https://docs.rs/windows-core"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 categories = ["os::windows-apis"]
