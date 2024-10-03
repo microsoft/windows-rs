@@ -19,6 +19,7 @@ pub enum Type {
     USize,
     String,
     Object,
+    Type,
 
     PSTR,
     PCSTR,

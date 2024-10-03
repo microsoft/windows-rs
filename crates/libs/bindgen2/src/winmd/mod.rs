@@ -43,5 +43,5 @@ pub enum Value {
     F64(f64),
     String(String),
     TypeName(TypeName),
-    EnumDef(TypeDef, Box<Self>),
+    EnumDef(&'static Item, Box<Self>),
 }

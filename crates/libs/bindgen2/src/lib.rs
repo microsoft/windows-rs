@@ -47,6 +47,9 @@ where
     let mut rustfmt = String::new();
     let mut sys = false;
 
+    // TODO: options to include deprecated APIs - excluded by default?
+    // options to include preview APIs - excluded by default?
+
     for arg in &args {
         if arg.starts_with('-') {
             kind = ArgKind::None;
@@ -106,7 +109,7 @@ where
     // it based on whether its parameters are included. It may be excluded by "--minimal" was specified.
     let tree = NameTree::new(reader, filter, minimal);
 
-    let items = ItemTree::new(reader, &tree);
+    let items = ItemTree::new(reader, tree);
 
     let writer = Writer {
         reader,
@@ -119,6 +122,7 @@ where
         package,
         rustfmt,
         sys,
+        minimal,
     };
 
     writer.write(&items)
@@ -221,5 +225,36 @@ fn expand_input(input: &[&str]) -> Vec<File> {
                 })
             })
             .collect()
+    }
+}
+
+fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
+    namespace.starts_with(starts_with)
+        && (namespace.len() == starts_with.len()
+            || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_starts_with() {
+        assert!(namespace_starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics.Direct3D11on12"
+        ));
+        assert!(namespace_starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics"
+        ));
+        assert!(!namespace_starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics.Direct3D11"
+        ));
+        assert!(!namespace_starts_with(
+            "Windows.Win32.Graphics.Direct3D",
+            "Windows.Win32.Graphics.Direct3D11"
+        ));
     }
 }

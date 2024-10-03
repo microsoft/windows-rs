@@ -1,3 +1,4 @@
+mod cfg;
 mod cpp_enum;
 mod cpp_fn;
 mod cpp_struct;
@@ -17,7 +18,7 @@ pub struct Writer {
     pub output: String,
     pub namespace: &'static str,
     pub flat: bool,
-    // pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
+    pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
     pub no_allow: bool,
     pub no_comment: bool,
     pub package: bool,
@@ -92,7 +93,7 @@ impl Writer {
 
             let mut tokens = TokenStream::new();
 
-            for (name, _tree) in &tree.nested {
+            for name in tree.nested.keys() {
                 let name = to_ident(name);
 
                 tokens.combine(quote! {

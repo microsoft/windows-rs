@@ -59,8 +59,8 @@ impl Reader {
                                 continue;
                             }
 
-                             Item::Struct(Struct { def }) 
-                            }
+                            Item::Struct(Struct { def })
+                        }
                     };
 
                     insert(items, name, item);
@@ -72,7 +72,9 @@ impl Reader {
                                 for method in def.methods() {
                                     if let Some(map) = method.impl_map() {
                                         // Skip inline and ordinal functions.
-                                        if map.scope().name() == "FORCEINLINE" || map.import_name().starts_with("#") {
+                                        if map.scope().name() == "FORCEINLINE"
+                                            || map.import_name().starts_with("#")
+                                        {
                                             continue;
                                         }
                                     }

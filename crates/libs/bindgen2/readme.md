@@ -1,6 +1,6 @@
-## Windows metadata reader
+## Generate Rust bindings for Windows
 
-The [windows-metadata](https://crates.io/crates/windows-metadata) crate provides a fast reader for Windows metadata files based on the ECMA-335 file format.
+The [windows-bindgen](https://crates.io/crates/windows-bindgen) crate automatically generates Rust bindings from Windows metadata.
 
 * [Getting started](https://kennykerr.ca/rust-getting-started/)
 * [Samples](https://github.com/microsoft/windows-rs/tree/0.58.0/crates/samples)
@@ -9,27 +9,35 @@ The [windows-metadata](https://crates.io/crates/windows-metadata) crate provides
 Start by adding the following to your Cargo.toml file:
 
 ```toml
-[dependencies.windows-metadata]
+[dependencies.windows-targets]
+version = "0.52"
+
+[dev-dependencies.windows-bindgen]
 version = "0.58"
 ```
 
-Read metadata as needed:
+Generates Rust bindings in a build script or test as needed:
 
-```rust,no_run
-use windows_metadata::*;
+```rust,ignore
+#[test]
+fn bindgen() {
+    let args = [
+        "--out",
+        "src/bindings.rs",
+        "--config",
+        "flatten",
+        "--filter",
+        "Windows.Win32.System.SystemInformation.GetTickCount",
+    ];
 
-let bytes = std::fs::read(r#"C:\Windows\System32\WinMetadata\Windows.Foundation.winmd"#)
-    .expect("File not found");
+    windows_bindgen2::bindgen(args).unwrap();
+}
 
-let file = File::new(bytes).expect("Invalid metadata");
+mod bindings;
 
-let reader = Reader::new(vec![file]);
-
-for def in reader.get_type_def("Windows.Foundation", "IAsyncInfo") {
-    println!("{}", def.name());
-
-    for method in def.methods() {
-        println!("{}", method.name());
+fn main() {
+    unsafe {
+        println!("{}", bindings::GetTickCount());
     }
 }
 ```

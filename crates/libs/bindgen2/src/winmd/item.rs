@@ -84,7 +84,7 @@ impl Item {
         }
     }
 
-    pub fn name(&self) -> &'static str {
+    pub fn name(&self) -> &str {
         match self {
             Self::Class(item) => item.def.name(),
             Self::Delegate(item) => item.def.name(),
@@ -94,9 +94,16 @@ impl Item {
             Self::CppDelegate(item) => item.def.name(),
             Self::CppEnum(item) => item.def.name(),
             Self::CppInterface(item) => item.def.name(),
-            Self::CppStruct(item) => item.def.name(),
+            Self::CppStruct(item) => item.name(),
             Self::CppConst(item) => item.field.name(),
             Self::CppFn(item) => item.method.name(),
+        }
+    }
+
+    pub fn underlying_type(&self) -> Type {
+        match self {
+            Self::Struct(item) => item.def.underlying_type(),
+            rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
 

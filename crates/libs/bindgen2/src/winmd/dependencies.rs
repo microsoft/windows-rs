@@ -2,6 +2,7 @@ use super::*;
 
 type Map = HashMap<&'static str, HashSet<&'static str>>;
 
+#[derive(Debug)]
 pub struct Dependencies(Map);
 
 impl Dependencies {
@@ -69,8 +70,9 @@ impl Type {
                 dependencies.insert("", "HRESULT");
             }
             Self::Item(item) => {
-                // Only chase dependencies if it was not previously added.
-                if dependencies.insert(item.namespace(), item.name()) {
+                let namespace = item.namespace();
+
+                if namespace.is_empty() || dependencies.insert(namespace, item.name()) {
                     item.dependencies(dependencies, minimal);
                 }
             }

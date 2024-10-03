@@ -27,17 +27,22 @@ impl Writer {
             quote! { CloneType }
         };
 
+        let cfg = self.write_cpp_struct_cfg(item);
+
         let mut tokens = quote! {
             #[repr(C)]
+            #cfg
             #[derive(#derive)]
             pub struct #name {
                 #(#fields)*
             }
+            #cfg
             impl Default for #name {
                 fn default() -> Self {
                     unsafe { core::mem::zeroed() }
                 }
             }
+            #cfg
             impl windows_core::TypeKind for #name {
                 type TypeKind = windows_core::#type_kind;
             }
