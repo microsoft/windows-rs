@@ -30,9 +30,41 @@ impl Writer {
             Type::F64 => quote! { f64 },
             Type::ISize => quote! { isize },
             Type::USize => quote! { usize },
+            Type::BSTR => {
+                let name = self.write_crate();
+                quote! { #name BSTR }
+            }
+            Type::IUnknown => {
+                if self.sys {
+                    quote! { *mut core::ffi::c_void }
+                } else {
+                    let name = self.write_crate();
+                    quote! { #name IUnknown }
+                }
+            }
+            Type::GUID => {
+                let name = self.write_crate();
+                quote! { #name GUID }
+            }
             Type::HRESULT => {
                 let name = self.write_crate();
                 quote! { #name HRESULT }
+            }
+            Type::String => {
+                if self.sys {
+                    quote! { *mut core::ffi::c_void }
+                } else {
+                    let name = self.write_crate();
+                    quote! { #name HSTRING }
+                }
+            }
+            Type::Object => {
+                if self.sys {
+                    quote! { *mut core::ffi::c_void }
+                } else {
+                    let name = self.write_crate();
+                    quote! { #name IInspectable }
+                }
             }
             Type::PSTR => {
                 let name = self.write_crate();

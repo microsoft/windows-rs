@@ -2,10 +2,16 @@ use super::*;
 
 impl Writer {
     pub fn write_cpp_fn(&self, item: &'static CppFn) -> TokenStream {
-        let name = to_ident(item.method.name());
+        let name = item.method.name();
         let library = item.method.module_name().to_lowercase();
         let impl_map = item.method.impl_map().expect("ImplMap not found");
-        let symbol = impl_map.import_name();
+        let mut symbol = Some(impl_map.import_name());
+
+        if symbol == Some(name) {
+            symbol = None;
+        }
+
+        let name = to_ident(item.method.name());
         let impl_flags = impl_map.flags();
 
         let abi = if impl_flags.contains(PInvokeAttributes::CallConvPlatformapi) {
@@ -36,7 +42,7 @@ impl Writer {
 
         let link = quote! {
             #cfg
-            windows_targets::link!(#library #abi #symbol fn #name(#(#params)*) #return_sig);
+            windows_targets::link!(#library #abi #symbol fn #name(#(#params),*) #return_sig);
         };
 
         if self.sys {

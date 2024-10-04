@@ -1,8 +1,13 @@
---out crates/libs/sys/src/lib.rs
---config package sys no-bindgen-comment
---config rustfmt-config=max_width=800,newline_style=Unix
+--out /git/windows-rs/crates/libs/sys
+--package --sys --no-comment --no-allow
+--rustfmt max_width=800,newline_style=Unix
 
 --filter
+// hmm this works but is a little weird
+    !EapHostPeerConfigXml2Blob
+    !EapHostPeerCredentialsXml2Blob
+    !EapHostPeerConfigBlob2Xml
+
     Windows.Wdk
     Windows.Win32
     !Windows.AI

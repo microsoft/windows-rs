@@ -3,6 +3,8 @@ use super::*;
 // TODO: implement Ord for CppFn manually so that it sorts by library and then name
 #[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Item {
+    CppFn(CppFn),
+
     Class(Class),
     Delegate(Delegate),
     Enum(Enum),
@@ -12,11 +14,21 @@ pub enum Item {
     CppConst(CppConst),
     CppDelegate(CppDelegate),
     CppEnum(CppEnum),
-    CppFn(CppFn),
     CppInterface(CppInterface),
     CppStruct(CppStruct),
     // TODO: have psuedo items for the core types like PWSTR so that those can be written out for standalone code gen?
 }
+
+// impl Ord for Item {
+//     fn cmp(&self, other: &Self) -> Ordering {
+//     }
+// }
+
+// impl PartialOrd for Item {
+//     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+//         Some(self.cmp(other))
+//     }
+// }
 
 #[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Interface {
@@ -61,10 +73,16 @@ pub struct CppConst {
     pub def: TypeDef,
     pub field: Field,
 }
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Debug, PartialEq, Eq,  PartialOrd)]
 pub struct CppFn {
     pub def: TypeDef,
     pub method: MethodDef,
+}
+
+impl Ord for CppFn {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.method.name().cmp(other.method.name())
+    }
 }
 
 impl Item {
@@ -103,6 +121,7 @@ impl Item {
     pub fn underlying_type(&self) -> Type {
         match self {
             Self::Struct(item) => item.def.underlying_type(),
+            Self::CppEnum(item) => item.def.underlying_type(),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
