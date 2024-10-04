@@ -119,6 +119,38 @@ impl Writer {
             let output = format!("{directory}/mod.rs");
             write_to_file(&output, self.format(&tokens.into_string()));
         });
+
+        let toml_path = format!("{}/Cargo.toml", &self.output);
+        let mut toml = String::new();
+
+        for line in read_file_lines(&toml_path) {
+            toml.push_str(&line);
+            toml.push('\n');
+
+            if line == "# generated features" {
+                break;
+            }
+        }
+
+        for tree in trees.iter().skip(1) {
+            let feature = tree.namespace.split_once('.').unwrap().1.replace('.', "_");
+
+            if let Some(pos) = feature.rfind('_') {
+                let dependency = &feature[..pos];
+
+                toml.push_str(&format!("{feature} = [\"{dependency}\"]\n"));
+            } else if namespace_starts_with(tree.namespace, "Windows.Win32")
+                || namespace_starts_with(tree.namespace, "Windows.Wdk")
+            {
+                toml.push_str(&format!("{feature} = [\"Win32_Foundation\"]\n"));
+            } else if tree.namespace != "Windows.Foundation" {
+                toml.push_str(&format!("{feature} = [\"Foundation\"]\n"));
+            } else {
+                toml.push_str(&format!("{feature} = []\n"));
+            }
+        }
+
+        write_to_file(&toml_path, toml);
     }
 
     fn write_item(&self, item: &'static Item) -> TokenStream {

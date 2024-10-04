@@ -26,6 +26,8 @@ impl Filter {
         Box::leak(Box::new(Self(rules)))
     }
 
+    // TODO: use namespace_starts_with?
+
     pub fn includes_namespace(&self, namespace: &str) -> bool {
         for rule in &self.0 {
             if rule.1 {
