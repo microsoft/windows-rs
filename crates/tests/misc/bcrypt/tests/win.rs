@@ -42,7 +42,7 @@ fn test() -> Result<()> {
 
         let send_message = "I ❤️ Rust";
         let mut send_buffer =
-            vec![0; block_len * ((send_message.len() + (block_len - 1)) / block_len)];
+            vec![0; block_len * send_message.len().div_ceil(block_len)];
         send_buffer[..send_message.len()].copy_from_slice(send_message.as_bytes());
 
         let mut encrypted_len = 0;

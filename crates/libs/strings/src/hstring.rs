@@ -357,7 +357,7 @@ impl PartialEq<&HSTRING> for std::ffi::OsString {
     }
 }
 
-impl<'a> TryFrom<&'a HSTRING> for String {
+impl TryFrom<&HSTRING> for String {
     type Error = alloc::string::FromUtf16Error;
 
     fn try_from(hstring: &HSTRING) -> core::result::Result<Self, Self::Error> {
@@ -374,7 +374,7 @@ impl TryFrom<HSTRING> for String {
 }
 
 #[cfg(feature = "std")]
-impl<'a> From<&'a HSTRING> for std::ffi::OsString {
+impl From<&HSTRING> for std::ffi::OsString {
     fn from(hstring: &HSTRING) -> Self {
         hstring.to_os_string()
     }

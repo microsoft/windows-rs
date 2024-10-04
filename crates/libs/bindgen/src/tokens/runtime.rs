@@ -80,7 +80,7 @@ pub mod ext {
         fn quote_into_iter(&'q self) -> (Self::Iter, HasIter);
     }
 
-    impl<'q, 'a, T: RepAsIteratorExt<'q> + ?Sized> RepAsIteratorExt<'q> for &'a T {
+    impl<'q, T: RepAsIteratorExt<'q> + ?Sized> RepAsIteratorExt<'q> for &T {
         type Iter = T::Iter;
 
         fn quote_into_iter(&'q self) -> (Self::Iter, HasIter) {
@@ -88,7 +88,7 @@ pub mod ext {
         }
     }
 
-    impl<'q, 'a, T: RepAsIteratorExt<'q> + ?Sized> RepAsIteratorExt<'q> for &'a mut T {
+    impl<'q, T: RepAsIteratorExt<'q> + ?Sized> RepAsIteratorExt<'q> for &mut T {
         type Iter = T::Iter;
 
         fn quote_into_iter(&'q self) -> (Self::Iter, HasIter) {

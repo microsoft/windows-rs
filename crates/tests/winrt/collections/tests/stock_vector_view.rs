@@ -7,7 +7,7 @@ fn primitive() -> Result<()> {
     let v = IVectorView::<i32>::from(vec![]);
     assert_eq!(v.GetAt(0).unwrap_err().code(), E_BOUNDS);
     assert_eq!(v.Size()?, 0);
-    assert_eq!(v.IndexOf(0, &mut 0)?, false);
+    assert!(!(v.IndexOf(0, &mut 0)?));
     assert_eq!(v.GetMany(0, &mut [0; 5])?, 0);
 
     let v = IVectorView::<i32>::from(vec![1, 2, 3]);
@@ -16,12 +16,12 @@ fn primitive() -> Result<()> {
     assert_eq!(v.GetAt(2)?, 3);
     assert_eq!(v.Size()?, 3);
     let mut index = 0;
-    assert_eq!(v.IndexOf(0, &mut index)?, false);
-    assert_eq!(v.IndexOf(1, &mut index)?, true);
+    assert!(!(v.IndexOf(0, &mut index)?));
+    assert!(v.IndexOf(1, &mut index)?);
     assert_eq!(index, 0);
-    assert_eq!(v.IndexOf(2, &mut index)?, true);
+    assert!(v.IndexOf(2, &mut index)?);
     assert_eq!(index, 1);
-    assert_eq!(v.IndexOf(3, &mut index)?, true);
+    assert!(v.IndexOf(3, &mut index)?);
     assert_eq!(index, 2);
 
     let mut values = [0; 5];
