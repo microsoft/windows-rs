@@ -42,7 +42,7 @@ impl<'a> ValueIterator<'a> {
     }
 }
 
-impl<'a> Iterator for ValueIterator<'a> {
+impl Iterator for ValueIterator<'_> {
     type Item = (String, Value);
 
     fn next(&mut self) -> Option<Self::Item> {

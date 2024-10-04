@@ -49,7 +49,7 @@ fn rect() {
     assert!(rect.right == 3);
     assert!(rect.bottom == 4);
 
-    let clone = rect.clone();
+    let clone = rect;
 
     assert!(
         clone
@@ -142,7 +142,7 @@ fn bool_as_error() {
 fn com() -> windows::core::Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(None, true)?;
-        let values = vec![1u8, 2u8, 3u8, 4u8];
+        let values = [1u8, 2u8, 3u8, 4u8];
 
         let mut copied = 0;
         stream
@@ -237,7 +237,7 @@ fn callback() {
         assert!(BOOL(789) == a.unwrap()(HWND(123 as _), s!("hello a"), HANDLE(456 as _)));
 
         let a: PROPENUMPROCW = Some(callback_w);
-        assert!(BOOL(789) == a.unwrap()(HWND(123 as _), w!("hello w").into(), HANDLE(456 as _)));
+        assert!(BOOL(789) == a.unwrap()(HWND(123 as _), w!("hello w"), HANDLE(456 as _)));
     }
 }
 

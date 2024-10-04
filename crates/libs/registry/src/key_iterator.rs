@@ -37,7 +37,7 @@ impl<'a> KeyIterator<'a> {
     }
 }
 
-impl<'a> Iterator for KeyIterator<'a> {
+impl Iterator for KeyIterator<'_> {
     type Item = String;
 
     fn next(&mut self) -> Option<Self::Item> {

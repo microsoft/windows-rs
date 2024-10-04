@@ -7,7 +7,7 @@ use core::mem::transmute;
 #[repr(transparent)]
 pub struct Ref<'a, T: Type<T>>(T::Abi, PhantomData<&'a T>);
 
-impl<'a, T: Type<T, Default = Option<T>, Abi = *mut c_void>> Ref<'a, T> {
+impl<T: Type<T, Default = Option<T>, Abi = *mut c_void>> Ref<'_, T> {
     /// Converts the argument to a [Result<&T>] reference.
     pub fn ok(&self) -> Result<&T> {
         if self.0.is_null() {
@@ -18,7 +18,7 @@ impl<'a, T: Type<T, Default = Option<T>, Abi = *mut c_void>> Ref<'a, T> {
     }
 }
 
-impl<'a, T: Type<T>> core::ops::Deref for Ref<'a, T> {
+impl<T: Type<T>> core::ops::Deref for Ref<'_, T> {
     type Target = T::Default;
     fn deref(&self) -> &Self::Target {
         unsafe { transmute(&self.0) }

@@ -63,11 +63,11 @@ fn test_implement() -> Result<()> {
     assert_eq!(3, v.Size()?);
 
     let mut index = 0;
-    assert_eq!(true, v.IndexOf(20, &mut index)?);
+    assert!(v.IndexOf(20, &mut index)?);
     assert_eq!(1, index);
-    assert_eq!(true, v.IndexOf(30, &mut index)?);
+    assert!(v.IndexOf(30, &mut index)?);
     assert_eq!(2, index);
-    assert_eq!(false, v.IndexOf(123, &mut index)?);
+    assert!(!(v.IndexOf(123, &mut index)?));
 
     let v: IVectorView<HSTRING> = Thing(vec!["10".into(), "20".into(), "30".into()]).into();
     assert_eq!("10", v.GetAt(0)?);
@@ -76,11 +76,11 @@ fn test_implement() -> Result<()> {
     assert_eq!(3, v.Size()?);
 
     let mut index = 0;
-    assert_eq!(true, v.IndexOf(&HSTRING::from("20"), &mut index)?);
+    assert!(v.IndexOf(&HSTRING::from("20"), &mut index)?);
     assert_eq!(1, index);
-    assert_eq!(true, v.IndexOf(&HSTRING::from("30"), &mut index)?);
+    assert!(v.IndexOf(&HSTRING::from("30"), &mut index)?);
     assert_eq!(2, index);
-    assert_eq!(false, v.IndexOf(&HSTRING::from("123"), &mut index)?);
+    assert!(!(v.IndexOf(&HSTRING::from("123"), &mut index)?));
 
     let url1: HSTRING = "http://one/".into();
     let url2: HSTRING = "http://two/".into();
