@@ -30,9 +30,9 @@ fn call_interface(b: &IMemoryBuffer) -> Result<()> {
 }
 
 fn as_class<P: Param<MemoryBuffer>>(b: P) -> Result<()> {
-    unsafe { call_class(&b.param().borrow().as_ref().unwrap()) }
+    unsafe { call_class(b.param().borrow().as_ref().unwrap()) }
 }
 
 fn as_interface<P: Param<IMemoryBuffer>>(b: P) -> Result<()> {
-    unsafe { call_interface(&b.param().borrow().as_ref().unwrap()) }
+    unsafe { call_interface(b.param().borrow().as_ref().unwrap()) }
 }

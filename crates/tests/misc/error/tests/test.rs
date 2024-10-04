@@ -7,10 +7,10 @@ fn hresult() -> Result<()> {
     let error: Error = E_INVALIDARG.into();
 
     assert_eq!(error.code(), E_INVALIDARG);
-    assert_eq!(E_INVALIDARG.is_ok(), false);
-    assert_eq!(E_INVALIDARG.is_err(), true);
-    assert_eq!(S_OK.is_ok(), true);
-    assert_eq!(S_OK.is_err(), false);
+    assert!(!E_INVALIDARG.is_ok());
+    assert!(E_INVALIDARG.is_err());
+    assert!(S_OK.is_ok());
+    assert!(!S_OK.is_err());
 
     assert_eq!(format!("{S_OK:?}"), "HRESULT(0x00000000)");
     assert_eq!(format!("{E_INVALIDARG:?}"), "HRESULT(0x80070057)");
@@ -27,10 +27,10 @@ fn win32_error() -> Result<()> {
 
     assert_eq!(error.code(), hresult);
     assert_eq!(WIN32_ERROR::from_error(&error), Some(ERROR_BAD_ARGUMENTS));
-    assert_eq!(ERROR_BAD_ARGUMENTS.is_ok(), false);
-    assert_eq!(ERROR_BAD_ARGUMENTS.is_err(), true);
-    assert_eq!(ERROR_SUCCESS.is_ok(), true);
-    assert_eq!(ERROR_SUCCESS.is_err(), false);
+    assert!(!ERROR_BAD_ARGUMENTS.is_ok());
+    assert!(ERROR_BAD_ARGUMENTS.is_err());
+    assert!(ERROR_SUCCESS.is_ok());
+    assert!(!ERROR_SUCCESS.is_err());
 
     assert_eq!(format!("{ERROR_SUCCESS:?}"), "WIN32_ERROR(0)");
     assert_eq!(format!("{ERROR_BAD_ARGUMENTS:?}"), "WIN32_ERROR(160)");
@@ -47,10 +47,10 @@ fn ntstatus() -> Result<()> {
 
     assert_eq!(error.code(), hresult);
     assert_eq!(error.message(), "The object was not found.");
-    assert_eq!(STATUS_NOT_FOUND.is_ok(), false);
-    assert_eq!(STATUS_NOT_FOUND.is_err(), true);
-    assert_eq!(STATUS_SUCCESS.is_ok(), true);
-    assert_eq!(STATUS_SUCCESS.is_err(), false);
+    assert!(!STATUS_NOT_FOUND.is_ok());
+    assert!(STATUS_NOT_FOUND.is_err());
+    assert!(STATUS_SUCCESS.is_ok());
+    assert!(!STATUS_SUCCESS.is_err());
 
     assert_eq!(format!("{STATUS_SUCCESS:?}"), "NTSTATUS(0)");
     assert_eq!(format!("{STATUS_NOT_FOUND:?}"), "NTSTATUS(-1073741275)");
