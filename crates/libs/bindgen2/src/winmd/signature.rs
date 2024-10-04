@@ -14,3 +14,5 @@ impl Signature {
     //         .fold(0, |sum, param| sum + std::cmp::max(4, param.0.size()))
     // }
 }
+
+// TODO: put WrapperSignature here? better name...

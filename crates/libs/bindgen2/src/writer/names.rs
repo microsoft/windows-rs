@@ -30,6 +30,10 @@ impl Writer {
             Type::F64 => quote! { f64 },
             Type::ISize => quote! { isize },
             Type::USize => quote! { usize },
+            Type::HRESULT => {
+                let name = self.write_crate();
+                quote! { #name HRESULT }
+            }
             Type::PSTR => {
                 let name = self.write_crate();
                 quote! { #name PSTR }

@@ -1,17 +1,7 @@
 use super::*;
 
 impl Writer {
-    pub fn write_cpp_struct_cfg(&self, item: &'static CppStruct) -> TokenStream {
-        let mut dependencies = Dependencies::new();
-
-        if self.package {
-            item.dependencies(&mut dependencies, self.minimal);
-        }
-
-        self.write_cfg(item.def, item.def.namespace(), dependencies, false)
-    }
-
-    fn write_cfg<R: HasAttributes>(
+    pub fn write_cfg<R: HasAttributes>(
         &self,
         row: R,
         namespace: &str,

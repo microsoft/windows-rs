@@ -27,7 +27,13 @@ impl Writer {
             quote! { CloneType }
         };
 
-        let cfg = self.write_cpp_struct_cfg(item);
+        let mut dependencies = Dependencies::new();
+
+        if self.package {
+            item.dependencies(&mut dependencies, self.minimal);
+        }
+
+        let cfg = self.write_cfg(item.def, item.def.namespace(), dependencies, false);
 
         let mut tokens = quote! {
             #[repr(C)]

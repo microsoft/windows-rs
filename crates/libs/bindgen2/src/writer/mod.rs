@@ -42,11 +42,20 @@ impl Writer {
     }
 
     fn write_file(&self, tree: &ItemTree) {
-        let tokens = if self.flat {
+        let mut tokens = if self.flat {
             self.write_flat(tree)
         } else {
             self.write_modules(tree)
         };
+
+        if self.sys {
+            for dependency in &self.tree.items {
+                match *dependency {
+                    "HRESULT" => tokens.combine(quote! { pub type HRESULT = i32; }),
+                    rest => panic!("windows-bindgen: {rest:?}"),
+                }
+            }
+        }
 
         write_to_file(&self.output, self.format(&tokens.into_string()));
     }
