@@ -20,7 +20,7 @@ impl Writer {
 
         let params = signature.params.iter().map(|(ty, param)| {
             let name = to_ident(param.name());
-            let ty = self.write_default_name(&ty);
+            let ty = self.write_default_name(ty);
             quote! { #name: #ty }
         });
 
@@ -58,7 +58,7 @@ impl Writer {
                 }
             }
             rest => {
-                let ty = self.write_default_name(&rest);
+                let ty = self.write_default_name(rest);
                 quote! { -> #ty }
             }
         }
