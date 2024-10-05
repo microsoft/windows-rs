@@ -11,6 +11,8 @@ concurrency:
 
 on:
   pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'

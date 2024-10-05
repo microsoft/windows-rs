@@ -2,6 +2,9 @@ name: no-default-features
 
 on:
   pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
