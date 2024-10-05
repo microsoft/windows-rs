@@ -13,6 +13,9 @@ fn test_yml(name: &str, raw_dylib: bool) {
 
 on:
   pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
@@ -122,6 +125,9 @@ fn clippy_yml() {
 
 on:
   pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
@@ -172,6 +178,9 @@ fn no_default_features_yml() {
 
 on:
   pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
