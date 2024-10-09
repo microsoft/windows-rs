@@ -187,9 +187,9 @@ impl Attribute {
                 Type::U64 => Value::U64(values.read_u64()),
                 Type::String => Value::String(values.read_str().to_string()),
                 Type::Type => Value::TypeName(TypeName::parse(values.read_str())),
-                 Type::Item(item) => {
-                     Value::EnumDef(item, Box::new(values.read_integer(item.underlying_type())))
-                 }
+                Type::Item(item) => {
+                    Value::EnumDef(item, Box::new(values.read_integer(item.underlying_type())))
+                }
                 rest => panic!("windows-bindgen: {rest:?}"),
             };
 

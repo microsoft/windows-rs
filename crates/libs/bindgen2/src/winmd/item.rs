@@ -73,7 +73,7 @@ pub struct CppConst {
     pub def: TypeDef,
     pub field: Field,
 }
-#[derive(Debug, PartialEq, Eq,  PartialOrd)]
+#[derive(Debug, PartialEq, Eq, PartialOrd)]
 pub struct CppFn {
     pub def: TypeDef,
     pub method: MethodDef,

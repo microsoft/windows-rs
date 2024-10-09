@@ -143,7 +143,7 @@ where
 {
     // This function is needed to avoid a recursion limit in the Rust compiler.
     // TODO: maybe we need to avoid the recursion altogether?
-    fn from_string(result: &mut Vec<String>, value: &str){
+    fn from_string(result: &mut Vec<String>, value: &str) {
         expand_args(result, value.split_whitespace().map(|arg| arg.to_string()))
     }
 
