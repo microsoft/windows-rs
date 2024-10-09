@@ -47,9 +47,9 @@ pub fn standalone_imp(writer: &Writer) -> String {
                         #[repr(C)]
                         pub struct IInspectable_Vtbl {
                             pub base: IUnknown_Vtbl,
-                            pub GetIids: unsafe extern "system" fn(this: *mut std::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
-                            pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut *mut std::ffi::c_void) -> HRESULT,
-                            pub GetTrustLevel: unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut i32) -> HRESULT,
+                            pub GetIids: unsafe extern "system" fn(this: *mut core::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
+                            pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> HRESULT,
+                            pub GetTrustLevel: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut i32) -> HRESULT,
                         }
                     }
                 },
